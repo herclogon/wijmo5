@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flyout", "Flyout\Flyout.csproj", "{CA46CAB5-84DB-4054-AAD0-D29DF79B5B42}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Evaluation|Any CPU = Evaluation|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Standard|Any CPU = Standard|Any CPU
+		StandardEvaluation|Any CPU = StandardEvaluation|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA46CAB5-84DB-4054-AAD0-D29DF79B5B42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA46CAB5-84DB-4054-AAD0-D29DF79B5B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA46CAB5-84DB-4054-AAD0-D29DF79B5B42}.Evaluation|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA46CAB5-84DB-4054-AAD0-D29DF79B5B42}.Evaluation|Any CPU.Build.0 = Debug|Any CPU
+		{CA46CAB5-84DB-4054-AAD0-D29DF79B5B42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA46CAB5-84DB-4054-AAD0-D29DF79B5B42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA46CAB5-84DB-4054-AAD0-D29DF79B5B42}.Standard|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA46CAB5-84DB-4054-AAD0-D29DF79B5B42}.Standard|Any CPU.Build.0 = Debug|Any CPU
+		{CA46CAB5-84DB-4054-AAD0-D29DF79B5B42}.StandardEvaluation|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA46CAB5-84DB-4054-AAD0-D29DF79B5B42}.StandardEvaluation|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

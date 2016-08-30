@@ -1,0 +1,30 @@
+<h2>wjContextMenu Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjBinding</b></dd>
+<dt>Module</dt><dd>wijmo.knockout</dd>
+<dt>File</dt><dd>wijmo.knockout.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>KnockoutJS binding for context menus.</p>
+
+<p>Use the <b>wjContextMenu</b> binding to add context menus to elements
+on the page. The <b>wjContextMenu</b> binding is based on the  <a href="topic/wijmo.knockout.wjMenu.Class.html"><b>wjMenu</b></a>;
+it displays a popup menu when the user performs a context menu
+request on an element (usually a right-click).</p>
+
+<p>The wjContextMenu binding is specified as a parameter added to the
+element that the context menu applies to. The parameter value is a 
+selector for the element that contains the menu. For example:</p>
+
+<p><pre>&lt;!-- paragraph with a context menu --&gt;
+&lt;p data-bind="wjContextMenu: { id: '#idMenu'}" &gt;
+ This paragraph has a context menu.&lt;/p&gt;</p>
+
+<p>&lt;!-- define the context menu (hidden and with an id) --&gt;
+&lt;div id="contextmenu" data-bind="wjMenu: { header: 'File', itemClicked: menuItemClicked}"&gt;
+    &lt;span data-bind="wjMenuItem: {}"&gt;New&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: {}"&gt;open an existing file or folder&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: {}"&gt;save the current file&lt;/span&gt;
+    &lt;span data-bind="wjMenuSeparator: {}"&gt;&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: {}"&gt;exit the application&lt;/span&gt;
+&lt;/div&gt;</pre></p></p>

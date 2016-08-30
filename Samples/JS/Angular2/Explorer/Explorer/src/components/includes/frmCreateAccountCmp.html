@@ -1,0 +1,44 @@
+﻿<!--
+    Create Account form
+-->
+<form (ngSubmit)="onSubmit('Account Created!')" #theForm="ngForm">
+    <h4 class="modal-header">
+        Create Account
+        <button type="button" tabindex="-1" class="close wj-hide">&times;</button>
+    </h4>
+    <div class="modal-body">
+        <label>
+            Name:
+            <input class="form-control"
+                   required pattern=".{2,}" title="Please enter 2 characters or more." />
+        </label>
+        <br />
+        <label>
+            Email:
+            <input class="form-control"
+                   required type="email" />
+        </label>
+        <br />
+        <label>
+            Password:
+            <input class="form-control"
+                   ng-model="ctx.pw"
+                   type="password"
+                   required pattern=".{4,}" title="Please enter 4 characters or more." />
+        </label>
+        <br />
+        <!--<label>
+            Confirm Password:
+            <input class="form-control"
+                   ng-model="ctx.pw2"
+                   type="password"
+                   wj-validation-error="ctx.pw != ctx.pw2 ? 'Passwords don\'t match.' : ''" />
+        </label>-->
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary"
+                type="submit">
+            Create Account
+        </button>
+    </div>
+</form>

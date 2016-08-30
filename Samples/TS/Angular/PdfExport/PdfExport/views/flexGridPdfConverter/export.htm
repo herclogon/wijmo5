@@ -1,0 +1,112 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    This sample shows how to export a FlexGrid having row groups to a PDF file using the <b>export</b> method.
+    <a href="" target="_self" data-toggle="collapse" data-target=".collapse" class="collapse in read-more">Read More</a>
+</p>
+
+<div class="collapse">
+    <p>
+        <b>FlexGridPdfConverter</b> provides <b>export</b> class method to export FlexGrid to a file.
+    </p>
+    <p>
+        The method takes the following arguments:
+    </p>
+    <ul>
+        <li>The FlexGrid instance to export.</li>
+        <li>Name of the PDF file to which grid is to be exported.</li>
+        <li>The export settings. Along with other settings, it provides the <b>documentOptions</b> property that refers to the <b>PdfDocument</b> constructor options.</li>
+    </ul>
+
+    <p>
+        For example, the following code exports the FlexGrid to a file with name "FlexGrid.pdf" and declares that the document should have A4 page size:
+    </p>
+<pre>
+wijmo.grid.pdf.FlexGridPdfConverter.export(grid, "FlexGrid.pdf", {
+    documentOptions: {
+        pageSettings: {
+            size: wijmo.pdf.PdfPageSize.A4
+        }
+    }
+});</pre>
+
+    <p>
+        You can change the following export settings using the menus below:
+    </p>
+    <ul>
+        <li><b>scaleMode</b>: Determines how the FlexGrid content should be scaled in order to fit the page.</li>
+        <li><b>orientation</b>: Determines the orientation of pages.</li>
+        <li><b>exportMode</b>: Determines whether the whole grid or a section should be exported.</li>
+    </ul>
+
+    <p>
+        In addition, the following export settings are configured when calling the export method in this sample:
+    </p>
+    <ul>
+        <li>
+            <b>documentOptions.pageSettings.header</b> and <b>documentOptions.pageSettings.footer</b>: To provide automatic page numbering.
+        </li>
+        <li>
+            <b>documentOptions.info</b>: To provide document information.
+        </li>
+        <li>
+            <b>styles</b>: To set up appearance of the FlexGrid being exported.
+        </li>
+    </ul>
+</div>
+
+<!-- Export settings -->
+<div class="panel-group" id="exportSettings">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#settings" href="#settingsBody" target="_self">Export Settings</a>
+            </h4>
+        </div>
+        <div id="settingsBody" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <ul class="list-inline">
+                    <li>
+                        <wj-menu value="ctx.scaleMode" header="Scale mode" selected-index="2">
+                            <wj-menu-item value="0">ActualSize</wj-menu-item>
+                            <wj-menu-item value="1">PageWidth</wj-menu-item>
+                            <wj-menu-item value="2">SinglePage</wj-menu-item>
+                        </wj-menu>
+                    </li>
+                    <li>
+                        <wj-menu value="ctx.orientation" header="Orientation">
+                            <wj-menu-item value="0">Portrait</wj-menu-item>
+                            <wj-menu-item value="1">Landscape</wj-menu-item>
+                        </wj-menu>
+                    </li>
+                    <li>
+                        <wj-menu value="ctx.exportMode" header="Export mode">
+                            <wj-menu-item value="0">All</wj-menu-item>
+                            <wj-menu-item value="1">Selection</wj-menu-item>
+                        </wj-menu>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Export button -->
+<button class="btn btn-default" id="Button1" ng-click="export()">Export</button>
+
+<!-- FlexGrid -->
+<wj-flex-grid class="grid"
+        control="ctx.grid"
+        selection-mode="ListBox"
+        headers-visibility="All"
+        items-source="ctx.data">
+    <wj-flex-grid-column header="ID" binding="id"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Start Date" binding="start" format="d"></wj-flex-grid-column>
+    <wj-flex-grid-column header="End Date" binding="end" format="d"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Country" binding="country"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Product" binding="product"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Amount22" binding="amount" format="c" aggregate="Sum"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Color" binding="color"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Pending" binding="amount2" format="c2"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Discount" binding="discount" format="p1"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Active" binding="active"></wj-flex-grid-column>
+</wj-flex-grid>

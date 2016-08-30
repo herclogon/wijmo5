@@ -1,0 +1,204 @@
+﻿<div>
+    <h3>Orders</h3>
+	<wj-flex-grid 
+		control="orderGrid"
+		style="max-height:500px"
+		selection-mode="Row"
+		is-read-only="true"
+		items-source="orders">
+        <wj-flex-grid-filter></wj-flex-grid-filter>
+		<wj-flex-grid-column header="Order ID" binding="OrderID"></wj-flex-grid-column>
+		<wj-flex-grid-column header="Customer ID" binding="CustomerID"></wj-flex-grid-column>
+		<wj-flex-grid-column header="Emp ID" binding="EmployeeID"></wj-flex-grid-column>
+		<wj-flex-grid-column header="Freight" binding="Freight" format="c"></wj-flex-grid-column>
+		<wj-flex-grid-column header="Order Date" binding="OrderDate" format="d"></wj-flex-grid-column>
+		<wj-flex-grid-column header="Required Date" binding="RequiredDate" format="d"></wj-flex-grid-column>
+		<wj-flex-grid-column header="Shipped Date" binding="ShippedDate" format="d"></wj-flex-grid-column>
+		<wj-flex-grid-column header="Name" binding="ShipName"></wj-flex-grid-column>
+		<wj-flex-grid-column header="Address" binding="ShipAddress"></wj-flex-grid-column>
+		<wj-flex-grid-column header="City" binding="ShipCity"></wj-flex-grid-column>
+		<wj-flex-grid-column header="Region" binding="ShipRegion"></wj-flex-grid-column>
+		<wj-flex-grid-column header="PostCode" binding="ShipPostalCode"></wj-flex-grid-column>
+		<wj-flex-grid-column header="Country" binding="ShipCountry"></wj-flex-grid-column>
+	</wj-flex-grid>
+
+	<!-- a dialog for editing item details -->
+	<div class="modal fade" id="dlgDetail">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button"
+							class="close"
+							ng-click="reset(currentOrder)"
+							data-dismiss="modal"
+							aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title">Edit Order</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-3">
+							<b>Order ID:</b>
+						</div>
+						<div class="col-md-3">
+							<input class="form-control" disabled value={{currentOrder.OrderID}} />
+						</div>
+						<div class="col-md-3">
+							<b>Emp ID:</b>
+						</div>
+						<div class="col-md-3">
+							<input class="form-control" disabled value={{currentOrder.EmployeeID}} />
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-md-3">
+							<b>Customer ID:</b>
+						</div>
+						<div class="col-md-9">
+							<input class="form-control" disabled value={{currentOrder.CustomerID}} />
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-md-3">
+							<b>Freight:</b>
+						</div>
+						<div class="col-md-9">
+							<wj-input-number
+								value="currentOrder.Freight"
+								min="0"
+								max="500"
+								step="0.01"
+								format="c">
+							</wj-input-number>
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-md-3">
+							<b>Order Date:</b>
+						</div>
+						<div class="col-md-3">
+							<wj-input-date
+								value="currentOrder.OrderDate" 
+								min="1990-1-1" 
+								max="2014-12-30" 
+								format="d">
+							</wj-input-date>
+						</div>
+						<div class="col-md-3">
+							<b>Required Date:</b>
+						</div>
+						<div class="col-md-3">
+							<wj-input-date
+								value="currentOrder.RequiredDate" 
+								min="1990-1-1" 
+								max="2014-12-30" 
+								format="d">
+							</wj-input-date>
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-md-3">
+							<b>Shipped Date:</b>
+						</div>
+						<div class="col-md-3">
+							<wj-input-date
+								value="currentOrder.ShippedDate" 
+								min="1990-1-1" 
+								max="2014-12-30" 
+								format="d">
+							</wj-input-date>
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-md-3">
+							<b>Name:</b>
+						</div>
+						<div class="col-md-9">
+							<input class="form-control" ng-model="currentOrder.ShipName" />
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-md-3">
+							<b>Address:</b>
+						</div>
+						<div class="col-md-9">
+							<input class="form-control" ng-model="currentOrder.ShipAddress" />
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-md-3">
+							<b>Country:</b>
+						</div>
+						<div class="col-md-3">
+							<input class="form-control" ng-model="currentOrder.ShipCountry" />
+						</div>
+						<div class="col-md-3">
+							<b>City:</b>
+						</div>
+						<div class="col-md-3">
+							<input class="form-control" ng-model="currentOrder.ShipCity" />
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-md-3">
+							<b>Region:</b>
+						</div>
+						<div class="col-md-3">
+							<input class="form-control" ng-model="currentOrder.ShipRegion" />
+						</div>
+						<div class="col-md-3">
+							<b>Postal Code:</b>
+						</div>
+						<div class="col-md-3">
+							<input class="form-control" ng-model="currentOrder.ShipPostalCode" />
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal"
+							ng-click="update(currentOrder)">
+						<span class="glyphicon glyphicon-ok"></span>
+						OK
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal"
+							ng-click="reset(currentOrder)">
+						<span class="glyphicon glyphicon-ban-circle"></span>
+						Cancel
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- commands -->
+	<div class="row-fluid well grid-sort-group">
+		<!-- edit details in a popup -->
+		<button class="btn btn-default"
+				data-toggle="modal"
+				data-target="#dlgDetail"
+				ng-click="orderGrid.collectionView.editItem(currentOrder)"
+				ng-disabled="currentOrder == null">
+			<span class="glyphicon glyphicon-new-window"></span>
+			Edit Detail...
+		</button>
+        <!-- sort on server -->
+        <wj-menu value="orders.sortOnServer" header="Sort on Server">
+            <wj-menu-item value="true">True</wj-menu-item>
+            <wj-menu-item value="false">False</wj-menu-item>
+        </wj-menu>
+        <!-- filter on server -->
+        <wj-menu value="orders.filterOnServer" header="Filter on Server">
+            <wj-menu-item value="true">True</wj-menu-item>
+            <wj-menu-item value="false">False</wj-menu-item>
+        </wj-menu>
+	</div>
+</div>

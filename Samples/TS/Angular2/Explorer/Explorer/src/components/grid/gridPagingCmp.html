@@ -1,0 +1,87 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Paging
+        </h3>
+        <p>
+            This sample shows how to implement paged views with the
+            <a href="http://wijmo.com/5/docs/topic/wijmo.grid.FlexGrid.Class.html" target="_blank">
+                FlexGrid
+            </a>. All the work is done by the
+            <a href="http://wijmo.com/5/docs/topic/wijmo.collections.CollectionView.Class.html"
+               target="_blank">CollectionView</a> class used as a data source for the grid.
+            To add paging, set the <b>CollectionView.pageSize</b> property, exactly as you would
+            do in .NET. To switch pages, use the <b>CollectionView.moveToPage</b> method.
+        </p>
+
+        <div class="collapsed-content collapse">
+            <p>
+                Note that the paging UI is implemented outside of the grid. This gives you
+                complete control over the appearance and functionality of the paging mechanism.
+                For example, in this sample the paging UI is implemented with the
+                <a no-href="http://wijmo.com/5/docs/topic/wijmo.angular.WjCollectionViewNavigator.Class.html"
+                   target="_blank">WjCollectionViewNavigator</a> Angular 2 component and
+                supports page navigation as well as page size. This sample also uses the
+                <a href="http://wijmo.com/5/docs/topic/wijmo.angular.WjFlexGrid.Class.html"
+                   target="_blank">WjFlexGrid</a> and
+                <a href="http://wijmo.com/5/docs/topic/wijmo.angular.WjFlexGridColumn.Class.html"
+                   target="_blank">WjFlexGridColumn</a> Angular 2 components.
+            </p>
+            <p>
+                Note also that the grid element has its max-height style set to 400 pixels. If the page
+                size is small, the grid grows to accommodate its contents. If the page size is
+                large, the grid height grows to 400 pixels and a vertical scroll bar automatically
+                displays.
+            </p>
+        </div>
+        <p>
+            <button type="button" data-toggle="collapse"
+                    data-target=".collapsed-content, .btn.btn-default.btn-xs.collapse"
+                    class="btn btn-default btn-xs collapse in">
+                Read more
+            </button>
+        </p>
+    </div>
+    <!-- commands -->
+    <div class="container-fluid">
+        <div class="row well app-filter" ng-init="ctx.pageSize=10">
+            <div class="col-sm-6 col-xs-12 app-nopad">
+                Current Page:
+            </div>
+            <div class="col-sm-6 col-xs-12 app-nopad">
+                &nbsp;
+            </div>
+            <div class="col-sm-6 col-xs-12 app-nopad">
+                <!-- page navigator -->
+                <wj-collection-view-pager [cv]="flex?.collectionView"></wj-collection-view-pager>
+            </div>
+            <div class="col-sm-6 col-xs-12 app-nopad">
+                <!-- page size -->
+                <wj-menu [(value)]="pageSize" [header]="'Page Size'">
+                    <wj-menu-item [value]="0">No Paging</wj-menu-item>
+                    <wj-menu-item [value]="5">5 items</wj-menu-item>
+                    <wj-menu-item [value]="10">10 items</wj-menu-item>
+                    <wj-menu-item [value]="20">20 items</wj-menu-item>
+                    <wj-menu-item [value]="30">30 items</wj-menu-item>
+                    <wj-menu-item [value]="50">50 items</wj-menu-item>
+                    <wj-menu-item [value]="100">100 items</wj-menu-item>
+                </wj-menu>
+            </div>
+        </div>
+    </div>
+    <!-- the grid -->
+    <div>
+        <wj-flex-grid #flex
+                      style="max-height:400px"
+                      [itemsSource]="data"
+                      (itemsSourceChanged)="itemsSourceChangedHandler()">
+            <wj-flex-grid-column [header]="'ID'" [binding]="'id'"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'Country'" [binding]="'country'"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'Product'" [binding]="'product'"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'Color'" [binding]="'color'"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'Amount'" [binding]="'amount'" [format]="'n0'"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'Pending'" [binding]="'amount2'" [format]="'n0'"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'Discount'" [binding]="'discount'" [format]="'p0'"></wj-flex-grid-column>
+        </wj-flex-grid>
+    </div>
+</div>

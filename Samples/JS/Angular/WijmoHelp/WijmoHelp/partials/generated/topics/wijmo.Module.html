@@ -1,0 +1,992 @@
+<h2>Module wijmo</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd>wijmo.js</dd>
+</dl>
+<p>Contains utilities used by all controls and modules, as well as the
+<a href="topic/wijmo.Control.Class.html"><b>Control</b></a> and <a href="topic/wijmo.Event.Class.html"><b>Event</b></a> classes.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
+<span class="glyph-collapsed" ng-show="hideClasses"></span>
+<span class="glyph-expanded" ng-hide="hideClasses"></span>
+Classes
+</h3>
+</div>
+<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.Binding.Class.html"><b>Binding</b></a></td>
+      <td>Provides binding to complex properties (e.g. 'customer.address.city')</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a></td>
+      <td>Provides arguments for cancellable events.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.Clipboard.Class.html"><b>Clipboard</b></a></td>
+      <td><p>Static class that provides utility methods for clipboard operations.</p>
+
+<p>The <b>Clipboard</b> class provides static <b>copy</b> and <b>paste</b> methods
+that can be used by controls to customize the clipboard content during
+clipboard operations.</p>
+
+<p>For example, the code below shows how a control could intercept the
+clipboard shortcut keys and provide custom clipboard handling:</p>
+
+<p><pre>
+rootElement.addEventListener('keydown', function(e) {
+  // copy: ctrl+c or ctrl+Insert
+  if (e.ctrlKey && (e.keyCode == 67 || e.keyCode == 45)) {
+    var text = this.getClipString();
+    Clipboard.copy(text);
+    return;
+  }
+  // paste: ctrl+v or shift+Insert
+  if ((e.ctrlKey && e.keyCode == 86) || (e.shiftKey && e.keyCode == 45)) {
+    Clipboard.paste(function (text) {
+      this.setClipString(text);
+    });
+    return;
+  }
+});</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.Color.Class.html"><b>Color</b></a></td>
+      <td><p>Color class.</p>
+
+<p>The <b>Color</b> class parses colors specified as CSS strings and exposes
+their red, green, blue, and alpha channels as read-write properties.</p>
+
+<p>The <b>Color</b> class also provides <b>fromHsb</b> and <b>fromHsl</b> methods 
+for creating colors using the HSB and HSL color models instead of RGB, 
+as well as <b>getHsb</b> and <b>getHsl</b> methods for retrieving the color
+components using those color models.</p>
+
+<p>Finally, the <b>Color</b> class provides an <b>interpolate</b> method that 
+creates colors by interpolating between two colors using the HSL model.
+This method is especially useful for creating color animations with the
+<b>animate</b> method.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.Control.Class.html"><b>Control</b></a></td>
+      <td><p>Base class for all Wijmo controls.</p>
+
+<p>The <b>Control</b> class handles the association between DOM elements and the
+actual control. Use the <b>hostElement</b> property to get the DOM element 
+that is hosting a control, or the <b>getControl</b> method to get the control 
+hosted in a given DOM element.</p>
+
+<p>The <b>Control</b> class also provides a common pattern for invalidating and
+refreshing controls, for updating the control layout when its size changes, 
+and for handling the HTML templates that define the control structure.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.DateTime.Class.html"><b>DateTime</b></a></td>
+      <td>Provides date and time utilities.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.Event.Class.html"><b>Event</b></a></td>
+      <td><p>Represents an event.</p>
+
+<p>Wijmo events are similar to .NET events. Any class may define events by 
+declaring them as fields. Any class may subscribe to events using the 
+event's <b>addHandler</b> method and unsubscribe using the <b>removeHandler</b> 
+method.</p>
+
+<p>Wijmo event handlers take two parameters: <i>sender</i> and <i>args</i>. 
+The first is the object that raised the event, and the second is an object 
+that contains the event parameters.</p>
+
+<p>Classes that define events follow the .NET pattern where for every event 
+there is an <i>on[EVENTNAME]</i> method that raises the event. This pattern 
+allows derived classes to override the <i>on[EVENTNAME]</i> method and 
+handle the event before and/or after the base class raises the event. 
+Derived classes may even suppress the event by not calling the base class 
+implementation.</p>
+
+<p>For example, the TypeScript code below overrides the <b>onValueChanged</b>
+event for a control to perform some processing before and after the 
+<b>valueChanged</b> event fires:</p>
+
+<p><pre>// override base class
+onValueChanged(e: EventArgs) {
+  // execute some code before the event fires
+  console.log('about to fire valueChanged');
+  // optionally, call base class to fire the event
+  super.onValueChanged(e);
+  // execute some code after the event fired
+  console.log('valueChanged event just fired');
+}</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Base class for event arguments.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.Globalize.Class.html"><b>Globalize</b></a></td>
+      <td><p>Class that implements formatting and parsing of numbers and Dates.</p>
+
+<p>By default, <b>Globalize</b> uses the American English culture.
+To switch cultures, include the appropriate <b>wijmo.culture.*.js</b> 
+file after the wijmo files.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.Point.Class.html"><b>Point</b></a></td>
+      <td>Class that represents a point (with x and y coordinates).</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.PrintDocument.Class.html"><b>PrintDocument</b></a></td>
+      <td><p>Class that enables the creation of custom documents for printing.</p>
+
+<p>The <b>PrintDocument</b> class makes it easy to create documents for printing or 
+exporting to PDF. Most browsers allow you to select the paper size, orientation, 
+margins, and whether to include page headers and footers.</p>
+
+<p>To use, instantiate a <b>PrintDocument</b>, add content using the <b>append</b> 
+method, and finish by calling the <b>print</b> method.</p>
+
+<p>For example:
+<pre>// create the document
+var doc = new wijmo.PrintDocument({
+  title: 'PrintDocument Test'
+});
+// add some simple text
+doc.append('&lt;h1&gt;Printing Example&lt;/h1&gt;');
+doc.append('&lt;p&gt;This document was created using the &lt;b&gt;PrintDocument&lt;/b&gt; class.&lt;/p&gt;');
+// add some existing elements
+doc.append(document.getElementById('gaugeControl'));
+// print the document (or export it to PDF)
+doc.print();</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><b>PropertyChangedEventArgs</b></a></td>
+      <td>Provides arguments for property change events.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
+      <td>Class that represents a rectangle (with left, top, width, and height).</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.RequestErrorEventArgs.Class.html"><b>RequestErrorEventArgs</b></a></td>
+      <td>Provides arguments for <b>XMLHttpRequest</b> error events.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.Size.Class.html"><b>Size</b></a></td>
+      <td>Class that represents a size (with width and height).</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.Tooltip.Class.html"><b>Tooltip</b></a></td>
+      <td><p>Provides a pop-up window that displays additional information about elements on the page.</p>
+
+<p>The <b>Tooltip</b> class can be used in two modes:</p>
+
+<p><b>Automatic Mode:</b> Use the <b>setTooltip</b> method to connect the <b>Tooltip</b> to
+one or more elements on the page. The <b>Tooltip</b> will automatically monitor events
+and display the tooltips when the user performs actions that trigger the tooltip.
+For example:</p>
+
+<p><pre>var tt = new wijmo.Tooltip();
+tt.setTooltip('#menu', 'Select commands.');
+tt.setTooltip('#tree', 'Explore the hierarchy.');
+tt.setTooltip('#chart', '#idChartTooltip');</pre></p>
+
+<p><b>Manual Mode:</b> The caller is responsible for showing and hiding the tooltip
+using the <b>show</b> and <b>hide</b> methods. For example:</p>
+
+<p><pre>var tt = new wijmo.Tooltip();
+element.addEventListener('click', function () {
+  if (tt.isVisible) {
+    tt.hide();
+  } else {
+    tt.show(element, 'This is an important element!');
+  }
+});</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.TooltipEventArgs.Class.html"><b>TooltipEventArgs</b></a></td>
+      <td>Provides arguments for the <b>popup</b> event.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideInterfaces = !hideInterfaces">
+<span class="glyph-collapsed" ng-show="hideInterfaces"></span>
+<span class="glyph-expanded" ng-hide="hideInterfaces"></span>
+Interfaces
+</h3>
+</div>
+<table ng-hide="hideInterfaces" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.IEventHandler.Interface.html"><b>IEventHandler</b></a></td>
+      <td><p>Represents an event handler.
+Event handlers are functions invoked when events are raised.</p>
+
+<p>Every event handler has two arguments:
+<ul>
+  <li><b>sender</b> is the object that raised the event, and</li>
+  <li><b>args</b> is an optional object that contains the event parameters.</li>
+</ul></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.IQueryInterface.Interface.html"><b>IQueryInterface</b></a></td>
+      <td>Allows callers to verify whether an object implements an interface.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEnumerations = !hideEnumerations">
+<span class="glyph-collapsed" ng-show="hideEnumerations"></span>
+<span class="glyph-expanded" ng-hide="hideEnumerations"></span>
+Enumerations
+</h3>
+</div>
+<table ng-hide="hideEnumerations" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.Aggregate.Enum.html"><b>Aggregate</b></a></td>
+      <td>Specifies the type of aggregate to calculate over a group of values.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.DataType.Enum.html"><b>DataType</b></a></td>
+      <td><p>Specifies constants that represent data types.</p>
+
+<p>Use the <b>getType</b> method to get a <b>DataType</b> from a value.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.Key.Enum.html"><b>Key</b></a></td>
+      <td><p>Specifies constants that represent keyboard codes.</p>
+
+<p>This enumeration is useful when handling <b>keyDown</b> events.</p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>culture</b></td>
+      <td><b>any</b></td>
+      <td><p>Gets or sets an object that contains all localizable strings in the Wijmo library.</p>
+
+<p>The culture selector is a two-letter string that represents an 
+<a href='http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes'>ISO 639 culture</a>.</p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters/Return Type</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>addClass</b>&#8203;(e, className)</td>
+      <td><p>
+<b>e</b> (<b>HTMLElement</b>): Element that will have the class added.<br/><b>className</b> (<b>string</b>): Class to add to the element.<br/></p>
+</td>
+      <td>Adds a class to an element.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>animate</b>&#8203;(apply, duration?, step?): <b>number</b></td>
+      <td><p>
+<b>apply</b> (<b>Function</b>): Callback function that modifies the document.
+The function takes a single parameter that represents a percentage.<br/><b>duration?</b> (<b>number</b>): The duration of the animation, in milliseconds.<br/><span class="text-info">(default value: <b>400</b>)</span><br/><b>step?</b> (<b>number</b>): The interval between animation frames, in milliseconds.<br/><span class="text-info">(default value: <b>35</b>)</span><br/></p>
+</td>
+      <td><p>Calls a function on a timer with a parameter varying between zero and one.</p>
+
+<p>Use this function to create animations by modifying document properties
+or styles on a timer.</p>
+
+<p>For example, the code below changes the opacity of an element from zero
+to one in one second:
+<pre>var element = document.getElementById('someElement');
+animate(function(pct) {
+  element.style.opacity = pct;
+}, 1000);</pre></p>
+
+<p>The function returns an interval ID that you can use to stop the
+animation. This is typically done when you are starting a new animation
+and wish to suspend other on-going animations on the same element.
+For example, the code below keeps track of the interval ID and clears
+if before starting a new animation:
+<pre>var element = document.getElementById('someElement');
+if (this._animInterval) {
+  clearInterval(this._animInterval);
+}
+var self = this;
+self._animInterval = animate(function(pct) {
+  element.style.opacity = pct;
+  if (pct == 1) {
+    self._animInterval = null;
+  }
+}, 1000);</pre></p><br/><b>Returns</b> An interval id that you can use to suspend the animation.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>asArray</b>&#8203;(value, nullOK?): <b>any</b><b>[]</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value supposed to be an array.<br/><b>nullOK?</b> (<b>boolean</b>): Whether null values are acceptable.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Asserts that a value is an array.<br/><b>Returns</b> The array passed in.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>asBoolean</b>&#8203;(value, nullOK?): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (<b>boolean</b>): Value supposed to be Boolean.<br/><b>nullOK?</b> (<b>boolean</b>): Whether null values are acceptable.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
+</td>
+      <td>Asserts that a value is a Boolean.<br/><b>Returns</b> The Boolean passed in.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>asCollectionView</b>&#8203;(value, nullOK?): <b>ICollectionView</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a>.<br/><b>nullOK?</b> (<b>boolean</b>): Whether null values are acceptable.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Asserts that a value is an <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> or an Array.<br/><b>Returns</b> The <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> that was passed in or a <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>
+created from the array that was passed in.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>asDate</b>&#8203;(value, nullOK?): <b>Date</b></td>
+      <td><p>
+<b>value</b> (<b>Date</b>): Value supposed to be a Date.<br/><b>nullOK?</b> (<b>boolean</b>): Whether null values are acceptable.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
+</td>
+      <td>Asserts that a value is a Date.<br/><b>Returns</b> The Date passed in.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>asEnum</b>&#8203;(value, enumType, nullOK?): <b>number</b></td>
+      <td><p>
+<b>value</b> (<b>number</b>): Value supposed to be a member of the enumeration.<br/><b>enumType</b> (<b>any</b>): Enumeration to test for.<br/><b>nullOK?</b> (<b>boolean</b>): Whether null values are acceptable.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
+</td>
+      <td>Asserts that a value is a valid setting for an enumeration.<br/><b>Returns</b> The value passed in.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>asFunction</b>&#8203;(value, nullOK?): <b>Function</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value supposed to be a function.<br/><b>nullOK?</b> (<b>boolean</b>): Whether null values are acceptable.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Asserts that a value is a function.<br/><b>Returns</b> The function passed in.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>asInt</b>&#8203;(value, nullOK?, positive?): <b>number</b></td>
+      <td><p>
+<b>value</b> (<b>number</b>): Value supposed to be an integer.<br/><b>nullOK?</b> (<b>boolean</b>): Whether null values are acceptable.<br/><span class="text-info">(default value: <b>false</b>)</span><br/><b>positive?</b> (<b>boolean</b>): Whether to accept only positive integers.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
+</td>
+      <td>Asserts that a value is an integer.<br/><b>Returns</b> The number passed in.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>asNumber</b>&#8203;(value, nullOK?, positive?): <b>number</b></td>
+      <td><p>
+<b>value</b> (<b>number</b>): Value supposed to be numeric.<br/><b>nullOK?</b> (<b>boolean</b>): Whether null values are acceptable.<br/><span class="text-info">(default value: <b>false</b>)</span><br/><b>positive?</b> (<b>boolean</b>): Whether to accept only positive numeric values.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
+</td>
+      <td>Asserts that a value is a number.<br/><b>Returns</b> The number passed in.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>assert</b>&#8203;(condition, msg)</td>
+      <td><p>
+<b>condition</b> (<b>boolean</b>): Condition expected to be true.<br/><b>msg</b> (<b>string</b>): Message of the exception if the condition is not true.<br/></p>
+</td>
+      <td>Throws an exception if a condition is false.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>asString</b>&#8203;(value, nullOK?): <b>string</b></td>
+      <td><p>
+<b>value</b> (<b>string</b>): Value supposed to be a string.<br/><b>nullOK?</b> (<b>boolean</b>): Whether null values are acceptable.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Asserts that a value is a string.<br/><b>Returns</b> The string passed in.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>asType</b>&#8203;(value, type, nullOK?): <b>any</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to be checked.<br/><b>type</b> (<b>any</b>): Type of value expected.<br/><b>nullOK?</b> (<b>boolean</b>): Whether null values are acceptable.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
+</td>
+      <td>Asserts that a value is an instance of a given type.<br/><b>Returns</b> The value passed in.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>changeType</b>&#8203;(value, type, format): <b>any</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to convert.<br/><b>type</b> (<a href="topic/wijmo.DataType.Enum.html"><b>DataType</b></a>): <a href="topic/wijmo.DataType.Enum.html"><b>DataType</b></a> to convert the value to.<br/><b>format</b> (<b>string</b>): Format to use when converting to or from strings.<br/></p>
+</td>
+      <td><p>Changes the type of a value.</p>
+
+<p>If the conversion fails, the original value is returned. To check if a
+conversion succeeded, you should check the type of the returned value.</p><br/><b>Returns</b> The converted value, or the original value if a conversion was not possible.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>clamp</b>&#8203;(value, min, max): <b>number</b></td>
+      <td><p>
+<b>value</b> (<b>number</b>): Original value.<br/><b>min</b> (<b>number</b>): Minimum allowed value.<br/><b>max</b> (<b>number</b>): Maximum allowed value.<br/></p>
+</td>
+      <td>Clamps a value between a minimum and a maximum.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>closest</b>&#8203;(e, selector): <b>Node</b></td>
+      <td><p>
+<b>e</b> (<b>any</b>): Element where the search should start.<br/><b>selector</b> (<b>string</b>): A string containing a selector expression to match elements against.<br/></p>
+</td>
+      <td>Finds the closest ancestor that satisfies a selector.<br/><b>Returns</b> The closest ancestor that satisfies the selector (including the original element), or null if not found.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>contains</b>&#8203;(parent, child): <b>boolean</b></td>
+      <td><p>
+<b>parent</b> (<b>any</b>): Parent element.<br/><b>child</b> (<b>any</b>): Child element.<br/></p>
+</td>
+      <td>Checks whether an HTML element contains another.<br/><b>Returns</b> True if the parent element contains the child element.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>copy</b>&#8203;(dst, src)</td>
+      <td><p>
+<b>dst</b> (<b>any</b>): The destination object.<br/><b>src</b> (<b>any</b>): The source object.<br/></p>
+</td>
+      <td><p>Copies properties from an object to another.</p>
+
+<p>This method is typically used to initialize controls and other Wijmo objects
+by setting their properties and assigning event handlers.</p>
+
+<p>The destination object must define all the properties defined in the source,
+or an error will be thrown.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>createElement</b>&#8203;(html, appendTo?): <b>HTMLElement</b></td>
+      <td><p>
+<b>html</b> (<b>string</b>): HTML fragment to convert into an HTMLElement.<br/><b>appendTo?</b> (<b>HTMLElement</b>): Optional HTMLElement to append the new element to.<br/></p>
+</td>
+      <td>Creates an element from an HTML string.<br/><b>Returns</b> The new element.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>enable</b>&#8203;(e, value)</td>
+      <td><p>
+<b>e</b> (<b>HTMLElement</b>): Element to enable or disable.<br/><b>value</b> (<b>boolean</b>): Whether to enable or disable the element.<br/></p>
+</td>
+      <td>Enables or disables an element.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>escapeHtml</b>&#8203;(text)</td>
+      <td><p>
+<b>text</b> (<b>string</b>): Text to escape.<br/></p>
+</td>
+      <td><p>Escapes a string by replacing HTML characters as text entities.</p>
+
+<p>Strings entered by uses should always be escaped before they are displayed
+in HTML pages. This ensures page integrity and prevents HTML/javascript
+injection attacks.</p><br/><b>Returns</b> An HTML-escaped version of the original string.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>format</b>&#8203;(format, data, formatFunction?): <b>string</b></td>
+      <td><p>
+<b>format</b> (<b>string</b>): A composite format string.<br/><b>data</b> (<b>any</b>): The data object used to build the string.<br/><b>formatFunction?</b> (<b>Function</b>): An optional function used to format items in context.<br/></p>
+</td>
+      <td><p>Replaces each format item in a specified string with the text equivalent of an
+object's value.</p>
+
+<p>The function works by replacing parts of the <b>formatString</b> with the pattern
+'{name:format}' with properties of the <b>data</b> parameter. For example:</p>
+
+<p><pre>
+var data = { name: 'Joe', amount: 123456 };
+var msg = wijmo.format('Hello {name}, you won {amount:n2}!', data);
+</pre></p>
+
+<p>The optional <b>formatFunction</b> allows you to customize the content by providing
+context-sensitive formatting. If provided, the format function gets called for each
+format element and gets passed the data object, the parameter name, the format,
+and the value; it should return an output string. For example:</p>
+
+<p><pre>
+var data = { name: 'Joe', amount: 123456 };
+var msg = wijmo.format('Hello {name}, you won {amount:n2}!', data,
+            function (data, name, fmt, val) {
+              if (wijmo.isString(data[name])) {
+                  val = wijmo.escapeHtml(data[name]);
+              }
+              return val;
+            });
+</pre></p><br/><b>Returns</b> The formatted string.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getActiveElement</b>&#8203;()</td>
+      <td></td>
+      <td>Gets a reference to the element that contains the focus,
+accounting for shadow document fragments.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getAggregate</b>&#8203;(aggType, items, binding?)</td>
+      <td><p>
+<b>aggType</b> (<a href="topic/wijmo.Aggregate.Enum.html"><b>Aggregate</b></a>): Type of aggregate to calculate.<br/><b>items</b> (<b>any</b><b>[]</b>): Array with the items to aggregate.<br/><b>binding?</b> (<b>string</b>): Name of the property to aggregate on (in case the items are not simple values).<br/></p>
+</td>
+      <td>Calculates an aggregate value from the values in an array.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getElement</b>&#8203;(selector): <b>HTMLElement</b></td>
+      <td><p>
+<b>selector</b> (<b>any</b>): An element, a query selector string, or a jQuery object.<br/></p>
+</td>
+      <td>Gets an element from a jQuery-style selector.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getElementRect</b>&#8203;(e): <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
+      <td><p>
+<b>e</b> (<b>Element</b>)<br/></p>
+</td>
+      <td><p>Gets the bounding rectangle of an element in page coordinates.</p>
+
+<p>This is similar to the <b>getBoundingClientRect</b> function,
+except that uses window coordinates, which change when the
+document scrolls.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getType</b>&#8203;(value): <a href="topic/wijmo.DataType.Enum.html"><b>DataType</b></a></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to test.<br/></p>
+</td>
+      <td>Gets the type of a value.<br/><b>Returns</b> A <a href="topic/wijmo.DataType.Enum.html"><b>DataType</b></a> value representing the type of the value passed in.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getVersion</b>&#8203;(): <b>string</b></td>
+      <td></td>
+      <td>Gets the version of the Wijmo library that is currently loaded.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>hasClass</b>&#8203;(e, className): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<b>HTMLElement</b>): Element to check.<br/><b>className</b> (<b>string</b>): Class to check for.<br/></p>
+</td>
+      <td>Checks whether an element has a class.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>hasItems</b>&#8203;(value)</td>
+      <td><p>
+<b>value</b> (<b>ICollectionView</b>): <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> to check.<br/></p>
+</td>
+      <td>Checks whether an <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> is defined and not empty.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>hidePopup</b>&#8203;(popup, remove?, fadeOut?)</td>
+      <td><p>
+<b>popup</b> (<b>HTMLElement</b>): Popup element to hide.<br/><b>remove?</b> (<b>boolean</b>): Whether to remove the popup from the DOM or just
+to hide it.<br/><span class="text-info">(default value: <b>true</b>)</span><br/><b>fadeOut?</b> (<b>boolean</b>): Whether to use a fade-out animation to make the 
+popup disappear gradually.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
+</td>
+      <td>Hides a popup element previously displayed with the <b>showPopup</b>
+method.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>httpRequest</b>&#8203;(url, settings?): <b>XMLHttpRequest</b></td>
+      <td><p>
+<b>url</b> (<b>string</b>): String containing the URL to which the request is sent.<br/><b>settings?</b> (<b>any</b>): <p>An optional object used to configure the request.</p>
+
+<p>The <b>settings</b> object may contain the following:</p>
+
+<p><table>
+<tr>
+  <td><b>method</b></td>
+  <td>The HTTP method to use for the request (e.g. "POST", "GET", "PUT").
+      The default is "GET".</td>
+</tr>
+<tr>
+  <td><b>data</b></td>
+  <td>Data to be sent to the server. It is appended to the url for GET requests,
+      and converted to a string for other requests.</td>
+</tr>
+<tr>
+  <td><b>async</b></td>
+  <td>By default, all requests are sent asynchronously (i.e. this is set to true by default).
+      If you need synchronous requests, set this option to false.</td>
+</tr>
+<tr>
+  <td><b>success</b></td>
+  <td>A function to be called if the request succeeds.
+      The function gets passed a single parameter of type <b>XMLHttpRequest</b>.</td>
+</tr>
+<tr>
+  <td><b>error</b></td>
+  <td>A function to be called if the request fails.
+      The function gets passed a single parameter of type <b>XMLHttpRequest</b>.</td>
+</tr>
+<tr>
+  <td><b>complete</b></td>
+  <td>A function to be called when the request finishes (after success and error callbacks are executed).
+      The function gets passed a single parameter of type <b>XMLHttpRequest</b>.</td>
+</tr>
+<tr>
+  <td><b>beforeSend</b></td>
+  <td>A function to be called immediately before the request us sent.
+      The function gets passed a single parameter of type <b>XMLHttpRequest</b>.</td>
+</tr>
+<tr>
+  <td><b>requestHeaders</b></td>
+  <td>A JavaScript object containing key/value pairs to be added to the request
+      headers.</td>
+</tr>
+<tr>
+  <td><b>user</b></td>
+  <td>A username to be used with <b>XMLHttpRequest</b> in response to an HTTP access
+      authentication request.</td>
+</tr>
+<tr>
+  <td><b>password</b></td>
+  <td>A password to be used with <b>XMLHttpRequest</b> in response to an HTTP access
+      authentication request.</td>
+</tr>
+</table></p>
+
+<p>Use the <b>success</b> to obtain the result of the request which is provided in
+the callback's <b>XMLHttpRequest</b> parameter. For example, the code below uses
+the <b>httpRequest</b> method to retrieve a list of customers from an OData service:</p>
+
+<p><pre>wijmo.httpRequest('http://services.odata.org/Northwind/Northwind.svc/Customers?$format=json', {
+  success: function (xhr) {
+    var response = JSON.parse(xhr.response),
+        customers = response.value;
+    // do something with the customers...
+  }
+});</pre></p><br/></p>
+</td>
+      <td>Performs HTTP requests.<br/><b>Returns</b> The <b>XMLHttpRequest</b> object used to perform the request.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isArray</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to test.<br/></p>
+</td>
+      <td>Determines whether an object is an Array.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isBoolean</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to test.<br/></p>
+</td>
+      <td>Determines whether an object is a Boolean.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isDate</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to test.<br/></p>
+</td>
+      <td>Determines whether an object is a Date.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isFunction</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to test.<br/></p>
+</td>
+      <td>Determines whether an object is a function.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isInt</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to test.<br/></p>
+</td>
+      <td>Determines whether an object is an integer.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isNullOrWhiteSpace</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (<b>string</b>): Value to test.<br/></p>
+</td>
+      <td>Determines whether a string is null, empty, or whitespace only.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isNumber</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to test.<br/></p>
+</td>
+      <td>Determines whether an object is a number.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isObject</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to test.<br/></p>
+</td>
+      <td>Determines whether a value is an object
+(as opposed to a value type, an array, or a Date).</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isPrimitive</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to test.<br/></p>
+</td>
+      <td>Determines whether an object is a primitive type (string, number, boolean, or date).</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isString</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to test.<br/></p>
+</td>
+      <td>Determines whether an object is a string.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isUndefined</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to test.<br/></p>
+</td>
+      <td>Determines whether an object is undefined.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>mouseToPage</b>&#8203;(e): <a href="topic/wijmo.Point.Class.html"><b>Point</b></a></td>
+      <td><p>
+<b>e</b> (<b>any</b>)<br/></p>
+</td>
+      <td>Converts mouse or touch event arguments into a <a href="topic/wijmo.Point.Class.html"><b>Point</b></a> in page coordinates.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>moveFocus</b>&#8203;(parent, offset)</td>
+      <td><p>
+<b>parent</b> (<b>HTMLElement</b>): Parent element.<br/><b>offset</b> (<b>number</b>): Offset to use when moving the focus (use zero to focus on the first focusable child).<br/></p>
+</td>
+      <td>Moves the focus to the next/previous/first focusable child element.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>removeClass</b>&#8203;(e, className)</td>
+      <td><p>
+<b>e</b> (<b>HTMLElement</b>): Element that will have the class removed.<br/><b>className</b> (<b>string</b>): Class to remove form the element.<br/></p>
+</td>
+      <td>Removes a class from an element.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>setCss</b>&#8203;(e, css)</td>
+      <td><p>
+<b>e</b> (<b>HTMLElement</b>): Element whose style will be modified.<br/><b>css</b> (<b>any</b>): Object containing the style properties to apply to the element.<br/></p>
+</td>
+      <td>Modifies the style of an element by applying the properties specified in an object.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>setSelectionRange</b>&#8203;(e, start, end?)</td>
+      <td><p>
+<b>e</b> (<b>HTMLInputElement</b>)<br/><b>start</b> (<b>number</b>): Offset into the text field for the start of the selection.<br/><b>end?</b> (<b>number</b>): Offset into the text field for the end of the selection.<br/><span class="text-info">(default value: <b>start</b>)</span><br/></p>
+</td>
+      <td><p>Sets the start and end positions of a selection in a text field.</p>
+
+<p>This method is similar to the native <b>setSelectionRange</b> method
+in HTMLInputElement objects, except it checks for conditions that
+may cause exceptions (element not in the DOM, disabled, or hidden).</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>setText</b>&#8203;(e, text)</td>
+      <td><p>
+<b>e</b> (<b>HTMLElement</b>): Element that will have its content updated.<br/><b>text</b> (<b>string</b>): Plain text to be assigned to the element.<br/></p>
+</td>
+      <td>Sets the text content of an element.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>showPopup</b>&#8203;(popup, ref?, above?, fadeIn?, copyStyles?)</td>
+      <td><p>
+<b>popup</b> (<b>HTMLElement</b>): Element to show as a popup.<br/><b>ref?</b> (<b>any</b>): Reference element or rectangle used to position the popup.<br/><span class="text-info">(default value: <b>null</b>)</span><br/><b>above?</b> (<b>boolean</b>): Position popup above the reference rectangle if possible.<br/><span class="text-info">(default value: <b>false</b>)</span><br/><b>fadeIn?</b> (<b>boolean</b>): Use a fade-in animation to make the popup appear gradually.<br/><span class="text-info">(default value: <b>false</b>)</span><br/><b>copyStyles?</b> (<b>boolean</b>): Copy font and color styles from reference element.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td><p>Shows an element as a popup.</p>
+
+<p>The popup element becomes a child of the body element,
+and is positioned above or below a reference rectangle, 
+depending on how much room is available.</p>
+
+<p>The reference rectangle may be specified as one of the following:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>HTMLElement</dt>
+  <dd>The bounding rectangle of the element.</dd>
+  <dt>MouseEvent</dt>
+  <dd>The bounding rectangle of the event's target element.</dd>
+  <dt>Rect</dt>
+  <dd>The given rectangle.</dd>
+  <dt>null</dt>
+  <dd>No reference rectangle; the popup is centered on the window.</dd>
+</dl></p>
+
+<p>Call the <b>hidePopup</b> method to hide the popup.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>toFixed</b>&#8203;(value, prec, truncate): <b>number</b></td>
+      <td><p>
+<b>value</b> (<b>number</b>): Value to round or truncate.<br/><b>prec</b> (<b>number</b>): Number of decimal digits for the result.<br/><b>truncate</b> (<b>boolean</b>): Whether to truncate or round the original value.<br/></p>
+</td>
+      <td>Rounds or truncates a number to a specified precision.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>toggleClass</b>&#8203;(e, className, addOrRemove)</td>
+      <td><p>
+<b>e</b> (<b>HTMLElement</b>): Element that will have the class added.<br/><b>className</b> (<b>string</b>): Class to add or remove.<br/><b>addOrRemove</b> (<b>boolean</b>): Whether to add or remove the class.
+Use true to add class to element and false to remove class from element.<br/></p>
+</td>
+      <td>Adds or removes a class to or from an element.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>toHeaderCase</b>&#8203;(text): <b>string</b></td>
+      <td><p>
+<b>text</b> (<b>string</b>): String to convert to header case.<br/></p>
+</td>
+      <td><p>Converts a camel-cased string into a header-type string by capitalizing the first letter
+and adding spaces before uppercase characters preceded by lower-case characters.</p>
+
+<p>For example, 'somePropertyName' becomes 'Some Property Name'.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>tryCast</b>&#8203;(value, type): <b>any</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Value to cast.<br/><b>type</b> (<b>any</b>): Type or interface name to cast to.<br/></p>
+</td>
+      <td>Casts a value to a type if possible.<br/><b>Returns</b> The value passed in if the cast was successful, null otherwise.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

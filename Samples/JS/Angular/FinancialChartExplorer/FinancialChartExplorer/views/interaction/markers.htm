@@ -1,0 +1,79 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    Markers display a text area on the FinancialChart that displays the data values
+    based on the mouse cursor's position on the chart. Markers also support optional
+    vertical and horizontal lines to enable a cross-hair effect.
+</p>
+
+<!-- FinancialChart -->
+<wj-financial-chart items-source="data"
+                    binding-x="date"
+                    chart-type="Candlestick"
+                    control="ctx.chart"
+                    tooltip-content=""
+                    rendered="chartRendered(s,e)"
+                    symbol-size="{{ ctx.symbolSize }}">
+    <wj-financial-chart-series binding="high,low,open,close"
+                               name="{{ selectedSymbol | uppercase }}">
+    </wj-financial-chart-series>
+    <wj-flex-chart-line-marker control="ctx.marker"
+                               lines="{{ ctx.properties.markerLines }}"
+                               interaction="{{ ctx.properties.interaction }}"
+                               alignment="{{ ctx.properties.alignment }}"
+                               content="ctx.properties.content"
+                               position-changed="positionChanged(s,e)">
+    </wj-flex-chart-line-marker>
+</wj-financial-chart>
+
+<!-- Settings -->
+<div class="panel-group" id="settings">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#settings" href="#settingsBody" target="_self">{{ title }} Settings</a>
+            </h4>
+        </div>
+        <div id="settingsBody" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <ul class="list-inline">
+                    <li>
+                        <wj-menu header="Content Alignment"
+                                 value="ctx.properties.alignment"
+                                 ng-disabled="ctx.properties.snapping">
+                            <wj-menu-item value="'Auto'">Auto</wj-menu-item>
+                            <wj-menu-item value="'Top'">Top</wj-menu-item>
+                            <wj-menu-item value="'Right'">Right</wj-menu-item>
+                            <wj-menu-item value="'Bottom'">Bottom</wj-menu-item>
+                            <wj-menu-item value="'Left'">Left</wj-menu-item>
+                        </wj-menu>
+                    </li>
+                    <li>
+                        <wj-menu header="Interaction"
+                                 value="ctx.properties.interaction"
+                                 ng-disabled="ctx.properties.snapping">
+                            <wj-menu-item value="'Drag'">Drag</wj-menu-item>
+                            <wj-menu-item value="'Move'">Move</wj-menu-item>
+                            <wj-menu-item value="'None'">None</wj-menu-item>
+                        </wj-menu>
+                    </li>
+                    <li>
+                        <wj-menu header="Marker Lines"
+                                 value="ctx.properties.markerLines"
+                                 ng-disabled="ctx.properties.snapping">
+                            <wj-menu-item value="'Both'">Both</wj-menu-item>
+                            <wj-menu-item value="'Horizontal'">Horizontal</wj-menu-item>
+                            <wj-menu-item value="'Vertical'">Vertical</wj-menu-item>
+                            <wj-menu-item value="'None'">None</wj-menu-item>
+                        </wj-menu>
+                    </li>
+                    <li>
+                        <label>
+                            Snapping
+                            <input type="checkbox" ng-model="ctx.properties.snapping" ng-change="snappingChanged()" />
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

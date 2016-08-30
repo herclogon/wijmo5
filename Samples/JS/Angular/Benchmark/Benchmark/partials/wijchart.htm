@@ -1,0 +1,25 @@
+﻿<h4 ng-init="benchmarkView('wijchart')">WijLineChart</h4>
+
+<p>
+    The <b>LineChart</b> widget is part of 
+    <a href="http://wijmo.com/products/wijmo-3/" target="_blank">
+        Wijmo 3</a>.</p>
+
+<wij-linechart
+    class="chartStyle"
+    data-source="chartData"
+    show-chart-labels="false">
+    <animation enabled="false"></animation>
+    <series-transition enabled="false"></series-transition>
+    <legend visible="false"></legend>
+    <data>
+        <x bind="id"></x>
+    </data>
+    <series-list>
+        <series label="Amount">
+            <data>
+                <y bind="amount"></y>
+            </data>
+        </series>
+    </series-list>
+</wij-linechart>

@@ -1,0 +1,81 @@
+﻿<div >
+    <h2>Customers</h2>
+    <div class="row-fluid">
+        <div class="col-md-6">			
+            <div class="row-fluid well grid-sort-group"><input class="form-control app-pad" type="text" placeholder="Filter Company Name" ng-model="filterText" /></div>
+			<wj-flex-grid 
+				control="flexGrid"
+				style="max-height:400px;min-height:300px"
+				selection-mode="Row"
+				is-read-only="true"
+				items-source="customers">
+                <wj-flex-grid-filter></wj-flex-grid-filter>
+				<wj-flex-grid-column header="Company Name" width="195" binding="CompanyName"></wj-flex-grid-column>
+				<wj-flex-grid-column header="Contact Name" width="195" binding="ContactName"></wj-flex-grid-column>
+				<wj-flex-grid-column header="Country" binding="Country" width="*"></wj-flex-grid-column>
+			</wj-flex-grid>
+			<div class="row-fluid well grid-sort-group">
+				<p class="title">Total Items: {{customers.totalCount}}</p>
+                <!-- sort on server -->
+                <wj-menu value="customers.sortOnServer" header="Sort on Server">
+                    <wj-menu-item value="true">True</wj-menu-item>
+                    <wj-menu-item value="false">False</wj-menu-item>
+                </wj-menu>
+                <!-- page on server -->
+                <wj-menu value="customers.pageOnServer" header="Page on Server">
+                    <wj-menu-item value="true">True</wj-menu-item>
+                    <wj-menu-item value="false">False</wj-menu-item>
+                </wj-menu>
+                <!-- filter on server -->
+                <wj-menu value="customers.filterOnServer" header="Filter on Server">
+                    <wj-menu-item value="true">True</wj-menu-item>
+                    <wj-menu-item value="false">False</wj-menu-item>
+                </wj-menu>
+			</div>            
+			<nav class="navbar navbar-right">
+                <wj-menu value="customers.pageSize" header="Page Size">
+					<wj-menu-item value="0">No Paging</wj-menu-item>
+					<wj-menu-item value="5">5</wj-menu-item>
+					<wj-menu-item value="10">10</wj-menu-item>
+					<wj-menu-item value="20">20</wj-menu-item>
+				</wj-menu>
+                <div class="btn-group" ng-show="customers.pageSize !== 0">
+                    <button type="button" class="btn btn-default" ng-click="customers.moveToFirstPage()" ng-disabled="customers.pageIndex <= 0"> 
+                        <span class="glyphicon glyphicon-fast-backward"></span> 
+                    </button> 
+                    <button type="button" class="btn btn-default" ng-click="customers.moveToPreviousPage()" ng-disabled="customers.pageIndex <= 0"> 
+                        <span class="glyphicon glyphicon-step-backward"></span> 
+                    </button> 
+                    <button type="button" class="btn btn-default" disabled style="width:100px"> 
+                        {{customers.pageIndex + 1 | number}} / {{customers.pageCount | number}} 
+                    </button> 
+                    <button type="button" class="btn btn-default" ng-click="customers.moveToNextPage()" ng-disabled="customers.pageIndex >= customers.pageCount-1"> 
+                        <span class="glyphicon glyphicon-step-forward"></span> 
+                    </button> 
+                    <button type="button" class="btn btn-default" ng-click="customers.moveToLastPage()" ng-disabled="customers.pageIndex >= customers.pageCount-1"> 
+                        <span class="glyphicon glyphicon-fast-forward"></span> 
+                    </button> 
+                </div>				
+			</nav>
+        </div>
+        <div class="col-md-6">
+        <form class="form-horizontal" role="form">
+            <breezeinput label="Company Name" ng-model="customer.CompanyName"></breezeinput>
+            <breezeinput label="Contact Name" ng-model="customer.ContactName"></breezeinput>
+            <breezeinput label="Contact Title" ng-model="customer.ContactTitle"></breezeinput>
+            <breezeinput label="Address" ng-model="customer.Address"></breezeinput>
+            <breezeinput label="City" ng-model="customer.City"></breezeinput>
+            <breezeinput label="Region" ng-model="customer.Region"></breezeinput>
+            <breezeinput label="Postal Code" ng-model="customer.PostalCode"></breezeinput>
+            <breezeinput label="Country" ng-model="customer.Country"></breezeinput>
+            <breezeinput label="Phone" ng-model="customer.Phone"></breezeinput>
+            <breezeinput label="Fax" ng-model="customer.Fax"></breezeinput>
+            <div style="text-align: center">
+                <button class="btn" ng-click="reset(customer)">Reset Customer</button>
+                <button class="btn" ng-click="update(customer)">Save Customer</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+

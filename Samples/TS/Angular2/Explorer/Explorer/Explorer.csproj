@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{92549134-E811-49E3-A06A-79A6EAA107A3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    
+    
+    
+    
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    
+    
+    <Content Include="default.htm">
+      <BrowseToURL>~/default.htm</BrowseToURL>
+    </Content>
+    <Content Include="CompanyCatalog.ashx" />
+    <Content Include="data\companylist.zip" />
+    <Content Include="package.json" />
+    <None Include="resources\facebook.png" />
+    <None Include="resources\george.png" />
+    <None Include="resources\google.png" />
+    <None Include="resources\house.png" />
+    <None Include="resources\john.png" />
+    <None Include="resources\paul.png" />
+    <None Include="resources\ringo.png" />
+    <None Include="resources\wijmo.png" />
+    <None Include="resources\wijmo5.png" />
+    <Content Include="src\app.html" />
+    <Content Include="src\components\chart\chartMarkerCmp.html" />
+    <Content Include="src\components\chart\chartFinanceCmp.html" />
+    <Content Include="src\components\chart\chartHitTestCmp.html" />
+    <Content Include="src\components\chart\chartHeaderFooterCmp.html" />
+    <Content Include="src\components\chart\chartBubbleCmp.html" />
+    <Content Include="src\components\chart\chartPlotAreasCmp.html" />
+    <Content Include="src\components\chart\chartZonesCmp.html" />
+    <Content Include="src\components\chart\chartZoomCmp.html" />
+    <Content Include="src\components\chart\chartLabelsCmp.html" />
+    <Content Include="src\components\chart\chartSelectionCmp.html" />
+    <Content Include="src\components\chart\chartItemFormatterCmp.html" />
+    <Content Include="src\components\chart\chartSeriesBindingCmp.html" />
+    <Content Include="src\components\chart\chartBindingCmp.html" />
+    <Content Include="src\components\chart\chartAxesCmp.html" />
+    <Content Include="src\components\chart\chartIntroCmp.html" />
+    <Content Include="src\components\gauge\bulletGaugeCmp.html" />
+    <Content Include="src\components\gauge\guageIntroCmp.html" />
+    <Content Include="src\components\gauge\linearGaugeCmp.html" />
+    <Content Include="src\components\gauge\radialGaugeCmp.html" />
+    <Content Include="src\components\grid\gridCellEditTemplatesCmp.html" />
+    <Content Include="src\components\grid\gridDynamicColumnsCmp.html" />
+    <Content Include="src\components\grid\gridGroupingCmp.html" />
+    <Content Include="src\components\grid\gridIntroCmp.html" />
+    <Content Include="src\components\grid\gridPagingCmp.html" />
+    <Content Include="src\components\grid\gridColumnLayoutCmp.html" />
+    <Content Include="src\components\grid\gridMergingCmp.html" />
+    <Content Include="src\components\grid\gridCustomCellsCmp.html" />
+    <Content Include="src\components\grid\gridODataCmp.html" />
+    <Content Include="src\components\grid\gridEditingCmp.html" />
+    <Content Include="src\components\grid\gridFrozenCmp.html" />
+    <Content Include="src\components\grid\gridRtlCmp.html" />
+    <Content Include="src\components\grid\gridNoDctvCmp.html" />
+    <Content Include="src\components\grid\gridUnboundCmp.html" />
+    <Content Include="src\components\grid\gridTreeCmp.html" />
+    <Content Include="src\components\grid\gridStarSizingCmp.html" />
+    <Content Include="src\components\grid\gridTemplatesCmp.html" />
+    <Content Include="src\components\includes\frmCreateAccountCmp.html" />
+    <Content Include="src\components\includes\frmEditAccountCmp.html" />
+    <Content Include="src\components\includes\frmLogInCmp.html" />
+    <Content Include="src\components\infra\controlsCmp.html" />
+    <Content Include="src\components\infra\dataCmp.html" />
+    <Content Include="src\components\infra\eventsCmp.html" />
+    <Content Include="src\components\infra\globalizationCmp.html" />
+    <Content Include="src\components\infra\introCmp.html" />
+    <Content Include="src\components\infra\oDataCmp.html" />
+    <Content Include="src\components\infra\templatesCmp.html" />
+    <Content Include="src\components\infra\themesCmp.html" />
+    <Content Include="src\components\infra\tooltipsCmp.html" />
+    <Content Include="src\components\infra\trackChangesCmp.html" />
+    <Content Include="src\components\input\autoCompleteCmp.html" />
+    <Content Include="src\components\input\inputIntroCmp.html" />
+    <Content Include="src\components\input\colorsCmp.html" />
+    <Content Include="src\components\input\comboBoxCmp.html" />
+    <Content Include="src\components\input\dateTimeCmp.html" />
+    <Content Include="src\components\input\maskedInputCmp.html" />
+    <Content Include="src\components\input\multiSelectCmp.html" />
+    <Content Include="src\components\input\numbersCmp.html" />
+    <Content Include="src\components\input\listBoxCmp.html" />
+    <Content Include="src\components\input\menuCmp.html" />
+    <Content Include="src\components\input\popupCmp.html" />
+    <Content Include="src\components\piechart\pieChartIntroCmp.html" />
+    <Content Include="src\components\piechart\pieChartItemFormatterCmp.html" />
+    <Content Include="src\components\piechart\pieChartSelectionCmp.html" />
+    <Content Include="src\styles\app.css" />
+    <Content Include="src\styles\wijmo-custom-theme.css" />
+    <None Include="translations\strings.de.js" />
+    <None Include="translations\strings.en-GB.js" />
+    <None Include="translations\strings.en.js" />
+    <None Include="translations\strings.es.js" />
+    <None Include="translations\strings.fr.js" />
+    <None Include="translations\strings.it.js" />
+    <None Include="translations\strings.ja.js" />
+    <None Include="translations\strings.ko.js" />
+    <None Include="translations\strings.pt.js" />
+    <None Include="translations\strings.ru.js" />
+    <None Include="translations\strings.zh.js" />
+    <Content Include="systemjs.config.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CompanyCatalog.ashx.cs">
+      <DependentUpon>CompanyCatalog.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\menu.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartMarkerCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartFinanceCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartHitTestCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartHeaderFooterCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartBubbleCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartPlotAreasCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartZonesCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartZoomCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartLabelsCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartSelectionCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartItemFormatterCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartSeriesBindingCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartBindingCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartAxesCmp.ts" />
+    <TypeScriptCompile Include="src\components\chart\ChartIntroCmp.ts" />
+    <TypeScriptCompile Include="src\components\gauge\BulletGaugeCmp.ts" />
+    <TypeScriptCompile Include="src\components\gauge\GaugeBaseCmp.ts" />
+    <TypeScriptCompile Include="src\components\gauge\GuageIntroCmp.ts" />
+    <TypeScriptCompile Include="src\components\gauge\LinearGaugeCmp.ts" />
+    <TypeScriptCompile Include="src\components\gauge\RadialGaugeCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridBaseCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridCellEditTemplatesCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridDynamicColumnsCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridGroupingCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridIntroCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridPagingCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridColumnLayoutCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridMergingCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridCustomCellsCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridODataCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridEditingCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridFrozenCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridRtlCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridNoDctvCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridUnboundCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridTreeCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridStarSizingCmp.ts" />
+    <TypeScriptCompile Include="src\components\grid\GridTemplatesCmp.ts" />
+    <TypeScriptCompile Include="src\components\includes\FrmCreateAccountCmp.ts" />
+    <TypeScriptCompile Include="src\components\includes\FrmEditAccountCmp.ts" />
+    <TypeScriptCompile Include="src\components\includes\FrmLogInCmp.ts" />
+    <TypeScriptCompile Include="src\components\infra\ControlsCmp.ts" />
+    <TypeScriptCompile Include="src\components\infra\DataCmp.ts" />
+    <TypeScriptCompile Include="src\components\infra\EventsCmp.ts" />
+    <TypeScriptCompile Include="src\components\infra\GlobalizationCmp.ts" />
+    <TypeScriptCompile Include="src\components\infra\IntroCmp.ts" />
+    <TypeScriptCompile Include="src\components\infra\ODataCmp.ts" />
+    <TypeScriptCompile Include="src\components\infra\TemplatesCmp.ts" />
+    <TypeScriptCompile Include="src\components\infra\ThemesCmp.ts" />
+    <TypeScriptCompile Include="src\components\infra\TooltipsCmp.ts" />
+    <TypeScriptCompile Include="src\components\infra\TrackChangesCmp.ts" />
+    <TypeScriptCompile Include="src\components\input\AutoCompleteCmp.ts" />
+    <TypeScriptCompile Include="src\components\input\InputIntroCmp.ts" />
+    <TypeScriptCompile Include="src\components\input\ColorsCmp.ts" />
+    <TypeScriptCompile Include="src\components\input\ComboBoxCmp.ts" />
+    <TypeScriptCompile Include="src\components\input\DateTimeCmp.ts" />
+    <TypeScriptCompile Include="src\components\includes\FrmBaseCmp.ts" />
+    <TypeScriptCompile Include="src\components\input\InputBaseCmp.ts" />
+    <TypeScriptCompile Include="src\components\input\MaskedInputCmp.ts" />
+    <TypeScriptCompile Include="src\components\input\MultiSelectCmp.ts" />
+    <TypeScriptCompile Include="src\components\input\NumbersCmp.ts" />
+    <TypeScriptCompile Include="src\components\input\ListBoxCmp.ts" />
+    <TypeScriptCompile Include="src\components\input\MenuCmp.ts" />
+    <TypeScriptCompile Include="src\components\input\PopupCmp.ts" />
+    <TypeScriptCompile Include="src\components\piechart\PieChartBaseCmp.ts" />
+    <TypeScriptCompile Include="src\components\piechart\PieChartIntroCmp.ts" />
+    <TypeScriptCompile Include="src\components\piechart\PieChartItemFormatterCmp.ts" />
+    <TypeScriptCompile Include="src\components\piechart\PieChartSelectionCmp.ts" />
+    <TypeScriptCompile Include="src\pipes\appPipes.ts" />
+    <TypeScriptCompile Include="src\services\DataSvc.ts" />
+    <TypeScriptCompile Include="src\services\MenuSvc.ts" />
+    <TypeScriptCompile Include="src\services\SparkSvc.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <!-- 
+  Uncomment the xml snippet below, and correct, if necessary, the relative path specified in the WijmoRootDir property, 
+  so as it reference the WijmoNxt\Main\HTML5 folder.
+  Delete this comment that you're reading after that.
+  IMPORTANT!!!: uncomment this xml *after* (not before) you added this project to TFS; otherwise, VS will add all Wijmo .js and .js.map
+  files to TFS, which is an undesired effect.
+  -->
+  
+  <!--<PropertyGroup>
+    <WijmoRootDir>..\..\..\..</WijmoRootDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="$(WijmoRootDir)\WijmoLoaders\wijmo.load.module.js">
+      <Link>Devel\loaders\wijmo.load.module.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(WijmoRootDir)\Controls\wijmo.tsdocx.xml">
+      <Link>Devel\loaders\wijmo.tsdocx.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <TypeScriptCompile Include="$(WijmoRootDir)\Controls\**\*.ts" Exclude="$(WijmoRootDir)\Controls\**\*.d.ts;$(WijmoRootDir)\Controls\dist\**\*.ts;$(WijmoRootDir)\Controls\**\node_modules\**\*.*">
+      <Link>Devel\sources\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="$(WijmoRootDir)\Controls\definitions\*.ts">
+      <Link>Devel\sources\definitions\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </TypeScriptCompile>
+    <Content Include="$(WijmoRootDir)\Controls\**\*.js;$(WijmoRootDir)\Controls\**\*.js.map;$(WijmoRootDir)\Controls\**\*.css" Exclude="$(WijmoRootDir)\Controls\dist\**\*.*;$(WijmoRootDir)\Controls\**\node_modules\**\*.*">
+      <Link>Devel\sources\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(WijmoRootDir)\Controls\wijmo.angular2\node_modules\wijmo\**\*.*">
+      <Link>Devel\sources\wijmo.angular2\node_modules\wijmo\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(WijmoRootDir)\External\bootstrap\**\*.*">
+      <Link>Devel\external\bootstrap\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>-->
+  <ItemGroup />
+  <ItemGroup>
+    
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Ng2_Test2</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>42185</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:37821/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>False</TypeScriptNoEmitOnError>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+    <TypeScriptExperimentalDecorators>true</TypeScriptExperimentalDecorators>
+    <!--<TypeScriptModuleResolution>Node</TypeScriptModuleResolution>-->
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!--<Target Name="BeforeBuild" Condition="$(BuildingInsideVisualStudio)">
+    <Message Text="!!!!!!! BeforeBuild - Ng2 Explorer" Importance="high">
+    </Message>
+    <ItemGroup>
+      <WjNg2_Files Include="$(WijmoRootDir)\Controls\wijmo.angular2\node_modules\wijmo\**\*.*" Exclude="$(WijmoRootDir)\Controls\wijmo.angular2\node_modules\wijmo\**\*.d.ts;$(WijmoRootDir)\Controls\wijmo.angular2\node_modules\**\ControlMetaFactory_External.*;$(WijmoRootDir)\Controls\wijmo.angular2\node_modules\**\Ng2_Patch.*">
+      </WjNg2_Files>
+    </ItemGroup>
+    <Copy SourceFiles="@(WjNg2_Files)" DestinationFiles="@(WjNg2_Files->'$(ProjectDir)\node_modules\wijmo\%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>-->
+<ItemGroup><Content Include="scripts\vendor\wijmo.min.js" /><Content Include="scripts\vendor\wijmo.input.min.js" /><Content Include="scripts\vendor\wijmo.grid.min.js" /><Content Include="scripts\vendor\wijmo.chart.min.js" /><Content Include="scripts\vendor\wijmo.gauge.min.js" /><Content Include="scripts\vendor\wijmo.angular2.min.js" /><Content Include="scripts\vendor\wijmo.culture.ar-AE.js" /><Content Include="scripts\vendor\wijmo.culture.bg.js" /><Content Include="scripts\vendor\wijmo.culture.ca.js" /><Content Include="scripts\vendor\wijmo.culture.cs.js" /><Content Include="scripts\vendor\wijmo.culture.da.js" /><Content Include="scripts\vendor\wijmo.culture.de.js" /><Content Include="scripts\vendor\wijmo.culture.el.js" /><Content Include="scripts\vendor\wijmo.culture.en-CA.js" /><Content Include="scripts\vendor\wijmo.culture.en-GB.js" /><Content Include="scripts\vendor\wijmo.culture.en.js" /><Content Include="scripts\vendor\wijmo.culture.es.js" /><Content Include="scripts\vendor\wijmo.culture.et.js" /><Content Include="scripts\vendor\wijmo.culture.eu.js" /><Content Include="scripts\vendor\wijmo.culture.fi.js" /><Content Include="scripts\vendor\wijmo.culture.fr-CA.js" /><Content Include="scripts\vendor\wijmo.culture.fr.js" /><Content Include="scripts\vendor\wijmo.culture.gl.js" /><Content Include="scripts\vendor\wijmo.culture.he.js" /><Content Include="scripts\vendor\wijmo.culture.hi.js" /><Content Include="scripts\vendor\wijmo.culture.hr.js" /><Content Include="scripts\vendor\wijmo.culture.hu.js" /><Content Include="scripts\vendor\wijmo.culture.id.js" /><Content Include="scripts\vendor\wijmo.culture.it.js" /><Content Include="scripts\vendor\wijmo.culture.ja.js" /><Content Include="scripts\vendor\wijmo.culture.kk.js" /><Content Include="scripts\vendor\wijmo.culture.ko.js" /><Content Include="scripts\vendor\wijmo.culture.lt.js" /><Content Include="scripts\vendor\wijmo.culture.lv.js" /><Content Include="scripts\vendor\wijmo.culture.nl.js" /><Content Include="scripts\vendor\wijmo.culture.no.js" /><Content Include="scripts\vendor\wijmo.culture.pl.js" /><Content Include="scripts\vendor\wijmo.culture.pt.js" /><Content Include="scripts\vendor\wijmo.culture.ro.js" /><Content Include="scripts\vendor\wijmo.culture.ru.js" /><Content Include="scripts\vendor\wijmo.culture.sk.js" /><Content Include="scripts\vendor\wijmo.culture.sl.js" /><Content Include="scripts\vendor\wijmo.culture.sr.js" /><Content Include="scripts\vendor\wijmo.culture.sv.js" /><Content Include="scripts\vendor\wijmo.culture.th.js" /><Content Include="scripts\vendor\wijmo.culture.tr.js" /><Content Include="scripts\vendor\wijmo.culture.uk.js" /><Content Include="scripts\vendor\wijmo.culture.zh-HK.js" /><Content Include="scripts\vendor\wijmo.culture.zh-TW.js" /><Content Include="scripts\vendor\wijmo.culture.zh.js" /><Content Include="styles\vendor\wijmo.min.css" /><Content Include="styles\vendor\wijmo.theme.cleandark.min.css" /><Content Include="styles\vendor\wijmo.theme.cleanlight.min.css" /><Content Include="styles\vendor\wijmo.theme.cocoa.min.css" /><Content Include="styles\vendor\wijmo.theme.coral.min.css" /><Content Include="styles\vendor\wijmo.theme.dark.min.css" /><Content Include="styles\vendor\wijmo.theme.grayscale.min.css" /><Content Include="styles\vendor\wijmo.theme.highcontrast.min.css" /><Content Include="styles\vendor\wijmo.theme.light.min.css" /><Content Include="styles\vendor\wijmo.theme.material.min.css" /><Content Include="styles\vendor\wijmo.theme.midnight.min.css" /><Content Include="styles\vendor\wijmo.theme.modern.min.css" /><Content Include="styles\vendor\wijmo.theme.office.min.css" /><Content Include="styles\vendor\wijmo.theme.organic.min.css" /><Content Include="styles\vendor\wijmo.theme.trust.min.css" /><Content Include="styles\vendor\wijmo.theme.zen.min.css" /><Content Include="styles\vendor\wijmo.theme.cyborg.min.css" /><Content Include="styles\vendor\wijmo.theme.superhero.min.css" /><Content Include="styles\vendor\wijmo.theme.flatly.min.css" /><Content Include="styles\vendor\wijmo.theme.darkly.min.css" /><Content Include="styles\vendor\wijmo.theme.cerulean.min.css" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.analytics.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.animation.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.annotation.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.finance.analytics.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.finance.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.hierarchical.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.interaction.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.gauge.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.detail.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.filter.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.grouppanel.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.multirow.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.pdf.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.sheet.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.xlsx.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.input.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.odata.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.olap.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.pdf.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.xlsx.d.ts" /><TypeScriptCompile Include="scripts\definition\angular.d.ts" /><TypeScriptCompile Include="scripts\definition\globalize.d.ts" /><TypeScriptCompile Include="scripts\definition\jquery.d.ts" /><TypeScriptCompile Include="scripts\definition\knockout.d.ts" /></ItemGroup></Project>

@@ -1,0 +1,173 @@
+﻿body {
+    background-color: #f8f8f8;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.header {
+    background-color: #80044d;
+    margin-bottom: 14px;
+    padding: 12px 0px;
+    color: #e3bfd5;
+}
+
+    .header h1 {
+        font-size: 40px;
+        line-height: 1;
+        margin: 8px 0 5px 0;
+        color: #fff;
+    }
+
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+h2 {
+    margin: 30px 0 15px -12px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #80044d;
+}
+
+.pane-content {
+    background-color: white;
+    padding: 0px 8px;
+    border: 1px solid #dddddd;
+    border-top: none;
+    white-space: pre;
+    overflow: auto;
+    font-size: 13px;
+    font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+}
+
+
+
+/* some extra spacing between the items */
+.row {
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+/* responsive layout */
+@media(min-width: 992px) {
+    .collapse.app-lg-visible {
+        display: block;
+    }
+
+    .btn.collapse {
+        display: none !important;
+    }
+}
+
+@media(max-width: 991px) {
+    .header h1 {
+        font-size: 22px;
+        line-height: 1;
+        margin-top: 7px;
+        color: #fff;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin: 25px 0 10px 0;
+    }
+
+    h4 {
+        display: none;
+    }
+
+    .wj-flexchart {
+        box-shadow: 2px 2px 8px 0 rgba(50, 50, 50, 0.5);
+        margin-bottom: 15px;
+    }
+
+    .tabbable {
+        margin-bottom: 20px;
+    }
+
+    .wj-dropdown {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .dl-horizontal, .btn-group, .input-group {
+        margin-bottom: 10px;
+    }
+
+    .btn[data-target] {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .row {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+@media(max-width: 767px) {
+    code {
+        white-space: normal;
+    }
+}
+.an-desc {
+    padding-left: 5px;
+}
+
+.desc {
+    margin-bottom:30px;
+}
+
+.list-group-item {
+    padding: 5px 5px 5px 10px;
+}
+
+.col-md-4 {
+    padding: 2px;
+}
+
+.an-detail {
+    font-size: 12px;
+}
+
+.selection {
+    border: 1px dashed red;
+}
+.stchart {
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 0px;
+    touch-action: none;
+    -ms-touch-action: none;
+}
+.chartcontainer {
+    padding-bottom: 40px;
+}
+
+/****  Axis Scrollbar Css *****/
+.wj-flexchart .wj-axis-scrollbar-container {
+    position: relative;
+}
+
+.wj-flexchart .wj-axis-scrollbar-container .wj-chart-rangeslider {
+    border: 1px solid #EAEAEA;    
+    background-color: #EAEAEA;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.wj-flexchart .wj-axis-scrollbar-container .wj-chart-hrangeslider {
+    height: 20px;
+}
+
+.wj-flexchart .wj-axis-scrollbar-container .wj-chart-vrangeslider {
+    width: 20px;
+}
+

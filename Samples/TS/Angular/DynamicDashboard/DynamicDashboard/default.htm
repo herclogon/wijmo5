@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Dashboard</title>
+
+    <!-- Angular/Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+    <!-- Wijmo -->
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+    <script src="scripts/vendor/wijmo.min.js"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js"></script>
+    <script src="scripts/vendor/wijmo.input.min.js"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js"></script>
+    <script src="scripts/vendor/wijmo.gauge.min.js"></script>
+    <script src="scripts/vendor/wijmo.angular.min.js"></script>
+
+    <!-- app scripts/styles -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/appCtrl.js"></script>
+    <script src="scripts/DragDropTouch.js"></script>
+    <link href="styles/app.css" rel="stylesheet" />
+</head>
+<body ng-app="app" ng-controller="appCtrl">
+
+    <div class="header">
+        <div class="container">
+            <img src="resources/wijmo5.png" alt="Wijmo 5" />
+            <h1>
+                Dynamic Dashboard
+            </h1>
+            <p>
+                Create and customize dashboards with Wijmo controls.
+            </p>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div class="container">
+        <p>
+            Start by selecting a tile type, then click the button to add the new tile
+            to the dashboard.</p>
+        <p>
+            Use the mouse to drag tiles to new positions, or click the close button
+            at the top-right corner of each tile to remove the tile from the dashboard.</p>
+
+        <div class="container row">
+            <label>
+                Select a tile type: 
+                <wj-combo-box items-source="tileTypes"></wj-combo-box>
+            </label>
+            <button class="btn btn-primary" ng-click="addTile(tileTypes.currentItem)">Add Tile to Dashboard</button>
+        </div>
+
+        <hr />
+
+        <div class="dashboard">
+        </div>
+
+    </div>
+</body>
+</html>

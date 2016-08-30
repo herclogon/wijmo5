@@ -1,0 +1,69 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Custom Function
+        </h3>
+		FlexSheet allows user to add custom functions by the <b>addCustomFunction</b> method.
+		FlexSheet will parse the cell reference parameter such as 'A1' or 'A1:B2' to a <b><a href="http://wijmo.com/5/docs/topic/wijmo.grid.CellRange.Class.html" target="_blank">CellRange</a></b> instance for the custom function.
+		<p>
+			<button 
+				type="button" 
+				data-toggle="collapse"
+				data-target="#addCustomFunc"
+				class="btn btn-default">
+				Add Custom Funtion Script
+			</button>
+		</p>
+		<div class="collapsed-content collapse" id="addCustomFunc">
+			<div class="pane-content">
+flexSheet.addCustomFunction('customSumProduct', function (range1, range2) {
+	var flexSheet = $scope.ctx.flexSheet,
+		result = 0,
+		val1, val2;
+
+	if (range1.rowSpan === range2.rowSpan && range1.columnSpan === range2.columnSpan) {
+		for (var rowIndex = 0; rowIndex < range1.rowSpan; rowIndex++) {
+			for (var columnIndex = 0; columnIndex < range1.columnSpan; columnIndex++) {
+				val1 = +flexSheet.getCellValue(range1.topRow + rowIndex, range1.leftCol + columnIndex, false);
+				val2 = +flexSheet.getCellValue(range2.topRow + rowIndex, range2.leftCol + columnIndex, false);
+				result += val1 * val2;
+			}
+		}
+	}
+	return result;
+}, 'Custom SumProduct Function', 2, 2);
+			</div>
+		</div>
+		FlexSheet also allows user to process non-supported functions met in cell expressions by the <b>unknownFuntion</b> event. 
+		This event will pass the 'UnKnownFunctionEventArgs' to customer.  This 'UnKnownFunctionEventArgs' provides the function name and the evaluated values list of the parameters.
+		Customer can set the 'value' field of 'UnKnownFunctionEventArgs' to customize the miss formula result.
+		Otherwise the missed function will return the default error message: <i>'The function "funcName" has not supported in FlexSheet yet.'</i>.  
+		<p>
+			<button 
+				type="button" 
+				data-toggle="collapse"
+				data-target="#unknownFunc"
+				class="btn btn-default">
+				unknownFunction event Script
+			</button>
+		</p>
+		<div class="collapsed-content collapse" id="unknownFunc">
+			<div class="pane-content">
+flexSheet.unknownFunction.addHandler(function (sender, e) {
+	var result = '';
+	if (e.params) {
+		for (var i = 0; i < e.params.length; i++) {
+			result += e.params[i];
+		}
+	}
+	e.value = result;
+});
+			</div>
+		</div>
+    </div>
+	<div>
+		<wj-flex-sheet class="flexSheet" initialized="initialized(s)" control="ctx.flexSheet">
+			<wj-sheet row-count="25" column-count="12"></wj-sheet>
+		</wj-flex-sheet>
+	</div>
+</div>

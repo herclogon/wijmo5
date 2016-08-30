@@ -1,0 +1,89 @@
+/*
+ * text alignment and colors
+ */
+.text-center {
+    text-align: center;
+}
+
+.light-grey {
+    color: #666;
+}
+
+/*
+ * Wijmo Customization
+ */
+.wj-flexchart {
+    border: none;
+    box-shadow: none;
+}
+
+.wj-flexchart .wj-footer {
+    font-style: italic;
+}
+
+.wj-inputnumber,
+.wj-dropdown {
+    width: 100%;
+}
+
+.wj-inputnumber,
+.wj-input-group,
+.wj-btn,
+.btn-dec,
+.btn-inc,
+.wj-dropdown,
+.wj-content {
+    border-radius: 0;
+}
+
+
+/*
+ * Ionic Customization
+ */
+.category-item {
+    padding-left: 54px !important;
+}
+
+.button-bar-footer {
+    border: none;
+    padding: 0;
+}
+
+.button-bar-footer .button {
+    border-radius: 0 !important;
+    font-size: 16px;
+}
+
+.fa-ionicon,
+.item-icon-left .fa-ionicon {
+    font-size: 24px;
+}
+
+.custom-form-list .item,
+.custom-form-list .wj-control {
+    margin: 5px 0;
+}
+
+.custom-form-list .item:first-child,
+.custom-form-list .wj-control:first-child {
+    margin: 0 0 5px;
+}
+
+.custom-form-list .item:last-child,
+.custom-form-list .wj-control:last-child {
+    margin: 5px 0 0;
+}
+
+.custom-form-list .item select {
+    background-color: #fff;
+    border: 0;
+    margin: 5px 0;
+    padding: 2px 24px 1px 0;
+    width: 100%;
+}
+
+.custom-form-list .item textarea {
+    border: 0;
+    margin: 5px 0 -5px 0;
+    padding: 2px 24px 1px 0;
+}

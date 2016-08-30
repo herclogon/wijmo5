@@ -1,0 +1,174 @@
+﻿[
+    {
+        "type": "Circle",
+        "radius": 40,
+        "offset": {
+            "x": 0,
+            "y": -15
+        },
+        "seriesIndex": 0,
+        "pointIndex": 33,
+        "content": "DataIndex",
+        "position": 0,
+        "attachment": 0,
+    "tooltip": "This is Circle annotation. </br> radius: 40 </br> pointIndex: 33 </br> attachment: DataIndex", 
+        "style": {
+            "fill": "#a3d1a7",
+            "stroke": "#7b9e7e",
+            "fill-opacity": 1,
+            "stroke-width": 2,
+            "stroke-opacity": 1
+        }
+    },
+    {
+        "type": "Square",
+        "length": 80,
+        "offset": {
+            "x": 0,
+            "y": -15
+        },
+        "seriesIndex": 0,
+        "pointIndex": 45,
+        "content": "DataIndex",
+        "position": 0,
+        "attachment": 0,
+        "tooltip": "This is square annotation. </br>length: 80 </br> pointIndex: 45 </br> attachment: DataIndex",
+        "style": {
+            "fill": "#c4af71",
+            "stroke": "#918254",
+            "fill-opacity": 1,
+            "stroke-width": 2,
+            "stroke-opacity": 1
+        }
+    },
+    {
+        "type": "Line",
+        "content": "Absolute",
+        "position": 0,
+        "start": {
+            "x": 50,
+            "y": 150
+        },
+        "end": {
+            "x": 350,
+            "y": 300
+        },
+        "tooltip": "This is line annotation. </br> start: { x: 50, y: 150 } end: { x: 350, y: 300 } </br> attachment: Absolute",
+        "style": {
+            "fill": "#FE2E2E",
+            "stroke": "#01A9DB",
+            "fill-opacity": 2,
+            "stroke-width": 4,
+            "stroke-opacity": 1
+        }
+    },
+    {
+        "type": "Text",
+        "attachment": 2,
+        "text": "Relative",
+        "position": 0,
+        "point": {
+            "x": 0.55,
+            "y": 0.15
+        },
+        "tooltip": "This is text annotation.</br>point: { x: 0.55, y: 0.15 }</br> attachment: Relative",
+        "style": {
+            "fill": "#bbbbbb",
+            "font-size": "26px"
+        }
+    },
+    {
+        "type": "Ellipse",
+        "content": "Relative",
+        "position": 0,
+        "attachment": 2,
+        "length": 80,
+        "point": {
+            "x": 0.4,
+            "y": 0.5
+        },
+        "seriesIndex": 0,
+        "pointIndex": 45,
+        "tooltip": "This is ellipse annotation.</br>point: { x: 0.4, y: 0.45 }</br> attachment: Relative",
+        "style": {
+            "fill": "#f5bc78",
+            "stroke": "#c2955f",
+            "fill-opacity": 1,
+            "stroke-width": 2,
+            "stroke-opacity": 1
+        }
+    },
+    {
+        "type": "Rectangle",
+        "content": "DataCoordinate",
+        "position": 0,
+        "attachment": 1,
+        "point": {
+            "x": "2014-02-10",
+            "y": 30
+        },
+        "tooltip": "This is rectangle annotation.</br>point:{ x: new Date(2014, 1, 10), y: 40 }</br> attachment: DataCoordinate",
+        "seriesIndex": 0,
+        "pointIndex": 45,
+        "style": {
+            "fill": "#c5aacd",
+            "stroke": "#937f99",
+            "fill-opacity": 1,
+            "stroke-width": 2,
+            "stroke-opacity": 1
+        }
+    },
+    {
+        "type": "Image",
+        "position": 0,
+        "attachment": 1,
+        "href": "resources/wijmo5-flexible.png",
+        "point": {
+            "x": "2014-01-25",
+            "y": 30
+        },
+        "tooltip": "This is image annotation.</br>point:{x: new Date(2014, 0, 25), y: 20}</br> attachment: DataCoordinate",
+        "style": {
+            "fill": "#01DFD7",
+            "stroke": "#000000",
+            "fill-opacity": 1,
+            "stroke-width": 1,
+            "stroke-opacity": 1
+        }
+    },
+    {
+        "type": "Polygon",
+        "content": "Absolute",
+        "position": 0,
+        "tooltip": "This is polygon annotation.</br>paths: [(200,0),(150,50),(175,100),(255,100),(250, 50)]</br> attachment: Absolute",
+        "style": {
+            "fill": "#FE2E2E",
+            "stroke": "#01A9DB",
+            "fill-opacity": 2,
+            "stroke-width": 4,
+            "stroke-opacity": 1
+        },
+        "points": [
+            {
+                "x": 200,
+                "y": 0
+            },
+            {
+                "x": 150,
+                "y": 50
+            },
+            {
+                "x": 175,
+                "y": 100
+            },
+            {
+                "x": 225,
+                "y": 100
+            },
+            {
+                "x": 250,
+                "y": 50
+            }
+        ]
+    }
+]

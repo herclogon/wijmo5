@@ -1,0 +1,77 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Chart LineMarker
+        </h3>
+        <p>
+            This view shows the line chart with a Line marker that displays data values for all series objects.
+        </p>
+    </div>
+    <div>
+        <!-- menus for configuring the chart's LineMarker -->
+        <div class="container-fluid well">
+            <div class="row  form-group app-filter">
+                <div class="col-sm-4 col-xs-12 app-nopad">
+                    <wj-menu [(value)]="lines" [header]="'Line Type'">
+                        <wj-menu-item [value]="0">None</wj-menu-item>
+                        <wj-menu-item [value]="1">Vertical</wj-menu-item>
+                        <wj-menu-item [value]="2">Horizontal</wj-menu-item>
+                        <wj-menu-item [value]="3">Both</wj-menu-item>
+                    </wj-menu>
+                </div>
+                <div class="col-sm-5 col-xs-12 app-nopad">
+                    <wj-menu [(value)]="lineMarker.alignment" [header]="'Line Marker Alignment'">
+                        <wj-menu-item [value]="2">Auto</wj-menu-item>
+                        <wj-menu-item [value]="0">Right</wj-menu-item>
+                        <wj-menu-item [value]="1">Left</wj-menu-item>
+                        <wj-menu-item [value]="4">Bottom</wj-menu-item>
+                        <wj-menu-item [value]="6">Top</wj-menu-item>
+                        <wj-menu-item [value]="5">Left & Bottom</wj-menu-item>
+                        <wj-menu-item [value]="7">Left & Top</wj-menu-item>
+                    </wj-menu>
+                </div>
+            </div>
+            <div class="row  app-filter">
+                <div class="col-sm-4 col-xs-12 app-nopad">
+                    <wj-menu [(value)]="lineMarker.interaction" [header]="'Line Marker Interaction'">
+                        <wj-menu-item [value]="0">None</wj-menu-item>
+                        <wj-menu-item [value]="1">Move</wj-menu-item>
+                        <wj-menu-item [value]="2">Drag</wj-menu-item>
+                    </wj-menu>
+                </div>
+                <div class="col-sm-4 col-xs-12 app-nopad">
+                    <wj-menu [(value)]="lineMarker.dragContent" [header]="'Drag Content'" [ngStyle]="{display:lineMarker.interaction === 2?'':'none'}">
+                        <wj-menu-item [value]="false">False</wj-menu-item>
+                        <wj-menu-item [value]="true">True</wj-menu-item>
+                    </wj-menu>
+                </div>
+                <div class="col-sm-4 col-xs-12 app-nopad">
+                    <wj-menu [(value)]="lineMarker.dragLines" [header]="'Drag Lines'" [ngStyle]="{display:lineMarker.interaction === 2?'':'none'}">
+                        <wj-menu-item [value]="false">False</wj-menu-item>
+                        <wj-menu-item [value]="true">True</wj-menu-item>
+                    </wj-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- the chart -->
+    <wj-flex-chart class="chart"  style="display:block"
+                   #chart
+                   [chartType]="'Line'"
+                   [itemsSource]="itemsSource"
+                   [bindingX]="'date'"
+                   [tooltipContent]="''">
+        <wj-flex-line-marker #lineMarker
+                                   [lines]="'Vertical'"
+                                   [interaction]="'Move'"
+                                   [dragContent]="false"
+                                   [dragLines]="false"
+                                   [alignment]="'Auto'"
+                                   [content]="changeContent"
+                                   (positionChanged)="positionChanged($event)">
+        </wj-flex-line-marker>
+        <wj-flex-chart-axis [wjProperty]="'axisX'" [format]="'MMM-dd'"></wj-flex-chart-axis>
+        <wj-flex-chart-series [binding]="'input'" [name]="'Input'"></wj-flex-chart-series>
+        <wj-flex-chart-series [binding]="'output'" [name]="'Output'"></wj-flex-chart-series>
+    </wj-flex-chart>
+</div>

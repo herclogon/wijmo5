@@ -1,0 +1,19 @@
+﻿<ion-view title="Details Grid">
+    <!-- set overflow-scroll="true" and hand scrolling to native -->
+    <ion-content class="has-header" overflow-scroll="true">
+        <!-- set style="position:relative" to support scrolling and editing -->
+        <wj-flex-grid auto-generate-columns="false" items-source="data" selection-mode="Row" row-edit-ending="rowEditEnding(s,e)" style="position:relative">
+            <wj-flex-grid-column binding="id" visible="false"></wj-flex-grid-column>
+            <wj-flex-grid-column width="2*" min-width="250" header="Title" binding="title"></wj-flex-grid-column>
+            <wj-flex-grid-column width="*" min-width="100" header="Amount" binding="amount" format="c2"></wj-flex-grid-column>
+            <wj-flex-grid-column width="*" min-width="100" header="Date" binding="date"></wj-flex-grid-column>
+            <wj-flex-grid-column width="2*" min-width="250" header="Description" binding="description"></wj-flex-grid-column>
+        </wj-flex-grid>
+    </ion-content>
+    <ion-footer-bar class="bar button-bar-footer">
+        <div class="button-bar">
+            <button type="button" class="button button-dark icon-left ion-close" on-tap="cancel()">Cancel</button>
+            <button type="button" class="button button-balanced icon-left ion-checkmark" ng-disabled="!data.itemsEdited.length" on-tap="update()">Save</button>
+        </div>
+    </ion-footer-bar>
+</ion-view>

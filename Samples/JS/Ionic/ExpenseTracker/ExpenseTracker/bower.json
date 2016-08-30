@@ -1,0 +1,9 @@
+{
+  "name": "ExpenseTracker",
+  "private": "true",
+  "dependencies": {
+    "jQuery": "~2.1.1",
+    "fontawesome": "~4.1.0",
+    "ionic": "1.0.0-beta.11"
+  }
+}

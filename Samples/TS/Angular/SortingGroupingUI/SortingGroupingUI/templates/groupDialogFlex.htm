@@ -1,0 +1,96 @@
+﻿<!-- 
+    Dialog using FlexGrid for the GroupDescriptors
+-->
+<div class="modal fade" id="dlgGroupFlex">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    ng-click="groupManager.commit(false)">
+                    &times;
+                </button>
+                <h4 class="modal-title">Groups (with grid)</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group" role="group">
+                            <button
+                                type="button" 
+                                class="btn btn-default"
+                                ng-click="groupManager.addGroup()">
+                                <span class="glyphicon glyphicon-plus"></span> Add Group
+                            </button>
+                            <button 
+                                type="button" 
+                                class="btn btn-default"
+                                ng-disabled="groupManager.groupDescriptions.currentItem == null"
+                                ng-click="groupManager.removeGroup()">
+                                <span class="glyphicon glyphicon-minus"></span> Delete Group
+                            </button>
+                            <button 
+                                type="button" 
+                                class="btn btn-default"
+                                ng-disabled="groupManager.groupDescriptions.currentItem == null"
+                                ng-click="groupManager.copyGroup()">
+                                <span class="glyphicon glyphicon-share"></span> Copy Group
+                            </button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button 
+                                type="button" 
+                                class="btn btn-default" 
+                                title="Move Up"
+                                ng-disabled="groupManager.groupDescriptions.currentPosition <= 0"
+                                ng-click="groupManager.moveGroup(-1)">
+                                <span class="wj-glyph-up"></span>
+                            </button>
+                            <button
+                                type="button" 
+                                class="btn btn-default" 
+                                title="Move Down"
+                                ng-disabled="groupManager.groupDescriptions.currentPosition >= groupManager.groupDescriptions.itemCount - 1"
+                                ng-click="groupManager.moveGroup(+1)">
+                                <span class="wj-glyph-down"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <wj-flex-grid 
+                        style="margin-top:4px"
+                        items-source="groupManager.groupDescriptions"
+                        allow-Grouping="false"
+                        allow-dragging="None"
+                        selection-mode="Row"
+                        headers-visibility="Column">
+                        <wj-flex-grid-column 
+                            header="Group By" 
+                            binding="propertyName"
+                            data-map="groupManager.properties"
+                            width="*">
+                        </wj-flex-grid-column>
+                    </wj-flex-grid>
+                </div>
+                <div class="text-right">
+                    <button 
+                        type="button" 
+                        ng-class="groupManager.getError() ? 'btn btn-warning' : 'btn btn-primary'"
+                        title="{{groupManager.getError()}}"
+                        data-dismiss="modal"
+                        ng-click="groupManager.commit(true)">
+                        OK</button>
+                    <button 
+                        type="button" 
+                        class="btn btn-default text-right" 
+                        data-dismiss="modal"
+                        ng-click="groupManager.commit(false)">
+                        Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

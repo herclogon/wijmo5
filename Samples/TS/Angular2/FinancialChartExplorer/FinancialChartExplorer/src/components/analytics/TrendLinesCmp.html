@@ -1,0 +1,74 @@
+﻿<div>
+    <h2>{{title}}</h2>
+    <p>
+        Trend lines are used to visualize trends in data and to help analyze the problems
+        of prediction.
+    </p>
+
+    <!-- FinancialChart -->
+    <wj-financial-chart #chart
+                        [itemsSource]="data"
+                        bindingX="date"
+                        (rendered)="chartRendered()">
+        <wj-financial-chart-series binding="close"
+                                   [name]="selectedSymbol | uppercase">
+        </wj-financial-chart-series>
+        <wj-flex-chart-trend-line binding="close"
+                                  name="Trend Line"
+                                  [sampleCount]="properties.sampleCount"
+                                  [order]="properties.order"
+                                  [fitType]="properties.fitType">
+        </wj-flex-chart-trend-line>
+    </wj-financial-chart>
+    <!-- Settings -->
+    <div class="panel-group" id="settings">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    {{ title }} Settings
+                </h4>
+            </div>
+            <div id="settingsBody" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li>
+                            <label>
+                                <span class="glyphicon glyphicon-info-sign" title="The order property applies to Fourier and Polynomial fit types only."></span>
+                                Order
+                            </label>
+                            <wj-input-number #iptOrder (valueChanged)="orderChanged(iptOrder)"
+                                             [value]="2"
+                                             [min]="2" [step]="1" format="'n0'"
+                                             [max]="10">
+                            </wj-input-number>
+                        </li>
+                        <li>
+                            <label>Sample Count</label>
+                            <wj-input-number #iptSampleCount (valueChanged)="sampleCountChanged(iptSampleCount)"
+                                             [value]="150"
+                                             [min]="2" [max]="1000" [step]="1" format="'n0'">
+                            </wj-input-number>
+                        </li>
+                        <li>
+                            <wj-menu header="Fit Type"
+                                     [(value)]="properties.fitType">
+                                <wj-menu-item value="Linear">Linear</wj-menu-item>
+                                <wj-menu-item value="Exponential">Exponential</wj-menu-item>
+                                <!--<wj-menu-item value="Logarithmic">Logarithmic</wj-menu-item>-->
+                                <!--<wj-menu-item value="Power">Power</wj-menu-item>-->
+                                <wj-menu-item value="Fourier">Fourier</wj-menu-item>
+                                <wj-menu-item value="Polynomial">Polynomial</wj-menu-item>
+                                <wj-menu-item value="AverageX">Avg. X</wj-menu-item>
+                                <wj-menu-item value="MinX">Min X</wj-menu-item>
+                                <wj-menu-item value="MaxX">Max X</wj-menu-item>
+                                <wj-menu-item value="AverageY">Avg. Y</wj-menu-item>
+                                <wj-menu-item value="MinY">Min Y</wj-menu-item>
+                                <wj-menu-item value="MaxY">Max Y</wj-menu-item>
+                            </wj-menu>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

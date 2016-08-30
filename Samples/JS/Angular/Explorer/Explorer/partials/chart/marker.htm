@@ -1,0 +1,78 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Chart LineMarker
+        </h3>
+        <p>
+            This view shows the line chart with a Line marker that displays data values for all series objects.
+        </p>
+    </div>
+    <div>
+        <!-- menus for configuring the chart's LineMarker -->
+        <div class="container-fluid well">
+            <div class="row  form-group app-filter">
+                <div class="col-sm-4 col-xs-12 app-nopad">
+                    <wj-menu value="ctx.lines" header="Line Type">
+                        <wj-menu-item value="0">None</wj-menu-item>
+                        <wj-menu-item value="1">Vertical</wj-menu-item>
+                        <wj-menu-item value="2">Horizontal</wj-menu-item>
+                        <wj-menu-item value="3">Both</wj-menu-item>
+                    </wj-menu>
+                </div>
+                <div class="col-sm-5 col-xs-12 app-nopad">
+                    <wj-menu value="ctx.lineMarker.alignment" header="Line Marker Alignment">
+                        <wj-menu-item value="2">Auto</wj-menu-item>
+                        <wj-menu-item value="0">Right</wj-menu-item>
+                        <wj-menu-item value="1">Left</wj-menu-item>
+                        <wj-menu-item value="4">Bottom</wj-menu-item>
+                        <wj-menu-item value="6">Top</wj-menu-item>
+                        <wj-menu-item value="5">Left & Bottom</wj-menu-item>
+                        <wj-menu-item value="7">Left & Top</wj-menu-item>
+                    </wj-menu>
+                </div>
+            </div>
+            <div class="row  app-filter">
+                <div class="col-sm-4 col-xs-12 app-nopad">
+                    <wj-menu value="ctx.lineMarker.interaction" header="Line Marker Interaction">
+                        <wj-menu-item value="0">None</wj-menu-item>
+                        <wj-menu-item value="1">Move</wj-menu-item>
+                        <wj-menu-item value="2">Drag</wj-menu-item>
+                    </wj-menu>
+                </div>
+                <div class="col-sm-4 col-xs-12 app-nopad">
+                    <wj-menu value="ctx.lineMarker.dragContent" header="Drag Content" ng-show="ctx.lineMarker.interaction === 2">
+                        <wj-menu-item value="false">False</wj-menu-item>
+                        <wj-menu-item value="true">True</wj-menu-item>
+                    </wj-menu>
+                </div>
+                <div class="col-sm-4 col-xs-12 app-nopad">
+                    <wj-menu value="ctx.lineMarker.dragLines" header="Drag Lines" ng-show="ctx.lineMarker.interaction === 2">
+                        <wj-menu-item value="false">False</wj-menu-item>
+                        <wj-menu-item value="true">True</wj-menu-item>
+                    </wj-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- the chart -->
+    <wj-flex-chart class="chart"
+                   control="ctx.chart"
+                   chart-type="Line"
+                   items-source="ctx.itemsSource"
+                   binding-x="date"
+                   tooltip-content="">
+        <wj-flex-chart-line-marker control="ctx.lineMarker"
+                                   lines="Vertical"
+                                   interaction="Move"
+                                   drag-content="false"
+                                   drag-lines="false"
+                                   alignment="Auto"
+                                   content="changeContent"
+                                   position-changed="positionChanged(s,e)">
+        </wj-flex-chart-line-marker>
+        <wj-flex-chart-series binding="input" name="Input"></wj-flex-chart-series>
+        <wj-flex-chart-series binding="output" name="Output"></wj-flex-chart-series>
+    </wj-flex-chart>
+</div>
+
+</div>

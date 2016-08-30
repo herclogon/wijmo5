@@ -1,0 +1,59 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    This sample illustrates how to customize headers and footers declaratively.
+    <a href="" target="_self" data-toggle="collapse" data-target=".collapse" class="collapse in read-more">Read More</a>
+</p>
+
+<div class="collapse">
+    <p>
+        A very common task in a document rendering is to customize page headers and footers by adding static text (like a document title) or page numbering.
+        To help with that effort PdfDocument provides a way to configure these sections declaratively.
+    </p>
+
+    <p>
+        <b>PdfRunningTitle</b> is a class that represent the header and footer of a page. It provides the <b>declarative</b> property, that in turn, has the following properties:
+    </p>
+    <ul>
+        <li><b>text</b>: Determines the the text of the running title.</li>
+        <li><b>brush</b>: Determines the brush used to fill the text.</li>
+        <li><b>font</b>: Determines the font of the text.</li>
+    </ul>
+
+    <p>
+        These properties can be defined while creating the <b>PdfDocument</b> class instance.
+        When document rendering is done, the pages will be iterated over and specified text will be added to every page using given brush and font.
+    </p>
+    <p>
+       For example, the following code defines that "Title" string filled with the red color will be added to the header of every page.
+    </p>
+<pre>
+var doc = new wijmo.pdf.PdfDocument({
+    header: {
+        declarative: {
+            text: "Title",
+            brush: "#ff0000"
+        }
+    }
+});</pre>
+
+    <p>
+        The text may contain up to 3 tabular characters ("\t") which are used for separating the text into the parts that will be aligned within the page area using left, center and right alignment.
+        Two kinds of macro are supported, "&[Page]" and "&[Pages]". The former one designates the current page index while the latter one designates the page count.
+    </p>
+
+    <p>
+        For example:
+    </p>
+    <ul>
+        <li><b>"&[Page]"</b>: Adds current page index aligned to the left.</li>
+        <li><b>"\t&[Page] of &[Pages]"</b>: Adds page numbering formatted as "X of Y" (where "X" designates the current page index and "Y" designates the page count) and aligns it to the center.</li>
+        <li><b>"\tTitle\t&[Page]"</b>: Adds "Title" string centered and adds current page index aligned to the right.</li>
+    </ul>
+
+    <p>
+        For more information about using fonts and brushes, see the "<a href="#/pdfdocument/fonts">Fonts</a>" and "<a href="#/pdfdocument/drawing-graphics">Drawing graphics</a>" topics.
+    </p>
+</div>
+
+<!-- Export button -->
+<button class="btn btn-default" id="Button1" ng-click="export()">Export</button>

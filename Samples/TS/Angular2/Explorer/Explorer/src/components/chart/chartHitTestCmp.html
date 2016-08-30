@@ -1,0 +1,44 @@
+﻿<div>
+    <div class="copy">
+        <h3>Hit Test</h3>
+        <p>
+            This view demonstrates the use of the <b>FlexChart</b>'s <b>hitTest</b> method.
+        </p>
+        <p>
+            The <b>hitTest</b> method takes a point and returns the nearest chart element. It
+            can be used to provide interactive features such as clickable regions, drill-downs, etc.
+        </p>
+        <p>
+            Move mouse over chart to see information about the chart element that is closest to
+            the mouse.
+        </p>
+    </div>
+    <div>
+
+        <wj-flex-chart class="chart"  style="display:block"
+                       #chart
+                       [header]="'Trigonometric functions'"
+                       [footer]="'Cartesian coordinates'"
+                       [headerStyle]="headerStyle"
+                       [footerStyle]="footerStyle"
+                       [chartType]="'LineSymbols'">
+            <wj-flex-chart-series [itemsSource]="pts1" [name]="'cos(x)'" [bindingX]="'x'" [binding]="'y'"></wj-flex-chart-series>
+            <wj-flex-chart-series [itemsSource]="pts2" [name]="'sin(x)'" [bindingX]="'x'" [binding]="'y'"></wj-flex-chart-series>
+        </wj-flex-chart>
+    </div>
+
+        <div *ngIf="hitInfo">
+            <div>Chart element: {{chartElement}}</div>
+            <div *ngIf="hitInfo.series">
+                Series name: {{hitInfo?.series?.name}}
+                <div *ngIf="chartElement != 'Legend'">
+                    <div>Point index: {{hitInfo?.pointIndex}} </div>
+                    <div>Distance: {{hitInfo?.distance | number:'1.0-0'}} </div>
+                    <div *ngIf="chartElement == 'PlotArea'">
+                        <div>x:{{point?.x | number:'1.2-2'}}</div>
+                        <div>y:{{point?.y| number:'1.2-2'}}</div>
+                    </div>
+        </div>
+</div>
+
+</div>

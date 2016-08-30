@@ -1,0 +1,22 @@
+﻿<div>
+    <h2>FlexChart {{title}}</h2>
+    <p>
+        This view shows Parametric Function Series in FlexChart.
+    </p>
+    <p>
+        The ParametricFunctionSeries allows to plot a function that is defined parametrically
+        with formulas x = x(t) and y = y(t). Use the <b>xFunc</b> and <b>yFunc</b> properties
+        to specify the functions for x and y coordinates.
+    </p>
+    <div>
+        <wj-flex-chart>
+            <wj-flex-chart-parametric-function-series name="ParametricFunctionSeries"
+                                             [max]="max"
+                                             [sampleCount]="1000"
+                                             [xFunc]="xFunc"
+                                             [yFunc]="yFunc">
+            </wj-flex-chart-parametric-function-series>
+        </wj-flex-chart>
+    </div>
+
+</div>

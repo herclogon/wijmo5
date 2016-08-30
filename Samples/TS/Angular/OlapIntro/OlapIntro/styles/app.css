@@ -1,0 +1,91 @@
+﻿body {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    background-color: #fcfcfc;
+}
+h3, h4 {
+    text-transform: uppercase;
+    margin-left: -10pt;
+    margin-top: 18pt;
+    font-weight: 500;
+    color: rgba(0, 0, 0, .54);
+}
+h3 {
+    font-size: 18pt;
+}
+h4 {
+    font-size: 16pt;
+}
+.wj-flexgrid {
+    max-height: 450px;
+}
+.wj-pivotpanel {
+    margin-bottom: 8px;
+}
+dl dd .wj-dropdown {
+    margin-bottom: 6px;
+}
+
+.source-card.mdl-card {
+    width: auto;
+    margin: 2em 0;
+    min-height: 0;
+}
+.source-card .mdl-tabs__tab-bar {
+    /*justify-content: flex-start;*/
+    background-color: #fafafa;
+    font-size: 90%
+}
+.source-card .mdl-tabs__panel {
+    padding: 0px 12px;
+}
+.page-content {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.pane-content {
+    background-color: white;
+    white-space: pre;
+    overflow: auto;
+    font-size: 13px;
+    font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+    max-height: 500px;
+}
+
+/* lifted from Bootstrap */
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+    float: left;
+    width: 160px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dl-horizontal dd {
+    margin-left: 180px;
+  }
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}

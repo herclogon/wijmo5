@@ -1,0 +1,29 @@
+<h2>wjPopup Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjBinding</b></dd>
+<dt>Module</dt><dd>wijmo.knockout</dd>
+<dt>File</dt><dd>wijmo.knockout.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>KnockoutJS binding for the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a> control.</p>
+
+<p>Use the <b>wjPopup</b> binding to add <b>Popup</b> controls to your
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a Popup control triggered by a button:&lt;/p&gt;
+&lt;button id="btn2" type="button"&gt;
+    Click to show Popup
+&lt;/button&gt;
+ &lt;div class="popover" data-bind="wjPopup: {
+      control: popup,
+      owner: '#btn2',
+      showTrigger: 'Click',
+      hideTrigger: 'Click'}"
+ &gt;
+&lt;h3&gt;
+	 Salutation
+&lt;/h3&gt;
+ &lt;div class="popover-content"&gt;
+ 	    Hello {&#8203;{firstName}} {&#8203;{lastName}}
+ &lt;/div&gt;
+&lt;/div&gt;</pre></p></p>

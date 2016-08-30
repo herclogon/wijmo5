@@ -1,0 +1,170 @@
+<h2>PdfPen Class</h2>
+<dl class="dl-horizontal">
+<dt>Module</dt><dd>wijmo.pdf</dd>
+<dt>File</dt><dd>wijmo.pdf.js</dd>
+</dl>
+<p>Determines an object used to stroke paths and text.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(colorOrBrushOrOptions?, width?, dashPattern?, cap?, join?, miterLimit?): <a href="topic/wijmo.pdf.PdfPen.Class.html"><b>PdfPen</b></a></td>
+      <td><p>
+<b>colorOrBrushOrOptions?</b> (<b>any</b>): The color or brush or JavaScript object to use.<br/><b>width?</b> (<b>number</b>): The width to use.<br/><b>dashPattern?</b> (<a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><b>PdfDashPattern</b></a>): The dash pattern to use.<br/><b>cap?</b> (<a href="topic/wijmo.pdf.PdfLineCapStyle.Enum.html"><b>PdfLineCapStyle</b></a>): The line cap style to use.<br/><b>join?</b> (<a href="topic/wijmo.pdf.PdfLineJoinStyle.Enum.html"><b>PdfLineJoinStyle</b></a>): The line join style to use.<br/><b>miterLimit?</b> (<b>number</b>): The miter limit to use.<br/></p>
+</td>
+      <td><p>Initializes a new instance of the <a href="topic/wijmo.pdf.PdfPen.Class.html"><b>PdfPen</b></a> class with the specified color or
+brush or JavaScript object.</p>
+
+<p>The first argument can accept the following values:
+<ul>
+ <li><a href="topic/wijmo.Color.Class.html"><b>Color</b></a> object or any string acceptable by the <b>fromString</b> method.</li>
+ <li><a href="topic/wijmo.pdf.PdfBrush.Class.html"><b>PdfBrush</b></a> object.</li>
+ <li>JavaScript object containing initialization properties (all other arguments are ignored).</li>
+</ul></p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>brush</b></td>
+      <td><a href="topic/wijmo.pdf.PdfBrush.Class.html"><b>PdfBrush</b></a></td>
+      <td>Gets or sets the brush used to stroke paths.
+Takes precedence over the <b>color</b> property, if defined.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>cap</b></td>
+      <td><a href="topic/wijmo.pdf.PdfLineCapStyle.Enum.html"><b>PdfLineCapStyle</b></a></td>
+      <td>Gets or sets the shape that shall be used at the open ends of a stroked path.
+The default value is <b>Butt</b>.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>color</b></td>
+      <td><a href="topic/wijmo.Color.Class.html"><b>Color</b></a></td>
+      <td>Gets or sets the color used to stroke paths.
+The default color is black.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>dashPattern</b></td>
+      <td><a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><b>PdfDashPattern</b></a></td>
+      <td>Gets the dash pattern used to stroke paths.
+The default value is a solid line.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>join</b></td>
+      <td><a href="topic/wijmo.pdf.PdfLineJoinStyle.Enum.html"><b>PdfLineJoinStyle</b></a></td>
+      <td>Gets or sets the shape to be used at the corners of a stroked path.
+The default value is <b>Miter</b>.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>miterLimit</b></td>
+      <td><b>number</b></td>
+      <td>Determines the maximum value of the miter length to the line width ratio, when the line
+join is converted from miter to bevel.
+The default value is 10.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>width</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the line width used to stroke paths, in points.
+The default width is 1.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>clone</b>&#8203;(): <a href="topic/wijmo.pdf.PdfPen.Class.html"><b>PdfPen</b></a></td>
+      <td></td>
+      <td>Creates a copy of this <a href="topic/wijmo.pdf.PdfPen.Class.html"><b>PdfPen</b></a>.<br/><br/><b>Returns</b> A copy of this pen.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>equals</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (<a href="topic/wijmo.pdf.PdfPen.Class.html"><b>PdfPen</b></a>): <a href="topic/wijmo.pdf.PdfPen.Class.html"><b>PdfPen</b></a> to compare.<br/></p>
+</td>
+      <td>Determines whether the specified <a href="topic/wijmo.pdf.PdfPen.Class.html"><b>PdfPen</b></a> instance is equal to the current one.<br/><br/><b>Returns</b> true if the specified object is equal to the current one, otherwise false.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

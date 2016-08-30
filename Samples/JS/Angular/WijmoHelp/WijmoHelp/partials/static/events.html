@@ -1,0 +1,67 @@
+﻿<h2>
+    Wijmo and HTML Events</h2>
+<p>
+    HTML5 has an eventing mechanism that works for HTML elements, but cannot be used to 
+    add events to arbitrary objects, such as controls and collections.</p>
+<p>
+    Because of this, Wijmo defines an <b>Event</b> class that is used for implementing
+    all events for all Wijmo classes. 
+    The main differences between Wijmo and HTML events are:</p>
+<ol>
+    <li>
+        Wijmo events may be declared by any class (not just HTML elements).</li>
+    <li>
+        Wijmo events are lighter than HTML events, because do not have routing (capturing and bubbling).
+        They target only the object that declared the event.</li>
+    <li>
+        You can add and remove Wijmo event handlers by calling the event's <b>addHandler</b> and 
+        <b>removeHandler</b> methods (as opposed to the <b>addEventListener</b> and 
+        <b>removeEventListner</b> methods used with HTML events).</li>
+    <li>
+        Every Wijmo event handler takes two parameters: (a) the event sender, and (b) the event arguments.</li>
+    <li>
+        Wijmo follows a pattern where event "XYZ" is raised by a corresponding method "onXYZ", which can be 
+        overridden by derived classes to handle the event without attaching any handlers or to customize 
+        or even suppress the event.</li>
+</ol>
+
+<p>
+    Wijmo events do not replace HTML events. Applications typically use both. 
+    HTML events are used to handle mouse and keyboard interactions that target a control's <b>hostElement</b> 
+    or elements defined in the control template.
+    Wijmo events are used to handle control-specific events that are not directly related to the DOM. 
+    For example, <b>valueChanged</b> or <b>rowAdded</b>.</p>
+<p>
+    The example below shows how you can add handlers to HTML and Wijmo events on an <b>InputNumber</b>
+    control using plain JavaScript:</p>
+
+<pre>// create the control
+var ctl = new wijmo.input.InputNumber('#inputNumber');
+
+// attach a Wijmo event handler
+ctl.valueChanged.addHandler(function (s, e) {
+    console.log('the value has changed to ' + s.value);
+});
+
+// attach an HTML event handler
+ctl.addEventListener(ctl.hostElement, 'keypress', function(e) {
+    console.log('you pressed ' + e.charCode);
+});</pre>
+
+<p>
+    The example above shows the syntax using plain JavaScript. Applications that use frameworks such
+    as Angular, Knockout, Aurelia, or Vue have to use the syntax dictated by the framework.</p>
+<p>
+    For example, an Angular 1.x would attach a handler to the <b>valueChanged</b> Wijmo event this way:</p>
+<pre>&lt;wj-input-number
+    value-changed="myValueChangedEventHander(s, e)"&gt;...</pre>
+
+<p>
+    In Angular2, you would do this instead:</p>
+<pre>&lt;wj-input-number #theControl
+    (value-changed)="myValueChangedEventHander(theControl, $event)"&gt;...</pre>
+
+<p>
+    To find out more about HTML and Wijmo events, please see our
+    <a href="http://wijmo.com/blog/html-and-wijmo-events/">HTML and Wijmo Events</a> blog
+    and the documentation for the <a href="topic/wijmo.Event.Class.html">Event</a> class.</p>

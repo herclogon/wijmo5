@@ -1,0 +1,271 @@
+﻿<div>
+    <div class="header">
+        <div class="container">
+            <h1>
+                <img src="resources/finance.png"/> Wijmo Stock (Angular 2)
+            </h1>
+            <p>
+                This application was developed using <a href="http://www.wijmo.com">GrapeCity’s Wijmo 5 controls</a>
+                and shows advanced functionality of Wijmo FinancialChart.
+            </p>
+            <p>
+                The sample uses the FinancialChart to display and compare quote information.
+                The various advanced financial charting features are also demonstrated including
+                markers, trend lines, annotations and data range selector.
+            </p>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>
+                    <span id="quotename" [style.color]="mainquote?.color">{{mainquote?.name}}</span>
+                    <span id="quoteinfo" style="font-size:1.5em">{{mainquote?.price}}</span>
+                    <span id="quotename" [style.color]="mainquote?.changeColor">{{mainquote?.changePrice}}</span>
+                    <div class="portfolio-search pull-right" ng-cloak>
+                        <wj-auto-complete [itemsSourceFunction]="searchCompany"
+                                          displayMemberPath="symbolName"
+                                          selectedValuePath="symbol"
+                                          [(selectedValue)]="portfolio.mainItemSymbol"
+                                          [showDropDownButton]="false"
+                                          placeholder="Go To symbol">
+                        </wj-auto-complete>
+                        <span>
+                            <button type="button" class="btn btn-primary"
+                                    [disabled]="!portfolio.canAddMainItem()"
+                                    (click)="portfolio.addMainQuote()">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </h4>
+            </div>
+        </div>
+        <div class="panel panel-default chartcontainer">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="portfolio-search col-md-3">
+                        <wj-auto-complete [itemsSourceFunction]="searchCompany"
+                                          displayMemberPath="symbolName"
+                                          selectedValuePath="symbol"
+                                          [(selectedValue)]="portfolio.newItemSymbol"
+                                          [showDropDownButton]="false"
+                                          placeholder="Add Comparison: symbol">
+                        </wj-auto-complete>
+                        <span>
+                            <button type="button" class="btn btn-primary"
+                                    (click)="portfolio.addNewItem()"
+                                    [disabled]="!portfolio.canAddNewItem()">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </span>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="btn-group btn-group-xs">
+                            <button type="button" class="btn btn-default" (click)="chartPeriodChange(2)" [class.active]="portfolio.chartPeriod === 2">1m</button>
+                            <button type="button" class="btn btn-default" (click)="chartPeriodChange(3)" [class.active]="portfolio.chartPeriod === 3">3m</button>
+                            <button type="button" class="btn btn-default" (click)="chartPeriodChange(4)" [class.active]="portfolio.chartPeriod === 4">6m</button>
+                            <button type="button" class="btn btn-default" (click)="chartPeriodChange(5)" [class.active]="portfolio.chartPeriod === 5">YTD</button>
+                            <button type="button" class="btn btn-default" (click)="chartPeriodChange(6)" [class.active]="portfolio.chartPeriod === 6">1y</button>
+                            <button type="button" class="btn btn-default" (click)="chartPeriodChange(7)" [class.active]="portfolio.chartPeriod === 7">2y</button>
+                            <button type="button" class="btn btn-default" (click)="chartPeriodChange(8)" [class.active]="portfolio.chartPeriod === 8">3y</button>
+                            <button type="button" class="btn btn-default" (click)="chartPeriodChange(9)" [class.active]="portfolio.chartPeriod === 9">All</button>
+                        </div>
+                        {{dateRange}}
+                        <button type="button" class="btn btn-primary"
+                                (click)="portfolio.reset()"
+                                [disabled]="portfolio.displayChartSeriesNum <= 1">
+                            Reset
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-default" title="Show Volume" [class.active]="volSeriesIsVisible"
+                                    (click)="volSeriesIsVisible = !volSeriesIsVisible">
+                                <span class="glyphicon glyphicon-stats"></span>
+                            </button>
+                            <wj-menu [(value)]="chartType" header="Chart Type" *ngIf="portfolio.displayChartSeriesNum === 1">
+                                <wj-menu-item value="Line">Line</wj-menu-item>
+                                <wj-menu-item value="Area">Area</wj-menu-item>
+                                <wj-menu-item value="Candlestick">Candlestick</wj-menu-item>
+                                <wj-menu-item value="HighLowOpenClose">HLOC</wj-menu-item>
+                            </wj-menu>
+                            <wj-menu header="Export To" #exportMenu (itemClicked)="exportImage(exportMenu)" [isRequired]="false">
+                                <wj-menu-item value="png">PNG</wj-menu-item>
+                                <wj-menu-item value="jpeg">JPEG</wj-menu-item>
+                                <wj-menu-item value="svg">SVG</wj-menu-item>
+                            </wj-menu>
+                        </div>
+                    </div>
+                </div>
+                <div class="row moving-average">
+                    <div class="col-md-12">
+                        <label for="checkboxShowMovingAverage">Moving Average </label>
+                        <input type="checkbox" id="checkboxShowMovingAverage" [(ngModel)]="showMovingAverage" />
+                        <wj-menu [(value)]="movingAverageType" header="Type" text="movingAverageType" *ngIf="showMovingAverage">
+                            <wj-menu-item value="Simple">Simple</wj-menu-item>
+                            <wj-menu-item value="Weighted">Weighted</wj-menu-item>
+                            <wj-menu-item value="Exponential">Exponential</wj-menu-item>
+                            <wj-menu-item value="Triangular">Triangular</wj-menu-item>
+                        </wj-menu>
+                        <label class="period" for="inputPeriod" *ngIf="showMovingAverage">Period:</label>
+                        <wj-input-number class="period" #inputPeriod (valueChanged)="periodChanged(inputPeriod)" 
+                                         [value]="10" *ngIf="showMovingAverage"
+                                         [min]="2"
+                                         [max]="200"
+                                         [step]="1"
+                                         format="n0">
+                        </wj-input-number>
+                        <div class="pull-right">
+                            <label for="checkboxShowLineMarker">Line Marker </label>
+                            <input type="checkbox" id="checkboxShowLineMarker" [(ngModel)]="showLineMarker" />
+                            <label for="checkboxShowAnnotation">News </label>
+                            <input type="checkbox" id="checkboxShowAnnotation" [(ngModel)]="showAnnotation" />
+                        </div>
+                    </div>
+                </div>
+                <div class="stock-info">
+                    <div>
+                        <template ngFor let-item [ngForOf]="portfolio.view.items" let-i="index">
+                            <label [style.color]="item.color" [attr.for]="item.symbol" *ngIf="i >= 2">{{item.symbol}}: </label>
+                            <input type="checkbox" [(ngModel)]="item.chart" id="{{item.symbol}}" *ngIf="i >= 2"/>
+                        </template>
+                    </div>
+                    <span class="pull-right" id="detail" *ngIf="details && details.length" [innerHTML]="details"></span>
+                </div>
+            </div>
+            <wj-flex-chart #stChart
+                           class="stchart"
+                           plotMargin="NaN 100 NaN 50"
+                           chartType="Line"
+                           binding="close"
+                           bindingX="date"
+                           [symbolSize]="4"
+                           (rendered)="stChartRendered()"
+                           selectionMode="None">
+                <wj-flex-chart-legend position="None"></wj-flex-chart-legend>
+                <wj-flex-chart-axis wjProperty="axisX" [axisLine]="false"
+                                    labelAlign="left"></wj-flex-chart-axis>
+                <wj-flex-chart-axis wjProperty="axisY" [axisLine]="false"
+                                    [format]="portfolio.displayChartSeriesNum >= 2 ? 'p0' : undefined"
+                                    position="Right"></wj-flex-chart-axis>
+                <wj-flex-chart-series #volSeries *ngIf="portfolio.view.items && portfolio.view.items.length > 1"
+                                      [itemsSource]="portfolio.view.items[1].chartData"
+                                      binding="volume"
+                                      name="vol"
+                                      [axisY]="volYAxis"
+                                      [visibility]="volSeriesIsVisible ? 'Visible' : 'Hidden'"
+                                      [style]="{ stroke: portfolio.view.items[1].color, fill: portfolio.view.items[1].color }"
+                                      chartType="Column">
+                </wj-flex-chart-series>
+                <template ngFor let-item [ngForOf]="portfolio.view.items" let-i="index">
+                    <wj-flex-chart-series *ngIf="i > 0 && item.chart && portfolio.displayChartSeriesNum === 1"
+                                          [itemsSource]="item.chartData"
+                                          [binding]="chartType === 'Line' || chartType === 'Area' ? 'close' : 'high,low,open,close'"
+                                          [name]="item.symbol"
+                                          [style]="{ stroke: item.color, fill: item.color, 'fill-opacity': portfolio.displayChartSeriesNum === 1 && chartType === 'Area' ? 0.25 : 1 }"
+                                          [chartType]="chartType">
+                    </wj-flex-chart-series>
+                    <wj-flex-chart-series *ngIf="i > 0 && item.chart && (portfolio.displayChartSeriesNum < 1 || portfolio.displayChartSeriesNum > 1)"
+                                          [itemsSource]="item.chartData"
+                                          binding="closeChg"
+                                          [name]="item.symbol"
+                                          [style]="{ stroke: item.color, fill: item.color, 'fill-opacity': portfolio.displayChartSeriesNum === 1 && chartType === 'Area' ? 0.25 : 1 }"
+                                          chartType="Line">
+                    </wj-flex-chart-series>
+                </template>
+                <template ngFor let-item [ngForOf]="portfolio.view.items" let-i="index">
+                    <wj-flex-chart-moving-average *ngIf="i > 0 && showMovingAverage && item.chart && (movingAveragePeriod < item.analysisData.slice(item.analysisData.length - item.chartData.length - movingAveragePeriod + 1 >= 0 ? item.analysisData.length - item.chartData.length - movingAveragePeriod + 1 : 0, item.analysisData.length - 1).length)"
+                                                  [itemsSource]="item.getMAData(movingAveragePeriod)"
+                                                  [binding]="portfolio.displayChartSeriesNum === 1 ? 'close' : 'closeChg'"
+                                                  [period]="movingAveragePeriod"
+                                                  [name]="'ma' + i"
+                                                  [type]="movingAverageType">
+                    </wj-flex-chart-moving-average>
+                </template>
+                <wj-flex-line-marker #hMarker *ngIf="showLineMarker && hasData"
+                                     lines="Horizontal"
+                                     [isVisible]="markerVisible"
+                                     interaction="Move"
+                                     [horizontalPosition]="1"
+                                     [content]="changeYContent()">
+                </wj-flex-line-marker>
+                <wj-flex-line-marker #vMarker *ngIf="showLineMarker && hasData"
+                                     lines="Vertical"
+                                     [isVisible]="markerVisible"
+                                     interaction="Move"
+                                     [verticalPosition]="1"
+                                     [content]="changeXContent()">
+                </wj-flex-line-marker>
+                <wj-flex-chart-annotation-layer #al>
+                    <wj-flex-chart-annotation-text name="waterMarker" 
+                                                   attachment="Relative"
+                                                   [point]="{x: 0.5, y: 0.5}"
+                                                   text="NO DATA"
+                                                   [isVisible]="!hasData"
+                                                   [style]="{fill: '#B45F04', 'fill-opacity': 0.1, 'stroke': 'rgba(124,240,10,0.2)', 'font-size': '100px'}">
+                    </wj-flex-chart-annotation-text>
+                    <template *ngIf="!showLineMarker" ngFor let-ser [ngForOf]="stChart.series" let-i="index">
+                        <wj-flex-chart-annotation-circle *ngIf="ser.binding !== 'volume' && ser.type == null"
+                                                         [name]="ser.name"
+                                                         [seriesIndex]="i"
+                                                         position="Center"
+                                                         attachment="DataIndex"
+                                                         [radius]="3.5"
+                                                         [isVisible]="!showLineMarker && hasData && markerVisible"
+                                                         [style]="{fill: ser.style.stroke, stroke: ser.style.stroke}">
+                        </wj-flex-chart-annotation-circle>
+                    </template>
+                    <template *ngIf="hasData && showAnnotation && portfolio.view.items[1] && portfolio.view.items[1].events" ngFor let-event [ngForOf]="portfolio.view.items[1].events" let-i="index">
+                        <wj-flex-chart-annotation-square *ngIf="getPointIndex(event.date)"
+                                                         [seriesIndex]="stChart.series[0].binding === 'volume' ? 1 : 0"
+                                                         position="Center"
+                                                         attachment="DataIndex"
+                                                         [isVisible]="showAnnotation"
+                                                         content="N"
+                                                         [length]="20"
+                                                         [tooltip]="event.title"
+                                                         [pointIndex]="getPointIndex(event.date)"
+                                                         [style]="{fill: '#888888', stroke: '#000000'}">
+                        </wj-flex-chart-annotation-square>
+                    </template>
+                </wj-flex-chart-annotation-layer>
+            </wj-flex-chart>
+            <wj-flex-chart #rsChart
+                           plotMargin="NaN 80 NaN NaN"
+                           class="rschart"
+                           chartType="Line"
+                           binding="close"
+                           (rendered)="rsChartRendered()"
+                           bindingX="date">
+                <wj-flex-chart-axis wjProperty="axisX"
+                                    labelAlign="left"></wj-flex-chart-axis>
+                <wj-flex-chart-axis wjProperty="axisY"
+                                    [labels]="false" [majorGrid]="false"></wj-flex-chart-axis>
+                <wj-flex-chart-series *ngIf="portfolio.view.items && portfolio.view.items[0] && portfolio.view.items[0].fullChartData.length > 0"
+                                      [itemsSource]="portfolio.view.items[0].fullChartData"
+                                      [style]="{ stroke: portfolio.view.items[0].color }">
+                </wj-flex-chart-series>
+                <wj-flex-chart-range-selector #rangeSelector
+                                              [seamless]="true"
+                                              (rangeChanged)="rangeChanged($event)">
+                </wj-flex-chart-range-selector>
+            </wj-flex-chart>
+        </div>
+
+        <div class="overlap" *ngIf="portfolio.requestNum !== 0"></div>
+    </div>
+    <footer class="container">
+        <p>
+            &copy; 2015 GrapeCity, inc. Rights Reserved.
+        </p>
+        <p>
+            All product and company names herein may be trademarks of their respective owners.
+        </p>
+        <p>
+            Contact: <a href="mailto:sales@wijmo.com">sales@wijmo.com</a> - <a href="http://wijmo.com">http://wijmo.com</a>
+        </p>
+    </footer>
+    <br />
+</div>

@@ -1,0 +1,64 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            MultiSelect
+        </h3>
+        <p>
+            The <a href="http://wijmo.com/5/docs/topic/wijmo.input.MultiSelect.Class.html"
+                   target="_blank">MultiSelect</a> control allows you to select multiple items
+            from drop-down lists that contain custom objects or simple strings.
+        </p>
+        <p>
+            The <b>MultiSelect</b> control extends <b>ComboBox</b>, so the object model
+            should be familiar to Wijmo developers.
+            The main properties are <b>itemsSource</b>, <b>displayMemberPath</b>, and
+            <b>checkedMemberPath</b>.
+            The items currently selected can be obtained using the <b>checkedItems</b> property.
+        </p>
+        <p>
+            The control header is fully customizable. By default, it shows up to two items
+            selected and the item count after that. You can change the maximum number of
+            items to display, the message shown when no items are selected, and the format string
+            used to show the item count. Or you can provide a function to generate the header
+            content based on the current selection.
+        </p>
+        <p>
+            Notice how the drop-down list supports the keyboard, including auto-search.
+        </p>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <p>Here is a <b>MultiSelect</b> bound to a collection of objects:</p>
+                <wj-multi-select #multisel1
+                                 [placeholder]="'Select Countries'"
+                                 class="multiselect"
+                                 [itemsSource]="items"
+                                 [headerFormat]="'{count} countries selected'"
+                                 [displayMemberPath]="'country'"
+                                 [checkedMemberPath]="'selected'">
+                </wj-multi-select>
+                <ol>
+                    <li *ngFor="let item of multisel1.checkedItems">
+                        {{item.country}}
+                    </li>
+                </ol>
+            </div>
+
+            <div class="col-md-6">
+                <p>Here is a <b>MultiSelect</b> bound to an array of strings:</p>
+                <wj-multi-select #multisel2
+                                 [placeholder]="'Select Some Countries'"
+                                 class="multiselect"
+                                 [itemsSource]="countries"
+                                 [headerFormat]="'{count} countries selected'">
+                </wj-multi-select>
+                <ol>
+                    <li *ngFor="let item of multisel2.checkedItems">
+                        {{item}}
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>

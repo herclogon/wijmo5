@@ -1,0 +1,125 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Popup
+        </h3>
+        <p>
+            The <a href="http://wijmo.com/5/docs/topic/wijmo.input.Popup.Class.html"
+                   target="_blank">Popup</a> control can be used to display arbitrary
+            content as dialogs (centered on the screen, without an owner element), or as
+            'popovers' (located relative to an owner element).
+        </p>
+
+        <h4>
+            Dialogs (Popups with no owner)
+        </h4>
+        <p>
+            Dialogs are <b>Popups</b> with no owner element. They must be shown by calling the
+            <b>show</b> method.
+        </p>
+        <p>
+            Dialogs can be modal or modeless. Modal dialogs have a dark backdrop, and
+            if their <b>hideTrigger</b> property is set to <b>None</b>, they cannot
+            lose focus and must be dismissed by the user, either by pressing escape
+            or by clicking an element on the dialog itself.
+        </p>
+        <p>
+            Notice how input elements automatically get the focus when the dialog is
+            displayed.
+        </p>
+
+        <!-- define dialogs -->
+        <wj-popup class="col-md-6 modal-content" #frmLogIn>
+            <frm-log-in-cmp (submit)="frmLogIn.hide()" (createAccount)="showDialog(frmCreateAccount)"></frm-log-in-cmp>
+        </wj-popup>
+        <wj-popup class="col-md-6 modal-content" #frmCreateAccount>
+            <frm-create-account-cmp (submit)="frmCreateAccount.hide()"></frm-create-account-cmp>
+        </wj-popup>
+        <wj-popup class="col-md-6 modal-content" #frmEditAccount>
+            <frm-edit-account-cmp (submit)="frmEditAccount.hide()"></frm-edit-account-cmp>
+        </wj-popup>
+
+        <!-- buttons to show dialogs -->
+        <button class="btn btn-default" (click)="showDialog(frmLogIn)">log in</button>
+        <button class="btn btn-default" (click)="showDialog(frmCreateAccount)">create account</button>
+        <button class="btn btn-default" (click)="showDialog(frmEditAccount)">edit account</button>
+        <br />
+        <label>Modal <input type="checkbox" [(ngModel)]="modal" /></label>
+        <br />
+
+        <h4>
+            Popovers (Popups with owner elements)
+        </h4>
+        <p>
+            <b>Popups</b> may have owner elements that can be used to control their visibility.
+            The <b>showTrigger</b> and <b>hideTrigger</b> properties determine whether the
+            <b>Popups</b> should be shown or hidden when the owner element is clicked or when
+            the popup loses the focus.
+        </p>
+
+        <!-- first element with popup -->
+        <button #btn1 type="button" class="btn btn-primary">
+            Click to toggle Popup
+            <br>
+            <small>(showTrigger=hideTrigger=Click)</small>
+        </button>
+        <wj-popup class="popover" [owner]="btn1" [showTrigger]="'Click'" [hideTrigger]="'Click'">
+            <!-- popover with a title and multi-line body -->
+            <h3 class="popover-title">
+                Title
+            </h3>
+            <div class="popover-content">
+                Hello Popup<br />
+                This is a multi-line message!
+            </div>
+        </wj-popup>
+
+        <!-- second element with popup -->
+        <button #btn2 type="button" class="btn btn-primary">
+            Click to show Popup
+            <br>
+            <small>(showTrigger=Click, hideTrigger=Blur)</small>
+        </button>
+        <wj-popup class="popover" [owner]="btn2" [showTrigger]="'Click'" [hideTrigger]="'Blur'">
+            <!-- popover with a title and multi-line body -->
+            <h3 class="popover-title">
+                Title
+            </h3>
+            <div class="popover-content">
+                Hello Popup<br />
+                This is a multi-line message!
+            </div>
+        </wj-popup>
+
+        <!-- third element with popup -->
+        <button #btn3 type="button" class="btn btn-primary">
+            Click to show Popup form
+            <br>
+            <small>(showTrigger=Click, hideTrigger=None)</small>
+        </button>
+        <wj-popup class="popover" [owner]="btn3" [showTrigger]="'Click'" [hideTrigger]="'None'">
+            <!-- popover with a form -->
+            <h3 class="popover-title">
+                Title
+            </h3>
+            <div class="popover-content">
+                <form name="popoverForm">
+                    <p>Hello Popup<br />This is a multiline message!</p>
+                    <pre>2 + 3 = <span class="">5</span></pre>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">@</div>
+                            <input class="form-control" type="email" placeholder="Enter email">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-danger wj-hide">Close</button>
+                        <button type="button" class="btn btn-primary wj-hide">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </wj-popup>
+
+    </div>
+
+</div>

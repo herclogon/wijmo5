@@ -1,0 +1,69 @@
+<h2>WjComboBox Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjDropDown</b></dd>
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.angular.WjAutoComplete.Class.html"><b>WjAutoComplete</b></a>, <a href="topic/wijmo.angular.WjInputTime.Class.html"><b>WjInputTime</b></a>, <a href="topic/wijmo.angular.WjMenu.Class.html"><b>WjMenu</b></a>, <a href="topic/wijmo.angular.WjMultiSelect.Class.html"><b>WjMultiSelect</b></a></dd>
+<dt>Module</dt><dd>wijmo.angular</dd>
+<dt>File</dt><dd>wijmo.angular.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>AngularJS directive for the <a href="topic/wijmo.input.ComboBox.Class.html"><b>ComboBox</b></a> control.</p>
+
+<p>Use the <b>wj-combo-box</b> directive to add <b>ComboBox</b> controls to your AngularJS applications. 
+Note that directive and parameter names must be formatted as lower-case with dashes 
+instead of camel-case. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a ComboBox control:&lt;/p&gt;
+&lt;wj-combo-box 
+  text="theCountry" 
+  items-source="countries"
+  is-editable="false" 
+  placeholder="country"&gt;
+&lt;/wj-combo-box&gt;</pre></p>
+
+<p>The example below creates a <b>ComboBox</b> control and binds it to a 'countries' array
+exposed by the controller. The <b>ComboBox</b> searches for the country as the user
+types. The <b>isEditable</b> property is set to false, so the user is forced to
+select one of the items in the list.</p>
+
+<p><a href="http://jsfiddle.net/Wijmo5/37GHw/" target="_blank" class="btn btn-info">
+  <img src="images/fiddle.png"/>
+  Live Example
+</a>
+</p>
+
+<p>The <b>wj-combo-box</b> directive supports the following attributes:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>ng-model</dt>      <dd><code>@</code> Binds the control's <b>selectedValue</b> property using the ng-model Angular 
+                         directive. Binding the property using the ng-model directive provides standard benefits 
+                         like validation, adding the control's state to the form instance, and so on. To redefine 
+                         properties on a control that is bound by the ng-model directive, use the wj-model-property 
+                         attribute.</dd>
+  <dt>wj-model-property</dt>  <dd><code>@</code> Specifies a control property that is bound to a scope using the 
+                              <b>ng-model</b> directive.</dd>
+  <dt>control</dt>              <dd><code>=</code> A reference to the <b>ComboBox</b> control created by this directive.</dd>
+  <dt>display-member-path</dt>  <dd><code>@</code> The name of the property to use as the visual representation of the items.</dd>
+  <dt>is-content-html</dt>      <dd><code>@</code> A value indicating whether the drop-down list displays the items as plain text or as HTML.</dd>
+  <dt>is-dropped-down</dt>      <dd><code>@</code> A value indicating whether the drop down list is currently visible.</dd>
+  <dt>is-editable</dt>          <dd><code>@</code> A value indicating whether the user can enter values not present on the list.</dd>
+  <dt>initialized</dt>          <dd><code>&</code> This event occurs after the binding has finished initializing the control with attribute values.</dd>
+  <dt>is-initialized</dt>       <dd><code>=</code> A value indicating whether the binding has finished initializing the control with attribute values.</dd>
+  <dt>item-formatter</dt>       <dd><code>=</code> A function used to customize the values shown in the drop-down list.</dd>
+  <dt>items-source</dt>         <dd><code>=</code> An array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> that contains items to show in the list.</dd>
+  <dt>max-drop-down-height</dt> <dd><code>@</code> The maximum height of the drop-down list.</dd>
+  <dt>max-drop-down-width</dt>  <dd><code>@</code> The maximum width of the drop-down list.</dd>
+  <dt>placeholder</dt>          <dd><code>@</code> A string shown as a hint when the control is empty.</dd>
+  <dt>is-required</dt>          <dd><code>@</code> A value indicating whether to prevent null values.</dd>
+  <dt>show-drop-down-button</dt><dd><code>@</code> A value indicating whether the control displays a drop-down button.</dd>
+  <dt>selected-index</dt>       <dd><code>=</code> The index of the currently selected item in the drop-down list.</dd>
+  <dt>selected-item</dt>        <dd><code>=</code> The currently selected item in the drop-down list.</dd>
+  <dt>selected-value</dt>       <dd><code>=</code> The value of the selected item, obtained using the <b>selected-value-path</b>.</dd>
+  <dt>selected-value-path</dt>  <dd><code>@</code> The name of the property used to get the <b>selected-value</b> from the <b>selected-item</b>.</dd>
+  <dt>text</dt>                 <dd><code>=</code> The text to show in the control.</dd>
+  <dt>is-dropped-down-changing</dt> <dd><code>&</code> The <b>isDroppedDownChanging</b> event handler.</dd>
+  <dt>is-dropped-down-changed</dt>  <dd><code>&</code> The <b>isDroppedDownChanged</b> event handler.</dd>
+  <dt>selected-index-changed</dt>   <dd><code>&</code> The <b>selectedIndexChanged</b> event handler.</dd>
+  <dt>got-focus</dt>            <dd><code>&</code> The <b>gotFocus</b> event handler.</dd>
+  <dt>lost-focus</dt>           <dd><code>&</code> The <b>lostFocus</b> event handler.</dd>
+  <dt>text-changed</dt>         <dd><code>&</code> The <b>textChanged</b> event handler.</dd>
+</dl></p></p>

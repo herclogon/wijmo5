@@ -1,0 +1,103 @@
+<h2>Module wijmo.grid.detail</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd>wijmo.grid.detail.js</dd>
+</dl>
+<p>Extension that provides detail rows for <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> controls.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
+<span class="glyph-collapsed" ng-show="hideClasses"></span>
+<span class="glyph-expanded" ng-hide="hideClasses"></span>
+Classes
+</h3>
+</div>
+<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.detail.DetailMergeManager.Class.html"><b>DetailMergeManager</b></a></td>
+      <td><p>Merge manager class used by the <a href="topic/wijmo.grid.detail.FlexGridDetailProvider.Class.html"><b>FlexGridDetailProvider</b></a> class.</p>
+
+<p>The <b>DetailMergeManager</b> merges detail cells (cells in a <a href="topic/wijmo.grid.detail.DetailRow.Class.html"><b>DetailRow</b></a>)
+into a single detail cell that spans all grid columns.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.detail.DetailRow.Class.html"><b>DetailRow</b></a></td>
+      <td>Row that contains a single detail cell spanning all grid columns.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.detail.FlexGridDetailProvider.Class.html"><b>FlexGridDetailProvider</b></a></td>
+      <td><p>Implements detail rows for <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> controls.</p>
+
+<p>To add detail rows to a <b>FlexGrid</b> control, create an instance of a
+<b>FlexGridDetailProvider</b> and set the <b>createDetailCell</b> property
+to a function that creates elements to be displayed in the detail cells.</p>
+
+<p>For example:</p>
+
+<p><pre>// create FlexGrid to show categories
+var gridCat = new wijmo.grid.FlexGrid('#gridCat');
+gridCat.itemsSource = getCategories();
+// add detail rows showing products in each category
+var detailProvider = new wijmo.grid.detail.FlexGridDetailProvider(gridCat);
+detailProvider.createDetailCell = function (row) {
+  var cell = document.createElement('div');
+  var gridProducts = new wijmo.grid.FlexGrid(cell);
+  gridProducts.itemsSource = getProducts(row.dataItem.CategoryID);
+  return cell;
+}</pre></p>
+
+<p>The <b>FlexGridDetailProvider</b> provides a <b>detailVisibilityMode</b> property
+that determines when the detail rows should be displayed. The default value for
+this property is <b>ExpandSingle</b>, which adds collapse/expand icons to the
+row headers.</p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEnumerations = !hideEnumerations">
+<span class="glyph-collapsed" ng-show="hideEnumerations"></span>
+<span class="glyph-expanded" ng-hide="hideEnumerations"></span>
+Enumerations
+</h3>
+</div>
+<table ng-hide="hideEnumerations" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.detail.DetailVisibilityMode.Enum.html"><b>DetailVisibilityMode</b></a></td>
+      <td>Specifies when and how the row details are displayed.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

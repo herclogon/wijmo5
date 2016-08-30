@@ -1,0 +1,761 @@
+﻿<!-- header -->
+<div class="header">
+    <div class="container">
+        <img src="resources/wijmo5.png" alt="Wijmo 5" />
+        <h1>
+            MultiRow 101
+        </h1>
+        <p>
+            This page shows how to get started with Wijmo's <b>MultiRow</b> control.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- getting started -->
+    <div>
+        <h2>
+            Getting Started
+        </h2>
+        <p>
+            The <b>MultiRow</b> control extends conventional grid layouts by using multiple
+            rows to represent each data item.
+        </p>
+        <p>
+            The <b>MultiRow</b> control allows users to see and edit data in tabular form, like
+            conventional grids. But unlike conventional grids, the <b>MultiRow</b> allows
+            you to bind each data item to multiple rows, creating form-like interfaces that
+            can display a large number of columns with minimal horizontal scrolling.
+        </p>
+        <p>
+            The <b>MultiRow</b> control extends the <b>FlexGrid</b> control, so if you know how
+            to use the <b>FlexGrid</b>, you will be able to use the <b>MultiRow</b> in no time.
+            The main new property is <b>layoutDefinition</b>, which takes an object that
+            describes the layout of the grid rows and cells.
+        </p>
+        <p>
+            The <b>MultiRow</b> control is not a simple replacement for conventional grids;
+            it is a specialized tool that fits some scenarios really well.
+        </p>
+        <p>
+            To use the <b>MultiRow</b> control in your applications, add references to the
+            <b>wijmo</b>, <b>wijmo.grid</b>, and <b>wijmo.grid.multirow</b> modules, then
+            instantiate <b>MultiRow</b> controls by giving them host element on the page,
+            or add <b>wj-multi-row</b> directives if you are using AngularJS:
+        </p>
+
+        <app-tab>
+            <app-tab-pane title="HTML">
+                <div class="pane-content">
+    &lt;script src="node_modules/es6-shim/es6-shim.min.js"&gt;&lt;/script&gt;
+
+    &lt;script src="node_modules/zone.js/dist/zone.js"&gt;&lt;/script&gt;
+    &lt;script src="node_modules/reflect-metadata/Reflect.js"&gt;&lt;/script&gt;
+    &lt;script src="node_modules/systemjs/dist/system.src.js"&gt;&lt;/script&gt;
+
+
+    &lt;!-- Configure SystemJS --&gt;
+    &lt;script src="systemjs.config.js"&gt;&lt;/script&gt;
+
+
+    &lt;!-- JQuery/Bootstrap --&gt;
+    &lt;link rel="stylesheet" type="text/css" href="bin/Devel/external/bootstrap/css/bootstrap.css" /&gt;
+    &lt;link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" /&gt;
+
+    &lt;!-- Wijmo --&gt;
+    &lt;script wj-src="wijmo" src="bin/Devel/loaders/wijmo.load.module.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script wj-src="wijmo.grid" src="bin/Devel/loaders/wijmo.load.module.js"&gt;&lt;/script&gt;
+    &lt;script wj-src="wijmo.grid.multirow" src="bin/Devel/loaders/wijmo.load.module.js"&gt;&lt;/script&gt;
+    &lt;script wj-src="wijmo.input" src="bin/Devel/loaders/wijmo.load.module.js"&gt;&lt;/script&gt;
+    &lt;script wj-src="wijmo.grid.filter" src="bin/Devel/loaders/wijmo.load.module.js"&gt;&lt;/script&gt;
+    &lt;link href="bin/Devel/sources/styles/wijmo.css" rel="stylesheet" /&gt;
+    &lt;!-- Wijmo Angular2 --&gt;
+    &lt;script wj-src="wijmo.angular2" src="bin/Devel/loaders/wijmo.load.module.js" type="text/javascript"&gt;&lt;/script&gt;
+
+    &lt;!-- Load the root application module --&gt;
+    &lt;script&gt;
+        System.import('./src/app');
+    &lt;/script&gt;
+
+    &lt;!-- using AngularJS --&gt;
+    &lt;wj-multi-row [itemsSource]="data" [layoutDefinition]="layoutDef"&gt;
+    &lt;/wj-multi-row&gt;
+   
+    &lt;!-- using pure JS --&gt;
+    &lt;div id="multirow"&gt;&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+                </div>
+            </app-tab-pane>
+            <app-tab-pane title="TS">
+                <div class="pane-content">
+// Angular
+import { Component, EventEmitter, provide, Input, Inject, enableProdMode, ViewChild, AfterViewInit } from '@angular/core';
+import { CORE_DIRECTIVES } from '@angular/common';
+import { bootstrap } from '@angular/platform-browser-dynamic';
+import * as wjMultiRow from 'wijmo/wijmo.angular2.grid.multirow';
+import { DataSvc } from './services/DataSvc';
+
+'use strict';
+
+// The Explorer application root component.
+@Component({
+    selector: 'app-cmp',
+    templateUrl: 'src/app.html',
+    directives: [CORE_DIRECTIVES, wjMultiRow.WjMultiRow,]
+})
+
+
+export class AppCmp{
+    orders: any[];
+
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+        this.orders = dataSvc.orders;
+        this.layoutDefs = dataSvc.layoutDefs;
+
+    }
+}
+
+
+enableProdMode();
+// Bootstrap application with hash style navigation and global services.
+bootstrap(AppCmp, [
+DataSvc
+]);
+                </div>
+            </app-tab-pane>
+        </app-tab>
+    </div>
+
+    <!-- columnLayout -->
+    <div>
+        <h2>
+            MultiRow Layout Definition
+        </h2>
+        <p>
+            The <b>MultiRow</b> control uses multiple rows to display each record.
+            The record layout is defined by the <b>layoutDefinition</b> property.
+        </p>
+        <p>
+            The <b>layoutDefinition</b> property contains an array of cell group objects
+            with the following properties:
+        </p>
+        <ul>
+            <li>
+                <b>header</b>: Group name.
+            </li>
+            <li>
+                <b>colspan</b>: Number of columns spanned by the group (defaults to one).
+            </li>
+            <li>
+                <b>cells</b>: Array of objects representing the cells in the group.
+                Cells are columns with an additional <b>colspan</b> property.
+            </li>
+        </ul>
+        <p>
+            The example below illustrates the usage of the <b>layoutDefiniton</b> property:
+        </p>
+        <p>
+            Now, let's look at the same data shown in a <b>MultiRow</b> control with
+            different layouts. Use the combo box to select a layout definition and how
+            the grid groups the data in different ways. Notice that the <b>MultiRow</b>
+            control provides all the usual grid features, including editing, sorting,
+            filtering, and column sizing:
+        </p>
+
+        <div class="row">
+            <div class="col-md-5">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+     &lt;wj-multi-row [itemsSource]="orders"
+                   [layoutDefinition]="layoutDefs.currentItem.def"&gt;
+     &lt;/wj-multi-row&gt;
+     &lt;wj-combo-box [itemsSource]="layoutDefs"
+                   [displayMemberPath]="'name'"&gt;
+     &lt;/wj-combo-box&gt;
+     &lt;p&gt;
+         {&#8203;{layoutDefs.currentItem.description}&#8203;}
+     &lt;/p&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+// sample layout definitions
+this.layoutDefs = new wijmo.collections.CollectionView([
+    {
+        name: 'Traditional',
+        description: 'Traditional grid view, with one row per record. The user must scroll horizontally to see the whole record.',
+        def: [
+            { cells: [{ binding: 'id', header:'ID' }]},
+            { cells: [{ binding: 'date', header:'Ordered' }]},
+            { cells: [{ binding: 'shippedDate', header:'Shipped' }]},
+            // ... one group per column ...
+        ]
+    },
+    {
+        name: 'Compact',
+        description: 'This view uses two rows per record. The layout is divided into three column groups: order, customer, and shipper',
+        def: [
+            {
+                header: 'Order', colspan: 2, cells: [
+                    { binding: 'id', header: 'ID' },
+                    { binding: 'date', header: 'Ordered' },
+                    { binding: 'amount', header: 'Amount' },
+                    { binding: 'shippedDate', header: 'Shipped' }
+                ]
+            }, 
+            // ... two more groups for customers and shippers ...
+        ]
+    },
+    {
+        name: 'Detailed',
+        description: 'This view uses three rows per record. The layout is divided into three column groups: order, customer, and shipper',
+        def: [
+            {
+                header: 'Order', colspan: 2, cells: [
+                    { binding: 'id', header: 'ID', colspan: 2 },
+                    { binding: 'amount', header: 'Amount', colspan: 2 },
+                    { binding: 'date', header: 'Ordered' },
+                    { binding: 'shippedDate', header: 'Shipped' }
+                ]
+            },
+            // ... two more groups for customers and shippers ...
+        ]
+    }
+]);
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-7">
+                <h4>Result (live):</h4>
+                <wj-multi-row [itemsSource]="orders"
+                              [layoutDefinition]="layoutDefs.currentItem.def">
+                </wj-multi-row>
+                <wj-combo-box [itemsSource]="layoutDefs"
+                              [displayMemberPath]="'name'">
+                </wj-combo-box>
+                <p>
+                    {{layoutDefs.currentItem.description}}
+                </p>
+            </div>
+        </div>
+
+        <p>
+            The <b>layoutDefinition</b> property specifies the layout of the cells in the
+            grid. It contains an array of cell group objects. Each cell group specifies
+            how many columns the group should span, and the cells that make up each group.
+        </p>
+        <p>
+            The image below illustrates how a cell group is interpreted and turned into
+            a grid layout:
+        </p>
+
+        <img src="resources/cellGroup.png" alt="cell group">
+
+        <p>
+            The group spans three grid columns. It contains six cells with different spans.
+            When generating the layout, the grid fits as many cells as possible in each
+            row, and wraps to the next row when the group span is reached. The last cell in
+            each row is automatically expanded to fill the group's <b>colspan</b>.
+            The process is similar to wrapping lines of text to create paragraphs.
+        </p>
+        <p>
+            The same process is applied to every group in the <b>layoutDefinition</b>
+            object.
+    </div>
+
+    <!-- collapsible headers -->
+    <div>
+        <h2>
+            Collapsible Column Headers
+        </h2>
+        <p>
+            By default, the <b>MultiRow</b> control creates column headers that span multiple
+            rows and show the header for each cell defined in the <b>layoutDefinition</b>.
+        </p>
+        <p>
+            These cell-specific column headers may be used to sort or filter the data as
+            you would in regular grids.
+        <p>
+            In some cases, you may want to collapse the column headers to a single line,
+            showing only the group names rather than individual cells. This saves space
+            at the expense of having individual cell headers. To collapse the column
+            headers, set the <b>collapsedHeaders</b> property to true. In these scenarios,
+            remember also to set the <b>header</b> property on the groups so the column
+            headers will not be empty.
+        </p>
+
+        <div class="row">
+            <div class="col-md-5">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+  &lt;wj-multi-row [itemsSource]="orders"
+                [layoutDefinition]="ldThreeLines"
+                [collapsedHeaders]="true"
+                [showHeaderCollapseButton]="true"
+                 #hdrGrid&gt;
+  &lt;/wj-multi-row&gt;
+  &lt;label&gt;
+      &lt;input type="checkbox" [(ngModel)]="hdrGrid.collapsedHeaders"&gt;
+      Collapsed Headers
+  &lt;/label&gt;
+  &lt;br /&gt;
+  &lt;label&gt;
+      &lt;input type="checkbox" [(ngModel)]="hdrGrid.showHeaderCollapseButton"&gt;
+      Show Header Collapse Button
+  &lt;/label&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+  // no code required
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-7">
+                <h4>Result (live):</h4>
+                <wj-multi-row [itemsSource]="orders"
+                              [layoutDefinition]="ldThreeLines"
+                                [collapsedHeaders]="true"
+                              [showHeaderCollapseButton]="true"
+                               #hdrGrid>
+                </wj-multi-row>
+                <label>
+                    <input type="checkbox" [(ngModel)]="hdrGrid.collapsedHeaders">
+                    Collapsed Headers
+                </label>
+                <br />
+                <label>
+                    <input type="checkbox" [(ngModel)]="hdrGrid.showHeaderCollapseButton">
+                    Show Header Collapse Button
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- styling records, groups, and cells -->
+    <div>
+        <h2>
+            Styling Records, Groups, and Cells
+        </h2>
+        <p>
+            In most applications, you will want to show where each record and group start and end.
+            The <b>MultiRow</b> control enables this by adding CSS class names to cell elements
+            in the first and last row and column for each group. The class names are
+            <code>wj-record-start</code>, <code>wj-record-end</code>, <code>wj-group-start</code>,
+            and <code>wj-group-end</code>.
+        </p>
+        <p>
+            The example below shows how you can use these class names in CSS rules to customize
+            the appearance of the record and group delimiters. It also shows how you can use the
+            standard <b>cssClass</b> property to customize the appearance of specific cells
+            within groups:
+        </p>
+
+        <div class="row">
+            <div class="col-md-5">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+  &lt;wj-multi-row class="multirow-css"
+                [itemsSource]="orders"
+                [layoutDefinition]="ldThreeLines"&gt;
+  &lt;/wj-multi-row&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="CSS">
+                        <div class="pane-content">
+/* custom styling for a MultiRow */
+.multirow-css .wj-cell.wj-record-end:not(.wj-header) {
+    border-bottom-color: #8fabff; /* blue lines between records */
+}
+.multirow-css .wj-cell.wj-group-end {
+    border-right-color: #bc5505; /* brown lines between groups */
+}
+.multirow-css .wj-cell.id {
+    color: #c0c0c0;
+}
+.multirow-css .wj-cell.amount { 
+    color: #014701;
+    font-weight: bold;
+}
+.multirow-css .wj-cell.email {
+    color: #0010c0;
+    text-decoration: underline;
+}
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-7">
+                <h4>Result (live):</h4>
+                <wj-multi-row class="multirow-css"
+                              [itemsSource]="orders"
+                              [layoutDefinition]="ldThreeLines">
+                </wj-multi-row>
+            </div>
+        </div>
+    </div>
+
+    <!-- grouping -->
+    <div>
+        <h2>
+            Grouping
+        </h2>
+        <p>
+            The <b>MultiRow</b> control supports <b>CollectionView</b>-based grouping just
+            like the standard <b>FlexGrid</b>.
+            To use grouping, create a <b>CollectionView</b> based on the raw data and add
+            one or more <b>GroupDescription</b> objects to the collection's
+            <b>GroupDescriptions</b> array.
+        </p>
+
+        <div class="row">
+            <div class="col-md-5">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+      &lt;wj-multi-row  [itemsSource]="groupedOrders"
+                    [layoutDefinition]="ldThreeLines"
+                    [groupHeaderFormat]="'City: &lt;b&gt;{value} &lt;/b&gt;({count:n0} items)'"
+                    #groupingGrid&gt;
+      &lt;/wj-multi-row&gt;
+      &lt;label&gt;
+          &lt;input type="checkbox" [(ngModel)]="groupingGrid.showGroups"&gt;
+          Show Groups
+      &lt;/label&gt;
+      &lt;br /&gt;
+      &lt;button class="btn" (click)="groupingGrid.collapseGroupsToLevel(0)"&gt;
+          Collapse All
+      &lt;/button&gt;
+      &lt;button class="btn" (click)="groupingGrid.collapseGroupsToLevel(10)"&gt;
+          Expand All
+      &lt;/button&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+// expose grouped orders to the controller
+this.groupedOrders = new wijmo.collections.CollectionView(orders, {
+        groupDescriptions: [
+            'customer.city',
+        ],
+        newItemCreator: function () {
+            return { // add empty customer and shipper objects to new orders
+                customer: {},
+                shipper: {}
+            }
+        },
+});
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-7">
+                <h4>Result (live):</h4>
+                <wj-multi-row  [itemsSource]="groupedOrders"
+                              [layoutDefinition]="ldThreeLines"
+                              [groupHeaderFormat]="'City: <b>{value} </b>({count:n0} items)'"
+                              #groupingGrid>
+                </wj-multi-row>
+                <label>
+                    <input type="checkbox" [(ngModel)]="groupingGrid.showGroups">
+                    Show Groups
+                </label>
+                <br />
+                <button class="btn" (click)="groupingGrid.collapseGroupsToLevel(0)">
+                    Collapse All
+                </button>
+                <button class="btn" (click)="groupingGrid.collapseGroupsToLevel(10)">
+                    Expand All
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- filtering -->
+    <div>
+        <h2>
+            Filtering
+        </h2>
+        <p>
+            The <b>MultiRow</b> control supports filtering just like the standard <b>FlexGrid</b>.
+        </p>
+        <p>
+            Filtering is provided by the <b>wijmo.grid.filter.FlexGridFilter</b> class.
+            To add a filtering UI to a <b>MultiRow</b>, create a <b>FlexGridFilter</b> and pass
+            the <b>MultiRow</b> as a parameter in the constructor.
+        </p>
+        <p>
+            If you are using AngularJS, you can also add a filter to a grid by embedding a
+            <b>wj-flex-grid-filter</b> directive as a child of the grid's directive.
+        </p>
+
+        <div class="row">
+            <div class="col-md-5">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+  &lt;wj-multi-row [itemsSource]="orders"
+                [layoutDefinition]="ldThreeLines"
+                #filterGrid&gt;
+  &lt;/wj-multi-row&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+                            // add a filter to the MultiRow
+   ngAfterViewInit() {
+       var filter = new wijmo.grid.filter.FlexGridFilter(this.filterGrid);
+   }
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-7">
+                <h4>Result (live):</h4>
+                <wj-multi-row [itemsSource]="orders"
+                              [layoutDefinition]="ldThreeLines"
+                              #filterGrid>
+                </wj-multi-row>
+            </div>
+        </div>
+    </div>
+
+    <!-- freezing -->
+    <div>
+        <h2>
+            Cell Freezing
+        </h2>
+        <p>
+            The <b>MultiRow</b> control allows you to freeze rows and columns so they remain
+            in view as the user scrolls the grid. Frozen cells can be edited and selected as
+            regular cells, exactly as in Excel and in the <b>FlexGrid</b> control.
+        </p>
+        <p>
+            This example allows you to toggle whether the first group of rows and columns should be
+            frozen.
+        </p>
+
+        <div class="row">
+            <div class="col-md-5">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+  &lt;wj-multi-row [itemsSource]="orders"
+                [layoutDefinition]="ldTwoLines"
+                #frozenGrid&gt;
+  &lt;/wj-multi-row&gt;
+  &lt;button class="btn btn-default"
+          (click)="toggleFreeze(2, 2)"&gt;
+      {&#8203;{ frozenGrid.frozenRows == 0 ? 'Freeze' : 'Unfreeze' }&#8203;}
+  &lt;/button&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+        // toggle frozen rows/columns
+ toggleFreeze(rows: number, cols: number) {
+     var flex = this.frozenGrid;
+     if (flex) {
+         flex.frozenColumns = flex.frozenColumns ? 0 : cols;
+         flex.frozenRows = flex.frozenRows ? 0 : rows;
+     }
+ }
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="CSS">
+                        <div class="pane-content">
+  /* custom styling for frozen cells */
+  .wj-cell.wj-frozen:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected) {
+        background-color: #f3fbcc;
+  }
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-7">
+                <h4>Result (live):</h4>
+                <wj-multi-row [itemsSource]="orders"
+                              [layoutDefinition]="ldTwoLines"
+                              #frozenGrid>
+                </wj-multi-row>
+                <button class="btn btn-default"
+                        (click)="toggleFreeze(2, 2)">
+                    {{ frozenGrid.frozenRows == 0 ? 'Freeze' : 'Unfreeze' }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- paging -->
+    <div>
+        <h2>
+            Paging
+        </h2>
+        <p>
+            The <b>MultiRow</b> control supports paging through the <b>IPagedCollectionView</b> interface,
+            which is nearly identical to the one in .NET. To enable paging, set the
+            <b>IPagedCollectionView.pageSize</b> property to the number of items you want on each page,
+            and provide a UI for navigating the pages.
+        </p>
+        <p>
+            In this example, we use JavaScript to show four items per page. We add navigation buttons,
+            and call <b>IPagedCollectionView</b> methods in the button click directives. We use the
+            <b>pageIndex</b> and <b>pageCount</b> properties to show the current page and total number
+            of pages.
+        </p>
+
+        <div class="row">
+            <div class="col-md-5">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+  &lt;wj-multi-row style="max-height:800px"
+                [itemsSource]="pagedOrders"
+                [layoutDefinition]="ldThreeLines"&gt;
+  &lt;/wj-multi-row&gt;
+  &lt;div class="btn-group"&gt;
+      &lt;button type="button" class="btn" (click)="pagedOrders.moveToFirstPage()"&gt;
+          &lt;span class="glyphicon glyphicon-fast-backward"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button type="button" class="btn" (click)="pagedOrders.moveToPreviousPage()"&gt;
+          &lt;span class="glyphicon glyphicon-step-backward"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button type="button" class="btn" disabled style="width:100px"&gt;
+          {&#8203;{pagedOrders.pageIndex + 1 | number}&#8203;} / {&#8203;{pagedOrders.pageCount | number}&#8203;}
+      &lt;/button&gt;
+      &lt;button type="button" class="btn" (click)="pagedOrders.moveToNextPage()"&gt;
+          &lt;span class="glyphicon glyphicon-step-forward"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button type="button" class="btn" (click)="pagedOrders.moveToLastPage()"&gt;
+          &lt;span class="glyphicon glyphicon-fast-forward"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+  &lt;/div&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+  // expose paged orders to the controller
+  this.pagedOrders = new wijmo.collections.CollectionView(orders, {
+    pageSize: 4
+  });
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-7">
+                <h4>Result (live):</h4>
+                <wj-multi-row style="max-height:800px"
+                              [itemsSource]="pagedOrders"
+                              [layoutDefinition]="ldThreeLines">
+                </wj-multi-row>
+                <div class="btn-group">
+                    <button type="button" class="btn" (click)="pagedOrders.moveToFirstPage()">
+                        <span class="glyphicon glyphicon-fast-backward"></span>
+                    </button>
+                    <button type="button" class="btn" (click)="pagedOrders.moveToPreviousPage()">
+                        <span class="glyphicon glyphicon-step-backward"></span>
+                    </button>
+                    <button type="button" class="btn" disabled style="width:100px">
+                        {{pagedOrders.pageIndex + 1 | number}} / {{pagedOrders.pageCount | number}}
+                    </button>
+                    <button type="button" class="btn" (click)="pagedOrders.moveToNextPage()">
+                        <span class="glyphicon glyphicon-step-forward"></span>
+                    </button>
+                    <button type="button" class="btn" (click)="pagedOrders.moveToLastPage()">
+                        <span class="glyphicon glyphicon-fast-forward"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- allowAddNew/allowDelete -->
+    <div>
+        <h2>
+            Adding and Deleting records
+        </h2>
+        <p>
+            The <b>MultiRow</b> control supports the <b>allowAddNew</b> and <b>allowDelete</b>
+            properties provided by the <b>FlexGrid</b> control.
+        </p>
+        <p>
+            Setting the <b>allowAddNew</b> property to true causes the grid to display a set of
+            'new row template' rows at the bottom of the grid.
+            When the users starts editing a cell in the new row template, a new item is added
+            to the source collection. When the user finishes editing the new item (by moving
+            the selection to another row or the focus to another control), the new item is
+            committed.
+        </p>
+        <p>
+            Setting the <b>allowDelete</b> property to true causes the grid to monitor key presses
+            and to delete the current row if the user presses the 'Delete' key while an entire
+            row is selected.
+        </p>
+
+        <div class="row">
+            <div class="col-md-5">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+  &lt;wj-multi-row [itemsSource]="addNewOrders"
+                [layoutDefinition]="ldThreeLines"
+                [allowAddNew]="true"
+                [allowDelete]="true"
+                #addNewGrid&gt;
+  &lt;/wj-multi-row&gt;
+  &lt;label&gt;
+      &lt;input type="checkbox" [(ngModel)]="addNewGrid.allowAddNew"&gt;
+      Allow Add New
+  &lt;/label&gt;
+  &lt;br /&gt;
+  &lt;label&gt;
+      &lt;input type="checkbox" [(ngModel)]="addNewGrid.allowDelete"&gt;
+      Allow Delete
+  &lt;/label&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+  // create 'addNewOrders' collection, start with last item selected
+  this.addNewOrders = new wijmo.collections.CollectionView(orders);
+  this.addNewOrders.moveCurrentToLast();
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="CSS">
+                        <div class="pane-content">
+   /* custom styling for new row templates */
+   .wj-cell.wj-new:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected) {
+        background-color: #f3fbcc;
+   }
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-7">
+                <h4>Result (live):</h4>
+                <wj-multi-row [itemsSource]="addNewOrders"
+                              [layoutDefinition]="ldThreeLines"
+                              [allowAddNew]="true"
+                              [allowDelete]="true"
+                              #addNewGrid>
+                </wj-multi-row>
+                <label>
+                    <input type="checkbox" [(ngModel)]="addNewGrid.allowAddNew">
+                    Allow Add New
+                </label>
+                <br />
+                <label>
+                    <input type="checkbox" [(ngModel)]="addNewGrid.allowDelete">
+                    Allow Delete
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

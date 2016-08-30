@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Wealth and Health</title>
+
+    <!-- Bootstrap/Angular -->
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+
+    <!-- Wijmo -->
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+    <script src="scripts/vendor/wijmo.min.js"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js"></script>
+    <script src="scripts/vendor/wijmo.gauge.min.js"></script>
+    <script src="scripts/vendor/wijmo.angular.min.js"></script>
+
+    <!-- app styles and scripts -->
+    <link href="styles/app.css" rel="stylesheet" />
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/appCtrl.js"></script>
+</head>
+<body ng-app="app" ng-controller="appCtrl">
+
+    <!-- header -->
+    <div class="header">
+        <div class="container">
+            <img src="resources/wijmo5.png" alt="Wijmo 5" />
+            <h1>
+                The Wealth & Health of Nations
+            </h1>
+            <p>
+                A dynamic chart based on <a href="http://gapminder.org/">Gapminder’s Wealth & Health of Nations</a>.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p>
+                    This chart shows the evolution of income, life expectancy, and population in
+                    {{ data.items.length }} nations over a period of {{ yrMax - yrMin + 1 }} years.
+                    Slide the gauge or press the play button and enjoy the show.</p>
+                <p ng-hide="data.currentItem">
+                    Try clicking a bubble to track a country's evolution through the animation.</p>
+                <p ng-show="data.currentItem">
+                    Now tracking <b>{{ data.currentItem.name }}</b>.</p>
+            </div>
+            <div class="col-md-6 yearpicker">
+                <wj-linear-gauge 
+                    value="year" 
+                    min="{{yrMin}}" max="{{yrMax}}" 
+                    is-read-only="false"
+                    is-animated="false"
+                    thumb-size="30"
+                    ng-mousedown="stopAnimation()">
+                    <wj-range wj-property="face" thickness="0.08"></wj-range>
+                    <wj-range wj-property="pointer" thickness="0.08"></wj-range>
+                </wj-linear-gauge>
+                <button class="btn btn-success" ng-click="toggleAnimation()">
+                    <span ng-class="{ 'glyphicon glyphicon-play': !animating, 'glyphicon glyphicon-stop': animating }"></span>
+                </button>
+            </div>
+        </div>
+
+        <wj-flex-chart
+            items-source="data"
+            chart-type="Bubble"
+            item-formatter="chartItemFormatter"
+            options="{ bubble: { minSize: 5, maxSize: 100 } }"
+            binding-x="yearIncome"
+            tooltip-content="<b>{item.name}</b><br/>{yearPopulation:g1,,} million people"
+            selection-mode="Point" 
+            ng-mousedown="stopAnimation()"
+            ng-class="{ 'tracking-country': data.currentItem }">
+            <div class="watermark">
+                {{ year }}
+            </div>
+            <wj-flex-chart-series
+                binding="yearLifeExpectancy,yearPopulation">
+            </wj-flex-chart-series>
+            <wj-flex-chart-axis
+                wj-property="axisX"
+                title="income per capita (inflation-adjusted US dollars)"
+                major-grid="false" axis-line="true" min="300" max="100000" log-base="10">
+            </wj-flex-chart-axis>
+            <wj-flex-chart-axis
+                wj-property="axisY"
+                title="life expectancy (years)" 
+                major-grid="false" axis-line="true" min="20" max="85" major-unit="10">
+            </wj-flex-chart-axis>
+            <wj-flex-chart-legend position="None">
+            </wj-flex-chart-legend>
+        </wj-flex-chart>
+
+        <p>
+            This is a Wijmo version of 
+            <a href="https://bost.ocks.org/mike/nations/">Mike Bostock's sample in D3</a>, 
+            which is based on Gapminder’s 
+            <a href="http://gapminder.org/world/">Wealth & Health of Nations</a>, 
+            made famous by Hans Rosling’s memorable 
+            <a href="http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html">2006 TED talk</a>.</p>
+
+        <div class="references">
+            References:
+                <a href="https://github.com/RandomEtc/mind-gapper-js">Tom Carden</a>, 
+                <a href="http://gapminder.org/">Gapminder</a>, 
+                <a href="https://bost.ocks.org/mike/nations/">Mike Bostock.</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+﻿<h1>
+    NorthWind Sales
+</h1>
+<p style="font-size:75%; text-align:right">
+    Invoices for amounts over {{ minInvoiceAmount | currency:'USD':true }}.
+</p>
+
+<div *ngFor="let country of invoices.groups" style="border-top:2px solid black; border-right:2px solid black; page-break-inside:avoid">
+
+    <div style="background-color:black; color:white; font-size:150%; padding:6pt; display:flex">
+        <div style="width:300px">
+            {{ country.name }}
+        </div>
+        <div style="width:100%; text-align:right">
+            {{ country.getAggregate('Sum', 'ExtendedPrice') | currency:'USD':true }}
+        </div>
+    </div>
+
+    <div *ngFor="let salesperson of country.groups" style="margin-bottom:20pt; margin-left:20pt; page-break-inside:avoid">
+        <div style="display:flex; background-color:#beff8d; font-weight:bold; padding-right:6pt">
+            <div style="width:600px">
+                {{ salesperson.name }}
+            </div>
+            <div style="width:200px">
+                Shipped Date
+            </div>
+            <div style="width:200px; text-align:right">
+                Sale Amount
+            </div>
+        </div>
+
+        <div *ngFor="let invoice of salesperson.items" style="display:flex; padding-right:6pt">
+            <div style="width:600px">
+                <div style="height:1em; margin-top:.25em; border-top:.6em solid #007200" 
+                    [ngStyle]="{width: invoice.ExtendedPrice * 100 / 18000 + '%' }">
+                    &nbsp;
+                </div>
+            </div>
+            <div style="width:200px">
+                {{ invoice.ShippedDate | date }}
+            </div>
+            <div style="width:200px; text-align:right">
+                {{ invoice.ExtendedPrice | currency:'USD':true }}
+            </div>
+        </div>
+    </div>
+</div>
+      

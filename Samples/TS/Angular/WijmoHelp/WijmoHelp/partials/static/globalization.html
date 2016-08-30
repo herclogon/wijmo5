@@ -1,0 +1,89 @@
+﻿<h2>
+    Globalizing Wijmo 5 Applications</h2>
+<p>
+    By default, Wijmo formats and parses data using the American English culture.
+    The decimal symbol is a period, the thousand separator is a comma, and the 
+    days of the week are "Sunday" through "Saturday".</p>
+<p>
+    If your application targets other cultures, include references to the appropriate 
+    Wijmo culture files in your HTML pages. Wijmo includes over 40 culture files 
+    (see complete list below), and we have tools for generating new ones.
+    If you want to target a culture that is not currently supported, contact
+    us and we will create the file you need.</p>
+<p>
+    For example, to localize an application for the German culture, add this line to
+    the head section of the page:</p>
+
+<pre>&lt;!-- set German culture --&gt;
+&lt;script src="http://cdn.wijmo.com/5.latest/controls/cultures/wijmo.culture.de.min.js""&gt;&lt;/script&gt;</pre>
+
+<p>
+    This fiddle demonstrates the result. Notice the formatting of grid values and 
+    calendar dates.</p>
+<p>
+    <a href="http://jsfiddle.net/Wijmo5/wK97R/" target="_blank" class="btn btn-info">
+        <img src="images/fiddle.png" />
+        Globalization
+    </a>
+</p>
+<p>
+    You can edit the values in the grid to see that globalization also works for 
+    parsing data. Wijmo's <a href="topic/wijmo.Globalize.Class.html">Globalize</a>
+    class allows you to format and parse values in your applications outside of 
+    Wijmo controls as well.</p>
+
+<h3>
+    Included Cultures</h3>
+<p>
+    By default, Wijmo uses the American English culture, but for your convenience, 
+    we have included several other cultures. They are located on the CDN, but you 
+    can also find the files in your installation folder in
+    <code>\Dist\controls\cultures</code>.
+    The following cultures are currently included.</p>
+
+<ul style="columns: 2">
+    <li><strong>ar-AE</strong> Arabic (United Arab Emirates)</li>
+    <li><strong>eu</strong> Basque</li>
+    <li><strong>bg</strong> Bulgarian</li>
+    <li><strong>ca</strong> Catalan</li>
+    <li><strong>zh</strong> Chinese</li>
+    <li><strong>zh-HK</strong> Chinese (Traditional, Hong Kong SAR)</li>
+    <li><strong>zh-TW</strong> Chinese (Traditional, Taiwan)</li>
+    <li><strong>hr</strong> Croatian</li>
+    <li><strong>cs</strong> Czech</li>
+    <li><strong>da</strong> Danish</li>
+    <li><strong>nl</strong> Dutch</li>
+    <li><strong>en</strong> English</li>
+    <li><strong>en-CA</strong> English (Canada)</li>
+    <li><strong>en-GB</strong> English (United Kingdom)</li>
+    <li><strong>et</strong> Estonian</li>
+    <li><strong>fi</strong> Finnish</li>
+    <li><strong>fr</strong> French</li>
+    <li><strong>fr-CA</strong> French (Canada)</li>
+    <li><strong>gl</strong> Galician</li>
+    <li><strong>de</strong> German</li>
+    <li><strong>el</strong> Greek</li>
+    <li><strong>he</strong> Hebrew</li>
+    <li><strong>hi</strong> Hindi</li>
+    <li><strong>hu</strong> Hungarian</li>
+    <li><strong>id</strong> Indonesian</li>
+    <li><strong>it</strong> Italian</li>
+    <li><strong>ja</strong> Japanese</li>
+    <li><strong>kk</strong> Kazakh</li>
+    <li><strong>ko</strong> Korean</li>
+    <li><strong>lv</strong> Latvian</li>
+    <li><strong>lt</strong> Lithuanian</li>
+    <li><strong>no</strong> Norwegian</li>
+    <li><strong>pl</strong> Polish</li>
+    <li><strong>pt</strong> Portuguese</li>
+    <li><strong>ro</strong> Romanian</li>
+    <li><strong>ru</strong> Russian</li>
+    <li><strong>sr</strong> Serbian</li>
+    <li><strong>sk</strong> Slovak</li>
+    <li><strong>sl</strong> Slovenian</li>
+    <li><strong>es</strong> Spanish</li>
+    <li><strong>sv</strong> Swedish</li>
+    <li><strong>th</strong> Thai</li>
+    <li><strong>tr</strong> Turkish</li>
+    <li><strong>uk</strong> Ukrainian</li>
+</ul>

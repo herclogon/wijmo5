@@ -1,0 +1,687 @@
+<h2>ComboBox Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a></dd>
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.angular.WjComboBox.Class.html"><b>WjComboBox</b></a>, <a href="topic/wijmo.input.AutoComplete.Class.html"><b>AutoComplete</b></a>, <a href="topic/wijmo.input.InputTime.Class.html"><b>InputTime</b></a>, <a href="topic/wijmo.input.Menu.Class.html"><b>Menu</b></a>, <a href="topic/wijmo.input.MultiSelect.Class.html"><b>MultiSelect</b></a></dd>
+<dt>Module</dt><dd>wijmo.input</dd>
+<dt>File</dt><dd>wijmo.input.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>The <b>ComboBox</b> control allows users to pick strings from lists.</p>
+
+<p>The control automatically completes entries as the user types, and allows users 
+to show a drop-down list with the items available.</p>
+
+<p>Use the <b>itemsSource</b> property to populate the list of options.
+The items may be strings or objects. If the items are objects, use the
+<b>displayMemberPath</b> to define which property of the items will be
+displayed in the list and use the <b>selectedValuePath</b> property to
+define which property of the items will be used to set the combo's
+<b>selectedValue</b> property.</p>
+
+<p>Use the <b>selectedIndex</b> or the <b>text</b> properties to
+determine which item is currently selected.</p>
+
+<p>The <b>isEditable</b> property determines whether users can enter values
+that are not present in the list.</p>
+
+<p>The example below creates a <b>ComboBox</b> control and populates it with a list
+of countries. The <b>ComboBox</b> searches for the country as the user types. 
+The <b>ComboBox.isEditable</b> property is set to false, so the user is forced to
+select one of the items in the list.</p>
+
+<p>The example also shows how to create and populate a <b>ComboBox</b> using
+an HTML <b>&lt;select&gt;</b> element with <b>&lt;option&gt;</b> child
+elements.</p>
+
+<p><a href="http://jsfiddle.net/Wijmo5/8HnLx/" target="_blank" class="btn btn-info">
+  <img src="images/fiddle.png"/>
+  Live Example
+</a>
+</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(element, options?): <a href="topic/wijmo.input.ComboBox.Class.html"><b>ComboBox</b></a></td>
+      <td><p>
+<b>element</b> (<b>any</b>): The DOM element that hosts the control, or a selector for the host element (e.g. '#theCtrl').<br/><b>options?</b> (): The JavaScript object containing initialization data for the control.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.input.ComboBox.Class.html"><b>ComboBox</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>autoExpandSelection</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that indicates whether the control should automatically expand the 
+selection to whole words/numbers when the control is clicked.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>collectionView</b></td>
+      <td><b>ICollectionView</b></td>
+      <td>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object used as the item source.</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span><span class="badge" title="Field">F</span></td>
+      <td><b>controlTemplate</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the template used to instantiate <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a> controls.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>displayMemberPath</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the name of the property to use as the visual representation of the items.</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>dropDown</b></td>
+      <td><b>HTMLElement</b></td>
+      <td>Gets the drop down element shown when the <b>isDroppedDown</b> 
+property is set to true.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>dropDownCssClass</b></td>
+      <td><b>string</b></td>
+      <td><p>Gets or sets a CSS class name to add to the control's drop-down element.</p>
+
+<p>This property is useful when styling the drop-down element, because it is
+shown as a child of the document body rather than as a child of the control
+itself, which prevents using CSS selectors based on the parent control.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>headerPath</b></td>
+      <td><b>string</b></td>
+      <td><p>Gets or sets the name of a property to use for getting the value displayed in the
+control's input element.</p>
+
+<p>The default value for this property is null, which causes the control to display
+the same content in the input element as in the selected item of the drop-down list.</p>
+
+<p>Use this property if you want to de-couple the value shown in the input element
+from the values shown in the drop-down list. For example, the input element could
+show an item's name and the drop-down list could show additional detail.</p></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>hostElement</b></td>
+      <td><b>HTMLElement</b></td>
+      <td>Gets the DOM element that is hosting the control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>inputElement</b></td>
+      <td><b>HTMLInputElement</b></td>
+      <td><p>Gets the HTML input element hosted by the control.</p>
+
+<p>Use this property in situations where you want to customize the
+attributes of the input element.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isContentHtml</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value indicating whether the drop-down list displays
+items as plain text or as HTML.</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isDisabled</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that determines whether the control is disabled.</p>
+
+<p>Disabled controls cannot get mouse or keyboard events.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isDroppedDown</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that indicates whether the drop down is currently visible.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isEditable</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that enables or disables editing of the text 
+in the input element of the <a href="topic/wijmo.input.ComboBox.Class.html"><b>ComboBox</b></a> (defaults to false).</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isReadOnly</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that indicates whether the user can modify
+the control value using the mouse and keyboard.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isRequired</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that determines whether the control value must be set to 
+a non-null value or whether it can be set to null 
+(by deleting the content of the control).<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isTouching</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether the control is currently handling a touch event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isUpdating</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether the control is currently being updated.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>itemFormatter</b></td>
+      <td><b>Function</b></td>
+      <td><p>Gets or sets a function used to customize the values shown in the
+drop-down list.
+The function takes two arguments, the item index and the default
+text or html, and returns the new text or html to display.</p>
+
+<p>If the formatting function needs a scope (i.e. a meaningful 'this'
+value), then remember to set the filter using the 'bind' function to
+specify the 'this' object. For example:</p>
+
+<p><pre>
+  comboBox.itemFormatter = customItemFormatter.bind(this);
+  function customItemFormatter(index, content) {
+    if (this.makeItemBold(index)) {
+      content = '&lt;b&gt;' + content + '&lt;/b&gt;';
+    }
+    return content;
+  }
+</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>itemsSource</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object that contains the items to select from.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>listBox</b></td>
+      <td><a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a></td>
+      <td>Gets the <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a> control shown in the drop-down.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>maxDropDownHeight</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the maximum height of the drop-down list.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>maxDropDownWidth</b></td>
+      <td><b>number</b></td>
+      <td><p>Gets or sets the maximum width of the drop-down list.</p>
+
+<p>The width of the drop-down list is also limited by the width of 
+the control itself (that value represents the drop-down's minimum width).</p></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>placeholder</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the string shown as a hint when the control is empty.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>selectedIndex</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the index of the currently selected item in the drop-down list.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>selectedItem</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the item that is currently selected in the drop-down list.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>selectedValue</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the value of the <b>selectedItem</b>, obtained using the <b>selectedValuePath</b>.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>selectedValuePath</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the name of the property used to get the
+<b>selectedValue</b> from the <b>selectedItem</b>.</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>showDropDownButton</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that indicates whether the control should display a drop-down button.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>text</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the text shown on the control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>addEventListener</b>&#8203;(target, type, fn, capture?)</td>
+      <td><p>
+<b>target</b> (<b>EventTarget</b>): Target element for the event.<br/><b>type</b> (<b>string</b>): String that specifies the event.<br/><b>fn</b> (<b>any</b>): Function to execute when the event occurs.<br/><b>capture?</b> (<b>boolean</b>): Whether the listener is capturing.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
+</td>
+      <td><p>Adds an event listener to an element owned by this <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>.</p>
+
+<p>The control keeps a list of attached listeners and their handlers,
+making it easier to remove them when the control is disposed (see the
+<b>dispose</b> and <b>removeEventListener</b> method).</p>
+
+<p>Failing to remove event listeners may cause memory leaks.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>applyTemplate</b>&#8203;(classNames, template, parts, namePart?): <b>HTMLElement</b></td>
+      <td><p>
+<b>classNames</b> (<b>string</b>): Names of classes to add to the control's host element.<br/><b>template</b> (<b>string</b>): An HTML string that defines the control template.<br/><b>parts</b> (<b>Object</b>): A dictionary of part variables and their names.<br/><b>namePart?</b> (<b>string</b>): Name of the part to be named after the host element. This
+determines how the control submits data when used in forms.<br/></p>
+</td>
+      <td><p>Applies the template to a new instance of a control, and returns the root element.</p>
+
+<p>This method should be called by constructors of templated controls.
+It is responsible for binding the template parts to the 
+corresponding control members.</p>
+
+<p>For example, the code below applies a template to an instance
+of an <a href="topic/wijmo.input.InputNumber.Class.html"><b>InputNumber</b></a> control. The template must contain elements 
+with the 'wj-part' attribute set to 'input', 'btn-inc', and 'btn-dec'.
+The control members '_tbx', '_btnUp', and '_btnDn' will be assigned
+references to these elements.</p>
+
+<p><pre>this.applyTemplate('wj-control wj-inputnumber', template, {
+  _tbx: 'input',
+  _btnUp: 'btn-inc',
+  _btnDn: 'btn-dec'
+}, 'input');</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>beginUpdate</b>&#8203;()</td>
+      <td></td>
+      <td>Suspends notifications until the next call to <b>endUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>containsFocus</b>&#8203;(): <b>boolean</b></td>
+      <td></td>
+      <td>Checks whether this control contains the focused element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>deferUpdate</b>&#8203;(fn)</td>
+      <td><p>
+<b>fn</b> (<b>Function</b>): Function to be executed.<br/></p>
+</td>
+      <td><p>Executes a function within a <b>beginUpdate</b>/<b>endUpdate</b> block.</p>
+
+<p>The control will not be updated until the function has been executed.
+This method ensures <b>endUpdate</b> is called even if the function throws
+an exception.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>dispose</b>&#8203;()</td>
+      <td></td>
+      <td><p>Disposes of the control by removing its association with the host element.</p>
+
+<p>The <b>dispose</b> method automatically removes any event listeners added
+with the <b>addEventListener</b> method.</p>
+
+<p>Calling the <b>dispose</b> method is important in applications that create
+and remove controls dynamically. Failing to dispose of the controls may
+cause memory leaks.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>disposeAll</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<b>HTMLElement</b>): Container element.<br/></p>
+</td>
+      <td>Disposes of all Wijmo controls contained in an HTML element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>endUpdate</b>&#8203;()</td>
+      <td></td>
+      <td>Resumes notifications suspended by calls to <b>beginUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>focus</b>&#8203;()</td>
+      <td></td>
+      <td>Sets the focus to this control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>getControl</b>&#8203;(element): <a href="topic/wijmo.Control.Class.html"><b>Control</b></a></td>
+      <td><p>
+<b>element</b> (<b>any</b>): The DOM element that is hosting the control, or a selector for the host element (e.g. '#theCtrl').<br/></p>
+</td>
+      <td>Gets the control that is hosted in a given DOM element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getDisplayText</b>&#8203;(index?): <b>string</b></td>
+      <td><p>
+<b>index?</b> (<b>number</b>): The index of the item to retrieve the text for.<br/><span class="text-info">(default value: <b>this.&#8203;selectedIndex</b>)</span><br/></p>
+</td>
+      <td>Gets the string displayed in the input element for the item at a 
+given index (always plain text).</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>getTemplate</b>&#8203;(): <b>string</b></td>
+      <td></td>
+      <td><p>Gets the HTML template used to create instances of the control.</p>
+
+<p>This method traverses up the class hierarchy to find the nearest ancestor that
+specifies a control template. For example, if you specify a prototype for the
+<a href="topic/wijmo.input.ComboBox.Class.html"><b>ComboBox</b></a> control, it will override the template defined by the <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a> 
+base class.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>indexOf</b>&#8203;(text, fullMatch): <b>number</b></td>
+      <td><p>
+<b>text</b> (<b>string</b>): The text to search for.<br/><b>fullMatch</b> (<b>boolean</b>): Whether to look for a full match or just the start of the string.<br/></p>
+</td>
+      <td>Gets the index of the first item that matches a given string.<br/><br/><b>Returns</b> The index of the item, or -1 if not found.</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>initialize</b>&#8203;(options)</td>
+      <td><p>
+<b>options</b> (<b>any</b>): Object that contains the initialization data.<br/></p>
+</td>
+      <td><p>Initializes the control by copying the properties from a given object.</p>
+
+<p>This method allows you to initialize controls using plain data objects
+instead of setting the value of each property in code.</p>
+
+<p>For example:
+<pre>
+grid.initialize({
+  itemsSource: myList,
+  autoGenerateColumns: false,
+  columns: [
+    { binding: 'id', header: 'Code', width: 130 },
+    { binding: 'name', header: 'Name', width: 60 } 
+  ]
+});
+// is equivalent to
+grid.itemsSource = myList;
+grid.autoGenerateColumns = false;
+// etc.
+</pre></p>
+
+<p>The initialization data is type-checked as it is applied. If the 
+initialization object contains unknown property names or invalid
+data types, this method will throw.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>invalidate</b>&#8203;(fullUpdate?)</td>
+      <td><p>
+<b>fullUpdate?</b> (<b>boolean</b>): Whether to update the control layout as well as the content.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Invalidates the control causing an asynchronous refresh.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>invalidateAll</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<b>HTMLElement</b>): Container element. If set to null, all Wijmo controls
+on the page will be invalidated.<br/></p>
+</td>
+      <td><p>Invalidates all Wijmo controls contained in an HTML element.</p>
+
+<p>Use this method when your application has dynamic panels that change
+the control's visibility or dimensions. For example, splitters, accordions,
+and tab controls usually change the visibility of its content elements.
+In this case, failing to notify the controls contained in the element
+may cause them to stop working properly.</p>
+
+<p>If this happens, you must handle the appropriate event in the dynamic
+container and call the <b>invalidateAll</b> method so the contained
+Wijmo controls will update their layout information properly.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onGotFocus</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>gotFocus</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onIsDroppedDownChanged</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>isDroppedDownChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onIsDroppedDownChanging</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>isDroppedDownChanging</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onLostFocus</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>lostFocus</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>onSelectedIndexChanged</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>selectedIndexChanged</b> event.</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onTextChanged</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>textChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>refresh</b>&#8203;(fullUpdate?)</td>
+      <td><p>
+<b>fullUpdate?</b> (<b>boolean</b>): Whether to update the control layout as well as the content.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Refreshes the control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>refreshAll</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<b>HTMLElement</b>): Container element. If set to null, all Wijmo controls
+on the page will be invalidated.<br/></p>
+</td>
+      <td><p>Refreshes all Wijmo controls contained in an HTML element.</p>
+
+<p>This method is similar to <b>invalidateAll</b>, except the controls
+are updated immediately rather than after an interval.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>removeEventListener</b>&#8203;(target?, type?, capture?): <b>number</b></td>
+      <td><p>
+<b>target?</b> (<b>EventTarget</b>): Target element for the event. If null, removes listeners attached to all targets.<br/><b>type?</b> (<b>string</b>): String that specifies the event. If null, removes listeners attached to all events.<br/><b>capture?</b> (<b>boolean</b>): Whether the listener is capturing. If null, removes capturing and non-capturing listeners.<br/></p>
+</td>
+      <td>Removes one or more event listeners attached to elements owned by this <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>.<br/><br/><b>Returns</b> The number of listeners removed.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>selectAll</b>&#8203;()</td>
+      <td></td>
+      <td>Sets the focus to the control and selects all its content.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>gotFocus</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs when the control gets the focus.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isDroppedDownChanged</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs after the drop down is shown or hidden.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isDroppedDownChanging</b></td>
+      <td><a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a></td>
+      <td>Occurs before the drop down is shown or hidden.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>lostFocus</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs when the control loses the focus.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>selectedIndexChanged</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs when the value of the <b>selectedIndex</b> property changes.</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>textChanged</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs when the value of the <b>text</b> property changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

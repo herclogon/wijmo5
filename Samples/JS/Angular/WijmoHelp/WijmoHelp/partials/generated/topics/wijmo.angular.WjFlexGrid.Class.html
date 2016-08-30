@@ -1,0 +1,130 @@
+<h2>WjFlexGrid Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjDirective</b></dd>
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.angular.WjFlexSheet.Class.html"><b>WjFlexSheet</b></a>, <a href="topic/wijmo.angular.WjMultiRow.Class.html"><b>WjMultiRow</b></a>, <a href="topic/wijmo.angular.WjPivotGrid.Class.html"><b>WjPivotGrid</b></a></dd>
+<dt>Module</dt><dd>wijmo.angular</dd>
+<dt>File</dt><dd>wijmo.angular.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>AngularJS directive for the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control.</p>
+
+<p>Use the <b>wj-flex-grid</b> directive to add grids to your AngularJS applications. 
+Note that directive and parameter names must be formatted as lower-case with dashes 
+instead of camel-case. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a FlexGrid control:&lt;/p&gt;
+&lt;wj-flex-grid items-source="data"&gt;
+  &lt;wj-flex-grid-column 
+    header="Country" 
+    binding="country"&gt;
+  &lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column 
+    header="Sales" 
+    binding="sales"&gt;
+  &lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column 
+    header="Expenses" 
+    binding="expenses"&gt;
+  &lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column 
+    header="Downloads" 
+    binding="downloads"&gt;
+  &lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;</pre></p>
+
+<p>The example below creates a FlexGrid control and binds it to a 'data' array
+exposed by the controller. The grid has three columns, each corresponding to 
+a property of the objects contained in the source array.</p>
+
+<p><a href="http://jsfiddle.net/Wijmo5/QNb9X/" target="_blank" class="btn btn-info">
+  <img src="images/fiddle.png"/>
+  Live Example
+</a>
+</p>
+
+<p>The <b>wj-flex-grid</b> directive supports the following attributes:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>allow-add-new</dt>              <dd><code>@</code> A value indicating whether to show a new row 
+                                    template so users can add items to the source collection.</dd>
+  <dt>allow-delete</dt>             <dd><code>@</code> A value indicating whether the grid deletes the
+                                    selected rows when the Delete key is pressed.</dd>
+  <dt>allow-dragging</dt>           <dd><code>@</code> An <a href="topic/wijmo.grid.AllowDragging.Enum.html"><b>AllowDragging</b></a> value indicating 
+                                    whether and how the user can drag rows and columns with the mouse.</dd>
+  <dt>allow-merging</dt>            <dd><code>@</code> An <a href="topic/wijmo.grid.AllowMerging.Enum.html"><b>AllowMerging</b></a> value indicating 
+                                    which parts of the grid provide cell merging.</dd>
+  <dt>allow-resizing</dt>           <dd><code>@</code> An <a href="topic/wijmo.grid.AllowResizing.Enum.html"><b>AllowResizing</b></a> value indicating 
+                                    whether users are allowed to resize rows and columns with the mouse.</dd>
+  <dt>allow-sorting</dt>            <dd><code>@</code> A boolean value indicating whether users can sort 
+                                    columns by clicking the column headers.</dd>
+  <dt>auto-generate-columns</dt>    <dd><code>@</code> A boolean value indicating whether the grid generates 
+                                    columns automatically based on the <b>items-source</b>.</dd>
+  <dt>child-items-path</dt>         <dd><code>@</code> The name of the property used to generate 
+                                    child rows in hierarchical grids (or an array of property names if items
+                                    at different hierarchical levels use different names for their child items).</dd>
+  <dt>control</dt>                  <dd><code>=</code> A reference to the <b>FlexGrid</b> control 
+                                    created by this directive.</dd>
+  <dt>defer-resizing</dt>           <dd><code>=</code> A boolean value indicating whether row and column 
+                                    resizing should be deferred until the user releases the mouse button.</dd>
+  <dt>frozen-columns</dt>           <dd><code>@</code> The number of frozen (non-scrollable) columns in the grid.</dd>
+  <dt>frozen-rows</dt>              <dd><code>@</code> The number of frozen (non-scrollable) rows in the grid.</dd>
+  <dt>group-header-format</dt>      <dd><code>@</code> The format string used to create the group 
+                                    header content.</dd>
+  <dt>headers-visibility</dt>       <dd><code>=</code> A <a href="topic/wijmo.grid.HeadersVisibility.Enum.html"><b>HeadersVisibility</b></a> value 
+                                    indicating whether the row and column headers are visible. </dd>
+  <dt>ime-enabled</dt>              <dd><code>@</code> Gets or sets a value that determines whether the grid should 
+                                    support Input Method Editors (IME) while not in edit mode.</dd>
+  <dt>initialized</dt>              <dd><code>&</code> This event occurs after the binding has finished
+                                    initializing the control with attribute values.</dd>
+  <dt>is-initialized</dt>           <dd><code>=</code> A value indicating whether the binding has finished
+                                    initializing the control with attribute values. </dd>
+  <dt>item-formatter</dt>           <dd><code>=</code> A function that customizes 
+                                    cells on this grid.</dd>
+  <dt>items-source</dt>             <dd><code>=</code> An array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object that 
+                                    contains the items shown on the grid.</dd>
+  <dt>is-read-only</dt>             <dd><code>@</code> A boolean value indicating whether the user is 
+                                    prevented from editing grid cells by typing into them.</dd>
+  <dt>merge-manager</dt>            <dd><code>=</code> A <a href="topic/wijmo.grid.MergeManager.Class.html"><b>MergeManager</b></a> object that specifies  
+                                    the merged extent of the specified cell.</dd>
+  <dt>selection-mode</dt>           <dd><code>@</code> A <a href="topic/wijmo.grid.SelectionMode.Enum.html"><b>SelectionMode</b></a> value 
+                                    indicating whether and how the user can select cells.</dd>
+  <dt>show-groups</dt>              <dd><code>@</code> A boolean value indicating whether to insert group 
+                                    rows to delimit data groups.</dd>
+  <dt>show-sort</dt>                <dd><code>@</code> A boolean value indicating whether to display sort 
+                                    indicators in the column headers.</dd>
+  <dt>sort-row-index</dt>           <dd><code>@</code> A number specifying the index of row in the column 
+                                    header panel that shows and changes the current sort.</dd>
+  <dt>tree-indent</dt>              <dd><code>@</code> The indentation, in pixels, used to offset row 
+                                    groups of different levels.</dd>
+  <dt>beginning-edit</dt>           <dd><code>&</code> Handler for the <b>beginningEdit</b> event.</dd>
+  <dt>cell-edit-ended</dt>          <dd><code>&</code> Handler for the <b>cellEditEnded</b> event.</dd>
+  <dt>cell-edit-ending</dt>         <dd><code>&</code> Handler for the <b>cellEditEnding</b> event.</dd>
+  <dt>prepare-cell-for-edit</dt>    <dd><code>&</code> Handler for the <b>prepareCellForEdit</b> event.</dd>
+  <dt>resizing-column</dt>          <dd><code>&</code> Handler for the <b>resizingColumn</b> event.</dd>
+  <dt>resized-column</dt>           <dd><code>&</code> Handler for the <b>resizedColumn</b> event.</dd>
+  <dt>dragged-column</dt>           <dd><code>&</code> Handler for the <b>draggedColumn</b> event.</dd>
+  <dt>dragging-column</dt>          <dd><code>&</code> Handler for the <b>draggingColumn</b> event.</dd>
+  <dt>sorted-column</dt>            <dd><code>&</code> Handler for the <b>sortedColumn</b> event.</dd>
+  <dt>sorting-column</dt>           <dd><code>&</code> Handler for the <b>sortingColumn</b> event.</dd>
+  <dt>deleting-row</dt>             <dd><code>&</code> Handler for the <b>deletingRow</b> event.</dd>
+  <dt>dragging-row</dt>             <dd><code>&</code> Handler for the <b>draggingRow</b> event.</dd>
+  <dt>dragged-row</dt>              <dd><code>&</code> Handler for the <b>draggedRow</b> event.</dd>
+  <dt>resizing-row</dt>             <dd><code>&</code> Handler for the <b>resizingRow</b> event.</dd>
+  <dt>resized-row</dt>              <dd><code>&</code> Handler for the <b>resizedRow</b> event.</dd>
+  <dt>row-added</dt>                <dd><code>&</code> Handler for the <b>rowAdded</b> event.</dd>
+  <dt>row-edit-ended</dt>           <dd><code>&</code> Handler for the <b>rowEditEnded</b> event.</dd>
+  <dt>row-edit-ending</dt>          <dd><code>&</code> Handler for the <b>rowEditEnding</b> event.</dd>
+  <dt>loaded-rows</dt>              <dd><code>&</code> Handler for the <b>loadedRows</b> event.</dd>
+  <dt>loading-rows</dt>             <dd><code>&</code> Handler for the <b>loadingRows</b> event.</dd>
+  <dt>group-collapsed-changed</dt>  <dd><code>&</code> Handler for the <b>groupCollapsedChanged</b> event.</dd>
+  <dt>group-collapsed-changing</dt> <dd><code>&</code> Handler for the <b>groupCollapsedChanging</b> event.</dd>
+  <dt>items-source-changed</dt>     <dd><code>&</code> Handler for the <b>itemsSourceChanged</b> event.</dd>
+  <dt>selection-changing</dt>       <dd><code>&</code> Handler for the <b>selectionChanging</b> event.</dd>
+  <dt>selection-changed</dt>        <dd><code>&</code> Handler for the <b>selectionChanged</b> event.</dd>
+  <dt>got-focus</dt>                <dd><code>&</code> The <b>gotFocus</b> event handler.</dd>
+  <dt>lost-focus</dt>               <dd><code>&</code> The <b>lostFocus</b> event handler.</dd>
+  <dt>scroll-position-changed</dt>  <dd><code>&</code> Handler for the <b>scrollPositionChanged</b> event.</dd>
+</dl></p>
+
+<p>The <b>wj-flex-grid</b> directive may contain <a href="topic/wijmo.angular.WjFlexGridColumn.Class.html"><b>WjFlexGridColumn</b></a>, <a href="topic/wijmo.angular.WjFlexGridCellTemplate.Class.html"><b>WjFlexGridCellTemplate</b></a> and 
+<a href="topic/wijmo.angular.WjFlexGridDetail.Class.html"><b>WjFlexGridDetail</b></a> child directives.</p></p>

@@ -1,0 +1,79 @@
+﻿<!-- End mainView, Start of sampleView -->
+<div id="sampleView">
+	<div class="breadcrumbBar">
+		<ol class="breadcrumb container">
+			<li><a href=".#">Sample Explorer Search</a></li>
+			<li class="active" ng-show="sample.state.ready">{{sample.data.Name}}</li>
+			<li class="active" ng-hide="sample.state.ready">Sample</li>
+		</ol>
+	</div>
+	<div class="container">
+		<div ng-show="sample.state.ready">
+			<div class="sampleInfo">
+				<div ng-if="sample.data.Screenshot" class="sampleScreenshot">
+					<img src="{{sample.data.Screenshot}}" alt="{{sample.data.Name}}'s screenshot." />
+				</div>
+				<h1>{{sample.data.Name}}</h1>
+				<p class="framework">
+					<b>Framework{{sample.data.Category.length>1? 's' : ''}}: </b>
+					<span ng-repeat="cat in sample.data.Category">{{cat}}{{$last ? '' : ', '}}</span>
+				</p>
+				<p>{{sample.data.Title}}</p>
+				<div ng-ig="sample.data.Description" ng-bind-html="sample.data.Description"></div>
+				<div ng-if="!sample.data.Description">This sample doesn't have a description.</div>
+			</div>
+			<div class="sampleButtonsBox sampleInfo desktop">
+				<div class="btn-group" ng-show="display.downloadButton">
+					<button type="button" class="btn btn-default dropdown-toggle purple" data-toggle="dropdown">
+						Download Sample <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li ng-repeat="imp in sample.data.implementations"><a href="{{getDownloadLink(sample.data.DirTitle, imp.Category)}}" download>{{imp.Category}}</a></li>
+					</ul>
+				</div>
+				<div class="btn-group" ng-show="display.codeButton">
+					<button type="button" class="btn btn-default dropdown-toggle purple" data-toggle="dropdown">
+						View Source Code <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li ng-repeat="imp in sample.data.implementations"><a href="Sample/{{sample.data.DirTitle}}/{{imp.Category}}/Code">{{imp.Category}}</a></li>
+					</ul>
+				</div>
+				<div class="btn-group" ng-show="display.runButton">
+					<button type="button" class="btn btn-default dropdown-toggle purple" data-toggle="dropdown">
+						Run <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li ng-repeat="imp in sample.data.implementations" ng-if="imp.Address"><a href="{{imp.Address}}" target="_blank">{{imp.Category}}</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="sampleButtonsBox sampleInfo mobile">
+				<div ng-show="display.downloadButton">
+					<p>Download Sample</p>
+					<div class="btn-group-vertical" role="group" aria-label="...">
+						<a class="btn btn-default purple" ng-repeat="imp in sample.data.implementations" href="{{getDownloadLink(sample.data.DirTitle, imp.Category)}}" download>{{imp.Category}}</a>
+					</div>
+				</div>
+				<div ng-show="display.codeButton">
+					<p>View Source Code</p>
+					<div class="btn-group-vertical" role="group" aria-label="...">
+						<a class="btn btn-default purple" ng-repeat="imp in sample.data.implementations" href="Sample/{{sample.data.DirTitle}}/{{imp.Category}}/Code">{{imp.Category}}</a>
+					</div>
+				</div>
+				<div ng-show="display.runButton">
+					<p>Run on Browser</p>
+					<div class="btn-group-vertical" role="group" aria-label="...">
+						<a class="btn btn-default purple" ng-repeat="imp in sample.data.implementations" ng-if="imp.Address" href="{{imp.Address}}" target="_blank">{{imp.Category}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-show="sample.state.loading">
+			<p>Loading...</p>
+		</div>
+		<div ng-show="sample.state.error">
+			<p>Error: {{sample.state.errorMessage}}</p>
+		</div>
+	</div>
+</div>

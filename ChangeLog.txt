@@ -1,0 +1,1540 @@
+﻿/////////////////////////////////////////////////////////////////////////////////////////
+//
+// Change log file for ComponentOne Wijmo 5
+//
+/////////////////////////////////////////////////////////////////////////////////////////
+
+=========================================================================================
+Build Number 5.20162.198              Build Date: 08/02/2016
+=========================================================================================
+
+* Bug fixes
+	- Exported excel files are corrupted when export FlexGrid content to Excel format.
+	  (TFS 201534)
+	- Filter editor does not open and console error occurs after load an Excel file which 
+	  contains hidden rows and columns. (TFS 201600)
+
+=========================================================================================
+Build Number 5.20162.196              Build Date: 07/21/2016
+=========================================================================================
+
+* Bug fixes
+	- 'IndexSizeError' occurs on navigating to the right using keyboard after merged last 
+	  row or all cells. (TFS 199427)
+	- FlexSheet controls cannot render and script errors occur. (TFS 199777)
+	- Remove selection when clicking empty area of FlexChart with selectionMode set to Point.
+
+=========================================================================================
+Build Number 5.20162.194              Build Date: 07/18/2016
+=========================================================================================
+
+* Bug fixes
+	- Script error occurs on performing ‘undo’ after drag and drop columns/rows with 
+	  'Shift' key pressed. (TFS 199376)
+
+=========================================================================================
+Build Number 5.20162.192              Build Date: 07/12/2016
+=========================================================================================
+
+* Improvements
+	- Angular 2: added support for Angular forms. The ngForms sample demonstrates the 
+	  feature.
+	  The implementation is based on the *new* forms implementation from the @angular/forms 
+	  module, instead of *deprecated* forms stuff from the @angular/common module – 
+	  see the documentation on the new forms stuff here: 
+	  https://angular.io/docs/ts/latest/guide/forms.html .
+	  The dynamic forms scenario described here
+	  https://angular.io/docs/ts/latest/cookbook/dynamic-form.html
+	  is supported as well. The ngForms sample includes the modified
+	  version of the abovementioned Dynamic Forms example that uses
+	  Wijmo input components.
+	- Angular 2: tested against RC.4.
+	- Added a few class names to FlexGrid elements to enable more flexible CSS-based
+	  styling. The new class names are:
+        wj-elem-collapse  Element that holds the expand/collapse glyphs in group rows
+        wj-elem-dropdown  Element that holds the drop-down glyph in data-mapped cells
+        wj-elem-filter    Element that holds the filter glyph in column headers
+	- Added a "wj-autocomplete-match" class to define the default style used for 
+	  highlighting AutoComplete matches (can be overridden by the cssClass property).
+	- Added an AutoComplete.searchMemberPath property that allows you to specify 
+	  item properties to use when searching (in addition to displayMemberPath).
+	- Added an 'isReadOnly' property to all input controls (DropDown, InputNumber, Calendar).
+	  This prevents users from changing the value, but still allows selection, focus, and events.
+      It is equivalent to the 'readonly' property in HTML input elements, but also prevents
+	  editing with the mouse (drop-downs, buttons, wheel).
+	- Added a selectionMode property to the InputDate and Calendar controls to allow 
+	  selecting months rather than specific days.
+	- Added specific class names to derived controls (for example, the ComboBox control host
+	  element now has class wj-combobox in addition to wj-control and wj-dropdown).
+	- Improved CSS to keep InputDate calendar width constant as the user navigates months
+	  in IE.
+	- Made input controls switch the 'for' attribute of labels targeting the host element 
+	  so they target the inner input element instead. For example:
+	      <label for="inputDate">Departure:</label>
+	      <wj-input-date id="inputDate"></wj-input-date>
+	  The InputDate will automatically set the id to its inner input element to 'inputDate.input'
+	  and will switch the "for" attribute of the label to target the input element instead.
+	- Added undo/redo processing for inserting/removing chart in FlexSheet. (TFS 191085)
+	- Added a new 'wj-state-empty' class to controls that contains empty input elements.
+	  This class can be used in CSS selectors along with the wj-state-focused class.
+	- Allow empty strings on masked inputs when "isRequired" is false.
+
+* Breaking changes
+	- Replaced some custom attributes used by the FlexGrid control with class names 
+	  for better W3C compliance and CSS support:
+		"wj-collapse" attribute was replaced with "wj-elem-collapse" class name
+		"wj-dropdown" attribute was replaced with "wj-elem-dropdown" class name
+		"wj-filter" attribute was replaced with "wj-elem-filter" class name
+	  This change may affect applications that customize the display of node cells.
+	  For example, you should replace:
+		cell.innerHTML = '<span wj-collapse class="glyphicon ...
+	  With
+		cell.innerHTML = '<span class="wj-elem-collapse glyphicon ...
+	- Deprecated 'disabled' and 'required' properties on all controls and replaced them
+	  with 'isDisabled' and 'isRequired'. This avoids conflicts with HTML attributes
+	  in markup. The old properties still work, but will be removed in a future release,
+	  so this is not a breaking change yet, but will be.
+
+* Bug fixes
+	- 'Year Quarter' and 'Fiscal Year Quarter' formats cannot be exported correctly to XLSX 
+	  file. (TFS 197681)
+
+=========================================================================================
+Build Number 5.20162.188              Build Date: 06/29/2016
+=========================================================================================
+
+* Improvements
+	- Added wijmo.chart.hierarchical.Sunburst control. The control displays hierarhical 
+	  data as multi-level pie charts.
+	- Added wijmo.chart.analytics.Waterfall class. The Waterfall series represents data
+	  values with cumulative effects(Waterfall chart).
+	- wijmo.pdf - added support for drawing SVG images (the PdfPageArea.drawSvg method).
+	- Added customized filter for FlexSheet, make the filtering behave exactly like in Excel.
+	- Updated the cell ranges processing in formula that Insert/delete row/column will update 
+	  affected cell ranges in formulas.
+	- Added a CollectionView.sortComparer property to support using custom value 
+	  comparers such as Dave Koele's "natural sorting": http://www.davekoelle.com/alphanum.html
+	- Added JavaScript Intellisense support, see the Intellisense folder in Wijmo zip.
+	- Angular 2 - adapted to Angular 2 RC.3
+	- Angular 2: the 'initialized' event and 'isInitialized' boolean property are added
+	  to all components. The event triggers when the bindings on the component and all
+	  its child components have been initialized, and the property changes its value
+	  from false to true at this moment.
+	  Note that 'isInitialized' is a dynamic property, in a sense is that it's not 
+	  exposed as a TypeScript property out of the component interface, so it should be
+	  read using the component['isInitialized'] syntax.
+
+* Bug fixes
+	- When undo the current cell in editing mode with 'Ctrl + Z', original value is not 
+	  restored in editing cell. (TFS 189582)
+	- Filtering by conditions (Equals and Does not equal) is not working correctly in Date,
+	  Numeric and Checkbox columns. (TFS 190543)
+	- Angular 1/2: FlexGrid row heights may grow infinitely if grid performs cells merging
+	  and uses cell templates.
+	- FlexSheet Filter values list does not include only items that are not excluded by 
+	  other filters like FlexGrid. (TFS 194375)
+	- FlexSheet Filtering is cleared unintentionally in unbound sheet when insert/delete 
+	  column or row. (TFS 194311)
+	- Sheets navigation is not working correctly when there is many sheets and direction 
+	  of the FlexSheet is Right To Left. (TFS 192724)
+	- FlexSheet filtering is cleared unintentionally when sorting a column. (TFS 195517)
+	- Formula drop-down cannot be opened by entering "=" if SelectionMode is set to 
+	  non-default value. (TFS 195513)
+	- Sheet tabs and new sheet tab are not able to see in Right to Left sheet. (TFS 196273)
+	- Incorrect values are shown in formula cells when delete a cell from formula cell 
+	  range. (TFS 197166)
+	- Undo/redo action cannot be done at once after Inserting/deleting rows/columns like 
+	  MS-Excel. (TFS 197005)
+	- Sheets navigation is not working correctly in IE and FireFox when there is many 
+	  sheets and direction of the FlexSheet is Right To Left. (TFS 192724)
+
+=========================================================================================
+Build Number 5.20161.171              Build Date: 06/24/2016
+=========================================================================================
+
+* Improvements
+	- Wijmo for Angular 2 is adapted for RC.3.
+	- Angular 2: the 'initialized' event and 'isInitialized' boolean property are added
+	  to all components. The event triggers when the bindings on the component and all
+	  its child components have been initialized, and the property changes its value
+	  from false to true at this moment.
+	  Note that 'isInitialized' is a dynamic property, in a sense is that it's not 
+	  exposed as a TypeScript property out off the component interface, so it should be
+	  read using the component['isInitialized'] syntax.
+	- Added a CollectionView.sortComparer property to support using custom value 
+	  comparers such as Dave Koele's "natural sorting": http://www.davekoelle.com/alphanum.html
+
+* Bug fixes
+	- Angular 1/2: FlexGrid row heights may grow infinitely if grid performs cells merging
+	  and uses cell templates.
+
+=========================================================================================
+Build Number 5.20161.164              Build Date: 06/15/2016
+=========================================================================================
+
+* Bug fixes
+	- Columns option not working for FlexSheet. (TFS 192100)
+
+=========================================================================================
+Build Number 5.20161.163              Build Date: 06/14/2016
+=========================================================================================
+
+* Improvements
+	- Angular 2: refined component initialization functionality.
+
+=========================================================================================
+Build Number 5.20161.162              Build Date: 06/14/2016
+=========================================================================================
+
+* Breaking changes
+	- Angular 2: bound events are triggered during component initialization now; before
+	  now they started to trigger after a component got to ngOnInit lifecycle hook.
+
+=========================================================================================
+Build Number 5.20161.161              Build Date: 06/12/2016
+=========================================================================================
+
+* Bug fixes
+	- Fixed memory leak in Angular 1/Angular 2 FlexGrid cell templates.
+	- Script error occurs when paste some formula cells from clipboard. (TFS 192540)
+	- 'Invalid Date' error shows in date cells in ExcelBook sample. (TFS 192539)
+	- Script errors occur and FlexSheet UI is distorted when insert chart and navigate to 
+	  other sheets. (TFS 192642)
+	- Series disappear from chart when deleting values from cell range of inserted chart.
+	  (TFS 191087)
+
+=========================================================================================
+Build Number 5.20161.159              Build Date: 06/08/2016
+=========================================================================================
+
+* Improvements
+	- Improved FlexGrid.stickyHeaders property to work within nested scrollable container
+	  elements, improved StickyHeaders sample to demonstrate this and how to add sticky
+	  toolbars to the grid:
+	  http://demos.wijmo.com/5/SampleExplorer/SampleExplorer/Sample/StickyHeaders
+	- Added FlexGrid.updatingLayout and updatedLayout events.
+	- Added a FlexGrid.updatingView event to match FlexGrid.updatedView.
+	- Added wijmo.grid.multirow extension module. Contains the MultiRow control that extends 
+	  conventional grid layouts by using multiple rows to represent each data item. See
+	  sample here:
+	  http://demos.wijmo.com/5/SampleExplorer/SampleExplorer/Sample/MultiRowIntro
+	- Added a Gauge.getText callback property used to customize text values shown on gauges.
+	  This new property is shown in the GaugeIntro sample:
+	  http://demos.wijmo.com/5/SampleExplorer/SampleExplorer/Sample/GaugeIntro
+	- Addled a ValueFilter.sortValues property that allows users to specify that they don't 
+	  want the values to be sorted when displayed in the filter editor.
+	- Improved focus handling to work with controls hosted in "shadowRoot" elements
+	  (see the wijmo.getActiveElement() method).
+	- Added style property for WorkSheet class, user is able to set the style for all the
+	  cells in the Worksheet for exporting.
+	- Added PivotGrid.showRowFieldSort property. See this thread for details:
+	  http://wijmo.com/topic/pivotgrid-rowfield-columns-do-not-respect-allowsorting-or-showsort/#post-75360
+	- Added MultiSelect.checkedItems property to Angular directives.
+	- Added Popup.dialogResult and Popup.dialogResultEnter properties to make it easier 
+	  to create and handle modal dialogs.
+
+* Bug fixes
+	- 'Freeze' icon in toolbar did not refresh when freezing is applied in FlexSheet in
+	  ExcelBook Ng2 sample. (TFS 152308)
+	- 'remove' and 'removeAt' methods of SheetCollection class did not work as expected.
+	  (TFS 152477)
+	- Excel-like drag and drop was not working correctly for checkbox column when loads 
+	  workbook into the FlexSheet. (TFS 152292)
+	- When select chart on the sheet, cell range selection was lost. (TFS 152995)
+	- FlexSheet control loaded date formats incorrectly if system's time zone contains
+	  daylight time. (TFS 153785)
+	- Dates falling in Daylight savings time zone was exported incorrectly. (TFS 147908)
+	- Undo/Redo does not work correctly when input 2 or more formulas into the sheet.
+	  (TFS 189042)
+	- Column-header and row-header of previous selected cell was highlight even when 
+	  current selection is changed. (TFS 189050)
+	- Context-menu of the browser did not pop up in editing cell. (TFS 189340)
+	- When undo the current cell in editing mode, original value was not restored in 
+	  editing cell. (TFS 189582)
+	- 'Min, Max and Average' formulas did not work correctly in Date column. (TFS 189044)
+	- 'round' formula did not work correctly. (TFS 153963)
+	- Columns could be selected by clicking column headers. (TFS 190326)
+	- Groups did not collapse/expand and columns are were not resizeable after freezing
+	  the pane. (TFS 190311)
+	- Script errors occur when 'wijmo.grid.sheet.filter.min.js' is not included as script
+	  reference in Benchmark sample. (TFS 190312)
+	- Multiple console errors are observed and empty sheet is displayed in Ng2 ExcelBook,
+	  FlexSheetIntro and FlexSheetExplorer sample. (TFS 190260)
+	- Drop marker and tooltip do not show while dragging a row. (TFS 190542)
+	- Unlike MS Excel, hidden rows and columns render in the inserted chart. (TFS 190562)
+	- 'UndoStack' is not working correctly after import an Excel file into the FlexSheet.
+	  (TFS 190842)
+	- 'previous' button for sheet navigation does not work if 'visible' property of a 
+	  sheet is set as 'false'. (TFS 190917)
+	- Empty chart is shown on the sheet after resize the browser window. (TFS 190959)
+	- Status bar shows date time incorrectly when select an empty cell. (TFS 191072)
+	- Series disappear from chart when deleting values from cell range of inserted chart.
+	  (TFS 191087)
+	- Formula not getting updated when copy paste the fomula. (TFS 190785)
+	- 'Cut' operation is not able to do in the FlexSheet like MS Excel. (TFS 191694)
+
+* Breaking changes
+	- The CollectionView.moveCurrentToPrevious method used to allow moving the cursor to
+	  position -1. Now it stops moving when the cursor reaches the first item (position zero).
+	  This was done for two reasons:
+	  1) To make the method more convenient to use in typical first/prev/next/last VCR-style 
+	     navigation buttons (the 'prev' button can now be linked to moveCurrentToPrevious 
+		 without any additional tests), and
+	  2) To improve consistency with the moveCurrentToNext method, which stopped at the last 
+	     item in the collection.
+
+=========================================================================================
+Build Number 5.20161.154              Build Date: 05/19/2016
+=========================================================================================
+
+* Improvements
+	- The Angular 2 samples missing in build 153 have been ported to RC.1
+
+=========================================================================================
+Build Number 5.20161.153              Build Date: 05/17/2016
+=========================================================================================
+
+* Improvements
+	- Wijmo for Angular 2 components adapted to Angular 2 RC.1 
+
+=========================================================================================
+Build Number 5.20161.151              Build Date: 05/06/2016
+=========================================================================================
+
+* Bug fixes
+	- 'preserveSelectedState' property is not working correctly in the FlexSheet. (TFS 152476)
+	- Moving charts make resizing the charts when 2 or more charts are placed on the 
+	  sheet. (TFS 153047)
+
+=========================================================================================
+Build Number 5.20161.150              Build Date: 05/05/2016
+=========================================================================================
+
+* Bug fixes
+	- 'Freeze' icon in toolbar did not refresh when freezing is applied in FlexSheet in
+	  ExcelBook Ng2 sample. (TFS 152308)
+	- Setting data format apply the whole sheet in 'Format Cells' sample on clicking 
+	  top-left cell in FlexSheetIntro Ng2 sample and FlexSheetExplorer Ng2 sample.
+	  (TFS 152947)
+	- Date series did not render correctly when select date column and inserting any 
+	  chart type. (TFS 152996)
+	- Cell contents could not be deleted on pressing 'Delete' key while in editing 
+	  mode. (TFS 153246)
+	- Error when clicking Previous or Next button on FlexSheet tab holder after 
+	  clearing all sheets. (152466)
+	- 'remove' and 'removeAt' methods of SheetCollection class did not work as expected.
+	  (TFS 152477)
+	- Freezing is not working correctly after navigating to other sheet. (TFS 152188)
+
+=========================================================================================
+Build Number 5.20161.149              Build Date: 05/04/2016
+=========================================================================================
+
+* Improvements
+	- Added a wijmo.olap.PivotEngine.totalsBeforeData property that determines 
+	  whether totals and grand totals should be displayed before or after the
+	  data they summarize.
+
+* Bug fixes
+	- FlexSheet undo/redo was not working correctly when copying and pasting
+	  multiple rows. (TFS 152820)
+	- Empty chart appeared when selecting all cells and inserting a chart for the
+	  first time. (TFS 152822)
+	- Inserted charts were still shown after creating a new FlexSheet and loading 
+	  an Excel file. (TFS 152914)
+	- PivotGrid did not always show collapse/expand icons correctly.
+
+=========================================================================================
+Build Number 5.20161.146              Build Date: 04/28/2016
+=========================================================================================
+
+* Bug fixes
+	- Fixed FlexGridXlsxConverter issue console error occurs and excel file cannot be 
+	  saved. (TFS 152716)
+	- Fixed issue Console error "Object.keys: argument is not an Object"  is observed when 
+	  inserting chart without selecting cell range. (TFS 152721)
+	- Fixed issue Cell data also get deleted when remove Chart on the sheet by pressing 
+	  Delete key. (TFS 152731)
+	- Fixed FlexSheet issue when 'selectionMode' is set to 'ListBox', non-continuous 
+	  columns cannot be selected using 'Ctrl + Click'. (TFS 152493)
+	- Fixed issue that prevented the PivotField from handing deep bindings correctly.
+
+=========================================================================================
+Build Number 5.20161.144              Build Date: 04/26/2016
+=========================================================================================
+
+* Improvements
+	- Added an ODataCollectionView.load method to re-fetch the data from the server. (TFS 139722)
+	- Added CollectionView.sourceCollectionChanging and CollectionView.sourceCollectionChanged events.
+	- Added support for deleting the content of multiple cells on the FlexSheet. (TFS 139728)
+	- Added support for exporting borders in xlsx export. (TFS 149656, 147911)
+	- Optimized horizontal scrolling on the FlexGrid (especially noticeable in IE, 
+	  with large numbers of columns).
+	- Added Chart support in FlexSheet (as a part of ExcelBook sample). 
+	- Wijmo Angular 2 components adapted to Beta.15. 
+	- Added a 'wj-header-alt' class to alternating cell headers (to avoid interference 
+	  with existing CSS using 'wj-alt' class, which is applied only to scrollable cells).
+
+* Bug fixes
+	- Fixed issue with partially visible checkbox cells in the FlexGrid.
+	- Fixed FlexGridXlsxConverter issue the number format without decimals setting such as 
+	  'c', 'n' and etc. was not converted to expected xlsx number format. (TFS 149637)
+	- Fixed FlexSheet issue the undo/redo action works incorrectly for paste operation.
+	- Fixed FlexSheet issue multiple issues are observed on setting 'selectionMode' 
+	  property. (TFS 152493)
+	- Fixed issue that prevented PivotFields from handling deep bindings 
+	  (e.g. binding = 'person.firstName')
+
+=========================================================================================
+Build Number 5.20161.143              Build Date: 04/07/2016
+=========================================================================================
+
+* Improvements
+	- Improved keyboard/focus handling in Popup control (TFS 148651)
+	- Improved the FlexGridFilter value filters to behave more like Excel (TFS 133354)
+	  The values shown for a column include only items that are not excluded by other filters. 
+	  For example, if you filter a list by 'name' and that results in two items being shown, 
+	  other field filters will only show the values of those two items.
+	- Added new settings to AllowResizing enum to allow resizing rows and columns by
+	  dragging the edges of scrollable (non-header) cells. This is especially useful when
+	  headers are hidden (see headersVisibility). The updated settings are
+		export enum AllowResizing {
+	        None
+			Columns,
+			Rows,
+			Both,
+			ColumnsAllCells, // resize columns by dragging cell edges
+			RowsAllCells,	 // resize rows by dragging cell edges
+			BothAllCells	 // resize rows and columns by dragging cell edges
+		}
+	- Improved the adding/removing/changing sheet operations of sheets collection for 
+	  FlexSheet control.
+
+* Bug fixes
+	- InputMask didn't always fire the valueChanged event.
+	- Fixed FlexSheet issue the edited value is not able to apply the date format. 
+	  (TFS 145403)
+	- Fixed FlexSheet issue the dragging marker shows outside the FlexSheet border when 
+	  dragging the mouse to outside control border. (TFS 146133)
+	- Fixed FlexSheet issue Setting 'selectionRanges' property of Sheet is not working 
+	  as expected. (TFS 144511)
+	- Fixed FlexSheet issue 'Insert/Delete Rows/Columns' context menu is not working on 
+	  iPad. (TFS 147163)
+	- Fixed FlexSheet issue JavaScript error is observed when filter is applied after 
+	  column has been merged. (TFS 147123)
+	- Fixed PivotChart issue that error occurs on hovering mouse over PivotChart when there  
+	  is 'Date' field in 'Values' list. (TFS 147209)
+	- Fixed FlexSheet issue 'Insert/Delete' context menu pop up in data-bound sheet in
+	  iPad. (TFS 143242)
+	- The FlexGrid did not honor the 'cancel' property in the resizingRow/Column events 
+	  (TFS 144204).
+	- Fixed FlexSheet issue 'formatItem' doesn't work in FlexSheet.
+	- Fixed FlexSheet issue Error occurs when scroll and open a sheet in 'Formulas' page
+	  in FlexSheetExplorer sample. (TFS 148074)
+	- Fixed FlexSheet issue Filter dialog is still shown when navigating to other sheet.
+	  (TFS 147830)
+	- Fixed FlexSheet issue 'gotFocus' event does not fire when click sheet tabs. 
+	  (TFS 146789)
+	- Fixed FlexSheet issue Error occurs when pressing 'Ctrl+Z' to 'Undo' insert/delete 
+	  actions after deleted all cells and inserted a cell. (TFS 149347)
+	- Fixed FlexGridXlsxConverter issue Incorrect values and incorrect date format are 
+	  exported to XLSX document. (TFS 149467)
+
+* Breaking changes
+	- wijmo.grid.sheet.Sheet class
+		-- Remove setter for the 'selectionRanges' property.
+
+=========================================================================================
+Build Number 5.20161.138              Build Date: 03/10/2016
+=========================================================================================
+
+* Improvements
+	- Added wijmo.angular2.* modules (Beta version), that allow to use Wijmo 
+	  controls in Angular 2 applications markup.
+    - Added a wijmo.chart.animation module with the ChartAnimation main class that
+      provides animations for the FlexChart, FlexPie and FinancialChart controls.
+      The FlexChartAnimation sample demonstrates module's features.
+    - Added ChartGestures to the wijmo.chart.interaction module. The class adds 
+	  touch zoom and panning functionality to the FlexChart control.
+      The FlexChartZoom sample demonstrates usage of the class. 
+    - Added FlexChartBase.exportToImage method that allows exporting charts to 
+      PNG, JPEG, and SVG formats.
+    - Added Axis.labelPadding property that controls padding of axis labels.
+	- Added a wijmo.olap module that provides Excel-like pivot tables and charts
+	  to Wijmo.
+    - Added a wijmo.pdf module, with the PdfDocument main class that provides client
+      side functionality for creating files in PDF format. The module is based on a 
+      modified version of the PDFKit library (http://pdfkit.org/) with a footprint
+      minified up to 375Kb.
+    - Added wijmo.grid.pdf module which is an extension of the wijmo.pdf and
+      wijmo.grid modules and provides functionality for exporting FlexGrid to
+      PDF format.
+	- Added a PrintDocument class to the wijmo module. This class allows you to create
+	  documents for printing, which in modern browsers includes the option to export
+	  to PDF.
+	- Modified FlexGridFilter module to clear value filters when all possible values 
+	  are selected.
+	- Added a FlexGrid.preserveSelectedState property to control whether the grid
+	  should preserve the selected state of rows when the data is refreshed.
+	- Added a FlexGrid.preserveOutlineState property to control whether the grid
+	  should preserve the collapsed/expanded state of group rows when the data is 
+	  refreshed.
+	- Added a Tooltip.showAtMouse property that causes the tooltip position to be
+	  computed based on the mouse position rather than on the target element.
+	- Made FlexGrid "stickyHeaders" visible to the mouse, so users can interact
+	  with columns (sort/move/resize/filter) while in sticky mode.
+    - Added FlexSheetExplorer sample.
+
+* Bug fixes
+    - Fixed FlexSheet issue Script error occurs when a column is merged and filter the 
+	  FlexSheet by a column. (TFS 143544)
+	- Fixed FlexSheet issue editing cell does not exit on pressing 'Esc' key after 
+	  scrolled through formula menu using mouse. (TFS 142370) 
+	- Fixed FlexSheet issue the existed sheet disorted  if the new sheet was added before
+	  current selected sheet. (TFS 143291)
+	- Fixed FlexSheet issue Script error occurs when switch unbound sheet to bound sheet,
+	  if the range of the selection in the unbound sheet is out of the range of the bound
+	  sheet. (TFS 142436)
+	- Fixed FlexSheet issue Formula value and formula cells number are not updated when 
+	  editing the data or moving the columns which include in formula range. (TFS 143764)
+	- Fixed FlexSheet issue multiple selection doesn't work after the CellFactory of 
+	  FlexGrid being updated.
+    - Fixed FlexSheetExplorer sample Unlike 'Merge' button , 'Freeze' button does not 
+      refresh when a new sheet is added. (TFS 142587)
+    - Fixed FlexSheetExplorer sample Reference cell is incorrect in 'Year', 'Month' and
+      'Day' formula cells. (TFS 142784)
+	- Fixed FlexSheet Explorer sample ColorPicker is not displayed properly when opening
+	  'Fill Color' and 'Fore Color' in iOS device or Android device. (TFS 143243)
+	- Fixed ODataCollectionView.totalItemCount to account for paging on the client.
+	- Fixed FlexSheet issue Console error is observed on clicking 'Show Filter' button 
+	  when a new sheet is added. (TFS 145135)
+	- Fixed FlexSheet issue Error is observed when resizing column/row header in the empty
+	  Sheet. (TFS 145154)
+	- Fixed FlexSheet issue Setting 'ActiveWorksheet' property of Workbook does not have 
+	  effect in FlexSheet. (TFS 144381)
+	- Fixed FlexSheet issue Columns and rows are not able to drag and drop when Workbook 
+	  is loaded into the flexSheet. (TFS 144546)
+	- Fixed FlexSheet issue Insert/Delete context menu does not pop up when FlexSheet is 
+	  placed inside Popup. (TFS 144667)
+	- Fixed FlexSheet issue 'Visible' property of Sheet is not working properly. 
+	  (TFS 144802)
+	- Fixed FlexSheet issue 'Loaded' event is not working as expected. (TFS 144490)
+	- Fixed FlexGridXlsxConverter issue FlexGrid exporting column binding field rather 
+	  than the column labels to Excel. (TFS 145142)
+	- Fixed FlexSheet issue the edited value is not able to apply the number format.
+	  (TFS 145403)
+	- Fixed FlexSheet issue Drag and drop marker do not show when the FlexSheet is placed 
+	  inside Popup. (TFS 145900)
+	- Fixed FlexSheet issue 'Insert/Delete' context-menu does not automatically close 
+	  when navigate to other page in iPad. (TFS 145753)
+	- Fixed FlexSheet issue Dragging markers show in empty web page on dragging row or 
+	  column. (TFS 146133)
+	- Fixed FlexSheet issue Drag and drop markers do not show properly when the direction 
+	  of the FlexSheet is 'right to left'. (TFS 145889)
+	- Wijmo AngularJS directives may trigger the 'initialized' event multiple times in case
+	  where its child directives generated by ng-repeat/ng-if directives.
+	- Fixed FlexSheet issue 'Insert/Delete Rows/Columns' context menu is not working on 
+	  iPad. (TFS 147163)
+	- Fixed FlexSheet issue JavaScript error is observed when filter is applied after 
+	  column has been merged. (TFS 147123)
+	- Fixed FlexSheet issue 'Insert/Delete Rows/Columns' context menu is not working on 
+	  iPad. (TFS 147163)
+	- Fixed FlexSheet issue 'Insert/Delete' context menu pop up in data-bound sheet in
+	  iPad. (TFS 143242)
+
+* Breaking changes
+	- wijmo.grid.sheet.FlexSheet class
+		-- Remove the 'override' parameter for the 'addCustomFunction' method.
+
+=========================================================================================
+Build Number 5.20153.117              Build Date: 01/27/2016  
+=========================================================================================
+
+* Bug fixes
+    - Fixed FlexSheet issue newly added sheet is distorted when an unbound sheet is added
+	  using 'addUnboundSheet' function. (TFS 143291)
+	- Fixed FlexSheet issue 'Insert/Delete' context menu pop up in data-bound sheet in
+	  iPad. (TFS 143242)
+	- Fixed FlexSheet issue 'Insert/Delete' context menu displays at incorrect position
+	  in iPad. (TFS 143246)
+	- Fixed FlexSheet issue Group header rows are not able to drag and drop. (TFS 143130)
+	- Fixed FlexSheet issue sizing icon does not show properly at top-left cell in unbound
+	  Sheet. (TFS 143418)
+	- Fixed FlexSheet issue first cell enters into edit mode when clicking top-left cell.
+	  (TFS 143426)
+	- Fixed FlexSheet issue javascript error is observe after entering edit mode and 
+	  loading an excel file in IE. (TFS 143504)
+
+=========================================================================================
+Build Number 5.20153.116              Build Date: 01/25/2016  
+=========================================================================================
+
+* Improvements
+	- Added a wijmo.input.DropDown.dropDownCssClass property to make it easier to style
+	  the drop-down elements of the controls (this applies to all controls that extend
+	  DropDown, including ComboBox, MultiSelect, InputDate, InputTime, etc).
+	- Added a wijmo.grid.Column.dropDownCssClass property to make it easier to style
+	  the drop-down list used to edit cells in columns that have dataMaps.
+	- Added a wijmo.collections.CollectionView.useStableSort property that causes the
+	  CollectionView class to use a stable sort algorithm which is 30 to 50% slower
+	  than the native sort but maintains the relative order of records with equal keys.
+
+* Bug fixes
+    - Fixed FlexSheet issue Formula menu does not open when entering '=' in Firefox.
+	  (TFS 142491)
+	- Fixed FlexSheet issue Formula menu is overlapping over current cell in IE. 
+	  (TFS 142495)
+	- Fixed FlexSheet issue Formula menu does not close on pressing 'Esc' key after 
+	  scrolled through formula menu using mouse. (TFS 142370)
+	- Fixed FlexSheet issue Vertical scrollbar scroll along with mouse after dragging and
+	  dropping a row in FlexSheet. (TFS 142369)
+	- Fixed FlexSheet issue Some incorrect behaviors are occurred when cells are marge by
+	  'mergeRange' method. (TFS 142367)
+	- Fixed FlexSheet issue Javascript error is observe after selecting a column and
+	  deleting a row when setting 'allowMerging' property to 'all' in bound sheet.
+	  (TFS 142348)
+	- Fixed FlexSheet issue The drag drop row marker display inconsistency when IE or 
+	  FireFox is resized. (TFS 142679)
+    - Fixed FlexSheet issue Javascript error is shown when clicking the top-left cell 
+	  after adding row headers more than the columns of the sheet. (TFS 142581) 
+	- Fixed FlexSheet issue Observed incorrect freezing behavior when scroll down the 
+	  FlexSheet and freeze at a lower position. (TFS 143006)
+	- Fixed FlexSheet issue Observed performance problem when scrolling the FlexSheet 
+	  after loaded an Excel file which contains over 2000 data rows. (TFS 142887)
+	- Fixed FlexSheet Sheets navigation is not working properly when there is multiple 
+	  sheets in the FlexSheet. (TFS 142788)
+	- Fixed FlexSheet issue Undo process is not working after drag and drop a column.
+	  (TFS 142888)
+	- Fixed FlexSheet issue Cells are distorted on adding a new column after clear all 
+	  columns in unbound sheet. (TFS 140344)
+
+=========================================================================================
+Build Number 5.20153.112              Build Date: 01/16/2016
+=========================================================================================
+
+* Improvements
+	- Added a new InputDateTime control to enter/edit date and time values using a
+	  single control (as opposed to using an InputDate and an InputTime).
+	- Added a new FlexGrid.imeEnbled property to support IME modes while the grid
+	  is not in edit mode. This property benefits sites and applications in Japanese,
+	  Chinese, Korean and other languages that require IME support.
+	- Improved FlexGrid.focus() implementation to prevent the browser from scrolling 
+	  the grid's hostElement into view when the grid gets the focus.
+	- Improved allowAddNew to work better with childItemsPath.
+	- Improved IE9 polyfill to support drag/drop in modal dialogs (TFS 140812)
+    - Added Angular 2 Explorer sample with components for core Wijmo controls. The 
+      sample uses Beta.1 version of Angular 2.
+    - wijmo.xlsx
+        -- Added support for several new functions:
+            Column
+            Columns
+            COUNTA
+            COUNTBLANK
+            COUNTIF
+            COUNTIFS
+            DATE
+            DATEDIF
+            DCOUNT
+            HLOOKUP
+            HOUR
+            INDEX
+            MOD
+            RANK
+            RATE
+            ROUNDDOWN
+            ROUNDUP
+            ROW
+            ROWS
+            SUBTOTAL
+            SUMIF
+            SUMIFS
+            TIME
+            TODAY 
+        -- Added support for importing shared formulas.
+        -- Improved performance.
+    - wijmo.grid.sheet 
+        -- Added support for user-provided custom functions, see the 
+           FlexSheet.addCustomFunction method.
+        -- Added FlexSheet.unknownFunction event that allows to process
+           non-supported functions found in cell expressions.
+        -- Added Sheet.itemsSource property that allows to change the items
+           source for data bound sheets.
+	- Added a wijmo.input.DropDown.dropDownCssClass property to make it easier to style
+	  the drop-down elements of the controls (this applies to all controls that extend
+	  DropDown, including ComboBox, MultiSelect, InputDate, InputTime, etc).
+	- Added a wijmo.grid.Column.dropDownCssClass property to make it easier to style
+	  the drop-down list used to edit cells in columns that have dataMaps.
+	- Added a wijmo.collections.CollectionView.useStableSort property that causes the
+	  CollectionView class to use a stable sort algorithm which is 30 to 50% slower
+	  than the native sort but maintains the relative order of records with equal keys.
+
+* Breaking changes
+    - The wijmo.xlsx.XlsxConverter class is deprecated. Use the wijmo.xlsx.Workbook
+      class instead. XlsxConverter is still supported for compatibility and will be
+      eliminated in the future releases.
+    - wijmo.grid.xlsx.FlexGridXlsxConverter class:
+        -- the 'export', 'toWorkbookOM', 'import' and 'fromWorkbookOM' methods are deprecated.
+           Use the 'save' and 'load' methods instead. The old methods are still supported for 
+           compatibility and will be eliminated in the future releases.
+    - wijmo.grid.sheet.FlexSheet class:
+        -- saveToWorkbookOM and loadFromWorkbookOM methods are deprecated. 
+           Use the 'save' and 'load' methods instead. The old methods are still supported for 
+           compatibility and will be eliminated in the future releases.
+	- CellRangeEventArgs class: removed property "cellRange", which was deprecated 
+	  in build 105 and replaced by "range".
+	- HitTestInfo class: removed property "gridPanel", which was deprecated 
+	  in build 105 and replaced by "panel".
+
+* Bug fixes
+	- Fixed grid to to include all items and sub-items in aggregates (TFS 139570,
+	  partially fixed earlier in build 5.20143.35)
+
+=========================================================================================
+Build Number 5.20153.109              Build Date: 12/10/2015
+=========================================================================================
+
+* Improvements
+	- Improved CollectionView.trackChanges to allow tracking of changes made to items
+	  that are not the current edit item. The most common scenario is pasting blocks
+	  of data into a FlexGrid.
+	- Improved FlexGrid.childItemsPath property to accept arrays of strings in case
+	  items at different levels use different property names for their child items.
+
+=========================================================================================
+Build Number 5.20153.108              Build Date: 12/06/2015
+=========================================================================================
+
+* Improvements
+	- Changed the default value of the InputTime.step property to 15 (which seems
+	  to be the most common/useful setting). This causes the control to display
+	  the drop-down button by default; to remove the button, set the step property
+	  to null.
+	- Added support for opening FlexGrid.dataMap dropdowns using the keyboard
+	  (F4, alt+up/down, like WinForms and WPF/Excel) (TFS 124408)
+	- Improved the Control.dispose method to remove all Wijmo event listeners from the control
+	  being disposed (dispose also removes all HTML event listeners added with the 
+	  Control.addEventListener method).
+	- Added a DropDown.autoExpandSelection property that determines whether input 
+	  controls should automatically select whole words/numbers when clicked.
+	  This applies to all controls that derive from DropDown, and makes it easier
+	  to edit dates, times, colors, etc.
+	- Added a ComboBox.headerPath property that allows decoupling the values shown in
+	  the combo's input element from the values shown in the drop-down list.
+	- Improved Globalize to support formatting of fiscal years and quarters with the 
+	  following format specifiers:
+		- 'EEEE': government fiscal year
+		- 'eeee': corporations fiscal year
+		- 'U': government fiscal quarter
+		- 'u': corporations fiscal quarter
+	  The conversion from calendar to fiscal date is culture-dependent. If you are 
+	  not using the appropriate culture file (and don't want to), then you can 
+	  specify the conversion factor by setting the 
+	  wijmo.culture.Globalize.calendar.fiscalYearOffset variable to an array
+	  containing two integers that represent the offset (in months) of the start of 
+	  the fiscal year for government and for the private sector.
+	  For example, the Japanese culture uses a three month offset for the government's
+	  fiscal year and no offset for the private sector:
+	      wijmo.culture.Globalize.calendar.fiscalYearOffsets = [3, 0];
+    - Added five new glyphs to wijmo.css:
+		wj-glyph-step-forward
+		wj-glyph-step-backward
+		wj-glyph-file
+		wj-glyph-calendar
+		wj-glyph-clock
+	- Added automatic label rotation for FlexChart category x-axis. The labels are 
+	  rotated to avoid overlapping if axis.labelAngle is not specified.	
+	- Used IntelliSpell to spell-check all the documentation.
+    - The FlexGridXlsxConverter class now supports row headers export. The behavior
+      is controlled by the IFlexGridXlsxExportOptions.includeRowHeaders property.
+
+* Breaking changes
+    - wijmo.grid.xlsx module, the IFlexGridXlsxExportOptions interface:
+        - 'needGetCellStyle' property has been renamed to 'includeCellStyles'. 
+        - 'includeColumnHeader' property has been renamed to 'includeColumnHeaders' (ending 's'). 
+      The old property names have been deprecated and will be removed in future builds.
+
+=========================================================================================
+Build Number 5.20153.105              Build Date: 11/17/2015
+=========================================================================================
+
+* Improvements
+	- Improved InputMask handling of delete key with masks that contain numbers in the
+	  template (e.g. "99-55-9999", TFS 136087).
+	- Add minScale/maxScale to RangeSelector extension for controlling the valid range.
+	- Added FlexGrid.selectedRows and selectedItems properties. Both can be used to get
+	  a list with the currently selected rows or their associated data items. When the
+	  selectionMode property is set to ListBox, they can also be used to set the selected 
+	  rows or data items.
+	- Refactored wijmo.grid.filter.FlexGrid filter by removing the OData-specific 
+	  getODataFilterDefinition method and replacing it with a call to the collection
+	  view's updateFilterDefinition method; which if present updates the filter definition
+	  used on the server-side. This refactoring allows other CollectionView implementations
+	  (such as BreezeCollectionView) to support server-side filtering.
+	- Improved BreezeCollectionView sample to show server-side filtering (TFS 129832).
+	- Added support for Japanese characters (IME, Katakana, Hiragana) in InputMask control.
+	- Added a FlexGrid.showAlternatingRows property to allow disabling alternate row
+	  styling without changing any CSS rules.
+	- Added a FlexGrid.updatedView event that fires when the grid finishes creating/updating 
+	  the cell elements for the current view (e.g. after binding, refreshing, resizing, 
+	  scrolling, etc.)
+
+* Bug fixes
+	- InputDate control did not preserve the time part of the value being edited.
+
+=========================================================================================
+Build Number 5.20153.102                Build Date: 10/29/2015   
+=========================================================================================
+
+* Improvements
+    - Added wijmo.xlsx module that provides client-side functionality for exporting and 
+      importing to/from Excel xlsx file.
+      The ExcelImportExport sample is updated with examples demonstrating its usage.
+    - Added wijmo.grid.xlsx module, which is an extension to the wijmo.xlsx module,
+      that provides client-side functionality for exporting and 
+      importing FlexGrid to/from Excel xlsx file.
+      The ExcelImportExport sample is updated to use this module.
+    - Added wijmo.grid.sheet module, which is an extension to the wijmo.grid
+      and wijmo.grid.xlsx modules. It implements the FlexSheet control
+      that provides an Excel-like functionality.
+      The ExcelBook sample is updated to use this module.
+    - Added AngularJS PdfExport sample that implements client-side export
+      of a FlexGrid control to PDF format.
+	- Added AngularJS FlexChartAnimation sample. The sample shows chart animation
+	  when loading and updating chart data.
+	- Added AngularJS FlexChartZoom sample. The sample demonstrates chart interaction
+	  using touch gestures or mouse.
+	- Added PureJS AggregateSeries sample for FlexChart. The sample shows data aggregation
+	  based on selected data range.
+	- New RangeSelector.seamless property allows seamless transition between selector handles.
+	- New appearance of RangeSelector handles simplifies dragging at smaller ranges.
+	- New FinancialChart overlays: Bollinger Bands & Moving Average Envelopes.
+	- New FinancialChart indicators: Average True Range, Relative Strength Index,
+	  Commodity Channel Index, Williams %R, MACD/MACD Histogram, Stochastic Oscillator.
+	- New Fibonacci Extensions for FinancialChart: Fans, Arcs, Time zones.
+	- Improved wijmo.grid.filter.FlexGridFilter to allow filtering with merged headers.
+	- Improved auto-generated column headers.
+	  (we now capitalize first letter, break up camel-case binding strings, so the header
+	  for a column bound to the 'productName' property becomes 'Product Name' be default).
+    - Optimized wijmo.closest method to use 'matches' method instead of 'querySelectorAll'.
+	- Improved InputNumber control behavior on mobile devices.
+    - Added a FlexGrid.stickyHeaders property that keeps column header cells in view
+	  even when the top of the grid scrolls off view.
+	- Improved CollectionView change tracking to ignore items that are added and 
+	  subsequently removed in the same session.
+	- Improved Globalize to support formatting of date quarters with the 'q' or 'Q'
+	  format specifiers (e.g. format(someDate, 'yyyy "Q"q') => '2014 Q4').
+
+* Bug fixes
+	- Fixed issue with legend hit test for pie chart(TFS 134321).
+	- Fixed problem with focus after toggling legend items in Edge(TFS 132748).
+	- Fixed problem with legend height when series names are long(TFS 132957).
+	- Fixed issue with incorrect chart layout for category axis with long labels. 
+	- Fixed issue with clipped y-axis labels(TFS 135127).
+	- Fixed issue with minimum value should not allowed to set over maximum value in range selector(TFS 135758).
+	- Improved InputNumber to deal with some mobile browser idiosyncrasies (TFS 135585)
+	- Improved Globalize.parseDate to better handle Japanese formats (TFS 136057)
+
+
+=========================================================================================
+Build Number 5.20152.93              Build Date: 10/14/2015
+=========================================================================================
+
+* Bug fixes
+    - Destroying controls interfered with touch support in some scenarios.
+	- Improved behavior of InputNumber on Windows Phone and a few other mobile devices.
+	- Disabled HTML input auto-complete in InputNumber and DropDown controls 
+	  (important for mobile browsers)
+	- FlexGrid.selectionChanging event could not be canceled properly in ListBox 
+	  selection mode.
+
+=========================================================================================
+Build Number 5.20152.90              Build Date: 09/28/2015
+=========================================================================================
+
+* Improvements
+	- Added FlexGrid.pastingCell/pastedCell events. These events fire while the grid 
+	  is pasting data into individual cells. Previously, the grid would fire editing
+	  events in these situations, but that led to some ambiguities that affected the
+	  implementation of custom editors.
+
+=========================================================================================
+Build Number 5.20152.87              Build Date: 09/24/2015
+=========================================================================================
+
+* Improvements
+	- Added support for hexadecimal formatting/parsing; use format 'xn' or 'Xn' (TFS 131809)
+	- Made AutoComplete control honor the "isEditable" property (inherited from ComboBox, TFS 81936)
+
+* Bug fixes
+	- FlexGrid.hitTest method did not set the edgeTop and edgeLeft properties correctly
+	  on the returned HitTestInfo object.
+	- Fixed problem with RowDetails in grids with frozen columns (TFS 131863).
+	- Fixed problem with incorrect column width when series has auxiliary axis (TFS 131680). 
+	- Fixed problem with major/minor units for time axis (TFS 131682).
+	- Fixed JavaScript error in StockChart sample that may appear when moving marker (TFS 131856).
+	- Updated MaskProvider to work with browsers that don't fire the keypress event.
+	- Fixed chart rendering issue that may cause exception in Firefox under several conditions.
+
+=========================================================================================
+Build Number 5.20152.86              Build Date: 09/20/2015
+=========================================================================================
+
+* Improvements
+	- Added a wijmo.grid.CellFactory.disposeCell method to allow better resource cleanup
+	  when using custom cell factories.
+* Bug fixes
+	- Globalize.parseDate failed on some locales (TFS 131320)
+    - Fixed problem with incorrect position of selected pie slice label under several conditions (TFS 129756). 
+    - Fixed issue with incorrect column widths after adding line series (TFS 131153).
+    - Date values now correctly displayed on auxiliary axes (TFS 131294).
+    - Fixed exception when using auxiliary axes with stacked bar chart (TFS 131295).
+    - Fixed problem with minor ticks/gridlines for category axis (TFS 131297).
+    - Fixed problem with hit testing for overlapped series (TFS 131330).
+	- Could not cancel FlexGrid.startEditing event on checkbox cells.
+
+=========================================================================================
+Build Number 5.20152.85              Build Date: 09/13/2015
+=========================================================================================
+
+* Improvements
+    - Improved Angular FlexGrid.CellEdit template to use the character that was typed
+	  when initiating the edits (as the built-in editors do).
+	- Added a wijmo.odata.ODataVirtualCollectionView class that loads data on demand.
+	  See the VirtualData sample for details.
+	- ODataCollectionView.filterDefinition property is applied to filter on the server
+	  even when filterOnServer is set to false. This allows applications to apply 
+	  server and client-side filtering to the same collection.
+	- Made FlexGrid.cellFactory property get/set.
+	- Added a wijmo.grid.DataMap.isEditable property to allow users to enter data that
+	  is not on the DataMap (mapped items become non-exclusive options).
+    - wj-menu-item directive now supports AngularJS interpolation expressions and
+      directives inside it, and can be used in conjunction with ng-repeat/ng-if
+      directives.
+    - Data-bound Menu controls now support wj-item-template directive that allows to
+      define an arbitrary menu item content.
+    - ng-class AngularJS directive is now supported on the wj-flex-grid-column and
+      wj-flex-grid-cell-template directives.
+
+* Bug fixes
+	- CollectionView.removeAt method issued a notification event with index==-1 instead
+	  of the original index of the item that was removed.
+	- FlexGrid MergeManager did not always behave consistently when merging ranges that
+	  included both row and column merging (TFS 129001)
+
+* Breaking changes
+    - Wijmo directives for AngularJS no longer update controller properties bound to 
+      by-ref ('=') properties that logically suppose one-way binding.
+
+
+=========================================================================================
+Build Number 5.20152.84              Build Date: 08/27/2015
+=========================================================================================
+
+* Improvements
+	- Added a FlexGrid.showMarquee property that determines whether the grid should display
+	  an Excel-style marquee around the current selection. The marquee may be styled using
+	  the "wj-marquee" class selector.
+	- Added a FlexGrid.showSelectedHeaders property that determines whether the grid should 
+	  add a "wj-state-multi-selected" class selector to row and/or column header elements;
+	  these can be used in CSS to highlight header cells that correspond to the current selection.
+	- Added a new 'clip' parameter to the FlexGrid.getMergedRange method; if true (the default), 
+	  the method clips the merged range to the current view range.
+	  The 'clip' parameter has no effect on grid; it was added to facilitate the development 
+	  of export utilities, which may need to get merged ranges that are not clipped to the 
+	  grid's current view range.
+	- Added Calendar.itemValidator and InputDate.itemValidator properties to enable preventing
+	  certain days from being selected.
+	- Added a Calendar.formatItem event to complement the Calendar.itemFormatter property.
+	- LinearGauge now accounts for thumbSize when dimensioning the gauge's face.
+
+* Bug fixes
+	- Improved touch support in editable Gauges.
+	- Fixed problem with chart type initialization in constructor parameter(TFS 125747).
+    - Pie chart labels displayed correctly when it's position = 'Outside'(TFS 125423).
+	- Chart does not change color's alpha if it was specified as rgba in palette (TFS 119543).
+
+* Breaking changes
+
+	- We made a small change to the logic that assigns classes to FlexGrid cells. Before, we 
+	  removed the wj-group class from selected cells. That is no longer the case. There are 
+	  two reasons for this change:
+
+	  1) Correctness. Group cells remain group cells even when they are selected. Keeping the
+	     wj-group class allows you to use CSS to style grouped and selected cells independently.
+	  2) Performance. The new code is (very slightly) more efficient.
+
+	  This change could break your custom FlexGrid CSS. If you have CSS rules that affect group 
+	  colors they should be modified to exclude selected cells. In other words, if you had a 
+	  rule like this:
+
+		.wj-group {
+			background: green;
+		}
+
+	  You should change it to this:
+
+		.wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) {
+			background: green;
+		}
+  
+
+=========================================================================================
+Build Number 5.20152.76              Build Date: 08/13/2015
+=========================================================================================
+
+* Improvements
+	- Added a new 'wj-state-focused' class to controls that contains the focus. This 
+	  class is toggled automatically to reflect the control's focus state and can be 
+	  used in CSS selectors to add focus-related styles to parts of focused controls,
+	  such as gauge cursors, chart series, and grid ranges.
+    - Added Angular attributes for chart series axisX and axisY (TFS 122055).
+	- Added wijmo.input.DropDown.isDroppedDownChanging event to allow for customization
+	  of the drop-down before it is shown.
+	- Added wijmo.grid.filter.ValueFiler.uniqueValues property to specify the list of values 
+	  to be shown on the list, which is more efficient than building the list from the data
+	  and works on collections that are filtered on the server.
+    - Improved features and performance of Globalize.formatDate and parseDate methods.
+	- Added scaling specifiers to Globalization.formatNumber and parseFloat. For example,
+	  'n0,' divides the value by one thousand, 'n0,,' by one million, and 'n0,,,' by one 
+	  billion. The scaling specifiers are especially useful in charts based on large values
+	  so the axis display scaled values which are easier to read and take up less space.
+	- Added a Gauge.thumbSize property that enables displaying a 'thumb' element to show
+	  the current value at the end of the 'pointer' range. This applies to linear and 
+	  radial gauges.
+	- Added mouse wheel support to editable Gauges.
+
+* Bug fixes
+	- Prevented AutoComplete from selecting all the text while the user types.
+    - Fixed problem with toggling data series visibility for multiple y-axes(TFS 122051).
+    - Fixed error in chart hit test demo(Explorer sample) TFS 124526.
+    - Axis ticks displayed correctly with rotated labels(TFS 125399).
+    - Axis ticks and grid lines rendered properly with overlapped axis labels(TFS 125273).
+    - Chart focus events fire correctly in IE(TFS 124275).
+    - Candlestick and HighLowOpenClose chart types now support 'rotated' property(TFS 118721).
+    - Fixed problem with series visibility toggle when there are hidden series(TFS 110615). 
+    - Fixed problem with major and minor grid lines for category x-axis(TFS 110250).
+    - Chart updated correctly after changing axis 'reversed' property(TFS 100492).
+    - Added angular attribute for axis 'overlappingLabels' property(TFS 98919). 
+
+=========================================================================================
+Build Number 5.20152.72            Build Date: 07/20/2015
+=========================================================================================
+
+* Improvements
+    - Added support for several new cultures.
+
+* Bug fixes
+    - Axis labels rendered correctly when Axis.overlappingLabels=Show(TFS 124732).
+
+=========================================================================================
+Build Number 5.20152.71          Build Date: 07/14/2015
+=========================================================================================
+
+* Improvements
+    - Added wijmo.chart.finance extension module, contains FinancialChart control. The module
+      is a part of Wijmo 5 Enterprise edition only.
+    - Added wijmo.chart.analytics extension module, containing a set of specialized series 
+      classes intended for creating of analytical charts using FlexChart and FinancialChart 
+      controls:
+        TrendLine (A calculation of simple linear or growth trend that fits different fitType)
+        MovingAverage (A calculation by creating a series of averages of different subsets)
+        YFunctionSeries (A calculation of y by given function)
+        ParametricFunctionSeries (A calculation of x and y by given xFunc and yFunc)
+    - Added wijmo.chart.annotation extension module, implements a possibility to add annotations
+      of different types to FlexChart and FinancialChart controls:
+        AnnotationLayer (A layer that contains a collection of annotations of different types)
+        Annotations:
+            Circle
+            Ellipse
+            Image
+            Line
+            Polygon
+            Rectangle
+            Square
+            Text
+    - Added wijmo.chart.finance.analytics module, contains Fibonacci tool.
+    - Added support for multiple plot areas in FlexChart and FinancialChart.
+    - Improved label generation for time and category axes.
+    - Added support of custom data label rendering(DataLabel.rendering event).
+    - Added connecting lines for data labels(DataLabel.connectingLine property).
+    - Added DataLabel.offset property to specifies offset from date point to the corresponding label.  
+    - Added Axis.labelAlign property to control alignment of axis labels.
+    - Axis properties min, max, actualMin, actualMax support Date objects for time-based data source.
+    - Added property SeriesBase.altStyle to specify alternative style for data series.
+    - Added Position.Auto option that allows to automatically set chart legend position
+      depending on control's size.
+    - Added ExcelBook sample that implements FlexSheet control that provides Excel-like
+      functionality. The implementation is based on the FlexGrid control.
+    - Added AxisScrollBar sample. The sample demonstrates axis scroll bars that allow to scroll
+      through and change scale of displayed data.
+    - Added FinancialChartExplorer sample. The sample shows available financial chart types.
+    - Added FinancialChartIntro. The sample in an introduction to FinancialChart control.
+    - Added FlexChartAnalytics. The sample shows extended chart functionality
+      from wijmo.chart.analytics module.
+    - Added FlexChartAnnotation. The sample demonstrates annotations created
+      with wijmo.chart.annotation module.
+    - Added StockChart. The sample shows various features of FinancialChart control. 
+    - Added a new wijmo.input.MultiSelect control (allows picking multiple items from a drop-down).
+    - Added a new wijmo.input.Popup control (shows arbitrary elements as popups/popovers/dialogs).
+    - Added a Menu.owner property for use in shared context menus.
+    - Added filterChanging and filterChanged events to the FlexGridFilter class.
+    - Improved FlexGridFilter to ignore invalid condition filters such as 
+      "contains('')" or "beginswith('')".
+    - Optimized ODataCollectionView to skip schema/version query in some situations.
+    - Prevent browser from trying to scroll the whole grid into view when it gets focus.
+    - Added Control.gotFocus and lostFocus events.
+    - Added mouse wheel support to Input controls.
+
+* Bug fixes
+    - Fixed problem with RangeSelector when left handle and right handle are overlap with each other (TFS 106637).
+    - Fixed incorrect behaviors when scrolling chart axes scrollbars (TFS 121008).
+    - Fixed issue with clipped labels for time axis(TFS 121607). 
+    - Fixed annotation's tooltip showing error in FlexChartAnnonation sample(TFS 122855).
+    - Fixed javascript error when showing 'MovingAverage' series in StockChart sample(TFS 122724).
+    - Prevent CollectionView's tracking from adding cancelled new items to the 
+      removed items list (TFS 120148).
+    - Fixed issue with hit-testing when the grid was placed inside scrollable containers.
+    - FlexGrid not showing checkboxes when childItemsPath set (TFS 122709).
+    - Fixed issue with dropdowns cannot open again after choosing LineMarkerInteraction to 
+      'Drag' in Wijmo 5 Explorer (TFS 122341).
+    - Fixed issue that prevented the back-tab key from working correctly in Chrome when
+      navigating the Wijmo input controls (TFS 123457).
+    - Fixed problem with data labels for chart with multiple axes(TFS 123631). 
+    - Fixed problem with data label formatting for bar chart when binding to Date(TFS 113614).
+    - Pie chart data labels now support properties connectingLine and offset. Both properties
+      have effect only if label's position equals to 'Inside' or 'Outside'(TFS 124236).
+
+
+=========================================================================================
+Build Number 5.20151.63            Build Date: 06/24/2015
+=========================================================================================
+
+* Improvements
+    - Added InputMask.rawValue property to get/set the value of the control without
+      mask literals and prompt characters.
+
+* Bug fixes
+    - Fixed problem with RangeSelector when dragging range handle button (TFS 106637).
+    - Fixed exceptions in FlexChartGroup sample(TFS 121249,121476).
+    - Fixed problem with not drawing FlexGrid header cell templates under some specific 
+      conditions.
+
+=========================================================================================
+Build Number 5.20151.59          Build Date: 06/16/2015
+=========================================================================================
+
+* Improvements
+    - Improved FlexGrid numeric editor to right-align and show the full precision
+      of values being edited (like MS-Excel).
+    - First input element in FlexGrid edit cell template now automatically gains focus 
+      after editing has started.
+
+* Bug fixes
+    - Could not drop columns on GroupPanels without placeholder text (TFS 120428)
+    - Clicking open split buttons fired itemClicked with a null command (TFS 119513)
+    - Only series with the default chart type are stacked. Series with custom types 
+      are displayed without stacking (TFS 112971).
+    - Fixed exception in FlexChartGroup sample(TFS 113648).
+    - Fixed problem pie chart label position for selected slice(TFS 116125).
+    - Chart repaints correctly after changing Axis.reversed property(TFS 100492).
+    - Fixed problem with chart size when both main axes are hidden.
+
+=========================================================================================
+Build Number 5.20151.54          Build Date: 06/08/2015
+=========================================================================================
+
+* Improvements
+    - Added a wijmo.odata module with an ODataCollectionView class that extends the
+      CollectionView class to load and update data exposed as OData services.
+    - Added a wijmo.httpRequest method to perform Ajax requests without dependencies.
+    - Added wijmo.grid.detail extension to add row details to FlexGrid controls
+      (see RowDetails sample).
+    - Added support for binding to array properties (e.g. 'customer.balance[0]').
+    - Prevent browser from trying to scroll the whole grid into view when it gets focus.
+    - Added a ValueFilter.maxValues property to limit the number of unique items to 
+      display in the value filter list.
+    - Added WjValidationError Angular directive to support validation (HTML5 or Angular 
+      forms) based on arbitrary Angular expressions.
+    - Added WjItemTemplate directive to support ListBox item templates
+      with arbitrary HTML markup (including Angular bindings and directives)
+
+* Bug fixes
+    - Fixed problem with HighLowOpenClose chart when data source is CollectionView.
+    - Fixed problem that kept the FlexGrid editor active when the user clicked the document body.
+    - Fixed problem with incorrect positions and size of columns/bars when mixing chart types. 
+    - FlexGrid.autoSizeColumns method did not honor lastColumn parameter (TFS 84456)
+
+=========================================================================================
+Build Number 5.20151.51          Build Date: 05/13/2015
+=========================================================================================
+
+* Improvements
+    - Improved scrolling performance in IE
+
+=========================================================================================
+Build Number 5.20151.50          Build Date: 05/07/2015
+=========================================================================================
+
+* Improvements
+    - Improved scrolling performance in IE (found out that border-radius on the host 
+      element seriously degraded rendering performance in IE, so now we set it to zero).
+    - Added wijmo.setText method to set or clear the content of HTML elements as 
+      efficiently as possible.
+    - Added FlexGridFilter.filterDefinitions property to serialize filters to/from JSON.
+    - Added ListBox.formatItem event (same semantics as FlexGrid.formatItem)
+    - Added support for Excel shortcuts: ctrl+A = select all, shift+Enter: select up.
+
+* Bug fixes
+    - Added FlexGrid row/column drag support in IE9
+    - Column filters were not positioned properly in right-to-left grids (TFS 117022)
+    - FlexGrid did not initialize layout when used in an ngDialog in Chrome (TFS 116340)
+
+=========================================================================================
+Build Number 5.20151.49          Build Date: 04/30/2015
+=========================================================================================
+
+* Improvements
+    - Added two new glyphs: .wj-glyph-plus and .wj-glyph-minus.
+    - Improved FlexGrid cell templates for Angular performance.
+    - Improved CollectionView grouping and sorting performance.
+    - wj-tooltip Angular directive now supports interpolated values.
+    - Added disposeAll static method to the Control class to make it easier
+      to dispose of controls when their host elements are removed from the DOM.
+    - Added add/removeEventListener methods to the Control class to make it easier 
+      to remove event listeners when the control is disposed.
+
+* Bug fixes
+    - FlexPie's tooltips work correctly with different combinations of selectedItemOffset
+      and selectedItemPosition properties (TFS 114962).
+    - FlexChart itemFormatter had no effect for candle chart (TFS 115512). 
+
+=========================================================================================
+Build Number 5.20151.48          Build Date: 04/10/2015
+=========================================================================================
+
+* Improvements
+    - Added a Control.disabled property (maps to disabled attribute of the host element)
+    - Added class names to facilitate custom styling of column headers: 
+        wj-sort-asc (column is sorted in ascending order)
+        wj-sort-desc (column is sorted in descending order)
+        wj-filter-on (column has an active filter)
+        wj-filter-off (column has an inactive filter)
+* Bug fixes
+    - FlexGrid's Row/Column isContentHtml property was not honored in group row headers (TFS 114902)
+
+=========================================================================================
+Build Number 5.20151.47          Build Date: 04/08/2015
+=========================================================================================
+
+* Improvements
+    - Improved FlexGrid cell templates for Angular performance.
+    - Changed FlexGrid mouse handler to sort/select on left button only (TFS 114623)
+      (reserving the right button for context menus)
+* Bug fixes
+    - Allow wj-context-menu directive on element level directives.
+    - Fixed FlexGrid hit-testing after window resize (TFS 112961)
+
+=========================================================================================
+Build Number 5.20151.45          Build Date: 04/02/2015
+=========================================================================================
+
+* Improvements
+    - Improved grid filter to support value and condition filtering.
+    - Added a Menu.isButton property that turns menus into split-buttons.
+    - Input and Gauge directives can bind using ng-model directive now, gaining 
+      the features specific to ng-model this way.
+    - Added WjFlexGridCellTemplate.cell-overflow attribute that allows to change
+      cells' style.overflow property declaratively.
+    - Optimized grid scrolling performance (especially visible in IE).
+* Bug fixes
+    - columnLayout method did not work properly in IE9/10 (TFS 112895).
+    - CollectionView notified before updating tracking arrays, should notify after.
+    - Fixed issue with popup width (popups were sometimes wider than they should be).
+    - Fixed old scrolling issue with IE and very large grids (100,000+ rows)
+    - Fixed issue with hierarchical FlexGrid's (with childItemsPath assigned) Angular 
+      cell templates for regular cells that didn't apply to group header cells.
+
+=========================================================================================
+Build Number 5.20151.42          Build Date: 03/17/2015
+=========================================================================================
+
+* Improvements
+    - Optimized grid scrolling performance.
+    - Added markers to indicate the position of rows and columns being dragged.
+    - Improved behavior of drop-down grid cells on mobile devices.
+    - Added select-all functionality when the user clicks the top-left fixed cell.
+    - Changed row and column resize cursors to 'col-resize' and 'row-resize.'
+    - Added a FlexGrid.deferResizing property to defer row and column resizing until the 
+      user releases the mouse.
+    - Added a Column.sortMemberPath property to sort columns based on an alternate binding.
+    - Exposed wijmo.showPopup and hidePopup utility methods for positioning popup elements.
+    - Added support for multi-item selection in the ListBox control. Set the checkedMemberPath 
+      property to the name of a Boolean property in the itemsSource collection and the 
+      ListBox adds checkboxes to each item, and fires the itemChecked event when
+      the current item is checked or unchecked.
+    - Deprecated and removed the wijmo.isTouchDevice method. The method
+      actually tested the browser, not the device, so it was useless.
+    - Added a LineMarker class to the wijmo.chart module that provides FlexChart with a 
+      continuous data point information with optional directional lines  
+      as mouse pointer moves over a chart surface.
+    - Added a wijmo.chart.interaction extension module with a RangeSelector class
+      that allows the user to choose the range of data to display on the specified FlexChart.
+    - Added WjFlexGridCellTemplate directive for Angular that allows to define
+      a custom template for any type of a FlexGrid cell (column and row headers,
+      editing cell, and so on).
+    - Cell templates now support element level directives.
+    - Wijmo child directives for Angular (like WjFlexGridColumn or WjFlexChartSeries),
+      when used in conjunction with ng-repeat directive, now support full-functional
+      synchronization with ng-repeat's source array, including items order.
+
+* Bug fixes
+    - Fixed issues related to 'focusout,' which is not supported in FireFox.
+    - Fixed FlexGrid.getCellBoundingRect so that it works correctly when dir="RTL."
+    - Fixed a problem in chart selection when using itemFormatter.
+    - Fixed the Clipboard so that it works on Apple OS (detects the 'Apple' key).
+    - HitTestInfo.item returns correct value when chart is bounded to CollectionView.
+    - Fixed rendering of merged cells when there are frozen areas (TFS 110627).
+    - Fixed handling of IME text in ComboBox when isEditable = false (TFS 108547).
+
+=========================================================================================
+Build Number 5.20143.39        Build Date: 02/23/2015
+=========================================================================================
+
+* Improvements
+    - Added a FlexGrid.sortRowIndex property. This property determines the index of 
+      the row in the column headers panel that displays the sort icon and can be clicked
+      to sort the column. By default, it is set to null, causing the last row in the 
+      panel to be the 'sort row.'
+    - Raise editing events when pasting data into the FlexGrid (this allows users to
+      prevent overwriting of specific cells when pasting).
+    - Improved column filters to work with complex properties (e.g. 'state.name', 'state.pop').
+    - Exposed wijmo.Binding class used to work with complex properties.
+
+* Bug fixes
+    - Fixed several problems with rendering mixed chart types (TFS 96721, 98617).
+    - Made pie chart handle negative data values correctly (TFS 89936).
+    - Fixed a problem with the pie chart tooltip for the selected slice (TFS 108871).
+    - Fixed a problem with chart tooltips in IE11 (TFS 109876).
+    - Fixed InputMask cursor positioning on Safari (TFS 109969, 102148, 96927).
+    - Fixed aggregate so that it updates correctly after adding new rows (TFS 109119).
+    - Improved date/time detection in the FlexGridFilter editor (TFS 109409).
+    - Prevented users from dragging rows below the new row template (TFS 109012).
+    - Fixed RTL layout so that it works properly in Safari (TFS 109371).
+    - Fixed cell templates so that they are honored in GroupRows (regression).
+    - Fixed a problem with dropdown controls on mobile browsers.
+    - Fixed Wijmo directives for Angular so that they work with the ng-inspector tool.
+
+=========================================================================================
+Build Number 5.20143.37        Build Date: 02/15/2015
+=========================================================================================
+
+* Improvements
+    - Added wijmo.grid.grouppanel module with the GroupPanel control to provide drag&drop
+      grouping functionality to the FlexGrid control.
+    - Improved the CollectionView sorting logic to place nulls at the bottom of the list,
+      regardless of sort direction (Excel behavior).
+    - Allow initialization of ObservableArray in constructor.
+    - Improved formatting of values in GroupRow node cells.
+* Bug fixes
+    - The data labels are not visible for data points outside plot area (TFS 109293).
+    - Fixed problem with stacked charts when first series has custom chart type (TFS 107530).
+    - Fixed problem with FlexGrid.autoSizeRows in grids with word-wrapping and merged columns.
+    - Fixed problem with disappearing dropdown controls on mobile devices in case of zoomed in
+      pages.
+    - Fixed problem with AutoComplete in the Android 4.4.2 Browser where typed characters 
+      can be swapped.
+
+=========================================================================================
+Build Number 5.20143.35        Build Date: 02/09/2015
+=========================================================================================
+
+* Improvements
+    - Improved the grouping logic of paged CollectionViews to avoid splitting groups
+      between pages and to include all items in aggregates (as opposed to items in
+      the current page which was the previous behavior; TFS 139570).
+    - Added a CollectionView.sortConverter property. The property specifies a function
+      that can be used to customize the sorting behavior of the CollectionView.
+    - Improved FlexGrid sorting to take dataMaps into account. Now the grid sorts based
+      on display value (as opposed to raw data values which was the previous behavior).
+    - Expanded grid keyboard handling: now ctrl+home and ctrl+end navigate to the
+      first and last cells on the grid (as opposed to home/end, which navigate to the
+      first and last cells on the current row).
+    - Added Gauge.origin property. This property determines the starting point used
+      for painting the pointer range. Setting it to null causes the gauge to use
+      the min property or zero if the range extends from negative to positive values.
+    - Clamp InputNumber value between min/max as the user types the value in.
+    - Improved behavior of input controls on touch devices.
+* Bug fixes
+    - Fixed problem with FlexChart updating after changing collection (TFS 107253).
+    - Fixed problem with FlexPie bound to CollectionView with currentPosition=-1 (TFS 106270).
+    - Fixed problem with calculating axis limits in stacked chart with series that has
+      custom chart-type (TFS 106988).
+    - FlexPie labels rendered correctly when offset > 0 (TFS 105891).
+    - Fixed problem with FlexChart axis minor ticks and grid lines (TFS 101264, 101401).
+    - FlexChart legend and titles rendered with default text color (TFS 98329).
+    - Fixed problem with rendering bubble and financial charts bound to CollectionView.
+    - Fixed problem with FlexGrid when selectionMode == ListBox and empty item sources.
+    - Fixed positioning of grid filter editor on frozen columns (TFS 105593).
+    - Fixed problem with merging cells in group rows with aggregates (TFS 98610).
+    - Allow clearing cells pressing Delete when column has map and is not required (TFS 107058).
+    - Improved positioning of InputDate dropdown calendar (TFS 102162).
+    - Fixed regression with dropdowns not showing in iOS Safari.
+
+=========================================================================================
+Build Number 5.20143.32      Build Date: 01/22/2015
+=========================================================================================
+
+* Bug fixes
+    - Fixed problem with rendering axis minor ticks (TFS 102152).
+
+=========================================================================================
+Build Number 5.20143.30      Build Date: 01/15/2015
+=========================================================================================
+
+* Improvements
+    - Added support of chart data labels(new properties FlexChart.dataLabel and
+      FlexPie.dataLabel).
+    - Added wijmo.grid.filter module with FlexGridFilter extension to provide
+      Excel-style filtering in grid columns.
+    - Added FlexGrid.getCellBoundingRect and GridPanel.getCellBoundingRect methods
+      to retrieve the bounds of a given cell.
+    - Added FlexGrid.formatItem event to allow multiple subscribers to customize cells
+      (itemFormatter allows only one).
+    - Added FlexGrid.AutoSizeMode property to customize auto-sizing behavior, as
+      well as new events autoSizingColumn, autoSizedColumn, autoSizingRow, autoSizedRow.
+    - Improved DropDown control behavior in clipping containers.
+    - Added two new glyphs: .wj-glyph-check and .wj-glyph-filter.
+    - Child Angular directives for Wijmo (like wj-flex-grid-column) can now be defined using
+      the ng-repeat directive.
+* Bug fixes
+    - Fixed issue with freezing logic in merged cells.
+    - Prevent startEditing from working on invisible rows/columns (TFS 100707).
+    - Improved selection/sort behavior (TFS 100326).
+    - Allow removing boolean values with delete key (TFS 96566).
+    - Prevent dragging Group rows and New rows (TFS 88118).
+    - Fixed position of drop-down arrows on RTL systems (TFS 97498).
+    - Improved position and behavior of sorting glyph on merged columns (TFS 88149).
+    - Improved behavior of selection while typing into AutoComplete (TFS 98114).
+
+=========================================================================================
+Build Number 5.20143.27      Build Date: 01/06/2015
+=========================================================================================
+
+* Bug fixes
+    - Fixed problem in chart series x-binding.
+
+=========================================================================================
+Build Number 5.20143.26      Build Date: 12/29/2014
+=========================================================================================
+
+* Improvements
+    - Added initialization options to wijmo.grid.Column constructor
+    - Changed default color in InputColor and ColorPicker to white
+    - Added support of logarithmic axes(new Axis logBase property).
+
+* Bug fixes
+    - Disabled cell templates in GroupRow cells
+    - Improved freezing logic in GroupRow cells (TFS 98800)
+    - Improved event logic in drop-down cells.
+    - ng-style applied to the wj-flex-grid-column directive may cause changes in another
+      column styles.
+
+=========================================================================================
+Build Number 5.20143.25      Build Date: 12/10/2014
+=========================================================================================
+
+* Improvements
+    - Added frozenRows and frozenColumns properties to the FlexGrid.
+      Frozen cells are non-scrollable (like header cells) but can be selected and 
+      edited (like regular cells).
+    - Added Axis properties itemsSource, binding, itemFormatter. 
+      The properties provide axis label customization.
+    - Added Axis overlappingLabels property that controls appearance
+      overlapped labels on axis. By default the overlapped labels are hidden.
+    - Added event Axis.rangeChanged. 
+
+=========================================================================================
+Build Number 5.20143.24      Build Date: 12/10/2014
+=========================================================================================
+
+* Improvements
+    - Added InputColor and ColorPicker controls to wijmo.input module.
+    - Added toHsb, toHsl, fromHsb, fromHsl methods to Color class.
+    - Improved Globalize.formatNumber to honor the 'd' format as per the .NET spec.
+      (e.g. Globalize.formatNumber(-1234, 'D6') == '-001234')
+    - Added chart axis minor ticks and grid lines
+      ('minorTickMarks', 'minorGrid' props in Axis class).
+    - Added wijmo.chart.Axis.origin property
+      This property allows to specify axis position inside plot area.
+    - Added 'initialized' event and 'isInitialized' boolean property to Angular directives
+      and Knockout Bindings. The property gets a true value and event is triggered after
+      the directive has finished initialization of the control with values defined in
+      its attributes and child directives.
+
+* Bug fixes
+    - CollectionView did not raise itemChanged when removing the current item
+      and preserving the current position.
+
+* Bug fixes
+    - Fixed problem with column/bar width when using x-value data(TFS 97589). 
+
+=========================================================================================
+Build Number 5.20143.23      Build Date: 11/25/2014
+=========================================================================================
+
+* Improvements
+    - Removed Wijmo 5 dependency on jQuery.
+        Starting with this version, Wijmo 5 has no dependencies on external libraries.
+    - Added wijmo.grid.Column.showDropDown property
+        This option adds drop-down buttons to cells.
+        Clicking the button brings up a list based on the column's dataMap.
+        This feature requires the wijmo.input module.
+
+* Bug fixes
+    - Improved handling of star-sized columns in auto-sized grids; previously the grid
+      could sometimes leave room on the right for a scrollbar that wasn't there.
+
+* Breaking changes
+    - Calling the wijmo.grid.DataMap constructor with an itemsSource but no selectedValuePath
+      or displayMemberPath parameters used to create integer keys for the values; now the 
+      array values are used both as values and as keys; this is more convenient for creating
+      lists of strings that can be used with drop-downs and avoids the creation of arbitrary
+      (and meaningless) keys.
+
+=========================================================================================
+Build Number 5.20143.22      Build Date: 11/11/2014
+=========================================================================================
+
+* Improvements
+    - added KnockoutJS support (see http://wijmo.com/5/docs/topic/wijmo.knockout.Module.html)
+    - added InputMask control (see http://wijmo.com/5/docs/topic/wijmo.input.InputMask.Class.html)
+    - added Clipboard class (see http://wijmo.com/5/docs/topic/wijmo.Clipboard.Class.html)
+    - added 'invalidateAll' static method to Control class.
+    - added 'mask' property to InputDate, InputTime controls
+    - added 'mask', 'required', 'inputType' properties to FlexGrid.column class
+    - added clipboard support in FlexGrid
+      ('autoClipboard' prop, 'pasting', 'pasted', 'copying', 'copied' events)
+    - added 'rendering' event in FlexChart
+    - added multi-axis support to FlexChart 
+      ('axisX', 'axisY' props in Axis class and 'axes' collection in FlexChart class)
+    - added 'labelAngle' property to chart Axis class.
+    - improved on-line help (show/hide inherited members, collapse/expand properties/events/methods).
+    - added wijmo.animate method (mainly to avoid dependency on jQuery)
+
+* Bug fixes
+    - Could not drag FlexGrid columns one position to the right...
+    - Corrected Japanese localization settings in the wijmo.culture.ja.js file.
+
+=========================================================================================
+Build Number 5.20142.15      Build Date: 10/03/2014
+=========================================================================================
+
+* Improvements
+    - First release
+
+* Bug fixes
+    - None
+
+* Breaking changes
+    - None
+

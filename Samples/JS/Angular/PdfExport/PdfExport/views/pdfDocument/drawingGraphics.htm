@@ -1,0 +1,112 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    This sample shows how to draw graphics on a page.
+    <a href="" target="_self" data-toggle="collapse" data-target=".collapse" class="collapse in read-more">Read More</a>
+</p>
+<div class="collapse">
+    <h3>Concept</h3>
+    <p>
+        <b>PdfDocument</b> provides a vector graphics API. The user uses a series of a drawing methods (such as <b>moveTo</b>, <b>lineTo</b>, <b>rect</b>) to construct a graphics path
+        that can be filled, stroked or clipped by using the <b>stroke</b>, <b>fill</b>, <b>fillAndStroke</b> or <b>clip</b> methods.
+    </p>
+    <p>
+        Each of the drawing areas (such as header, body and footer) has the <b>paths</b> property represented by <b>PdfPaths</b> class which provides methods for creating graphics paths and drawing them or using them for clipping.
+        All drawing methods are chainable.
+    </p>
+    <p>
+        For example, the following code draws a line and a rectangle:
+    </p>
+<pre>
+doc.paths
+    .moveTo(0, 0)
+    .lineTo(30, 30)
+    .rect(30, 30, 50, 50)
+    .stroke();</pre>
+
+    <h3>Brushes and pens</h3>
+    <p>
+        A pen is used to draw lines and outlined paths. A brush is used to fill closed paths, such as circle or rectangle.
+    </p>
+    <p>
+        A pen is an instance of the <b>PdfPen</b> class, while a brush is an instance of any class that derives from the abstract <b>PdfBrush</b> class.
+        PdfDocument provides several brush classes: <b>PdfSolidBrush</b>, <b>PdfLinearGradientBrush</b>, <b>PdfRadialGradientBrush</b>.
+    </p>
+
+    <h3>Filling and stroking a path</h3>
+    <p>
+        To stroke a path, the <b>stroke</b> method with a pen passed in should be called after the path construction is done.
+        To fill a path, the <b>fill</b> method with a brush passed in should be called after the path construction is done.
+        To fill and stroke a closed path simultaneously, the <b>fillAndStroke</b> method should be used.
+    </p>
+    <p>For example, the following code fills a 10x10 rectangle with a red brush:</p>
+    <pre>
+doc.paths.rect(0, 0, 10, 10).fill(new wijmo.pdf.PdfSolidBrush("#ff0000"));</pre>
+
+    <p>
+        If the pen/brush argument is omitted, the default document pen/brush will be used. Those can be changed by the document's <b>setPen</b> and <b>setBrush</b> methods:
+    </p>
+<pre>
+doc.setBrush(new wijmo.pdf.PdfSolidBrush("#ff0000"));
+doc.paths.rect(0, 0, 10, 10).fill();</pre>
+
+    <p>
+        All of these methods also accept wijmo.Color or any string accepted by the wijmo.Color.fromString method as a shortcut equivalent of the <b>PdfPen</b> and <b>PdfSolidBrush</b> class instances.
+        The following lines are equivalent:
+    </p>
+<pre>
+doc.paths.stroke(new wijmo.pdf.PdfPen("#ff0000");
+doc.paths.stroke(wijmo.Color.fromRgba(255, 0, 0));
+doc.paths.stroke("#ff0000");
+
+doc.paths.fill(new wijmo.pdf.PdfSolidBrush("#ff0000");
+doc.paths.fill(wijmo.Color.fromRgba(255, 0, 0));
+doc.paths.fill("#ff0000");</pre>
+
+    <h3>Clipping a path</h3>
+    <p>
+        To clip a path, the path construction should be finished with the <b>clip</b> method.
+        Any subsequent drawing that falls outside the clipping path will be hidden.
+    </p>
+<pre>
+doc.paths.circle(100, 100, 50).clip();</pre>
+
+    <h3>Transformations</h3>
+    <p>
+        Also, drawing area provides a number of transformation methods used to change the size or orientation of the path or transfer it from from one coordinate space to another,
+        such as <b>rotate</b>, <b>translate</b>, <b>scale</b>.
+    </p>
+    <p>
+        The following code scales a rectangle by a factor of 2:
+    </p>
+    <pre>
+doc.scale(2);
+doc.paths.rect(0, 0, 50, 50).stroke();</pre>
+
+    <h3>Saving and restoring the graphics state</h3>
+    <p>
+        The graphics state is a snapshot of the default document pen, brush and transformations that have been currently applied.
+    </p>
+    <p>
+        The <b>doc.saveState</b> method creates a copy of the graphics state and pushes it onto stack.
+        The <b>doc.restoreState</b> method restores the graphics state to its original value by popping it from the stack.
+    </p>
+    <p>
+        For example, you can call <b>saveState</b>, change the document pen, stroke some paths using it, then call <b>restoreState</b> to restore the document pen to its former value.
+        Also, this approach is very useful if a series of drawing methods with transformations or clipping applied should be isolated from the other drawings.
+    </p>
+    <p>Here, the scaling transformation has been placed between the saveState and restoreState methods so, it will not affect any drawings below the restoreState method call:</p>
+<pre>
+doc.saveState();
+
+doc.scale(2);
+doc.paths.rect(0, 0, 50, 50).stroke();
+
+doc.restoreState();</pre>
+
+    <p>
+        This sample illustrates some drawing techniques.
+    </p>
+</div>
+
+<!-- Export button -->
+<button class="btn btn-default" id="Button1" ng-click="export()">Export</button>

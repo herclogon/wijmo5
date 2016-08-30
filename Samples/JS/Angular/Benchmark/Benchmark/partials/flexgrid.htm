@@ -1,0 +1,25 @@
+﻿<h4 ng-init="benchmarkView('flexgrid')">FlexGrid</h4>
+
+<p>
+    The <b>FlexGrid</b> control is part of Wijmo 5.</p>
+<p>
+    For more information please visit the <a 
+    href="http://demos.componentone.com/wijmo/5/Angular/Explorer/Explorer/#/grid/intro" 
+    target="_blank">Wijmo 5 Explorer: FlexGrid Introduction</a>.</p>
+
+<wj-flex-grid 
+    class="gridStyle"
+    items-source="data" >
+
+    <!-- define columns -->
+    <wj-flex-grid-column header="ID" binding="id" width="50"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Date" binding="date" width="100"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Country" binding="country" width="100"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Product" binding="product" width="140"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Color" binding="color" width="140"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Amount" binding="amount" width="100"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Active" binding="active"></wj-flex-grid-column>
+
+    <!-- enable column filtering-->
+    <wj-flex-grid-filter></wj-flex-grid-filter>
+</wj-flex-grid>

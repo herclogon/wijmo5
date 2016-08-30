@@ -1,0 +1,50 @@
+﻿<h2>{{ title }}</h2>
+<h3>About PdfDocument</h3>
+<p>
+    <b>PdfDocument</b> is an extension of the <a href="https://github.com/devongovett/pdfkit">PDFKit</a>, a JavaScript PDF generation library. 
+</p>
+<p>
+    The key differences are:
+</p>
+<ul>
+    <li>
+        A page is divided into three sections: header, body and footer. Each of these sections represents a drawing area with its own methods for drawing text and graphics.
+    </li>
+    <li>
+        Text of the header and footer areas can be defined declaratively and support macros for automatic page numbering.
+    </li>
+    <li>
+        The graphics state management methods such as fillColor, lineWidth are incapsulated within the pen and brush entities, that acts in more friendly way for .NET developers.
+    </li>
+</ul>
+
+<p>
+    It provides API for drawing text, vector graphics and images.
+</p>
+
+<h3>Using PdfDocument</h3>
+<p>
+    Here is a typical sequence of steps when using PdfDocument:
+</p>
+<ol>
+    <li>
+        Create the PdfDocument class instance with the <b>ended</b> event handler declared. The Blob object containing document data will be passed to this event handler when document rendering is done, where it can be saved to a file.
+    </li>
+    <li>
+        Draw the document using the instance members.
+    </li>
+    <li>
+        Finally, call <b>end</b> method of the instance to finish rendering and raise the ended event.
+    </li>
+</ol>
+<p>
+    Following is the minimal code required to generate a single page blank document:
+</p>
+<pre>
+var doc = new wijmo.pdf.PdfDocument({
+    ended: function (sender, args) {
+        wijmo.pdf.saveBlob(args.blob, "FlexGrid.pdf");
+    }
+});
+
+doc.end();</pre>

@@ -1,0 +1,202 @@
+﻿<div>
+    <h2 id="ChartTypes">
+        Chart Types
+    </h2>
+    <p>
+        The FinancialChart control supports various chart types to allow customization.
+    </p>
+    <p>
+        The example below shows what happens when you change the <b>chartType</b>.
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div ng-non-bindable class="pane-content">
+&lt;wj-financial-chart #chart
+                    [itemsSource]="data"
+                    [header]="header"
+                    [chartType]="chartType"
+                    bindingX="date"
+                    (rendered)="chartRendered()"
+                    [symbolSize]="4"&gt;
+    &lt;wj-financial-chart-series [binding]="bindingY"&gt;&lt;/wj-financial-chart-series&gt;
+&lt;/wj-financial-chart&gt;
+&lt;wj-menu [(value)]="chartType" #type header="Chart Type"
+            (itemClicked)="changeType(type)"&gt;
+    &lt;wj-menu-item value="Area"&gt;Area&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item value="Line"&gt;Line&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item value="Column"&gt;Column&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item value="Candlestick"&gt;Candlestick&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item value="HighLowOpenClose"&gt;HighLowOpenClose&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item value="HeikinAshi"&gt;HeikinAshi&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item value="LineBreak"&gt;LineBreak&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item value="Renko"&gt;Renko&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item value="Kagi"&gt;Kagi&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item value="ColumnVolume"&gt;ColumnVolume&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item value="EquiVolume"&gt;EquiVolume&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item value="CandleVolume"&gt;CandleVolume&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item value="ArmsCandleVolume"&gt;ArmsCandleVolume&lt;/wj-menu-item&gt;
+&lt;/wj-menu&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+import { Component, EventEmitter, Inject, ViewChild, Input } from '@angular/core';
+import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
+import { AppTab, AppTabPane } from './AppTab';
+import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import * as wjNg2FinancialChart from 'wijmo/wijmo.angular2.chart.finance';
+
+import { DataSvc } from './../services/DataSvc';
+
+//ChartTypes sample component
+@Component({
+    selector: 'chart-types-cmp',
+    templateUrl: 'src/components/ChartTypesCmp.html',
+    directives: [wjNg2FinancialChart.WjFinancialChart, wjNg2FinancialChart.WjFinancialChartSeries, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem,
+        AppTab, AppTabPane, CORE_DIRECTIVES, FORM_DIRECTIVES]
+})
+
+export class ChartTypesCmp {
+    dataSvc: DataSvc;
+    data: any[];
+    header: string;
+    chartType: string;
+    bindingY: string;
+    bindingYs;
+    @ViewChild('chart') chart: wijmo.chart.finance.FinancialChart;
+
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+        this.data = [];
+        this.dataSvc = dataSvc;
+        this.setDataSource();
+        this.header = 'Facebook, Inc. (FB)';
+        this.chartType = 'Line';
+        this.bindingY = 'close';
+        this.bindingYs = {
+            Column: 'close',
+            Line: 'close',
+            Area: 'close',
+            Candlestick: 'high,low,open,close',
+            HighLowOpenClose: 'high,low,open,close',
+            HeikinAshi: 'high,low,open,close',
+            LineBreak: 'high,low,open,close',
+            Renko: 'high,low,open,close',
+            Kagi: 'high,low,open,close',
+            ColumnVolume: 'close,volume',
+            EquiVolume: 'high,low,open,close,volume',
+            CandleVolume: 'high,low,open,close,volume',
+            ArmsCandleVolume: 'high,low,open,close,volume'
+        };
+    }
+
+    private setDataSource() {
+        this.dataSvc.getData().subscribe(data => {
+            this.data = data;
+        });
+    }
+
+    chartRendered() {
+        if (this.chart) {
+            this.chart.tooltip.content = ht => {
+                var dateStr = 'Date: ' + ht.x + '&lt;br/&gt;',
+                    hlocStr = 'Open: ' + wijmo.Globalize.format(ht.item.open, 'n2') + '&lt;br/&gt;' +
+                        'High: ' + wijmo.Globalize.format(ht.item.high, 'n2') + '&lt;br/&gt;' +
+                        'Low: ' + wijmo.Globalize.format(ht.item.low, 'n2') + '&lt;br/&gt;' +
+                        'Close: ' + wijmo.Globalize.format(ht.item.close, 'n2') + '&lt;br/&gt;',
+                    closeStr = 'Close: ' + wijmo.Globalize.format(ht.item.close, 'n2'),
+                    volStr = 'Volume: ' + wijmo.Globalize.format(ht.item.volume, 'n0'),
+                    toolTipStr;
+                switch (this.chartType) {
+                    case 'Line':
+                    case 'Column':
+                        toolTipStr = dateStr + closeStr;
+                        break;
+                    case 'ColumnVolume':
+                        toolTipStr = dateStr + closeStr + '&lt;br/&gt;' + volStr;
+                        break;
+                    case 'EquiVolume':
+                    case 'CandleVolume':
+                    case 'ArmsCandleVolume':
+                        toolTipStr = dateStr + hlocStr + volStr;
+                        break;
+                    default:
+                        toolTipStr = dateStr + hlocStr;
+                        break;
+                }
+                return toolTipStr;
+            };
+        }
+    }
+
+    changeType(type) {
+        var type = type.selectedValue;
+        this.bindingY = this.bindingYs[type];
+
+        switch (type) {
+            case 'LineBreak':
+                this.chart.options = {
+                    lineBreak: {
+                        newLineBreaks: 3
+                    }
+                };
+                break;
+            case 'Renko':
+                this.chart.options = {
+                    renko: {
+                        boxSize: 2,
+                        rangeMode: 'Fixed',
+                        fields: 'Close'
+                    }
+                };
+                break;
+            case 'Kagi':
+                this.chart.options = {
+                    kagi: {
+                        reversalAmount: 1,
+                        rangeMode: 'Fixed',
+                        fields: 'Close'
+                    }
+                };
+                break;
+            default:
+                break;
+        }
+    }
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>Result (live):</h4>
+            <wj-financial-chart #chart
+                                [itemsSource]="data"
+                                [header]="header"
+                                [chartType]="chartType"
+                                bindingX="date"
+                                (rendered)="chartRendered()"
+                                [symbolSize]="4">
+                <wj-financial-chart-series [binding]="bindingY"></wj-financial-chart-series>
+            </wj-financial-chart>
+            <wj-menu [(value)]="chartType" #type header="Chart Type"
+                      (itemClicked)="changeType(type)">
+                <wj-menu-item value="Area">Area</wj-menu-item>
+                <wj-menu-item value="Line">Line</wj-menu-item>
+                <wj-menu-item value="Column">Column</wj-menu-item>
+                <wj-menu-item value="Candlestick">Candlestick</wj-menu-item>
+                <wj-menu-item value="HighLowOpenClose">HighLowOpenClose</wj-menu-item>
+                <wj-menu-item value="HeikinAshi">HeikinAshi</wj-menu-item>
+                <wj-menu-item value="LineBreak">LineBreak</wj-menu-item>
+                <wj-menu-item value="Renko">Renko</wj-menu-item>
+                <wj-menu-item value="Kagi">Kagi</wj-menu-item>
+                <wj-menu-item value="ColumnVolume">ColumnVolume</wj-menu-item>
+                <wj-menu-item value="EquiVolume">EquiVolume</wj-menu-item>
+                <wj-menu-item value="CandleVolume">CandleVolume</wj-menu-item>
+                <wj-menu-item value="ArmsCandleVolume">ArmsCandleVolume</wj-menu-item>
+            </wj-menu>
+        </div>
+    </div>
+
+</div>

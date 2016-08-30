@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UsersModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="UsersModelStoreContainer">
+          <EntitySet Name="User" EntityType="UsersModel.Store.User" store:Type="Tables" />
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" />
+          <Property Name="role" Type="smallint" Nullable="false" />
+          <Property Name="created" Type="datetime" Nullable="false" />
+          <Property Name="lastaccess" Type="datetime" Nullable="false" />
+          <Property Name="provider" Type="nvarchar" MaxLength="100" />
+          <Property Name="data" Type="nchar" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UsersModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="UsersEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="UsersModel.User" />
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="role" Type="Int16" Nullable="false" />
+          <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lastaccess" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Type="String" Name="provider" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="data" MaxLength="4000" FixedLength="true" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UsersModelStoreContainer" CdmEntityContainer="UsersEntities">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="UsersModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="provider" ColumnName="provider" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="lastaccess" ColumnName="lastaccess" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexChartAnimation", "FlexChartAnimation\FlexChartAnimation.csproj", "{0C11C479-5BC5-4525-A499-D671CDB0B000}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Evaluation|Any CPU = Evaluation|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Standard|Any CPU = Standard|Any CPU
+		StandardEvaluation|Any CPU = StandardEvaluation|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C11C479-5BC5-4525-A499-D671CDB0B000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C11C479-5BC5-4525-A499-D671CDB0B000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C11C479-5BC5-4525-A499-D671CDB0B000}.Evaluation|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C11C479-5BC5-4525-A499-D671CDB0B000}.Evaluation|Any CPU.Build.0 = Debug|Any CPU
+		{0C11C479-5BC5-4525-A499-D671CDB0B000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C11C479-5BC5-4525-A499-D671CDB0B000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C11C479-5BC5-4525-A499-D671CDB0B000}.Standard|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C11C479-5BC5-4525-A499-D671CDB0B000}.Standard|Any CPU.Build.0 = Debug|Any CPU
+		{0C11C479-5BC5-4525-A499-D671CDB0B000}.StandardEvaluation|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C11C479-5BC5-4525-A499-D671CDB0B000}.StandardEvaluation|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

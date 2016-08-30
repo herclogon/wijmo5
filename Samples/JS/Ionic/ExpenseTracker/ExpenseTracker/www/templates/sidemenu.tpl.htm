@@ -1,0 +1,51 @@
+﻿<ion-side-menus>
+    <ion-side-menu-content drag-content="false">
+        <ion-nav-bar class="bar bar-dark">
+            <ion-nav-buttons side="left">
+                <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="main" animation="slide-left-right"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left" class="dark-bg dark-border">
+        <header class="bar bar-header bar-dark">
+            <h1 class="title">Expense Tracker</h1>
+        </header>
+        <ion-content class="has-header">
+            <ion-list>
+                <ion-item class="item item-dark item-icon-left" href="#/app/overview" menu-close>
+                    <i class="icon fa fa-eye fa-ionicon"></i>
+                    Overview
+                </ion-item>
+                <ion-item class="item item-dark item-icon-left" href="#/app/create" menu-close>
+                    <i class="icon ion-plus"></i>
+                    Create Expense
+                </ion-item>
+                <ion-item class="item item-dark item-icon-left" href="#/app/history" menu-close>
+                    <i class="icon fa fa-history fa-ionicon"></i>
+                    History
+                </ion-item>
+                <ion-item class="item item-dark item-icon-left" href="#/app/edit-budget" menu-close>
+                    <i class="icon fa fa-bank fa-ionicon"></i>
+                    Budget
+                </ion-item>
+                <ion-item class="item item-dark item-icon-left" href="#/app/categories" menu-close>
+                    <i class="icon fa fa-list-alt fa-ionicon"></i>
+                    Categories
+                </ion-item>
+                <ion-item class="item item-dark item-icon-left" href="#/app/details-grid" menu-close>
+                    <i class="icon fa fa-table fa-ionicon"></i>
+                    Details Grid
+                </ion-item>
+                <ion-item class="item item-dark item-icon-left" href="#/app/about" menu-close>
+                    <i class="icon ion-ios7-information-outline"></i>
+                    About
+                </ion-item>
+                <ion-item class="item item-dark item-icon-left" ng-show="isWebView" on-tap="exit()" menu-close>
+                    <i class="icon ion-power"></i>
+                    Exit
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

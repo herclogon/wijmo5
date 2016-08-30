@@ -1,0 +1,76 @@
+﻿/* 
+    Use fixed positioning and media queries to render watermarks.
+
+    Fixed elements are supposed to appear on every printed page,
+    but not all browsers honor this correctly.
+
+    According to https://developer.mozilla.org/en/docs/Web/CSS/position:
+
+    position: fixed
+    Do not leave space for the element. Instead, position it at a specified position 
+    relative to the screen's viewport and don't move it when scrolled. When printing,
+    position it at that fixed position on every page. This value always create a new 
+    stacking context.
+
+    This works in correctly in Edge and IE, but Chrome renders the element only
+    on the first page and FireFox 43 renders it on every page but the first (weird).
+
+*/
+.watermark {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+@media not print {
+    .watermark {
+        display: none;
+    }
+}
+
+body {
+    background: #e2e1e0;
+}
+
+.shadow {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0,0,0,0.23);
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+}
+    .toolbar .glyphicon {
+        cursor: default;
+        font-size: 200%;
+        color: #5d5d5d;
+    }
+    .toolbar .group-start {
+        margin-left: 80px;
+    }
+
+.report {
+    background: white;
+    max-height: 600px;
+    padding: .75in .4in .4in .5in; /* top | right | bottom | left */
+    overflow: auto;
+}
+
+.header {
+    color: #ffdae5;
+    background-color: #a80872;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+    .header h1 {
+        color: #fff;
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+    .header img {
+		float: left;
+		margin: 0 10px 5px 0;
+	}

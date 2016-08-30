@@ -1,0 +1,54 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            OData
+        </h3>
+        <p>
+            This view shows how you can consume data directly from OData sources.
+        </p>
+        <p>
+            In this case, the data is being retrieved directly using jQuery ajax calls.
+            The calls specify OData urls that include the server, table, columns, and
+            a filter. The arrays returned are used as data sources for <b>CollectionView</b>
+            objects.
+        </p>
+        <p>
+            The controller listens to the <b>currentChanged</b> event in the Categories
+            view and updates the Products view to show only products within the selected
+            category.
+        </p>
+        <p>
+            This is a very simple example that only shows some existing data, but this is
+            all that is required in many scenarios (dashboard applications for example).
+            If you are developing Data-intensive applications you may need more powerful
+            tools such as <a href="http://www.breezejs.com/">BreezeJS</a> or
+            <a href="http://jaydata.org/">JayData</a>, which are also supported by Wijmo.
+        </p>
+    </div>
+    <div>
+
+        <h4>Categories</h4>
+        <wj-flex-grid #flex
+                      [selectionMode]="'Row'"
+                      [isReadOnly]="true"
+                      [itemsSource]="categories">
+            <wj-flex-grid-column [header]="'ID'" [binding]="'CategoryID'" [width]="50"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'Name'" [binding]="'CategoryName'"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'Description'" [binding]="'Description'" [width]="'*'"></wj-flex-grid-column>
+        </wj-flex-grid>
+
+        <h4>{{categories.currentItem? categories.currentItem.CategoryName: ''}} ({{products.items.length}} items)</h4>
+        <wj-flex-grid  [selectionMode]="'Row'"
+                      [isReadOnly]="true"
+                      [itemsSource]="products">
+            <wj-flex-grid-column [header]="'ID'" [binding]="'ProductID'" [width]="50"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'Name'" [binding]="'ProductName'" [width]="'*'"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'Supplier'" [binding]="'SupplierID'" [width]="'*'" [dataMap]="supplierMap"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'Qty/Unit'" [binding]="'QuantityPerUnit'"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'Unit Price'" [binding]="'UnitPrice'"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'In Stock'" [binding]="'UnitsInStock'"></wj-flex-grid-column>
+            <wj-flex-grid-column [header]="'Discontinued'" [binding]="'Discontinued'"></wj-flex-grid-column>
+        </wj-flex-grid>
+
+    </div>
+</div>

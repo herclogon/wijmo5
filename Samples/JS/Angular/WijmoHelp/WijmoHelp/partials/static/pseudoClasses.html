@@ -1,0 +1,35 @@
+﻿<h2>
+    Pseudo Classes</h2>
+<p>
+    CSS pseudo-classes are keywords added to selectors that specifies a special state of the 
+    element to be selected. For example, <code>:hover</code> will apply a style when the user 
+    hovers over the element specified by the selector.</p>
+<p>
+    Pseudo-classes are important in forms because they let you apply styles to elements not 
+    only in relation to the content of the document tree, but also in relation to external 
+    factors like whether the element has the focus (<code>:focus</code>) or is in an invalid 
+    state (<code>:invalid</code>).
+<p>
+    Some of the standard pseudo-classes are limited in their usefulness because they apply 
+    only to specific elements, and not to the elements ancestors. For example, many Wijmo 
+    input controls contain input elements; when the input elements have the focus, 
+    the inner input element get the <code>:focus</code> pseudo-class, but the control 
+    host that contains it does not.</p>
+<p>
+    For this reason, Wijmo adds some pseudo-classes of its own to make building effective forms easier:</p>
+<ul>
+    <li>
+        <b>wj-state-focused</b>: Added to control host elements when the control <b>contains</b> the 
+        active element (not necessarily when the host element <b>is</b> the active element).</li>
+    <li>
+        <b>wj-state-invalid</b>: Added to control host elements when the control contains input 
+        elements in an invalid state.</li>
+    <li>
+        <b>wj-state-empty</b>: Added to control host elements when the control contains an input 
+        element with no content (this is different from the <code>:empty</code> pseudo-class which 
+        is applied to elements that have no children.</li>
+</ul>
+<p>
+    This <a href="http://jsfiddle.net/Wijmo5/450s0Lym/">fiddle</a> shows an example of how you 
+    can use the <b>wj-state-focused</b> pseudo-class to apply CSS animations to the thumb element
+    of linear and radial gauges when they get the focus.</p>

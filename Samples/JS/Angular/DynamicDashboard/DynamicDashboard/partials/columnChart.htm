@@ -1,0 +1,22 @@
+﻿<wj-flex-chart
+    chart-type="Column"
+    items-source="data"
+    binding-x="date">
+    <wj-flex-chart-axis
+        wj-property="axisX" 
+        format="MMM yy">
+    </wj-flex-chart-axis>
+    <wj-flex-chart-series 
+        name="Sales" 
+        binding="sales">
+    </wj-flex-chart-series>
+    <wj-flex-chart-series 
+        name="Expenses" 
+        binding="expenses">
+    </wj-flex-chart-series>
+    <wj-flex-chart-series 
+        name="Profit"
+        binding="profit" 
+        chart-type="LineSymbols">
+    </wj-flex-chart-series>
+</wj-flex-chart>

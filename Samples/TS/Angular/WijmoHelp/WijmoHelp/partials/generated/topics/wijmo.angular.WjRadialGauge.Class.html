@@ -1,0 +1,73 @@
+<h2>WjRadialGauge Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjGauge</b></dd>
+<dt>Module</dt><dd>wijmo.angular</dd>
+<dt>File</dt><dd>wijmo.angular.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>AngularJS directive for the <a href="topic/wijmo.gauge.RadialGauge.Class.html"><b>RadialGauge</b></a> control.</p>
+
+<p>Use the <b>wj-radial-gauge</b> directive to add radial gauges to your AngularJS applications. 
+Note that directive and parameter names must be formatted as lower-case with dashes 
+instead of camel-case. For example:</p>
+
+<p><pre>Here is a &lt;b&gt;RadialGauge&lt;/b&gt; control:&lt;/p&gt;
+&lt;wj-radial-gauge
+  style="height:300px" 
+  value="count" 
+  min="0" max="10"
+  is-read-only="false"&gt;
+&lt;/wj-radial-gauge&gt;</pre></p>
+
+<p>The <b>wj-radial-gauge</b> directive supports the following attributes:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>ng-model</dt>      <dd><code>@</code> Binds the control's <b>value</b> property using the ng-model Angular 
+                         directive. Binding the property using the ng-model directive provides standard benefits 
+                         like validation, adding the control's state to the form instance, and so on. To redefine 
+                         properties on a control that is bound by the ng-model directive, use the wj-model-property 
+                         attribute.</dd>
+  <dt>wj-model-property</dt>  <dd><code>@</code> Specifies a control property that is bound to a scope using the 
+                              <b>ng-model</b> directive.</dd>
+  <dt>control</dt>       <dd><code>=</code> A reference to the RadialGauge 
+                         control created by this directive.</dd>
+  <dt>auto-scale</dt>    <dd><code>@</code> A value indicating whether the gauge 
+                         scales the display to fill the host element.</dd>
+  <dt>format</dt>        <dd><code>@</code> The format string used for displaying 
+                         gauge values as text.</dd>
+  <dt>has-shadow</dt>    <dd><code>@</code> A value indicating whether the gauge 
+                         displays a shadow effect.</dd>
+  <dt>initialized</dt>   <dd><code>&</code> This event occurs after the binding has finished
+                         initializing the control with attribute values.</dd>
+  <dt>is-initialized</dt> <dd><code>=</code> A value indicating whether the binding has finished
+                          initializing the control with attribute values. </dd>
+  <dt>is-animated</dt>   <dd><code>@</code> A value indicating whether the gauge 
+                         animates value changes.</dd>
+  <dt>is-read-only</dt>  <dd><code>@</code> A value indicating whether users are 
+                         prevented from editing the value.</dd>
+  <dt>min</dt>           <dd><code>@</code> The minimum value that the gauge  
+                         can display.</dd>
+  <dt>max</dt>           <dd><code>@</code> The maximum value that the gauge  
+                         can display.</dd>
+  <dt>show-text</dt>     <dd><code>@</code> A <a href="topic/wijmo.gauge.ShowText.Enum.html"><b>ShowText</b></a> value indicating 
+                         which values display as text within the gauge.</dd>
+  <dt>step</dt>          <dd><code>@</code> The amount to add or subtract to the 
+                         value property when the user presses the arrow keys.</dd>
+  <dt>start-angle</dt>   <dd><code>@</code> The starting angle for the gauge, in 
+                         degreees, measured clockwise from the 9 o'clock position.</dd>
+  <dt>sweep-angle</dt>   <dd><code>@</code> The sweeping angle for the gauge in degrees 
+                         (may be positive or negative).</dd>
+  <dt>thickness</dt>     <dd><code>@</code> The thickness of the gauge, on a scale 
+                         of zero to one.</dd>
+  <dt>value</dt>         <dd><code>=</code> The value displayed on the gauge.</dd>
+  <dt>got-focus</dt>     <dd><code>&</code> The <b>gotFocus</b> event handler.</dd>
+  <dt>lost-focus</dt>    <dd><code>&</code> The <b>lostFocus</b> event handler.</dd>
+</dl></p>
+
+<p>The <b>wj-radial-gauge</b> directive may contain one or more <a href="topic/wijmo.angular.WjRange.Class.html"><b>WjRange</b></a> directives.</p>
+
+<p><a href="http://jsfiddle.net/Wijmo5/7ec2144u/" target="_blank" class="btn btn-info">
+  <img src="images/fiddle.png"/>
+  Live Example
+</a>
+</p></p>

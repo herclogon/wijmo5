@@ -1,0 +1,57 @@
+﻿<div>
+    <h3>
+        InputColor and ColorPicker
+    </h3>
+    <p>
+        The <a href="http://wijmo.com/5/docs/topic/wijmo.input.InputColor.Class.html"
+               target="_blank">InputColor</a> control allows users to enter and edit HTML
+        colors by typing any valid CSS color string into the control or using a
+        drop-down that displays a
+        <a href="http://wijmo.com/5/docs/topic/wijmo.input.ColorPicker.Class.html"
+           target="_blank">ColorPicker</a> control.
+    </p>
+
+    <br />
+    <br />
+    <h5>ColorPicker</h5>
+    <p>
+        The <b>ColorPicker</b> control shows a customizable color palette and editors
+        for the color components (hue, saturation, brightness, and transparency).
+    </p>
+    <p>
+        Select a palette and see how it affects the <b>ColorPicker</b> control:
+    </p>
+    <p>
+        <wj-combo-box [itemsSource]="palettes"
+                      [displayMemberPath]="'name'">
+        </wj-combo-box>
+    </p>
+    <p>
+        <wj-color-picker style="background-color: #f4f3e5;box-shadow:0 15px 35px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)"
+                         [palette]="palettes.currentItem.colors"
+                         [showColorString]="true"
+                         [(value)]="theColor">
+        </wj-color-picker>
+    </p>
+
+    <br />
+    <br />
+    <h5>InputColor</h5>
+    <p>
+        The <b>InputColor</b> control allows users to enter and edit colors by
+        typing or by using a <b>ColorPicker</b> in a drop-down.
+    </p>
+    <p>
+        For example, use the <b>InputColor</b> below to edit the color that
+        shows through the transparent parts of the image:
+    </p>
+
+    <p>
+        <img [src]="'resources/house.png'"
+             [ngStyle]="{backgroundColor: theColor}" />
+    </p>
+    <p>
+        <wj-input-color [(value)]="theColor">
+        </wj-input-color>
+    </p>
+</div>

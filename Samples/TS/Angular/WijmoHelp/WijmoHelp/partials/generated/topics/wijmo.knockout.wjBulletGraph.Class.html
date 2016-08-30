@@ -1,0 +1,33 @@
+<h2>wjBulletGraph Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><a href="topic/wijmo.knockout.wjLinearGauge.Class.html"><b>wjLinearGauge</b></a></dd>
+<dt>Module</dt><dd>wijmo.knockout</dd>
+<dt>File</dt><dd>wijmo.knockout.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>KnockoutJS binding for the <a href="topic/wijmo.gauge.BulletGraph.Class.html"><b>BulletGraph</b></a> control.</p>
+
+<p>Use the <b>wjBulletGraph</b> binding to add <b>BulletGraph</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a BulletGraph control:&lt;/p&gt;
+&lt;div data-bind="wjBulletGraph: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        good: props.ranges.middle.max,
+        bad: props.ranges.middle.min,
+        target: props.ranges.target,
+        showRanges: props.showRanges }"
+        class="linear-gauge"&gt;
+    &lt;div data-bind="wjRange: { 
+            wjProperty: 'pointer', 
+            thickness: props.ranges.pointerThickness }"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjBulletGraph</b> binding may contain the <a href="topic/wijmo.knockout.wjRange.Class.html"><b>wjRange</b></a> child binding. </p>
+
+<p>The <b>wjBulletGraph</b> binding supports all read-write properties and events of 
+the <b>BulletGraph</b> control. The <b>value</b> property provides two-way binding mode.</p></p>

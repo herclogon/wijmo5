@@ -1,0 +1,23 @@
+﻿.header {
+    background-color: #dffff4;
+    border-bottom: 1px solid #b5c8c2;
+    margin-bottom: 12pt;
+}
+
+/* style for footer rows */
+.wj-flexgrid .wj-group.wj-footer:not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background-color: #dffff4;
+    font-weight: bold;
+}
+
+/* add border around the compound grid */
+.multi-grid {
+    border: 2px solid grey;
+    border-radius: 4px;
+}
+
+/* remove spacing between master and footer grids*/
+/* http://stackoverflow.com/questions/18508442/remove-whitespace-between-div-element */
+.multi-grid .wj-flexgrid {
+    vertical-align: top;
+}

@@ -1,0 +1,80 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Introduction</h3>
+        <p>
+            This view shows the <b>FlexChart</b>'s basic features. It binds the chart to a
+            data source and allows you to select the chart type, series stacking, and rotation.</p>
+        <p>
+            If you move the mouse over a chart element, a tooltip will appear showing details
+            about the data point.</p>
+        <p>
+            The simplest way to use the FlexChart is to:</p>
+        <ol>
+            <li>Set the chart's <b>itemsSource</b> property to an array of data objects,</li>
+            <li>
+                Set the chart's <b>bindingX</b> property to the name of the property that
+                contains the X values (in this example fruit names), and</li>
+            <li>
+                Add one or more <b>Series</b> objects to the chart's <b>series</b> array
+                and set their <b>binding</b> property to the name of the property that
+                contains the Y values (in this example the months of March, April, and May).</li>
+        </ol>
+    </div>
+    <div>
+
+        <!-- menus for configuring the chart -->
+        <wj-menu value="ctx.chart.chartType" header="Chart Type">
+            <wj-menu-item value="0">Column</wj-menu-item>
+            <wj-menu-item value="1">Bar</wj-menu-item>
+            <wj-menu-item value="2">Scatter</wj-menu-item>
+            <wj-menu-item value="3">Line</wj-menu-item>
+            <wj-menu-item value="4">LineSymbols</wj-menu-item>
+            <wj-menu-item value="5">Area</wj-menu-item>
+            <wj-menu-item value="9">Spline</wj-menu-item>
+            <wj-menu-item value="10">SplineSymbols</wj-menu-item>
+            <wj-menu-item value="11">SplineArea</wj-menu-item>
+        </wj-menu>
+        <wj-menu value="ctx.chart.stacking" header="Stacking">
+            <wj-menu-item value="0">None</wj-menu-item>
+            <wj-menu-item value="1">Stacked</wj-menu-item>
+            <wj-menu-item value="2">Stacked 100%</wj-menu-item>
+        </wj-menu>
+        <wj-menu value="ctx.chart.rotated" header="Rotated">
+            <wj-menu-item value="false">False</wj-menu-item>
+            <wj-menu-item value="true">True</wj-menu-item>
+        </wj-menu>
+        <wj-menu value="ctx.pal" header="Palette" item-clicked="menuPaletteItemClicked(s, e)">
+            <wj-menu-item value="0">Standard</wj-menu-item>
+            <wj-menu-item value="1">Cocoa</wj-menu-item>
+            <wj-menu-item value="2">Coral</wj-menu-item>
+            <wj-menu-item value="3">Dark</wj-menu-item>
+            <wj-menu-item value="4">High Contrast</wj-menu-item>
+            <wj-menu-item value="5">Light</wj-menu-item>
+            <wj-menu-item value="6">Midnight</wj-menu-item>
+            <wj-menu-item value="7">Minimal</wj-menu-item>
+            <wj-menu-item value="8">Modern</wj-menu-item>
+            <wj-menu-item value="9">Organic</wj-menu-item>
+            <wj-menu-item value="10">Slate</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu header="Group width" value="ctx.groupWidth" ng-show="isColumnOrBar()" item-clicked="menuGroupWidthItemClicked(s, e)">
+            <wj-menu-item value="'25%'">25%</wj-menu-item>
+            <wj-menu-item value="'70%'">70%</wj-menu-item>
+            <wj-menu-item value="'100%'">100%</wj-menu-item>
+            <wj-menu-item value="50">50 pixels</wj-menu-item>
+        </wj-menu>
+
+        <!-- the chart -->
+        <wj-flex-chart 
+            class="chart"
+            control="ctx.chart"
+            items-source="ctx.itemsSource"
+            binding-x="name">
+            <wj-flex-chart-series name="March" binding="mar"></wj-flex-chart-series>
+            <wj-flex-chart-series name="April" binding="apr"></wj-flex-chart-series>
+            <wj-flex-chart-series name="May" binding="may"></wj-flex-chart-series>
+        </wj-flex-chart>
+
+    </div>
+</div>

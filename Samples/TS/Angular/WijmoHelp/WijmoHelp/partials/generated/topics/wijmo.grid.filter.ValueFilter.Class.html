@@ -1,0 +1,207 @@
+<h2>ValueFilter Class</h2>
+<dl class="dl-horizontal">
+<dt>Implements</dt><dd><a href="topic/wijmo.grid.filter.IColumnFilter.Interface.html"><b>IColumnFilter</b></a></dd>
+<dt>Module</dt><dd>wijmo.grid.filter</dd>
+<dt>File</dt><dd>wijmo.grid.filter.js</dd>
+</dl>
+<p><p>Defines a value filter for a column on a <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control.</p>
+
+<p>Value filters contain an explicit list of values that should be 
+displayed by the grid.</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(column): <a href="topic/wijmo.grid.filter.ValueFilter.Class.html"><b>ValueFilter</b></a></td>
+      <td><p>
+<b>column</b> (<a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a>): The column to filter.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.grid.filter.ValueFilter.Class.html"><b>ValueFilter</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>column</b></td>
+      <td><a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a></td>
+      <td>Gets the <a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a> to filter.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>filterText</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets a string used to filter the list of display values.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isActive</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets a value that indicates whether the filter is active.</p>
+
+<p>The filter is active if there is at least one value is selected.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>maxValues</b></td>
+      <td><b>number</b></td>
+      <td><p>Gets or sets the maximum number of elements on the list of display values.</p>
+
+<p>Adding too many items to the list makes searching difficult and hurts
+performance. This property limits the number of items displayed at any time,
+but users can still use the search box to filter the items they are 
+interested in.</p>
+
+<p>This property is set to 250 by default.</p>
+
+<p>This code changes the value to 1,000,000, effectively listing all unique
+values for the field:</p>
+
+<p><pre>// change the maxItems property for the 'id' column:
+var f = new wijmo.grid.filter.FlexGridFilter(s);
+f.getColumnFilter('id').valueFilter.maxValues = 1000000;</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>showValues</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets an object with all the formatted values that should be shown on the value list.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>sortValues</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that determines whether the values should be sorted
+when displayed in the editor.</p>
+
+<p>This property is especially useful when you are using the <b>uniqueValues</b>
+to provide a custom list of values property and you would like to preserve
+the order of the values.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>uniqueValues</b></td>
+      <td><b>any</b><b>[]</b></td>
+      <td><p>Gets or sets an array containing the unique values to be displayed on the list.</p>
+
+<p>If this property is set to null, the list will be filled based on the grid data.</p>
+
+<p>Explicitly assigning the list of unique values is more efficient than building
+the list from the data, and is required for value filters to work properly when 
+the data is filtered on the server (because in this case some values might not 
+be present on the client so the list will be incomplete).</p>
+
+<p>By default, the filter editor will sort the unique values when displaying them
+to the user. If you want to prevent that and show the values in the order you
+provided, set the <b>sortValues</b> property to false.</p>
+
+<p>For example, the code below provides a list of countries to be used in the
+<a href="topic/wijmo.grid.filter.ValueFilter.Class.html"><b>ValueFilter</b></a> for the column bound to the 'country' field:</p>
+
+<p><pre>// create filter for a FlexGrid
+var filter = new wijmo.grid.filter.FlexGridFilter(grid);
+// assign list of unique values to country filter
+var cf = filter.getColumnFilter('country');
+cf.valueFilter.uniqueValues = countries;</pre></p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>apply</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (): The value to test.<br/></p>
+</td>
+      <td>Gets a value that indicates whether a value passes the filter.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>clear</b>&#8203;()</td>
+      <td></td>
+      <td>Clears the filter.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>implementsInterface</b>&#8203;(interfaceName): <b>boolean</b></td>
+      <td><p>
+<b>interfaceName</b> (<b>string</b>): Name of the interface to look for.<br/></p>
+</td>
+      <td>Returns true if the caller queries for a supported interface.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

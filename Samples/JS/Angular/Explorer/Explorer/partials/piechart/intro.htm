@@ -1,0 +1,70 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Introduction
+        </h3>
+        <p>
+            This view shows the <b>FlexPie</b>'s basic features. It binds the chart to a
+            data source.
+        </p>
+        <p>
+            If you move the mouse over a chart element, a tooltip will appear showing details
+            about the data point.
+        </p>
+    </div>
+    <div>
+        <wj-menu value="ctx.chart.innerRadius" header="Inner radius">
+            <wj-menu-item value="0">0</wj-menu-item>
+            <wj-menu-item value="0.25">0.25</wj-menu-item>
+            <wj-menu-item value="0.5">0.5</wj-menu-item>
+            <wj-menu-item value="0.75">0.75</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu value="ctx.chart.offset" header="Offset">
+            <wj-menu-item value="0">0</wj-menu-item>
+            <wj-menu-item value="0.1">0.1</wj-menu-item>
+            <wj-menu-item value="0.2">0.2</wj-menu-item>
+            <wj-menu-item value="0.3">0.3</wj-menu-item>
+            <wj-menu-item value="0.4">0.4</wj-menu-item>
+            <wj-menu-item value="0.5">0.5</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu value="ctx.chart.startAngle" header="Start angle">
+            <wj-menu-item value="0">0</wj-menu-item>
+            <wj-menu-item value="90">90</wj-menu-item>
+            <wj-menu-item value="180">180</wj-menu-item>
+            <wj-menu-item value="-90">-90</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu value="ctx.chart.reversed" header="Reversed">
+            <wj-menu-item value="false">False</wj-menu-item>
+            <wj-menu-item value="true">True</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu value="ctx.palette" header="Palette:
+            <b>{{ctx.palette}}</b>" items-source="ctx.palettes" item-clicked="menuPaletteItemClicked(s, e)">
+        </wj-menu>
+
+        <wj-menu value="ctx.labels" header="Labels" item-clicked="labelsClicked(s, e)">
+            <wj-menu-item value="0">None</wj-menu-item>
+            <wj-menu-item value="1">Inside</wj-menu-item>
+            <wj-menu-item value="2">Center</wj-menu-item>
+            <wj-menu-item value="3">Outside</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu value="ctx.lblBorder" header="Labels border" ng-show="hasLabels()" item-clicked="lblBorderClicked(s, e)">
+            <wj-menu-item value="false">False</wj-menu-item>
+            <wj-menu-item value="true">True</wj-menu-item>
+        </wj-menu>
+
+
+        <!-- the chart -->
+        <wj-flex-pie class="chart"
+                           control="ctx.chart"
+                           binding="value"
+                           binding-name="name"
+                           items-source="ctx.itemsSource"
+                           label-content="{value}">
+        </wj-flex-pie>
+    </div>
+</div>

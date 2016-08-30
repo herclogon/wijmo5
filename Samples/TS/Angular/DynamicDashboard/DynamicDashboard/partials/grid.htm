@@ -1,0 +1,31 @@
+﻿<wj-flex-grid 
+    is-read-only="true"
+    headers-visibility="Column"
+    selection-mode="ListBox"
+    items-source="data">
+    <wj-flex-grid-column 
+        binding="id" 
+        header="ID" 
+        width="40">
+    </wj-flex-grid-column>
+    <wj-flex-grid-column 
+        binding="date" 
+        header="Date" 
+        format="MMM yyyy">
+    </wj-flex-grid-column>
+    <wj-flex-grid-column 
+        binding="sales" 
+        header="Sales" 
+        format="c">
+    </wj-flex-grid-column>
+    <wj-flex-grid-column 
+        binding="expenses" 
+        header="Expenses" 
+        format="c">
+    </wj-flex-grid-column>
+    <wj-flex-grid-column 
+        binding="profit"
+        header="Profit"
+        format="c">
+    </wj-flex-grid-column>
+</wj-flex-grid>

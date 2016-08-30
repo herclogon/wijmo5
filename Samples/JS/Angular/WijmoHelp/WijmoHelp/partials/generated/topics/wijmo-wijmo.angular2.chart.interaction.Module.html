@@ -1,0 +1,80 @@
+<h2>Module wijmo/wijmo.angular2.chart.interaction</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd>wijmo.angular2.js</dd>
+</dl>
+<p><p>Contains Angular 2 components for the <b>wijmo.chart.interaction</b> module. </p>
+
+<p><b>wijmo.angular2.chart.interaction</b> is an external TypeScript module that can be imported to your code
+using its ambient module name. For example:</p>
+
+<p><pre>import * as wjInteraction from 'wijmo/wijmo.angular2.chart.interaction';
+import * as wjChart from 'wijmo/wijmo.angular2.chart';
+&nbsp;
+&#64;Component({
+    directives: [wjChart.WjFlexChart, wjInteraction.WjFlexChartRangeSelector, wjChart.WjFlexChartSeries],
+    template: `
+      &lt;wj-flex-chart [itemsSource]="data" [bindingX]="'x'"&gt;
+          &lt;wj-flex-chart-range-selector&gt;&lt;/wj-flex-chart-range-selector&gt;
+          &lt;wj-flex-chart-series [binding]="'y'"&gt;&lt;/wj-flex-chart-series&gt;
+      &lt;/wj-flex-chart&gt;`,
+    selector: 'my-cmp',
+})
+export class MyCmp {
+    data: any[];
+}</pre></p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
+<span class="glyph-collapsed" ng-show="hideClasses"></span>
+<span class="glyph-expanded" ng-hide="hideClasses"></span>
+Classes
+</h3>
+</div>
+<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartGestures.Class.html"><b>WjFlexChartGestures</b></a></td>
+      <td><p>Angular 2 component for the <a href="topic/wijmo.angular.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.interaction.ChartGestures.Class.html"><b>ChartGestures</b></a> object.</p>
+
+<p>The <b>wj-flex-chart-gestures</b> component must be contained in a 
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> component.</p>
+
+<p>Use the <b>wj-flex-chart-gestures</b> component to add <b>ChartGestures</b> objects to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
+
+<p>The <b>WjFlexChartGestures</b> component is derived from the <b>ChartGestures</b> class and
+inherits all its properties, events and methods.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartRangeSelector.Class.html"><b>WjFlexChartRangeSelector</b></a></td>
+      <td><p>Angular 2 component for the <a href="topic/wijmo.angular.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a> object.</p>
+
+<p>The <b>wj-flex-chart-range-selector</b> component must be contained in a 
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> component.</p>
+
+<p>Use the <b>wj-flex-chart-range-selector</b> component to add <b>RangeSelector</b> objects to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
+
+<p>The <b>WjFlexChartRangeSelector</b> component is derived from the <b>RangeSelector</b> class and
+inherits all its properties, events and methods.</p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

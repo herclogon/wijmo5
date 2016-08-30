@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FlexGrid with Flyouts</title>
+
+    <!-- Angular/Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js"></script>
+    <script src="scripts/vendor/wijmo.input.min.js"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js"></script>
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+
+    <!-- Wijmo-Angular interop -->
+    <script src="scripts/vendor/wijmo.angular.min.js"></script>
+
+    <!-- app styles/scripts -->
+    <link href="styles/app.css" rel="stylesheet" />
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/appCtrl.js"></script>
+    <script src="scripts/FlexGridFlyout.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="appCtrl">
+    <div class="container">
+
+        <h2>
+            FlexGrid column header Flyouts
+        </h2>
+        <p>
+            This sample defines a <b>FlexGridFlyout</b> class that monitors 
+            the mouse and displays a <i>flyout</i> element when the user 
+            hovers over a column header.</p>
+        <p>
+            The <i>flyout</i> menu is just an ordinary <b>div</b> element. 
+            The sample populates it with some buttons and listens to click
+            events to execute commands that apply to the column that 
+            owns the <i>flyout</i> currently visible.</p>
+        <p>
+            Move the mouse over a grid column to see the <i>flyout</i> menu.
+            Click any of the menu options to execute the command.</p>
+        <wj-flex-grid 
+            items-source="data"
+            initialized="initializeFlyout(s,e)">
+        </wj-flex-grid>
+    </div>
+</body>
+</html>

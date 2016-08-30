@@ -1,0 +1,199 @@
+<h2>Module wijmo/wijmo.angular2.chart</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd>wijmo.angular2.js</dd>
+</dl>
+<p><p>Contains Angular 2 components for the <b>wijmo.chart</b> module. </p>
+
+<p><b>wijmo.angular2.chart</b> is an external TypeScript module that can be imported to your code
+using its ambient module name. For example:</p>
+
+<p><pre>import * as wjChart from 'wijmo/wijmo.angular2.chart';
+&nbsp;
+&#64;Component({
+    directives: [wjChart.WjFlexChart, wjChart.WjFlexChartSeries],
+    template: `
+      &lt;wj-flex-chart [itemsSource]="data" [bindingX]="'x'"&gt;
+          &lt;wj-flex-chart-series [binding]="'y'"&gt;&lt;/wj-flex-chart-series&gt;
+      &lt;/wj-flex-chart&gt;`,
+    selector: 'my-cmp',
+})
+export class MyCmp {
+    data: any[];
+}</pre></p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
+<span class="glyph-collapsed" ng-show="hideClasses"></span>
+<span class="glyph-expanded" ng-hide="hideClasses"></span>
+Classes
+</h3>
+</div>
+<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a></td>
+      <td><p>Angular 2 component for the <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> control.</p>
+
+<p>Use the <b>wj-flex-chart</b> component to add <b>FlexChart</b> controls to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>. </p>
+
+<p>The <b>WjFlexChart</b> component is derived from the <b>FlexChart</b> control and
+inherits all its properties, events and methods.</p>
+
+<p>The <b>wj-flex-chart</b> component may contain <a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartAxis.Class.html"><b>WjFlexChartAxis</b></a>, 
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartSeries.Class.html"><b>WjFlexChartSeries</b></a>, <a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartLegend.Class.html"><b>WjFlexChartLegend</b></a> 
+and <a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartDataLabel.Class.html"><b>WjFlexChartDataLabel</b></a> child components.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartAxis.Class.html"><b>WjFlexChartAxis</b></a></td>
+      <td><p>Angular 2 component for the <a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.Axis.Class.html"><b>Axis</b></a> control.</p>
+
+<p>The <b>wj-flex-chart-axis</b> component must be contained in a 
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> component.</p>
+
+<p>Use the <b>wj-flex-chart-axis</b> component to add <b>Axis</b> objects to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
+
+<p>The <b>WjFlexChartAxis</b> component is derived from the <b>Axis</b> class and
+inherits all its properties, events and methods.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartDataLabel.Class.html"><b>WjFlexChartDataLabel</b></a></td>
+      <td><p>Angular 2 component for the <a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.DataLabel.Class.html"><b>DataLabel</b></a> control.</p>
+
+<p>The <b>wj-flex-chart-data-label</b> component must be contained in a 
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> component.</p>
+
+<p>Use the <b>wj-flex-chart-data-label</b> component to add <b>DataLabel</b> objects to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
+
+<p>The <b>WjFlexChartDataLabel</b> component is derived from the <b>DataLabel</b> class and
+inherits all its properties, events and methods.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartDataPoint.Class.html"><b>WjFlexChartDataPoint</b></a></td>
+      <td><p>Angular 2 component for the <a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.DataPoint.Class.html"><b>DataPoint</b></a> objects.</p>
+
+<p>The <b>wj-flex-chart-data-point</b> component must be contained in a 
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> component.</p>
+
+<p>Use the <b>wj-flex-chart-data-point</b> component to add <b>DataPoint</b> objects to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
+
+<p>The <b>WjFlexChartDataPoint</b> component is derived from the <b>DataPoint</b> class and
+inherits all its properties, events and methods.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartLegend.Class.html"><b>WjFlexChartLegend</b></a></td>
+      <td><p>Angular 2 component for the <a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.Legend.Class.html"><b>Legend</b></a> control.</p>
+
+<p>The <b>wj-flex-chart-legend</b> component must be contained in a 
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> component.</p>
+
+<p>Use the <b>wj-flex-chart-legend</b> component to add <b>Legend</b> objects to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
+
+<p>The <b>WjFlexChartLegend</b> component is derived from the <b>Legend</b> class and
+inherits all its properties, events and methods.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartLineMarker.Class.html"><b>WjFlexChartLineMarker</b></a></td>
+      <td><p>Angular 2 component for the <a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a> control.</p>
+
+<p>The <b>wj-flex-line-marker</b> component must be contained in a 
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> component.</p>
+
+<p>Use the <b>wj-flex-line-marker</b> component to add <b>LineMarker</b> objects to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
+
+<p>The <b>WjFlexChartLineMarker</b> component is derived from the <b>LineMarker</b> class and
+inherits all its properties, events and methods.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartPlotArea.Class.html"><b>WjFlexChartPlotArea</b></a></td>
+      <td><p>Angular 2 component for the <a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.PlotArea.Class.html"><b>PlotArea</b></a> objects.</p>
+
+<p>The <b>wj-flex-chart-plot-area</b> component must be contained in a 
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> component.</p>
+
+<p>Use the <b>wj-flex-chart-plot-area</b> component to add <b>PlotArea</b> objects to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
+
+<p>The <b>WjFlexChartPlotArea</b> component is derived from the <b>PlotArea</b> class and
+inherits all its properties, events and methods.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartSeries.Class.html"><b>WjFlexChartSeries</b></a></td>
+      <td><p>Angular 2 component for the <a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.Series.Class.html"><b>Series</b></a> object.</p>
+
+<p>The <b>wj-flex-chart-series</b> component must be contained in a 
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> component.</p>
+
+<p>Use the <b>wj-flex-chart-series</b> component to add <b>Series</b> objects to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
+
+<p>The <b>WjFlexChartSeries</b> component is derived from the <b>Series</b> class and
+inherits all its properties, events and methods.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo-wijmo.angular2.chart.WjFlexPie.Class.html"><b>WjFlexPie</b></a></td>
+      <td><p>Angular 2 component for the <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a> control.</p>
+
+<p>Use the <b>wj-flex-pie</b> component to add <b>FlexPie</b> controls to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>. </p>
+
+<p>The <b>WjFlexPie</b> component is derived from the <b>FlexPie</b> control and
+inherits all its properties, events and methods.</p>
+
+<p>The <b>wj-flex-pie</b> component may contain <a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartLegend.Class.html"><b>WjFlexChartLegend</b></a> 
+and <a href="topic/wijmo-wijmo.angular2.chart.WjFlexPieDataLabel.Class.html"><b>WjFlexPieDataLabel</b></a> child components.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo-wijmo.angular2.chart.WjFlexPieDataLabel.Class.html"><b>WjFlexPieDataLabel</b></a></td>
+      <td><p>Angular 2 component for the <a href="topic/wijmo-wijmo.angular2.chart.WjFlexPie.Class.html"><b>WjFlexPie</b></a> <a href="topic/wijmo.chart.PieDataLabel.Class.html"><b>PieDataLabel</b></a> control.</p>
+
+<p>The <b>wj-flex-pie-data-label</b> component must be contained in a 
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexPie.Class.html"><b>WjFlexPie</b></a> component.</p>
+
+<p>Use the <b>wj-flex-pie-data-label</b> component to add <b>PieDataLabel</b> objects to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
+
+<p>The <b>WjFlexPieDataLabel</b> component is derived from the <b>PieDataLabel</b> class and
+inherits all its properties, events and methods.</p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

@@ -1,0 +1,107 @@
+<h2>ChartType Enum</h2>
+<dl class="dl-horizontal">
+  <dt>Module</dt><dd>wijmo.chart</dd>
+  <dt>File</dt><dd>wijmo.chart.js</dd>
+</dl>
+<p>Specifies the chart type.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideValues = !hideValues">
+<span class="glyph-collapsed" ng-show="hideValues"></span>
+<span class="glyph-expanded" ng-hide="hideValues"></span>
+Values
+</h3>
+</div>
+<table ng-hide="hideValues" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>Area</b></td>
+      <td>Shows line chart with the area below the line filled with color.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Bar</b></td>
+      <td>Shows horizontal bars.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Bubble</b></td>
+      <td>Shows Scatter chart with a third data value that determines the 
+size of the symbol. The data for this chart type can be defined using the 
+ <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> or <a href="topic/wijmo.chart.Series.Class.html"><b>Series</b></a> <b>binding</b> property as a comma separated value in the 
+following format: "yProperty, bubbleSizeProperty".</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Candlestick</b></td>
+      <td>Presents items with high, low, open, and close values.
+The size of the wick line is determined by the High and Low values, 
+while the size of the bar is determined by the Open and Close values. 
+The bar is displayed using different colors, depending on 
+whether the close value is higher or lower than the open value. 
+The data for this chart type can be defined using the 
+ <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> or <a href="topic/wijmo.chart.Series.Class.html"><b>Series</b></a> <b>binding</b> property as a comma separated value in the 
+following format: "highProperty, lowProperty, openProperty, closeProperty".</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Column</b></td>
+      <td>Shows vertical bars and allows you to compare values of items across categories.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>HighLowOpenClose</b></td>
+      <td>Displays the same information as a candlestick chart, except that opening 
+values are displayed using lines to the left, while lines to the right
+indicate closing values.  The data for this chart type can be defined using the 
+ <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> or <a href="topic/wijmo.chart.Series.Class.html"><b>Series</b></a> <b>binding</b> property as a comma separated value in the 
+following format: "highProperty, lowProperty, openProperty, closeProperty".</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Line</b></td>
+      <td>Shows trends over a period of time or across categories.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>LineSymbols</b></td>
+      <td>Shows line chart with a symbol on each data point.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Scatter</b></td>
+      <td>Shows patterns within the data using X and Y coordinates.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Spline</b></td>
+      <td>Displays line chart that plots curves rather than angled lines through the
+data points.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>SplineArea</b></td>
+      <td>Displays spline chart with the area below the line filled with color.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>SplineSymbols</b></td>
+      <td>Displays spline chart with symbols on each data point.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

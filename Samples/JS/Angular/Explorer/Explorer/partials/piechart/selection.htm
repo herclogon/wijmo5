@@ -1,0 +1,43 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Selection
+        </h3>
+        <p>
+            This view shows the <b>FlexPie</b>'s selection feature.
+        </p>
+    </div>
+    <div>
+        <wj-menu value="ctx.chart.selectedItemPosition" header="Selected item position">
+            <wj-menu-item value="0">None</wj-menu-item>
+            <wj-menu-item value="1">Left</wj-menu-item>
+            <wj-menu-item value="2">Top</wj-menu-item>
+            <wj-menu-item value="3">Right</wj-menu-item>
+            <wj-menu-item value="4">Bottom</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu value="ctx.chart.selectedItemOffset" header="Selected Item Offset">
+            <wj-menu-item value="0">0</wj-menu-item>
+            <wj-menu-item value="0.1">0.1</wj-menu-item>
+            <wj-menu-item value="0.2">0.2</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu value="ctx.chart.isAnimated" header="Is animated">
+            <wj-menu-item value="false">False</wj-menu-item>
+            <wj-menu-item value="true">True</wj-menu-item>
+        </wj-menu>
+
+
+
+        <!-- the chart -->
+        <wj-flex-pie class="chart"
+                           control="ctx.chart"
+                           binding="value"
+                           binding-name="name"
+                           selection-mode="{{ctx.selectionMode}}"
+                           selected-item-position="{{ctx.selectedItemPosition}}"
+                           is-animated="true"
+                           items-source="ctx.itemsSource">
+        </wj-flex-pie>
+    </div>
+</div>

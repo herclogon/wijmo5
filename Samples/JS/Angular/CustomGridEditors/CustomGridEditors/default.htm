@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CustomGridEditors</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <!-- Angular/Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js" type="text/javascript"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js" type="text/javascript"></script>
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+
+    <!-- Wijmo-Angular interop -->
+    <script src="scripts/vendor/wijmo.angular.min.js" type="text/javascript"></script>
+
+    <!-- app scripts and styles -->
+    <script src="scripts/app.js" type="text/javascript"></script>
+    <script src="scripts/controllers/appCtrl.js" type="text/javascript"></script>
+    <script src="scripts/directives/appDctv.js" type="text/javascript"></script>
+    <script src="scripts/directives/CustomGridEditor.js" type="text/javascript"></script>
+    <link href="styles/app.css" rel="stylesheet">
+</head>
+<body ng-app="app" ng-controller="appCtrl">
+
+    <div class="header">
+        <div class="container">
+            <h1>
+                Custom Editors on a FlexGrid</h1>
+        </div>
+    </div>
+    <div class="container">
+
+        <p>
+            This sample shows how you can use custom editors to change the values in
+            FlexGrid cells.</p>
+        <p>
+            The sample defines a <b>CustomGridEditor</b> class that creates a mapping
+            between a grid column and a control. When the user starts editing a cell,
+            the class positions the control over the cell and gives it the focus.</p>
+        <p>
+            You can use any Wijmo control that has "value" or "text" properties 
+            (like the ones in <a href="http://wijmo.com/5/docs/topic/wijmo.input.Module.html" 
+            target="_blank">wijmo.input</a>) as a custom editor.
+            Using non-Wijmo controls as editors would require some adjustments 
+            to the sample code.</p>
+        <p>
+            The sample also defines a <b>wj-flex-grid-editor</b> directive that 
+            allows you to associate custom editors with grid columns in markup.</p>
+
+        <!-- FlexGrid hosting the custom editors -->
+        <wj-flex-grid items-source="data" cell-edit-ending="editEnding(s,e)" cell-edit-ended="editEnded(s,e)">
+            <wj-flex-grid-column binding="id" width=".4*"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="date" width="*" format="d" wj-flex-grid-editor="edtDate"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="time" width="*" format="t" wj-flex-grid-editor="edtTime"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="country" width="2*" wj-flex-grid-editor="edtCountry"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="product" width="2*" wj-flex-grid-editor="edtProduct"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="company" width="2*" data-map="companyDataMap" wj-flex-grid-editor="edtCompany"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="amount" format="n2" width="*" wj-flex-grid-editor="edtNumber"></wj-flex-grid-column>
+        </wj-flex-grid>
+
+        <!-- pager -->
+        <p>
+            Page: 
+            <wj-collection-view-pager cv="data">
+            </wj-collection-view-pager>
+        </p>
+
+        <!-- editors to be used in the FlexGrid -->
+        <div style="display: none">
+            <wj-input-date id="edtDate" format="d"></wj-input-date>
+            <wj-input-time id="edtTime" format="t" min="7:00" max="22:00" step="30"></wj-input-time>
+            <wj-input-number id="edtNumber" format="n2" step="10"></wj-input-number>
+            <wj-combo-box id="edtCountry" items-source="countries"></wj-combo-box>
+            <wj-combo-box id="edtProduct" items-source="products"></wj-combo-box>
+            <wj-auto-complete id="edtCompany" 
+                items-source="companies"
+                header-path="name"
+                display-member-path="name"
+                search-member-path="symbol,country"
+                selected-value-path="symbol"
+                item-formatter="companyFormatter">
+            </wj-auto-complete>
+        </div>
+    </div>
+</body>
+</html>

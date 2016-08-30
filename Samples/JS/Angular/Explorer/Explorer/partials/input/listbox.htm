@@ -1,0 +1,104 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            ListBox</h3>
+        <p>
+            The <a href="http://wijmo.com/5/docs/topic/wijmo.input.ListBox.Class.html" 
+            target="_blank">ListBox</a> control displays a list of items that can contain
+            plain text or HTML, and allows users to select items with the mouse or
+            keyboard.</p>
+        <p>
+            These samples use the 
+            <a href="http://wijmo.com/5/docs/topic/wijmo.angular.WjListBox.Class.html" 
+            target="_blank">WjListBox</a> directive and AngularJS.</p>
+    </div>
+
+    <h4>
+        Using a string array as itemsSource</h4>
+    <p>
+        The simplest way to use the ListBox is to use an array of strings as the 
+        <b>itemsSource</b>, and then use the <b>selectedItem</b> property to 
+        retrieve the string that is selected:</p>
+    <wj-list-box
+        style="height:150px;width:250px"
+        control="listBox1"
+        items-source="ctx.countries">
+    </wj-list-box>
+    <p>
+        Selected Item: <b>{{listBox1.selectedItem}}</b><br />
+        Selected Index: <b>{{listBox1.selectedIndex}}</b></p>
+
+    <h4>
+        Using an array of objects as itemsSource</h4>
+    <p>
+        A more flexible approach is to use an array of objects as the <b>itemsSource</b>
+        and set the <b>displayMemberPath</b> property to indicate which property of the
+        objects to display on the list:</p>
+    <wj-list-box 
+        style="height:150px;width:250px"
+        control="ctx.listBox2"
+        items-source="ctx.items"
+        display-member-path="country">
+    </wj-list-box>
+    <p ng-show="ctx.items.currentItem">
+        Selected Item: <b>{{ctx.items.currentItem.country}}</b><br />
+        Selected Index: <b>{{ctx.items.currentPosition}}</b></p>
+
+    <h4>
+        Multi-select ListBoxes</h4>
+    <p>
+        By default, the ListBox allows one item to be selected at a time.
+        But you can use the ListBox as a multi-item selector by setting 
+        the <b>checkMemberPath</b> property to the name of a Boolean value
+        on the source objects. When you do that, the ListBox will show 
+        checkboxes next to each item and will bind their value to the 
+        specified property:</p>
+    <wj-list-box 
+        style="height:150px;width:250px"
+        items-source="ctx.items"
+        display-member-path="country"
+        checked-member-path="selected">
+    </wj-list-box>
+    <p ng-show="ctx.items.currentItem">
+        <b>{{ctx.items.currentItem.country}} is {{ctx.items.currentItem.selected}}</b>
+    </p>
+
+    <h4>
+        ListBoxes with HTML content</h4>
+    <p>
+        By default, the ListBox items are plain text. But you can have list items
+        show HTML by setting the <b>isContentHtml</b> property to true:</p>
+    <wj-list-box 
+        style="height:150px;width:250px"
+        control="lbHtml"
+        is-content-html="true"
+        items-source="ctx.htmlItems">
+    </wj-list-box>
+    <p>
+        Selected Item: <b>{{lbHtml.selectedItem}}</b><br />
+        Selected Index: <b>{{lbHtml.selectedIndex}}</b>
+    </p>
+
+    <h4>
+        ListBoxes with item templates</h4>
+    <p>
+        Use ListBox templates to define the layout and content of the list items
+        as HTML fragments that may include AngularJS directives and bindings:</p>
+    <wj-list-box 
+        style="max-height:300px;width:250px;"
+        items-source="ctx.musicians">
+        <wj-item-template>
+            {{$itemIndex + 1}}. <b>{{$item.name}}</b>
+            <div ng-if="$item.photo">
+                <img ng-src="{{$item.photo}}"
+                        height="100" />
+                <br />
+                <a href="https://www.google.com/#newwindow=1&q=The+Beatles+{{$item.name}}"
+                    target="_blank"
+                    style="color:red">go there!</a>
+            </div>
+        </wj-item-template>
+    </wj-list-box>
+
+
+</div>

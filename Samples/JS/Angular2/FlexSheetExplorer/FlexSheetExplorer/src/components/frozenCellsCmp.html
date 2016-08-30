@@ -1,0 +1,16 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Frozen Cells
+        </h3>
+        <p>
+            FlexSheet allows to freeze the rows and columns at the selected cell by the <b>'freezeAtCursor'</b> method.
+        </p>
+    </div>
+    <button type="button" class="btn btn-default" (click)="freezeCells()">{{isFrozen ? 'UnFreeze' : 'Freeze'}}</button>
+    <div>
+        <wj-flex-sheet #flexSheet class="flexSheet" (initialized)="flexSheetInit(flexSheet)">
+            <wj-sheet [rowCount]="40" [columnCount]="16"></wj-sheet>
+        </wj-flex-sheet>
+    </div>
+</div>

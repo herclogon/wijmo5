@@ -1,0 +1,40 @@
+<h2>WjPivotChart Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjDirective</b></dd>
+<dt>Module</dt><dd>wijmo.angular</dd>
+<dt>File</dt><dd>wijmo.angular.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>AngularJS directive for the <a href="topic/wijmo.olap.PivotChart.Class.html"><b>PivotChart</b></a> control.</p>
+
+<p>Use the <b>wj-pivot-chart</b> and <b>wj-pivot-panel</b> directives
+to add pivot charts to your AngularJS applications.</p>
+
+<p>Directive and parameter names must be formatted as lower-case with dashes 
+instead of camel-case. For example:</p>
+
+<p><pre>&lt;wj-pivot-panel
+    control="thePanel"
+    items-source="rawData"&gt;
+&lt;/wj-pivot-panel&gt;
+&lt;wj-pivot-chart
+    items-source="thePanel"
+    chart-type="Bar"
+    max-series="10"
+    max-points="100"&gt;
+&lt;/wj-pivot-chart&gt;</pre></p>
+
+<p>The <b>wj-pivot-chart</b> directive supports the following attributes:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>items-source</dt>                  <dd>Gets or sets the <a href="topic/wijmo.olap.PivotPanel.Class.html"><b>PivotPanel</b></a> that defines the view
+                                             displayed by this <b>PivotChart</b>.</dd>
+  <dt>chart-type</dt>                    <dd>Gets or sets a <a href="topic/wijmo.olap.PivotChartType.Enum.html"><b>PivotChartType</b></a> value that defines
+                                             the type of chart to display.</dd>
+  <dt>show-hierarchical-axes</dt>        <dd>Gets or sets whether the chart should group axis annotations for grouped data.</dd>
+  <dt>stacking</dt>                      <dd>Gets or sets a <a href="topic/wijmo.chart.Stacking.Enum.html"><b>Stacking</b></a> value that determines whether and how the series 
+                                             objects are stacked.</dd>
+  <dt>show-totals</dt>                   <dd>Gets or sets a whether the chart should include only totals.</dd>
+  <dt>max-series</dt>                    <dd>Gets or sets the maximum number of data series to be shown in the chart.</dd>
+  <dt>max-points</dt>                    <dd>Gets or sets the maximum number of points to be shown in each series.</dd>
+</dl></p></p>

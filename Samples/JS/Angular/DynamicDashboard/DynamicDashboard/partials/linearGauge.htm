@@ -1,0 +1,38 @@
+﻿<h3>KPIs for {{ data.items[data.items.length - 1].date | date:'MMMM yyyy' }}</h3>
+
+<h4>Sales: {{ data.items[data.items.length - 1].sales | currency }}</h4>
+<wj-linear-gauge
+    min="0"
+    max="1000"
+    thumb-size="30"
+    value="data.items[data.items.length - 1].sales">
+    <wj-range
+        wj-property="pointer"
+        color="green">
+    </wj-range>
+</wj-linear-gauge>
+
+<h4>Expenses: {{ data.items[data.items.length - 1].expenses | currency }}</h4>
+<wj-linear-gauge
+    min="0"
+    max="1000"
+    thumb-size="30"
+    value="data.items[data.items.length - 1].expenses">
+    <wj-range
+        wj-property="pointer"
+        color="red">
+    </wj-range>
+</wj-linear-gauge>
+
+<h4>Profit: {{ data.items[data.items.length - 1].profit | currency }}</h4>
+<wj-linear-gauge
+    min="0"
+    max="1000"
+    thumb-size="30"
+    value="data.items[data.items.length - 1].profit">
+    <wj-range
+        wj-property="pointer"
+        color="gold">
+    </wj-range>
+</wj-linear-gauge>
+

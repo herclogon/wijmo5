@@ -1,0 +1,67 @@
+<h2>Module wijmo/wijmo.angular2.grid.detail</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd>wijmo.angular2.js</dd>
+</dl>
+<p><p>Contains Angular 2 components for the <b>wijmo.grid.detail</b> module. </p>
+
+<p><b>wijmo.angular2.grid.detail</b> is an external TypeScript module that can be imported to your code
+using its ambient module name. For example:</p>
+
+<p><pre>import * as wjDetail from 'wijmo/wijmo.angular2.grid.detail';
+import * as wjGrid from 'wijmo/wijmo.angular2.grid';
+&nbsp;
+&#64;Component({
+    directives: [wjGrid.WjFlexGrid, wjDetail.WjFlexGridDetail],
+    template: `
+      &lt;wj-flex-grid [itemsSource]="data"&gt;
+          &lt;template wjFlexGridDetail&gt;
+              Detail row content here...
+          &lt;/template&gt;
+      &lt;/wj-flex-grid&gt;`,
+    selector: 'my-cmp',
+})
+export class MyCmp {
+    data: any[];
+}</pre></p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
+<span class="glyph-collapsed" ng-show="hideClasses"></span>
+<span class="glyph-expanded" ng-hide="hideClasses"></span>
+Classes
+</h3>
+</div>
+<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo-wijmo.angular2.grid.detail.WjFlexGridDetail.Class.html"><b>WjFlexGridDetail</b></a></td>
+      <td><p>Angular 2 directive for <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> <a href="topic/wijmo.grid.detail.DetailRow.Class.html"><b>DetailRow</b></a> templates.</p>
+
+<p>The <b>wj-flex-grid-detail</b> directive must be specified on a <b>&lt;template&gt;</b> 
+template element contained in a <b>wj-flex-grid</b> component.</p>
+
+<p>The <b>wj-flex-grid-detail</b> directive is derived from the <a href="topic/wijmo.grid.detail.FlexGridDetailProvider.Class.html"><b>FlexGridDetailProvider</b></a>
+class that maintains detail rows visibility, with detail rows content defined as
+an arbitrary HTML fragment within the directive tag. The fragment may contain 
+Angular 2 bindings, components and directives. 
+The <b>row</b> and 
+<b>item</b> template variables can be used in Angular 2 bindings that refer to 
+the detail row's parent <a href="topic/wijmo.grid.Row.Class.html"><b>Row</b></a> and <b>Row.dataItem</b> objects.</p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

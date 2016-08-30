@@ -1,0 +1,198 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    A technical indicator is a set of derived data that is calculated by applying
+    one or more formulas to the original set of data. Technical indicators are
+    generally used to forecast the asset's market direction and generally plotted
+    separately from the original data since the Y-axis scales differ.
+</p>
+
+<!-- Symbol -->
+<label>Symbol</label>
+<wj-combo-box items-source="dataList"
+              selected-index-changed="selectedSymbolChanged(s,e)"
+              display-member-path="name"
+              selected-value-path="symbol"
+              selected-value="selectedSymbol">
+</wj-combo-box>
+
+<wj-financial-chart items-source="data"
+                    binding="close"
+                    binding-x="date"
+                    control="ctx.chart"
+                    rendered="chartRendered(s,e)">
+    <wj-financial-chart-series name="{{ selectedSymbol | uppercase }}">
+    </wj-financial-chart-series>
+    <wj-flex-chart-legend position="Top"></wj-flex-chart-legend>
+</wj-financial-chart>
+
+<!-- Indicators Chart -->
+<wj-financial-chart items-source="data"
+                    style="height: 200px"
+                    binding-x="date"
+                    control="ctx.indicatorChart"
+                    rendered="chartRendered(s,e)">
+    <wj-flex-chart-atr binding="high,low,open,close"
+                       name="ATR"
+                       period="{{ ctx.properties.atrPeriod }}"
+                       visibility="selectedIndicator === 'atr' ? 'Visible' : 'Hidden'">
+    </wj-flex-chart-atr>
+    <wj-flex-chart-rsi binding="close"
+                       name="RSI"
+                       period="{{ ctx.properties.rsiPeriod }}"
+                       visibility="selectedIndicator === 'rsi' ? 'Visible' : 'Hidden'">
+    </wj-flex-chart-rsi>
+    <wj-flex-chart-cci binding="high,low,open,close"
+                       name="CCI"
+                       period="{{ ctx.properties.cciPeriod }}"
+                       visibility="selectedIndicator === 'cci' ? 'Visible' : 'Hidden'">
+    </wj-flex-chart-cci>
+    <wj-flex-chart-williams-r binding="high,low,open,close"
+                              name="Williams %R"
+                              period="{{ ctx.properties.williamsRPeriod }}"
+                              visibility="selectedIndicator === 'williamsR' ? 'Visible' : 'Hidden'">
+    </wj-flex-chart-williams-r>
+    <wj-flex-chart-macd binding="close"
+                        name="MACD,Signal"
+                        styles="ctx.properties.macdStyles"
+                        fast-period="{{ ctx.properties.fastPeriod }}"
+                        slow-period="{{ ctx.properties.slowPeriod }}"
+                        smoothing-period="{{ ctx.properties.smoothingPeriod }}"
+                        visibility="selectedIndicator === 'macd' ? 'Visible' : 'Hidden'">
+    </wj-flex-chart-macd>
+    <wj-flex-chart-macd-histogram binding="close"
+                                  name="MACD Histogram"
+                                  fast-period="{{ ctx.properties.fastPeriod }}"
+                                  slow-period="{{ ctx.properties.slowPeriod }}"
+                                  smoothing-period="{{ ctx.properties.smoothingPeriod }}"
+                                  visibility="selectedIndicator === 'macd' ? 'Visible' : 'Hidden'">
+    </wj-flex-chart-macd-histogram>
+    <wj-flex-chart-stochastic binding="high,low,open,close"
+                              name="%K,%D"
+                              k-period="{{ ctx.properties.stochKPeriod }}"
+                              d-period="{{ ctx.properties.stochDPeriod }}"
+                              smoothing-period="{{ ctx.properties.stochSmoothingPeriod }}"
+                              visibility="selectedIndicator === 'stoch' ? 'Visible' : 'Hidden'"
+                              styles="ctx.properties.stochStyles">
+    </wj-flex-chart-stochastic>
+    <wj-flex-chart-legend position="Bottom"></wj-flex-chart-legend>
+</wj-financial-chart>
+
+<!-- Settings -->
+<div class="panel-group" id="settingsShort">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#settings" href="#settingsBody" target="_self">{{ title }} Settings</a>
+            </h4>
+        </div>
+        <div id="settingsBody" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <!-- Indicator Selector -->
+                <ul class="list-inline">
+                    <li>
+                        <label>Indicator Type</label>
+                        <wj-combo-box items-source="indicators"
+                                      selected-value-path="abbreviation"
+                                      display-member-path="name"
+                                      selected-value="selectedIndicator">
+                        </wj-combo-box>
+                    </li>
+                </ul>
+
+                <!-- ATR Properties -->
+                <ul class="list-inline" ng-if="selectedIndicator === 'atr'">
+                    <li>
+                        <label>Period</label>
+                        <wj-input-number value="ctx.atrPeriod" value-changed="atrPeriodChanged(s,e)"
+                                         min="2" max="{{ data.length > 0 ? data.length - 1 : ctx.properties.atrPeriod }}"
+                                         step="1" format="n0">
+                        </wj-input-number>
+                    </li>
+                </ul>
+
+                <!-- RSI Properties -->
+                <ul class="list-inline" ng-if="selectedIndicator === 'rsi'">
+                    <li>
+                        <label>Period</label>
+                        <wj-input-number value="ctx.rsiPeriod" value-changed="rsiPeriodChanged(s,e)"
+                                         min="2" max="{{ data.length > 0 ? data.length - 1 : ctx.properties.rsiPeriod }}"
+                                         step="1" format="n0">
+                        </wj-input-number>
+                    </li>
+                </ul>
+
+                <!-- CCI Properties -->
+                <ul class="list-inline" ng-if="selectedIndicator === 'cci'">
+                    <li>
+                        <label>Period</label>
+                        <wj-input-number value="ctx.cciPeriod" value-changed="cciPeriodChanged(s,e)"
+                                         min="2" max="{{ data.length > 0 ? data.length - 1 : ctx.properties.cciPeriod }}"
+                                         step="1" format="n0">
+                        </wj-input-number>
+                    </li>
+                </ul>
+
+                <!-- Williams %R Properties -->
+                <ul class="list-inline" ng-if="selectedIndicator === 'williamsR'">
+                    <li>
+                        <label>Period</label>
+                        <wj-input-number value="ctx.williamsRPeriod" value-changed="williamsRPeriodChanged(s,e)"
+                                         min="2" max="{{ data.length > 0 ? data.length - 1 : ctx.properties.williamsRPeriod }}"
+                                         step="1" format="n0">
+                        </wj-input-number>
+                    </li>
+                </ul>
+
+                <!-- MACD & MACD Histogram Properties -->
+                <ul class="list-inline" ng-if="selectedIndicator === 'macd'">
+                    <li>
+                        <label>Fast Period</label>
+                        <wj-input-number value="ctx.fastPeriod" value-changed="fastPeriodChanged(s,e)"
+                                         min="2" max="{{ data.length > 0 ? data.length - 1 : ctx.properties.fastPeriod }}"
+                                         step="1" format="n0">
+                        </wj-input-number>
+                    </li>
+                    <li>
+                        <label>Slow Period</label>
+                        <wj-input-number value="ctx.slowPeriod" value-changed="slowPeriodChanged(s,e)"
+                                         min="2" max="{{ data.length > 0 ? data.length - 1 : ctx.properties.slowPeriod }}"
+                                         step="1" format="n0">
+                        </wj-input-number>
+                    </li>
+                    <li>
+                        <label>Signal Smoothing Period</label>
+                        <wj-input-number value="ctx.smoothingPeriod" value-changed="smoothingPeriodChanged(s,e)"
+                                         min="2" max="{{ data.length > 0 ? data.length - 1 : ctx.properties.smoothingPeriod }}"
+                                         step="1" format="n0">
+                        </wj-input-number>
+                    </li>
+                </ul>
+
+                <!-- Fast Stochastic Properties -->
+                <ul class="list-inline" ng-if="selectedIndicator === 'stoch'">
+                    <li>
+                        <label>K Period</label>
+                        <wj-input-number value="ctx.stochKPeriod" value-changed="stochKPeriodChanged(s,e)"
+                                         min="2" max="{{ data.length > 0 ? data.length - 1 : ctx.properties.stochKPeriod }}"
+                                         step="1" format="n0">
+                        </wj-input-number>
+                    </li>
+                    <li>
+                        <label>D Period</label>
+                        <wj-input-number value="ctx.stochDPeriod" value-changed="stochDPeriodChanged(s,e)"
+                                         min="2" max="{{ data.length > 0 ? data.length - 1 : ctx.properties.stochDPeriod }}"
+                                         step="1" format="n0">
+                        </wj-input-number>
+                    </li>
+                    <li>
+                        <label>Smoothing Period</label>
+                        <wj-input-number value="ctx.stochSmoothingPeriod" value-changed="stochSmoothingPeriodChanged(s,e)"
+                                         min="1" max="{{ data.length > 0 ? data.length - 1 : ctx.properties.stochSmoothingPeriod }}"
+                                         step="1" format="n0">
+                        </wj-input-number>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

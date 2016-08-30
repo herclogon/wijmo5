@@ -1,0 +1,54 @@
+﻿<div>
+	<div class="copy">
+		<h3>
+			Introduction</h3>
+		<p>
+			Wijmo includes <a href="http://wijmo.com/5/docs/topic/wijmo.gauge.LinearGauge.Class.html"
+            target="_blank">LinearGauge</a> and <a target="_blank" 
+            href="http://wijmo.com/5/docs/topic/wijmo.gauge.RadialGauge.Class.html">RadialGauge</a> 
+            controls that are flexible, easy to use, and optimized to show information clearly 
+			on small screens.</p>
+		<p>
+			Wijmo also includes a <a href="http://wijmo.com/5/docs/topic/wijmo.gauge.BulletGraph.Class.html"
+            target="_blank">BulletGraph</a> control that is designed to be used in dashboard
+			applications. The BulletGraph control is optimized to show information about a 
+			single performance measure in a compact and clear manner.</p>
+
+		<h4>
+			Using Gauges as Input Elements</h4>
+		<p>
+			Wijmo gauges can be used not only to display data, but also as input elements. 
+			Set the <b>isReadOnly</b> property to false to allow users to change the 
+			gauge value using the keyboard or any touch device.</p>
+
+		<h4>
+			Ranges and Colors</h4>
+		<p>
+			Wijmo gauges have a <b>ranges</b> property that contains an array of <a target="_blank"
+            href="http://wijmo.com/5/docs/topic/wijmo.gauge.Range.Class.html">Range</a>
+			objects. By default, the ranges are displayed on the gauge to indicate zones of
+			interest (for example, good, average, and bad).</p>
+		<p>
+			If you set the <b>showRanges</b> property to false, the ranges are not shown.
+			Instead, the gauge determines which range contains the current gauge value
+			and applies that range's color to the gauge pointer.</p>
+
+		<h4>
+			Special Ranges</h4>
+		<p>
+			Every Wijmo gauge has two special ranges: the <b>face</b> and the <b>pointer</b>.
+			The <b>face</b> range determines the geometry and appearance of the gauge, 
+			including the minimum and maximum values that the gauge can display.
+			The <b>pointer</b> range indicates the gauge's current value.</p>
+		<p>
+			The face and pointer ranges are not members of the <b>ranges</b> array. They
+			can be modified but not removed from the gauge.</p>
+
+		<h4>
+			Shadows and Animations</h4>
+		<p>
+			By default, Wijmo gauges add a subtle shadow effect to gauge elements, and use
+			animation when the gauge value changes. You can turn these features off with
+			the <b>hasShadow</b> and <b>isAnimated</b> properties.</p>
+	</div>
+</div>

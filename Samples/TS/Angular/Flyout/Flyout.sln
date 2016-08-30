@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flyout", "Flyout\Flyout.csproj", "{9E0A87B7-3BB9-4CE8-8467-86E2F038045A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Evaluation|Any CPU = Evaluation|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Standard|Any CPU = Standard|Any CPU
+		StandardEvaluation|Any CPU = StandardEvaluation|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E0A87B7-3BB9-4CE8-8467-86E2F038045A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E0A87B7-3BB9-4CE8-8467-86E2F038045A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E0A87B7-3BB9-4CE8-8467-86E2F038045A}.Evaluation|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0A87B7-3BB9-4CE8-8467-86E2F038045A}.Evaluation|Any CPU.Build.0 = Release|Any CPU
+		{9E0A87B7-3BB9-4CE8-8467-86E2F038045A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0A87B7-3BB9-4CE8-8467-86E2F038045A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E0A87B7-3BB9-4CE8-8467-86E2F038045A}.Standard|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0A87B7-3BB9-4CE8-8467-86E2F038045A}.Standard|Any CPU.Build.0 = Release|Any CPU
+		{9E0A87B7-3BB9-4CE8-8467-86E2F038045A}.StandardEvaluation|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0A87B7-3BB9-4CE8-8467-86E2F038045A}.StandardEvaluation|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

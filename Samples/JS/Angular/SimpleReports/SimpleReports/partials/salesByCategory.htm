@@ -1,0 +1,38 @@
+﻿<h1>
+    Sales by Category
+</h1>
+
+<div ng-repeat="categorySales in productSales.groups">
+    <div style="display:flex; font-weight:bold; font-size:200%; font-style:italic; background-color:#c0c0c0">
+        {{categorySales.CategoryName}}
+    </div>
+
+    <div style="display:flex; page-break-inside:avoid">
+        <div>
+            <div style="display:flex; font-weight:bold; font-size: 150%; border-bottom: 2px solid black; margin:6pt 0">
+                <div style="width:200px">
+                    Product:
+                </div>
+                <div style="width:100px; text-align:right">
+                    Sales:
+                </div>
+            </div>
+            <div style="display:flex" ng-repeat="productSale in categorySales.items">
+                <div style="width:200px">
+                    {{ productSale.ProductName }}
+                </div>
+                <div style="width:100px; text-align:right">
+                    {{ productSale.ProductSales | currency }}
+                </div>
+            </div>
+        </div>
+        <wj-flex-chart 
+            style="width:500px; height:350px; margin:12pt; border:4px solid #009be0"
+            items-source="categorySales.items"
+            binding-x="ProductName">
+            <wj-flex-chart-series binding="ProductSales">
+            </wj-flex-chart-series>
+        </wj-flex-chart>
+
+    </div>
+</div>

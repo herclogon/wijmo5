@@ -1,0 +1,811 @@
+﻿
+<div class="header visible-xs visible-sm">
+    <div class="container">
+        <h1>
+            CellTemplate 101
+        </h1>
+    </div>
+</div>
+<div class="header hidden-xs hidden-sm">
+    <div class="container">
+        <img src="resources/wijmo5.png" />
+        <h1>
+            CellTemplate 101
+        </h1>
+        <p>
+            This page shows how to work with Wijmo's FlexGrid cell templates for Angular.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- getting started -->
+    <h2 id="Start">
+        Getting Started
+    </h2>
+    <p>
+        Wijmo provides a WjFlexGridCellTemplate directive for Angular 2 that allows you to define a template
+        for any type of FlexGrid cell.
+    </p>
+    <p>
+        This example shows a FlexGrid that includes all of the cell types available, and allows you to
+        selectively apply specific cell templates to the control. Each template applies to every cell of
+        its specified type within the control. Clear a checkbox to see the template removed from all
+        instances of that cell type.
+    </p>
+    <p>
+        Note that in order to see the change for the CellEdit cell type, you must first double-click inside
+        a cell to put it in edit mode. To see the change for the RowHeaderEdit cell type, put any cell
+        into edit mode, and look at the RowHeader cell for that row.
+    </p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;wj-flex-grid [itemsSource]="data1"
+    [allowSorting]="false"
+    [deferResizing]="true"&gt;
+    &lt;template wjFlexGridCellTemplate [cellType]="'TopLeft'" *ngIf="customTopLeft"&gt;
+            №
+    &lt;/template&gt;
+    &lt;template wjFlexGridCellTemplate [cellType]="'RowHeader'" *ngIf="customRowHeader" let-cell="cell"&gt;
+            {&#8203;{cell.row.index}&#8203;}
+    &lt;/template&gt;
+    &lt;template wjFlexGridCellTemplate [cellType]="'RowHeaderEdit'" *ngIf="customRowHeaderEdit"&gt;
+            ...
+    &lt;/template&gt;
+    &lt;wj-flex-grid-column header="Country"
+        binding="country"
+        width="*"&gt;
+        &lt;template wjFlexGridCellTemplate [cellType]="'Cell'" *ngIf="customCell" let-item="item"&gt;
+                &lt;img src="resources/{&#8203;{item.country}&#8203;}.png" /&gt;
+                {&#8203;{item.country}&#8203;}
+        &lt;/template&gt;
+        &lt;template wjFlexGridCellTemplate [cellType]="'CellEdit'" *ngIf="customCellEdit" let-cell="cell"&gt;
+                &lt;wj-combo-box [itemsSource]="countries"
+                [(selectedValue)]="cell.value"
+                [isEditable]="false"&gt;&lt;/wj-combo-box&gt;
+        &lt;/template&gt;
+        &lt;template wjFlexGridCellTemplate [cellType]="'GroupHeader'" *ngIf="customGroupHeader" let-item="item" let-cell="cell"&gt;
+                &lt;input type="checkbox" [(ngModel)]="cell.row.isCollapsed" /&gt;
+                {&#8203;{item.name}&#8203;} ({&#8203;{item.items.length}&#8203;} items)
+        &lt;/template&gt;
+    &lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column header="Downloads"
+        binding="downloads"
+        [width]="170"
+        [aggregate]="'Sum'"&gt;
+        &lt;template wjFlexGridCellTemplate [cellType]="'ColumnHeader'" *ngIf="customColumnHeader"&gt;
+                &lt;input type="checkbox" [(ngModel)]="uiCtx.highlightDownloads" /&gt;
+            Downloads
+        &lt;/template&gt;
+        &lt;template wjFlexGridCellTemplate [cellType]="'Cell'" *ngIf="customCell" let-item="item"&gt;
+                &lt;span [ngStyle]="{color: uiCtx.highlightDownloads? (item.downloads&gt;10000 ?'green':'red'):''}"
+                style="font-weight:700"&gt;
+                    {&#8203;{item.downloads}&#8203;}
+                &lt;/span&gt;
+        &lt;/template&gt;
+        &lt;template wjFlexGridCellTemplate [cellType]="'CellEdit'" *ngIf="customCell" let-cell="cell"&gt;
+                &lt;wj-input-number [(value)]="cell.value"
+                [step]="1"&gt;&lt;/wj-input-number&gt;
+        &lt;/template&gt;
+        &lt;template wjFlexGridCellTemplate [cellType]="'Group'" *ngIf="customGroup" let-cell="cell"&gt;
+            Sum = {&#8203;{cell.value | number:'1.0-0'}&#8203;}
+        &lt;/template&gt;
+    &lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;
+
+    &lt;div class="checkbox-list"&gt;
+        &lt;label class="checkbox"&gt;
+            &lt;input type="checkbox" [(ngModel)]="customTopLeft" /&gt; TopLeft
+        &lt;/label&gt;
+        &lt;label class="checkbox"&gt;
+            &lt;input type="checkbox" [(ngModel)]="customRowHeader" /&gt; RowHeader
+        &lt;/label&gt;
+        &lt;label class="checkbox"&gt;
+            &lt;input type="checkbox" [(ngModel)]="customRowHeaderEdit" /&gt; RowHeaderEdit
+        &lt;/label&gt;
+        &lt;label class="checkbox"&gt;
+            &lt;input type="checkbox" [(ngModel)]="customCell" /&gt; Cell
+        &lt;/label&gt;
+        &lt;label class="checkbox"&gt;
+            &lt;input type="checkbox" [(ngModel)]="customCellEdit" /&gt; CellEdit
+        &lt;/label&gt;
+        &lt;label class="checkbox"&gt;
+         &lt;input type="checkbox" [(ngModel)]="customColumnHeader" /&gt; ColumnHeader
+        &lt;/label&gt;
+        &lt;label class="checkbox"&gt;
+         &lt;input type="checkbox" [(ngModel)]="customGroupHeader" /&gt; GroupHeader
+        &lt;/label&gt;
+        &lt;label class="checkbox"&gt;
+         &lt;input type="checkbox" [(ngModel)]="customGroup" /&gt; Group
+        &lt;/label&gt;
+    &lt;/div&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+ 'use strict';
+
+ import { Injectable } from '@angular/core';
+
+ // Common data service
+ @Injectable()
+ export class DataSvc {
+     // data used to generate random items
+     getData(): any[] {
+         var countries = 'US,Germany,UK,Japan,Italy,Greece'.split(','),
+         data = [];
+         for (var i = 0; i < 30; i++) {
+             data.push({
+             id: i,
+             date: new Date(2015, Math.floor(i / countries.length) % 12, (Math.floor(i / countries.length) + 1) % 28),
+             country: countries[i % countries.length],
+             countryMapped: i % countries.length,
+             downloads: Math.round(Math.random() * 20000),
+             sales: Math.random() * 10000,
+             expenses: Math.random() * 5000,
+             checked: i % 9 == 0
+             });
+         }
+        return data;
+    }
+
+     getCv(data: any[]): wijmo.collections.CollectionView {
+         var dataCv = new wijmo.collections.CollectionView(data);
+         dataCv.sortDescriptions.push(new wijmo.collections.SortDescription('date', true));
+         dataCv.groupDescriptions.push(new wijmo.collections.PropertyGroupDescription('country'));
+         return dataCv;
+     }
+}
+
+ // Angular
+ import { Component, EventEmitter, provide, ViewChild, Inject, enableProdMode, AfterViewInit, OnInit } from '@angular/core';
+ import { CORE_DIRECTIVES } from '@angular/common';
+ import { bootstrap } from '@angular/platform-browser-dynamic';
+ import * as wjNg2Core from 'wijmo/wijmo.angular2.core';
+ import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
+ import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+ import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
+ import { AppTab, AppTabPane } from './components/AppTab';
+ import { DataSvc } from './services/DataSvc';
+
+ 'use strict';
+
+ // The application root component.
+ @Component({
+     selector: 'app-cmp',
+     templateUrl: 'src/app.html',
+     directives: [CORE_DIRECTIVES, AppTab, AppTabPane,
+     wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate, wjNg2Grid.WjTemplateCmp,
+     wjNg2Core.WjComponentLoader, wjNg2Core.WjHtmlLoader,
+     wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartLegend, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis,
+     wjNg2Chart.WjFlexPie, wjNg2Chart.WjFlexPieDataLabel,
+     wjNg2Input.WjComboBox, wjNg2Input.WjInputNumber, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjListBox]
+ })
+
+ export class AppCmp {
+     countries = 'US,Germany,UK,Japan,Italy,Greece'.split(',');
+     data1: wijmo.collections.CollectionView;
+
+     customTopLeft = true;
+     customRowHeader = true;
+     customRowHeaderEdit = true;
+     customCell = true;
+     customCellEdit = true;
+     customColumnHeader = true;
+     customGroupHeader = true;
+     customGroup = true;
+
+     uiCtx = {
+         highlightDownloads: true
+     };
+
+     protected dataSvc: DataSvc;
+
+     constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+         this.dataSvc = dataSvc;
+         var data = dataSvc.getData();
+         this.data1 = dataSvc.getCv(data);
+     }
+ }
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>Result (live):</h4>
+            <wj-flex-grid [itemsSource]="data1"
+                          [allowSorting]="false"
+                          [deferResizing]="true">
+
+                <template wjFlexGridCellTemplate [cellType]="'TopLeft'" *ngIf="customTopLeft">
+                        №
+                </template>
+                <template wjFlexGridCellTemplate [cellType]="'RowHeader'" *ngIf="customRowHeader" let-cell="cell">
+                        {{cell.row.index}}
+                </template>
+                <template wjFlexGridCellTemplate [cellType]="'RowHeaderEdit'" *ngIf="customRowHeaderEdit">
+                        ...
+                </template>
+
+                <wj-flex-grid-column header="Country"
+                                     binding="country"
+                                     width="*">
+                    <template wjFlexGridCellTemplate [cellType]="'Cell'" *ngIf="customCell" let-item="item">   
+                            <img src="resources/{{item.country}}.png" />                        
+                            {{item.country}}
+                    </template>
+                    <template wjFlexGridCellTemplate [cellType]="'CellEdit'" *ngIf="customCellEdit" let-cell="cell">
+                            <wj-combo-box [itemsSource]="countries"
+                                          [(selectedValue)]="cell.value"
+                                          [isEditable]="false"></wj-combo-box>
+                    </template>
+                    <template wjFlexGridCellTemplate [cellType]="'GroupHeader'" *ngIf="customGroupHeader" let-cell="cell">
+                            <input type="checkbox" [(ngModel)]="cell.row.isCollapsed" />
+                            {{cell.item.name}} ({{cell.item.items.length}} items)
+                    </template>
+                </wj-flex-grid-column>
+
+                <wj-flex-grid-column header="Downloads"
+                                     binding="downloads"
+                                     [width]="170"
+                                     [aggregate]="'Sum'">
+                    <template wjFlexGridCellTemplate [cellType]="'ColumnHeader'" *ngIf="customColumnHeader">
+                            <input type="checkbox" [(ngModel)]="uiCtx.highlightDownloads" />
+                            Downloads
+                    </template>
+                    <template wjFlexGridCellTemplate [cellType]="'Cell'" *ngIf="customCell" let-item="item">
+                            <span [ngStyle]="{color: uiCtx.highlightDownloads? (item.downloads>10000 ?'green':'red'):''}"
+                                  style="font-weight:700">
+                                {{item.downloads}}
+                            </span>
+                    </template>
+                    <template wjFlexGridCellTemplate [cellType]="'CellEdit'" *ngIf="customCellEdit" let-cell="cell">
+                            <wj-input-number [(value)]="cell.value"
+                                             [step]="1"></wj-input-number>
+                    </template>
+                    <template wjFlexGridCellTemplate [cellType]="'Group'" *ngIf="customGroup" let-cell="cell">
+                             Sum = {{cell.value | number:'1.0-0'}}
+                    </template>
+                </wj-flex-grid-column>
+
+            </wj-flex-grid>
+
+            <div class="checkbox-list">
+                <label class="checkbox">
+                    <input type="checkbox" [(ngModel)]="customTopLeft" /> TopLeft
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" [(ngModel)]="customRowHeader" /> RowHeader
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" [(ngModel)]="customRowHeaderEdit" /> RowHeaderEdit
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" [(ngModel)]="customCell" /> Cell
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" [(ngModel)]="customCellEdit" /> CellEdit
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" [(ngModel)]="customColumnHeader" /> ColumnHeader
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" [(ngModel)]="customGroupHeader" /> GroupHeader
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" [(ngModel)]="customGroup" /> Group
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <!-- Conditional templates -->
+    <h2 id="H1">
+        Conditional templates
+    </h2>
+    <p>
+        This sample demonstrates cell templates with conditional content controlled by the Angular 2 <b>ngIf</b>
+        directive. It is based on the same CollectionView data source as the previous example, grouped on the
+        Country column, but this one appears like a summary report. It shows only group rows with a white background.
+        (The background color is set in the CSS tab.) There are no visible detail rows in this grid.
+    </p>
+    <p>
+        The first Country column shows GroupHeader cells that are customized to show country flags. The Downloads
+        column shows Group cells with a nested WjFlexGrid or WjFlexChart components bound to the group’s child
+        items (<code>[itemsSource]="item.items"</code>). This allows us to show statistical data for the group,
+        either as a chart or as a table. The customized Downloads column’s template adds a ComboBox that allows the user
+        to choose how to represent the data.
+    </p>
+    <p>
+        The <b>ngIf</b> attribute on the WjFlexGrid and WjFlexChart components is bound to the value selected in the
+        ComboBox, and controls which one appears in the group cell.
+    </p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+
+&lt;wj-flex-grid #flex2
+    [itemsSource]="data2"
+    [allowSorting]="false"
+    (initialized)="flex2.collapseGroupsToLevel(0)"
+    style="height:300px"
+    [selectionMode]="'None'"
+    [allowDragging]="'None'"
+    [deferResizing]="true"&gt;
+    &lt;wj-flex-grid-column header="Country"
+     binding="country"&gt;
+        &lt;template wjFlexGridCellTemplate [cellType]="'GroupHeader'" let-item="item" &gt;
+                &lt;img src="resources/{&#8203;{item.name}&#8203;}.png" /&gt;
+                {&#8203;{item.name}&#8203;}
+        &lt;/template&gt;
+    &lt;/wj-flex-grid-column&gt;
+
+    &lt;wj-flex-grid-column header="Downloads"
+        binding="downloads"
+        width="*"
+        [aggregate]="'Sum'"
+        [align]="'center'"&gt;
+        &lt;template wjFlexGridCellTemplate [cellType]="'ColumnHeader'" let-item="item" let-cell="cell"&gt;
+                {&#8203;{cell.col.header}&#8203;}:
+                    &lt;wj-combo-box [itemsSource]="['Chart', 'Table']"
+                    [(text)]="uiCtx.reportType"
+                    style="width:100px;font-weight:400"
+                    [isEditable]="false"&gt;
+                &lt;/wj-combo-box&gt;
+        &lt;/template&gt;
+    &lt;template wjFlexGridCellTemplate [cellType]="'Group'" let-item="item" let-cell="cell"&gt;
+            &lt;div style="font-size:small;text-align:center"&gt;
+            {&#8203;{uiCtx.reportType}&#8203;}
+                &lt;wj-flex-grid  *ngIf="uiCtx.reportType == 'Table'"
+                    [itemsSource]="item.items"
+                    [isReadOnly]="false"
+                    [headersVisibility]="'None'"
+                    [selectionMode]="'Cell'"
+                    style="height:140px;width:200px"&gt;
+                    &lt;wj-flex-grid-column binding="date"
+                        width="*"&gt;
+                    &lt;/wj-flex-grid-column&gt;
+                    &lt;wj-flex-grid-column [binding]="cell.col.binding"
+                        width="*"&gt;
+                    &lt;/wj-flex-grid-column&gt;
+                &lt;/wj-flex-grid&gt;
+                &lt;wj-flex-chart *ngIf="uiCtx.reportType == 'Chart'"
+                    style="height:140px;width:200px;display:inline-block"
+                        [itemsSource]="item.items"
+                        binding="date"
+                        [chartType]="'Column'"
+                        [plotMargin]="5"&gt;
+                        &lt;wj-flex-chart-legend [position]="'None'"&gt;&lt;/wj-flex-chart-legend&gt;
+                        &lt;wj-flex-chart-axis [wjProperty]="'axisX'"
+                            [axisLine]="false"
+                            [labels]="false"&gt;
+                        &lt;/wj-flex-chart-axis&gt;
+                        &lt;wj-flex-chart-axis [wjProperty]="'axisY'"
+                            [axisLine]="false"
+                            [labels]="false"&gt;
+                        &lt;/wj-flex-chart-axis&gt;
+                        &lt;wj-flex-chart-series binding="{&#8203;{cell.col.binding}&#8203;}"&gt;&lt;/wj-flex-chart-series&gt;
+                &lt;/wj-flex-chart&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+&lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+ export class AppCmp implements AfterViewInit {
+     countries = 'US,Germany,UK,Japan,Italy,Greece'.split(',');
+     data2: wijmo.collections.CollectionView;
+
+     uiCtx = {
+        reportType: 'Chart'
+     };
+
+     protected dataSvc: DataSvc;
+
+     @ViewChild('flex2') flex2: wijmo.grid.FlexGrid;
+     constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+         this.dataSvc = dataSvc;
+         var data = dataSvc.getData();
+         this.data2 = dataSvc.getCv(data);
+     }
+
+     ngAfterViewInit() {
+         if (this.flex2) {
+            this.flex2.collapseGroupsToLevel(0);
+         }
+    }
+
+ }
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="CSS">
+                    <div class="pane-content">
+ /* Provide group rows with a white background  */
+ .conditional .wj-flexgrid .wj-group {
+ background: #fff;
+ }
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6 conditional">
+            <h4>Result (live):</h4>
+            <wj-flex-grid #flex2
+                          [itemsSource]="data2"
+                          [allowSorting]="false"
+                          style="height:300px"
+                          [selectionMode]="'None'"
+                          [allowDragging]="'None'"
+                          [deferResizing]="true">
+                <wj-flex-grid-column header="Country" binding="country">                                     
+                    <template wjFlexGridCellTemplate [cellType]="'GroupHeader'" let-item="item" >
+                        <img src="resources/{{item.name}}.png" />
+                        {{item.name}}
+                    </template>
+                </wj-flex-grid-column>
+
+                <wj-flex-grid-column header="Downloads"
+                                     binding="downloads"
+                                     width="*"
+                                     [aggregate]="'Sum'"
+                                     [align]="'center'">
+                    <template wjFlexGridCellTemplate [cellType]="'ColumnHeader'" let-item="item" let-cell="cell">
+                            {{cell.col.header}}:
+                            <wj-combo-box [itemsSource]="['Chart', 'Table']"
+                                          [(text)]="uiCtx.reportType"
+                                          style="width:100px;font-weight:400"
+                                          [isEditable]="false">
+                            </wj-combo-box>
+                    </template>
+                    <template wjFlexGridCellTemplate [cellType]="'Group'" let-item="item" let-cell="cell">
+                            <div style="font-size:small;text-align:center">
+                                 <wj-flex-grid  *ngIf="uiCtx.reportType == 'Table'"
+                                              [itemsSource]="item.items"
+                                              [isReadOnly]="false"
+                                              [headersVisibility]="'None'"
+                                              [selectionMode]="'Cell'"
+                                              style="height:142px;width:200px">
+                                    <wj-flex-grid-column binding="date"
+                                                         width="*">
+                                    </wj-flex-grid-column>
+                                    <wj-flex-grid-column [binding]="cell.col.binding"
+                                                         width="*">
+                                    </wj-flex-grid-column>
+                                </wj-flex-grid>
+                                <wj-flex-chart *ngIf="uiCtx.reportType == 'Chart'"
+                                               style="height:140px;width:200px;display:inline-block"
+                                               [itemsSource]="item.items"
+                                               bindingX="date"
+                                               [chartType]="'Column'"
+                                               [plotMargin]="5">
+                                    <wj-flex-chart-legend [position]="'None'"></wj-flex-chart-legend>
+                                    <wj-flex-chart-axis [wjProperty]="'axisX'"
+                                                        [axisLine]="false"
+                                                        [labels]="false">
+                                    </wj-flex-chart-axis>
+                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                        [axisLine]="false"
+                                                        [labels]="false">
+                                    </wj-flex-chart-axis>
+                                    <wj-flex-chart-series binding="{{cell.col.binding}}"></wj-flex-chart-series>
+                                </wj-flex-chart>
+                        </div>
+                    </template>
+                </wj-flex-grid-column>
+            </wj-flex-grid>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- Dynamic columns with templates -->
+    <h2 id="H2">
+        Dynamic columns with templates
+    </h2>
+    <p>
+        This example is a variation of the previous example, but the inclusion and settings of statistical data
+        columns in this grid is defined as an array in the component. The wj-flex-grid-column component is bound
+        to this array via the Angular 2 ngFor directive. Each column settings object includes <b>columnHeaderTemplate</b>
+        and <b>groupTemplate</b> properties containing template component for the cells.
+    </p>
+    <p>
+        This content is included in the wjFlexGridCellTemplate directives using
+        the <b>wj-component-loader</b> component.
+    </p>
+    <p>
+        Each column settings object also has an <b>isAvailable</b> property indicating whether the column is included
+        in the FlexGrid. The inclusion is controlled by the <b>ngIf</b> directive on the wj-flex-grid-column component.
+        You can change this value for each column settings object using the Wijmo ListBox control with checkboxes,
+        which is bound to the column settings array.
+    </p>
+    <p>
+        The Country column is defined statically in the markup, and uses the CountryGroupHeaderTemplate
+        component as its GroupHeader cell template.
+    </p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+ &lt;wj-flex-grid #flex3
+     [itemsSource]="data3"
+     [allowSorting]="false"
+     style="height:300px"
+     [selectionMode]="'None'"
+     [allowDragging]="'None'"
+     [deferResizing]="true"&gt;
+     &lt;wj-flex-grid-column header="Country"
+         binding="country"&gt;
+         &lt;template wjFlexGridCellTemplate cellType="GroupHeader" let-item="item"&gt;
+            &lt;wj-component-loader [component]="countryGroupHeaderTemplate" [properties]="{item:item}"&gt;&lt;/wj-component-loader&gt;
+         &lt;/template&gt;
+     &lt;/wj-flex-grid-column&gt;
+
+     &lt;template ngFor let-colDef [ngForOf]="statisticsColumns"&gt;
+         &lt;wj-flex-grid-column *ngIf="colDef.isAvailable"
+             [header]="colDef.header"
+             [binding]="colDef.binding"
+             [width]="colDef.width"
+             [format]="colDef.format"
+         [aggregate]="'Sum'"
+             [align]="colDef.align"&gt;
+     &lt;template wjFlexGridCellTemplate cellType="ColumnHeader" *ngIf="colDef.columnHeaderTemplate" let-cell="cell"&gt;
+         &lt;wj-component-loader [component]="colDef.columnHeaderTemplate" [properties]="{cell:cell, colDef: colDef}"&gt;&lt;/wj-component-loader&gt;
+         &lt;/template&gt;
+
+      &lt;template wjFlexGridCellTemplate cellType="Group" *ngIf="colDef.groupTemplate" let-cell="cell"&gt;
+              &lt;wj-component-loader [component]="colDef.groupTemplate" [properties]="{cell:cell, colDef:colDef}"&gt;&lt;/wj-component-loader&gt;
+         &lt;/template&gt;
+     &lt;/wj-flex-grid-column&gt;
+        &lt;/template&gt;
+
+ &lt;/wj-flex-grid&gt;
+
+ &lt;div style="margin:5px 0 5px"&gt;&lt;b&gt;Show statistics for:&lt;/b&gt;&lt;/div&gt;
+     &lt;wj-list-box class="checkable-listbox"
+     style="min-width:150px"
+     [itemsSource]="statisticsColumns"
+     displayMemberPath="header"
+     checkedMemberPath="isAvailable"&gt;
+ &lt;/wj-list-box&gt;
+
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+export class AppCmp implements AfterViewInit {
+    countries = 'US,Germany,UK,Japan,Italy,Greece'.split(',');
+    data3: wijmo.collections.CollectionView;
+    statisticsColumns = [
+    {
+        binding: 'downloads',
+        header: 'Downloads',
+        width: 230,
+        align: 'center',
+        format: 'N0',
+        columnHeaderTemplateUrl: StatHeaderTemplate,
+        groupTemplateUrl: StatGroupTemplate,
+        reportType: 'Chart',
+        isAvailable: true
+    },
+    {
+        binding: 'sales',
+        header: 'Sales',
+        width: 230,
+        align: 'center',
+        format: 'N2',
+        columnHeaderTemplateUrl: StatHeaderTemplate,
+        groupTemplateUrl: StatGroupTemplate,
+        reportType: 'Chart',
+        isAvailable: false
+    },
+    {
+        binding: 'expenses',
+        header: 'Expenses',
+        width: 230,
+        align: 'center',
+        format: 'N2',
+        columnHeaderTemplateUrl: StatHeaderTemplate,
+        groupTemplateUrl: StatGroupTemplate,
+        reportType: 'Table',
+        isAvailable: true
+    }];
+
+    uiCtx = {
+        reportType: 'Chart'
+    };
+   countryGroupHeaderTemplate = CountryGroupHeaderTemplate;
+
+    protected dataSvc: DataSvc;
+
+    @ViewChild('flex3') flex3: wijmo.grid.FlexGrid;
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+        this.dataSvc = dataSvc;
+        var data = dataSvc.getData();
+        this.data3 = dataSvc.getCv(data);
+    }
+
+    ngAfterViewInit() {
+        if (this.flex3) {
+            this._dynaColumnsFlexInit(this.flex3);
+        }
+    }
+
+    private _dynaColumnsFlexInit(flex: wijmo.grid.FlexGrid) {
+        flex.collapseGroupsToLevel(0);
+        flex.columnHeaders.rows.defaultSize = 36;
+        flex.cells.rows.defaultSize = 156;
+    }
+}
+ @Component({
+     selector: 'country-group-header-template',
+     templateUrl: 'src/CellTemplates/countryGroupHeaderTemplate.html'
+ })
+
+ export class CountryGroupHeaderTemplate {
+    item: any;
+     constructor() {
+     }
+ }
+
+ @Component({
+     selector: 'column-header-template',
+     templateUrl: 'src/CellTemplates/statHeaderTemplate.html',
+     directives: [wjNg2Input.WjComboBox]
+ })
+
+ export class StatHeaderTemplate {
+     cell: any;
+     colDef: any;
+
+     constructor() {
+     }
+ }
+
+ @Component({
+     selector: 'expence-cell-edit-cmp',
+     templateUrl: 'src/CellTemplates/statGroupTemplate.html',
+     directives: [wjNg2Grid.WjFlexGrid, wjNg2Chart.WjFlexPie, wjNg2Grid.WjFlexGridColumn, wjNg2Chart.WjFlexChartLegend, wjNg2Chart.WjFlexPieDataLabel]
+ })
+ export class StatGroupTemplate {
+     cell: any;
+     colDef: any;
+
+     constructor() {
+     }
+ }
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="statHeaderTemplate.html">
+                    <div class="pane-content">
+{&#8203;{cell.col.header}&#8203;}:
+    &lt;wj-combo-box
+    [itemsSource]="['Chart', 'Table']"
+    [(selectedValue)]="colDef.reportType"
+    style="width:100px;font-weight:400"
+    [isEditable]="false"&gt;
+&lt;/wj-combo-box&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="statGroupTemplate.html">
+                    <div class="pane-content">
+&lt;div style="font-size:small;text-align:center"&gt;
+    &lt;wj-flex-grid *ngIf="colDef.reportType == 'Table'"
+        [itemsSource]="cell.item.items"
+        [isReadOnly]="false"
+        [headersVisibility]="'None'"
+        [selectionMode]="'Cell'"
+        [format]="cell.col.format"
+        style="height:140px;width:200px"&gt;
+        &lt;wj-flex-grid-column
+            binding="date"
+            [width]="'*'"&gt;
+        &lt;/wj-flex-grid-column&gt;
+        &lt;wj-flex-grid-column
+            [binding]="cell.col.binding"
+            [width]="'*'"&gt;
+        &lt;/wj-flex-grid-column&gt;
+    &lt;/wj-flex-grid&gt;
+    &lt;wj-flex-pie
+        *ngIf="colDef.reportType == 'Chart'"
+        [itemsSource]="cell.iitem.items"
+        [binding]="cell.col.binding"
+        tooltipContent="&lt;b&gt;{value:{&#8203;{cell.col.format}&#8203;}}&lt;/b&gt;&lt;br/&gt;{date:MMM yyyy}"
+        style="height:140px;width:140px;display:inline-block;font-size:9px"&gt;
+        &lt;wj-flex-chart-legend [position]="'None'"&gt;&lt;/wj-flex-chart-legend&gt;
+        &lt;wj-flex-pie-data-label
+            [content]="'{date:MMM}'"
+            [position]="'Inside'"&gt;
+        &lt;/wj-flex-pie-data-label&gt;
+    &lt;/wj-flex-pie&gt;
+&lt;/div&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="countryGroupHeaderTemplate.html">
+                    <div class="pane-content">
+  &lt;img src="resources/{&#8203;{item.name}&#8203;}.png" /&gt;
+  {&#8203;{item.name}&#8203;}
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="CSS">
+                    <div class="pane-content">
+/* Provide group rows with a white background  */
+.conditional .wj-flexgrid .wj-group {
+    background: #fff;
+}
+
+/* Remove highlighting of a selected item in ListBox */
+.checkable-listbox .wj-state-selected {
+    background-color: white;
+    color: black;
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6 conditional">
+             <h4>Result (live):</h4>
+            <wj-flex-grid #flex3
+                          [itemsSource]="data3"
+                          [allowSorting]="false"
+                          style="height:300px"
+                          [selectionMode]="'None'"
+                          [allowDragging]="'None'"
+                          [deferResizing]="true">
+                <wj-flex-grid-column header="Country"
+                                     binding="country">
+                    <template wjFlexGridCellTemplate cellType="GroupHeader" let-item="item">
+                        <wj-component-loader [component]="countryGroupHeaderTemplate" [properties]="{item:item}"></wj-component-loader>   
+                    </template>                 
+                </wj-flex-grid-column>
+
+                <!-- ng-init here creates the colCtx property with subproperties that are isolated at the column
+                    level. It is not visible to other columns, but shares data with all of the cell templates
+                    defined for the column. -->
+                <template ngFor let-colDef [ngForOf]="statisticsColumns">
+                    <wj-flex-grid-column *ngIf="colDef.isAvailable"
+                                         [header]="colDef.header"
+                                         [binding]="colDef.binding"
+                                         [width]="colDef.width"
+                                         [format]="colDef.format"
+                                         [aggregate]="'Sum'"
+                                         [align]="colDef.align">
+                        <template wjFlexGridCellTemplate cellType="ColumnHeader" *ngIf="colDef.columnHeaderTemplate" let-cell="cell">
+                            <wj-component-loader [component]="colDef.columnHeaderTemplate" [properties]="{cell: cell, colDef:colDef}"></wj-component-loader>
+                        </template>
+
+                        <template wjFlexGridCellTemplate cellType="Group" *ngIf="colDef.groupTemplate" let-cell="cell">
+                            <wj-component-loader [component]="colDef.groupTemplate" [properties]="{cell: cell,colDef:colDef}"></wj-component-loader>
+                        </template>
+                    </wj-flex-grid-column>
+                </template>
+
+            </wj-flex-grid>
+
+            <div style="margin:5px 0 5px"><b>Show statistics for:</b></div>
+            <wj-list-box class="checkable-listbox"
+                         style="min-width:150px"
+                         [itemsSource]="statisticsColumns"
+                         displayMemberPath="header"
+                         checkedMemberPath="isAvailable">
+            </wj-list-box>
+
+        </div>
+    </div>
+</div>

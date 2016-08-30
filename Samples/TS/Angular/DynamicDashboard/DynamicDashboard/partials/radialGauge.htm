@@ -1,0 +1,7 @@
+﻿<h3>Profit for {{ data.items[data.items.length - 1].date | date:'MMMM yyyy' }}</h3>
+<wj-radial-gauge
+    min="0"
+    max="1000"
+    format="c0"
+    value="data.items[data.items.length - 1].profit">
+</wj-radial-gauge>

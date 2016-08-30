@@ -1,0 +1,220 @@
+<h2>DataMap Class</h2>
+<dl class="dl-horizontal">
+<dt>Module</dt><dd>wijmo.grid</dd>
+<dt>File</dt><dd>wijmo.grid.js</dd>
+</dl>
+<p><p>Represents a data map for use with a column's <b>dataMap</b> property.</p>
+
+<p>Data maps provide the grid with automatic look up capabilities. For example, 
+you may want to display a customer name instead of his ID, or a color name 
+instead of its RGB value.</p>
+
+<p>The code below binds a grid to a collection of products,
+then assigns a <b>DataMap</b> to the grid's 'CategoryID' column so that the grid 
+displays the category names rather than the raw IDs.</p>
+
+<p><pre>
+// bind grid to products
+var flex = new wijmo.grid.FlexGrid();
+flex.itemsSource = products;
+// map CategoryID column to show category name instead of ID
+var col = flex.columns.getColumn('CategoryID');
+col.dataMap = new wijmo.grid.DataMap(categories, 'CategoryID', 'CategoryName');
+</pre></p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(itemsSource, selectedValuePath?, displayMemberPath?): <a href="topic/wijmo.grid.DataMap.Class.html"><b>DataMap</b></a></td>
+      <td><p>
+<b>itemsSource</b> (<b>any</b>): An array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> that contains the items to map.<br/><b>selectedValuePath?</b> (<b>string</b>): The name of the property that contains the keys (data values).<br/><b>displayMemberPath?</b> (<b>string</b>): The name of the property to use as the visual representation of the items.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.grid.DataMap.Class.html"><b>DataMap</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>collectionView</b></td>
+      <td><b>ICollectionView</b></td>
+      <td>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object that contains the map data.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>displayMemberPath</b></td>
+      <td><b>string</b></td>
+      <td>Gets the name of the property to use as the visual representation of the item.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isEditable</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that indicates whether users should be allowed to enter
+values that are not present on the <a href="topic/wijmo.grid.DataMap.Class.html"><b>DataMap</b></a>.</p>
+
+<p>In order for a <b>DataMap</b> to be editable, the <b>selectedValuePath</b> and
+<b>displayMemberPath</b> must be set to the same value.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>selectedValuePath</b></td>
+      <td><b>string</b></td>
+      <td>Gets the name of the property to use as a key for the item (data value).</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>sortByDisplayValues</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that determines whether to use mapped (display)
+or raw values when sorting the data.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>getDisplayValue</b>&#8203;(key): <b>any</b></td>
+      <td><p>
+<b>key</b> (<b>any</b>): The key of the item to retrieve.<br/></p>
+</td>
+      <td>Gets the display value that corresponds to a given key.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getDisplayValues</b>&#8203;(): <b>string</b><b>[]</b></td>
+      <td></td>
+      <td>Gets an array with all of the display values on the map.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getKeyValue</b>&#8203;(displayValue): <b>any</b></td>
+      <td><p>
+<b>displayValue</b> (<b>string</b>): The display value of the item to retrieve.<br/></p>
+</td>
+      <td>Gets the key that corresponds to a given display value.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getKeyValues</b>&#8203;(): <b>string</b><b>[]</b></td>
+      <td></td>
+      <td>Gets an array with all of the keys on the map.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>onMapChanged</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>mapChanged</b> event.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>mapChanged</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs when the map data changes.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

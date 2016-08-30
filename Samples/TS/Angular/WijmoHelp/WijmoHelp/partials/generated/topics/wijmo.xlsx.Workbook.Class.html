@@ -1,0 +1,269 @@
+<h2>Workbook Class</h2>
+<dl class="dl-horizontal">
+<dt>Implements</dt><dd><a href="topic/wijmo.xlsx.IWorkbook.Interface.html"><b>IWorkbook</b></a></dd>
+<dt>Module</dt><dd>wijmo.xlsx</dd>
+<dt>File</dt><dd>wijmo.xlsx.js</dd>
+</dl>
+<p>Represents an Excel Workbook.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(): <a href="topic/wijmo.xlsx.Workbook.Class.html"><b>Workbook</b></a></td>
+      <td></td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.xlsx.Workbook.Class.html"><b>Workbook</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>activeWorksheet</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the index of the active sheet in the xlsx file.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>application</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the name of application that generated the file that appears in the file properties.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>company</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the name of company that generated the file that appears in the file properties.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>created</b></td>
+      <td><b>Date</b></td>
+      <td>Gets or sets the creation time of the xlsx file.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>creator</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the creator of the xlsx file.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>lastModifiedBy</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the last modifier of the xlsx file.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>modified</b></td>
+      <td><b>Date</b></td>
+      <td>Gets or sets the last modified time of the xlsx file.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>reservedContent</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the reserved content from xlsx file that flexgrid or flexsheet doesn't support yet.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>sheets</b></td>
+      <td><a href="topic/wijmo.xlsx.WorkSheet.Class.html"><b>WorkSheet</b></a><b>[]</b></td>
+      <td>Gets the WorkSheet array of the Workbook.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>styles</b></td>
+      <td><a href="topic/wijmo.xlsx.WorkbookStyle.Class.html"><b>WorkbookStyle</b></a><b>[]</b></td>
+      <td>Gets the styles table of the workbook.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>fromXlsxFormat</b>&#8203;(xlsxFormat): <b>string</b><b>[]</b></td>
+      <td><p>
+<b>xlsxFormat</b> (<b>string</b>): The Excel format string, that may contain multiple format sections separated by semicolon.<br/></p>
+</td>
+      <td>Converts the xlsx multi-section format string to an array of corresponding wijmo formats.<br/><br/><b>Returns</b> An array of .Net format strings where each element corresponds to a separate Excel format section.
+The returning array always contains at least one element. It can be an empty string in case the passed Excel format is empty.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>load</b>&#8203;(base64)</td>
+      <td><p>
+<b>base64</b> (<b>string</b>): the base 64 string that contains the xlsx file content.<br/></p>
+</td>
+      <td><p>Loads from base 64 string or data url.</p>
+
+<p>For example:
+<pre>// This sample opens an xlsx file chosen from Open File
+// dialog and creates a workbook instance to load the file.
+&nbsp;
+// HTML
+&lt;input type="file" 
+    id="importFile" 
+    accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
+/&gt;
+&nbsp;
+// JavaScript
+var workbook, // receives imported IWorkbook
+    importFile = document.getElementById('importFile');
+&nbsp;
+importFile.addEventListener('change', function () {
+    loadWorkbook();
+});
+&nbsp;
+function loadWorkbook() {
+    var reader,
+        workbook,
+        file = importFile.files[0];
+    if (file) {
+        reader = new FileReader();
+        reader.onload = function (e) {
+           workbook = new wijmo.xlsx.Workbook(),
+           workbook.load(reader.result);
+        };
+        reader.readAsDataURL(file);
+    }
+}</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>save</b>&#8203;(fileName?): <b>string</b></td>
+      <td><p>
+<b>fileName?</b> (<b>string</b>): Name of the xlsx file to save.<br/></p>
+</td>
+      <td><p>Saves the book to a file and returns a base-64 string representation of
+the book.</p>
+
+<p>For example, this sample creates an xlsx file with a single cell:</p>
+
+<p><pre>function exportXlsx(fileName) {
+    var book = new wijmo.xlsx.Workbook(),
+        sheet = new wijmo.xlsx.WorkSheet(),
+        bookRow = new wijmo.xlsx.WorkbookRow(),
+        bookCell = new wijmo.xlsx.WorkbookCell();
+    bookCell.value = 'Hello, Excel!';
+    bookRow.cells.push(bookCell);
+    sheet.rows.push(bookRow);
+    book.sheets.push(sheet);
+    book.save(fileName);
+}</pre></p>
+
+<p>The file name is optional. If not provided, the method still returns
+a base-64 string representing the book. This string can be used for
+further processing on the client or on the server.</p><br/><br/><b>Returns</b> A base-64 string representing the content of the file.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>tableAddress</b>&#8203;(xlsxIndex): <a href="topic/wijmo.xlsx.ITableAddress.Interface.html"><b>ITableAddress</b></a></td>
+      <td><p>
+<b>xlsxIndex</b> (<b>string</b>): The alphanumeric Excel index that may include alphabetic A-based on column index
+and/or numeric 1-based on row index, like "D15", "D" or "15". The alphabetic column index can be
+in lower or upper case.<br/></p>
+</td>
+      <td>Convert Excel's alphanumeric cell, row or column index to the zero-based row/column indexes pair.<br/><br/><b>Returns</b> The object with <b>row</b> and <b>col</b> properties containing zero-based row and/or column indexes.
+If row or column component is not specified in the alphanumeric index then corresponding returning property is undefined.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>toXlsxDateFormat</b>&#8203;(format): <b>string</b></td>
+      <td><p>
+<b>format</b> (<b>string</b>): The wijmo date format.<br/></p>
+</td>
+      <td>Converts the wijmo date format to Excel format.<br/><br/><b>Returns</b> Excel format representation.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>toXlsxNumberFormat</b>&#8203;(format): <b>string</b></td>
+      <td><p>
+<b>format</b> (<b>string</b>): The wijmo number format.<br/></p>
+</td>
+      <td>Converts the wijmo number format to xlsx format.<br/><br/><b>Returns</b> Excel format representation.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>xlsxAddress</b>&#8203;(row, col, absolute?, absoluteCol?): <b>string</b></td>
+      <td><p>
+<b>row</b> (<b>number</b>): The zero-based row index or a null value if only column index should be converted.<br/><b>col</b> (<b>number</b>): The zero-based column index or a null value if only row index should be converted.<br/><b>absolute?</b> (<b>boolean</b>): True value indicates that absolute indexes should be returned for both row and
+       column indexes (like $D$7). The <b>absoluteCol</b> parameter allows to redefine this value for the column index.<br/><b>absoluteCol?</b> (<b>boolean</b>): True value indicates that column index is absolute.<br/></p>
+</td>
+      <td>Converts zero-based cell, row or column index to Excel alphanumeric representation.<br/><br/><b>Returns</b> The alphanumeric Excel index representation.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

@@ -1,0 +1,50 @@
+﻿<div>
+	<div class="copy">
+		<h3>
+			Cell Merging</h3>
+		<p>
+			All versions of <a href="http://wijmo.com/5/docs/topic/wijmo.grid.FlexGrid.Class.html" 
+                target="_blank">FlexGrid</a> support content-driven cell merging.</p>
+		<p>
+			To enable cell merging, set the <a 
+            href="http://wijmo.com/5/docs/topic/wijmo.grid.AllowMerging.Enum.html" 
+            target="_blank">allowMerging</a> property to indicate what part or parts of the grid 
+            you want to merge, and set the <b>allowMerging</b> property on specific 
+			<a href="http://wijmo.com/5/docs/topic/wijmo.grid.Row.Class.html" target="_blank">row</a> 
+            and <a href="http://wijmo.com/5/docs/topic/wijmo.grid.Column.Class.html" target="_blank">
+            column</a> objects to true. Once you do that, the grid automatically
+			merges cells that have the same content, grouping the data visually.</p>
+		<p>
+			In the example below, the <b>allowMerging</b> property is set to true on the Country, 
+            Product, Color, and Active columns.</p>
+		<p>
+			Try changing the value of the grid's <b>allowMerging</b> property and sorting the
+			merged columns to see merging in action.</p>
+	</div>
+	<wj-menu value="ctx.flex.allowMerging" header="Allow Merging">
+		<wj-menu-item value="0">None</wj-menu-item>
+		<wj-menu-item value="1">Cells</wj-menu-item>
+		<wj-menu-item value="2">ColumnHeaders</wj-menu-item>
+		<wj-menu-item value="4">RowHeaders</wj-menu-item>
+		<wj-menu-item value="6">AllHeaders</wj-menu-item>
+		<wj-menu-item value="7">All</wj-menu-item>
+	</wj-menu>
+
+	<div>
+		<!-- the grid -->
+        <wj-flex-grid class="grid"
+                      control="ctx.flex"
+                      allow-dragging="None"
+                      allow-merging="All"
+                      items-source-changed="sourceChanged(s, e)"
+                      items-source="ctx.data">
+            <wj-flex-grid-column header="ID" binding="id" align="right"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Country" binding="country" allow-merging="true"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Product" binding="product" allow-merging="true"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Color" binding="color" allow-merging="true"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Amount" binding="amount" data-type="Number" format="n0" align="right" aggregate="Sum"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Discount" binding="discount" data-type="Number" format="p0" align="right" aggregate="Average"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Active" binding="active" allow-merging="true" data-type="Boolean" align="center"></wj-flex-grid-column>
+        </wj-flex-grid>
+	</div>
+</div>

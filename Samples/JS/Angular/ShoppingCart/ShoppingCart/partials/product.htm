@@ -1,0 +1,90 @@
+﻿<p class="text-info">
+    <img ng-src="resources/products/{{ctx.products.currentItem.sku}}.jpg" alt="{{ctx.products.currentItem.name}}"/>
+    {{ctx.products.currentItem.name}}: {{ctx.products.currentItem.description}}<br />
+</p>
+<div class="row">
+    <div class="col-md-8">
+
+        <!-- product info -->
+        <table class="table table-bordered">
+
+            <!-- cart summary at the top -->
+            <tr class="well">
+                <td class="text-right" colspan="2">
+                    <i class="glyphicon glyphicon-shopping-cart" />
+                    <a href="default.htm#/cart" title="go to shopping cart">
+                        <b>{{getTotalCount()}}</b> items, <b>{{getTotalPrice() | currency}}</b>
+                    </a>
+                </td>
+            </tr>
+
+            <!-- product calories -->
+            <tr>
+                <td class="text-right"><b>Calories</b></td>
+                <td class="text-left">
+                    <wj-radial-gauge 
+                        style="width:120px;height:120px;padding:4px"
+                        min="0" 
+                        max="150" 
+                        value="ctx.products.currentItem.cal" 
+                        start-angle="-45"
+                        sweep-angle="270"
+                        show-text="Value">
+                        <wj-range wj-property="pointer" thickness="0.2"></wj-range>
+                        <wj-range min="0" max="50" color="rgba(100,255,100,.1)"></wj-range>
+                        <wj-range min="50" max="100" color="rgba(255,255,100,.1)"></wj-range>
+                        <wj-range min="100" max="150" color="rgba(255,100,100,.1)"></wj-range>
+                    </wj-radial-gauge>
+                </td>
+            </tr>
+
+            <!-- product nutrients -->
+            <tr ng-repeat="(nutrientName, nutrientValue) in ctx.products.currentItem.nutrients">
+                <td class="text-right">
+                    <b>{{nutrientName}}</b>
+                </td>
+                <td>
+                    <b>{{getDvaCaption(nutrientValue)}}</b>:
+                    {{getDvaRange(nutrientValue)}} of the recommended daily value.
+                    <br />
+                     <wj-linear-gauge 
+                        style="height:30px"
+                        value="nutrientValue"
+                        thickness=".5"
+                        min="0" 
+                        max="4">
+                        <wj-range wj-property="pointer" thickness="0.2"></wj-range>
+                        <wj-range min="0" max="1.33" color="rgba(100,255,100,.1)"></wj-range>
+                        <wj-range min="1.33" max="2.66" color="rgba(255,255,100,.1)"></wj-range>
+                        <wj-range min="2.66" max="4" color="rgba(255,100,100,.1)"></wj-range>
+                    </wj-linear-gauge>
+                </td>
+            </tr>
+
+            <!-- cart summary at the bottom -->
+            <tr class="well">
+                <td class="text-right" colspan="2">
+                    <i class="glyphicon glyphicon-shopping-cart" />
+                    <a href="default.htm#/cart" title="go to shopping cart">
+                        <b>{{getTotalCount()}}</b> items, <b>{{getTotalPrice() | currency}}</b>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-block btn-primary" 
+            ng-click="addCartItem(ctx.products.currentItem, 1)">
+            <i class="glyphicon glyphicon-shopping-cart" /> add to cart
+        </button>
+        <button class="btn btn-block btn-danger"
+            ng-click="clearCartItem(ctx.products.currentItem.sku)"
+            ng-disabled="getTotalCount(ctx.products.currentItem.sku) < 1">
+            <i class="glyphicon glyphicon-trash" /> remove from cart
+        </button>
+        <button class="btn btn-block" 
+            onclick="window.location.href=''">
+            <i class="glyphicon glyphicon-chevron-left" /> back to store
+        </button>
+    </div>
+</div>

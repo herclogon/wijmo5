@@ -1,0 +1,259 @@
+<h2>PivotField Class</h2>
+<dl class="dl-horizontal">
+<dt>Module</dt><dd>wijmo.olap</dd>
+<dt>File</dt><dd>wijmo.olap.js</dd>
+</dl>
+<p>Represents a property of the items in the wijmo.olap data source.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(engine, binding, header?, options?): <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a></td>
+      <td><p>
+<b>engine</b> (<a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a>): <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a> that owns this field.<br/><b>binding</b> (<b>string</b>): Property that this field is bound to.<br/><b>header?</b> (<b>string</b>): Header shown to identify this field (defaults to the binding).<br/><b>options?</b> (<b>any</b>): JavaScript object containing initialization data for the field.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>aggregate</b></td>
+      <td><a href="topic/wijmo.Aggregate.Enum.html"><b>Aggregate</b></a></td>
+      <td>Gets or sets how the field should be summarized.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>binding</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the name of the property the field is bound to.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>collectionView</b></td>
+      <td><b>ICollectionView</b></td>
+      <td>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> bound to this field.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>dataType</b></td>
+      <td><a href="topic/wijmo.DataType.Enum.html"><b>DataType</b></a></td>
+      <td>Gets or sets the data type of the field.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>descending</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that determines whether keys should be sorted 
+in descending order for this field.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>engine</b></td>
+      <td><a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a></td>
+      <td>Gets a reference to the <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a> that owns this <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a>.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>filter</b></td>
+      <td><a href="topic/wijmo.olap.PivotFilter.Class.html"><b>PivotFilter</b></a></td>
+      <td>Gets a reference to the <a href="topic/wijmo.olap.PivotFilter.Class.html"><b>PivotFilter</b></a> used to filter values for this field.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>format</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the format to use when displaying field values.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>header</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets a string used to represent this field in the user interface.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isActive</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that determines whether this field is
+currently being used in the view.</p>
+
+<p>Setting this property to true causes the field to be added to the
+view's <b>rowFields</b> or <b>valueFields</b>, 
+depending on the field's data type.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isContentHtml</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value indicating whether items in this field 
+contain HTML content rather than plain text.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>parentField</b></td>
+      <td><a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a></td>
+      <td><p>Gets this field's parent field.</p>
+
+<p>When you drag the same field into the Values list multiple
+times, copies of the field are created so you can use the
+same binding with different parameters. The copies keep a
+reference to their parent fields.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>showAs</b></td>
+      <td><a href="topic/wijmo.olap.ShowAs.Enum.html"><b>ShowAs</b></a></td>
+      <td>Gets or sets how the field results should be formatted.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>weightField</b></td>
+      <td><a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a></td>
+      <td><p>Gets or sets the <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> used as a weight for calculating
+aggregates on this field.</p>
+
+<p>If this property is set to null, all values are assumed to have weight one.</p>
+
+<p>This property allows you to calculate weighted averages and totals. 
+For example, if the data contains a 'Quantity' field and a 'Price' field,
+you could use the 'Price' field as a value field and the 'Quantity' field as
+a weight. The output would contain a weighted average of the data.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>width</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the preferred width to be used for showing this field in the 
+user interface.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>wordWrap</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that indicates whether the content of this field should
+be allowed to wrap within cells.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>onPropertyChanged</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><b>PropertyChangedEventArgs</b></a>): <a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><b>PropertyChangedEventArgs</b></a> that contains the property
+name, old, and new values.<br/></p>
+</td>
+      <td>Raises the <b>propertyChanged</b> event.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>propertyChanged</b></td>
+      <td><a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><b>PropertyChangedEventArgs</b></a></td>
+      <td>Occurs when the value of a property in this <a href="topic/wijmo.gauge.Range.Class.html"><b>Range</b></a> changes.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

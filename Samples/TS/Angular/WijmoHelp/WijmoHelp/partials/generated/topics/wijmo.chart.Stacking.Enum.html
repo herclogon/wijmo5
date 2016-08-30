@@ -1,0 +1,48 @@
+<h2>Stacking Enum</h2>
+<dl class="dl-horizontal">
+  <dt>Module</dt><dd>wijmo.chart</dd>
+  <dt>File</dt><dd>wijmo.chart.js</dd>
+</dl>
+<p>Specifies whether and how to stack the chart's data values.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideValues = !hideValues">
+<span class="glyph-collapsed" ng-show="hideValues"></span>
+<span class="glyph-expanded" ng-hide="hideValues"></span>
+Values
+</h3>
+</div>
+<table ng-hide="hideValues" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>None</b></td>
+      <td>No stacking. Each series object is plotted independently.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Stacked</b></td>
+      <td>Stacked charts show how each value contributes to the total.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Stacked100pc</b></td>
+      <td>100% stacked charts show how each value contributes to the total with the relative size of
+each series representing its contribution to the total.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

@@ -1,0 +1,237 @@
+<h2>Tooltip Class</h2>
+<dl class="dl-horizontal">
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.chart.ChartTooltip.Class.html"><b>ChartTooltip</b></a></dd>
+<dt>Module</dt><dd>wijmo</dd>
+<dt>File</dt><dd>wijmo.js</dd>
+</dl>
+<p><p>Provides a pop-up window that displays additional information about elements on the page.</p>
+
+<p>The <b>Tooltip</b> class can be used in two modes:</p>
+
+<p><b>Automatic Mode:</b> Use the <b>setTooltip</b> method to connect the <b>Tooltip</b> to
+one or more elements on the page. The <b>Tooltip</b> will automatically monitor events
+and display the tooltips when the user performs actions that trigger the tooltip.
+For example:</p>
+
+<p><pre>var tt = new wijmo.Tooltip();
+tt.setTooltip('#menu', 'Select commands.');
+tt.setTooltip('#tree', 'Explore the hierarchy.');
+tt.setTooltip('#chart', '#idChartTooltip');</pre></p>
+
+<p><b>Manual Mode:</b> The caller is responsible for showing and hiding the tooltip
+using the <b>show</b> and <b>hide</b> methods. For example:</p>
+
+<p><pre>var tt = new wijmo.Tooltip();
+element.addEventListener('click', function () {
+  if (tt.isVisible) {
+    tt.hide();
+  } else {
+    tt.show(element, 'This is an important element!');
+  }
+});</pre></p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(options?): <a href="topic/wijmo.Tooltip.Class.html"><b>Tooltip</b></a></td>
+      <td><p>
+<b>options?</b> (<b>any</b>): JavaScript object containing initialization data for the <a href="topic/wijmo.Tooltip.Class.html"><b>Tooltip</b></a>.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.Tooltip.Class.html"><b>Tooltip</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>gap</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the distance between the tooltip and the target element.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>hideDelay</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the delay, in milliseconds, before hiding the tooltip after the 
+mouse leaves the target element.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isContentHtml</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that determines whether the tooltip contents 
+should be displayed as plain text or as HTML.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isVisible</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets whether the tooltip is currently visible.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>showAtMouse</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that determines whether the tooltip should be
+positioned with respect to the mouse position rather than the
+target element.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>showDelay</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the delay, in milliseconds, before showing the tooltip after the 
+mouse enters the target element.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>hide</b>&#8203;()</td>
+      <td></td>
+      <td>Hides the tooltip if it is currently visible.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>onPopup</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.TooltipEventArgs.Class.html"><b>TooltipEventArgs</b></a>): <a href="topic/wijmo.TooltipEventArgs.Class.html"><b>TooltipEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>popup</b> event.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>setTooltip</b>&#8203;(element, content)</td>
+      <td><p>
+<b>element</b> (<b>any</b>): Element, element ID, or control that the tooltip explains.<br/><b>content</b> (<b>string</b>): Tooltip content or ID of the element that contains the tooltip content.<br/></p>
+</td>
+      <td><p>Assigns tooltip content to a given element on the page.</p>
+
+<p>The same tooltip may be used to display information for any number
+of elements on the page. To remove the tooltip from an element, 
+call <b>setTooltip</b> and specify null for the content.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>show</b>&#8203;(element, content, bounds?)</td>
+      <td><p>
+<b>element</b> (<b>any</b>): Element, element ID, or control that the tooltip explains.<br/><b>content</b> (<b>string</b>): Tooltip content or ID of the element that contains the tooltip content.<br/><b>bounds?</b> (<a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>): Optional element that defines the bounds of the area that the tooltip 
+targets. If not provided, the bounds of the element are used (as reported by the
+<b>getBoundingClientRect</b> method).<br/></p>
+</td>
+      <td>Shows the tooltip with the specified content, next to the specified element.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>popup</b></td>
+      <td><a href="topic/wijmo.TooltipEventArgs.Class.html"><b>TooltipEventArgs</b></a></td>
+      <td><p>Occurs before the tooltip content is displayed.</p>
+
+<p>The event handler may customize the tooltip content or suppress the 
+tooltip display by changing the event parameters.</p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

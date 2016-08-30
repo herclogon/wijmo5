@@ -1,0 +1,25 @@
+﻿<h3>Profits</h3>
+
+<table class="table condensed">
+    <tr ng-repeat="item in data.items">
+        <td>
+            {{ item.date | date:'MMM yyyy' }}
+        </td>
+        <td>
+            <span 
+                ng-show="item.profit <= 400"
+                class="label label-danger"
+                style="border-radius:1em">!</span>
+        </td>
+        <td>
+            <wj-bullet-graph 
+                value="item.profit"
+                min="0"
+                bad="400"
+                target="600"
+                good="600"
+                max="1000">
+            </wj-bullet-graph>
+        </td>
+    </tr>
+</table>

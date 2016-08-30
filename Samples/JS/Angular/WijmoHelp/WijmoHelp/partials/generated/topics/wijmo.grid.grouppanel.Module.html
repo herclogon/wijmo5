@@ -1,0 +1,55 @@
+<h2>Module wijmo.grid.grouppanel</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd>wijmo.grid.grouppanel.js</dd>
+</dl>
+<p>Extension that provides a drag and drop UI for editing 
+groups in bound <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> controls.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
+<span class="glyph-collapsed" ng-show="hideClasses"></span>
+<span class="glyph-expanded" ng-hide="hideClasses"></span>
+Classes
+</h3>
+</div>
+<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.grouppanel.GroupPanel.Class.html"><b>GroupPanel</b></a></td>
+      <td><p>The <b>GroupPanel</b> control provides a drag and drop UI for editing 
+groups in a bound <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control.</p>
+
+<p>It allows users to drag columns from the <b>FlexGrid</b> into the
+panel and to move groups within the panel. Users may click the
+group markers in the panel to sort based on the group column or to
+remove groups.</p>
+
+<p>In order to use a <b>GroupPanel</b>, add it to a page that contains a
+<b>FlexGrid</b> control and set the panel's <b>grid</b> property to the 
+<b>FlexGrid</b> control. For example:</p>
+
+<p><pre>// create a FlexGrid 
+var flex = new wijmo.grid.FlexGrid('#flex-grid');
+flex.itemsSource = getData();
+// add a GroupPanel to edit data groups
+var groupPanel = new wijmo.grid.grouppanel.GroupPanel('#group-panel');
+groupPanel.placeholder = "Drag columns here to create groups.";
+groupPanel.grid = flex;</pre></p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

@@ -1,0 +1,43 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Multiple axes
+        </h3>
+        <p>
+            This view shows the <b>FlexChart</b> with two y-axes.
+        </p>
+    </div>
+    <div>
+        <wj-menu [(value)]="chart.axisX.labelAngle" header="x label angle">
+            <wj-menu-item [value]="-90">-90</wj-menu-item>
+            <wj-menu-item [value]="-45">-45</wj-menu-item>
+            <wj-menu-item [value]="0">0</wj-menu-item>
+            <wj-menu-item [value]="45">45</wj-menu-item>
+            <wj-menu-item [value]="90">90</wj-menu-item>
+        </wj-menu>
+
+        <!-- the chart -->
+        <wj-flex-chart #chart
+                       class="chart"
+                       style="display:block"
+                       [chartType]="'Column'"
+                       [itemsSource]="itemsSource"
+                       [bindingX]="'mon'">
+            <wj-flex-chart-axis [wjProperty]="'axisX'" [labelAngle]="0"></wj-flex-chart-axis>
+            <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                [title]="'temperature, C'"
+                                [min]="0"
+                                [max]="20">
+            </wj-flex-chart-axis>
+            <wj-flex-chart-series [name]="'prec'" [binding]="'prec'">
+                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                    [position]="'Right'"
+                                    [title]="'precipitation, mm'"
+                                    [min]="0"
+                                    [max]="100">
+                </wj-flex-chart-axis>
+            </wj-flex-chart-series>
+            <wj-flex-chart-series [name]="'t avg'" [chartType]="'LineSymbols'" [binding]="'tav'"></wj-flex-chart-series>
+        </wj-flex-chart>
+    </div>
+</div>

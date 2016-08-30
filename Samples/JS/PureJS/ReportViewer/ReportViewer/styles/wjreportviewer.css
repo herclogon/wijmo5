@@ -1,0 +1,559 @@
+﻿/* ReportViewer */
+.wj-viewerouter {
+    width: 100%;
+    height: 100%;
+}
+
+.wj-viewer {
+    height: 750px;
+    width: 1100px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media print {
+    .wj-viewer {
+        display: none;
+    }
+}
+
+    .wj-viewer.wj-control {
+        -webkit-user-select: inherit;
+        -ms-user-select: inherit;
+        -moz-user-select: inherit;
+    }
+
+.wj-toolbar {
+    height: 60px;
+    width: 100%;
+    padding: 10px 20px;
+    border-bottom: 1px solid #c8c8c8;
+}
+
+    .wj-toolbar a {
+        cursor: pointer;
+        float: left;
+        height: 40px;
+        width: 40px;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+        .wj-toolbar a:hover, .wj-toolbar a:focus {
+            background-color: #eee;
+            outline: none;
+        }
+
+        .wj-toolbar a:hover.disabled, .wj-toolbar a:focus.disabled, .wj-toolbar a:hover.checked, .wj-toolbar a:focus.checked {
+            background-color: transparent;
+            cursor: default;
+        }
+
+    .wj-toolbar .wj-separator {
+        height: 40px;
+        width: 20px;
+        float: left;
+        border-right: 2px solid black;
+        margin-right: 20px;
+        opacity: 0.25;
+    }
+
+    .wj-toolbar .wj-pagenumber {
+        margin: 5px 10px;
+        height: 30px;
+        width: 80px;
+        float: left;
+    }
+
+    .wj-toolbar .wj-pagecount {
+        margin: 5px 10px;
+        height: 30px;
+        line-height: 30px;
+        float: left;
+    }
+
+    .wj-toolbar .wj-input-zoom {
+        margin: 5px 10px;
+        height: 30px;
+        width: 100px;
+        float: left;
+    }
+
+    .wj-toolbar .slash {
+        float: left;
+        height: 40px;
+        width: 10px;
+        line-height:40px;
+    }
+
+.wj-reportcontainer {
+    height: 100%;
+    width: 100%;
+    padding-bottom: 60px;
+    table-layout: fixed;
+}
+
+    .wj-reportcontainer .wj-splitter {
+        float: left;
+        height: 100%;
+        cursor: pointer;
+    }
+        .wj-reportcontainer .wj-splitter button {
+            padding: 0 2px;
+            background-color: #fafafa;
+            border-left: 1px solid #c8c8c8;
+            border-right: 1px solid #c8c8c8;
+            border-top: none;
+            border-bottom: none;
+        }
+
+            .wj-reportcontainer .wj-splitter button:hover {
+                background-color: #dadada;
+            }
+
+        .wj-reportcontainer .wj-splitter span {
+            text-align: center;
+        }
+
+.wj-reportleftpanel {
+    float: left;
+    height: 100%;
+}
+
+.wj-nav {
+    padding-left: 0;
+    list-style: none;
+    float: left;
+    border-bottom: 0;
+    margin-bottom: -1px;
+}
+
+.wj-nav > li {
+    position: relative;
+    display: block;
+    float: none;
+    margin: 0;
+}
+
+    .wj-nav > li > a {
+        position: relative;
+        display: block;
+        margin-right: 0;
+        border: 0;
+        border-right: 1px solid #c8c8c8;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 48px;
+        height: 48px;
+        outline: none;
+        line-height: 1.42857143;
+        border-radius: 0;
+        border-width: 0;
+        border-color: transparent;
+        padding-top: 12px;
+    }
+
+    .wj-nav > li > a:hover,
+    .wj-nav > li > a:focus {
+        text-decoration: none;
+        background-color: #eee;
+    }
+
+    .wj-nav > li > a .wj-arrow {
+        display: none;
+    }
+
+        .wj-nav > li > a .wj-arrow .wj-insidearrow {
+            position: absolute;
+            top: 17px;
+            z-index: 1000;
+            right: -1px;
+            height: 0px;
+            width: 0px;
+            border: 7px solid transparent;
+            border-right-color: #fafafa;
+        }
+
+        .wj-nav > li > a .wj-arrow .wj-outsidearrow {
+            position: absolute;
+            top: 16px;
+            right: -1px;
+            height: 0px;
+            width: 0px;
+            border: 8px solid transparent;
+            border-right-color: #c8c8c8;
+        }
+
+    .wj-nav > li.active > a, .wj-nav > li.active > a:hover, .wj-nav > li.active > a:focus {
+        border: 0;
+    }
+
+.wj-tabsleft {
+    height: 100%;
+    position:relative;
+}
+
+    .wj-tabsleft.collapsed .wj-tabcontent {
+        width: 0;
+        visibility:collapse;
+    }
+
+.wj-tabcontent {
+    float: right;
+    height: 100%;
+     width: auto;
+}
+
+    .wj-tabcontent h3 {
+        margin-top: 0;
+        font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    }
+
+    .wj-tabcontent .wj-tabpane {
+        position: relative;
+        left: -9999px;
+        background-color: #fafafa;
+        width: 0px;
+        height: 0px;
+    }
+        .wj-tabcontent .wj-tabpane .wj-tabtitle-wrapper {
+            position: absolute;
+            width: 299px;
+            padding: 10px 20px 20px 20px;
+        }
+
+        .wj-tabcontent .wj-tabpane .wj-tabtitle {
+            color: #000;
+        }
+
+        .wj-tabcontent .wj-tabpane .wj-tabcontent-wrapper {
+            height: 100%;
+            padding-top: 48px;
+        }
+        .wj-tabcontent .wj-tabpane .wj-tabcontent-wrapper.search-wrapper {
+            padding-top: 202px;
+        }
+
+        .wj-tabcontent .wj-tabpane .wj-tabcontent-inner {
+            overflow: auto;
+            height: 100%;
+            border-top: 1px solid #c8c8c8;
+        }
+
+            .wj-tabcontent .wj-tabpane .wj-tabtitle .wj-close {
+                font-size: 30pt;
+                line-height: 20px;
+                float: right;
+                font-weight: bold;
+                color: #000;
+                text-shadow: 0 1px 0 #fff;
+                opacity: .2;
+                cursor: pointer;
+            }
+
+        .wj-tabcontent .wj-tabpane .wj-outlines-tree {
+            border-radius: 0;
+            background-color: #fafafa;
+            padding-top: 20px;
+            padding-left: 4px;
+        }
+
+    .wj-tabcontent .wj-listbox-item.wj-thumbnail-item.wj-state-selected {
+        background-color: transparent;
+        color:inherit;
+    }
+
+    .wj-tabcontent .wj-listbox-item.wj-thumbnail-item:not(.wj-state-selected):not(.wj-state-disabled):not(.wj-separator):hover {
+        background-color: transparent;
+        color:inherit;
+    }
+
+    .wj-tabcontent .wj-thumbnaillist {
+        width: 100%;
+        border-radius: 0px;
+        border: none;
+    }
+
+        .wj-tabcontent .wj-tabpane .wj-thumbnaillist:focus {
+            outline: none;
+        }
+
+        .wj-tabcontent .wj-tabpane .wj-thumbnaillist .wj-thumbnail-item {
+            height: auto;
+            text-align: center;
+            padding-top: 35px;
+        }
+
+            .wj-tabcontent .wj-tabpane .wj-thumbnaillist .wj-thumbnail-item .wj-pagethumbnail {
+                height: auto;
+                width: 100px;
+                background-color: white;
+                border: 1px solid #c8c8c8;
+                margin-bottom: 10px;
+                cursor: pointer;
+                outline: none;
+            }
+
+        .wj-tabcontent .wj-tabpane .wj-thumbnaillist .wj-listbox-item.wj-thumbnail-item.wj-state-selected .wj-pagethumbnail {
+            border-color: #0085C7;
+        }
+
+    .wj-tabcontent .active {
+        left:0px;
+        width: 300px;
+        height: 100%;
+        border-left: 1px solid #c8c8c8;
+    }
+
+.wj-viewcontainer {
+    background-color:#e5e5e5;
+    float:right;
+    height:100%;
+    width:100%;
+    overflow: auto;
+    text-align: center;
+}
+
+    .wj-viewcontainer:focus {
+        outline: none;
+    }
+
+    .wj-viewcontainer .wj-view-page {
+        width: 650px;
+        height: 750px;
+        margin: 0 0 30px 0;
+        background-color: #fff;
+        border: 1px solid rgba(0,0,0,.3);
+        box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    }
+
+        .wj-viewcontainer .wj-view-page:last-child {
+            margin-bottom: 0px
+        }
+
+.wj-parameterscontrainer {
+    float: left;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.wj-parametercontainer {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+
+    .wj-parametercontainer .wj-parameterhead {
+        float: left;
+        padding-top: 4px;
+    }
+
+    .wj-parametercontainer .wj-parametercontrol {
+        float: right;
+        width: 100%;
+    }
+
+    .wj-parametercontainer .error {
+        color: red;
+        float: right;
+    }
+
+    .wj-parametererrors-hidden .wj-parametercontainer .error {
+        display: none;
+    }
+
+    .wj-parametercontainer textarea {
+        float: right;
+        resize: none;
+        height: 100px;
+        width: 140px;
+    }
+
+.wj-tabpane .wj-applybutton {
+    float: right;
+    margin-top: 20px;
+}
+
+.wj-outlines-tree {
+    border: none;
+    width:100%;
+}
+
+    .wj-outlines-tree .wj-cell {
+        border: none;
+    }
+
+        .wj-outlines-tree .wj-cell span {
+            margin-right: 5px;
+        }
+
+        .wj-outlines-tree .wj-cell a:link, .wj-outlines-tree .wj-cell a:visited,.wj-outlines-tree .wj-cell a:hover {
+            color: #000;
+            text-decoration: none; 
+        }
+
+    .wj-outlines-tree .wj-header.wj-cell {
+        color: #fff;
+        background-color: #000;
+        border: none;
+        font-weight: bold;
+    }
+
+    .wj-outlines-tree .wj-cell {
+        background-color: #fafafa;
+        color: #000;
+        cursor: pointer;
+    }
+
+    .wj-outlines-tree .wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) {
+        background-color: #fafafa;
+        color: #000;
+    }
+
+    .wj-outlines-tree .wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) {
+        background-color: #fafafa;
+        color: #000;
+    }
+
+    .wj-outlines-tree .wj-state-selected {
+        background-color: #eee;
+        color: #000;
+    }
+
+    .wj-outlines-tree .wj-state-multi-selected {
+        background-color: #fafafa;
+        color: #000;
+    }
+
+.wj-tabcontent .wj-tabpane .wj-searchbox {
+    width: 100%;
+    height: 30px;
+    float: left;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 4px 60px 4px 8px;
+    margin-right: 5px;
+}
+
+.wj-tabcontent .wj-tabpane .wj-searchcontainer {
+    position: relative;
+}
+
+    .wj-tabcontent .wj-tabpane .wj-searchcontainer .wj-btn-group {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+        .wj-tabcontent .wj-tabpane .wj-searchcontainer .wj-btn-group button{
+            background-color: transparent;
+            background-position:center center;
+            background-repeat: no-repeat;
+            height: 30px;
+            width: 30px;
+            border: none;
+            padding: 1px;
+        }
+
+.wj-tabcontent .wj-tabpane .wj-searchoption {
+    margin-top: 10px;
+    float: left;
+    width: 100%;
+}
+
+    .wj-tabcontent .wj-tabpane .wj-searchoption input {
+        height: 16px;
+        float: left;
+        width: 16px;
+        margin: 2px 0 0;
+    }
+
+    .wj-tabcontent .wj-tabpane .wj-searchoption label {
+        margin-top: 2px;
+        float: left;
+        font-weight: initial;
+    }
+
+.wj-tabcontent .wj-tabpane .wj-searchresult {
+    color:#000;
+    padding-top:15px;
+    float:left;
+}
+
+.wj-tabcontent .wj-searchresultlist {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0px;
+}
+
+        .wj-tabcontent .wj-tabpane .wj-searchresultlist .wj-search-item {
+            cursor: pointer;
+        }
+
+            .wj-tabcontent .wj-tabpane .wj-searchresultlist .wj-search-item:focus {
+                outline: none;
+            }
+
+        .wj-tabcontent .wj-tabpane .wj-searchresultlist .wj-search-item:hover,
+        .wj-tabcontent .wj-tabpane .wj-searchresultlist .wj-search-item.selected {
+            background-color: #eee;
+        }
+
+        .wj-tabcontent .wj-tabpane .wj-searchresultlist .wj-search-text {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .wj-tabcontent .wj-tabpane .wj-searchresultlist .wj-search-page {
+            font-weight: 300;
+        }
+
+.wj-view-page .highlight {
+    fill: red;
+    fill-opacity: 0.5;
+}
+
+.wj-view-page rect {
+    pointer-events: none;
+}
+
+.wj-view-page a rect {
+    pointer-events: inherit;
+}
+
+.wj-viewwrapper {
+    display: inline-block;
+    margin: 30px;
+}
+
+.wj-svg-btn {
+    opacity: 0.5;
+    width: 24px;
+    enable-background: new 0 0 24 24;
+}
+
+.wj-viewer .wj-btn-group > .wj-btn {
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 40px;
+    width: 40px;
+}
+
+.wj-content:not(.customEdit) .wj-btn-group .wj-btn:hover {
+  background-color: #eee
+}
+
+.wj-content:not(.customEdit) .wj-btn-group .wj-btn:focus {
+  outline: none;
+}
+
+.wj-content:not(.customEdit) .wj-btn-group .wj-btn.wj-state-active .wj-svg-btn {
+    fill: #3986C7;
+    opacity: 1;
+}

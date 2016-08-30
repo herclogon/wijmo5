@@ -1,0 +1,43 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Financial chart
+        </h3>
+        <p>
+            This view shows how to create financial charts with the <b>FlexChart</b> control.
+        </p>
+        <p>
+            The <b>FlexChart</b> supports two types of financial chart: Candlestick and HiLowOpenClose.
+            To use them, set the <b>chartType</b> property to the type you want, and set the
+            series <b>binding</b> property to a string that specifies the fields that contain the
+            high, low, open, and close values in the data source. For example:
+        </p>
+        <pre>&lt;wj-flex-chart 
+  [chartType]="'Candlestick'"
+  [itemsSource]="data"
+  [bindingX]="'x'"&gt;
+  &lt;wj-flex-chart-series
+    [binding]="'hi,lo,open,close'"&gt;
+  &lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;</pre>
+    </div>
+    <div>
+        <wj-menu #menu [(value)]="chart.chartType" [header]="'Chart Type'">
+            <wj-menu-item [value]="7">Candlestick</wj-menu-item>
+            <wj-menu-item [value]="8">HighLowOpenClose</wj-menu-item>
+        </wj-menu>
+
+        <wj-flex-chart class="chart"   style="display:block;"
+                       #chart
+                       [chartType]="'Candlestick'"
+                       [itemsSource]="data"
+                       [bindingX]="'x'"
+                       [symbolSize]="6"
+                       [tooltipContent]="customTooltip">
+            <wj-flex-chart-axis [wjProperty]="'axisX'" [format]="'MMM-dd'"></wj-flex-chart-axis>
+            <wj-flex-chart-series [binding]="'hi,lo,open,close'">
+            </wj-flex-chart-series>
+        </wj-flex-chart>
+
+    </div>
+</div>

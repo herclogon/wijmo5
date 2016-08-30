@@ -1,0 +1,83 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    A Line Break or Three Line Break chart uses vertical boxes or lines to illustrate the price changes of an asset or market.
+    Movements are depicted with box colors and styles; movements that continue the trend of the previous box are colored similarly
+    while movements that trend oppositely are indicated with a different color and/or style. The opposite trend
+    is only drawn if its value exceeds the extreme value of the previous <i>n</i> number of boxes or lines, which is determined by the
+    newLineBreaks option.
+</p>
+
+<!-- Symbol -->
+<label>Symbol</label>
+<wj-combo-box items-source="dataList"
+              selected-index-changed="selectedSymbolChanged(s,e)"
+              display-member-path="name"
+              selected-value-path="symbol"
+              selected-value="selectedSymbol">
+</wj-combo-box>
+
+<!-- FinancialChart -->
+<wj-financial-chart items-source="data"
+                    binding-x="date"
+                    chart-type="LineBreak"
+                    options="ctx.options"
+                    control="ctx.chart"
+                    rendered="chartRendered(s,e)">
+    <wj-financial-chart-series binding="high,low,open,close"
+                               name="{{ selectedSymbol | uppercase }}"
+                               ng-attr-style="ctx.style"
+                               alt-style="ctx.altStyle">
+    </wj-financial-chart-series>
+</wj-financial-chart>
+
+<!-- Settings -->
+<div class="panel-group" id="settings">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#settings" href="#settingsBody" target="_self">{{ title }} Settings</a>
+            </h4>
+        </div>
+        <div id="settingsBody" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <ul class="list-inline">
+                    <li>
+                        <label># of Lines in Break</label>
+                        <wj-input-number value="ctx.options.lineBreak.newLineBreaks"
+                                         step="1" min="1"
+                                         value-changed="optionChanged(s,e)">
+                        </wj-input-number>
+                    </li>
+                </ul>
+                <ul class="list-inline">
+                    <li>
+                        <label>Stroke</label>
+                        <wj-input-color value="ctx.style.stroke"
+                                        value-changed="optionChanged(s,e)">
+                        </wj-input-color>
+                    </li>
+                    <li>
+                        <label>Alt. Stroke</label>
+                        <wj-input-color value="ctx.altStyle.stroke"
+                                        value-changed="optionChanged(s,e)">
+                        </wj-input-color>
+                    </li>
+                </ul>
+                <ul class="list-inline">
+                    <li>
+                        <label>Fill</label>
+                        <wj-input-color value="ctx.style.fill"
+                                        value-changed="optionChanged(s,e)">
+                        </wj-input-color>
+                    </li>
+                    <li>
+                        <label>Alt. Fill</label>
+                        <wj-input-color value="ctx.altStyle.fill"
+                                        value-changed="optionChanged(s,e)">
+                        </wj-input-color>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

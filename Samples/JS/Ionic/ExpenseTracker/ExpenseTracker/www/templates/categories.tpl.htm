@@ -1,0 +1,11 @@
+﻿<ion-view title="Categories">
+    <ion-content class="has-header">
+        <ion-list show-reorder="true">
+            <ion-item ng-repeat="category in categories track by $id(category)" class="category-item item item-icon-left">
+                <i class="icon ion-record {{ category.cssClass }}"></i>
+                <h2>{{ category.name }}</h2>
+                <ion-reorder-button class="icon ion-navicon" on-reorder="reorderCategories($fromIndex, $toIndex)"></ion-reorder-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,46 @@
+<h2>WjInputColor Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjDropDown</b></dd>
+<dt>Module</dt><dd>wijmo.angular</dd>
+<dt>File</dt><dd>wijmo.angular.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>AngularJS directive for the <a href="topic/wijmo.input.InputColor.Class.html"><b>InputColor</b></a> control.</p>
+
+<p>Use the <b>wj-input-color</b> directive to add <b>InputColor</b> controls to your 
+AngularJS applications. 
+Note that directive and parameter names must be formatted as lower-case with dashes 
+instead of camel-case. For example:</p>
+
+<p><pre>&lt;p&gt;Here is an InputColor control:&lt;/p&gt;
+&lt;wj-input-color 
+  value="theColor" 
+  show-alpha-channel="false"&gt;
+&lt;/wj-input-color&gt;</pre></p>
+
+<p>The <b>wj-input-color</b> directive supports the following attributes:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>ng-model</dt>      <dd><code>@</code> Binds the control's <b>value</b> property using the ng-model Angular 
+                         directive. Binding the property using the ng-model directive provides standard benefits 
+                         like validation, adding the control's state to the form instance, and so on. To redefine 
+                         properties on a control that is bound by the ng-model directive, use the wj-model-property 
+                         attribute.</dd>
+  <dt>wj-model-property</dt>     <dd><code>@</code> Specifies a control property that is bound to a scope using the <b>ng-model</b> directive.</dd>
+  <dt>control</dt>               <dd><code>=</code> A reference to the InputColor control created by this directive.</dd>
+  <dt>is-dropped-down</dt>       <dd><code>@</code> A value indicating whether the drop-down is currently visible.</dd>
+  <dt>initialized</dt>           <dd><code>&</code> This event occurs after the binding has finished initializing the control with attribute values.</dd>
+  <dt>is-initialized</dt>        <dd><code>=</code> A value indicating whether the binding has finished initializing the control with attribute values. </dd>
+  <dt>show-alpha-channel</dt>    <dd><code>@</code> A value indicating whether the drop-down displays the alpha channel (transparency) editor.</dd>
+  <dt>placeholder</dt>           <dd><code>@</code> The string to show as a hint when the control is empty.</dd>
+  <dt>is-required</dt>           <dd><code>@</code> A value indicating whether to prevent null values.</dd>
+  <dt>show-drop-down-button</dt> <dd><code>@</code> A value indicating whether the control displays a drop-down button.</dd>
+  <dt>text</dt>                  <dd><code>=</code> The text to show in the control.</dd>
+  <dt>value</dt>                 <dd><code>=</code> The color being edited.</dd>
+  <dt>got-focus</dt>             <dd><code>&</code> The <b>gotFocus</b> event handler.</dd>
+  <dt>lost-focus</dt>            <dd><code>&</code> The <b>lostFocus</b> event handler.</dd>
+  <dt>is-dropped-down-changing</dt><dd><code>&</code> The <b>isDroppedDownChanging</b> event handler.</dd>
+  <dt>is-dropped-down-changed</dt><dd><code>&</code> The <b>isDroppedDownChanged</b> event handler.</dd>
+  <dt>text-changed</dt>          <dd><code>&</code> The <b>textChanged</b> event handler.</dd>
+  <dt>value-changed</dt>         <dd><code>&</code> The <b>valueChanged</b> event handler.</dd>
+</dl></p></p>

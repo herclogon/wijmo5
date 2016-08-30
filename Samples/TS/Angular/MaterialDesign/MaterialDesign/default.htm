@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app" ng-controller="appCtrl">
+<head>
+    <title>Wijmo and Material Design Lite</title>
+	<meta charset="utf-8" />
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+
+    <!-- Material Lite -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-red.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" />
+    <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+
+    <!-- Wijmo styles/scripts -->
+    <link rel="stylesheet" href="styles/vendor/wijmo.min.css" />
+    <link rel="stylesheet" href="styles/vendor/wijmo.theme.material.min.css" />
+    <script src="scripts/vendor/wijmo.min.js"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js"></script>
+    <script src="scripts/vendor/wijmo.gauge.min.js"></script>
+    <script src="scripts/vendor/wijmo.input.min.js"></script>
+    <script src="scripts/vendor/wijmo.grid.filter.min.js"></script>
+    <script src="scripts/vendor/wijmo.grid.detail.min.js"></script>
+    <script src="scripts/vendor/wijmo.odata.min.js"></script>
+
+    <!-- Wijmo-Angular interop -->
+    <script src="scripts/vendor/wijmo.angular.min.js"></script>
+
+    <!-- app styles/scripts -->
+    <link rel="stylesheet" href="styles/app.css" />
+    <script src="scripts/vendor/wijmo.material.js"></script>
+    <script src="scripts/vendor/ColorWheel.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/appCtrl.js"></script>
+    <script src="scripts/directives/ColorWheel.js"></script>
+
+    <!-- update CSS when the theme changes -->
+    <link ng-href="{{materialUrl}}" rel="stylesheet" />
+    <link ng-href="{{wijmoUrl}}" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <img src="resources/wijmo5.png">
+                <span class="mdl-layout-title">Wijmo and Material Design Lite</span>
+            </div>
+        </header>
+
+        <main class="container"> <!-- mdl-layout__content -->
+            <div class="subpageheader">
+                Customize &amp; Download
+            </div>
+            <div class="mdl-grid customize">
+                <div class="mdl-cell mdl-cell--6-col">
+                    <div class="wheel">
+                        <color-wheel class="color-wheel" palette="palette" theme-changed="themeChanged(s,e)" >
+                        </color-wheel>
+                        <button 
+                            class="centered mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--fab"
+                            ng-click="downloadCss()" >
+	                        <i class="material-icons">file_download</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col">
+                    <p>
+                        <strong>Custom CSS theme builder</strong>
+                    </p>
+                    <p>
+                        Click on the color wheel to choose a primary (1) and accent (2) color to
+                        preview the theme below.
+                    </p>
+                    <p>
+                        When you’ve selected a color combination you like, either reference our
+                        <a href="#cdn-code">hosted CSS</a> or 
+                        <a href="" ng-click="downloadCss()">download the CSS</a> by clicking the button in the middle
+                        of the color wheel.
+                    </p>
+                    <p>
+                        You will need to include MDL’s JavaScript alongside your customised CSS to
+                        get the full experience.
+                        This is included in MDL's default Download from the 
+                        <a href="http://www.getmdl.io/started/index.html#download" target="_blank">Getting Started guide</a>.
+                    </p>
+                </div>
+            </div>
+
+            <div id="cdn-code">
+                <p>Reference the CSS files (MDL and Wijmo Material) from CDN:</p>
+                <div class="code">
+                    &lt;link rel="stylesheet" href="{{materialUrl}}" /&gt;<br/>
+                    &lt;link rel="stylesheet" href="{{wijmoUrl}}" /&gt;
+                </div>
+            </div>
+
+            <div class="preview">
+                <div class="mdl-layout__container">
+                    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header has-drawer is-upgraded">
+                        <header class="mdl-layout__header is-casting-shadow">
+                            <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button">
+                                <i class="material-icons"></i>
+                            </div>
+                            <svg class="mdl-layout-icon" width="411px" height="406px" viewBox="0 0 411 406" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-51.000000, -54.000000)" fill="currentColor">
+                                        <path d="M253.532807,381.627 L205.905373,459.1512 L75.2987939,365.2047 L137.208794,290.0547 L51,265.8834 L100.217083,116.7498 L183.176447,150.0543 L176.402456,54 L337.901996,54 L331.203531,149.0202 L409.306732,116.4465 L461.243662,265.7448 L371.760263,290.7036 L429.826513,365.6628 L302.333596,459.2493 L253.532807,381.627 Z M222.176831,106.2 L291.098533,106.2 L282.729084,224.796484 L383.182429,182.939488 L404.947387,245.446521 L297.795289,275.304737 L368.114228,365.995226 L313.701833,405.9 L252.592681,308.789934 L192.876775,405.9 L137.348587,365.995226 L212.130699,275.304737 L105.539492,245.446521 L126.18666,182.939488 L230.548276,224.796484 L222.176831,106.2 Z"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <div class="mdl-layout__header-row">
+                                <span class="mdl-layout-title">Preview</span>
+                            </div>
+                        </header>
+                        <div class="mdl-layout__drawer" aria-hidden="true">
+                            <span class="mdl-layout-title">Preview</span>
+                            <nav class="mdl-navigation">
+                                <a class="mdl-navigation__link" href="#">Some</a>
+                                <a class="mdl-navigation__link" href="#">Links</a>
+                                <a class="mdl-navigation__link" href="#">Here</a>
+                            </nav>
+                        </div>
+
+                        <!-- preview content -->
+                        <main class="mdl-layout__content">
+
+                            <div class="mdl-grid">
+
+                                <!-- MDL components -->
+                                <div class="mdl-cell mdl-cell--6-col">
+
+                                    <p><strong>MDL components</strong></p>
+
+                                    <!-- badges -->
+                                    <div class="ctlgroup">
+                                        <span class="mdl-badge" data-badge="4">Number Badge</span>
+                                        <span class="mdl-badge" data-badge="♥">Icon Badge</span>
+                                    </div>
+
+                                    <!-- buttons -->
+                                    <div class="ctlgroup">
+                                        <button class="mdl-button mdl-js-button">
+                                            Plain
+                                        </button>
+                                        <button class="mdl-button mdl-js-button mdl-button--raised">
+                                            Raised
+                                        </button>
+                                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                                            Colored
+                                        </button>
+                                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                                            Accent
+                                        </button>
+                                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                            Rippled
+                                        </button>
+                                    </div>
+                                    <div class="ctlgroup">
+                                        <button class="mdl-button mdl-js-button mdl-button--fab">
+                                            <i class="material-icons">email</i>
+                                        </button>
+                                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                                            <i class="material-icons">email</i>
+                                        </button>
+                                    </div>
+
+                                    <!-- toggles -->
+                                    <div class="ctlgroup">
+                                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+                                            <input type="checkbox" class="mdl-switch__input">
+                                            <span class="mdl-switch__label">Switch</span>
+                                        </label>
+                                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                            <input type="checkbox" class="mdl-checkbox__input">
+                                            <span class="mdl-checkbox__label">Checkbox</span>
+                                        </label>
+                                    </div>
+
+                                    <!-- slider -->
+                                    <div class="ctlgroup">
+                                        <input class="mdl-slider mdl-js-slider" type="range"
+                                            min="0" max="100" value="0" tabindex="0">
+                                    </div>
+
+                                    <!-- text fields -->
+                                    <div class="ctlgroup">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sample">
+                                            <input class="mdl-textfield__input" type="text" value="abc">
+                                            <label class="mdl-textfield__label">Text...</label>
+                                        </div>
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sample">
+                                            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?">
+                                            <label class="mdl-textfield__label">Number...</label>
+                                            <span class="mdl-textfield__error">Input is not a number!</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Wijmo controls -->
+                                <div class="mdl-cell mdl-cell--6-col">
+
+                                    <p><strong>Wijmo+MDL components</strong></p>
+
+                                    <!-- tab -->
+                                    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                                        <div class="mdl-tabs__tab-bar" style="justify-content:flex-start">
+                                            <a href="#tab-input" class="mdl-tabs__tab is-active">Inputs</a>
+                                            <a href="#tab-gauge" class="mdl-tabs__tab">Gauges</a>
+                                            <a href="#tab-grid" class="mdl-tabs__tab">Grid</a>
+                                        </div>
+
+                                        <!-- input tab -->
+                                        <div class="mdl-tabs__panel is-active" id="tab-input">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <wj-input-date
+                                                    value="theDateTime"
+                                                    required="false"></wj-input-date>
+                                                <label class="mdl-textfield__label">The Date</label>
+                                            </div>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <wj-input-time
+                                                    value="theDateTime"
+                                                    required="false"></wj-input-time>
+                                                <label class="mdl-textfield__label">The Time</label>
+                                            </div>
+                                            <br />
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <wj-input-number 
+                                                    required="false" 
+                                                    step="10"
+                                                    format="c"></wj-input-number>
+                                                <label class="mdl-textfield__label">The Amount</label>
+                                            </div>
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <wj-input-number 
+                                                    required="false" 
+                                                    step="10"
+                                                    format="n0"
+                                                    ng-model="theNumber"
+                                                    wj-validation-error="checkEven(theNumber)"></wj-input-number>
+                                                <label class="mdl-textfield__label">Even Number</label>
+                                                <span class="mdl-textfield__error">Input is not even!</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- gauge tab -->
+                                        <div class="mdl-tabs__panel" id="tab-gauge">
+                                            <wj-radial-gauge
+                                                style="width:150px;height:100px;display:inline-block"
+                                                has-shadow="false"
+                                                show-text="Value"
+                                                is-read-only="false"
+                                                thumb-size="8"
+                                                value="theGaugeValue">
+                                                <wj-range wj-property="face" thickness="0.1"></wj-range>
+                                                <wj-range wj-property="pointer" thickness="0.1"></wj-range>
+                                            </wj-radial-gauge>
+                                            <wj-radial-gauge
+                                                style="width:150px;height:100px;display:inline-block"
+                                                has-shadow="false"
+                                                show-text="Value"
+                                                is-read-only="false"
+                                                value="theGaugeValue">
+                                            </wj-radial-gauge>
+                                            <br/>
+                                            <wj-linear-gauge
+                                                style="width:70%"
+                                                has-shadow="false"
+                                                is-read-only="false"
+                                                thumb-size="12"
+                                                value="theGaugeValue">
+                                                <wj-range wj-property="face" thickness="0.2"></wj-range>
+                                                <wj-range wj-property="pointer" thickness="0.3"></wj-range>
+                                            </wj-linear-gauge>
+                                            <wj-bullet-graph
+                                                style="width:70%;"
+                                                has-shadow="false"
+                                                value="theGaugeValue"
+                                                min="0" max="100"
+                                                target="70"
+                                                good="80"
+                                                bad="50">
+                                            </wj-bullet-graph>
+                                        </div>
+
+                                        <!-- grid tab -->
+                                        <div class="mdl-tabs__panel" id="tab-grid">
+                                            <wj-flex-grid
+                                                items-source="palette"
+                                                is-read-only="true" 
+                                                show-selected-headers="All"
+                                                show-marquee="true"
+                                                defer-resizing="true"
+                                                headers-visibility="Column">
+                                                <wj-flex-grid-filter></wj-flex-grid-filter>
+                                                <wj-flex-grid-column binding="name" header="Name" width="*"></wj-flex-grid-column>
+                                                <wj-flex-grid-column binding="outer" header="Outer" width="*"></wj-flex-grid-column>
+                                                <wj-flex-grid-column binding="inner" header="Name" width="*"></wj-flex-grid-column>
+                                            </wj-flex-grid>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

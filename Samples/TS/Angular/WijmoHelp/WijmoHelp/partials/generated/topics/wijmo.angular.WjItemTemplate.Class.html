@@ -1,0 +1,30 @@
+<h2>WjItemTemplate Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjDirective</b></dd>
+<dt>Module</dt><dd>wijmo.angular</dd>
+<dt>File</dt><dd>wijmo.angular.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>AngularJS directive for <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a> and <a href="topic/wijmo.input.Menu.Class.html"><b>Menu</b></a> item templates.</p>
+
+<p>The <b>wj-item-template</b> directive must be contained in a <a href="topic/wijmo.angular.WjListBox.Class.html"><b>WjListBox</b></a> 
+or <a href="topic/wijmo.angular.WjMenu.Class.html"><b>WjMenu</b></a> directives.</p>
+
+<p>The <b>wj-item-template</b> directive defines a template for items of <b>ListBox</b> 
+and data-bound <b>Menu</b> controls. 
+The template may contain an arbitrary HTML fragment with AngularJS bindings and directives.
+In addition to any properties available in a controller, the local <b>$item</b>, 
+<b>$itemIndex</b> and <b>$control</b> template variables can be used in AngularJS bindings
+that refer to the data item, its index, and the owner control.</p>
+
+<p>Note that directive and parameter names must be formatted as lower-case with dashes
+instead of camel-case. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a ListBox control with an item template:&lt;/p&gt;
+&lt;wj-list-box items-source="musicians"&gt;
+    &lt;wj-item-template&gt;
+        {&#8203;{$itemIndex}}. &lt;b&gt;{&#8203;{$item.name}}&lt;/b&gt;
+        &lt;br /&gt;
+        &lt;img ng-src="{&#8203;{$item.photo}}"/&gt;
+    &lt;/wj-item-template&gt;
+&lt;/wj-list-box&gt;</pre></p></p>

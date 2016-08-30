@@ -1,0 +1,96 @@
+﻿<h2>
+    JavaScript IntelliSense</h2>
+<p>
+    IntelliSense is one of the nicest features in Visual Studio and VSCode. 
+    It saves typing, reduces errors, and helps you learn or remember object models as you work.
+</p>
+<p>
+    IntelliSense works great with TypeScript, but with JavaScript it is somewhat limited.
+    You do get basic support for the language features, but external libraries are not supported
+    unless you specify custom definition files.
+</p>
+<p>
+    Starting with our 2016/V2 release, we are providing IntelliSense definition files for the 
+    entire Wijmo library. Simply install these files and you get full IntellliSense when writing 
+    JavaScript code that uses Wijmo.
+</p>
+
+<h3>
+    Visual Studio Installation
+</h3>
+
+<p>
+    To install the Wijmo IntelliSense definition file in Visual Studio, you will need the 
+    "wijmo.intellisense.js" file. You can find that file in the Wijmo distribution under 
+    the "IntelliSense" folder:
+</p>
+<pre>C1Wijmo-Enterprise_5.xxxxx.xxx.zip
+  Dist
+    IntelliSense
+      readme.txt
+      <span class="highlight">wijmo.intellisense.js</span>
+    Samples
+      VSTemplates</pre>
+<p>
+    To install the Wijmo IntelliSense definition file in Visual Studio, follow these steps:
+</p>
+<ol>
+    <li>Copy the “wijmo.intellisense.js” file to your computer</li>
+    <li>Open the Visual Studio settings pane at<br>
+        <pre>Tools|Options|Text Editor|JavaScript|IntelliSense|References</pre>
+    <li>In the Reference Group ComboBox, select<br>
+        <pre>Implicit (Web)</pre>
+    <li>Add a reference  to the "wijmo.intellisense.js" file</li>
+    <li>Click OK to apply the change</li>
+</ol>
+<p>
+    The image below shows the dialog:
+</p>
+<img src="images/intellisensevs.png" alt="Visual Studio IntelliSense dialog" style="margin-left:.25in">
+    
+
+<h3>
+    VSCode Installation
+</h3>
+
+<p>
+    To install the Wijmo IntelliSense definitions in VS Code, you will need the TypeScript definition 
+    files ("*.d.ts"). You can find those files in the Wijmo distribution under the "Controls" folder:
+</p>
+<pre>C1Wijmo-Enterprise_5.xxxxx.xxx.zip
+  Dist
+    controls
+      <span class="highlight">wijmo.d.ts</span>
+      <span class="highlight">wijmo.input.d.ts</span>
+      <span class="highlight">wijmo.grid.d.ts</span>
+      …
+  IntelliSense
+	Samples
+	VSTemplates</pre>
+
+<p>
+    Copy the "*.d.ts" files to a folder under your VSCode project root.
+    If the project has a "jsconfig.json" configuration file, make sure the "*.d.ts" files are included.
+    For example:
+</p>
+<pre>"files": [
+  "typings/wijmo.d.ts",
+  "typings/wijmo.input.d.ts",
+  "typings/wijmo.grid.d.ts",
+  …
+]</pre>
+
+<p>
+    Alternatively, you can specify the "*.d.ts" files by adding reference comments to the top of your 
+    "js" files. For example:
+</p>
+<pre>/// &lt;reference path="typings/wijmo.d.ts" /&gt;</pre>
+
+<h3>
+    Using Wijmo IntelliSense
+</h3>
+<p>
+    Once the Wijmo IntelliSense definition file has been installed, you will be able to search and explore 
+    the object model of any Wijmo classes as you write JavaScript code. The image below shows an example:
+</p>
+<img src="images/intellisense.png" alt="IntelliSense in JavaScript" style="margin-left:.25in">

@@ -1,0 +1,64 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    This sample shows how to draw text using different fonts.
+    <a href="" target="_self" data-toggle="collapse" data-target=".collapse" class="collapse in read-more">Read More</a>
+</p>
+
+<div class="collapse">
+    <h3>Standard fonts</h3>
+    <p>
+        Out of the box <b>PdfDocument</b> supports the following fonts: Courier, Helvetica, Times, Symbol, ZapfDingbats.
+        The first three fonts have four typefaces each, "normal", "bold", "oblique" and "bold oblique". This gives us a set of fonts known as "14 Standard PDF fonts".
+    </p>
+
+    <h3>Setting up the font</h3>
+    <p>
+        The <b>PdfFont</b> class describes a particular font and its constructor accepts the following arguments:
+    </p>
+    <ul>
+        <li>
+            <b>Font family</b> A font family name or a prioritized list of font family names separated by a comma, including general font family names like "monospace", "serif" etc.
+            PdfDocument will use the closest registered font. For example, "times", "Roboto, serif".
+            The standard fonts are represented by the following values: "courier", "helvetica", "times", "symbol", "zapfdingbats". 
+        </li>
+        <li><b>Font size</b></li>
+        <li><b>Font style</b> One of the following values: "normal", "italic", "oblique".</li>
+        <li><b>Font weight</b> One of the following values: "normal", "bold", "100", "200", "300", "400", "500", "600", "700", "800", "900".</li>
+    </ul>
+    <p>
+        The following instance is the default document font in terms of PdfDocument:
+    </p>
+<pre>
+new wijmo.pdf.PdfFont("times", 10, "normal", "normal")</pre>
+
+    <h3>Using the font</h3>
+    <p>
+        In <b>PdfDocument</b>, the font can be specified in two ways:
+    </p>
+    <ul>
+        <li>
+            By passing PdfFont instance directly to <b>drawText</b> as the <b>options.font</b> property.
+<pre>
+doc.drawText("Lorem", null, null, {
+    font: new wijmo.pdf.PdfFont("times", 10, "normal", "bold")
+});</pre>
+        </li>
+        <li>
+            By changing the default document font using the <b>doc.setFont</b> method first. It will be used if you call <b>drawText</b> method without passing a font to it.
+            This approach is useful when a lot of text with the same font is needed to be drawn. 
+<pre>
+doc.setFont(new wijmo.pdf.PdfFont("times", 10, "normal", "bold"));
+doc.drawText("Lorem");</pre>
+        </li>
+    </ul>
+    <p>
+        If font with exact given style and weight properties is not found, then the closest registered font will be used.
+    </p>
+
+    <p>
+        This sample shows how to use <b>drawText</b> and <b>doc.setFont</b> methods to draw text using different fonts.
+    </p>
+</div>
+
+<!-- Export button -->
+<button class="btn btn-default" id="Button1" ng-click="export()">Export</button>

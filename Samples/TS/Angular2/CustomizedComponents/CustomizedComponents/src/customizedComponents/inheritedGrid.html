@@ -1,0 +1,10 @@
+﻿<div>
+    <!-- Predefined Select column -->
+    <wj-flex-grid-column [header]="'Select'" [binding]="'active'" [name]="'select'" [width]="70">
+        <template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+            <editable-selection-renderer [cell]="cell" [selectionType]="selectionType"></editable-selection-renderer>
+        </template>
+    </wj-flex-grid-column>
+    <!-- The columns specified in markup will go here -->
+    <ng-content></ng-content>
+</div>

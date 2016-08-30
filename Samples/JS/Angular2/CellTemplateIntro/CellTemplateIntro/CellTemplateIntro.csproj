@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{62CDCD7D-8897-496E-BE18-AE432A36252C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default.htm" />
+    <Content Include="resources\ascending.png" />
+    <Content Include="resources\canada.png" />
+    <Content Include="resources\collapsed.png" />
+    <Content Include="resources\descending.png" />
+    <Content Include="resources\expanded.png" />
+    <Content Include="resources\germany.png" />
+    <Content Include="resources\greece.png" />
+    <Content Include="resources\italy.png" />
+    <Content Include="resources\japan.png" />
+    <Content Include="resources\uk.png" />
+    <Content Include="resources\us.png" />
+    <Content Include="resources\wijmo.png" />
+    <Content Include="resources\wijmo5.png" />
+    <Content Include="src\app.html" />
+    <Content Include="src\CellTemplates\CountryGroupHeaderTemplate.js" />
+    <Content Include="src\CellTemplates\countryGroupHeaderTemplate.html" />
+    <Content Include="src\CellTemplates\StatGroupTemplate.js" />
+    <Content Include="src\CellTemplates\statGroupTemplate.html" />
+    <Content Include="src\CellTemplates\StatHeaderTemplate.js" />
+    <Content Include="src\CellTemplates\statHeaderTemplate.html" />
+    <Content Include="src\styles\app.css" />
+    <Content Include="systemjs.config.js" />
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="package.json" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\app.js" />
+    <Content Include="src\components\AppTab.js" />
+    <Content Include="src\services\DataSvc.js" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>CellTemplateIntro</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>14507</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:14507/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>False</TypeScriptNoEmitOnError>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+    <TypeScriptExperimentalDecorators>true</TypeScriptExperimentalDecorators>
+    <!--<TypeScriptModuleResolution>Node</TypeScriptModuleResolution>-->
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>REM copy /B /Y $(ProjectDir)scripts\wijmo.angular2\ControlMetaFactory_Internal.ts+$(ProjectDir)scripts\wijmo.angular2\ControlMetaFactory_External.ts $(ProjectDir)scripts\wijmo.angular2\ControlMetaFactory.ts</PreBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="scripts\vendor\wijmo.min.js" />
+    <Content Include="scripts\vendor\wijmo.grid.min.js" />
+    <Content Include="scripts\vendor\wijmo.input.min.js" />
+    <Content Include="scripts\vendor\wijmo.chart.min.js" />
+    <Content Include="scripts\vendor\wijmo.angular2.min.js" />
+    <Content Include="styles\vendor\wijmo.min.css" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,299 @@
+<h2>FlexGridFilter Class</h2>
+<dl class="dl-horizontal">
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.angular.WjFlexGridFilter.Class.html"><b>WjFlexGridFilter</b></a></dd>
+<dt>Module</dt><dd>wijmo.grid.filter</dd>
+<dt>File</dt><dd>wijmo.grid.filter.js</dd>
+</dl>
+<p><p>Implements an Excel-style filter for <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> controls.</p>
+
+<p>To enable filtering on a <b>FlexGrid</b> control, create an instance 
+of the <b>FlexGridFilter</b> and pass the grid as a parameter to the 
+constructor. For example:</p>
+
+<p><pre>
+// create FlexGrid
+var flex = new wijmo.grid.FlexGrid('#gridElement');
+// enable filtering on the FlexGrid
+var filter = new wijmo.grid.filter.FlexGridFilter(flex);
+</pre></p>
+
+<p>Once this is done, a filter icon is added to the grid's column headers. 
+Clicking the icon shows an editor where the user can edit the filter
+conditions for that column.</p>
+
+<p>The <b>FlexGridFilter</b> class depends on the <b>wijmo.grid</b> and 
+<b>wijmo.input</b> modules.</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(grid): <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a></td>
+      <td><p>
+<b>grid</b> (<a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>): The <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> to filter.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>defaultFilterType</b></td>
+      <td><a href="topic/wijmo.grid.filter.FilterType.Enum.html"><b>FilterType</b></a></td>
+      <td><p>Gets or sets the default filter type to use.</p>
+
+<p>This value can be overridden in filters for specific columns.
+For example, the code below creates a filter that filters by
+conditions on all columns except the "ByValue" column:</p>
+
+<p><pre>
+var f = new wijmo.grid.filter.FlexGridFilter(flex);
+f.defaultFilterType = wijmo.grid.filter.FilterType.Condition;
+var col = flex.columns.getColumn('ByValue'),
+    cf = f.getColumnFilter(col);
+cf.filterType = wijmo.grid.filter.FilterType.Value;
+</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>filterColumns</b></td>
+      <td><b>string</b><b>[]</b></td>
+      <td><p>Gets or sets an array containing the names or bindings of the columns
+that have filters.</p>
+
+<p>Setting this property to null or to an empty array adds filters to 
+all columns.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>filterDefinition</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the current filter definition as a JSON string.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>grid</b></td>
+      <td><a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a></td>
+      <td>Gets a reference to the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> that owns this filter.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>showFilterIcons</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value indicating whether the <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> adds filter
+editing buttons to the grid's column headers.</p>
+
+<p>If you set this property to false, then you are responsible for providing
+a way for users to edit, clear, and apply the filters.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>showSortButtons</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value indicating whether the filter editor should include
+sort buttons.</p>
+
+<p>By default, the editor shows sort buttons like Excel does. But since users
+can sort columns by clicking their headers, sort buttons in the filter editor
+may not be desirable in some circumstances.</p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>apply</b>&#8203;()</td>
+      <td></td>
+      <td>Applies the current column filters to the grid.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>clear</b>&#8203;()</td>
+      <td></td>
+      <td>Clears all column filters.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>closeEditor</b>&#8203;()</td>
+      <td></td>
+      <td>Closes the filter editor.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>editColumnFilter</b>&#8203;(col, ht?)</td>
+      <td><p>
+<b>col</b> (<b>any</b>): The <a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a> that contains the filter to edit.<br/><b>ht?</b> (<a href="topic/wijmo.grid.HitTestInfo.Class.html"><b>HitTestInfo</b></a>): A <a href="topic/wijmo.grid.HitTestInfo.Class.html"><b>HitTestInfo</b></a> object containing the range of the cell that triggered the filter display.<br/></p>
+</td>
+      <td>Shows the filter editor for the given grid column.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getColumnFilter</b>&#8203;(col, create?): <a href="topic/wijmo.grid.filter.ColumnFilter.Class.html"><b>ColumnFilter</b></a></td>
+      <td><p>
+<b>col</b> (<b>any</b>): The <a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a> that the filter applies to (or column name or index).<br/><b>create?</b> (<b>boolean</b>): Whether to create the filter if it does not exist.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Gets the filter for the given column.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>onFilterApplied</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>filterApplied</b> event.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>onFilterChanged</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>filterChanged</b> event.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>onFilterChanging</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>filterChanging</b> event.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>filterApplied</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs after the filter is applied.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>filterChanged</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td><p>Occurs after a column filter has been edited by the user.</p>
+
+<p>Use the event parameters to determine the column that owns
+the filter and whether changes were applied or canceled.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>filterChanging</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td><p>Occurs when a column filter is about to be edited by the user.</p>
+
+<p>Use this event to customize the column filter if you want to 
+override the default settings for the filter.</p>
+
+<p>For example, the code below sets the operator used by the filter 
+conditions to 'contains' if they are null:</p>
+
+<p><pre>filter.filterChanging.addHandler(function (s, e) {
+  var cf = filter.getColumnFilter(e.col);
+  if (!cf.valueFilter.isActive && cf.conditionFilter.condition1.operator == null) {
+    cf.filterType = wijmo.grid.filter.FilterType.Condition;
+    cf.conditionFilter.condition1.operator = wijmo.grid.filter.Operator.CT;
+  }
+});</pre></p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

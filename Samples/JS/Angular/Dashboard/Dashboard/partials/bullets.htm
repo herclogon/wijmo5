@@ -1,0 +1,60 @@
+﻿<table class="table table-condensed table-hover">
+
+    <!-- table header -->
+    <thead>
+        <th><b>Sales/Quarter</b></th>
+        <th/>
+        <th><b>Product</b></th>
+        <th>
+            Actual <span style="background-color:#0085c7">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            &nbsp;&nbsp;
+            Target <span style="background-color:black">&nbsp;</span>
+        </th>
+        <th class="text-right"><b>{{qPrev}}</b></th>
+        <th class="text-right"><b>{{qThis}}</b><span title="(estimated)">*</span></th>
+    </thead>
+
+    <!-- table body -->
+    <tr ng-repeat="p in products | orderBy:'rank' | limitTo:25" 
+        ng-show="p.sales.qThis > 0" >
+        <td 
+            style="color:#0085c7" 
+            ng-bind-html="getSparklines(p.salesValues, '200px', '15px')">
+        </td>
+        <td>
+            <span ng-show="p.sales.qThis < p.levels.critical">
+                <span 
+                    class="badge badge-important" 
+                    style="background-color:#b94a48"
+                    wj-tooltip="<b>{{p.name}}</b><br/>sales this quarter are {{(1 - p.sales.qThis / p.levels.critical) * 100 | number:0}}% below the critical level<br/>({{p.sales.qThis | number:0}} vs {{p.levels.critical | number:0}} units).">
+                    !
+                </span>
+            </span>
+        </td>
+        <td>
+            <a href="#/product/{{p.id}}">
+                {{p.name}}
+            </a>
+        </td>
+        <td>
+            <wj-bullet-graph
+                style="width:150px;"
+                value="p.sales.qThis"
+                target="{{p.levels.target}}"
+                bad="{{p.levels.poor}}"
+                good="{{p.levels.good}}"
+                max="{{p.levels.good * 1.5}}">
+            </wj-bullet-graph>
+        </td>
+        <td class="text-right">{{p.sales.qPrev | number:0 }}</td>
+        <td class="text-right">{{p.sales.qThis | number:0 }}</td>
+    </tr>
+</table>
+
+<p class="text-right" ng-hide="loading">
+    <a href="#/chart">
+        see chart
+    </a>
+</p>
+
+<div style="height:200px"></div>

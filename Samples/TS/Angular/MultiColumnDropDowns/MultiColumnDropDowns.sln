@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiColumnDropDowns", "MultiColumnDropDowns\MultiColumnDropDowns.csproj", "{98B0613A-5702-4949-9D9B-50B25DF8359A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Evaluation|Any CPU = Evaluation|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Standard|Any CPU = Standard|Any CPU
+		StandardEvaluation|Any CPU = StandardEvaluation|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98B0613A-5702-4949-9D9B-50B25DF8359A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98B0613A-5702-4949-9D9B-50B25DF8359A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98B0613A-5702-4949-9D9B-50B25DF8359A}.Evaluation|Any CPU.ActiveCfg = Release|Any CPU
+		{98B0613A-5702-4949-9D9B-50B25DF8359A}.Evaluation|Any CPU.Build.0 = Release|Any CPU
+		{98B0613A-5702-4949-9D9B-50B25DF8359A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98B0613A-5702-4949-9D9B-50B25DF8359A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98B0613A-5702-4949-9D9B-50B25DF8359A}.Standard|Any CPU.ActiveCfg = Release|Any CPU
+		{98B0613A-5702-4949-9D9B-50B25DF8359A}.Standard|Any CPU.Build.0 = Release|Any CPU
+		{98B0613A-5702-4949-9D9B-50B25DF8359A}.StandardEvaluation|Any CPU.ActiveCfg = Release|Any CPU
+		{98B0613A-5702-4949-9D9B-50B25DF8359A}.StandardEvaluation|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

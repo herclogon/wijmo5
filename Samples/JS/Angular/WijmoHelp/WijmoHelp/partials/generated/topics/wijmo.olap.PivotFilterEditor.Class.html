@@ -1,0 +1,434 @@
+<h2>PivotFilterEditor Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><a href="topic/wijmo.Control.Class.html"><b>Control</b></a></dd>
+<dt>Module</dt><dd>wijmo.olap</dd>
+<dt>File</dt><dd>wijmo.olap.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p>Editor for <a href="topic/wijmo.olap.PivotFilter.Class.html"><b>PivotFilter</b></a> objects.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(element, field, options?): <a href="topic/wijmo.olap.PivotFilterEditor.Class.html"><b>PivotFilterEditor</b></a></td>
+      <td><p>
+<b>element</b> (<b>any</b>): The DOM element that hosts the control, or a selector 
+for the host element (e.g. '#theCtrl').<br/><b>field</b> (<a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a>): The <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> to edit.<br/><b>options?</b> (<b>any</b>): JavaScript object containing initialization data for the editor.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.grid.filter.ColumnFilterEditor.Class.html"><b>ColumnFilterEditor</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td><span class="badge" title="Static">S</span><span class="badge" title="Field">F</span></td>
+      <td><b>controlTemplate</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the template used to instantiate <a href="topic/wijmo.olap.PivotFilterEditor.Class.html"><b>PivotFilterEditor</b></a> controls.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>field</b></td>
+      <td><a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a></td>
+      <td>Gets a reference to the <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> whose filter is being edited.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>filter</b></td>
+      <td><a href="topic/wijmo.olap.PivotFilter.Class.html"><b>PivotFilter</b></a></td>
+      <td>Gets a reference to the <a href="topic/wijmo.olap.PivotFilter.Class.html"><b>PivotFilter</b></a> being edited.</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>hostElement</b></td>
+      <td><b>HTMLElement</b></td>
+      <td>Gets the DOM element that is hosting the control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isDisabled</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that determines whether the control is disabled.</p>
+
+<p>Disabled controls cannot get mouse or keyboard events.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isTouching</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether the control is currently handling a touch event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isUpdating</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether the control is currently being updated.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>addEventListener</b>&#8203;(target, type, fn, capture?)</td>
+      <td><p>
+<b>target</b> (<b>EventTarget</b>): Target element for the event.<br/><b>type</b> (<b>string</b>): String that specifies the event.<br/><b>fn</b> (<b>any</b>): Function to execute when the event occurs.<br/><b>capture?</b> (<b>boolean</b>): Whether the listener is capturing.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
+</td>
+      <td><p>Adds an event listener to an element owned by this <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>.</p>
+
+<p>The control keeps a list of attached listeners and their handlers,
+making it easier to remove them when the control is disposed (see the
+<b>dispose</b> and <b>removeEventListener</b> method).</p>
+
+<p>Failing to remove event listeners may cause memory leaks.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>applyTemplate</b>&#8203;(classNames, template, parts, namePart?): <b>HTMLElement</b></td>
+      <td><p>
+<b>classNames</b> (<b>string</b>): Names of classes to add to the control's host element.<br/><b>template</b> (<b>string</b>): An HTML string that defines the control template.<br/><b>parts</b> (<b>Object</b>): A dictionary of part variables and their names.<br/><b>namePart?</b> (<b>string</b>): Name of the part to be named after the host element. This
+determines how the control submits data when used in forms.<br/></p>
+</td>
+      <td><p>Applies the template to a new instance of a control, and returns the root element.</p>
+
+<p>This method should be called by constructors of templated controls.
+It is responsible for binding the template parts to the 
+corresponding control members.</p>
+
+<p>For example, the code below applies a template to an instance
+of an <a href="topic/wijmo.input.InputNumber.Class.html"><b>InputNumber</b></a> control. The template must contain elements 
+with the 'wj-part' attribute set to 'input', 'btn-inc', and 'btn-dec'.
+The control members '_tbx', '_btnUp', and '_btnDn' will be assigned
+references to these elements.</p>
+
+<p><pre>this.applyTemplate('wj-control wj-inputnumber', template, {
+  _tbx: 'input',
+  _btnUp: 'btn-inc',
+  _btnDn: 'btn-dec'
+}, 'input');</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>beginUpdate</b>&#8203;()</td>
+      <td></td>
+      <td>Suspends notifications until the next call to <b>endUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>clearEditor</b>&#8203;()</td>
+      <td></td>
+      <td>Clears the editor fields without applying changes to the filter.</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>containsFocus</b>&#8203;(): <b>boolean</b></td>
+      <td></td>
+      <td>Checks whether this control contains the focused element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>deferUpdate</b>&#8203;(fn)</td>
+      <td><p>
+<b>fn</b> (<b>Function</b>): Function to be executed.<br/></p>
+</td>
+      <td><p>Executes a function within a <b>beginUpdate</b>/<b>endUpdate</b> block.</p>
+
+<p>The control will not be updated until the function has been executed.
+This method ensures <b>endUpdate</b> is called even if the function throws
+an exception.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>dispose</b>&#8203;()</td>
+      <td></td>
+      <td><p>Disposes of the control by removing its association with the host element.</p>
+
+<p>The <b>dispose</b> method automatically removes any event listeners added
+with the <b>addEventListener</b> method.</p>
+
+<p>Calling the <b>dispose</b> method is important in applications that create
+and remove controls dynamically. Failing to dispose of the controls may
+cause memory leaks.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>disposeAll</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<b>HTMLElement</b>): Container element.<br/></p>
+</td>
+      <td>Disposes of all Wijmo controls contained in an HTML element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>endUpdate</b>&#8203;()</td>
+      <td></td>
+      <td>Resumes notifications suspended by calls to <b>beginUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>focus</b>&#8203;()</td>
+      <td></td>
+      <td>Sets the focus to this control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>getControl</b>&#8203;(element): <a href="topic/wijmo.Control.Class.html"><b>Control</b></a></td>
+      <td><p>
+<b>element</b> (<b>any</b>): The DOM element that is hosting the control, or a selector for the host element (e.g. '#theCtrl').<br/></p>
+</td>
+      <td>Gets the control that is hosted in a given DOM element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>getTemplate</b>&#8203;(): <b>string</b></td>
+      <td></td>
+      <td><p>Gets the HTML template used to create instances of the control.</p>
+
+<p>This method traverses up the class hierarchy to find the nearest ancestor that
+specifies a control template. For example, if you specify a prototype for the
+<a href="topic/wijmo.input.ComboBox.Class.html"><b>ComboBox</b></a> control, it will override the template defined by the <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a> 
+base class.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>initialize</b>&#8203;(options)</td>
+      <td><p>
+<b>options</b> (<b>any</b>): Object that contains the initialization data.<br/></p>
+</td>
+      <td><p>Initializes the control by copying the properties from a given object.</p>
+
+<p>This method allows you to initialize controls using plain data objects
+instead of setting the value of each property in code.</p>
+
+<p>For example:
+<pre>
+grid.initialize({
+  itemsSource: myList,
+  autoGenerateColumns: false,
+  columns: [
+    { binding: 'id', header: 'Code', width: 130 },
+    { binding: 'name', header: 'Name', width: 60 } 
+  ]
+});
+// is equivalent to
+grid.itemsSource = myList;
+grid.autoGenerateColumns = false;
+// etc.
+</pre></p>
+
+<p>The initialization data is type-checked as it is applied. If the 
+initialization object contains unknown property names or invalid
+data types, this method will throw.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>invalidate</b>&#8203;(fullUpdate?)</td>
+      <td><p>
+<b>fullUpdate?</b> (<b>boolean</b>): Whether to update the control layout as well as the content.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Invalidates the control causing an asynchronous refresh.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>invalidateAll</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<b>HTMLElement</b>): Container element. If set to null, all Wijmo controls
+on the page will be invalidated.<br/></p>
+</td>
+      <td><p>Invalidates all Wijmo controls contained in an HTML element.</p>
+
+<p>Use this method when your application has dynamic panels that change
+the control's visibility or dimensions. For example, splitters, accordions,
+and tab controls usually change the visibility of its content elements.
+In this case, failing to notify the controls contained in the element
+may cause them to stop working properly.</p>
+
+<p>If this happens, you must handle the appropriate event in the dynamic
+container and call the <b>invalidateAll</b> method so the contained
+Wijmo controls will update their layout information properly.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>onFinishEditing</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>finishEditing</b> event.</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onGotFocus</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>gotFocus</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onLostFocus</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>lostFocus</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>refresh</b>&#8203;(fullUpdate?)</td>
+      <td><p>
+<b>fullUpdate?</b> (<b>boolean</b>): Whether to update the control layout as well as the content.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Refreshes the control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>refreshAll</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<b>HTMLElement</b>): Container element. If set to null, all Wijmo controls
+on the page will be invalidated.<br/></p>
+</td>
+      <td><p>Refreshes all Wijmo controls contained in an HTML element.</p>
+
+<p>This method is similar to <b>invalidateAll</b>, except the controls
+are updated immediately rather than after an interval.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>removeEventListener</b>&#8203;(target?, type?, capture?): <b>number</b></td>
+      <td><p>
+<b>target?</b> (<b>EventTarget</b>): Target element for the event. If null, removes listeners attached to all targets.<br/><b>type?</b> (<b>string</b>): String that specifies the event. If null, removes listeners attached to all events.<br/><b>capture?</b> (<b>boolean</b>): Whether the listener is capturing. If null, removes capturing and non-capturing listeners.<br/></p>
+</td>
+      <td>Removes one or more event listeners attached to elements owned by this <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>.<br/><br/><b>Returns</b> The number of listeners removed.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>updateEditor</b>&#8203;()</td>
+      <td></td>
+      <td>Updates the editor with current filter settings.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>updateFilter</b>&#8203;()</td>
+      <td></td>
+      <td>Updates the filter to reflect the current editor values.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>finishEditing</b></td>
+      <td><a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a></td>
+      <td>Occurs when the user finishes editing the filter.</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>gotFocus</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs when the control gets the focus.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>lostFocus</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs when the control loses the focus.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

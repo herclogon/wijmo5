@@ -1,0 +1,67 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    This sample shows how to add text to a page.
+    <a href="" target="_self" data-toggle="collapse" data-target=".collapse" class="collapse in read-more">Read More</a>
+</p>
+
+<div class="collapse">
+    <p>
+        Each of the drawing areas provide <b>drawText</b> method to draw text. It takes the following arguments:
+    </p>
+
+    <ul>
+        <li>The text to draw</li>
+        <li>The X-coordinate of the point to draw the text at (optional)</li>
+        <li>The Y-coordinate of the point to draw the text at (optional)</li>
+        <li>The text drawing options (optional)</li>
+    </ul>
+
+    <p>For example:</p>    
+    <pre>
+doc.drawText("Lorem.");
+doc.drawText("Ipsum.", 0, 30);</pre>
+
+    <h3>Current text coordinates</h3>
+    <p>
+        There is a concept of the current text coordinates, represented by the drawing area's <b>x</b> and <b>y</b> properties.
+        These coordinates are used by the drawText method if positioning arguments are not defined.
+        Each call to the drawText method updates the current text coordinates internally (even if the coordinates were passed into the method explicitly),
+        so, any subsequent text is placed below the previous one. 
+    </p>
+    <p>
+        Use the drawing area's <b>moveDown</b> and <b>moveUp</b> methods to move the Y-coordinate lower or upper with a given number of lines (default = 1).
+    </p>
+
+    <h3>Wrapping, clipping and alignment</h3>
+    <p>The text is drawn within a rectangular area defined as follows:</p>
+    <ul>
+        <li>
+            The x and y arguments determine the upper-left corner of the area. If omitted, then the current text coordinates are used instead.
+        </li>
+        <li>
+            The options.width and options.height properties determine the size of the area. If options.width is omitted, then the area will be limited
+            horizontally by right margin of the page. If options.height is omitted, then the area will be limited vertically by the bottom edge of
+            a body section. Use Infinity to indicate that the area has an infinite size in that direction.
+        </li>
+    </ul>
+    <p>
+        The text is wrapped and clipped automatically within the area.
+        If <b>options.height</b> is not defined, then the text will be extended to a new page automatically if it exceeds the bottom edge of the body section.
+    </p>
+    <p>
+       Use the <b>options.align</b> property to determine how text should be aligned horizontally within the area. The following alignment methods are supported: left (default), center, right, justify.
+    </p>
+    <p>For example, the following code draws a text within a 300x100 rectangle using current text coordinates and aligns it to the right.</p>
+    <pre>
+doc.drawText("Lorem", null, null, {
+    height: 100,
+    width: 300,
+    align: wijmo.pdf.PdfTextHorizontalAlign.Right
+});</pre>
+    <p>
+        This sample illustrates basic usage of the <b>drawText</b> method.
+    </p>
+</div>
+
+<!-- Export button -->
+<button class="btn btn-default" id="Button1" ng-click="export()">Export</button>

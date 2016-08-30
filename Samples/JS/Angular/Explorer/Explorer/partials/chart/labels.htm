@@ -1,0 +1,48 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Labels</h3>
+        <p>
+            This view demonstrates how you can use the <b>FlexChart</b>'s <b>dataLabel</b>
+            property to add labels to each data point.</p>
+    </div>
+    <div>
+
+        <wj-menu value="ctx.chart.chartType" header="Chart Type">
+            <wj-menu-item value="0">Column</wj-menu-item>
+            <wj-menu-item value="1">Bar</wj-menu-item>
+            <wj-menu-item value="2">Scatter</wj-menu-item>
+            <wj-menu-item value="3">Line</wj-menu-item>
+            <wj-menu-item value="4">LineSymbols</wj-menu-item>
+            <wj-menu-item value="5">Area</wj-menu-item>
+            <wj-menu-item value="9">Spline</wj-menu-item>
+            <wj-menu-item value="10">SplineSymbols</wj-menu-item>
+            <wj-menu-item value="11">SplineArea</wj-menu-item>
+        </wj-menu>
+        <wj-menu header="Label Position" value="ctx.pos" item-clicked="positionClicked(s, e)">
+            <wj-menu-item value="0">None</wj-menu-item>
+            <wj-menu-item value="2">Top</wj-menu-item>
+            <wj-menu-item value="4">Bottom</wj-menu-item>
+            <wj-menu-item value="1">Left</wj-menu-item>
+            <wj-menu-item value="3">Right</wj-menu-item>
+            <wj-menu-item value="5">Center</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu value="ctx.border" header="Labels border" ng-show="hasLabels()" item-clicked="borderClicked(s, e)">
+            <wj-menu-item value="false">False</wj-menu-item>
+            <wj-menu-item value="true">True</wj-menu-item>
+        </wj-menu>
+
+        <wj-flex-chart class="chart"
+                       control="ctx.chart"
+                       items-source="ctx.itemsSource"
+                       binding-x="name"
+                       tooltip-content="" 
+                       label-content="{y}"
+                       >
+            <wj-flex-chart-series name="March" binding="mar"></wj-flex-chart-series>
+            <wj-flex-chart-series name="April" binding="apr"></wj-flex-chart-series>
+            <wj-flex-chart-series name="May" binding="may"></wj-flex-chart-series>
+        </wj-flex-chart>
+    </div>
+</div>

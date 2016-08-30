@@ -1,0 +1,102 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            RadialGauge
+        </h3>
+        <p>
+            The RadialGauge control displays a circular scale with an indicator that represents
+            a single value and optional ranges to represent reference values.
+        </p>
+        <p>
+            You can use the RadialGauge as a simple indicator, or set the <b>isReadOnly</b>
+            property to false and use it as an input control.
+        </p>
+        <p>
+            You can also populate the <b>ranges</b> collection to define ranges of interest,
+            shown in different colors.
+        </p>
+
+        <p>
+            This is a RadialGauge with default settings:
+        </p>
+        <wj-radial-gauge class="radialgauge"
+                         style="display:block"
+                         [(value)]="gauge.value"
+                         [min]="gauge.min"
+                         [max]="gauge.max">
+        </wj-radial-gauge>
+
+        <p>
+            This is a RadialGauge with a thinner pointer and ranges that indicate good,
+            acceptable, and bad values.
+        </p>
+        <p>
+            In this example, the <b>isReadOnly</b> property was set to false.
+            This makes the gauge editable, similar to a slider control:
+        </p>
+        <wj-radial-gauge class="radialgauge"
+                         style="display:block"
+                         [(value)]="gauge.value"
+                         [isReadOnly]="false"
+                         [step]="gauge.step"
+                         [min]="gauge.min"
+                         [max]="gauge.max">
+            <wj-range [wjProperty]="'pointer'" [thickness]="0.5"></wj-range>
+            <wj-range [min]="0" [max]="gauge.max * .33" [color]="'rgba(100,255,100,.1)'"></wj-range>
+            <wj-range [min]="gauge.max * .33" [max]="gauge.max * .66" [color]="'rgba(255,255,100,.1)'"></wj-range>
+            <wj-range [min]="gauge.max * .66" [max]="gauge.max" [color]="'rgba(255,100,100,.1)'"></wj-range>
+        </wj-radial-gauge>
+
+        <p>
+            This is a RadialGauge with a pointer that changes color from green to yellow and
+            to red as the value grows.
+        </p>
+        <p>
+            In this example, the <b>showRanges</b> property was set to false.
+            This makes the gauge use the ranges only to calculate the color of the pointer.
+        </p>
+        <wj-radial-gauge class="radialgauge"
+                         style="display:block"
+                         [(value)]="gauge.value"
+                         [isReadOnly]="false"
+                         [step]="gauge.step"
+                         [min]="gauge.min"
+                         [max]="gauge.max"
+                         [showRanges]="false">
+            <wj-range [min]="0" [max]="gauge.max * .33" [color]="'green'"></wj-range>
+            <wj-range [min]="gauge.max * .33" [max]="gauge.max * .66" [color]="'yellow'"></wj-range>
+            <wj-range [min]="gauge.max * .66" [max]="gauge.max" [color]="'red'"></wj-range>
+        </wj-radial-gauge>
+
+        <p>
+            The gauges below have different values for the <b>startAngle</b> and <b>sweepAngle</b>
+            properties.
+            The <b>autoScale</b> property is set to true, so the gauges are automatically scaled
+            to fill the containing element:
+        </p>
+        <div class="row">
+            <div class="col-md-3" *ngFor="let angles of gauge.angles">
+                <div class="text-center">
+                    startAngle: <b>{{angles.start}}</b><br />
+                    sweepAngle: <b>{{angles.sweep}}</b>
+                </div>
+                <wj-radial-gauge class="radialgauge"
+                                 style="display:block"
+                                 [(value)]="gauge.value"
+                                 [isReadOnly]="false"
+                                 [showText]="'Value'"
+                                 [step]="gauge.step"
+                                 [min]="gauge.min"
+                                 [max]="gauge.max"
+                                 [startAngle]="angles.start"
+                                 [sweepAngle]="angles.sweep"
+                                 [showRanges]="false">
+                    <wj-range [wjProperty]="'pointer'" [thickness]="0.5"></wj-range>
+                    <wj-range [min]="0" [max]="gauge.max * .33" [color]="'green'"></wj-range>
+                    <wj-range [min]="gauge.max * .33" [max]="gauge.max * .66" [color]="'yellow'"></wj-range>
+                    <wj-range [min]="gauge.max * .66" [max]="gauge.max" [color]="'red'"></wj-range>
+                </wj-radial-gauge>
+            </div>
+        </div>
+    </div>
+</div>

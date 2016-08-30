@@ -1,0 +1,49 @@
+<h2>SelectionMode Enum</h2>
+<dl class="dl-horizontal">
+  <dt>Module</dt><dd>wijmo.chart</dd>
+  <dt>File</dt><dd>wijmo.chart.js</dd>
+</dl>
+<p>Specifies what is selected when the user clicks the chart.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideValues = !hideValues">
+<span class="glyph-collapsed" ng-show="hideValues"></span>
+<span class="glyph-expanded" ng-hide="hideValues"></span>
+Values
+</h3>
+</div>
+<table ng-hide="hideValues" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>None</b></td>
+      <td>Select neither series nor data points when the user clicks the chart.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Point</b></td>
+      <td>Select the data point when the user clicks it on the chart. Since Line, Area, Spline,
+and SplineArea charts do not render individual data points, nothing is selected with this
+setting on those chart types.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Series</b></td>
+      <td>Select the whole <a href="topic/wijmo.chart.Series.Class.html"><b>Series</b></a> when the user clicks it on the chart.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

@@ -1,0 +1,38 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    This sample shows how to export FlexGrid to an existing PdfDocument using <b>draw</b> and <b>drawToPosition</b> methods with different settings.
+    <a href="" target="_self" data-toggle="collapse" data-target=".collapse" class="collapse in read-more">Read More</a>
+</p>
+
+<div class="collapse">
+    <p>
+        Apart from <b>export</b> method, FlexGridPdfConverter also provides the <b>draw</b> and <b>drawToPosition</b> class methods which are used to export FlexGrid to an existing PdfDocument instance.
+    </p>
+    <p>
+        Here is the differences between these methods:
+    </p>
+    <ol>
+        <li>
+            The draw method draws a grid in text flow by using (0, doc.y) coordinates as the position to draw at, while drawToPosition method draws the grid at a specific position only.
+        </li>
+        <li>
+            The draw method can break a grid into multiple pages depending on scaling settings provided by the width and height arguments, while drawToPosition method always uses a single page to draw.
+        </li>
+    </ol>
+    <p>The following code snippet shows usage of these methods:</p>
+    <pre>
+wijmo.grid.pdf.FlexGridPdfConverter.draw(grid, doc);
+wijmo.grid.pdf.FlexGridPdfConverter.drawToPosition(grid, doc, new wijmo.Point(0, 300));</pre>
+</div>
+
+<!-- Export button -->
+<button class="btn btn-default" id="Button1" ng-click="export()">Export</button>
+<wj-flex-grid class="grid"
+        control="ctx.grid"
+        headers-visibility="All"
+        items-source="ctx.data">
+    <wj-flex-grid-column header="ID" binding="id"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Start Date" binding="start" format="d"></wj-flex-grid-column>
+    <wj-flex-grid-column header="End Date" binding="end" format="d"></wj-flex-grid-column>
+    <wj-flex-grid-column header="Country" binding="country"></wj-flex-grid-column>
+</wj-flex-grid>

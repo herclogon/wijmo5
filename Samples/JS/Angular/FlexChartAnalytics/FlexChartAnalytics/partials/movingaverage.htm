@@ -1,0 +1,49 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            FlexChart MovingAverage
+        </h3>
+        <p>
+            This view shows Moving Average in FlexChart.
+        </p>
+        <p>
+            You can use different moving average types by setting the <b>type</b>
+            property of MovingAverage.
+        </p>
+        <p>
+            The MovingAverage class has a <b>period</b> property that allows you to set
+            the number of periods for computing the average value.
+        </p>
+    </div>
+    <div class="container-fluid well">
+        <div class="row">
+            <div class="col-sm-4 col-xs-12">
+                <wj-menu id="menuType" value="type" header="Type" text="type">
+                    <wj-menu-item value="'Simple'">Simple</wj-menu-item>
+                    <wj-menu-item value="'Weighted'">Weighted</wj-menu-item>
+                    <wj-menu-item value="'Exponential'">Exponential</wj-menu-item>
+                    <wj-menu-item value="'Triangular'">Triangular</wj-menu-item>
+                </wj-menu>
+            </div>
+            <div class="col-sm-8 col-xs-12">
+                <label id="labelPeriod" for="inputPeriod">Period:</label>
+                <wj-input-number value="iptPeriod" control="inputPeriod"
+                                    min="2"
+                                    max="29"
+                                    step="1"
+                                    format="n0">
+                </wj-input-number>
+            </div>
+        </div>
+    </div>
+    <wj-flex-chart items-source="itemsSource"
+                   binding-x="x"
+                   control="machart">
+        <wj-flex-chart-legend position="Right"></wj-flex-chart-legend>
+        <wj-flex-chart-series chart-type="Line" name="Base Data" binding="y"></wj-flex-chart-series>
+        <wj-flex-chart-moving-average binding="y" binding-x="x"
+                                      period="{{period}}"
+                                      name="{{type[0] + 'MA'}}">
+        </wj-flex-chart-moving-average>
+    </wj-flex-chart>
+</div>

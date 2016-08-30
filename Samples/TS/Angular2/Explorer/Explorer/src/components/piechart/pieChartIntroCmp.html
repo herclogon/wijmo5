@@ -1,0 +1,87 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Introduction
+        </h3>
+        <p>
+            This view shows the <b>FlexPie</b>'s basic features. It binds the chart to a
+            data source.
+        </p>
+        <p>
+            If you move the mouse over a chart element, a tooltip will appear showing details
+            about the data point.
+        </p>
+    </div>
+    <div>
+        <wj-menu [(value)]="chart.innerRadius" [header]="'Inner radius'">
+            <wj-menu-item [value]="0">0</wj-menu-item>
+            <wj-menu-item [value]="0.25">0.25</wj-menu-item>
+            <wj-menu-item [value]="0.5">0.5</wj-menu-item>
+            <wj-menu-item [value]="0.75">0.75</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu [(value)]="chart.offset" [header]="'Offset'">
+            <wj-menu-item [value]="0">0</wj-menu-item>
+            <wj-menu-item [value]="0.1">0.1</wj-menu-item>
+            <wj-menu-item [value]="0.2">0.2</wj-menu-item>
+            <wj-menu-item [value]="0.3">0.3</wj-menu-item>
+            <wj-menu-item [value]="0.4">0.4</wj-menu-item>
+            <wj-menu-item [value]="0.5">0.5</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu [(value)]="chart.startAngle" [header]="'Start angle'">
+            <wj-menu-item [value]="0">0</wj-menu-item>
+            <wj-menu-item [value]="90">90</wj-menu-item>
+            <wj-menu-item [value]="180">180</wj-menu-item>
+            <wj-menu-item [value]="-90">-90</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu [(value)]="chart.reversed" header="Reversed">
+            <wj-menu-item [value]="false">False</wj-menu-item>
+            <wj-menu-item [value]="true">True</wj-menu-item>
+        </wj-menu>
+
+        <!--<wj-menu [value]="ctx.palette" header="Palette:<b>{{ctx.palette}}</b>" 
+                items-source="ctx.palettes" item-clicked="menuPaletteItemClicked(s, e)">
+        </wj-menu>-->
+        <wj-menu [(value)]="pal" [header]="'Palette'">
+            <wj-menu-item [value]="0">Standard</wj-menu-item>
+            <wj-menu-item [value]="1">Cocoa</wj-menu-item>
+            <wj-menu-item [value]="2">Coral</wj-menu-item>
+            <wj-menu-item [value]="3">Dark</wj-menu-item>
+            <wj-menu-item [value]="4">High Contrast</wj-menu-item>
+            <wj-menu-item [value]="5">Light</wj-menu-item>
+            <wj-menu-item [value]="6">Midnight</wj-menu-item>
+            <wj-menu-item [value]="7">Minimal</wj-menu-item>
+            <wj-menu-item [value]="8">Modern</wj-menu-item>
+            <wj-menu-item [value]="9">Organic</wj-menu-item>
+            <wj-menu-item [value]="10">Slate</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu [(value)]="chart.dataLabel.position" [header]="'Labels'" >
+            <wj-menu-item [value]="0">None</wj-menu-item>
+            <wj-menu-item [value]="1">Inside</wj-menu-item>
+            <wj-menu-item [value]="2">Center</wj-menu-item>
+            <wj-menu-item [value]="3">Outside</wj-menu-item>
+        </wj-menu>
+
+        <wj-menu [(value)]="chart.dataLabel.border" 
+                 [header]="'Labels border'" 
+                 [ngStyle]="{display: hasLabels() ? '' : 'none'}">
+            <wj-menu-item [value]="false">False</wj-menu-item>
+            <wj-menu-item [value]="true">True</wj-menu-item>
+        </wj-menu>
+
+
+        <!-- the chart -->
+        <wj-flex-pie #chart
+                     class="chart"
+                     style="display:block"
+                     [binding]="'value'"
+                     [bindingName]="'name'"
+                     [itemsSource]="itemsSource"
+                     [labelContent]="'{value}'"
+                     [palette]="getPalette(pal)">
+        </wj-flex-pie>
+    </div>
+</div>

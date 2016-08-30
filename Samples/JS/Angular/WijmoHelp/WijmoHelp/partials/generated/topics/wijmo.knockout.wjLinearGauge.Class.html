@@ -1,0 +1,46 @@
+<h2>wjLinearGauge Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjGaugeBinding</b></dd>
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.knockout.wjBulletGraph.Class.html"><b>wjBulletGraph</b></a></dd>
+<dt>Module</dt><dd>wijmo.knockout</dd>
+<dt>File</dt><dd>wijmo.knockout.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>KnockoutJS binding for the <a href="topic/wijmo.gauge.LinearGauge.Class.html"><b>LinearGauge</b></a> control.</p>
+
+<p>Use the <b>wjLinearGauge</b> binding to add <b>LinearGauge</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a LinearGauge control:&lt;/p&gt;
+&lt;div data-bind="wjLinearGauge: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        showRanges: props.showRanges }"
+        &lt;class="linear-gauge"&gt;
+    &lt;div data-bind="wjRange: { 
+            wjProperty: 'pointer', 
+            thickness: props.ranges.pointerThickness }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjRange: { 
+            min: props.ranges.lower.min, 
+            max: props.ranges.lower.max, 
+            color: props.ranges.lower.color }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjRange: { 
+            min: props.ranges.middle.min, 
+            max: props.ranges.middle.max, 
+            color: props.ranges.middle.color }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjRange: { 
+            min: props.ranges.upper.min, 
+            max: props.ranges.upper.max, 
+            color: props.ranges.upper.color }"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjLinearGauge</b> binding may contain the <a href="topic/wijmo.knockout.wjRange.Class.html"><b>wjRange</b></a> child binding. </p>
+
+<p>The <b>wjLinearGauge</b> binding supports all read-write properties and events of 
+the <b>LinearGauge</b> control. The <b>value</b> property provides two-way binding mode.</p></p>

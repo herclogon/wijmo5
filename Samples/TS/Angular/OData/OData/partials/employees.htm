@@ -1,0 +1,45 @@
+﻿<br />
+<wj-menu value="cvEmp.sortOnServer" header="Sort on Server">
+    <wj-menu-item value="true">True</wj-menu-item>
+    <wj-menu-item value="false">False</wj-menu-item>
+</wj-menu>
+<wj-menu value="cvEmp.pageOnServer" header="Page on Server">
+    <wj-menu-item value="true">True</wj-menu-item>
+    <wj-menu-item value="false">False</wj-menu-item>
+</wj-menu>
+<wj-menu value="cvEmp.pageSize" header="Page Size">
+	<wj-menu-item value="0">No Paging</wj-menu-item>
+	<wj-menu-item value="5">5</wj-menu-item>
+	<wj-menu-item value="10">10</wj-menu-item>
+	<wj-menu-item value="20">20</wj-menu-item>
+</wj-menu>
+<wj-collection-view-pager 
+    cv="cvEmp"
+    ng-show="cvEmp.pageSize !== 0">
+</wj-collection-view-pager>
+<br />
+<br />
+
+<p>
+    View/Edit the Northwind Employees:</p>
+
+<wj-flex-grid 
+    class="grid" 
+    selection-mode="RowRange" 
+    allow-add-new="true" 
+    allow-delete="true" 
+    items-source="cvEmp">
+    <wj-flex-grid-column binding="First_Name" header="First Name"></wj-flex-grid-column>
+    <wj-flex-grid-column binding="Last_Name" header="Last Name"></wj-flex-grid-column>
+    <wj-flex-grid-column binding="Title" header="Title"></wj-flex-grid-column>
+    <wj-flex-grid-column binding="Address" header="Address"></wj-flex-grid-column>
+    <wj-flex-grid-column binding="City" header="City"></wj-flex-grid-column>
+    <wj-flex-grid-column binding="Region" header="Region"></wj-flex-grid-column>
+    <wj-flex-grid-column binding="Country" header="Country"></wj-flex-grid-column>
+    <wj-flex-grid-column binding="Postal_Code" header="Postal Code"></wj-flex-grid-column>
+    <wj-flex-grid-column binding="Home_Phone" header="Phone"></wj-flex-grid-column>
+    <wj-flex-grid-column binding="Extension" header="Extension"></wj-flex-grid-column>
+    <wj-flex-grid-column binding="Birth_Date" header="Birth Date"></wj-flex-grid-column>
+    <wj-flex-grid-column binding="Hire_Date" header="Hire Date"></wj-flex-grid-column>
+    <wj-flex-grid-column binding="Reports_To" header="Reports To" data-map="mapEmp"></wj-flex-grid-column>
+</wj-flex-grid>

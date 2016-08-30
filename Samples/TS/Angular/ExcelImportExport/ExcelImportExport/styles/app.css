@@ -1,0 +1,148 @@
+﻿/* customize Bootstrap header classes */
+.header {
+	background-color: #283442;
+	color: #e0efe5;
+	padding: 15px 0;
+}
+
+	.header h1 {
+		font-size: 40px;
+		line-height: 1;
+		color: #fff;
+	}
+
+	.header img {
+		float: left;
+		margin: 0 10px 5px 0;
+	}
+
+/* set font for the document */
+body {
+	font-family: 'Segoe UI', sans-serif;
+	padding-bottom: 75px;
+
+}
+
+input[type="file"] {
+	height: auto;
+	padding: 3px 12px;
+}
+
+.form-inline .checkbox {
+	padding-left: 15px;
+}
+
+.pane-content {
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background-color: white;
+	border-color: #dddddd;
+	border-image: none;
+	border-right: 1px solid #dddddd;
+	border-style: none solid solid;
+	border-width: medium 1px 1px;
+	font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+	font-size: 13px;
+	overflow: auto;
+	padding: 0 8px;
+	white-space: pre;
+}
+
+.appCopy {
+	margin: 30px 0 40px 0;
+}
+
+	.appCopy h2 {
+		margin-top: 0;
+	}
+
+a.sampleButton {
+	background-color: #283442;
+	display: inline-block;
+	padding: 10px 25px;
+	color: #fff;
+	text-decoration: none;
+	margin-top: 20px;
+}
+
+	a.sampleButton:hover {
+		background-color: #38495c;
+		color: #fff;
+		text-decoration: none;
+	}
+
+.nested {
+	margin-left: 30px;
+}
+
+
+@media (min-width: 768px) {
+	#importFile {
+		width: 240px;
+	}
+}
+
+
+/* Additional Styles - TAE */
+
+.home {
+	font-size: 16px;
+}
+
+p.larger {
+	font-size: 22px;
+	margin: 40px 0 30px 0;
+}
+
+h3 + p {
+	margin-bottom: 15px;
+}
+
+nav {
+	width: 100%;
+	background: #f4f4f4;
+	color: #283442;
+	margin-bottom: 40px;
+}
+
+	nav a {
+		color: #283442;
+	}
+
+	nav ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+		nav ul li {
+			display: inline-block;
+			padding: 15px;
+		}
+
+			nav ul li.active {
+				font-weight: bold;
+			}
+
+footer {
+	font-size: 14px !important;
+	margin: 60px 0;
+	border-top: 1px solid #eee;
+	padding-top: 20px;
+}
+
+
+@media only screen and ( max-width : 420px ) {
+	/* Phones */
+
+	nav ul {
+		margin: 10px 0;
+	}
+
+		nav ul li {
+			display: block;
+			padding: 5px 0;
+		}
+}

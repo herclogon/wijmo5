@@ -1,0 +1,136 @@
+<h2>PlotArea Class</h2>
+<dl class="dl-horizontal">
+<dt>Derived Classes</dt><dd><a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartPlotArea.Class.html"><b>WjFlexChartPlotArea</b></a></dd>
+<dt>Module</dt><dd>wijmo.chart</dd>
+<dt>File</dt><dd>wijmo.chart.js</dd>
+</dl>
+<p><p>Represents a plot area on the chart.</p>
+
+<p>The chart can have multiple plot areas with multiple axes.
+To assign axis to plot area use <b>Axis.plotArea</b> property. For example:
+<pre>
+ // create a plot area
+ var pa = new wijmo.chart.PlotArea();
+ pa.row = 1;
+ chart.plotAreas.push(pa);
+ // create auxiliary y-axis
+ var ay2 = new wijmo.chart.Axis(wijmo.chart.Position.Left);
+ ay2.plotArea = pa; // attach axis to the plot area
+ chart.axes.push(ay2);
+ // plot first series along y-axis
+ chart.series[0].axisY = ay2;
+</pre></p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(): <a href="topic/wijmo.chart.PlotArea.Class.html"><b>PlotArea</b></a></td>
+      <td></td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.chart.PlotArea.Class.html"><b>PlotArea</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>column</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the column number of plot area.
+Using <b>column</b> property, you can set vertical position of the plot
+area on the chart.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>height</b></td>
+      <td><b>any</b></td>
+      <td><p>Gets or sets height of the plot area. </p>
+
+<p>The height can be specified as number(sets the height in pixels) or
+string in the format '{number}*' (star sizing).</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>name</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the plot area name.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>row</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the row number of plot area. 
+Using <b>row</b> property, you can set horizontal position of the plot area
+on the chart.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>style</b></td>
+      <td><b>any</b></td>
+      <td><p>Gets or sets the style of the plot area. </p>
+
+<p>Using <b>style</b> property, you can set appearance of the plot area. 
+For example:
+<pre>
+  pa.style = { fill: 'rgba(0,255,0,0.1)' };
+</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>width</b></td>
+      <td><b>any</b></td>
+      <td><p>Gets or sets width of the plot area. </p>
+
+<p>The width can be specified as number(sets the width in pixels) or
+string in the format '{number}*' (star sizing).</p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

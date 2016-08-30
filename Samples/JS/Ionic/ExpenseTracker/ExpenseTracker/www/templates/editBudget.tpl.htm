@@ -1,0 +1,13 @@
+﻿<ion-view title="Budget">
+    <ion-content class="has-header padding">
+        <div class="custom-form-list list">
+            <wj-input-number value="data.budget" min="0" step="10" format="c2"></wj-input-number>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="bar button-bar-footer">
+        <div class="button-bar">
+            <button type="button" class="button button-dark icon-left ion-close" on-tap="cancel()">Cancel</button>
+            <button type="button" class="button button-balanced icon-left ion-checkmark" on-tap="updateBudget()">Save</button>
+        </div>
+    </ion-footer-bar>
+</ion-view>

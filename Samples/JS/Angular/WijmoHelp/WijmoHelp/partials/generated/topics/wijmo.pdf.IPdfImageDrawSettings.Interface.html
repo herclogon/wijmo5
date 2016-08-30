@@ -1,0 +1,72 @@
+<h2>IPdfImageDrawSettings Class</h2>
+<dl class="dl-horizontal">
+<dt>Module</dt><dd>wijmo.pdf</dd>
+<dt>File</dt><dd>wijmo.pdf.js</dd>
+</dl>
+<p><p>Represents the image drawing settings used by <b>drawImage</b> method.</p>
+
+<p>If neither width nor height options are provided, then the image will be rendered
+in its original size. If only width is provided, then the image will be scaled
+proportionally to fit in the provided width. If only height is provided, then the
+image will be scaled proportionally to fit in the provided height. If both width
+and height are provided, then image will be stretched to the dimensions depending
+on the stretchProportionally property.</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>align?</b></td>
+      <td><a href="topic/wijmo.pdf.PdfImageHorizontalAlign.Enum.html"><b>PdfImageHorizontalAlign</b></a></td>
+      <td>Determines the horizontal alignment in case of proportional stretching.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>height?</b></td>
+      <td><b>number</b></td>
+      <td>Determines the height of the image, in points.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>stretchProportionally?</b></td>
+      <td><b>boolean</b></td>
+      <td>Indicates whether an image will be stretched proportionally or not, if both width
+and height options are provided.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>vAlign?</b></td>
+      <td><a href="topic/wijmo.pdf.PdfImageVerticalAlign.Enum.html"><b>PdfImageVerticalAlign</b></a></td>
+      <td>Determines the vertical alignment in case of proportional stretching.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>width?</b></td>
+      <td><b>number</b></td>
+      <td>Determines the width of the image, in points.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

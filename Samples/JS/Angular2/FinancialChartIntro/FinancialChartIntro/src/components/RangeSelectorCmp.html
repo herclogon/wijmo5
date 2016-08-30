@@ -1,0 +1,149 @@
+﻿<div>
+    <h2 id="rangeselector">
+        Range Selector
+    </h2>
+    <p>
+        Range selector allows the user to choose the range of data to display on the FinancialChart.
+    </p>
+    <p>
+        In the example below, the FinancialChart control's min and max values change with the selection of range on range selector.
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div ng-non-bindable class="pane-content">
+&lt;wj-financial-chart style="border-bottom: 0 none; margin-bottom: 0px;"
+                    #stChart
+                    [itemsSource]="data"
+                    [header]="header"
+                    chartType="Candlestick"
+                    [symbolSize]="4"
+                    (rendered)="stRendered()"
+                    bindingX="date"&gt;
+    &lt;wj-financial-chart-series name="Close" binding="high,low,open,close"&gt;&lt;/wj-financial-chart-series&gt;
+&lt;/wj-financial-chart&gt;
+&lt;wj-financial-chart style="height:90px"
+                    #rsChart
+                    [itemsSource]="data"
+                    chartType="Line"
+                    (rendered)="rsRendered()"
+                    bindingX="date"&gt;
+    &lt;wj-financial-chart-series binding="close"&gt;&lt;/wj-financial-chart-series&gt;
+    &lt;wj-flex-chart-range-selector #rangeSelector [seamless]="true"
+                                    (rangeChanged)="rangeChanged()"&gt;
+    &lt;/wj-flex-chart-range-selector&gt;
+&lt;/wj-financial-chart&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+import { Component, EventEmitter, Inject, ViewChild, Input } from '@angular/core';
+import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
+import { AppTab, AppTabPane } from './AppTab';
+import * as wjNg2FlexChartInteraction from 'wijmo/wijmo.angular2.chart.interaction';
+import * as wjNg2FinancialChart from 'wijmo/wijmo.angular2.chart.finance';
+
+import { DataSvc } from './../services/DataSvc';
+
+//RangeSelector sample component
+@Component({
+    selector: 'range-selector-cmp',
+    templateUrl: 'src/components/RangeSelectorCmp.html',
+    directives: [wjNg2FinancialChart.WjFinancialChart, wjNg2FinancialChart.WjFinancialChartSeries, wjNg2FlexChartInteraction.WjFlexChartRangeSelector,
+        AppTab, AppTabPane, CORE_DIRECTIVES, FORM_DIRECTIVES]
+})
+
+export class RangeSelectorCmp {
+    dataSvc: DataSvc;
+    data: any[];
+    header: string;
+    @ViewChild('stChart') stChart: wijmo.chart.finance.FinancialChart;
+    @ViewChild('rsChart') rsChart: wijmo.chart.finance.FinancialChart;
+    @ViewChild('rangeSelector') rangeSelector: wijmo.chart.interaction.RangeSelector;
+
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+        this.data = [];
+        this.dataSvc = dataSvc;
+        this.setDataSource();
+        this.header = 'Facebook, Inc. (FB)';
+    }
+
+    stRendered() {
+        var stChart = this.stChart;
+
+        if (!stChart) {
+            return;
+        }
+        stChart.axisX.labels = false;
+        stChart.axisX.axisLine = false;
+        stChart.legend.position = 0;
+        stChart.plotMargin = '60 30 0 50';
+
+        stChart.tooltip.content = function (ht) {
+            return 'Date: ' + ht.x + '&lt;br /&gt;' +
+                'Open: ' + wijmo.Globalize.format(ht.item.open, 'n2') + '&lt;br /&gt;' +
+                'High: ' + wijmo.Globalize.format(ht.item.high, 'n2') + '&lt;br /&gt;' +
+                'Low: ' + wijmo.Globalize.format(ht.item.low, 'n2') + '&lt;br /&gt;' +
+                'Close: ' + wijmo.Globalize.format(ht.item.close, 'n2') + '&lt;br /&gt;' +
+                'Volume: ' + wijmo.Globalize.format(ht.item.volume, 'n0');
+        };
+    }
+
+    rsRendered() {
+        var rsChart = this.rsChart;
+
+        if (!rsChart) {
+            return;
+        }
+        rsChart.axisY.labels = false;
+        rsChart.axisY.majorGrid = false;
+        rsChart.tooltip.content = '';
+        rsChart.plotMargin = '0 30 NaN 50';
+    }
+
+    rangeChanged() {
+        if (this.stChart && this.rangeSelector) {
+            this.stChart.axisX.min = this.rangeSelector.min;
+            this.stChart.axisX.max = this.rangeSelector.max;
+            this.stChart.invalidate();
+        }
+    }
+
+    private setDataSource() {
+        this.dataSvc.getData().subscribe(data => {
+            this.data = data;
+        });
+    }
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>Result (live):</h4>
+            <wj-financial-chart style="border-bottom: 0 none; margin-bottom: 0;"
+                                #stChart
+                                [itemsSource]="data"
+                                [header]="header"
+                                chartType="Candlestick"
+                                [symbolSize]="4"
+                                (rendered)="stRendered()"
+                                bindingX="date">
+                <wj-financial-chart-series name="Close" binding="high,low,open,close"></wj-financial-chart-series>
+            </wj-financial-chart>
+            <wj-financial-chart style="height:90px"
+                                #rsChart
+                                [itemsSource]="data"
+                                chartType="Line"
+                                (rendered)="rsRendered()"
+                                bindingX="date">
+                <wj-financial-chart-series binding="close"></wj-financial-chart-series>
+                <wj-flex-chart-range-selector #rangeSelector [seamless]="true"
+                                              (rangeChanged)="rangeChanged()">
+                </wj-flex-chart-range-selector>
+            </wj-financial-chart>
+        </div>
+    </div>
+
+</div>

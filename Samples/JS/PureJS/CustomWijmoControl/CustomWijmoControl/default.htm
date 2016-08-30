@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Empty Wijmo TypeScript App</title>
+
+    <!-- Wijmo/jQuery references (required) -->
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+
+    <!-- Wijmo controls (optional, include the controls you need) -->
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.gauge.min.js" type="text/javascript"></script>
+
+    <!-- application scripts -->
+    <script src="scripts/MyControl.js" type="text/javascript"></script>
+</head>
+<body>
+    <p>MyControl: A Custom Wijmo 5 Control</p>
+
+    <div 
+        id="myControl" 
+        style="width:300px;background-color:yellow;">
+    </div>
+
+    <div 
+        id="myOtherControl" 
+        style="width:400px;background-color:powderblue;">
+    </div>
+
+    <script>
+
+        $(function () {
+
+            // create first control, set caption
+            var ctl = new MyControl('#myControl');
+            ctl.caption = 'this is the first control';
+            ctl.buttonClicked.addHandler(function (sender, args) {
+                alert('thanks for clicking the button in the first control');
+            });
+
+            // create another control, set caption
+            ctl = new MyControl('#myOtherControl');
+            ctl.caption = 'this is the second control';
+            ctl.buttonClicked.addHandler(function (sender, args) {
+                alert('thanks for clicking the button in the second control');
+            });
+        });
+    </script>
+</body>
+</html>

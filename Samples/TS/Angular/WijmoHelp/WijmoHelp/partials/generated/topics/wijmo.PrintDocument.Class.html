@@ -1,0 +1,153 @@
+<h2>PrintDocument Class</h2>
+<dl class="dl-horizontal">
+<dt>Module</dt><dd>wijmo</dd>
+<dt>File</dt><dd>wijmo.js</dd>
+</dl>
+<p><p>Class that enables the creation of custom documents for printing.</p>
+
+<p>The <b>PrintDocument</b> class makes it easy to create documents for printing or 
+exporting to PDF. Most browsers allow you to select the paper size, orientation, 
+margins, and whether to include page headers and footers.</p>
+
+<p>To use, instantiate a <b>PrintDocument</b>, add content using the <b>append</b> 
+method, and finish by calling the <b>print</b> method.</p>
+
+<p>For example:
+<pre>// create the document
+var doc = new wijmo.PrintDocument({
+  title: 'PrintDocument Test'
+});
+// add some simple text
+doc.append('&lt;h1&gt;Printing Example&lt;/h1&gt;');
+doc.append('&lt;p&gt;This document was created using the &lt;b&gt;PrintDocument&lt;/b&gt; class.&lt;/p&gt;');
+// add some existing elements
+doc.append(document.getElementById('gaugeControl'));
+// print the document (or export it to PDF)
+doc.print();</pre></p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(options?): <a href="topic/wijmo.PrintDocument.Class.html"><b>PrintDocument</b></a></td>
+      <td><p>
+<b>options?</b> (<b>any</b>): JavaScript object containing initialization data for the <a href="topic/wijmo.PrintDocument.Class.html"><b>PrintDocument</b></a>.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.PrintDocument.Class.html"><b>PrintDocument</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>copyCss</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that determines whether the <a href="topic/wijmo.PrintDocument.Class.html"><b>PrintDocument</b></a> should include the CSS
+style sheets defined in the main document.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>title</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the document title.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>addCSS</b>&#8203;(href)</td>
+      <td><p>
+<b>href</b> (<b>string</b>): URL of the CSS file that should be added to the document.<br/></p>
+</td>
+      <td>Adds a CSS style sheet to the document.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>append</b>&#8203;(child)</td>
+      <td><p>
+<b>child</b> (<b>any</b>): HTML element or string to append to the document.<br/></p>
+</td>
+      <td>Appends an HTML element or string to the document.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>print</b>&#8203;()</td>
+      <td></td>
+      <td>Prints the document.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

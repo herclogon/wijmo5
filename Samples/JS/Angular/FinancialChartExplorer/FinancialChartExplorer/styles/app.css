@@ -1,0 +1,99 @@
+body {
+    background-color: #f8f8f8;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    padding: 0 0 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #001F29;
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-left: -12px;
+}
+
+.header {
+    color: #0089B6;
+    background-color: #001F29;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        color: #fff;
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+ul.flat-list {
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-left: 7px;
+}
+
+    ul.flat-list > li {
+        margin-bottom: 5px;
+    }
+
+    ul.flat-list > li:last-child {
+        margin-bottom: 0;
+    }
+
+
+.small {
+    display: block;
+    font-size: 0.75em;
+    margin: 0 0 1em 0;
+}
+
+[data-toggle].read-more {
+    display: inline-block;
+}
+
+.snapping {
+    -ms-touch-action: none;
+    touch-action: none;
+}
+
+
+/*
+ * Custom RangeSelector Style
+ */
+.custom-rangeselector.wj-flexchart .wj-chart-rangeselector-container .wj-rangeslider-rangehandle {
+    background-color: rgba(136,189,230,0.7);
+}
+
+.custom-rangeselector.wj-flexchart .wj-chart-rangeselector-container .wj-rangeslider-minhandle,
+.custom-rangeselector.wj-flexchart .wj-chart-rangeselector-container .wj-rangeslider-maxhandle {
+    background-color: rgba(136,189,230,1.0);
+    border-color: #88bde6;
+    opacity: 1.0;
+}
+
+    .custom-rangeselector.wj-flexchart .wj-chart-rangeselector-container .wj-rangeslider-minhandle:active,
+    .custom-rangeselector.wj-flexchart .wj-chart-rangeselector-container .wj-rangeslider-minhandle:hover,
+    .custom-rangeselector.wj-flexchart .wj-chart-rangeselector-container .wj-rangeslider-maxhandle:active,
+    .custom-rangeselector.wj-flexchart .wj-chart-rangeselector-container .wj-rangeslider-maxhandle:hover {
+        background-color: rgba(136,189,230,0.7);
+    }
+
+
+/*
+ * Wijmo Specific
+ */
+.wj-inputnumber {
+    width: 125px;
+}
+
+.wj-flexchart {
+    margin: 10px 0;
+}

@@ -1,0 +1,161 @@
+<h2>ColumnFilter Class</h2>
+<dl class="dl-horizontal">
+<dt>Implements</dt><dd><a href="topic/wijmo.grid.filter.IColumnFilter.Interface.html"><b>IColumnFilter</b></a></dd>
+<dt>Module</dt><dd>wijmo.grid.filter</dd>
+<dt>File</dt><dd>wijmo.grid.filter.js</dd>
+</dl>
+<p><p>Defines a filter for a column on a <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control.</p>
+
+<p>The <b>ColumnFilter</b> contains a <a href="topic/wijmo.grid.filter.ConditionFilter.Class.html"><b>ConditionFilter</b></a> and a
+<a href="topic/wijmo.grid.filter.ValueFilter.Class.html"><b>ValueFilter</b></a>; only one of them may be active at a time.</p>
+
+<p>This class is used by the <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> class; you 
+rarely use it directly.</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(owner, column): <a href="topic/wijmo.grid.filter.ColumnFilter.Class.html"><b>ColumnFilter</b></a></td>
+      <td><p>
+<b>owner</b> (<a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a>): The <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> that owns this column filter.<br/><b>column</b> (<a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a>): The <a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a> to filter.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.grid.filter.ColumnFilter.Class.html"><b>ColumnFilter</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>column</b></td>
+      <td><a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a></td>
+      <td>Gets the <a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a> being filtered.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>conditionFilter</b></td>
+      <td><a href="topic/wijmo.grid.filter.ConditionFilter.Class.html"><b>ConditionFilter</b></a></td>
+      <td>Gets the <a href="topic/wijmo.grid.filter.ConditionFilter.Class.html"><b>ConditionFilter</b></a> in this <a href="topic/wijmo.grid.filter.ColumnFilter.Class.html"><b>ColumnFilter</b></a>.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>filterType</b></td>
+      <td><a href="topic/wijmo.grid.filter.FilterType.Enum.html"><b>FilterType</b></a></td>
+      <td><p>Gets or sets the types of filtering provided by this filter.</p>
+
+<p>Setting this property to null causes the filter to use the value
+defined by the owner filter's <b>defaultFilterType</b>
+property.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>isActive</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether the filter is active.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>valueFilter</b></td>
+      <td><a href="topic/wijmo.grid.filter.ValueFilter.Class.html"><b>ValueFilter</b></a></td>
+      <td>Gets the <a href="topic/wijmo.grid.filter.ValueFilter.Class.html"><b>ValueFilter</b></a> in this <a href="topic/wijmo.grid.filter.ColumnFilter.Class.html"><b>ColumnFilter</b></a>.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>apply</b>&#8203;(value): <b>boolean</b></td>
+      <td><p>
+<b>value</b> (): The value to test.<br/></p>
+</td>
+      <td>Gets a value that indicates whether a value passes the filter.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>clear</b>&#8203;()</td>
+      <td></td>
+      <td>Clears the filter.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>implementsInterface</b>&#8203;(interfaceName): <b>boolean</b></td>
+      <td><p>
+<b>interfaceName</b> (<b>string</b>): Name of the interface to look for.<br/></p>
+</td>
+      <td>Returns true if the caller queries for a supported interface.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

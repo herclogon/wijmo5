@@ -1,0 +1,75 @@
+﻿body {
+	background-color: #f8f8f8;
+	font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+.header {
+	background-color: #80044d;
+	margin-bottom: 14px;
+	padding: 12px 0px;
+	color: #e3bfd5;
+}
+
+	.header h1 {
+		font-size: 40px;
+		line-height: 1;
+		margin: 8px 0 5px 0;
+		color: #fff;
+	}
+
+	.header img {
+		float: left;
+		margin: 0 10px 5px 0;
+	}
+
+h2 {
+	margin: 15px 0 30px -12px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #80044d;
+}
+
+.pane-content {
+	background-color: white;
+	padding: 0px 8px;
+	border: 1px solid #dddddd;
+	border-top: none;
+	white-space: pre;
+	overflow: auto;
+	font-size: 13px;
+	font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+}
+
+/* set default grid height and some shadow */
+.wj-flexgrid {
+	height: 450px;
+	background-color: white;
+	box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+	margin-bottom: 12px;
+}
+
+/* make grid selection lighter so links are easy to read */
+.wj-flexgrid .wj-state-selected {
+	background-color: #c9edff;
+	color: #000;
+}
+.wj-flexgrid .wj-state-multi-selected {
+	background-color: #e1f5ff;
+	color: #000;
+}
+
+/* remove gridlines */
+.wj-flexgrid .wj-cell {
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+}
+.wj-flexgrid .wj-colheaders .wj-cell {
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+}

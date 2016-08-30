@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="WijmoNxtNorthBreeze">
+<head>
+    <meta charset="utf-8">
+    <title>NorthBreeze Wijmo 5 App</title>
+    <!-- jQuery/Angular/Bootstrap -->
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+	<script src="Scripts/q.js"></script>
+	<script src="Scripts/breeze.debug.js"></script>
+	<script src="Scripts/toastr.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/toastr.css" />
+    <link rel="stylesheet" href="App/style.css" />
+
+	<!-- Wijmo -->
+	<script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+	<script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.grid.filter.min.js" type="text/javascript"></script>
+	<script src="scripts/vendor/wijmo.chart.min.js" type="text/javascript"></script>
+	<link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+
+	<!-- Wijmo-Angular interop -->
+	<script src="scripts/vendor/wijmo.angular.min.js" type="text/javascript"></script>
+
+    <script src="Scripts/BreezeCollectionView.js"></script>
+	<script src="App/app.js"></script>
+	<script src="App/logger.js"></script>
+	<script src="App/dataservice.js"></script>
+	<script src="App/controllers.js"></script>
+	<script src="App/directives.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div ng-controller="RouteCtrl">
+        <a class="navbar-brand" href="#/">
+            <span class="title">NorthBreeze Wijmo 5</span> 
+        </a>
+        <div class="btn-group">
+            <a 
+                ng-repeat="link in links" 
+                class="btn btn-info navbar-btn" 
+                ng-class="{active: $route.current.templateUrl == link.templateUrl}" 
+                href="#{{link.path}}">{{link.name}}
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div ng-view style="margin: 50px"></div>
+
+    <!-- Google analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

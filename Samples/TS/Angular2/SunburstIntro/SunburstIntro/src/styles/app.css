@@ -1,0 +1,89 @@
+﻿body {
+    background-color: #f8f8f8;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    padding: 0 0 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #80044d;
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-left: -12px;
+}
+
+.header {
+    color: #e3bfd5;
+    background-color: #80044d;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        color: #fff;
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+    .header img {
+		float: left;
+		margin: 0 10px 5px 0;
+	}
+
+.pane-content {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+    font-size: 13px;
+    overflow: auto;
+    padding: 0 8px;
+    white-space: pre;
+    max-height: 350px;
+}
+
+.pane-content code {
+    background-color: #fff;
+    color: #000;
+    padding: 0;
+}
+
+.wj-flexchart {
+    display:block;
+}
+
+/* Wijmo Supporting Classes */
+.custom-sunburst-chart.wj-sunburst .wj-header .wj-title {
+    fill: #666;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+.custom-sunburst-chart.wj-sunburst ellipse,
+.custom-sunburst-chart.wj-sunburst path {
+    stroke-width: 0;
+}
+.custom-sunburst-chart.wj-sunburst ellipse {
+    fill: yellow;
+}
+
+.custom-sunburst-chart.wj-sunburst .slice-level2 > path {
+    fill: red;
+}
+
+.custom-sunburst-chart.wj-sunburst .slice-level3 > path {
+    fill: blue;
+}
+
+.custom-sunburst-chart.wj-sunburst .slice-level4 > path {
+    fill: black;
+}
+
+.custom-sunburst-chart.wj-sunburst .slice-level5 > path {
+    fill: white;
+    stroke-width: 2;
+    stroke: black;
+}

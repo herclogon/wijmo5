@@ -1,0 +1,74 @@
+﻿body {
+    background-color: #f8f8f8;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    padding: 0 0 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #001F29;
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-left: -12px;
+}
+
+.header {
+    color: #0089B6;
+    background-color: #001F29;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        color: #fff;
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+
+/*
+ * Wijmo Specific
+ */
+.wj-inputnumber {
+    width: 125px;
+}
+
+.wj-flexchart {
+    margin: 10px 0;
+}
+
+.wj-flexchart .wj-chart-rangeselector-container .wj-chart-hrangeslider .wj-rangeslider-minhandle,
+.wj-flexchart .wj-chart-rangeselector-container .wj-chart-hrangeslider .wj-rangeslider-maxhandle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid hsla(0, 0%, 50.2%, 0.75);
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    color: hsl(0, 0%, 50.2%);
+    background: #d3d3d3;
+    opacity: 1;
+}
+
+.wj-flexchart .wj-chart-rangeselector-container .wj-chart-hrangeslider .wj-rangeslider-minhandle:after,
+.wj-flexchart .wj-chart-rangeselector-container .wj-chart-hrangeslider .wj-rangeslider-maxhandle:after {
+    content: "‖";
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    transform: translateY(-55%);
+    opacity: 0.75;
+}

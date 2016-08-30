@@ -1,0 +1,63 @@
+﻿<h4><b>{{product.name}}</b></h4>
+
+<div class="row">
+
+    <!-- summary info -->
+    <div class="well col-md-3">
+        <p><b>Rank: #{{product.rank}}</b></p>
+        <p><b>Total:</b> {{product.sales.total | number:0}} units</p>
+        <p><b>Average:</b> {{product.sales.avg | number:0}} units/qtr</p>
+        <p><b>Current:</b> {{product.sales.qThis | number:0}} units</p>
+        <p>
+            <b>Trend:</b> {{product.salesTrend.b | number:2}} units/qtr
+            (r<sup>2</sup>: {{product.salesTrend.r2 | number:2}})
+        </p>
+        <div class="pagination-centered">
+            <wj-radial-gauge
+                style="height:150px;padding:4px"
+                value="product.sales.qThis"
+                min="{{product.sales.min}}"
+                max="{{product.sales.max}}">
+            </wj-radial-gauge>
+        </div>
+    </div>
+
+    <!-- the chart -->
+    <div class="col-md-9">
+        
+        <wj-flex-chart 
+            height="500"
+            chart-type="Line"
+            items-source="product.chartData"
+            binding-x="quarter">
+            <wj-flex-chart-series
+                name="Sales"
+                binding="sales"
+                ng-attr-style="{ stroke:'#1f6f03', 'stroke-width': '3'}">
+            </wj-flex-chart-series>
+            <wj-flex-chart-series 
+                name="Regression"
+                binding="reg"
+                chart-type="'Line'"
+                ng-attr-style="{ stroke:'black', 'stroke-width': '.5'}">
+            </wj-flex-chart-series>
+            <wj-flex-chart-axis 
+                wj-property="axisX" 
+                label-angle="30"
+                major-unit="4">
+            </wj-flex-chart-axis>
+            <wj-flex-chart-axis 
+                wj-property="axisY"
+                min="0">
+            </wj-flex-chart-axis>
+        </wj-flex-chart>
+    </div>
+</div>
+
+<div class="row">
+    <p class="text-right" ng-hide="loading">
+        <a href="#/bullets">
+            see bullets
+        </a>
+    </p>
+</div>

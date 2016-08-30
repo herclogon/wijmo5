@@ -1,0 +1,35 @@
+﻿.header {
+    color: #fff;
+    background-color: #337ab7;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+    .header img {
+		float: left;
+		margin: 0 10px 5px 0;
+	}
+
+h2, h3 {
+    margin-top: 48px;
+}
+.modal-content {
+    min-width: 400px;
+}
+input:invalid {
+    border-color: red;
+}
+body {
+    margin-bottom: 1in;
+}
+
+/* CSS animations for fading in and out */
+.custom-animation {
+    opacity: 0;
+    transform: rotate3d(1, .5, .5, 180deg) scale(0.5);
+    transition: all ease-out 0.3s;
+}
+.custom-animation-visible {
+    opacity: 1;
+    transform: none;
+    transition: all ease-in 0.4s;
+}

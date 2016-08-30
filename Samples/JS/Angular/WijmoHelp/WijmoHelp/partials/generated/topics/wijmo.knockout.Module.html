@@ -1,0 +1,1279 @@
+<h2>Module wijmo.knockout</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd>wijmo.knockout.js</dd>
+</dl>
+<p><p>Contains KnockoutJS bindings for the Wijmo controls.</p>
+
+<p>The bindings allow you to add Wijmo controls to
+<a href="http://knockoutjs.com/" target="_blank">KnockoutJS</a>
+applications using simple markup in HTML pages.</p>
+
+<p>To add a Wijmo control to a certain place in a page's markup, add the <b>&lt;div&gt;</b> 
+element and define a binding for the control in the <b>data-bind</b> attribute.
+The binding name corresponds to the control name with a wj prefix. For example, the <a href="topic/wijmo.knockout.wjInputNumber.Class.html"><b>wjInputNumber</b></a> 
+binding represents the Wijmo <a href="topic/wijmo.input.InputNumber.Class.html"><b>InputNumber</b></a> control. The binding value is an object literal containing 
+properties corresponding to the control's read-write property and event names, with their values defining 
+the corresponding control property values and event handlers.</p>
+
+<p>The following markup creates a Wijmo <b>InputNumber</b> control with the <b>value</b> property bound to the 
+view model's <b>theValue</b> property, the <b>step</b> property set to 1 and the <b>inputType</b> property set to 'text':</p>
+
+<p><pre>&lt;div data-bind="wjInputNumber: { value: theValue, step: 1, inputType: 'text' }"&gt;&lt;/div&gt;</pre></p>
+
+<p><h3>Custom elements</h3>
+As an alternative to the standard Knockout binding syntax, the Wijmo for Knockout provides a possibility to declare controls 
+in the page markup as custom elements, where the tag name corresponds to the control binding name and the attribute names 
+correspond to the control property names. The element and parameter names must be formatted as lower-case with dashes instead 
+of camel-case. The control in the example above can be defined as follows using the custom element syntax:</p>
+
+<p><pre>&lt;wj-input-number value="theValue" step="1" input-type="'text'"&gt;&lt;/wj-input-number&gt;</pre></p>
+
+<p>Note that attribute values should be defined using exactly the same JavaScript expressions syntax as you use in 
+data-bind definitions. The Wijmo for Knockout preprocessor converts such elements to the conventional data-bind form, 
+see the <b>Custom elements preprocessor</b> topic for more details.</p>
+
+<p><h3>Binding to control properties</h3>
+Wijmo binding for KnockoutJS supports binding to any read-write properties on the control. You can assign any 
+valid KnockoutJS expressions (e.g. constants, view model observable properties, or complex expressions) to the 
+property. </p>
+
+<p>Most of the properties provide one-way binding, which means that changes in the bound observable view model 
+property cause changes in the control property that the observable is bound to, but not vice versa. 
+But some properties support two-way binding, which means that changes made in the control property are 
+propagated back to an observable bound to the control property as well. Two-way bindings are used for properties 
+that can be changed by the control itself, by user interaction with the control, 
+or by other occurences. For example, the InputNumber control provides two-way binding for the 
+<b>value</b> and <b>text</b> properties, which are changed by the control while a user is typing a new value. 
+The rest of the InputNumber properties operate in the one-way binding mode.</p>
+
+<p><h3>Binding to control events</h3>
+To attach a handler to a control event, specify the event name as a property of the object literal defining 
+the control binding, and the function to call on this event as a value of this property. 
+Wijmo bindings follow the same rules for defining an event handler as used for the intrinsic KnockoutJS bindings 
+like <b>click</b> and <b>event</b>. The event handler receives the following set of parameters, in the specified order:
+<ul>
+	<li><b>data:</b> The current model value, the same as for native KnockoutJS bindings like <b>click</b> and <b>event</b>. </li>
+	<li><b>sender:</b> The sender of the event. </li>
+	<li><b>args:</b> The event arguments. </li>
+</ul></p>
+
+<p>The following example creates an <b>InputNumber</b> control and adds an event handler for the <b>valueChanged</b>
+event showing a dialog with a new control value.</p>
+
+<p><pre>&lt;!-- HTML --&gt;
+&lt;div data-bind="wjInputNumber: { value: theValue, step: 1, valueChanged: valueChangedEH }"&gt;&lt;/div&gt;
+&nbsp;
+//View Model
+this.valueChangedEH = function (data, sender, args) {
+    alert('The new value is: ' + sender.value);
+}</pre></p>
+
+<p>The same control defined using the custom element syntax:</p>
+
+<p><pre>&lt;wj-input-number value="theValue" step="1" value-changed="valueChangedEH"&gt;&lt;/wj-input-number&gt;</pre></p>
+
+<p><h3>Binding to undefined observables</h3>
+View model observable properties assigned to an <i>undefined</i> value get special treatment by Wijmo 
+bindings during the initialization phase. For example, if you create an observable as ko.observable(undefined) 
+or ko.observable() and bind it to a control property, Wijmo does not assign a value to the control. Instead,  
+for properties supporting two-way bindings, this is the way to initialize the observable with the control's 
+default value, because after initialization the control binding updates bound observables with the control 
+values of such properties. Note that an observable with a <i>null</i> value, e.g. ko.observable(null), gets 
+the usual treatment and assigns null to the control property that it is bound to. After the primary 
+initialization has finished, observables with undefined values go back to getting the usual treatment from 
+Wijmo, and assign the control property with undefined.</p>
+
+<p>In the example below, the <b>value</b> property of the <b>InputNumber</b> control has its default value of 0
+after initialization, and this same value is assigned to the view model <b>theValue</b> property:
+<pre>&lt;!-- HTML --&gt;
+&lt;div data-bind="wjInputNumber: { value: theValue }"&gt;&lt;/div&gt;
+&nbsp;
+//View Model
+this.theValue = ko.observable();</pre></p>
+
+<p><h3>Defining complex and array properties</h3>
+Some Wijmo controls have properties that contain an array or a complex object. For example, the 
+<a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> control exposes <b>axisX</b> and <b>axisY</b> properties that represent an <a href="topic/wijmo.chart.Axis.Class.html"><b>Axis</b></a> object; 
+and the <b>series</b> property is an array of <a href="topic/wijmo.chart.Series.Class.html"><b>Series</b></a> objects. Wijmo provides special 
+bindings for such types that we add to child elements of the control element. If the control exposes
+multiple properties of the same complex type, then the <b>wjProperty</b> property of the complex 
+type binding specifies which control property it defines. </p>
+
+<p>The following example shows the markup used to create a <b>FlexChart</b> with <b>axisX</b> and <b>axisY</b> 
+properties and two series objects defined:</p>
+
+<p><pre>&lt;div data-bind="wjFlexChart: { itemsSource: data, bindingX: 'country' }"&gt;
+    &lt;div data-bind="wjFlexChartAxis: { wjProperty: 'axisX', title: chartProps.titleX }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartAxis: { wjProperty: 'axisY', title: chartProps.titleY }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The same control defined using the custom element syntax:</p>
+
+<p><pre>&lt;wj-flex-chart items-source="data" binding-x="'country'"&gt;
+    &lt;wj-flex-chart-axis wj-property="'axisX'" title="chartProps.titleX"&gt;&lt;/wj-flex-chart-axis&gt;
+    &lt;wj-flex-chart-axis wj-property="'axisY'" title="chartProps.titleY"&gt;&lt;/wj-flex-chart-axis&gt;
+    &lt;wj-flex-chart-series name="'Sales'" binding"'sales'"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series name="'Downloads'" binding"'downloads'"&gt;&lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;</pre></p>
+
+<p><h3>The <b>control</b> property </h3>
+Each Wijmo control binding exposes a <b>control</b> property that references the Wijmo control instance created 
+by the binding. This allows you to reference the control in view model code or in other bindings.
+ 
+For example, the following markup creates a <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control whose reference is stored in the <b>flex</b> 
+observable property of a view model and is used in the button click event handler to move to the next grid record:</p>
+
+<p><pre>&lt;!-- HTML --&gt;
+&lt;div data-bind="'wjFlexGrid': { itemsSource: data, control: flex }"&gt;&lt;/div&gt;
+&lt;button data-bind="click: moveToNext"&gt;Next&lt;/button&gt;
+&nbsp;
+//View Model
+this.flex = ko.observable();
+this.moveToNext = function () {
+    this.flex().collectionView.moveCurrentToNext();
+}</pre></p>
+
+<p><h3>The <b>initialized</b> event</h3>
+Each Wijmo control binding exposes an <b>initialized</b> event and a Boolean <b>isInitialized</b> 
+property. The event occurs right after the binding creates the control and fully initializes it 
+with the values specified in the binding attributes. For bindings containing child bindings, for 
+example, a <b>wjFlexGrid</b> with child <b>wjFlexGridColumn</b> bindings, this also means that 
+child bindings have fully initialized and have been applied to the control represented by the 
+parent binding. The isInitialized property is set to true right before triggering the initialized 
+event. You can bind a view model observable property to the binding’s <b>isInitialized</b> property 
+to access its value.</p>
+
+<p>The following example adjusts FlexGridColumn formatting after the control fully initializes with its 
+bindings, which guarantees that these formats are not overwritten with formats defined in the bindings:</p>
+
+<p><pre>&lt;!-- HTML --&gt;
+&lt;div data-bind="'wjFlexGrid': { itemsSource: dataArray, initialized: flexInitialized }"&gt;
+     &lt;div data-bind="wjFlexGridColumn: { binding: 'sales', format: 'n2' }"&gt;&lt;/div&gt;
+     &lt;div data-bind="wjFlexGridColumn: { binding: 'downloads', format: 'n2' }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&nbsp;
+//View Model
+this.flexInitialized = function (data, sender, args) {
+    var columns = sender.columns;
+    for (var i = 0; i &lt; columns.length; i++) {
+        if (columns[i].dataType = wijmo.DataType.Number) {
+            columns[i].format = 'n0’;
+        }
+    }
+}</pre></p>
+
+<p><h3 id="custom_elem_preproc">Custom elements preprocessor</h3>
+The Wijmo Knockout preprocessor uses the standard Knockout <a target="_blank" 
+href="http://knockoutjs.com/documentation/binding-preprocessing.html">ko.bindingProvider.instance.preprocessNode</a> 
+API. This may cause problems in cases where other custom preprocessors are used on the same page, because Knockout 
+offers a single instance property for attaching a preprocessor function, and the next registering preprocessor 
+removes the registration of the previous one.</p>
+
+<p>To honor another attached preprocessor, the Wijmo Knockout preprocessor stores the currently registered preprocessor 
+during initialization and delegates the work to it in cases where another processing node is not recognized 
+as a Wijmo control element, thus organizing a preprocessor stack. But if you register another preprocessor 
+after the Wijmo for Knockout preprocessor (that is, after the &lt;script&gt; reference to the <b>wijmo.knockout.js</b> 
+module is executed) then you need to ensure that the other preprocessor behaves in a similar way; 
+otherwise, the Wijmo Knockout preprocessor is disabled.</p>
+
+<p>If you prefer to disable the Wijmo Knockout preprocessor, set the <b>wijmo.disableKnockoutTags</b> property 
+to false before the <b>wijmo.knockout.js</b> module reference and after the references to the core Wijmo 
+modules, for example:</p>
+
+<p><pre>&lt;script src="scripts/wijmo.js"&gt;&lt;/script&gt;
+&lt;script src="scripts/wijmo.input.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    wijmo.disableKnockoutTags = true;
+&lt;/script&gt;
+&lt;script src="scripts/wijmo.knockout.js"&gt;&lt;/script&gt;</pre></p>
+
+<p>Note that in this case you can use only the conventional data-bind syntax for adding Wijmo controls to the page 
+markup; the Wijmo custom elements are not recognized.</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
+<span class="glyph-collapsed" ng-show="hideClasses"></span>
+<span class="glyph-expanded" ng-hide="hideClasses"></span>
+Classes
+</h3>
+</div>
+<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjAutoComplete.Class.html"><b>wjAutoComplete</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.AutoComplete.Class.html"><b>AutoComplete</b></a> control.</p>
+
+<p>Use the <b>wjAutoComplete</b> binding to add <b>AutoComplete</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is an AutoComplete control:&lt;/p&gt;
+&lt;div data-bind="wjAutoComplete: {
+  itemsSource: countries,
+  text: theCountry,
+  isEditable: false,
+  placeholder: 'country' }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjAutoComplete</b> binding supports all read-write properties and events of 
+the <b>AutoComplete</b> control. The following properties provide two-way binding mode:
+<ul>
+	<li><b>isDroppedDown</b></li>
+	<li><b>text</b></li>
+	<li><b>selectedIndex</b></li>
+	<li><b>selectedItem</b></li>
+	<li><b>selectedValue</b></li>
+</ul></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjBulletGraph.Class.html"><b>wjBulletGraph</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.gauge.BulletGraph.Class.html"><b>BulletGraph</b></a> control.</p>
+
+<p>Use the <b>wjBulletGraph</b> binding to add <b>BulletGraph</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a BulletGraph control:&lt;/p&gt;
+&lt;div data-bind="wjBulletGraph: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        good: props.ranges.middle.max,
+        bad: props.ranges.middle.min,
+        target: props.ranges.target,
+        showRanges: props.showRanges }"
+        class="linear-gauge"&gt;
+    &lt;div data-bind="wjRange: { 
+            wjProperty: 'pointer', 
+            thickness: props.ranges.pointerThickness }"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjBulletGraph</b> binding may contain the <a href="topic/wijmo.knockout.wjRange.Class.html"><b>wjRange</b></a> child binding. </p>
+
+<p>The <b>wjBulletGraph</b> binding supports all read-write properties and events of 
+the <b>BulletGraph</b> control. The <b>value</b> property provides two-way binding mode.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjCalendar.Class.html"><b>wjCalendar</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.Calendar.Class.html"><b>Calendar</b></a> control.</p>
+
+<p>Use the <b>wjCalendar</b> binding to add <b>Calendar</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a Calendar control:&lt;/p&gt;
+&lt;div 
+  data-bind="wjCalendar: { value: theDate }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjCalendar</b> binding supports all read-write properties and events of 
+the <b>Calendar</b> control. The following properties provide two-way binding mode:
+<ul>
+	<li><b>value</b></li>
+	<li><b>displayMonth</b></li>
+</ul></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjCollectionViewNavigator.Class.html"><b>wjCollectionViewNavigator</b></a></td>
+      <td><p>KnockoutJS binding for an <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> navigator element.</p>
+
+<p>Use the <b>wjCollectionViewNavigator</b> directive to add an element that allows users to
+navigate through the items in an <b>ICollectionView</b>. For example:</p>
+
+<p><pre>Here is a CollectionViewNavigator:&lt;/p&gt;
+&lt;div 
+  data-bind="wjCollectionViewNavigator: { cv: myCollectionView }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjCollectionViewNavigator</b> directive has a single attribute:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>cv</dt>  <dd>Reference to the <b>ICollectionView</b> object to navigate.</dd>
+</dl></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjCollectionViewPager.Class.html"><b>wjCollectionViewPager</b></a></td>
+      <td><p>KnockoutJS binding for an <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> pager element.</p>
+
+<p>Use the <b>wjCollectionViewPager</b> directive to add an element that allows users to
+navigate through the pages in a paged <b>ICollectionView</b>. For example:</p>
+
+<p><pre>Here is a CollectionViewPager:&lt;/p&gt;
+&lt;div 
+  data-bind="wjCollectionViewPager: { cv: myCollectionView }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjCollectionViewPager</b> directive has a single attribute:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>cv</dt>  <dd>Reference to the paged <b>ICollectionView</b> object to navigate.</dd>
+</dl></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjColorPicker.Class.html"><b>wjColorPicker</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.ColorPicker.Class.html"><b>ColorPicker</b></a> control.</p>
+
+<p>Use the <b>wjColorPicker</b> binding to add <b>ColorPicker</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a ColorPicker control:&lt;/p&gt;
+&lt;div 
+  data-bind="wjColorPicker: { value: theColor }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjColorPicker</b> binding supports all read-write properties and events of 
+the <b>ColorPicker</b> control. The following properties provide two-way binding mode:
+<ul>
+	<li><b>value</b></li>
+</ul></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjComboBox.Class.html"><b>wjComboBox</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.ComboBox.Class.html"><b>ComboBox</b></a> control.</p>
+
+<p>Use the <b>wjComboBox</b> binding to add <b>ComboBox</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a ComboBox control:&lt;/p&gt;
+&lt;div data-bind="wjComboBox: {
+  itemsSource: countries,
+  text: theCountry,
+  isEditable: false,
+  placeholder: 'country' }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjComboBox</b> binding supports all read-write properties and events of 
+the <b>ComboBox</b> control. The following properties provide two-way binding mode:
+<ul>
+	<li><b>isDroppedDown</b></li>
+	<li><b>text</b></li>
+	<li><b>selectedIndex</b></li>
+	<li><b>selectedItem</b></li>
+	<li><b>selectedValue</b></li>
+</ul></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjContextMenu.Class.html"><b>wjContextMenu</b></a></td>
+      <td><p>KnockoutJS binding for context menus.</p>
+
+<p>Use the <b>wjContextMenu</b> binding to add context menus to elements
+on the page. The <b>wjContextMenu</b> binding is based on the  <a href="topic/wijmo.knockout.wjMenu.Class.html"><b>wjMenu</b></a>;
+it displays a popup menu when the user performs a context menu
+request on an element (usually a right-click).</p>
+
+<p>The wjContextMenu binding is specified as a parameter added to the
+element that the context menu applies to. The parameter value is a 
+selector for the element that contains the menu. For example:</p>
+
+<p><pre>&lt;!-- paragraph with a context menu --&gt;
+&lt;p data-bind="wjContextMenu: { id: '#idMenu'}" &gt;
+ This paragraph has a context menu.&lt;/p&gt;</p>
+
+<p>&lt;!-- define the context menu (hidden and with an id) --&gt;
+&lt;div id="contextmenu" data-bind="wjMenu: { header: 'File', itemClicked: menuItemClicked}"&gt;
+    &lt;span data-bind="wjMenuItem: {}"&gt;New&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: {}"&gt;open an existing file or folder&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: {}"&gt;save the current file&lt;/span&gt;
+    &lt;span data-bind="wjMenuSeparator: {}"&gt;&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: {}"&gt;exit the application&lt;/span&gt;
+&lt;/div&gt;</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFinancialChart.Class.html"><b>wjFinancialChart</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a> control.</p>
+
+<p>Use the <b>wjFinancialChart</b> binding to add <b>FinancialChart</b> controls to your
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a FinancialChart control:&lt;/p&gt;
+&lt;div data-bind="wjFinancialChart: { itemsSource: data, chartType: 'Candlestick' }"&gt;
+    &lt;div data-bind="wjFlexChartLegend : { 
+        position: 'Top' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFinancialChartSeries: {
+         name: 'close', 
+        binding: 'high,low,open,close' }"&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjFinancialChart</b> binding may contain the following child bindings:
+<a href="topic/wijmo.knockout.wjFlexChartAxis.Class.html"><b>wjFlexChartAxis</b></a>, <a href="topic/wijmo.knockout.wjFinancialChartSeries.Class.html"><b>wjFinancialChartSeries</b></a>, <a href="topic/wijmo.knockout.wjFlexChartLegend.Class.html"><b>wjFlexChartLegend</b></a>.</p>
+
+<p>The <b>wjFinancialChart</b> binding supports all read-write properties and events of
+the <b>FinancialChart</b> control, and the additional <b>tooltipContent</b> property
+that assigns a value to the <b>FinancialChart.tooltip.content</b> property.
+The <b>selection</b> property provides two-way binding mode.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFinancialChartSeries.Class.html"><b>wjFinancialChartSeries</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a> <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><b>FinancialSeries</b></a> object.</p>
+
+<p>The <a href="topic/wijmo.angular.WjFinancialChartSeries.Class.html"><b>WjFinancialChartSeries</b></a> binding must be contained in a <a href="topic/wijmo.knockout.wjFinancialChart.Class.html"><b>wjFinancialChart</b></a> binding.</p>
+
+<p>The <b>WjFinancialChartSeries</b> binding supports all read-write properties and events of
+the <b>FinancialSeries</b> class. The <b>visibility</b> property provides two-way binding mode.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFlexChart.Class.html"><b>wjFlexChart</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> control.</p>
+
+<p>Use the <b>wjFlexChart</b> binding to add <b>FlexChart</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a FlexChart control:&lt;/p&gt;
+&lt;div data-bind="wjFlexChart: { itemsSource: data }"&gt;
+    &lt;div data-bind="wjFlexChartLegend : { 
+        position: 'Top' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexChartAxis: { 
+        wjProperty: 'axisX', 
+        title: chartProps.titleX }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexChartAxis: { 
+        wjProperty: 'axisY', 
+        majorUnit: 5000 }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { 
+        name: 'Sales', 
+        binding: 'sales' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { 
+        name: 'Expenses', 
+        binding: 'expenses' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { 
+        name: 'Downloads', 
+        binding: 'downloads', 
+        chartType: 'LineSymbols' }"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjFlexChart</b> binding may contain the following child bindings: 
+<a href="topic/wijmo.knockout.wjFlexChartAxis.Class.html"><b>wjFlexChartAxis</b></a>, <a href="topic/wijmo.knockout.wjFlexChartSeries.Class.html"><b>wjFlexChartSeries</b></a>, <a href="topic/wijmo.knockout.wjFlexChartLegend.Class.html"><b>wjFlexChartLegend</b></a>.</p>
+
+<p>The <b>wjFlexChart</b> binding supports all read-write properties and events of 
+the <b>FlexChart</b> control, and the additional <b>tooltipContent</b> property
+that assigns a value to the <b>FlexChart.tooltip.content</b> property.
+The <b>selection</b> property provides two-way binding mode.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFlexChartAxis.Class.html"><b>wjFlexChartAxis</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> <a href="topic/wijmo.chart.Axis.Class.html"><b>Axis</b></a> object.</p>
+
+<p>The <b>wjFlexChartAxis</b> binding must be contained in a <a href="topic/wijmo.knockout.wjFlexChart.Class.html"><b>wjFlexChart</b></a> binding. Use the <b>wjProperty</b>
+attribute to specify the property (<b>axisX</b> or <b>axisY</b>) to initialize with this binding.</p>
+
+<p>The <b>wjFlexChartAxis</b> binding supports all read-write properties and events of 
+the <b>Axis</b> class.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFlexChartGestures.Class.html"><b>wjFlexChartGestures</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.chart.interaction.ChartGestures.Class.html"><b>ChartGestures</b></a> object.</p>
+
+<p>Use the <b>wjFlexChartGestures</b> binding to add <b>ChartGestures</b> controls to your
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a ChartGestures:&lt;/p&gt;
+&lt;div data-bind="wjFlexChart: { itemsSource: data, bindingX: 'country' }"&gt;
+    &lt;div data-bind="wjFlexChartAxis: { wjProperty: 'axisX', title: 'country' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartGestures: { scaleX:0.5, posX:0.1 } "&gt;&lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjFlexChartGestures</b> binding supports all read-write properties and events of
+the <b>ChartGestures</b> class.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFlexChartLegend.Class.html"><b>wjFlexChartLegend</b></a></td>
+      <td><p>KnockoutJS binding for the Charts' <a href="topic/wijmo.chart.Legend.Class.html"><b>Legend</b></a> object.</p>
+
+<p>The <b>wjFlexChartLegend</b> binding must be contained in one the following bindings:
+ <a href="topic/wijmo.knockout.wjFlexChart.Class.html"><b>wjFlexChart</b></a>, <a href="topic/wijmo.knockout.wjFlexPie.Class.html"><b>wjFlexPie</b></a>. </p>
+
+<p>The <b>wjFlexChartLegend</b> binding supports all read-write properties and events of 
+the <b>Legend</b> class.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFlexChartLineMarker.Class.html"><b>wjFlexChartLineMarker</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a> control.</p>
+
+<p>Use the <b>wjFlexChartLineMarker</b> binding to add <b>LineMarker</b> controls to your
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a LineMarker:&lt;/p&gt;
+&lt;div data-bind="wjFlexChart: { itemsSource: data, bindingX: 'country' }"&gt;
+    &lt;div data-bind="wjFlexChartAxis: { wjProperty: 'axisX', title: 'country' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartLineMarker: { interaction: 'Move', lines: 'Both' }"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>
+The <b>wjFlexChartLineMarker</b> binding supports all read-write properties and events of
+the <b>LineMarker</b> class.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFlexChartRangeSelector.Class.html"><b>wjFlexChartRangeSelector</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a> control.</p>
+
+<p>Use the <b>wjFlexChartRangeSelector</b> binding to add <b>RangeSelector</b> controls to your
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a RangeSelector control:&lt;/p&gt;
+&lt;div data-bind="wjFlexChart: { itemsSource: data, bindingX: 'country' }"&gt;
+    &lt;div data-bind="wjFlexChartAxis: { wjProperty: 'axisX', title: 'country' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartRangeSelector: { seamless: 'true',rangeChanged: rangeChanged }"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjFlexChartRangeSelector</b> binding supports all read-write properties and events of
+the <b>RangeSelector</b> class.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFlexChartSeries.Class.html"><b>wjFlexChartSeries</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> <a href="topic/wijmo.chart.Series.Class.html"><b>Series</b></a> object.</p>
+
+<p>The <b>wjFlexChartSeries</b> binding must be contained in a <a href="topic/wijmo.knockout.wjFlexChart.Class.html"><b>wjFlexChart</b></a> binding. </p>
+
+<p>The <b>wjFlexChartSeries</b> binding supports all read-write properties and events of 
+the <b>Series</b> class. The <b>visibility</b> property provides two-way binding mode.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFlexGrid.Class.html"><b>wjFlexGrid</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control.</p>
+
+<p>Use the <b>wjFlexGrid</b> binding to add <b>FlexGrid</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a FlexGrid control:&lt;/p&gt;
+&lt;div data-bind="wjFlexGrid: { itemsSource: data }"&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Country', 
+        binding: 'country', 
+        width: '*' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Date', 
+        binding: 'date' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Revenue', 
+        binding: 'amount', 
+        format: 'n0' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Active', 
+        binding: 'active' }"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjFlexGrid</b> binding may contain <a href="topic/wijmo.knockout.wjFlexGridColumn.Class.html"><b>wjFlexGridColumn</b></a> child bindings.</p>
+
+<p>The <b>wjFlexGrid</b> binding supports all read-write properties and events of 
+the <b>FlexGrid</b> control, except for the <b>scrollPosition</b> and 
+<b>selection</b> properties.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFlexGridColumn.Class.html"><b>wjFlexGridColumn</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> <a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a> object.</p>
+
+<p>The <b>wjFlexGridColumn</b> binding must be contained in a <a href="topic/wijmo.knockout.wjFlexGrid.Class.html"><b>wjFlexGrid</b></a> binding. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a FlexGrid control:&lt;/p&gt;
+&lt;div data-bind="wjFlexGrid: { itemsSource: data }"&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Country', 
+        binding: 'country', 
+        width: '*' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Date', 
+        binding: 'date' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Revenue', 
+        binding: 'amount', 
+        format: 'n0' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Active', 
+        binding: 'active' }"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjFlexGridColumn</b> binding supports all read-write properties and events of 
+the <b>Column</b> class. The <b>isSelected</b> property provides two-way binding mode.</p>
+
+<p>In addition to regular attributes that match properties in the <b>Column</b> class,  
+an element with the <b>wjFlexGridColumn</b> binding may contain a <a href="topic/wijmo.knockout.wjStyle.Class.html"><b>wjStyle</b></a> binding that
+provides conditional formatting and an HTML fragment that is used as a cell template. Grid 
+rows automatically stretch vertically to fit custom cell contents.</p>
+
+<p>Both the <b>wjStyle</b> binding and the HTML fragment can use the <b>$item</b> observable variable in 
+KnockoutJS bindings to refer to the item that is bound to the current row. Also available are the 
+<b>$row</b> and <b>$col</b> observable variables containing cell row and column indexes. For example:</p>
+
+<p><pre>&lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Symbol', 
+        binding: 'symbol', 
+        readOnly: true, 
+        width: '*' }"&gt;
+  &lt;a data-bind="attr: { 
+        href: 'https://finance.yahoo.com/q?s=' + $item().symbol() }, 
+        text: $item().symbol"&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+&lt;div data-bind="wjFlexGridColumn: { 
+     header: 'Change',
+        binding: 'changePercent',
+        format: 'p2',
+        width: '*'
+        },
+        wjStyle: { 
+        color: getAmountColor($item().change) }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>These bindings create two columns. 
+The first has a template that produces a hyperlink based on the bound item's "symbol" property. 
+The second has a conditional style that renders values with a color determined by a function
+implemented in the controller.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFlexGridFilter.Class.html"><b>wjFlexGridFilter</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> object.</p>
+
+<p>The <b>wjFlexGridFilter</b> binding must be contained in a <a href="topic/wijmo.knockout.wjFlexGrid.Class.html"><b>wjFlexGrid</b></a> binding. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a FlexGrid control with column filters:&lt;/p&gt;
+&lt;div data-bind="wjFlexGrid: { itemsSource: data }"&gt;
+    &lt;div data-bind="wjFlexGridFilter: { filterColumns: ['country', 'amount']  }"&gt;&lt;/div&gt;
+&nbsp;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Country', 
+        binding: 'country', 
+        width: '*' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Date', 
+        binding: 'date' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Revenue', 
+        binding: 'amount', 
+        format: 'n0' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Active', 
+        binding: 'active' }"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjFlexGridFilter</b> binding supports all read-write properties and events of 
+the <b>FlexGridFilter</b> class.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFlexPie.Class.html"><b>wjFlexPie</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a> control.</p>
+
+<p>Use the <b>wjFlexPie</b> binding to add <b>FlexPie</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a FlexPie control:&lt;/p&gt;
+&lt;div data-bind="wjFlexPie: {
+        itemsSource: data,
+        binding: 'value',
+        bindingName: 'name',
+        header: 'Fruit By Value' }"&gt;
+    &lt;div data-bind="wjFlexChartLegend : { position: 'Top' }"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjFlexPie</b> binding may contain the <a href="topic/wijmo.knockout.wjFlexChartLegend.Class.html"><b>wjFlexChartLegend</b></a> child binding. </p>
+
+<p>The <b>wjFlexPie</b> binding supports all read-write properties and events of 
+the <b>FlexPie</b> control.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjFlexSheet.Class.html"><b>wjFlexSheet</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a> control.</p>
+
+<p>Use the <b>wjFlexSheet</b> binding to add <b>FlexSheet</b> controls to your 
+KnockoutJS applications. </p>
+
+<p>The <b>wjFlexSheet</b> binding may contain <a href="topic/wijmo.knockout.wjSheet.Class.html"><b>wjSheet</b></a> child bindings.</p>
+
+<p>The <b>wjFlexSheet</b> binding supports all read-write properties and events of 
+the <b>FlexSheet</b> control.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjGroupPanel.Class.html"><b>wjGroupPanel</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> <a href="topic/wijmo.grid.grouppanel.GroupPanel.Class.html"><b>GroupPanel</b></a> control.</p>
+
+<p>The <b>wjGroupPanel</b> binding should be connected to the <b>FlexGrid</b> control using the <b>grid</b> property. 
+For example:</p>
+
+<p><pre>&lt;p&gt;Here is a FlexGrid control with GroupPanel:&lt;/p&gt;
+&nbsp;
+&lt;div data-bind="wjGroupPanel: { grid: flex(), placeholder: 'Drag columns here to create groups.' }"&gt;&lt;/div&gt;
+&nbsp;
+&lt;div data-bind="wjFlexGrid: { control: flex, itemsSource: data }"&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Country', 
+        binding: 'country', 
+        width: '*' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Date', 
+        binding: 'date' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Revenue', 
+        binding: 'amount', 
+        format: 'n0' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Active', 
+        binding: 'active' }"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjGroupPanel</b> binding supports all read-write properties and events of 
+the <b>GroupPanel</b> class.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjInputColor.Class.html"><b>wjInputColor</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.InputColor.Class.html"><b>InputColor</b></a> control.</p>
+
+<p>Use the <b>wjInputColor</b> binding to add <b>InputColor</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a InputColor control:&lt;/p&gt;
+&lt;div 
+  data-bind="wjInputColor: { value: theColor }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjInputColor</b> binding supports all read-write properties and events of 
+the <b>InputColor</b> control. The following properties provide two-way binding mode:
+<ul>
+	<li><b>isDroppedDown</b></li>
+	<li><b>text</b></li>
+	<li><b>value</b></li>
+</ul></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjInputDate.Class.html"><b>wjInputDate</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.InputDate.Class.html"><b>InputDate</b></a> control.</p>
+
+<p>Use the <b>wjInputDate</b> binding to add <b>InputDate</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is an InputDate control:&lt;/p&gt;
+&lt;div data-bind="wjInputDate: {
+  value: theDate,
+  format: 'M/d/yyyy' }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjInputDate</b> binding supports all read-write properties and events of 
+the <b>InputDate</b> control. The following properties provide two-way binding mode:
+<ul>
+	<li><b>isDroppedDown</b></li>
+	<li><b>text</b></li>
+	<li><b>value</b></li>
+</ul></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjInputDateTime.Class.html"><b>wjInputDateTime</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.InputDateTime.Class.html"><b>InputDateTime</b></a> control.</p>
+
+<p>Use the <b>wjInputDateTime</b> binding to add <b>InputDateTime</b> controls to your 
+KnockoutJS applications. </p>
+
+<p>The <b>wjInputDateTime</b> binding supports all read-write properties and events of 
+the <b>InputDateTime</b> control.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjInputMask.Class.html"><b>wjInputMask</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.InputMask.Class.html"><b>InputMask</b></a> control.</p>
+
+<p>Use the <b>wjInputMask</b> binding to add <b>InputMask</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is an InputMask control:&lt;/p&gt;
+&lt;div data-bind="wjInputMask: {
+  mask: '99/99/99',
+  promptChar: '*' }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjInputMask</b> binding supports all read-write properties and events of 
+the <b>InputMask</b> control. The <b>value</b> property provides two-way binding mode.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjInputNumber.Class.html"><b>wjInputNumber</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.InputNumber.Class.html"><b>InputNumber</b></a> control.</p>
+
+<p>Use the <b>wjInputNumber</b> binding to add <b>InputNumber</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is an InputNumber control:&lt;/p&gt;
+&lt;div data-bind="wjInputNumber: {
+  value: theNumber,
+  min: 0,
+  max: 10,
+  format: 'n0',
+  placeholder: 'number between zero and ten' }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjInputNumber</b> binding supports all read-write properties and events of 
+the <b>InputNumber</b> control. The following properties provide two-way binding mode:
+<ul>
+	<li><b>value</b></li>
+	<li><b>text</b></li>
+</ul></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjInputTime.Class.html"><b>wjInputTime</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.InputTime.Class.html"><b>InputTime</b></a> control.</p>
+
+<p>Use the <b>wjInputTime</b> binding to add <b>InputTime</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is an InputTime control:&lt;/p&gt;
+&lt;div data-bind="wjInputTime: {
+  min: new Date(2014, 8, 1, 9, 0),
+  max: new Date(2014, 8, 1, 17, 0),
+  step: 15,
+  format: 'h:mm tt',
+  value: theDate }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjInputTime</b> binding supports all read-write properties and events of 
+the <b>InputTime</b> control. The following properties provide two-way binding mode:
+<ul>
+	<li><b>isDroppedDown</b></li>
+	<li><b>text</b></li>
+	<li><b>selectedIndex</b></li>
+	<li><b>selectedItem</b></li>
+	<li><b>selectedValue</b></li>
+ <li><b>value</b></li>
+</ul></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjLinearGauge.Class.html"><b>wjLinearGauge</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.gauge.LinearGauge.Class.html"><b>LinearGauge</b></a> control.</p>
+
+<p>Use the <b>wjLinearGauge</b> binding to add <b>LinearGauge</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a LinearGauge control:&lt;/p&gt;
+&lt;div data-bind="wjLinearGauge: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        showRanges: props.showRanges }"
+        &lt;class="linear-gauge"&gt;
+    &lt;div data-bind="wjRange: { 
+            wjProperty: 'pointer', 
+            thickness: props.ranges.pointerThickness }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjRange: { 
+            min: props.ranges.lower.min, 
+            max: props.ranges.lower.max, 
+            color: props.ranges.lower.color }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjRange: { 
+            min: props.ranges.middle.min, 
+            max: props.ranges.middle.max, 
+            color: props.ranges.middle.color }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjRange: { 
+            min: props.ranges.upper.min, 
+            max: props.ranges.upper.max, 
+            color: props.ranges.upper.color }"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjLinearGauge</b> binding may contain the <a href="topic/wijmo.knockout.wjRange.Class.html"><b>wjRange</b></a> child binding. </p>
+
+<p>The <b>wjLinearGauge</b> binding supports all read-write properties and events of 
+the <b>LinearGauge</b> control. The <b>value</b> property provides two-way binding mode.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjListBox.Class.html"><b>wjListBox</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a> control.</p>
+
+<p>Use the <b>wjListBox</b> binding to add <b>ListBox</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a ListBox control:&lt;/p&gt;
+&lt;div data-bind="wjListBox: {
+  itemsSource: countries,
+  selectedItem: theCountry }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjListBox</b> binding supports all read-write properties and events of 
+the <b>ListBox</b> control. The following properties provide two-way binding mode:
+<ul>
+	<li><b>selectedIndex</b></li>
+	<li><b>selectedItem</b></li>
+	<li><b>selectedValue</b></li>
+</ul></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjMenu.Class.html"><b>wjMenu</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.Menu.Class.html"><b>Menu</b></a> control.</p>
+
+<p>Use the <b>wjMenu</b> binding to add <b>Menu</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a Menu control used as a value picker:&lt;/p&gt;
+&lt;div data-bind="wjMenu: { value: tax, header: 'Tax' }"&gt;
+    &lt;span data-bind="wjMenuItem: { value: 0 }"&gt;Exempt&lt;/span&gt;
+    &lt;span data-bind="wjMenuSeparator: {}"&gt;&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: .05 }"&gt;5%&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: .1 }"&gt;10%&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: .15 }"&gt;15%&lt;/span&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjMenu</b> binding may contain the following child bindings: <a href="topic/wijmo.knockout.wjMenuItem.Class.html"><b>wjMenuItem</b></a>, <a href="topic/wijmo.knockout.wjMenuSeparator.Class.html"><b>wjMenuSeparator</b></a>.</p>
+
+<p>The <b>wjMenu</b> binding supports all read-write properties and events of 
+the <b>Menu</b> control. The following properties provide two-way binding mode:
+<ul>
+	<li><b>isDroppedDown</b></li>
+	<li><b>text</b></li>
+	<li><b>selectedIndex</b></li>
+	<li><b>selectedItem</b></li>
+	<li><b>selectedValue</b></li>
+ <li><b>value</b></li>
+</ul></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjMenuItem.Class.html"><b>wjMenuItem</b></a></td>
+      <td><p>KnockoutJS binding for menu items.</p>
+
+<p>Use the <b>wjMenuItem</b> binding to add menu items to a <a href="topic/wijmo.input.Menu.Class.html"><b>Menu</b></a> control. 
+The <b>wjMenuItem</b> binding must be contained in a <a href="topic/wijmo.knockout.wjMenu.Class.html"><b>wjMenu</b></a> binding.
+For example:</p>
+
+<p><pre>&lt;p&gt;Here is a Menu control with four menu items:&lt;/p&gt;
+&lt;div data-bind="wjMenu: { value: tax, header: 'Tax' }"&gt;
+    &lt;span data-bind="wjMenuItem: { value: 0 }"&gt;Exempt&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: .05 }"&gt;5%&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: .1 }"&gt;10%&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: .15 }"&gt;15%&lt;/span&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjMenuItem</b> binding supports the following attributes: </p>
+
+<p><dl class="dl-horizontal">
+  <dt>cmd</dt>       <dd>Function to execute in the controller when the item is clicked.</dd>
+  <dt>cmdParam</dt>  <dd>Parameter passed to the <b>cmd</b> function when the item is clicked.</dd>
+  <dt>value</dt>     <dd>Value selected when the item is clicked (use either this or <b>cmd</b>).</dd>
+</dl class="dl-horizontal"></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjMenuSeparator.Class.html"><b>wjMenuSeparator</b></a></td>
+      <td><p>KnockoutJS binding for menu separators.</p>
+
+<p>The the <b>wjMenuSeparator</b> adds a non-selectable separator to a <a href="topic/wijmo.input.Menu.Class.html"><b>Menu</b></a> control, and has no attributes.
+It must be contained in a <a href="topic/wijmo.knockout.wjMenu.Class.html"><b>wjMenu</b></a> binding. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a Menu control with four menu items and one separator:&lt;/p&gt;
+&lt;div data-bind="wjMenu: { value: tax, header: 'Tax' }"&gt;
+    &lt;span data-bind="wjMenuItem: { value: 0 }"&gt;Exempt&lt;/span&gt;
+    &lt;span data-bind="wjMenuSeparator: {}"&gt;&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: .05 }"&gt;5%&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: .1 }"&gt;10%&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: .15 }"&gt;15%&lt;/span&gt;
+&lt;/div&gt;</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjMultiRow.Class.html"><b>wjMultiRow</b></a></td>
+      <td>KnockoutJS binding for the <a href="topic/wijmo.grid.multirow.MultiRow.Class.html"><b>MultiRow</b></a> object.
+Use the <b>wjMultiRow</b> binding to add <b>MultiRow</b> controls to your
+KnockoutJS applications. For example:
+ &lt;div data-bind="wjMultiRow:
+     {
+         itemsSource: orders,
+         layoutDefinition: ldThreeLines
+     }"&gt;
+ &lt;/div&gt;
+                                   
+The <b>wjMultiRow</b> binding supports all read-write properties and events of
+the <b>MultiRow</b> class.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjMultiSelect.Class.html"><b>wjMultiSelect</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.MultiSelect.Class.html"><b>MultiSelect</b></a> control.</p>
+
+<p>Use the <b>wjMultiSelect</b> binding to add <b>MultiSelect</b> controls to your
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a MultiSelect control:&lt;/p&gt;
+&lt;div data-bind="MultiSelect: {
+  itemsSource: countries,
+  isEditable: false,
+  headerFormat: '{count} countries selected' }"&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjMultiSelect</b> binding supports all read-write properties and events of
+the <b>MultiSelect</b> control. The following properties provide two-way binding mode:
+<ul>
+	<li><b>isDroppedDown</b></li>
+	<li><b>text</b></li>
+	<li><b>selectedIndex</b></li>
+	<li><b>selectedItem</b></li>
+	<li><b>selectedValue</b></li>
+</ul></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjPivotChart.Class.html"><b>wjPivotChart</b></a></td>
+      <td>KnockoutJS binding for the <a href="topic/wijmo.olap.PivotChart.Class.html"><b>PivotChart</b></a> object.
+Use the <b>wjPivotChart</b> binding to add <b>PivotChart</b> controls to your
+KnockoutJS applications. For example:
+ &lt;div data-bind="wjPivotChart:
+     {
+         itemsSource: thePanel
+     }"&gt;
+ &lt;/div&gt;
+                                   
+The <b>wjPivotChart</b> binding supports all read-write properties and events of
+the <b>PivotChart</b> class.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjPivotGrid.Class.html"><b>wjPivotGrid</b></a></td>
+      <td>KnockoutJS binding for the <a href="topic/wijmo.olap.PivotGrid.Class.html"><b>PivotGrid</b></a> object.
+Use the <b>wjPivotGrid</b> binding to add <b>PivotGrid</b> controls to your
+KnockoutJS applications. For example:
+ &lt;div data-bind="wjPivotGrid:
+     {
+         itemsSource: thePanel
+     }"&gt;
+ &lt;/div&gt;
+                                   
+The <b>wjPivotGrid</b> binding supports all read-write properties and events of
+the <b>PivotGrid</b> class.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjPivotPanel.Class.html"><b>wjPivotPanel</b></a></td>
+      <td>KnockoutJS binding for the <a href="topic/wijmo.olap.PivotPanel.Class.html"><b>PivotPanel</b></a> object.
+Use the <b>wjPivotPanel</b> binding to add <b>PivotPanel</b> controls to your
+KnockoutJS applications. For example:
+ &lt;div data-bind="wjPivotPanel:
+     {
+          itemsSource: rawData,
+          control: thePanel,
+          initialized: init
+     }"&gt;
+ &lt;/div&gt;
+                                   
+The <b>wjPivotPanel</b> binding supports all read-write properties and events of
+the <b>PivotPanel</b> class.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjPopup.Class.html"><b>wjPopup</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a> control.</p>
+
+<p>Use the <b>wjPopup</b> binding to add <b>Popup</b> controls to your
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a Popup control triggered by a button:&lt;/p&gt;
+&lt;button id="btn2" type="button"&gt;
+    Click to show Popup
+&lt;/button&gt;
+ &lt;div class="popover" data-bind="wjPopup: {
+      control: popup,
+      owner: '#btn2',
+      showTrigger: 'Click',
+      hideTrigger: 'Click'}"
+ &gt;
+&lt;h3&gt;
+	 Salutation
+&lt;/h3&gt;
+ &lt;div class="popover-content"&gt;
+ 	    Hello {&#8203;{firstName}} {&#8203;{lastName}}
+ &lt;/div&gt;
+&lt;/div&gt;</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjRadialGauge.Class.html"><b>wjRadialGauge</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.gauge.RadialGauge.Class.html"><b>RadialGauge</b></a> control.</p>
+
+<p>Use the <b>wjRadialGauge</b> binding to add <b>RadialGauge</b> controls to your 
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a RadialGauge control:&lt;/p&gt;
+&lt;div data-bind="wjRadialGauge: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        showRanges: props.showRanges }"
+        class="radial-gauge"&gt;
+    &lt;div data-bind="wjRange: { 
+            wjProperty: 'pointer', 
+            thickness: props.ranges.pointerThickness }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjRange: { 
+            min: props.ranges.lower.min, 
+            max: props.ranges.lower.max, 
+            color: props.ranges.lower.color }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjRange: { 
+            min: props.ranges.middle.min, 
+            max: props.ranges.middle.max, 
+            color: props.ranges.middle.color }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjRange: { 
+            min: props.ranges.upper.min, 
+            max: props.ranges.upper.max, 
+            color: props.ranges.upper.color }"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjRadialGauge</b> binding may contain the <a href="topic/wijmo.knockout.wjRange.Class.html"><b>wjRange</b></a> child binding. </p>
+
+<p>The <b>wjRadialGauge</b> binding supports all read-write properties and events of 
+the <b>RadialGauge</b> control. The <b>value</b> property provides two-way binding mode.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjRange.Class.html"><b>wjRange</b></a></td>
+      <td><p>KnockoutJS binding for the Gauge's <a href="topic/wijmo.gauge.Range.Class.html"><b>Range</b></a> object.</p>
+
+<p>The <b>wjRange</b> binding must be contained in one of the following bindings:
+<ul>
+    <li><a href="topic/wijmo.knockout.wjLinearGauge.Class.html"><b>wjLinearGauge</b></a></li> 
+    <li><a href="topic/wijmo.knockout.wjRadialGauge.Class.html"><b>wjRadialGauge</b></a></li>
+    <li><a href="topic/wijmo.knockout.wjBulletGraph.Class.html"><b>wjBulletGraph</b></a></li>
+</ul> 
+By default, this binding adds a <b>Range</b> object to the <b>ranges</b> 
+collection of the Chart control. The <b>wjProperty</b> attribute allows 
+you to specify another Chart property, for example the <b>pointer</b> 
+property, to initialize with the binding.</p>
+
+<p>The <b>wjRange</b> binding supports all read-write properties and events of 
+the <b>Range</b> class.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjSheet.Class.html"><b>wjSheet</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a> <a href="topic/wijmo.grid.sheet.Sheet.Class.html"><b>Sheet</b></a> object.</p>
+
+<p>The <b>wjSheet</b> binding must be contained in a <a href="topic/wijmo.knockout.wjFlexSheet.Class.html"><b>wjFlexSheet</b></a> binding. </p>
+
+<p>The <b>wjSheet</b> binding supports all read-write properties and events of 
+the <b>Sheet</b> class.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjStyle.Class.html"><b>wjStyle</b></a></td>
+      <td><p>KnockoutJS binding for conditional formatting of <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> <a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a> cells.</p>
+
+<p>Use the <b>wjStyle</b> binding together with the <a href="topic/wijmo.knockout.wjFlexGridColumn.Class.html"><b>wjFlexGridColumn</b></a> binding to provide
+conditional formatting to column cells. 
+For example:</p>
+
+<p><pre>&lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Change',
+        binding: 'changePercent',
+        format: 'p2',
+        width: '*'
+        },
+        wjStyle: { color: getAmountColor($item().change) }"&gt;&lt;/div&gt;</pre></p>
+
+<p>
+The <b>wjStyle</b> uses the same syntax as the native KnockoutJS 
+<a href="http://knockoutjs.com/documentation/style-binding.html" target="_blank">style</a> binding.
+In addition to the view model properties, the following observable variables are available in binding
+expressions:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>$item</dt>  <dd>References the item that is bound to the current row.</dd>
+  <dt>$row</dt>  <dd>The row index.</dd>
+  <dt>$col</dt>  <dd>The column index.</dd>
+</dl></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.knockout.wjTooltip.Class.html"><b>wjTooltip</b></a></td>
+      <td><p>KnockoutJS binding for the <a href="topic/wijmo.Tooltip.Class.html"><b>Tooltip</b></a> class.</p>
+
+<p>Use the <b>wjTooltip</b> binding to add tooltips to elements on the page. 
+The <b>wjTooltip</b> supports HTML content, smart positioning, and touch.</p>
+
+<p>The <b>wjTooltip</b> binding is specified on an 
+element that the tooltip applies to. The value is the tooltip
+text or the id of an element that contains the text. For example:</p>
+
+<p><pre>&lt;p data-bind="wjTooltip: '#fineprint'" &gt;
+    Regular paragraph content...&lt;/p&gt;
+...
+&lt;div id="fineprint" style="display:none" &gt;
+  &lt;h3&gt;Important Note&lt;/h3&gt;
+  &lt;p&gt;
+    Data for the current quarter is estimated by pro-rating etc...&lt;/p&gt;
+&lt;/div&gt;</pre></p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

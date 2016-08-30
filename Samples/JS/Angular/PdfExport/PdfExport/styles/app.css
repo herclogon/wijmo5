@@ -1,0 +1,105 @@
+﻿body {
+	background-color: #f8f8f8;
+	font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+	padding: 0 0 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #001F29;
+	font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+h2 {
+	margin-top: 24px;
+	margin-left: -12px;
+}
+
+.header {
+	color: #0089B6;
+	background-color: #001F29;
+	margin-bottom: 14px;
+	padding: 12px 0;
+}
+
+.header h1 {
+	color: #fff;
+	font-size: 40px;
+	line-height: 1;
+	margin-top: 0;
+}
+
+.header img {
+	float: left;
+	margin: 0 10px 5px 0;
+}
+
+ul.flat-list {
+	list-style-type: none;
+	margin-bottom: 0;
+	padding-left: 7px;
+}
+
+ul.flat-list > li {
+	margin-bottom: 5px;
+}
+
+ul.flat-list > li:last-child {
+	margin-bottom: 0;
+}
+
+.small {
+	display: block;
+	font-size: 0.75em;
+	margin: 0 0 1em 0;
+}
+
+[data-toggle].read-more {
+	display: inline-block;
+}
+
+.snapping {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+.grid {
+	margin-top: 20px;
+	height: 300px;
+}
+
+.copy {
+	margin: 0 0 40px;
+}
+
+/* create a 'custom-flex-grid' theme for the tree view FlexGrid */
+.custom-flex-grid .wj-header.wj-cell {
+	background-color: #eaeaea;
+	color: #444;
+	font-weight: bold;
+}
+
+.custom-flex-grid .wj-cell {
+	background-color: #fff;
+}
+
+.custom-flex-grid .wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) {
+	background-color: #fff;
+}
+
+.custom-flex-grid .wj-state-selected {
+	background: #0085c7;
+	color: #fff;
+}
+
+.custom-flex-grid .wj-state-multi-selected {
+	background: #80adbf;
+	color: #fff;
+}
+
+.hideCtrl {
+  visibility:hidden;
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+}

@@ -1,0 +1,42 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Dynamic Columns
+        </h3>
+        <p>
+            This sample demonstrates how to create dynamic columns in a FlexGrid control using Angular's <b>ngFor</b>
+            directive on the <b>wj-flex-grid-column</b> component, where <b>ngFor</b> is bound to the
+            <b>columns</b> array of objects defining column properties.
+        </p>
+        <p>
+            The column definition objects may optionally specify Angular 2 component classes that
+            are used for rendering or editing column cells,
+            in the <b>cellTemplate</b> and <b>cellEditTemplate</b> properties respectively. The <b>wjFlexGridCellTemplate</b>
+            and <b>ngIf</b> directives on <b>template</b> elements are used to optionally apply these templates
+            to columns. The templates contain <b>wj-component-loader</b> component, which performs loading
+            of cell renderer/editor components using their class references.
+        </p>
+    </div>
+    <div>
+
+        <!-- the grid -->
+        <wj-flex-grid #flex [allowResizing]="'Both'"
+                      class="grid"
+                      [itemsSource]="data"
+                      [isReadOnly]="false"
+                      (itemsSourceChanged)="itemsSourceChangedHandler()">
+            <wj-flex-grid-column *ngFor="let col of columns"
+                                 [header]="col.header"
+                                 [binding]="col.binding"
+                                 [format]="col.format"
+                                 [width]="col.width">
+                <template *ngIf="col.cellTemplate" wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                    <wj-component-loader [component]="col.cellTemplate" [properties]="{item: cell.item}"></wj-component-loader>
+                </template>
+                <template *ngIf="col.cellEditTemplate" wjFlexGridCellTemplate [cellType]="'CellEdit'" let-cell="cell">
+                    <wj-component-loader [component]="col.cellEditTemplate" [properties]="{cell: cell}"></wj-component-loader>
+                </template>
+            </wj-flex-grid-column>
+        </wj-flex-grid>
+    </div>
+</div>

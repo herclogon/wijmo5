@@ -1,0 +1,42 @@
+﻿<!-- "classified" watermark -->
+<div class="watermark">
+    <img 
+         style="opacity:0.25; position:absolute; left:50%; top:40%; transform:translate(-50%, -50%)"
+         src="resources/confidential.png" />
+</div>
+
+<h1 style="background-color:#666; color:#fff; padding:10px">
+    Employee Sales By Country
+    <br/>
+    <span style="font-size:50%; font-style:italic">
+        Between {{ invoices.getAggregate('Min', 'OrderDate') | date }} and 
+        {{ invoices.getAggregate('Max', 'OrderDate') | date }}
+    </span>
+</h1>
+
+<div ng-repeat="country in invoices.groups" style="margin-bottom:0.5in; page-break-inside:avoid">
+
+    <div style="border-bottom:6pt solid #a0a0a0; font-size:16pt; font-weight:bold; display:flex" 
+        ng-init="countrySales = country.getAggregate('Sum', 'ExtendedPrice')">
+        <div style="width:600px">
+            {{ country.name }}
+        </div>
+        <div style="width:500px; text-align:right">
+            {{ countrySales | currency }}
+        </div>
+    </div>
+
+    <div ng-repeat="salesperson in country.groups" style="page-break-inside:avoid; display:flex"
+        ng-init="personSales = salesperson.getAggregate('Sum', 'ExtendedPrice')">
+        <div style="width:600px; padding-left:0.5in">
+            {{ salesperson.name }}
+        </div>
+        <div style="width:200px; text-align:right">
+            {{ personSales / countrySales * 100 | number:0 }}%
+        </div>
+        <div style="width:300px; text-align:right">
+            {{ personSales | currency }}
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,9 @@
+﻿.wj-flexgrid .wj-cell:not(.wj-header):not(.wj-group):not(.wj-alt):not(.wj-state-selected):not(.wj-state-multi-selected) {
+	/* Default grid cell color */
+	background: #fff;
+}
+
+.wj-flexgrid .wj-alt:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected) {
+	/* Alternate grid cell color */
+	background: #fff;
+}

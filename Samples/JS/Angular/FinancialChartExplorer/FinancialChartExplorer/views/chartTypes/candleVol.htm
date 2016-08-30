@@ -1,0 +1,40 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    CandleVolume charts are identical to standard Candlestick charts, except that the width of each bar is determined by
+    a fifth value, volume.
+</p>
+
+<!-- Symbol -->
+<label>Symbol</label>
+<wj-combo-box items-source="dataList"
+              selected-index-changed="selectedSymbolChanged(s,e)"
+              display-member-path="name"
+              selected-value-path="symbol"
+              selected-value="selectedSymbol">
+</wj-combo-box>
+
+<!-- FinancialChart -->
+<wj-financial-chart items-source="data"
+                     binding-x="date"
+                     chart-type="CandleVolume"
+                     control="ctx.chart"
+                     rendered="chartRendered(s,e)">
+    <wj-financial-chart-series binding="high,low,open,close,volume"
+                               name="{{ selectedSymbol | uppercase }}">
+    </wj-financial-chart-series>
+</wj-financial-chart>
+
+<!-- Range Selector -->
+<wj-financial-chart items-source="data"
+                    binding-x="date"
+                    chart-type="CandleVolume"
+                    style="height: 200px"
+                    control="ctx.selectorChart"
+                    tooltip-content=""
+                    rendered="selectorChartRendered(s,e)">
+    <wj-financial-chart-series binding="high,low,open,close,volume"></wj-financial-chart-series>
+    <wj-flex-chart-range-selector control="ctx.selector"
+                                  seamless="true"
+                                  range-changed="rangeChanged(s,e)">
+    </wj-flex-chart-range-selector>
+</wj-financial-chart>

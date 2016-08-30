@@ -1,0 +1,51 @@
+/* Common background for all controls */
+.wj-content {
+	background-image: -ms-linear-gradient(bottom, #444 0%, #888 100%);
+	background-image: -moz-linear-gradient(bottom, #444 0%, #888 100%);
+	background-image: -o-linear-gradient(bottom, #444 0%, #888 100%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #444), color-stop(1, #888));
+	background-image: -webkit-linear-gradient(bottom, #444 0%, #888 100%);
+	background-image: linear-gradient(to top, #444 0%, #888 100%);
+	color: #fff;
+	}
+/* Text input elements: black on white */
+.wj-input-group .wj-form-control, .wj-grid-editor {
+	background-color: #fff;
+	color: #444;
+}
+/* Selected item background */
+.wj-state-selected {
+	background-color: #ff6a00;
+}
+/* Multiple selected item background - shown in FlexGrid */
+.wj-state-multi-selected {
+	background-color: #ff9f5b;
+}
+/* Header section of controls - shown in FlexGrid and Calendar */
+.wj-header {
+	background-color: #444;
+	color: #fff;
+}
+/* Hover state of buttons */
+.wj-btn-default:hover {
+	background-color: #ff6a00;
+}
+/* Remove gridlines from cells that are not header cells */
+.wj-cell:not(.wj-header) {
+	border: none;
+}
+/* FlexGrid cell background */
+.wj-flexgrid .wj-cell:not(.wj-header):not(.wj-group):not(.wj-alt):not(.wj-state-selected):not(.wj-state-multi-selected) {
+	background: #555;
+}
+.wj-flexgrid .wj-alt:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected) {
+	background: #444;
+}
+
+/* Customizing a single control (with class customInputTime) */
+.customInputTime .wj-btn-default {
+	background-color: #328efd;
+}
+.customInputTime .wj-btn-default:hover {
+	background-color: #58a2fb;
+}

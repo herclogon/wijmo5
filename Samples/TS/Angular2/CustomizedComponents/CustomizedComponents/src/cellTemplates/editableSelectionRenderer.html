@@ -1,0 +1,12 @@
+﻿<!-- 
+    Use radio button for single row selection. ngModel doesn't work for radio input, so we one-way bind
+    to 'checked' and subscribe to the 'change' event.
+-->
+<input *ngIf="selectionType == SelectionTypeEnum.Single" 
+       [checked]="cell.item[cell.col.binding]" 
+       (change)="singleSelectChanged($event)"
+       type="radio"/>
+<!-- Use checkbox for multiple row selection -->
+<input *ngIf="selectionType == SelectionTypeEnum.Multiple" 
+       [(ngModel)]="cell.item[cell.col.binding]" 
+       type="checkbox" />

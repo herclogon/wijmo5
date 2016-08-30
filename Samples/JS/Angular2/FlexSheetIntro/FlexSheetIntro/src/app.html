@@ -1,0 +1,1141 @@
+﻿<div class="header hidden-xs hidden-sm">
+    <div class="container">
+        <img src="resources/wijmo5.png" />
+        <h1>
+            FlexSheet 101
+        </h1>
+        <p>
+            This page shows how to get started with Wijmo's FlexSheet control.
+        </p>
+    </div>
+</div>
+<div class="container">
+
+    <!-- getting started -->
+    <h2 id="Start">
+        Getting Started
+    </h2>
+    <p>
+        Steps for getting started with FlexSheet in AngularJS applications:
+    </p>
+    <ol>
+        <li>Add references to AngularJS, Wijmo, and Wijmo's AngularJS directives.</li>
+        <li>Add a component to provide data and logic.</li>
+        <li>Add a FlexGrid to the page and bind it to the data.</li>
+        <li>Add a Sheet to the FlexSheet. </li>
+        <li>Add some CSS to customize the grid's appearance.</li>
+    </ol>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href="css/bootstrap.css" /&gt;
+    &lt;link rel="stylesheet" type="text/css" href="css/wijmo.css" /&gt;
+    &lt;link rel="stylesheet" type="text/css" href="css/themes/wijmo.theme.office.css" /&gt;
+    &lt;link rel="stylesheet" type="text/css" href="css/app.css"/&gt;
+    &lt;!-- JSZip library --&gt;
+    &lt;script src="http://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"&gt;&lt;/script&gt;
+    &lt;!-- Wijmo --&gt;
+    &lt;script src="scripts/wijmo.js" type="text/javascript"/&gt;&lt;/script/&gt;
+    &lt;script src="scripts/wijmo.input.js" type="text/javascript"/&gt;&lt;/script/&gt;
+    &lt;script src="scripts/wijmo.grid.js" type="text/javascript"/&gt;&lt;/script/&gt;
+    &lt;script src="scripts/wijmo.grid.filter.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.grid.sheet.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.grid.xlsx.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.xlsx.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;!-- Wijmo for Angular 2 --&gt;
+    &lt;script src="scripts/wijmo.angular2.js" type="text/javascript"/&gt;&lt;/script/&gt;
+    &lt;!-- Load the root application module --&gt;
+    &lt;script&gt;
+        System.import('./src/app');
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Add root application component --&gt;
+    &lt;app-cmp&gt;
+        &lt;wj-flex-sheet #flexSheetIntro (initialized)="flexSheetInit(flexSheetIntro)"&gt; 
+            &lt;wj-sheet name="Country"&gt;&lt;/wj-sheet&gt;
+            &lt;wj-sheet name="Empty Sheet"&gt;&lt;/wj-sheet&gt;
+        &lt;/wj-flex-sheet&gt;
+    &lt;/app-cmp&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+import { Injectable } from '@angular/core';
+
+// Common data service
+@Injectable()
+export class DataSvc {
+    private _products = ['Widget', 'Gadget', 'Doohickey'];
+    private _countries = ['US', 'Germany', 'UK', 'Japan', 'Italy', 'Greece'];
+
+    get products(): string[] {
+        return this._products;
+    }
+
+    get countries(): string[] {
+        return this._countries;
+    }
+
+    // get matches for a search term
+    getData(count: number): any[] {
+        var data = [],
+        i = 0,
+        countryId,
+        productId;
+
+        for (var i = 0; i < count; i++) {
+            countryId = Math.floor(Math.random() * this._countries.length);
+            productId = Math.floor(Math.random() * this._products.length);
+            data.push({
+                id: i,
+                countryId: countryId,
+                productId: productId,
+                date: new Date(2014, i % 12, i % 28),
+                amount: Math.random() * 10000,
+                active: i % 4 === 0
+            });
+        }
+        return data;
+    }
+}
+
+---------------------Component-------------------
+// Angular
+import { Component, EventEmitter, Inject, enableProdMode, ViewChild, AfterViewInit } from '@angular/core';
+import { CORE_DIRECTIVES } from '@angular/common';
+import { bootstrap } from ''@angular/platform-browser-dynamic'';
+import * as wjFlexSheet from 'wijmo/wijmo.angular2.grid.sheet';
+import { AppTab, AppTabPane } from './components/AppTab';
+import { DataSvc } from './services/DataSvc';
+
+'use strict';
+
+// The Explorer application root component.
+@Component({
+    selector: 'app-cmp',
+    templateUrl: 'src/app.html',
+    directives: [CORE_DIRECTIVES, AppTab, AppTabPane,
+    wjFlexSheet.WjFlexSheet, wjFlexSheet.WjSheet]
+})
+export class AppCmp {
+    protected dataSvc: DataSvc;
+    data: any[];
+
+    // references FlexSheet named 'flexSheet' in the view
+    @ViewChild('flexSheetIntro') flexSheetIntro: wijmo.grid.sheet.FlexSheet;
+
+    constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+        this.dataSvc = dataSvc;
+        this.data = dataSvc.getData(50);
+    }
+
+    flexSheetInit(flexSheetIntro: wijmo.grid.sheet.FlexSheet) {
+        var self = this;
+
+        if (flexSheetIntro) {
+            flexSheetIntro.deferUpdate(() => {
+                flexSheetIntro.selectedSheetIndex = 0;
+                flexSheetIntro.selectedSheet.itemsSource = this.data;
+                self._initDataMapForBindingSheet(flexSheetIntro);
+            });
+        }
+    }
+
+    // initialize the dataMap for the bound sheet.
+    private _initDataMapForBindingSheet(flexSheet) {
+        var column;
+
+        if (flexSheet) {
+            column = flexSheet.columns.getColumn('countryId');
+            if (column && !column.dataMap) {
+                column.dataMap = this._buildDataMap(this.dataSvc.countries);
+            }
+            column = flexSheet.columns.getColumn('productId');
+            if (column && !column.dataMap) {
+                column.dataMap = this._buildDataMap(this.dataSvc.products);
+            }
+        }
+    }
+
+    // build a data map from a string array using the indices as keys
+    private _buildDataMap(items) {
+        var map = [];
+        for (var i = 0; i < items.length; i++) {
+            map.push({ key: i, value: items[i] });
+        }
+        return new wijmo.grid.DataMap(map, 'key', 'value');
+    }
+}
+
+
+enableProdMode();
+// Bootstrap application with hash style navigation and global services.
+bootstrap(AppCmp, [
+    DataSvc
+]);
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="CSS">
+                    <div class="pane-content">
+/* set default grid height and some shadow */
+.wj-flexsheet {
+    height: 400px;
+    background-color: white;
+    box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+    margin-bottom: 12px;
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>
+                Result (live):
+            </h4>
+            <wj-flex-sheet #flexSheetIntro (initialized)="flexSheetInit(flexSheetIntro)">
+                <wj-sheet name="Country"></wj-sheet>
+                <wj-sheet name="Empty Sheet"></wj-sheet>
+            </wj-flex-sheet>
+        </div>
+    </div>
+
+    <!-- Sorting -->
+    <h2 id="sort">
+        Sorting
+    </h2>
+    <p>
+        FlexSheet can be sorted by any of its columns.
+    </p>
+    <p>
+        The <b>SortManager</b> helps FlexSheet to manage the sort process. The following example uses SortManager to specify the order of the sorting, add or remove sort columns, and change the order of the sort columns.
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;wj-flex-sheet #sortSheet (initialized)="sortSheetInit(sortSheet)"&gt;
+    &lt;wj-sheet name="Country"&gt;&lt;/wj-sheet&gt;
+&lt;/wj-flex-sheet&gt;
+&lt;table class="table table-bordered"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th class="text-center"&gt;Column&lt;/th&gt;
+            &lt;th class="text-center"&gt;Order&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody *ngIf="sortManager"&gt;
+        &lt;tr *ngFor="let sortItem of sortManager.sortDescriptions.items"
+            (click)="sortManager.sortDescriptions.moveCurrentTo(sortItem)"
+            [ngClass]="{success: sortItem === sortManager.sortDescriptions.currentItem}"&gt;
+            &lt;td&gt;
+                &lt;select class="form-control" (change)="applySortColumnIndex($event, sortItem)"&gt;
+                    &lt;option value=-1&gt;&lt;/option&gt;
+                    &lt;option *ngFor="let column of columns; let i = index" [selected]="i === sortItem.columnIndex"
+                            value={&#8203;{i}&#8203;}&gt;
+                        {&#8203;{column}&#8203;}
+                    &lt;/option&gt;
+                &lt;/select&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+                &lt;select class="form-control" (change)="applySortAscending($event, sortItem)"&gt;
+                    &lt;option [value]="true" [selected]="sortItem.ascending"&gt;Ascending&lt;/option&gt;
+                    &lt;option [value]="false" [selected]="!sortItem.ascending"&gt;Descending&lt;/option&gt;
+                &lt;/select&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="btn-group"&gt;
+    &lt;button type="button" class="btn btn-default" (click)="addSortLevel()"&gt;
+        Add Level
+    &lt;/button&gt;
+    &lt;button type="button" class="btn btn-default" (click)="deleteSortLevel()"&gt;
+        Delete Level
+    &lt;/button&gt;
+    &lt;button type="button" class="btn btn-default" (click)="copySortLevel()"&gt;
+        Copy Level
+    &lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="btn-group"&gt;
+    &lt;button id="moveup" type="button"
+            class="btn btn-default"
+            [disabled]="sortManager && sortManager.sortDescriptions.currentPosition &lt;= 0"
+            (click)="moveSortLevel(-1)"&gt;
+        &lt;span class="glyphicon glyphicon-arrow-up"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button id="movedown" type="button"
+            class="btn btn-default"
+            [disabled]="sortManager && sortManager.sortDescriptions.currentPosition &gt;= sortManager.sortDescriptions.itemCount - 1"
+            (click)="moveSortLevel(1)"&gt;
+        &lt;span class="glyphicon glyphicon-arrow-down"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="btn-group"&gt;
+    &lt;button type="button" class="btn btn-default" (click)="commitSort()"&gt;OK&lt;/button&gt;
+    &lt;button type="button" class="btn btn-default" (click)="cancelSort()"&gt;Cancel&lt;/button&gt;
+&lt;/div&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+// references FlexSheet named 'sortSheet' in the view
+@ViewChild('sortSheet') sortSheet: wijmo.grid.sheet.FlexSheet;
+
+sortSheetInit(sortSheet: wijmo.grid.sheet.FlexSheet) {
+    var self = this;
+
+    if (sortSheet) {
+        sortSheet.deferUpdate(() => {
+            sortSheet.selectedSheetIndex = 0;
+            sortSheet.selectedSheet.itemsSource = this.data;
+            self._initDataMapForBindingSheet(sortSheet);
+            self.sortManager = sortSheet.sortManager;
+            self.columns = self._getColumns(sortSheet);
+        });
+
+        sortSheet.selectedSheetChanged.addHandler(() => {
+            self.columns = self._getColumns(sortSheet);
+            if (!self.sortManager) {
+                self.sortManager = sortSheet.sortManager;
+            }
+        });
+    }
+}
+
+// commit the sorts
+commitSort() {
+    this.sortManager.commitSort();
+};
+
+// cancel the sorts
+cancelSort() {
+    this.sortManager.cancelSort();
+};
+
+// add new sort level
+addSortLevel() {
+    this.sortManager.addSortLevel();
+};
+
+// delete current sort level
+deleteSortLevel() {
+    this.sortManager.deleteSortLevel();
+};
+
+// copy a new sort level by current sort level setting.
+copySortLevel() {
+    this.sortManager.copySortLevel();
+};
+
+// move the sort level
+moveSortLevel(offset) {
+    this.sortManager.moveSortLevel(offset);
+};
+
+// apply column index property for sort item
+applySortColumnIndex(e, sortItem) {
+    sortItem.columnIndex = +e.target.value;
+}
+
+// apply asceding property for sort item
+applySortAscending(e, sortItem) {
+    if (e.target.value === 'true') {
+        sortItem.ascending = true;
+    } else {
+        sortItem.ascending = false;
+    }
+}
+
+private _getColumns(flexSheet: wijmo.grid.sheet.FlexSheet): string[] {
+    var columns = [],
+        i = 0;
+    if (flexSheet) {
+        for (; i < flexSheet.columns.length; i++) {
+            columns.push('Column ' + wijmo.grid.sheet.FlexSheet.convertNumberToAlpha(i));
+        }
+    }
+    return columns;
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>
+                Result (live):
+            </h4>
+            <wj-flex-sheet #sortSheet (initialized)="sortSheetInit(sortSheet)">
+                <wj-sheet name="Country"></wj-sheet>
+            </wj-flex-sheet>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center">Column</th>
+                        <th class="text-center">Order</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="sortManager">
+                    <tr *ngFor="let sortItem of sortManager.sortDescriptions.items"
+                        (click)="sortManager.sortDescriptions.moveCurrentTo(sortItem)"
+                        [ngClass]="{success: sortItem === sortManager.sortDescriptions.currentItem}">
+                        <td>
+                            <select class="form-control" (change)="applySortColumnIndex($event, sortItem)">
+                                <option value=-1></option>
+                                <option *ngFor="let column of columns; let i = index" [selected]="i === sortItem.columnIndex"
+                                        value={{i}}>
+                                    {{column}}
+                                </option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="form-control" (change)="applySortAscending($event, sortItem)">
+                                <option [value]="true" [selected]="sortItem.ascending">Ascending</option>
+                                <option [value]="false" [selected]="!sortItem.ascending">Descending</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default" (click)="addSortLevel()">
+                    Add Level
+                </button>
+                <button type="button" class="btn btn-default" (click)="deleteSortLevel()">
+                    Delete Level
+                </button>
+                <button type="button" class="btn btn-default" (click)="copySortLevel()">
+                    Copy Level
+                </button>
+            </div>
+            <div class="btn-group">
+                <button id="moveup" type="button"
+                        class="btn btn-default"
+                        [disabled]="sortManager && sortManager.sortDescriptions.currentPosition <= 0"
+                        (click)="moveSortLevel(-1)">
+                    <span class="glyphicon glyphicon-arrow-up"></span>
+                </button>
+                <button id="movedown" type="button"
+                        class="btn btn-default"
+                        [disabled]="sortManager && sortManager.sortDescriptions.currentPosition >= sortManager.sortDescriptions.itemCount - 1"
+                        (click)="moveSortLevel(1)">
+                    <span class="glyphicon glyphicon-arrow-down"></span>
+                </button>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default" (click)="commitSort()">OK</button>
+                <button type="button" class="btn btn-default" (click)="cancelSort()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Format Cells -->
+    <h2 id="format">
+        Format Cells
+    </h2>
+    <p>
+        FlexSheet allows you to set format for each cell. This includes setting font style, data format of cell value (Date/Number format), cell's fill color and horizontal alignment.
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;wj-flex-sheet #formatSheet (initialized)="formatSheetInit(formatSheet)"&gt;
+    &lt;wj-sheet name="Number" [rowCount]="20" [columnCount]="8"&gt;&lt;/wj-sheet&gt;
+    &lt;wj-sheet name="Date" [rowCount]="20" [columnCount]="8"&gt;&lt;/wj-sheet&gt;
+&lt;/wj-flex-sheet&gt;
+&lt;wj-color-picker #colorPicker style="display:none;position:fixed;z-index:100"&gt; (initialized)="colorPickerInit(colorPicker)"&lt;/wj-color-picker&gt;
+&lt;div class="well well-lg"&gt;
+    &lt;div&gt;
+        Format:
+        &lt;wj-menu header="Format" [(value)]="format"&gt;
+            &lt;wj-menu-item value="0"&gt;Decimal Format&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="n2"&gt;Number Format&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="p"&gt;Percentage Format&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="c2"&gt;Currency Format&lt;/wj-menu-item&gt;
+            &lt;wj-menu-separator&gt;&lt;/wj-menu-separator&gt;
+            &lt;wj-menu-item value="d"&gt;Short Date&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="D"&gt;Long Date&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="f"&gt;Full Date/TIme (short time)&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="F"&gt;Full Date/TIme (long time)&lt;/wj-menu-item&gt;
+        &lt;/wj-menu&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        Font:
+        &lt;wj-combo-box #cboFontName
+                        style="width:120px"
+                        [itemsSource]="fonts"
+                        [selectedIndex]="10"
+                        [displayMemberPath]="'name'"
+                        [selectedValuePath]="'value'"
+                        [isEditable]="false"
+                        (initialized)="cboFontNameInit(cboFontName)"&gt;
+        &lt;/wj-combo-box&gt;
+        &lt;wj-combo-box #cboFontSize
+                        style="width:80px"
+                        [itemsSource]="fontSizeList"
+                        [selectedIndex]="5"
+                        [displayMemberPath]="'name'"
+                        [selectedValuePath]="'value'"
+                        [isEditable]="false"
+                        (initialized)="cboFontSizeInit(cboFontSize)"&gt;
+        &lt;/wj-combo-box&gt;
+        &lt;div class="btn-group"&gt;
+            &lt;button type="button" class="btn btn-default {&#8203;{selectionFormatState.isBold ? 'active' : ''}&#8203;}" (click)="applyBoldStyle()"&gt;Bold&lt;/button&gt;
+            &lt;button type="button" class="btn btn-default {&#8203;{selectionFormatState.isItalic ? 'active' : ''}&#8203;}" (click)="applyItalicStyle()"&gt;Italic&lt;/button&gt;
+            &lt;button type="button" class="btn btn-default {&#8203;{selectionFormatState.isUnderline ? 'active' : ''}&#8203;}" (click)="applyUnderlineStyle()"&gt;Underline&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        Color:
+        &lt;div class="btn-group"&gt;
+            &lt;button type="button" class="btn btn-default" (click)="showColorPicker($event, false)"&gt;Fore Color&lt;/button&gt;
+            &lt;button type="button" class="btn btn-default" (click)="showColorPicker($event, true)"&gt;Fill Color&lt;/button&gt;
+        &lt;/div&gt;
+        Alignment:
+        &lt;div class="btn-group"&gt;
+            &lt;button type="button" class="btn btn-default {&#8203;{selectionFormatState.textAlign === 'left' ? 'active' : ''}&#8203;}" (click)="applyCellTextAlign('left')"&gt;Left&lt;/button&gt;
+            &lt;button type="button" class="btn btn-default {&#8203;{selectionFormatState.textAlign === 'center' ? 'active' : ''}&#8203;}" (click)="applyCellTextAlign('center')"&gt;Center&lt;/button&gt;
+            &lt;button type="button" class="btn btn-default {&#8203;{selectionFormatState.textAlign === 'right' ? 'active' : ''}&#8203;}" (click)="applyCellTextAlign('right')"&gt;Right&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+// references FlexSheet named 'formatSheet' in the view
+@ViewChild('formatSheet') formatSheet: wijmo.grid.sheet.FlexSheet;
+
+// references Combobox named 'cboFontName' in the view
+@ViewChild('cboFontName') cboFontName: wijmo.input.ComboBox;
+
+// references Combobox named 'cboFontSize' in the view
+@ViewChild('cboFontSize') cboFontSize: wijmo.input.ComboBox;
+
+// references Combobox named 'cboFontSize' in the view
+@ViewChild('colorPicker') colorPicker: wijmo.input.ColorPicker;
+
+// Gets or sets _format for the formatSheet.
+get format(): string {
+    return this._format;
+}
+set format(value: string) {
+    if (this._format !== value) {
+        this._format = value;
+        this.formatSheet.applyCellsStyle({ format: this._format });
+    }
+}
+
+formatSheetInit(formatSheet: wijmo.grid.sheet.FlexSheet) {
+    var self = this;
+
+    if (formatSheet) {
+        formatSheet.deferUpdate(() => {
+            var sheetIdx,
+                sheetName,
+                colIdx,
+                rowIdx,
+                date;
+
+            for (sheetIdx = 0; sheetIdx < formatSheet.sheets.length; sheetIdx++) {
+                formatSheet.selectedSheetIndex = sheetIdx;
+                sheetName = formatSheet.selectedSheet.name;
+                for (colIdx = 0; colIdx < formatSheet.columns.length; colIdx++) {
+                    for (rowIdx = 0; rowIdx < formatSheet.rows.length; rowIdx++) {
+                        if (sheetName === 'Number') {
+                            formatSheet.setCellData(rowIdx, colIdx, colIdx + rowIdx);
+                        } else {
+                            date = new Date(2015, colIdx, rowIdx + 1);
+                            formatSheet.setCellData(rowIdx, colIdx, date);
+                        }
+                    }
+                }
+            }
+            formatSheet.selectedSheetIndex = 0;
+            self._updateSelection(formatSheet, formatSheet.selection);
+        });
+
+        formatSheet.selectionChanged.addHandler((sender: any, args: wijmo.grid.CellRangeEventArgs) => {
+            self._updateSelection(formatSheet, args.range);
+            self.selectionFormatState = formatSheet.getSelectionFormatState();
+        });
+    }
+}
+
+cboFontNameInit(cboFontName: wijmo.input.ComboBox) {
+    var self = this;
+
+    if (cboFontName) {
+        cboFontName.selectedIndexChanged.addHandler(() => {
+            // apply the font family for the selected cells
+            if (!self._updatingSelection) {
+                self.formatSheet.applyCellsStyle({ fontFamily: cboFontName.selectedItem.value });
+            }
+        });
+    }
+}
+
+cboFontSizeInit(cboFontSize: wijmo.input.ComboBox) {
+    var self = this;
+
+    if (cboFontSize) {
+        cboFontSize.selectedIndexChanged.addHandler(() => {
+            // apply the font size for the selected cells
+            if (!self._updatingSelection) {
+                self.formatSheet.applyCellsStyle({ fontSize: cboFontSize.selectedItem.value });
+            }
+        });
+    }
+}
+
+colorPickerInit(colorPicker: wijmo.input.ColorPicker) {
+    var self = this,
+        ua = window.navigator.userAgent,
+        blurEvt: string;
+
+    if (colorPicker) {
+        // if the browser is firefox, we should bind the blur event. (TFS #124387)
+        // if the browser is IE, we should bind the focusout event. (TFS #124500)
+        blurEvt = /firefox/i.test(ua) ? 'blur' : 'focusout';
+        // Hide the color picker control when it lost the focus.
+        colorPicker.hostElement.addEventListener(blurEvt, () => {
+            setTimeout(() => {
+                if (!colorPicker.containsFocus()) {
+                    self._applyFillColor = false;
+                    colorPicker.hostElement.style.display = 'none';
+                }
+            }, 0);
+        });
+
+        // Initialize the value changed event handler for the color picker control.
+        colorPicker.valueChanged.addHandler(() => {
+            if (self._applyFillColor) {
+                self.formatSheet.applyCellsStyle({ backgroundColor: colorPicker.value });
+            } else {
+                self.formatSheet.applyCellsStyle({ color: colorPicker.value });
+            }
+        });
+    }
+}
+
+// apply the text alignment for the selected cells
+applyCellTextAlign(textAlign) {
+    if (this.formatSheet) {
+        this.formatSheet.applyCellsStyle({ textAlign: textAlign });
+        this.selectionFormatState.textAlign = textAlign;
+    }
+}
+
+// apply the bold font weight for the selected cells
+applyBoldStyle() {
+    if (this.formatSheet) {
+        this.formatSheet.applyCellsStyle({ fontWeight: this.selectionFormatState.isBold ? 'none' : 'bold' });
+        this.selectionFormatState.isBold = !this.selectionFormatState.isBold;
+    }
+}
+
+// apply the underline text decoration for the selected cells
+applyUnderlineStyle() {
+    if (this.formatSheet) {
+        this.formatSheet.applyCellsStyle({ textDecoration: this.selectionFormatState.isUnderline ? 'none' : 'underline' });
+        this.selectionFormatState.isUnderline = !this.selectionFormatState.isUnderline;
+    }
+}
+
+// apply the italic font style for the selected cells
+applyItalicStyle() {
+    if (this.formatSheet) {
+        this.formatSheet.applyCellsStyle({ fontStyle: this.selectionFormatState.isItalic ? 'none' : 'italic' });
+        this.selectionFormatState.isItalic = !this.selectionFormatState.isItalic;
+    }
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>
+                Result (live):
+            </h4>
+            <wj-flex-sheet #formatSheet (initialized)="formatSheetInit(formatSheet)">
+                <wj-sheet name="Number" [rowCount]="20" [columnCount]="8"></wj-sheet>
+                <wj-sheet name="Date" [rowCount]="20" [columnCount]="8"></wj-sheet>
+            </wj-flex-sheet>
+            <wj-color-picker #colorPicker style="display:none;position:fixed;z-index:100" (initialized)="colorPickerInit(colorPicker)"></wj-color-picker>
+            <div class="well well-lg">
+                <div>
+                    Format:
+                    <wj-menu header="Format" [(value)]="format">
+                        <wj-menu-item value="0">Decimal Format</wj-menu-item>
+                        <wj-menu-item value="n2">Number Format</wj-menu-item>
+                        <wj-menu-item value="p">Percentage Format</wj-menu-item>
+                        <wj-menu-item value="c2">Currency Format</wj-menu-item>
+                        <wj-menu-separator></wj-menu-separator>
+                        <wj-menu-item value="d">Short Date</wj-menu-item>
+                        <wj-menu-item value="D">Long Date</wj-menu-item>
+                        <wj-menu-item value="f">Full Date/TIme (short time)</wj-menu-item>
+                        <wj-menu-item value="F">Full Date/TIme (long time)</wj-menu-item>
+                    </wj-menu>
+                </div>
+                <div>
+                    Font:
+                    <wj-combo-box #cboFontName
+                                  style="width:120px"
+                                  [itemsSource]="fonts"
+                                  [selectedIndex]="10"
+                                  [displayMemberPath]="'name'"
+                                  [selectedValuePath]="'value'"
+                                  [isEditable]="false"
+                                  (initialized)="cboFontNameInit(cboFontName)">
+                    </wj-combo-box>
+                    <wj-combo-box #cboFontSize
+                                  style="width:80px"
+                                  [itemsSource]="fontSizeList"
+                                  [selectedIndex]="5"
+                                  [displayMemberPath]="'name'"
+                                  [selectedValuePath]="'value'"
+                                  [isEditable]="false"
+                                  (initialized)="cboFontSizeInit(cboFontSize)">
+                    </wj-combo-box>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default {{selectionFormatState.isBold ? 'active' : ''}}" (click)="applyBoldStyle()">Bold</button>
+                        <button type="button" class="btn btn-default {{selectionFormatState.isItalic ? 'active' : ''}}" (click)="applyItalicStyle()">Italic</button>
+                        <button type="button" class="btn btn-default {{selectionFormatState.isUnderline ? 'active' : ''}}" (click)="applyUnderlineStyle()">Underline</button>
+                    </div>
+                </div>
+                <div>
+                    Color:
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default" (click)="showColorPicker($event, false)">Fore Color</button>
+                        <button type="button" class="btn btn-default" (click)="showColorPicker($event, true)">Fill Color</button>
+                    </div>
+                    Alignment:
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default {{selectionFormatState.textAlign === 'left' ? 'active' : ''}}" (click)="applyCellTextAlign('left')">Left</button>
+                        <button type="button" class="btn btn-default {{selectionFormatState.textAlign === 'center' ? 'active' : ''}}" (click)="applyCellTextAlign('center')">Center</button>
+                        <button type="button" class="btn btn-default {{selectionFormatState.textAlign === 'right' ? 'active' : ''}}" (click)="applyCellTextAlign('right')">Right</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Merging -->
+    <h2 id="cellMerge">
+        Cell Merging
+    </h2>
+    <p>
+        FlexSheet supports merging the selected cells into one by invoking the <b>mergeRange</b> method.
+    </p>
+    <p>
+        If the selected cells contain merged cell, the mergeRange method will un-merge the merged cell. Otherwise, it will merge the selected cells into one cell.
+    </p>
+    <p>
+        FlexSheet allows merging of cells that contain any data. This is different from FlexGrid, which supports content-driven cell merging.
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;wj-flex-sheet #mergeCellSheet (initialized)="mergeCellSheetInit(mergeCellSheet)"&gt;
+    &lt;wj-sheet name="Unbound" [rowCount]="20" [columnCount]&gt;&lt;/wj-sheet&gt;
+&lt;/wj-flex-sheet&gt;
+&lt;button type="button" class="btn btn-default" (click)="mergeCells()"&gt;{&#8203;{mergeState.isMergedCell ? 'UnMerge' : 'Merge'}&#8203;}&lt;/button&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+// references FlexSheet named 'mergeCellSheet' in the view
+@ViewChild('mergeCellSheet') mergeCellSheet: wijmo.grid.sheet.FlexSheet;
+
+mergeCellSheetInit(mergeCellSheet: wijmo.grid.sheet.FlexSheet) {
+    var self = this;
+    if (mergeCellSheet) {
+        mergeCellSheet.selectionChanged.addHandler(function () {
+            self.mergeState = mergeCellSheet.getSelectionFormatState();
+        });
+    }
+}
+
+mergeCells() {
+    if (this.mergeCellSheet) {
+        this.mergeCellSheet.mergeRange();
+        this.mergeState = this.mergeCellSheet.getSelectionFormatState();
+    }
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>
+                Result (live):
+            </h4>
+            <wj-flex-sheet #mergeCellSheet (initialized)="mergeCellSheetInit(mergeCellSheet)">
+                <wj-sheet name="Unbound" [rowCount]="20" [columnCount]="8"></wj-sheet>
+            </wj-flex-sheet>
+            <button type="button" class="btn btn-default" (click)="mergeCells()">{{mergeState.isMergedCell ? 'UnMerge' : 'Merge'}}</button>
+        </div>
+    </div>
+
+    <!-- Drag & Drop -->
+    <h2 id="dragDrop">
+        Drag & Drop
+    </h2>
+    <p>
+        FlexSheet supports dragging and dropping the columns or rows into other columns or rows.
+    </p>
+    <p>
+        FlexSheet not only copies or moves the data of the cells, but also copies or moves the style of the cells.
+    </p>
+    <p>
+        When you drag and drop columns/rows without pressing any key, it will move the selected columns or rows into the target columns or rows.
+    </p>
+    <p>
+        When you drag and drop columns/rows with <b>'Ctrl'</b> key pressed, it will copy the selected columns or rows into the target columns or rows.
+    </p>
+    <p>
+        When you drag and drop columns/rows with <b>'Shift'</b> key pressed, it will change the position of the selected columns or rows with the target columns or rows.
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;wj-flex-sheet #dragDropSheet (initialized)="dragDropSheetInit(dragDropSheet)"&gt;
+    &lt;wj-sheet name="Unbound" [rowCount]="12" [columnCount]="8"&gt;&lt;/wj-sheet&gt;
+&lt;/wj-flex-sheet&gt;
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>
+                Result (live):
+            </h4>
+            <wj-flex-sheet #dragDropSheet (initialized)="dragDropSheetInit(dragDropSheet)">
+                <wj-sheet name="Unbound" [rowCount]="12" [columnCount]="8"></wj-sheet>
+            </wj-flex-sheet>
+        </div>
+    </div>
+
+    <!-- Frozen Cells -->
+    <h2 id="frozenCells">
+        Frozen Cells
+    </h2>
+    <p>
+        FlexSheet allows you to freeze the rows and columns of the selected cell by the <b>freezeAtCursor</b> method.
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;wj-flex-sheet #frozenSheet (initialized)="frozenSheetInit(frozenSheet)"&gt;
+    &lt;wj-sheet name="Unbound" [rowCount]="20" [columnCount]="8"&gt;&lt;/wj-sheet&gt;
+&lt;/wj-flex-sheet&gt;
+&lt;button type="button" class="btn btn-default" (click)="freezeCells()"&gt;{&#8203;{isFrozen ? 'UnFreeze' : 'Freeze'}&#8203;}&lt;/button&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+// references FlexSheet named 'frozenSheet' in the view
+@ViewChild('frozenSheet') frozenSheet: wijmo.grid.sheet.FlexSheet;
+
+frozenSheetInit(frozenSheet: wijmo.grid.sheet.FlexSheet) {
+    var self = this;
+
+    if (frozenSheet) {
+        frozenSheet.selectedSheetChanged.addHandler(() => {
+            if (frozenSheet.frozenColumns > 0 || frozenSheet.frozenRows > 0) {
+                self.isFrozen = true;
+            } else {
+                self.isFrozen = false;
+            }
+        });
+    }
+}
+
+freezeCells() {
+    if (this.frozenSheet) {
+        this.frozenSheet.freezeAtCursor();
+
+        if (this.frozenSheet.frozenColumns > 0 || this.frozenSheet.frozenRows > 0) {
+            this.isFrozen = true;
+        } else {
+            this.isFrozen = false;
+        }
+    }
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>
+                Result (live):
+            </h4>
+            <wj-flex-sheet #frozenSheet (initialized)="frozenSheetInit(frozenSheet)">
+                <wj-sheet name="Unbound" [rowCount]="20" [columnCount]="8"></wj-sheet>
+            </wj-flex-sheet>
+            <button type="button" class="btn btn-default" (click)="freezeCells()">{{isFrozen ? 'UnFreeze' : 'Freeze'}}</button>
+        </div>
+    </div>
+
+    <!-- Undo/Redo -->
+    <h2 id="undoRedo">
+        Undo / Redo
+    </h2>
+    <p>
+        The FlexSheet control enables you to undo/redo following operations:
+    </p>
+    <ol>
+        <li><b>Editing cells</b></li>
+        <li><b>Resizing row/column</b></li>
+        <li><b>Adding/Removing rows/columns</b></li>
+        <li><b>Changing cell style</b></li>
+        <li><b>Merging cells</b></li>
+        <li><b>Sorting</b></li>
+        <li><b>Dragging and Dropping rows/columns</b></li>
+    </ol>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;wj-flex-sheet #undoSheet (initialized)="undoSheetInit(undoSheet)"&gt;
+    &lt;wj-sheet name="Unbound" [rowCount]="20" [columnCount]="8"&gt;&lt;/wj-sheet&gt;
+&lt;/wj-flex-sheet&gt;
+&lt;button type="button" class="btn btn-default" [disabled]="!(undoStack && undoStack.canUndo)" (click)="undo()"&gt;Undo&lt;/button&gt;
+&lt;button type="button" class="btn btn-default" [disabled]="!(undoStack && undoStack.canRedo)" (click)="redo()"&gt;Redo&lt;/button&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+// references FlexSheet named 'undoSheet' in the view
+@ViewChild('undoSheet') undoSheet: wijmo.grid.sheet.FlexSheet;
+
+// Excutes undo command.
+undo () {
+    this.undoSheet.undo();
+}
+
+// Excutes redo command.
+redo () {
+    this.undoSheet.redo();
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>
+                Result (live):
+            </h4>
+            <wj-flex-sheet #undoSheet (initialized)="undoSheetInit(undoSheet)">
+                <wj-sheet name="Unbound" [rowCount]="20" [columnCount]="8"></wj-sheet>
+            </wj-flex-sheet>
+            <button type="button" class="btn btn-default" [disabled]="!(undoStack && undoStack.canUndo)" (click)="undo()">Undo</button>
+            <button type="button" class="btn btn-default" [disabled]="!(undoStack && undoStack.canRedo)" (click)="redo()">Redo</button>
+        </div>
+    </div>
+
+    <!-- Formulas -->
+    <h2 id="formulas">
+        Formulas
+    </h2>
+    <p>
+        The FlexSheet control has a built-in calculation engine that supports over 80 functions just like Microsoft Excel. (<a href="http://wijmo.com/5/docs/static/FlexSheetFunctions.html" target="_blank">See complete list.</a>)
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;wj-flex-sheet #formulaSheet (initialized)="formulaSheetInit(formulaSheet)"&gt;
+    &lt;wj-sheet name="Expence Report" [rowCount]="14" [columnCount]="6"&gt;&lt;/wj-sheet&gt;
+&lt;/wj-flex-sheet&gt;
+&lt;div&gt;&lt;b&gt;Cell Content: &lt;/b&gt;{&#8203;{currentCellData}&#8203;}&lt;/div&gt;
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>
+                Result (live):
+            </h4>
+            <wj-flex-sheet #formulaSheet (initialized)="formulaSheetInit(formulaSheet)">
+                <wj-sheet name="Expence Report" [rowCount]="14" [columnCount]="6"></wj-sheet>
+            </wj-flex-sheet>
+            <div><b>Cell Content: </b>{{currentCellData}}</div>
+        </div>
+    </div>
+
+    <!-- Custom Function -->
+    <h2 id="customFunction">
+        Custom Function
+    </h2>
+    <p>
+        Although the functions provided in FlexSheet should cover a vast majority of use scenarios, still there may be some cases where users may need additional functions.
+    </p>
+    <p>
+        FlexSheet provides two methods that allow you to add your own custom functions: <b>addCustomFunction</b> and <b>unknownFunction</b>.
+    </p>
+    <p>
+        The <b>addCustomFunction</b> method adds a custom function to the list of built-in functions.
+    </p>
+    <p>
+        The addCustomFunction method is usually the best way to add custom functions to the FlexSheet calculation engine. However, there are scenarios where the function names are variable or unknown ahead of time. For example, named ranges or value dictionaries.
+    </p>
+    <p>
+        In these situations, you can use the <b>unknownFunction</b> event to look up the value of a function dynamically. When the FlexSheet detects an unknown function name, it raises the unknownFunction event and provides parameters that contain the function name and parameters. The event handler then calculates the result and returns the value.
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;wj-flex-sheet #customFuncSheet (initialized)="customFuncSheetInit(customFuncSheet)"&gt;
+    &lt;wj-sheet name="Custom Function" [rowCount]="25" [columnCount]="6"&gt;&lt;/wj-sheet&gt;
+&lt;/wj-flex-sheet&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+// references FlexSheet named 'customFuncSheet' in the view
+@ViewChild('customFuncSheet') customFuncSheet: wijmo.grid.sheet.FlexSheet;
+
+customFuncSheetInit(customFuncSheet: wijmo.grid.sheet.FlexSheet) {
+    var self = this;
+    if (customFuncSheet) {
+        customFuncSheet.addCustomFunction('customSumProduct', (range1, range2) => {
+            var flexSheet = customFuncSheet,
+            result = 0,
+            val1, val2;
+
+            if (range1.rowSpan === range2.rowSpan && range1.columnSpan === range2.columnSpan) {
+                for (var rowIndex = 0; rowIndex < range1.rowSpan; rowIndex++) {
+                    for (var columnIndex = 0; columnIndex < range1.columnSpan; columnIndex++) {
+                        val1 = +flexSheet.getCellValue(range1.topRow + rowIndex, range1.leftCol + columnIndex, false);
+                        val2 = +flexSheet.getCellValue(range2.topRow + rowIndex, range2.leftCol + columnIndex, false);
+                        result += val1 * val2;
+                    }
+                }
+            }
+            return result;
+        }, 'Custom SumProduct Function', 2, 2);
+
+        customFuncSheet.unknownFunction.addHandler((sender: any, e: wijmo.grid.sheet.UnknownFunctionEventArgs) => {
+            var result = '';
+            if (e.params) {
+                for (var i = 0; i < e.params.length; i++) {
+                    result += e.params[i];
+                }
+            }
+            e.value = result;
+        });
+    }
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>
+                Result (live):
+            </h4>
+            <wj-flex-sheet #customFuncSheet (initialized)="customFuncSheetInit(customFuncSheet)">
+                <wj-sheet name="Custom Function" [rowCount]="25" [columnCount]="6"></wj-sheet>
+            </wj-flex-sheet>
+        </div>
+    </div>
+
+    <!-- Excel I/O -->
+    <h2 id="excelIO">
+        Excel I/O
+    </h2>
+    <p>
+        FlexSheet supports saving/loading xlsx file by using the client <b>'save'</b> and <b>'load'</b> method.
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;wj-flex-sheet #excelIOSheet (initialized)="excelIOSheetInit(excelIOSheet)"&gt;
+    &lt;wj-sheet name="Country"&gt;&lt;/wj-sheet&gt;
+    &lt;wj-sheet name="Unbound" [rowCount]="20" [columnCount]="8"&gt;&lt;/wj-sheet&gt;
+&lt;/wj-flex-sheet&gt;
+&lt;div class="form-inline well well-lg"&gt;
+    &lt;input type="file" class="form-control" id="importFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" /&gt;
+    &lt;button class="btn btn-default" (click)="load()"&gt;Load&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="form-inline well well-lg"&gt;
+    File Name:
+    &lt;input type="text" class="form-control" [(ngModel)]="fileName" /&gt;
+    &lt;button class="btn btn-default" (click)="save()"&gt;Save&lt;/button&gt;
+&lt;/div&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+// references FlexSheet named 'excelIOSheet' in the view
+@ViewChild('excelIOSheet') excelIOSheet: wijmo.grid.sheet.FlexSheet;
+
+// Load xlsx file to FlexSheet.
+load () {
+    var flexSheet = this.excelIOSheet,
+        fileInput = &lt;HTMLInputElement&gt;document.getElementById('importFile');
+    if (flexSheet && fileInput.files[0]) {
+        flexSheet.load(fileInput.files[0]);
+    }
+}
+
+// Save FlexSheet to xlsx file.
+save () {
+    var flexSheet = this.excelIOSheet,
+        fileName;
+    if (flexSheet) {
+        if (!!this.fileName) {
+            fileName = this.fileName;
+        } else {
+            fileName = 'FlexSheet.xlsx';
+        }
+        flexSheet.save(fileName);
+    }
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>
+                Result (live):
+            </h4>
+            <wj-flex-sheet #excelIOSheet (initialized)="excelIOSheetInit(excelIOSheet)">
+                <wj-sheet name="Country"></wj-sheet>
+                <wj-sheet name="Unbound" [rowCount]="20" [columnCount]="8"></wj-sheet>
+            </wj-flex-sheet>
+            <div class="form-inline well well-lg">
+                <input type="file" class="form-control" id="importFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                <button class="btn btn-default" (click)="load()">Load</button>
+            </div>
+            <div class="form-inline well well-lg">
+                File Name:
+                <input type="text" class="form-control" [(ngModel)]="fileName" />
+                <button class="btn btn-default" (click)="save()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

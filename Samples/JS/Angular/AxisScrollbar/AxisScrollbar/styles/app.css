@@ -1,0 +1,68 @@
+﻿body
+{
+    font-family: 'Segoe UI', sans-serif;
+}
+
+th
+{
+    font-size: 90%;
+    color: #b0b0b0;
+}
+
+.header
+{
+    background-color: #6f5499;
+    background-image: linear-gradient(#563d7c 0px, #6f5499 100%);
+    background-position: 0% 0%;
+    background-repeat: repeat-x;
+    padding: 12px 0px;
+    margin-bottom: 14px;
+    color: #cdbfe3;
+}
+
+.header h1 {
+    font-size: 40px;
+    color: #fff;
+}
+.header a
+{
+    font-weight: bold;
+    color: #e1d3f7;
+}
+
+.panel-default > .panel-heading  {
+    border-color: transparent;
+}
+
+.stchart {
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 0px;
+    touch-action: none;
+    -ms-touch-action: none;
+}
+.chartcontainer {
+    padding-bottom: 40px;
+}
+
+/****  Axis Scrollbar Css *****/
+.wj-flexchart .wj-axis-scrollbar-container {
+    position: relative;
+}
+
+.wj-flexchart .wj-axis-scrollbar-container .wj-chart-rangeslider {
+    border: 1px solid #EAEAEA;    
+    background-color: #EAEAEA;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.wj-flexchart .wj-axis-scrollbar-container .wj-chart-hrangeslider {
+    height: 20px;
+}
+
+.wj-flexchart .wj-axis-scrollbar-container .wj-chart-vrangeslider {
+    width: 20px;
+}
+

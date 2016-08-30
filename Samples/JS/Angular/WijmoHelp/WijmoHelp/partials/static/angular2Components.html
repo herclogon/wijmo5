@@ -1,0 +1,253 @@
+﻿<h2>
+    Angular 2 Components
+</h2>
+<p>
+
+</p>
+<h3>Beta notes</h3>
+<ul>
+    <li>Built on Angular 2 version <b>2.0.0-beta.15</b></li>
+</ul>
+<p>
+    We are glad to introduce our first official Beta version of Wijmo components for Angular 2.
+    The <i>components</i> allow you to use Wijmo <i>controls</i> in Angular 2 templates markup.
+    In terms of the TypeScript class inheritance feature, Wijmo Angular 2 <i>components</i> "extend" the
+    <i>control</i> classes they represent.
+    This means that when you acquire a reference to a Wijmo component, the referenced instance is a Wijmo <i>control</i>
+    with all its properties, events and methods, and an Angular 2 <i>component</i> at the same time. A Wijmo component extends
+    a control class and adds the necessary functionality that allows the control to be used in Angular 2 template
+    markup, with the fully functional one-way and two-way property bindings and event bindings. This integration is smooth, as all
+    the players, Wijmo controls, Wijmo Angular 2 components and Angular 2 itself are written in the same TypeScript language.
+</p>
+<p>
+    Though this is just a Beta release, we are offering Angular 2 components for all the
+    Wijmo controls right from the beginning, along with additional Angular specific features
+    like FlexGrid cell and detail row templates, ListBox and Menu item templates, and so on. The functional coverage
+    is virtually the same as we offer for the Angular 1 framework.
+</p>
+<p>
+    Wijmo Angular 2 components are shipped as a single wijmo.angular2.js file which contains multiple modules,
+    and are accompanied by TypeScript definition (.d.ts) files that represent modules' API for TypeScript compiler and
+    Visual Studio (or any other IDE) IntelliSense.
+</p>
+
+<h3>Using Wijmo 5 in Angular 2 Applications</h3>
+<p>
+    In order to use Wijmo 5 Angular directives in your Angular 2 application, you need to perform the steps discussed
+    below.
+</p>
+
+<h4>Creating application project</h4>
+<h5>In case of Visual Studio:</h5>
+<ul>
+    <li>
+        If you use Visual Studio 2015, make sure that you have installed Update 1.
+    </li>
+    <li>
+        If you use Visual Studio 2013, make sure that you have installed the following extensions:
+        <p>
+            Package Intellisense:
+            <br />
+            <a href="https://visualstudiogallery.msdn.microsoft.com/65748cdb-4087-497e-a394-2e3449c8e61e" target="_blank">https://visualstudiogallery.msdn.microsoft.com/65748cdb-4087-497e-a394-2e3449c8e61e</a>
+        </p>
+        <p>
+            The latest Typescript version:
+            <br />
+            <a href="https://visualstudiogallery.msdn.microsoft.com/9b47d09d-353c-4c53-9517-8e2ec3f4aa4f" target="_blank">https://visualstudiogallery.msdn.microsoft.com/9b47d09d-353c-4c53-9517-8e2ec3f4aa4f</a>
+        </p>
+    </li>
+    <li>
+        Create a new Visual Studio project using the "HTML Application with TypeScript" project template.
+    </li>
+    <li>
+        Add package.json file to the root of your project, and add the content in it as mentioned in the
+        <a href="https://angular.io/docs/ts/latest/quickstart.html" target="_blank">Angular 2 QuickStart</a> manual.
+        Once you save the updated package.json file, Visual Studio will automatically install Angular 2 and
+        accompanying libraries in the node_modules subfolder of your project.
+    </li>
+</ul>
+<h5>In case of NodeJS:</h5>
+<ul>
+    <li>
+        Set up your project as described in the
+        <a href="https://angular.io/docs/ts/latest/quickstart.html" target="_blank">Angular 2 QuickStart</a> manual.
+    </li>
+</ul>
+
+
+<h4>Configuring HTML</h4>
+<p>
+    Add the following references within the &lt;head&gt; section of the .html file, which will host the root component of your Angular 2 application:
+
+</p>
+<ul>
+    <li>
+        References to Angular 2 and accompanying libraries, as described in
+        the <a href="https://angular.io/docs/ts/latest/quickstart.html" target="_blank">
+            Angular 2 QuickStart
+        </a> manual.
+    </li>
+    <li>
+        References to necessary Wijmo modules, as described in
+        the <a href="static/references.html" target="_blank">Referencing Wijmo 5 in Your Applications</a>
+        topic.
+    </li>
+    <li>
+        Reference to the wijmo.angular2.js file containing Wijmo for Angular 2 modules.
+        For example:
+        <pre>
+&lt;script src="scripts/vendor/interop/angular2/wijmo.angular2.min.js" type="text/javascript"&gt;&lt;/script&gt;
+</pre>
+        The file is located in the dist\interop\angular2 folder of the Wijmo download package. It contains
+        named SystemJS modules like "wijmo/wijmo.angular2.input", "wijmo/wijmo.angular2.grid" and
+        so on. Each module contains Angular 2 components representing controls from corresponding
+        Wijmo library modules (like "wijmo.input" and "wijmo.grid"). In contrast to Wijmo library
+        modules, which are "internal" in terms of TypeScript and whose content you reference using
+        global names like wijmo.input.InputNumber, the Wijmo Angular 2 modules are "external" and
+        should be consumed using the "import" TypeScript statements. For example:
+        <pre>import * as wjGrid from 'wijmo/wijmo.angular2.grid';</pre>
+    </li>
+</ul>
+    The whole picture may look as follows:
+<pre>
+&lt;!-- Shims, polyfills, Angular 2 --&gt;
+&lt;!-- IE required polyfills, in this exact order --&gt;
+&lt;script src="node_modules/es6-shim/es6-shim.min.js"&gt;&lt;/script&gt;
+&lt;script src="node_modules/systemjs/dist/system-polyfills.js"&gt;&lt;/script&gt;
+&lt;script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"&gt;&lt;/script&gt; 
+&nbsp;  
+&lt;script src="node_modules/angular2/bundles/angular2-polyfills.js"&gt;&lt;/script&gt;
+&lt;script src="node_modules/systemjs/dist/system.src.js"&gt;&lt;/script&gt;
+&lt;script src="node_modules/rxjs/bundles/Rx.js"&gt;&lt;/script&gt;
+&lt;script src="node_modules/angular2/bundles/angular2.dev.js"&gt;&lt;/script&gt;
+&nbsp;  
+&lt;!-- Wijmo controls and css --&gt;
+&lt;script src="scripts/vendor/controls/wijmo.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="scripts/vendor/controls/wijmo.grid.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="scripts/vendor/controls/wijmo.chart.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="scripts/vendor/controls/wijmo.input.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="scripts/vendor/controls/wijmo.gauge.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;link href="styles/wijmo.min.css" rel="stylesheet" type="text/css" /&gt;
+&nbsp;  
+&lt;!-- Wijmo Angular 2 components --&gt;
+&lt;script src="scripts/vendor/interop/angular2/wijmo.angular2.min.js" type="text/javascript"&gt;&lt;/script&gt;
+</pre>
+
+<h4>Using Wijmo Angular 2 components with TypeScript</h4>
+<!--You need to allow TypeScript compiler and Visual Studio IntelliSense (if you use the latter) to understand
+Wijmo Angular 2 modules' API which cannot be retrieved from the wijmo.angular.min.js file containing
+modules implementation. For this, we provide a set of TypeScript "definition" files (the ones with the .d.ts
+extension) that are located in the dist\interop\angular2 folder of the Wijmo download package. Because Wijmo
+Angular 2 modules are exposed using ambient names (like "wijmo/wijmo.angular2.grid"), to allow TypeScript
+to find corresponding .d.ts files that describes their API you need to make sure that your project uses "Node"
+module resolution algorithm and that .d.ts files are placed in a correct location. For this-->
+
+<p>
+    You need to allow TypeScript compiler and Visual Studio IntelliSense (if you use the latter) to understand
+    the API of Wijmo modules which cannot be retrieved from .js module files that you use at the run-time.
+    For this, we provide a set of TypeScript "definition" files (the ones with the .d.ts
+    extension) for all official Wijmo modules.
+</p>
+<p>
+    As we mentioned above, there are two kinds
+    of modules, "internal" (Wijmo controls) and "external" (Wijmo Angular 2 Components).
+</p>
+<p>
+    The definition files for internal modules should be simply included in Visual Studio project as
+    items with BuildAction=TypeScriptCompile. In case you are not a Visual Studio user, these definition files should
+    be placed to any folder "visible" to command line TypeScript compiler as per the settings specified
+    in tsconfig.json file of the project.
+</p>
+<p>
+    External Wijmo Angular 2 modules require a bit more attention.
+    As these modules are exposed using ambient names (like "wijmo/wijmo.angular2.grid"), you need to make
+    sure that your project uses "Node" module resolution algorithm and that the corresponding definition
+    files(.d.ts files) are placed at the correct location in order to allow TypeScript to find these files.
+</p>
+<p>
+    Below are the steps necessary to get a correct .d.ts files setup.
+</p>
+<h5>In case of Visual Studio:</h5>
+<ul>
+    <li>
+        Add all the .d.ts files from the dist\controls folder of the Wijmo download package to your Visual Studio
+        project. Make sure that the BuildAction property for the added items is set to TypeScriptCompile,
+        which normally happens automatically. These files describe the API of the internal modules containing
+        Wijmo controls.
+    </li>
+    <li>
+        Copy all the .d.ts files located in the dist\interop\angular2 folder of the Wijmo download package
+        to the node_modules\wijmo subfolder of your project's root. Note that these files are not to be included
+        in your Visual Studio project.
+    </li>
+    <li>
+        Specify CommonJS as the project module system in the TypeScript project settings.
+        This setting automatically implies usage of the Node module resolution algorithm.
+        <p>
+            Note: You may use any other module system. In this case, you will need to open project file
+            in XML editor and add the following property that changes module resolution to the Node
+            resolution algorithm:
+            &lt;TypeScriptModuleResolution&gt;Node&lt;/TypeScriptModuleResolution&gt;
+            . The problem here is that depending on the TypeScript version you use, you may hit against
+            the problem with non-functional IntelliSense discussed
+            <a href="https://github.com/Microsoft/TypeScript/issues/6625" target="_blank">here</a>.
+            You may resolve this by applying a workaround explained in this thread.
+            CommonJS module system uses Node module resolution algorithm by default.
+        </p>
+        With the Node resolution mode, when TypeScript compiler meets an ambient module name
+        like "wijmo/wijmo.angular2.grid" in the TypeScript <b>import</b>
+        statement, it will search for the wijmo.angular2.grid.d.ts definition file in the node_modules/wijmo folder.
+    </li>
+</ul>
+<h5>In case of NodeJS:</h5>
+<ul>
+    <li>
+        <p>
+            Copy all the .d.ts files located in the dist\controls folder of the Wijmo download package
+            to any folder under your project's root but the node_modules folder. These files describe
+            API of the internal modules containing Wijmo controls.
+        </p>
+        <p>
+            You should make sure that settings in the
+            <a href="https://github.com/Microsoft/TypeScript/wiki/tsconfig.json" target="_blank">tsconfig.json</a>
+            file cause inclusion of these
+            files on compilation. Usually you define this by using the tsconfig "exclude" option, where you normally
+            exclude the node_modules folder from compilation. Therefore, it is recommended not to put
+            Wijmo internal module definition files in this folder. If you prefer to use the "files" option
+            to explicitly specify the list of files that should be compiled, then you need to add Wijmo .d.ts
+            files to this option's list.
+        </p>
+    </li>
+    <li>
+        Copy all the .d.ts files located in the dist\interop\angular2 folder of the Wijmo package download
+        to the node_modules\wijmo subfolder of your project's root.
+    </li>
+    <li>
+        If you set up your application as described in the
+        <a href="https://angular.io/docs/ts/latest/quickstart.html" target="_blank">Angular 2 QuickStart</a> manual
+        then you have nothing left to do. Just make sure that <b>"moduleResolution": "node"</b> setting is present
+        in the "compilerOptions" section of the tsconfig.json file.
+        With this setting, when TypeScript compiler meets an ambient module name
+        like "wijmo/wijmo.angular2.grid" in the TypeScript <b>import</b>
+        statement, it will search for the wijmo.angular2.grid.d.ts definition file in the node_modules/wijmo folder.
+
+    </li>
+</ul>
+With this setup, you may import Wijmo Angular 2 modules and use components and directives they contain. For example:
+<pre>import * as wjGrid from 'wijmo/wijmo.angular2.grid';
+&nbsp;
+&#64;Component({
+    directives: [wjGrid.WjFlexGrid],
+    template: '&lt;wj-flex-grid [itemsSource]="data"&gt;&lt;/wj-flex-grid&gt;',
+    selector: 'my-cmp',
+})
+export class MyCmp {
+    data: any[];
+}</pre>
+
+
+<a name="ng2markup"></a>
+<h3>Angular 2 Markup Syntax</h3>
+<p>
+    Refer to the <a href="static/angular2Markup.html">Angular 2 Markup Syntax</a> topic for the description.
+</p>

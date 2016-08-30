@@ -1,0 +1,63 @@
+﻿
+<div class="header">
+    <div class="container">
+        <h1>
+            FlexGrid Custom Footers
+        </h1>
+    </div>
+</div>
+<div class="container">
+    <p>
+        This sample shows how to extend FlexGrid to provide two types of footer
+        elements:
+    </p>
+    <ol>
+        <li>
+            <b>Group Footer Rows</b>: When grouping is enabled, FlexGrid adds
+            group rows above each group. This sample shows how you can add custom
+            group rows below each group as well.
+            Group footer rows are implemented using a custom directive called
+            <b>groupFooters</b> which you can add to any FlexGrid.
+        </li>
+        <li>
+            <b>Footer Grid</b>: In some situations you may want to display a
+            non-scrollable row below the grid to show summary information such as
+            subtotals. This sample shows how you can accomplish this using a
+            separate but synchronized grid with a single row.
+            The grid footer is implemented as a custom directive called
+            <b>gridFooterFor</b> which you can add to a FlexGrid to have it
+            act as a footer for another FlexGrid.
+        </li>
+    </ol>
+    <h3>
+        Select how to group the data:
+    </h3>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default" (click)="groupBy('')">None</button>
+        <button type="button" class="btn btn-default" (click)="groupBy('country')">Country</button>
+        <button type="button" class="btn btn-default" (click)="groupBy('product')">Product</button>
+        <button type="button" class="btn btn-default" (click)="groupBy('product,color')">Product and Color</button>
+    </div>
+
+    <br />
+
+    <h3>
+        See and edit the data here:
+    </h3>
+    <div class="multi-grid">
+        <wj-flex-grid #masterGrid
+                      [groupFooters]="true"
+                      style="max-height:350px"
+                      [itemsSource]="data">
+            <wj-flex-grid-filter></wj-flex-grid-filter>            
+            <wj-flex-grid-column [binding]="'country'"></wj-flex-grid-column>
+            <wj-flex-grid-column [binding]="'product'"></wj-flex-grid-column>
+            <wj-flex-grid-column [binding]="'color'"></wj-flex-grid-column>
+            <wj-flex-grid-column [binding]="'start'"></wj-flex-grid-column>
+            <wj-flex-grid-column [binding]="'end'"></wj-flex-grid-column>
+            <wj-flex-grid-column [binding]="'amount'"></wj-flex-grid-column>
+        </wj-flex-grid>
+        <wj-flex-grid [gridFooterFor]="masterGrid">
+        </wj-flex-grid>
+    </div>
+</div>

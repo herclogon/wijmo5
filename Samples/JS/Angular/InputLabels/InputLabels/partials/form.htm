@@ -1,0 +1,101 @@
+﻿<form>
+    <div class="wj-dialog-header">
+        Edit Item
+    </div>
+
+    <div class="wj-dialog-body" ng-class="{ 'wj-static-labels': staticLabels}">
+        <!-- personal information -->
+        <div class="wj-labeled-input">
+            <wj-combo-box autocomplete="name"
+                          is-required="true"
+                          text="item.name"
+                          id="name"
+                          accesskey="n">
+            </wj-combo-box>
+            <label for="name">Name</label>
+            <div class="wj-error">We do need your name...</div>
+        </div>
+        <div class="wj-labeled-input">
+            <wj-combo-box autocomplete="email"
+                          is-required="true"
+                          input-type="email"
+                          pattern="\S+@\S+\.\S+"
+                          text="item.email"
+                          id="email"
+                          accesskey="e">
+            </wj-combo-box>
+            <label for="email">E-mail</label>
+            <div class="wj-error">We need a valid e-mail...</div>
+        </div>
+        <div class="wj-labeled-input">
+            <wj-combo-box items-source="countries"
+                          is-required="false"
+                          is-editable="true"
+                          text="item.country"
+                          id="country"
+                          accesskey="c">
+            </wj-combo-box>
+            <label for="country">Country</label>
+        </div>
+        <div class="wj-labeled-input">
+            <wj-input-mask autocomplete="ccnumber"
+                           is-required="false"
+                           mask="9999 9999 9999 9999"
+                           value="item.creditCard"
+                           id="card"
+                           accesskey="r">
+            </wj-input-mask>
+            <label for="card">Credit Card #</label>
+        </div>
+
+        <!-- transaction information -->
+        <div class="wj-labeled-input">
+            <wj-input-date is-required="false"
+                           value="item.dateTime"
+                           id="date"
+                           accesskey="d">
+            </wj-input-date>
+            <label for="date">Date</label>
+        </div>
+        <div class="wj-labeled-input">
+            <wj-input-time is-required="false"
+                           min="8:00" max="18:00"
+                           value="item.dateTime"
+                           id="time"
+                           accesskey="t">
+            </wj-input-time>
+            <label for="time">Time</label>
+        </div>
+        <div class="wj-labeled-input">
+            <wj-input-number is-required="false"
+                             format="n0" step="1"
+                             value="item.quantity"
+                             id="quantity"
+                             accesskey="q">
+            </wj-input-number>
+            <label for="quantity">Quantity</label>
+        </div>
+        <div class="wj-labeled-input">
+            <wj-input-number is-required="false"
+                             format="p0" step=".05" min="0" max=".2"
+                             value="item.discount"
+                             id="discount"
+                             accesskey="i">
+            </wj-input-number>
+            <label for="discount">Discount</label>
+        </div>
+        <div class="wj-labeled-input">
+            <wj-multi-select items-source="colors"
+                             checked-items="item.favoriteColors"
+                             id="colors"
+                             accesskey="f">
+            </wj-multi-select>
+            <label for="colors">Favorite Colors</label>
+        </div>
+    </div>
+
+    <div class="wj-dialog-footer">
+        <button class="btn btn-primary" type="submit">OK</button>
+        <button class="btn btn-default wj-hide">Cancel</button>
+    </div>
+</form>

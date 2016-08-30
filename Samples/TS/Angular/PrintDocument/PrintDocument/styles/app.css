@@ -1,0 +1,11 @@
+﻿.wj-flexgrid {
+    max-height: 400px;
+}
+.wj-flexgrid .wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background-color: white;
+}
+
+.wj-radialgauge {
+    width: 200px;
+    height: 150px;
+}

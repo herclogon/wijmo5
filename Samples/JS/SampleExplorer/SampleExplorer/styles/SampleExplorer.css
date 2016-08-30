@@ -1,0 +1,520 @@
+﻿body {
+	font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+	background-color: #f1f1f1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+.container {
+	margin-top: 0.5em;
+}
+
+/* override Boostrap to prevent wrapping pre-text. */
+.codeViewer pre {
+	word-wrap: normal;
+}
+
+/* override Boostrap to make code stand out a little more. */
+pre {
+	background-color: white;
+}
+
+.container h1 {
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.container h2 {
+	font-weight: normal;
+	color: #444444;
+}
+
+/* sampleView */
+
+.sampleCategory {
+	font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+	text-transform: uppercase;
+	font-size: 8pt;
+	color: #591f62;
+}
+
+.sampleButtonsBox {
+	margin: 1em 0;
+}
+
+/* codeView */
+
+.codeViewer {
+	width: 100%;
+	height: 510px;
+	max-height: 100%;
+	margin-top: 30px;
+	white-space: nowrap;
+}
+
+	.codeViewer h1 {
+		background-color: #8f9eb0;
+		color: white;
+		font-size: 11pt;
+		line-height: 12px;
+		margin: 0;
+		padding: 15px;
+	}
+
+	.codeViewer pre {
+		border-radius: 0;
+		background-color: white;
+		overflow: auto;
+	}
+
+#code-pre {
+	margin-bottom: 0;
+}
+
+.tree-icon {
+	margin-right: 0.6em;
+}
+
+.codeViewer-tree {
+	width: 28%;
+	margin-right: 2%;
+	height: 450px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.codeViewer .wj-flexgrid {
+	height: 450px;
+}
+
+.codeViewer-code {
+	width: 70%;
+	display: inline-block;
+}
+
+	.codeViewer-code pre {
+		width: 100%;
+		overflow: auto;
+		height: 450px;
+	}
+
+.codeViewer-tree .wj-flexgrid .wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) {
+	box-shadow: none;
+	border-radius: 0;
+	background-color: #f4f4f4;
+}
+
+.codeViewer-tree .wj-cell {
+	border: none;
+	background-color: white;
+}
+
+.codeViewer-tree .wj-state-selected {
+	background-color: #bac3cd;
+	color: white;
+}
+
+.codeViewer-tree .wj-flexgrid .wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) .glyphicon-file {
+    color: #8F9EB0;
+}
+
+.wj-flexgrid .wj-glyph-up {
+	background-image: url('../img/folder.png');
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	width: 1em;
+	height: 1em;
+	border-top: 0px;
+	border-bottom: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	opacity: 1;
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 999px) {
+	.mobile {
+		display: normal;
+	}
+
+	.desktop {
+		display: none;
+	}
+
+	.sampleButtonsBox {
+		margin: 3em auto;
+		text-align: center;
+	}
+
+		.sampleButtonsBox p {
+			margin-top: 8px;
+			margin-bottom: 3px;
+			font-size: 9pt;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+}
+
+/* Desktop */
+
+@media only screen and (min-width: 1000px) {
+	.desktop {
+		display: normal;
+	}
+
+	.mobile {
+		display: none;
+	}
+}
+
+
+
+/*   2016 Revisions
+-------------------------------------------------- */
+
+/* Header Navigation */
+
+.container-full {
+	width: 100%;
+	margin: 0;
+	padding: 11px 0;
+	font-size: 18px;
+}
+
+	.container-full.nav-wijmo-five {
+		padding: 2px 0;
+	}
+
+	.container-full.container {
+		margin-top: 0;
+	}
+
+		.container-full .container ul {
+			float: right;
+			list-style: none;
+		}
+
+			.container-full .container ul li {
+				display: inline-block;
+				margin-right: 20px;
+				vertical-align: middle;
+			}
+
+	.container-full.nav-wijmo {
+		background: #fff;
+	}
+
+		.container-full.nav-wijmo img {
+			display: inline;
+		}
+
+		.container-full.nav-wijmo a:link, .container-full.nav-wijmo a:visited {
+			text-decoration: none;
+			color: #001f29;
+		}
+
+		.container-full.nav-wijmo a:hover, .container-full.nav-wijmo a:active {
+			text-decoration: none;
+			color: #001f29;
+		}
+
+
+		.container-full.nav-wijmo .navbar-toggle .icon-bar {
+			background-color: #3194ca;
+		}
+
+
+	.container-full.nav-wijmo-five {
+		background: #001f29;
+		color: #fff;
+	}
+
+		.container-full.nav-wijmo-five a:link, .container-full.nav-wijmo-five a:visited {
+			text-decoration: none;
+			color: #fff;
+		}
+
+		.container-full.nav-wijmo-five a:hover, .container-full.nav-wijmo-five a:active {
+			text-decoration: none;
+			color: #fff;
+		}
+
+		.container-full.nav-wijmo-five h1 {
+			color: #fff;
+			display: inline;
+			font-size: 18px;
+		}
+
+/* Mobile Nav Styles */
+
+.navbar-toggle {
+	margin-top: 0;
+}
+
+.nav-mobile ul {
+	float: none;
+	margin: 12px 0 0 0;
+	padding: 0;
+}
+
+	.nav-mobile ul li {
+		margin: 0;
+		padding: 8px 0 8px 25px;
+		display: block;
+		border-top: 1px solid #eee;
+	}
+
+.container-full.nav-wijmo .nav-mobile a:link, .container-full.nav-wijmo .nav-mobile a:visited {
+	color: #3194ca;
+}
+
+.container-full.nav-wijmo .nav-mobile a:hover, .container-full.nav-wijmo .nav-mobile a:active {
+	color: #3194ca;
+}
+
+/* Search bar */
+
+.searchBar {
+	white-space: nowrap;
+	padding: 35px 30px 30px 30px;
+	width: 100%;
+	background: #e9e9e9;
+	margin: 20px 0 30px 0;
+}
+
+	.searchBar:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	.searchBar form {
+		padding-left: 0;
+	}
+
+.searchBox {
+	width: 100%;
+	border-radius: 0;
+	padding: 22px;
+	font-size: 18px;
+}
+
+.frameworkList {
+	width: auto;
+}
+
+.checkboxItem {
+	margin: 0 5px 0 5px;
+	display: inline-block;
+	float: left;
+}
+
+label.checkboxItem input[type=checkbox] {
+	position: relative;
+	vertical-align: middle;
+	bottom: 3px;
+	margin-right: 0.5em;
+}
+
+/* Sample List */
+
+.sampleItem {
+	background: #e9e9e9;
+	margin-bottom: 30px;
+	position: relative;
+}
+
+	.sampleItem:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	.sampleItem .sampleInfo {
+		background: #fff;
+		padding: 25px 25px 25px 40px;
+		width: 75%;
+		float: right;
+		word-wrap: break-word;
+		vertical-align: top;
+		border-left: 1px solid #ddd;
+		z-index: 10;
+	}
+
+.sampleScreenshot img {
+	float: right;
+	max-width: 400px;
+	height: auto;
+	display: block;
+	border: 1px solid #e4e4e4;
+	margin: 0 0 40px 50px;
+}
+
+h1 {
+	margin-top: 0;
+	font-size: 25px;
+	margin-bottom: 20px;
+}
+
+.sampleInfo h1 a:link, .sampleInfo h1 a:visited {
+	color: #444;
+	text-decoration: none;
+}
+
+.sampleInfo h1 a:hover, .sampleInfo h1 a:active {
+	color: #3194ca;
+}
+
+.sampleInfo a {
+	color: #428bca;
+	text-decoration: underline;
+}
+
+/* Buttons */
+
+.btn-group, .btn-group-vertical {
+	margin-top: 15px;
+}
+
+	.btn-group .btn.purple {
+		margin-right: 5px;
+	}
+
+	.btn-group-vertical .btn.purple {
+		margin-bottom: 5px;
+	}
+
+.btn.purple {
+	padding: 15px 30px;
+	text-decoration: none;
+	font-size: 16px;
+	background-color: #5b2e7c;
+	color: #fff;
+	border-radius: 2px;
+	border: none;
+}
+
+.purple:active {
+	background-color: #42205b;
+}
+
+.purple:visited {
+	background-color: #5b2e7c;
+}
+
+.purple:hover {
+	background-color: #42205b;
+	color: white;
+}
+
+/* Breadcrumbs */
+
+.breadcrumb {
+	background-color: transparent;
+}
+
+	.breadcrumb > li + li:before {
+		padding: 0 2px 0 3px;
+	}
+
+.breadcrumbBar {
+	width: 100%;
+	padding: 20px 0 15px 0;
+	background-color: transparent;
+}
+
+	.breadcrumbBar .container {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+/* Sample View */
+#sampleView .container:not(.breadcrumb) {
+	background: #fff;
+	padding: 35px;
+}
+
+p.framework {
+	margin-bottom: 25px;
+}
+
+/* Code View */
+#codeView .container:not(.breadcrumb) {
+	background: #fff;
+	padding: 35px;
+}
+
+
+/* Bootstrap dropdown override */
+
+.dropdown-menu {
+	padding: 0;
+	min-width: 100%;
+}
+
+	.dropdown-menu > li > a {
+		padding-top: 7px;
+		padding-bottom: 7px;
+		text-decoration: none;
+	}
+
+/* Footer */
+
+footer.container {
+	margin-top: 20px;
+}
+
+	footer.container p {
+		font-size: 10pt;
+		color: #888888;
+		line-height: 1em;
+	}
+
+@media only screen and (max-width: 768px) {
+	.container-full.nav-wijmo-five .container {
+		margin-top: 12px;
+		margin-bottom: 12px;
+	}
+}
+
+@media only screen and (max-width: 414px) {
+
+	h1.sample-title {
+		font-size: 22px;
+	}
+
+	.sampleScreenshot img {
+		max-width: 100%;
+	}
+
+	.codeViewer {
+		width: 100%;
+		height: auto;
+	}
+
+	.codeViewer-tree {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 60px;
+		height: 350px;
+		display: block;
+	}
+
+	.codeViewer .wj-flexgrid {
+		height: 100%;
+	}
+
+	.codeViewer-code {
+		width: 100%;
+		display: block;
+	}
+
+		.codeViewer-code pre {
+			width: 100%;
+			height: 450px;
+		}
+}

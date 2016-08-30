@@ -1,0 +1,51 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            FlexChart Waterfall
+        </h3>
+        <p>
+            This view shows Waterfall Series in FlexChart.
+        </p>
+        <p>
+            The Waterfall series is normally used to demonstrate how the starting position either increases or decreases through a series of changes.
+        </p>
+    </div>
+    <div class="container-fluid well">
+        <div class="row">
+            <div class="col-sm-3 col-xs-12">
+                <label id="labelRelativeData" for="checkboxRelativeData">Is RelativeData:</label>
+                <input type="checkbox" id="checkboxRelativeData" ng-model="ctx.relativeData" />
+            </div>
+            <div class="col-sm-3 col-xs-12">
+                <label id="labelShowConnectorLines" for="checkboxShowConnectorLines">Show Connector Lines:</label>
+                <input type="checkbox" id="checkboxShowConnectorLines" ng-model="ctx.connectorLines" />
+            </div>
+            <div class="col-sm-2 col-xs-12">
+                <label id="labelShowTotal" for="checkboxShowTotal">Show Total:</label>
+                <input type="checkbox" id="checkboxShowTotal" ng-model="ctx.showTotal" />
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <label id="labelShowIntermediateTotal" for="checkboxShowIntermediateTotal">Show Intermediate Total:</label>
+                <input type="checkbox" id="checkboxShowIntermediateTotal" ng-model="ctx.showIntermediateTotal" />
+            </div>
+        </div>
+    </div>
+    <div>
+        <wj-flex-chart class="chart"
+                       control="ctx.chart"
+                       items-source="ctx.itemsSource"
+                       binding="value"
+                       binding-x="name">
+            <wj-flex-chart-waterfall control="ctx.waterfall" relative-data="ctx.relativeData"
+                                connector-lines="ctx.connectorLines"
+                                show-total="ctx.showTotal"
+                                start="1000"
+                                show-intermediate-total="ctx.showIntermediateTotal"
+                                intermediate-total-positions="ctx.intermediateTotalPositions"
+                                intermediate-total-labels="ctx.intermediateTotalLabels"
+                                name="Increase,Decrease,Total"
+                                styles="ctx.styles">
+            </wj-flex-chart-waterfall>
+        </wj-flex-chart>
+    </div>
+</div>

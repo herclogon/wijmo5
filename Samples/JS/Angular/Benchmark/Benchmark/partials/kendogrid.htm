@@ -1,0 +1,17 @@
+﻿<h4 ng-init="benchmarkView('kendogrid')">KendoUI Grid</h4>
+
+<p>
+    The <b>KendoUI</b> grid widget is part of Telerik's KendoUI.</p>
+<p>
+    In order for the Kendo UI grid to be properly created, when changing item count
+    you need to use the Kendo UI destroy() method and jQuery empty() to destroy, 
+    remove the old grid/html, and then re-create the same grid with the new different data
+    (more details here:
+    <a href="http://codylindley.github.io/the-kendo-ui-book/#5.12-Destroying-widgets">http://codylindley.github.io/the-kendo-ui-book/#5.12-Destroying-widgets</a>).
+</p>
+
+<kendo-grid 
+    class="gridStyle"
+    data="data"
+    columns="kendoGridColumns" >
+</kendo-grid>

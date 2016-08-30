@@ -1,0 +1,190 @@
+<h2>Rect Class</h2>
+<dl class="dl-horizontal">
+<dt>Module</dt><dd>wijmo</dd>
+<dt>File</dt><dd>wijmo.js</dd>
+</dl>
+<p>Class that represents a rectangle (with left, top, width, and height).</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(left, top, width, height): <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
+      <td><p>
+<b>left</b> (<b>number</b>): Left coordinate of the new <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>.<br/><b>top</b> (<b>number</b>): Top coordinate of the new <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>.<br/><b>width</b> (<b>number</b>): Width of the new <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>.<br/><b>height</b> (<b>number</b>): Height of the new <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>bottom</b></td>
+      <td><b>number</b></td>
+      <td>Gets the bottom coordinate of this <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>height</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the height of this <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>left</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the left coordinate of this <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>right</b></td>
+      <td><b>number</b></td>
+      <td>Gets the right coordinate of this <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>top</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the top coordinate of this <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>width</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the width of this <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>clone</b>&#8203;(): <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
+      <td></td>
+      <td>Creates a copy of this <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>contains</b>&#8203;(pt): <b>boolean</b></td>
+      <td><p>
+<b>pt</b> (<b>any</b>): The <a href="topic/wijmo.Point.Class.html"><b>Point</b></a> or <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a> to ckeck.<br/></p>
+</td>
+      <td>Determines whether the rectangle contains a given point or rectangle.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>equals</b>&#8203;(rc): <b>boolean</b></td>
+      <td><p>
+<b>rc</b> (<a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>): <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a> to compare to this <b>Rect</b>.<br/></p>
+</td>
+      <td>Returns true if a <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a> has the same coordinates and dimensions
+as this <b>Rect</b>.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>fromBoundingRect</b>&#8203;(rc): <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
+      <td><p>
+<b>rc</b> (<b>any</b>): Rectangle obtained by a call to the DOM's <b>getBoundingClientRect</b>
+or <b>GetBoundingBox</b> methods.<br/></p>
+</td>
+      <td>Creates a <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a> from <b>ClientRect</b> or <b>SVGRect</b> objects.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>inflate</b>&#8203;(dx, dy): <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
+      <td><p>
+<b>dx</b> (<b>number</b>): The amount by which to expand or shrink the left and right sides of the rectangle.<br/><b>dy</b> (<b>number</b>): The amount by which to expand or shrink the top and bottom sides of the rectangle.<br/></p>
+</td>
+      <td>Creates a rectangle that results from expanding or shrinking a rectangle by the specified amounts.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>intersection</b>&#8203;(rc1, rc2): <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
+      <td><p>
+<b>rc1</b> (<a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>): First rectangle.<br/><b>rc2</b> (<a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>): Second rectangle.<br/></p>
+</td>
+      <td>Gets a rectangle that represents the intersection of two rectangles.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>union</b>&#8203;(rc1, rc2): <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
+      <td><p>
+<b>rc1</b> (<a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>): First rectangle.<br/><b>rc2</b> (<a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>): Second rectangle.<br/></p>
+</td>
+      <td>Gets a rectangle that represents the union of two rectangles.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

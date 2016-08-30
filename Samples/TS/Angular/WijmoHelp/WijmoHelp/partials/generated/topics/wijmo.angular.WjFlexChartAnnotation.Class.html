@@ -1,0 +1,49 @@
+<h2>WjFlexChartAnnotation Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjDirective</b></dd>
+<dt>Module</dt><dd>wijmo.angular</dd>
+<dt>File</dt><dd>wijmo.angular.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>AngularJS directive for the annotations.</p>
+
+<p>The <b>wj-flex-chart-annotation</b> directive must be contained in a
+<a href="topic/wijmo.angular.WjFlexChartAnnotationLayer.Class.html"><b>WjFlexChartAnnotationLayer</b></a> directive.</p>
+
+<p>The <b>wj-flex-chart-annotation</b> directive is used to represent all types of
+possible annotation shapes like <b>Circle</b>, <b>Rectangle</b>, <b>Polygon</b>
+and so on. The type of annotation shape is specified
+in the directive's <b>type</b> attribute.</p>
+
+<p>The directive supports the following attributes:</p>
+
+<p><dl class="dl-horizontal"></p>
+
+<p>  <dt>type</dt>                  <dd><code>@</code> The class name of the annotation shape represented by the directive.
+                                     The possible values are <a href="topic/wijmo.chart.annotation.Circle.Class.html"><b>Circle</b></a>, <a href="topic/wijmo.chart.annotation.Ellipse.Class.html"><b>Ellipse</b></a>, <a href="topic/wijmo.chart.annotation.Image.Class.html"><b>Image</b></a>, <a href="topic/wijmo.chart.annotation.Line.Class.html"><b>Line</b></a>, <a href="topic/wijmo.chart.annotation.Polygon.Class.html"><b>Polygon</b></a>,
+                                     <a href="topic/wijmo.chart.annotation.Rectangle.Class.html"><b>Rectangle</b></a>, <a href="topic/wijmo.chart.annotation.Square.Class.html"><b>Square</b></a>, <a href="topic/wijmo.chart.annotation.Text.Class.html"><b>Text</b></a>.</dd>
+  <dt>attachment</dt>            <dd><code>@</code> An <a href="topic/wijmo.chart.annotation.AnnotationAttachment.Enum.html"><b>AnnotationAttachment</b></a> value defining the attachment of the annotation.
+                                     </dd>
+  <dt>content</dt>               <dd><code>@</code> The text of the <b>Circle</b>, <b>Ellipse</b>, <b>Image</b>, <b>Line</b>,
+                                     <b>Polygon</b>, <b>Rectangle</b> or <b>Square</b> annotation.</dd>
+  <dt>end</dt>                   <dd><code>@</code> The end point of the <b>Line</b> annotation.</dd>
+  <dt>height</dt>                <dd><code>@</code> The height of the <b>Ellipse</b>, <b>Image</b> or <b>Rectangle</b> annotation.</dd>
+  <dt>href</dt>                  <dd><code>@</code> The href of the <b>Image</b> annotation.</dd>
+  <dt>is-visible</dt>             <dd><code>@</code> The visibility of the annotation.</dd>
+  <dt>length</dt>                <dd><code>@</code> The length of the <b>Square</b> annotation.</dd>
+  <dt>name</dt>                  <dd><code>@</code> The name of the annotation.</dd>
+  <dt>offset</dt>                <dd><code>@</code> The offset of the annotation.</dd>
+  <dt>point</dt>                 <dd><code>@</code> The point of the annotation, the coordinate space of the point depends on the <b>attachment</b>  property value.
+                                     The property works for <b>Circle</b>, <b>Ellipse</b>, <b>Image</b>, <b>Rectangle</b>, <b>Square</b>
+                                     and <b>Text</b> annotation.</dd>
+  <dt>point-index</dt>           <dd><code>@</code> The index of the data point in the specified series where the annotation is attached to.</dd>
+  <dt>position</dt>              <dd><code>@</code> An <a href="topic/wijmo.chart.annotation.AnnotationPosition.Enum.html"><b>AnnotationPosition</b></a> value defining the position of the annotation
+                                     relative to the <b>point</b>.</dd>
+  <dt>radius</dt>                <dd><code>@</code> The radius of the <b>Circle</b> annotation.</dd>
+  <dt>series-index</dt>          <dd><code>@</code> The index of the data series where the annotation is attached to.</dd>
+  <dt>start</dt>                 <dd><code>@</code> The start point of the <b>Line</b> annotation.</dd>
+  <dt>style</dt>                 <dd><code>@</code> The style of the annotation.</dd>
+  <dt>text</dt>                  <dd><code>@</code> The text of the <b>Text</b> annotation.</dd>
+  <dt>tooltip</dt>               <dd><code>@</code> The tooltip of the annotation.</dd>
+  <dt>width</dt>                 <dd><code>@</code> The width of the <b>Ellipse</b>, <b>Image</b> or <b>Rectangle</b> annotation.</dd>
+</dl></p></p>

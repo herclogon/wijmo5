@@ -1,0 +1,42 @@
+﻿<div class="header visible-xs visible-sm">
+    <div class="container">
+        <h1>Expense Report Export</h1>
+    </div>
+</div>
+<div class="header hidden-xs hidden-sm">
+    <div class="container">
+        <img src="resources/wijmo5.png" />
+        <h1>Expense Report Export</h1>
+    </div>
+</div>
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="FlexGridImportExport.htm">FlexGrid Import Export</a></li>
+            <li class="active"><a href="ExpenseReportExport.htm">Expense Report</a></li>
+            <li><a href="DrawWorkbook.htm">Workbook Viewer</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <p>
+        This example exports a hierarchical array of data, containing employees' expenses, to an Excel xlsx file using
+        the <b>Workbook.save</b> method.
+    </p>
+    <p>
+        The array contains items with employee data, wherein each employee item contains a child array with employee's expenses.
+        The sample creates a Workbook instance representation of the xlsx file data. Then invoke the <b>Workbook.save</b> method to save it
+        as an Excel xlsx file on the local disk.
+    </p>
+    <p>
+        The created workbook contains a separate sheet for each employee, with employee's personal data and expenses
+        table.
+    </p>
+
+    <button (click)="saveExpenses()" class="btn btn-default">Save Report</button>
+
+    <footer>
+        <p>&copy; 2015 GrapeCity, inc. Rights Reserved.<br />All product and company names herein may be trademarks of their respective owners.<br />Contact: <a href="mailto:sales@wijmo.com">sales@wijmo.com</a> - <a href="http://wijmo.com">http://wijmo.com</a></p>
+    </footer>
+
+</div>

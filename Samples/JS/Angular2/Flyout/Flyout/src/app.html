@@ -1,0 +1,25 @@
+﻿
+<div class="container">
+
+    <h2>
+        FlexGrid column header Flyouts
+    </h2>
+    <p>
+        This sample defines a <b>FlexGridFlyout</b> class that monitors
+        the mouse and displays a <i>flyout</i> element when the user
+        hovers over a column header.
+    </p>
+    <p>
+        The <i>flyout</i> menu is just an ordinary <b>div</b> element.
+        The sample populates it with some buttons and listens to click
+        events to execute commands that apply to the column that
+        owns the <i>flyout</i> currently visible.
+    </p>
+    <p>
+        Move the mouse over a grid column to see the <i>flyout</i> menu.
+        Click any of the menu options to execute the command.
+    </p>
+    <wj-flex-grid #flex
+                  [itemsSource]="data" >                 
+    </wj-flex-grid>
+</div>

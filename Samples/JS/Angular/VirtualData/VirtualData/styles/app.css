@@ -1,0 +1,86 @@
+﻿/* IME */
+.wj-dropdown input {
+    ime-mode: active !important;
+}
+
+.wj-calendar .wj-state-invalid {
+    color: #808080;
+}
+.wj-calendar .wj-state-invalid:not(.wj-state-selected) {
+    background-color: #ffe4e4;
+}
+
+/* change marquee opacity depending on focus state */
+.wj-flexgrid .wj-marquee {
+    opacity: 1;
+    padding: 2px;
+    transition: opacity .3s;
+}
+    .wj-flexgrid:not(.wj-state-focused) .wj-marquee {
+        opacity: 0.1;
+        transition: opacity .3s;
+    }
+
+
+/* sample styles */
+.wj-dropdown {
+    width: 250px;
+}
+.wj-flexgrid {
+    max-height: 500px;
+    border: none;
+}
+.wj-flexgrid .wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background-color: white;
+}
+.wj-flexchart {
+    max-height: 500px;
+    border: none;
+}
+.wj-flexchart .wj-state-selected {
+    stroke-dasharray: 0;
+    fill: gold;
+    stroke: orange;
+}
+h2 {
+    border-top: 2px solid #f0f0f0;
+    padding-top: 8px;
+    margin-bottom: 26px;
+}
+
+/* IOS-style animated check-boxes */
+.ios input[type=checkbox] {
+    width: 2em;
+    height: 1em;
+    outline: none;
+}
+.ios input[type=checkbox]::before {
+    content: ' ';
+    position: absolute;
+    width: 2em;
+    height: 1em;
+    border-radius: 1em;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    transition: border-color .3s, background-color .3s;
+}
+.ios input[type=checkbox]:checked::before {
+    border-color: #75ad75;
+    background-color: #60b960;
+    transition: border-color .3s, background-color .3s;
+}
+.ios input[type=checkbox]::after {
+    content: ' ';
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    border-radius: 1em;
+    background-color: #ffffff;
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.3);
+    transition: margin-left .3s;
+}
+.ios input[type=checkbox]:checked::after {
+    margin-left: 1em;
+    transition: margin-left .3s;
+}

@@ -1,0 +1,692 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FlexPie Introduction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+    <link href="styles/app.css" rel="stylesheet" />
+
+    <!-- Third Party -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js" type="text/javascript"></script>
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.angular.min.js" type="text/javascript"></script>
+
+    <!-- app scripts -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/serivces/dataSvc.js"></script>
+    <script src="scripts/controllers/appCtrl.js"></script>
+    <script src="scripts/directives/appDctv.js"></script>
+</head>
+<body ng-app="app">
+
+    <div class="header">
+        <div class="container">
+            <img src="resources/wijmo5.png" alt="Wijmo 5" />
+            <h1>
+                FlexPie 101
+            </h1>
+            <p>
+                This page shows how to get started with Wijmo's FlexPie control.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Getting Started -->
+        <div ng-controller="simpleCtrl">
+            <h2 id="Start">Getting Started</h2>
+            <p>
+                Steps for getting started with the FlexPie control in AngularJS applications:
+            </p>
+            <ol>
+                <li>Add references to AngularJS, Wijmo, and Wijmo's AngularJS directives.</li>
+                <li>
+                    Include the Wijmo 5 directives in the app module: <br />
+                    <code>var app = angular.module('app', ['wj']);</code>
+                </li>
+                <li>Add a controller to provide data and logic.</li>
+                <li>Add a Wijmo FlexPie control to the page and bind it to your data.</li>
+                <li>(Optional) Add some CSS to customize the input control's appearance.</li>
+            </ol>
+            <div class="row">
+                <div class="col-md-6">
+                    <app-tab>
+                        <app-tab-pane title="HTML">
+                            <div class="pane-content">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" type="text/css" href="css/bootstrap.css"/&gt;
+  &lt;link rel="stylesheet" type="text/css" href="css/wijmo.css" /&gt;
+  &lt;link href="css/app.css" rel="stylesheet" type="text/css" /&gt;
+  &lt;script src="scripts/angular.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script src="scripts/wijmo.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script src="scripts/wijmo.chart.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script src="scripts/wijmo.angular.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script src="scripts/app.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body ng-app="app" ng-controller="appCtrl"&gt;
+
+  &lt;!-- this is the FlexPie directive --&gt;
+  &lt;wj-flex-pie
+      items-source="itemsSource"
+      binding="value"
+      binding-name="name"&gt;
+  &lt;/wj-flex-pie&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+                            </div>
+                        </app-tab-pane>
+                        <app-tab-pane title="JS">
+                            <div class="pane-content">
+// declare app module
+var app = angular.module('app', ['wj']);
+
+// controller provides data
+app.controller('simpleCtrl', function appCtrl($scope) {
+  var names = ['Oranges', 'Apples', 'Pears', 'Bananas', 'Pineapples'],
+      data = [];
+
+  // populate itemsSource
+  for (var i = 0; i < names.length; i++) {
+    data.push({
+      name: names[i],
+      value: Math.round(Math.random() * 100)
+    });
+  }
+
+  $scope.itemsSource = data;
+});
+                            </div>
+                        </app-tab-pane>
+                    </app-tab>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <wj-flex-pie
+                        items-source="itemsSource"
+                        binding="value"
+                        binding-name="name">
+                    </wj-flex-pie>
+                </div>
+            </div>
+        </div>
+
+        <!-- Basic Features -->
+        <div ng-controller="basicCtrl">
+            <h2 id="Features">Basic Features</h2>
+            <p>
+                The FlexPie control has five basic properties that allow you to customize its layout and appearance:
+            </p>
+            <ul>
+                <li>
+                    <b>innerRadius</b>:  Specifies the control's inner radius to support donut charts.
+                </li>
+                <li>
+                    <b>offset</b>:  Specifies the offset of the pie slices from the center of the control.
+                </li>
+                <li>
+                    <b>startAngle</b>:  Starting at the nine o'clock position, specifies the angle to start drawing pie slices.
+                </li>
+                <li>
+                    <b>palette</b>:  Specifies an array of default colors to be used when rendering pie slices.
+                </li>
+                <li>
+                    <b>reversed</b>:  Determines whether the control should draw pie slices clockwise (false) or counterclockwise (true).
+                </li>
+            </ul>
+            <p>
+                The example below allows you to see what happens when you change these properties.  Also, clicking on a pie slice will
+                display a tooltip for the data point.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <app-tab>
+                        <app-tab-pane title="HTML">
+                            <div class="pane-content">
+&lt;wj-flex-pie
+    control="chart"
+    items-source="itemsSource"
+    binding="value"
+    binding-name="name"
+    inner-radius="{&#8203;{ innerRadius }}"
+    offset="{&#8203;{ offset }}"
+    start-angle="{&#8203;{ startAngle }}"
+    reversed="{&#8203;{ reversed }}"&gt;
+&lt;/wj-flex-pie&gt;
+&lt;div class="form-horizontal"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Inner Radius&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+      &lt;wj-input-number control="inputInnerRadius"
+          value="ctx.innerRadius"
+          min="0"
+          max="1"
+          step=".1"
+          format="n"&gt;
+      &lt;/wj-input-number&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Offset&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+      &lt;wj-input-number control="inputOffset"
+          value="ctx.offset"
+          min="0"
+          max="1"
+          step=".1"
+          format="n"&gt;
+      &lt;/wj-input-number&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Start Angle&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+      &lt;wj-input-number control="inputStartAngle"
+          value="ctx.startAngle"
+          min="-360"
+          max="360"
+          step="45"&gt;
+      &lt;/wj-input-number&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+      &lt;wj-menu
+          header="Palette: &lt;b&gt;{&#8203;{ palette }}&lt;/b&gt;"
+          items-source="palettes"
+          item-clicked="paletteChanged(s, e)"&gt;
+      &lt;/wj-menu&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+      &lt;div class="checkbox"&gt;
+        &lt;label&gt;
+          &lt;input type="checkbox" ng-model="reversed"&gt; Reversed?
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </app-tab-pane>
+                        <app-tab-pane title="JS">
+                            <div class="pane-content">
+$scope.itemsSource = dataSvc.getData();
+$scope.chart = null;
+$scope.inputInnerRadius = null;
+$scope.inputOffset = null;
+$scope.inputStartAngle = null;
+$scope.innerRadius = 0;
+$scope.offset = 0;
+$scope.startAngle = 0;
+$scope.reversed = false;
+$scope.palette = 'standard';
+$scope.palettes = ['standard', 'cocoa', 'coral', 'dark', 'highcontrast', 'light', 'midnight', 'minimal', 'modern', 'organic', 'slate'];
+$scope.ctx = {
+    innerRadius: 0,
+    offset: 0,
+    startAngle: 0
+};
+
+$scope.$watch('ctx.innerRadius', function () {
+    var innerRadius = $scope.inputInnerRadius,
+        val = $scope.ctx.innerRadius;
+    if (innerRadius != null) {
+        if (val < innerRadius.min || val > innerRadius.max) {
+            return;
+        }
+        $scope.innerRadius = val;
+    }
+});
+
+$scope.$watch('ctx.offset', function () {
+    var offset = $scope.inputOffset,
+        val = $scope.ctx.offset;
+    if (offset != null) {
+        if (val < offset.min || val > offset.max) {
+            return;
+        }
+        $scope.offset = val;
+    }
+});
+
+$scope.$watch('ctx.startAngle', function () {
+    var startAngle = $scope.inputStartAngle,
+        val = $scope.ctx.startAngle;
+    if (startAngle != null) {
+        if (val < startAngle.min || val > startAngle.max) {
+            return;
+        }
+        $scope.startAngle = val;
+    }
+});
+
+$scope.paletteChanged = function (sender) {
+    var p = $scope.palettes[sender.selectedIndex];
+    $scope.palette = p;
+    $scope.chart.palette = wijmo.chart.Palettes[p];
+};
+                            </div>
+                        </app-tab-pane>
+                    </app-tab>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <wj-flex-pie
+                        control="chart"
+                        items-source="itemsSource"
+                        binding="value"
+                        binding-name="name"
+                        inner-radius="{{ innerRadius }}"
+                        offset="{{ offset }}"
+                        start-angle="{{ startAngle }}"
+                        reversed="{{ reversed }}">
+                    </wj-flex-pie>
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Inner Radius</label>
+                            <div class="col-md-9">
+                                <wj-input-number control="inputInnerRadius"
+                                    value="ctx.innerRadius"
+                                    min="0"
+                                    max="1"
+                                    step=".1"
+                                    format="n">
+                                </wj-input-number>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Offset</label>
+                            <div class="col-md-9">
+                                <wj-input-number control="inputOffset"
+                                    value="ctx.offset"
+                                    min="0"
+                                    max="1"
+                                    step=".1"
+                                    format="n">
+                                </wj-input-number>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Start Angle</label>
+                            <div class="col-md-9">
+                                <wj-input-number control="inputStartAngle"
+                                    value="ctx.startAngle"
+                                    min="-360"
+                                    max="360"
+                                    step="45">
+                                </wj-input-number>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-md-9">
+                                <wj-menu
+                                    header="Palette: <b>{{ palette }}</b>"
+                                    items-source="palettes"
+                                    item-clicked="paletteChanged(s, e)">
+                                </wj-menu>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-md-9">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-model="reversed"> Reversed?
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legend and Titles -->
+        <div ng-controller="legendTitlesCtrl">
+            <h2 id="Legend">Legend and Titles</h2>
+            <p>
+                The <b>legend</b> properties can be used to customize the appearance of the chart's legend.  The
+                <b>header</b> and <b>footer</b> properties can be used to add titles to the FlexPie control as well.
+            </p>
+            <p>
+                The following example allows you to change the FlexPie's <b>legend.position</b>, <b>header</b>, and
+                <b>footer</b> properties in real-time.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <app-tab>
+                        <app-tab-pane title="HTML">
+                            <div class="pane-content">
+&lt;wj-flex-pie
+    items-source="itemsSource"
+    binding="value"
+    binding-name="name"
+    header="{&#8203;{ header }}"
+    footer="{&#8203;{ footer }}"&gt;
+  &lt;wj-flex-chart-legend position="{&#8203;{ legendPosition }}"&gt;&lt;/wj-flex-chart-legend&gt;
+&lt;/wj-flex-pie&gt;
+&lt;div class="form-horizontal"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Header&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+      &lt;input
+          type="text"
+          class="form-control"
+          ng-model="header"
+          placeholder="Specify the FlexPie's header" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Footer&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+      &lt;input
+          type="text"
+          class="form-control"
+          ng-model="footer"
+          placeholder="Specify the FlexPie's footer" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+      &lt;wj-menu header="Legend Position" value="legendPosition"&gt;
+        &lt;wj-menu-item value="'None'"&gt;None&lt;/wj-menu-item&gt;
+        &lt;wj-menu-item value="'Left'"&gt;Left&lt;/wj-menu-item&gt;
+        &lt;wj-menu-item value="'Top'"&gt;Top&lt;/wj-menu-item&gt;
+        &lt;wj-menu-item value="'Right'"&gt;Right&lt;/wj-menu-item&gt;
+        &lt;wj-menu-item value="'Bottom'"&gt;Bottom&lt;/wj-menu-item&gt;
+      &lt;/wj-menu&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </app-tab-pane>
+                        <app-tab-pane title="JS">
+                            <div class="pane-content">
+$scope.itemsSource = dataSvc.getData();
+$scope.header = 'Fruit By Value';
+$scope.footer = '2014 GrapeCity, inc.';
+$scope.legendPosition = 'Right';
+                            </div>
+                        </app-tab-pane>
+                    </app-tab>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <wj-flex-pie
+                        items-source="itemsSource"
+                        binding="value"
+                        binding-name="name"
+                        header="{{ header }}"
+                        footer="{{ footer }}">
+                        <wj-flex-chart-legend position="{{ legendPosition }}"></wj-flex-chart-legend>
+                    </wj-flex-pie>
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Header</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" ng-model="header" placeholder="Specify the FlexPie's header" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Footer</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" ng-model="footer" placeholder="Specify the FlexPie's footer" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-md-9">
+                                <wj-menu header="Legend Position" value="legendPosition">
+                                    <wj-menu-item value="'None'">None</wj-menu-item>
+                                    <wj-menu-item value="'Left'">Left</wj-menu-item>
+                                    <wj-menu-item value="'Top'">Top</wj-menu-item>
+                                    <wj-menu-item value="'Right'">Right</wj-menu-item>
+                                    <wj-menu-item value="'Bottom'">Bottom</wj-menu-item>
+                                </wj-menu>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selection -->
+        <div ng-controller="selectionCtrl">
+            <h2 id="Selection">Selection</h2>
+            <p>
+                The FlexPie control allows you to select data points by clicking or touching a pie slice. Use the <b>selectionMode</b>
+                property to specify whether you want to allow selection by data point or no selection at all (default).
+            </p>
+            <p>
+                Setting the <b>selctionMode</b> property to <b>Point</b> causes the FlexPie to update the <b>selection</b> property when
+                the user clicks on a pie slice, and to apply the "wj-state-selected" class to the selected element.  Setting the FlexPie's
+                <b>selectionMode</b> property to <b>Series</b> or <b>None</b> will disable selections within the control.
+            </p>
+            <p>
+                The FlexPie offers three additional properties to customize the selection:
+            </p>
+            <ul>
+                <li>
+                    <b>selectedItemOffset</b>:  Specifies the offset of the selected pie slice from the center of the control.
+                </li>
+                <li>
+                    <b>selectedItemPosition</b>:  Specifies the position of the selected pie slice.  The available options are Top, Bottom,
+                    Left, Right, and None (default).
+                </li>
+                <li>
+                    <b>isAnimated</b>:  Determines whether or not to animate the selection.
+                </li>
+            </ul>
+            <div class="row">
+                <div class="col-md-6">
+                    <app-tab>
+                        <app-tab-pane title="HTML">
+                            <div class="pane-content">
+&lt;wj-flex-pie
+    items-source="itemsSource"
+    binding="value"
+    binding-name="name"
+    selection-mode="Point"
+    selected-item-position="{&#8203;{ selectedPosition }}"
+    selected-item-offset="{&#8203;{ selectedOffset }}"
+    is-animated="{&#8203;{ isAnimated }}"&gt;
+&lt;/wj-flex-pie&gt;
+&lt;div class="form-horizontal"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Selected Item Offset&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+      &lt;wj-input-number control="inputSelectedOffset"
+          value="ctx.selectedOffset"
+          min="0"
+          max=".5"
+          step=".1"
+          format="n"&gt;
+      &lt;/wj-input-number&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+      &lt;wj-menu header="Selected Item Position" value="selectedPosition"&gt;
+        &lt;wj-menu-item value="'None'"&gt;None&lt;/wj-menu-item&gt;
+        &lt;wj-menu-item value="'Left'"&gt;Left&lt;/wj-menu-item&gt;
+        &lt;wj-menu-item value="'Top'"&gt;Top&lt;/wj-menu-item&gt;
+        &lt;wj-menu-item value="'Right'"&gt;Right&lt;/wj-menu-item&gt;
+        &lt;wj-menu-item value="'Bottom'"&gt;Bottom&lt;/wj-menu-item&gt;
+      &lt;/wj-menu&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+      &lt;div class="checkbox"&gt;
+        &lt;label&gt;
+          &lt;input type="checkbox" ng-model="isAnimated"&gt; Is Animated?
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </app-tab-pane>
+                        <app-tab-pane title="JS">
+                            <div class="pane-content">
+$scope.itemsSource = dataSvc.getData();
+$scope.selectedPosition = 'Top';
+$scope.selectedOffset = 0;
+$scope.isAnimated = true;
+$scope.inputSelectedOffset = null;
+$scope.ctx = { selectedOffset: 0};
+
+$scope.$watch('ctx.selectedOffset', function () {
+    var selectedOffset = $scope.inputSelectedOffset,
+        val = $scope.ctx.selectedOffset;
+    if (selectedOffset != null) {
+        if (val < selectedOffset.min || val > selectedOffset.max) {
+            return;
+        }
+        $scope.selectedOffset = val;
+    }
+});
+                            </div>
+                        </app-tab-pane>
+                    </app-tab>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <wj-flex-pie
+                        items-source="itemsSource"
+                        binding="value"
+                        binding-name="name"
+                        selection-mode="Point"
+                        selected-item-position="{{ selectedPosition }}"
+                        selected-item-offset="{{ selectedOffset }}"
+                        is-animated="{{ isAnimated }}">
+                    </wj-flex-pie>
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Selected Item Offset</label>
+                            <div class="col-md-9">
+                                <wj-input-number control="inputSelectedOffset"
+                                    value="ctx.selectedOffset"
+                                    min="0"
+                                    max=".5"
+                                    step=".1"
+                                    format="n">
+                                </wj-input-number>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-md-9">
+                                <wj-menu header="Selected Item Position" value="selectedPosition">
+                                    <wj-menu-item value="'None'">None</wj-menu-item>
+                                    <wj-menu-item value="'Left'">Left</wj-menu-item>
+                                    <wj-menu-item value="'Top'">Top</wj-menu-item>
+                                    <wj-menu-item value="'Right'">Right</wj-menu-item>
+                                    <wj-menu-item value="'Bottom'">Bottom</wj-menu-item>
+                                </wj-menu>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-md-9">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-model="isAnimated"> Is Animated?
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Theming -->
+        <div ng-controller="simpleCtrl">
+            <h2 id="Theming">Theming</h2>
+            <p>
+                The appearance of the FlexPie control is largely defined in CSS. In addition to the default theme, we
+                include several professionally designed themes that customize the appearance of all Wijmo controls to
+                achieve a consistent, attractive look.
+            </p>
+            <p>
+                You can customize the appearance of the FlexPie control using CSS. To do this, copy the CSS rules from the
+                default theme to a new CSS file and modify the properties as needed.
+            </p>
+            <p>
+                In this example, we added the "custom-pie-chart" CSS class to the control and defined some CSS rules to
+                change the fill, font family, and font weight of the header, footer, and legend.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <app-tab>
+                        <app-tab-pane title="HTML">
+                            <div class="pane-content">
+&lt;wj-flex-pie
+  items-source="itemsSource"
+  binding="value"
+  binding-name="name"
+  header="Header"
+  footer="Footer"
+  class="custom-pie-chart"&gt;
+&lt;/wj-flex-pie&gt;
+                            </div>
+                        </app-tab-pane>
+                        <app-tab-pane title="JS">
+                            <div class="pane-content">
+$scope.itemsSource = dataSvc.getData();
+                            </div>
+                        </app-tab-pane>
+                        <app-tab-pane title="CSS">
+                            <div class="pane-content">
+.custom-pie-chart.wj-flexchart .wj-header .wj-title,
+.custom-pie-chart.wj-flexchart .wj-footer .wj-title,
+.custom-pie-chart.wj-flexchart .wj-legend &gt; .wj-label {
+  fill: #666;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+                            </div>
+                        </app-tab-pane>
+                    </app-tab>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <wj-flex-pie
+                        items-source="itemsSource"
+                        binding="value"
+                        binding-name="name"
+                        header="Header"
+                        footer="Footer"
+                        class="custom-pie-chart">
+                    </wj-flex-pie>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Google analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

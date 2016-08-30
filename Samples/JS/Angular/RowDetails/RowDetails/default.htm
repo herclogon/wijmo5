@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Wijmo 5 RowDetails</title>
+
+    <!-- Angular/Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.grid.detail.min.js" type="text/javascript"></script>
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+
+    <!-- Wijmo-Angular interop -->
+    <script src="scripts/vendor/wijmo.angular.min.js" type="text/javascript"></script>
+
+    <!-- app scripts/styles -->
+    <script src="scripts/app.js" type="text/javascript"></script>
+    <script src="scripts/controllers/appCtrl.js" type="text/javascript"></script>
+    <link href="styles/app.css" rel="stylesheet" />
+</head>
+
+<body ng-app="app" ng-controller="appCtrl">
+    <div class="container">
+
+        <h1>
+            Row Details</h1>
+        <p>
+            Each row on the grids below represents a product category.
+            To see the products in each category, expand the rows by clicking the plus sign.
+            Expanded rows show a "detail" row below containing arbitrary content
+            (in this case a nested grid with product information).</p>
+        <p>
+            The detail rows are implemented using the <b>FlexGridDetailProvider</b> class.
+            The <b>FlexGridDetailProvider</b> class has a <b>createDetailCell</b> function 
+            that creates HTML elements to show the details for any row. The content of the
+            detail cells is completely customizable.</p>
+        <p>
+            In addition to the <b>createDetailCell</b> function, the <b>FlexGridDetailProvider</b> 
+            class has other properties that allow you to customize when the detail rows 
+            are displayed, their dimensions, etc.</p>
+
+        <h3>
+            Using the <b>FlexGridDetailProvider</b> class</h3>
+        <p>
+            This grid uses the <b>FlexGridDetailProvider</b> class directly.
+            It specifies a <b>createDetailCell</b> function that creates 
+            child grids to show the products in the category represented by 
+            the main row.</p>
+        <p>
+            The code looks like this:</p>
+        <pre>// create FlexGridDetailProvider for "flex" control
+var dp = new wijmo.grid.detail.FlexGridDetailProvider(flex);
+dp.maxHeight = 250;
+
+// create and host detail cells
+dp.createDetailCell = function (row) {
+  var cell = document.createElement('div');
+  var detailGrid = new wijmo.grid.FlexGrid(cell);
+  detailGrid.itemsSource = $scope.getProducts(row.dataItem.CategoryID);
+  detailGrid.headersVisibility = wijmo.grid.HeadersVisibility.Column;
+  return cell;
+}
+
+// remove details from items with odd CategoryID
+dp.rowHasDetail = function (row) {
+    return row.dataItem.CategoryID % 2 == 0;
+}</pre>
+        <wj-flex-grid 
+            items-source="categories"
+            initialized="initDetailProvider(s,e)">
+            <wj-flex-grid-column header="Name" binding="CategoryName"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Description" binding="Description" width="*"></wj-flex-grid-column>
+        </wj-flex-grid>
+
+        <h3>
+            Using the <b>wj-flex-grid-detail</b> directive</h3>
+        <p>
+            This grid uses the <b>wj-flex-grid-detail</b> directive.
+            The directive contains a template with a child FlexGrid that shows
+            the products in the category represented by the main row.</p>
+        <p>
+            The markup looks like this:</p>
+        <pre>&lt;wj-flex-grid 
+  items-source="categories"&gt;
+  &lt;wj-flex-grid-column header="Name" binding="CategoryName"&gt;&lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column header="Description" binding="Description" width="*"&gt;&lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-detail max-height="250"  detail-visibility-mode="detailMode"&gt;
+    &lt;wj-flex-grid 
+      items-source="getProducts($item.CategoryID)"
+      headers-visibility="Column"&gt;
+    &lt;/wj-flex-grid&gt;
+  &lt;/wj-flex-grid-detail&gt;
+&lt;/wj-flex-grid&gt;</pre>
+
+        <wj-flex-grid
+            allow-dragging="Both"
+            items-source="categories">
+            <wj-flex-grid-column header="Name" binding="CategoryName"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Description" binding="Description" width="*"></wj-flex-grid-column>
+            <wj-flex-grid-detail max-height="250" detail-visibility-mode="{{detailMode}}">
+                <wj-flex-grid
+                    items-source="getProducts($item.CategoryID)" 
+                    headers-visibility="Column">
+                    <wj-flex-grid-column header="ID" binding="ProductID"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Name" binding="ProductName"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Qty/Unit" binding="QuantityPerUnit"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Unit Price" binding="UnitPrice"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Discontinued" binding="Discontinued"></wj-flex-grid-column>
+                </wj-flex-grid>
+            </wj-flex-grid-detail>
+        </wj-flex-grid>
+
+        <!-- select detailVisibilityMode -->
+        <p>
+            Select the value for the <b>detailVisibilityMode</b> property to 
+            determine when the row details are visible.</p>
+        <wj-menu value="detailMode" header="detailVisibilityMode">
+            <wj-menu-item value="0">Code</wj-menu-item>
+            <wj-menu-item value="1">Selection</wj-menu-item>
+            <wj-menu-item value="2">ExpandSingle</wj-menu-item>
+            <wj-menu-item value="3">ExpandMulti</wj-menu-item>
+        </wj-menu>
+
+        <h3>
+            Using the <b>wj-flex-grid-detail</b> directive with another template</h3>
+        <p>
+            The grid below uses the <b>wj-flex-grid-detail</b> directive and specifies
+            a template defined as HTML content, including a list created with an
+            <b>ng-repeat</b> directive.</p>
+        <p>
+            The markup looks like this:</p>
+        <pre>&lt;wj-flex-grid 
+  items-source="categories"&gt;
+  &lt;wj-flex-grid-column header="Name" binding="CategoryName"&gt;&lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column header="Description" binding="Description" width="*"&gt;&lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-detail detail-visibility-mode="ExpandSingle"&gt;
+    ID: &lt;b&gt;{&#8203;{$item.CategoryID}}&lt;/b&gt;&lt;br /&gt;
+    Name: &lt;b&gt;{&#8203;{$item.CategoryName}}&lt;/b&gt;&lt;br /&gt;
+    Description: &lt;b&gt;{&#8203;{$item.Description}}&lt;/b&gt;&lt;br /&gt;
+    &lt;ol&gt;
+      &lt;li ng-repeat="p in getProducts($item.CategoryID).items"&gt;{&#8203;{p.ProductName}}&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/wj-flex-grid-detail&gt;
+&lt;/wj-flex-grid&gt;</pre>
+        <wj-flex-grid 
+            items-source="categories">
+            <wj-flex-grid-column header="Name" binding="CategoryName"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Description" binding="Description" width="*"></wj-flex-grid-column>
+            <wj-flex-grid-detail detail-visibility-mode="ExpandSingle">
+                ID: <b>{{$item.CategoryID}}</b><br />
+                Name: <b>{{$item.CategoryName}}</b><br />
+                Description: <b>{{$item.Description}}</b><br />
+                <ol>
+                    <li ng-repeat="p in getProducts($item.CategoryID).items">{{p.ProductName}}</li>
+                </ol>
+            </wj-flex-grid-detail>
+        </wj-flex-grid>
+
+        <h3>
+            Using custom elements to show or hide details</h3>
+        <p>
+            The <b>wj-flex-grid-detail</b> directive has a "control" attribute that you can use
+            to access the methods in its <b>FlexGridDetailProvider</b> class. In this example,
+            we use these methods in the markup to provide custom icons for expanding and collapsing
+            the detail rows.</p>
+        <p>
+            The nice thing about this approach is that it gives you total control over the user
+            experience, including the appearance and behavior of the elements used to show and
+            hide the detail rows.
+        </p>
+        <p>
+            The markup looks like this:</p>
+        <pre>&lt;wj-flex-grid 
+  items-source="categories"
+  headers-visibility="Column"
+  selection-mode="Row"&gt;
+  &lt;wj-flex-grid-column header="Name" binding="CategoryName" is-read-only="true" width="200"&gt;
+    &lt;img ng-show="dp.isDetailVisible($row)" ng-click="dp.hideDetail($row)" src="resources/hide.png" /&gt;
+    &lt;img ng-hide="dp.isDetailVisible($row)" ng-click="dp.showDetail($row, true)" src="resources/show.png" /&gt;
+    {&#8203;{$item.CategoryName}}
+  &lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column header="Description" binding="Description" width="2*"&gt;&lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-detail control="dp" detail-visibility-mode="Code"&gt;
+    &lt;div style="padding:12px;background-color:#cee6f7"&gt;
+      ID: &lt;b&gt;{&#8203;{$item.CategoryID}}&lt;/b&gt;&lt;br /&gt;
+      Name: &lt;b&gt;{&#8203;{$item.CategoryName}}&lt;/b&gt;&lt;br /&gt;
+      Description: &lt;b&gt;{&#8203;{$item.Description}}&lt;/b&gt;&lt;br /&gt;
+      &lt;button class="btn btn-default" ng-click="dp.hideDetail($row)"&gt;Hide Detail&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/wj-flex-grid-detail&gt;
+&lt;/wj-flex-grid&gt;</pre>
+        <wj-flex-grid 
+            items-source="categories"
+            headers-visibility="Column"
+            selection-mode="Row">
+            <wj-flex-grid-column header="Name" binding="CategoryName" is-read-only="true" width="200">
+                <span ng-show="dp.isDetailAvailable($row)">
+                    <img ng-show="dp.isDetailVisible($row)" ng-click="dp.hideDetail($row)" src="resources/hide.png" />
+                    <img ng-hide="dp.isDetailVisible($row)" ng-click="dp.showDetail($row, true)" src="resources/show.png" />
+                </span>
+                {{$item.CategoryName}}
+            </wj-flex-grid-column>
+            <wj-flex-grid-column header="Description" binding="Description" width="2*"></wj-flex-grid-column>
+            <wj-flex-grid-detail control="dp" detail-visibility-mode="Code">
+                <div style="padding:12px;background-color:#cee6f7;color:#000">
+                    ID: <b>{{$item.CategoryID}}</b><br />
+                    Name: <b>{{$item.CategoryName}}</b><br />
+                    Description: <b>{{$item.Description}}</b><br />
+                    <button class="btn btn-default" ng-click="dp.hideDetail($row)">Hide Detail</button>
+                </div>
+            </wj-flex-grid-detail>
+        </wj-flex-grid>
+
+    </div>
+</body>
+</html>

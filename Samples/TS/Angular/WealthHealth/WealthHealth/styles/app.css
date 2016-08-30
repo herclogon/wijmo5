@@ -1,0 +1,90 @@
+﻿body {
+    background-color: #f8f8f8;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    padding: 0 0 10px;
+    margin-bottom: 1in;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #00b68c;
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-left: -12px;
+}
+
+.header {
+    color: #d0fcf2;
+    background-color: #00b68c;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        color: #fff;
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+    .header a {
+        color: inherit;
+        font-weight: bold;
+    }
+
+.references {
+    font-size: 85%;
+}
+
+.yearpicker {
+    font-size: 24pt;
+    text-align: right;
+    margin-bottom: 12pt;
+    color: #00916f;
+}
+
+.wj-lineargauge {
+    display: inline-block;
+    vertical-align: bottom;
+    max-width: 50%;
+}
+    .wj-lineargauge .wj-pointer {
+        fill: #00916f;
+    }
+
+.wj-flexchart {
+    height: 550px;
+    border: none;
+    position: relative;
+}
+    .wj-flexchart .watermark {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 300px;
+        color: #00916f;
+        opacity: .1;
+        pointer-events: none;
+    }
+    .wj-flexchart g.wj-series-group ellipse {
+        opacity: 0.5;
+        stroke: none;
+    }
+    .wj-flexchart.tracking-country g.wj-series-group ellipse {
+        opacity: 0.2;
+        stroke: none;
+    }
+    .wj-flexchart g.wj-series-group ellipse.wj-state-selected {
+        opacity: 1;
+        stroke: #b6ff00;
+        stroke-width: 6px;
+        stroke-dasharray: none;
+    }

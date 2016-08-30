@@ -1,0 +1,29 @@
+<h2>WjContextMenu Class</h2>
+<dl class="dl-horizontal">
+<dt>Module</dt><dd>wijmo/wijmo.angular2.input</dd>
+<dt>File</dt><dd>wijmo.angular2.js</dd>
+</dl>
+<p><p>Angular 2 directive for context menus.</p>
+
+<p>Use the <b>wjContextMenu</b> directive to add context menus to elements
+on the page. The wjContextMenu directive is based on the <b>wj-menu</b> 
+component; it displays a popup menu when the user performs a context menu
+request on an element (usually a right-click).</p>
+
+<p>The wjContextMenu directive is specified as a parameter added to the 
+element that the context menu applies to. The parameter value is a 
+reference to the <b>wj-menu</b> component. For example:</p>
+
+<p><pre>&lt;!-- paragraph with a context menu --&gt;
+&lt;p [wjContextMenu]="menu" &gt;
+ This paragraph has a context menu.&lt;/p&gt;</p>
+
+<p>&lt;!-- define the context menu (hidden and with an id) --&gt;
+&lt;wj-menu #menu style="display:none"&gt;
+ &lt;wj-menu-item [cmd]="cmdOpen" [cmdParam] ="1"&gt;Open...&lt;/wj-menu-item&gt;
+ &lt;wj-menu-item [cmd]="cmdSave" [cmdParam]="2"&gt;Save &lt;/wj-menu-item&gt;
+ &lt;wj-menu-item [cmd]="cmdSave" [cmdParam]="3"&gt;Save As...&lt;/wj-menu-item&gt;
+ &lt;wj-menu-item [cmd]="cmdNew" [cmdParam] ="4"&gt;New...&lt;/wj-menu-item&gt;
+ &lt;wj-menu-separator&gt;&lt;/wj-menu-separator&gt;
+ &lt;wj-menu-item [cmd]="cmdExit" [cmdParam]="5"&gt;Exit&lt;/wj-menu-item&gt;
+&lt;/wj-menu &gt;</pre></p></p>

@@ -1,0 +1,74 @@
+﻿<div>
+	<div class="copy">
+		<h3>
+			Sorting
+		</h3>
+		<p>
+			FlexSheet can be sorted by its each column.  The <b>SortManager</b> helps FlexSheet to manage the sort processing including set the order of the sorting, add sort column, remove sort column and change the order of the sort columns.
+		</p>
+	</div>
+	<div>
+		<div class="row" id="sortTable">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th class="text-center">Column</th>
+						<th class="text-center">Order</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="sortItem in ctx.sortManager.sortDescriptions.items"
+						ng-click="ctx.sortManager.sortDescriptions.moveCurrentTo(sortItem)"
+						ng-class="{success: sortItem === ctx.sortManager.sortDescriptions.currentItem}">
+						<td>
+							<select class="form-control" ng-model="sortItem.columnIndex">
+								<option value=-1></option>
+								<option ng-repeat="column in ctx.columns" ng-selected="$index === sortItem.columnIndex"
+									value={{$index}}>{{column}}</option>
+							</select>
+						</td>
+						<td>
+							<select class="form-control" ng-model="sortItem.ascending"
+								ng-options="o.v as o.n for o in [{n: 'Ascending', v: true}, {n: 'Descending', v: false}]">
+							</select>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="row well well-lg">
+			<div class="btn-group">
+				<button type="button" class="btn btn-default" ng-click="addSortLevel()">
+					<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;Add Level
+				</button>
+				<button type="button" class="btn btn-default" ng-click="deleteSortLevel()">
+					<span class="glyphicon glyphicon-remove-sign"></span>&nbsp;Delete Level
+				</button>
+				<button type="button" class="btn btn-default" ng-click="copySortLevel()">
+					<span class="glyphicon glyphicon-copy"></span>&nbsp;Copy Level
+				</button>
+			</div>
+			<div class="btn-group">
+				<button id="moveup" type="button" 
+					class="btn btn-default" 
+					ng-disabled="ctx.sortManager.sortDescriptions.currentPosition <= 0"
+					ng-click="moveSortLevel(-1)">
+					<span class="glyphicon glyphicon-arrow-up"></span>
+				</button>
+				<button id="movedown" type="button" 
+					class="btn btn-default" 
+					ng-disabled="ctx.sortManager.sortDescriptions.currentPosition >= ctx.sortManager.sortDescriptions.itemCount - 1"
+					ng-click="moveSortLevel(1)">
+					<span class="glyphicon glyphicon-arrow-down"></span>
+				</button>
+			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default" ng-click="commitSort()">OK</button>
+				<button type="button" class="btn btn-default" ng-click="cancelSort()">Cancel</button>
+			</div>
+		</div>
+		<wj-flex-sheet class="flexSheet" control="ctx.flexSheet" initialized="initialized(s)">
+			<wj-sheet name="Country" items-source="ctx.data"></wj-sheet>
+		</wj-flex-sheet>
+	</div>
+</div>

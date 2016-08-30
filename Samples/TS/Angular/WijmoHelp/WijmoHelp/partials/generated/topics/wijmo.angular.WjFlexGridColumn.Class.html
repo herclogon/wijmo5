@@ -1,0 +1,74 @@
+<h2>WjFlexGridColumn Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjDirective</b></dd>
+<dt>Module</dt><dd>wijmo.angular</dd>
+<dt>File</dt><dd>wijmo.angular.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>AngularJS directive for the <a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a> object.</p>
+
+<p>The <b>wj-flex-grid-column</b> directive must be contained in a <a href="topic/wijmo.angular.WjFlexGrid.Class.html"><b>WjFlexGrid</b></a> directive.
+It supports the following attributes:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>aggregate</dt>         <dd><code>@</code> The <a href="topic/wijmo.Aggregate.Enum.html"><b>Aggregate</b></a> object to display in 
+                             the group header rows for this column.</dd>
+  <dt>align</dt>             <dd><code>@</code> The string value that sets the horizontal 
+                             alignment of items in the column to left, right, or center.</dd>
+  <dt>allow-dragging</dt>    <dd><code>@</code> The value indicating whether the user can move 
+                             the column to a new position with the mouse.</dd>
+  <dt>allow-sorting</dt>     <dd><code>@</code> The value indicating whether the user can sort 
+                             the column by clicking its header.</dd>
+  <dt>allow-resizing</dt>    <dd><code>@</code> The value indicating whether the user can 
+                             resize the column with the mouse.</dd>
+  <dt>allow-merging</dt>     <dd><code>@</code> The value indicating whether the user can merge 
+                             cells in the column.</dd>
+  <dt>binding</dt>           <dd><code>@</code> The name of the property to which the column is 
+                             bound.</dd>
+  <dt>css-class</dt>         <dd><code>@</code> The name of a CSS class to use when 
+                             rendering the column.</dd>
+  <dt>data-map</dt>          <dd><code>=</code> The <a href="topic/wijmo.grid.DataMap.Class.html"><b>DataMap</b></a> object to use to convert raw  
+                             values into display values for the column.</dd>
+  <dt>data-type</dt>         <dd><code>@</code> The enumerated <a href="topic/wijmo.DataType.Enum.html"><b>DataType</b></a> value that indicates 
+                             the type of value stored in the column.</dd>
+  <dt>format</dt>            <dd><code>@</code> The format string to use to convert raw values 
+                             into display values for the column (see <a href="topic/wijmo.Globalize.Class.html"><b>Globalize</b></a>).</dd>
+  <dt>header</dt>            <dd><code>@</code> The string to display in the column header.</dd>
+  <dt>input-type</dt>        <dd><code>@</code> The type attribute to specify the input element 
+                             used to edit values in the column. The default is "tel" for numeric 
+                             columns, and "text" for all other non-Boolean columns.</dd>
+  <dt>is-content-html</dt>   <dd><code>@</code> The value indicating whether cells in the column 
+                             contain HTML content rather than plain text.</dd>
+  <dt>is-read-only</dt>      <dd><code>@</code> The value indicating whether the user is prevented 
+                             from editing values in the column.</dd>
+  <dt>is-selected</dt>       <dd><code>@</code> The value indicating whether the column is selected.</dd>
+  <dt>mask</dt>              <dd><code>@</code> The mask string used to edit values in the 
+                             column.</dd>
+  <dt>max-width</dt>         <dd><code>@</code> The maximum width for the column.</dd>
+  <dt>min-width</dt>         <dd><code>@</code> The minimum width for the column.</dd>
+  <dt>name</dt>              <dd><code>@</code> The column name. You can use it to retrieve the 
+                             column.</dd>
+  <dt>is-required</dt>       <dd><code>@</code> The value indicating whether the column must contain 
+                             non-null values.</dd>
+  <dt>show-drop-down</dt>    <dd><code>@</code> The value indicating whether to show drop-down buttons 
+                             for editing based on the column's <b>DataMap</b>.</dd>
+  <dt>visible</dt>           <dd><code>@</code> The value indicating whether the column is visible.</dd>
+  <dt>width</dt>             <dd><code>@</code> The width of the column in pixels or as a 
+                             star value.</dd>
+  <dt>word-wrap</dt>         <dd><code>@</code> The value indicating whether cells in the column wrap 
+                             their content.</dd>
+</dl></p>
+
+<p>Any html content within the <b>wj-flex-grid-column</b> directive is treated as a template for the cells in that column. 
+The template is applied only to regular cells. If you wish to apply templates to specific cell types such as 
+column or group headers, then please see the <a href="topic/wijmo.angular.WjFlexGridCellTemplate.Class.html"><b>WjFlexGridCellTemplate</b></a> directive.</p>
+
+<p>The following example creates two columns with a template and a conditional style:</p>
+
+<p><a href="http://jsfiddle.net/Wijmo5/5L423/" target="_blank" class="btn btn-info">
+  <img src="images/fiddle.png"/>
+  Live Example
+</a>
+</p>
+
+<p>The <b>wj-flex-grid-column</b> directive may contain <b>WjFlexGridCellTemplate</b> child directives.</p></p>

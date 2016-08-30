@@ -1,0 +1,191 @@
+<h2>WjFlexChartDataLabel Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><a href="topic/wijmo.chart.DataLabel.Class.html"><b>DataLabel</b></a></dd>
+<dt>Module</dt><dd>wijmo/wijmo.angular2.chart</dd>
+<dt>File</dt><dd>wijmo.angular2.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>Angular 2 component for the <a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.DataLabel.Class.html"><b>DataLabel</b></a> control.</p>
+
+<p>The <b>wj-flex-chart-data-label</b> component must be contained in a 
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> component.</p>
+
+<p>Use the <b>wj-flex-chart-data-label</b> component to add <b>DataLabel</b> objects to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
+
+<p>The <b>WjFlexChartDataLabel</b> component is derived from the <b>DataLabel</b> class and
+inherits all its properties, events and methods.</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>border</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value indicating whether the data labels have borders.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.DataLabelBase.Class.html"><b>DataLabelBase</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>connectingLine</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value indicating whether to draw lines that connect 
+labels to the data points.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.DataLabelBase.Class.html"><b>DataLabelBase</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>content</b></td>
+      <td><b>any</b></td>
+      <td><p>Gets or sets the content of data labels.</p>
+
+<p>The content can be specified as a string or as a function that
+takes <a href="topic/wijmo.chart.HitTestInfo.Class.html"><b>HitTestInfo</b></a> object as a parameter. </p>
+
+<p>When the label content is a string, it can contain any of the following
+parameters:</p>
+
+<p><ul>
+ <li><b>seriesName</b>: Name of the series that contains the data point (FlexChart only).</li>
+ <li><b>pointIndex</b>: Index of the data point.</li>
+ <li><b>value</b>: <b>Value</b> of the data point.</li>
+ <li><b>x</b>: <b>x</b>-value of the data point (FlexChart only).</li>
+ <li><b>y</b>: <b>y</b>-value of the data point (FlexChart only).</li>
+ <li><b>name</b>: <b>Name</b> of the data point.</li>
+ <li><b>propertyName</b>: any property of data object.</li>
+</ul></p>
+
+<p>The parameter must be enclosed in curly brackets, for example 'x={x}, y={y}'.</p>
+
+<p>In the following example, we show the y value of the data point in the labels.</p>
+
+<p><pre> 
+ // Create a chart and show y data in labels positioned above the data point.
+ var chart = new wijmo.chart.FlexChart('#theChart');          
+ chart.initialize({
+     itemsSource: data,
+     bindingX: 'country',
+     series: [
+         { name: 'Sales', binding: 'sales' },
+         { name: 'Expenses', binding: 'expenses' },
+         { name: 'Downloads', binding: 'downloads' }],                            
+ });
+ chart.dataLabel.position = "Top";
+ chart.dataLabel.content = "{country} {seriesName}:{y}";
+</pre></p>
+
+<p>The next example shows how to set data label content using a function.</p>
+
+<p><pre> 
+ // Set the data label content 
+ chart.dataLabel.content = function (ht) {
+   return ht.name + ":" + ht.value.toFixed();
+ }
+</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.DataLabelBase.Class.html"><b>DataLabelBase</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>offset</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the offset from label to the data point.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.DataLabelBase.Class.html"><b>DataLabelBase</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>position</b></td>
+      <td><a href="topic/wijmo.chart.LabelPosition.Enum.html"><b>LabelPosition</b></a></td>
+      <td>Gets or sets the position of the data labels.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.DataLabel.Class.html"><b>DataLabel</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onRendering</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.chart.DataLabelRenderEventArgs.Class.html"><b>DataLabelRenderEventArgs</b></a>): The <a href="topic/wijmo.chart.DataLabelRenderEventArgs.Class.html"><b>DataLabelRenderEventArgs</b></a> object used to render the label.<br/></p>
+</td>
+      <td>Raises the <b>rendering</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.DataLabelBase.Class.html"><b>DataLabelBase</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>rendering</b></td>
+      <td><a href="topic/wijmo.chart.DataLabelRenderEventArgs.Class.html"><b>DataLabelRenderEventArgs</b></a></td>
+      <td>Occurs before the rendering data label.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.DataLabelBase.Class.html"><b>DataLabelBase</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

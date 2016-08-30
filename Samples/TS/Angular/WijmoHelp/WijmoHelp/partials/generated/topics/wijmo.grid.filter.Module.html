@@ -1,0 +1,185 @@
+<h2>Module wijmo.grid.filter</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd>wijmo.grid.filter.js</dd>
+</dl>
+<p>Extension that provides an Excel-style filtering UI for <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> controls.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
+<span class="glyph-collapsed" ng-show="hideClasses"></span>
+<span class="glyph-expanded" ng-hide="hideClasses"></span>
+Classes
+</h3>
+</div>
+<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.filter.ColumnFilter.Class.html"><b>ColumnFilter</b></a></td>
+      <td><p>Defines a filter for a column on a <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control.</p>
+
+<p>The <b>ColumnFilter</b> contains a <a href="topic/wijmo.grid.filter.ConditionFilter.Class.html"><b>ConditionFilter</b></a> and a
+<a href="topic/wijmo.grid.filter.ValueFilter.Class.html"><b>ValueFilter</b></a>; only one of them may be active at a time.</p>
+
+<p>This class is used by the <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> class; you 
+rarely use it directly.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.filter.ColumnFilterEditor.Class.html"><b>ColumnFilterEditor</b></a></td>
+      <td><p>The editor used to inspect and modify column filters.</p>
+
+<p>This class is used by the <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> class; you 
+rarely use it directly.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.filter.ConditionFilter.Class.html"><b>ConditionFilter</b></a></td>
+      <td><p>Defines a condition filter for a column on a <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control.</p>
+
+<p>Condition filters contain two conditions that may be combined
+using an 'and' or an 'or' operator.</p>
+
+<p>This class is used by the <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> class; you will
+rarely use it directly.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.filter.ConditionFilterEditor.Class.html"><b>ConditionFilterEditor</b></a></td>
+      <td><p>The editor used to inspect and modify <a href="topic/wijmo.grid.filter.ConditionFilter.Class.html"><b>ConditionFilter</b></a> objects.</p>
+
+<p>This class is used by the <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> class; you 
+rarely use it directly.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.filter.FilterCondition.Class.html"><b>FilterCondition</b></a></td>
+      <td><p>Defines a filter condition.</p>
+
+<p>This class is used by the <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> class; you will rarely have to use it directly.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a></td>
+      <td><p>Implements an Excel-style filter for <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> controls.</p>
+
+<p>To enable filtering on a <b>FlexGrid</b> control, create an instance 
+of the <b>FlexGridFilter</b> and pass the grid as a parameter to the 
+constructor. For example:</p>
+
+<p><pre>
+// create FlexGrid
+var flex = new wijmo.grid.FlexGrid('#gridElement');
+// enable filtering on the FlexGrid
+var filter = new wijmo.grid.filter.FlexGridFilter(flex);
+</pre></p>
+
+<p>Once this is done, a filter icon is added to the grid's column headers. 
+Clicking the icon shows an editor where the user can edit the filter
+conditions for that column.</p>
+
+<p>The <b>FlexGridFilter</b> class depends on the <b>wijmo.grid</b> and 
+<b>wijmo.input</b> modules.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.filter.ValueFilter.Class.html"><b>ValueFilter</b></a></td>
+      <td><p>Defines a value filter for a column on a <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control.</p>
+
+<p>Value filters contain an explicit list of values that should be 
+displayed by the grid.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.filter.ValueFilterEditor.Class.html"><b>ValueFilterEditor</b></a></td>
+      <td><p>The editor used to inspect and modify <a href="topic/wijmo.grid.filter.ValueFilter.Class.html"><b>ValueFilter</b></a> objects.</p>
+
+<p>This class is used by the <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> class; you 
+rarely use it directly.</p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideInterfaces = !hideInterfaces">
+<span class="glyph-collapsed" ng-show="hideInterfaces"></span>
+<span class="glyph-expanded" ng-hide="hideInterfaces"></span>
+Interfaces
+</h3>
+</div>
+<table ng-hide="hideInterfaces" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.filter.IColumnFilter.Interface.html"><b>IColumnFilter</b></a></td>
+      <td><p>Defines a filter for a column on a <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control.</p>
+
+<p>This class is used by the <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> class; you 
+rarely use it directly.</p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEnumerations = !hideEnumerations">
+<span class="glyph-collapsed" ng-show="hideEnumerations"></span>
+<span class="glyph-expanded" ng-hide="hideEnumerations"></span>
+Enumerations
+</h3>
+</div>
+<table ng-hide="hideEnumerations" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.filter.FilterType.Enum.html"><b>FilterType</b></a></td>
+      <td>Specifies types of column filter.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.grid.filter.Operator.Enum.html"><b>Operator</b></a></td>
+      <td>Specifies filter condition operators.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

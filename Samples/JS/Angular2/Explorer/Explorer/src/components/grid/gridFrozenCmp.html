@@ -1,0 +1,51 @@
+﻿<div>
+    <h3>
+        Frozen Cells
+    </h3>
+    <p>
+        In some applications, it makes sense to 'freeze' certain rows and/or
+        columns to they remain in view even when the grid is scrolled. For example,
+        you may want to keep a column with product names visible on the left of the
+        grid and see the product data on the right of the grid.
+    </p>
+    <p>
+        The FlexGrid <b>frozenRows</b> and <b>frozenColumns</b> properties allow
+        you to achieve that. Use these properties to define the portion of the
+        grid that should remain fixed and those parts of the grid will remain
+        in view as if they were header columns. However, they can still be
+        selected or edited as if they were regular cells.
+    </p>
+    <p>
+        The example below allows you to freeze or unfreeze rows and columns
+        by clicking the button.
+    </p>
+    <p>
+        Clicking "Freeze" keeps the rows and columns above and to the left
+        of the selection visible while the rest of the grid scrolls. Clicking
+        "Unfreeze" unlock all rows and columns so they become scrollable.
+    </p>
+
+    <!-- the grid -->
+    <button type="button"
+            class="btn btn-default"
+            (click)="toggleFreeze()">
+        {{flex.frozenRows || flex.frozenColumns ? 'Unfreeze' : 'Freeze'}}
+    </button>
+
+    <!-- the grid -->
+    <wj-flex-grid class="grid"
+                  #flex
+                  [itemsSource]="data"
+                  [frozenRows]="2"
+                  [frozenColumns]="2"
+                  (sortedColumn)="toggleFreeze(false)">
+        <wj-flex-grid-column [header]="'ID'" [binding]="'id'" [width]="80" [isReadOnly]="true"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Product'" [binding]="'product'"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Country'" [binding]="'country'"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Color'" [binding]="'color'"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Date'" [binding]="'start'"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Revenue'" [binding]="'amount'" [format]="'n0'"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Expense'" [binding]="'amount2'" [format]="'n0'"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Active'" [binding]="'active'" [dataType]="'Boolean'"></wj-flex-grid-column>
+    </wj-flex-grid>
+</div>

@@ -1,0 +1,32 @@
+<h2>WjFlexSheet Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><a href="topic/wijmo.angular.WjFlexGrid.Class.html"><b>WjFlexGrid</b></a></dd>
+<dt>Module</dt><dd>wijmo.angular</dd>
+<dt>File</dt><dd>wijmo.angular.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>AngularJS directive for the <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a> control.</p>
+
+<p>Use the <b>wj-flex-sheet</b> directive to add <b>FlexSheet</b> controls to your AngularJS applications. 
+Note that directive and parameter names must be formatted as lower-case with dashes 
+instead of camel-case. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a FlexSheet control with one bound and two unbound sheets:&lt;/p&gt;
+&lt;wj-flex-sheet&gt;
+   &lt;wj-sheet name="Country" items-source="ctx.data"&gt;&lt;/wj-sheet&gt;
+   &lt;wj-sheet name="Report" row-count="25" column-count="13"&gt;&lt;/wj-sheet&gt;
+   &lt;wj-sheet name="Formulas" row-count="310" column-count="10"&gt;&lt;/wj-sheet&gt;
+&lt;/wj-flex-sheet&gt;</pre></p>
+
+<p>The <b>wj-flex-sheet</b> directive extends <a href="topic/wijmo.angular.WjFlexGrid.Class.html"><b>WjFlexGrid</b></a> with the following attributes:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>control</dt>                   <dd><code>=</code> A reference to the <b>FlexSheet</b> control created by this directive.</dd>
+  <dt>is-tab-holder-visible</dt>     <dd><code>@</code> A value indicating whether the sheet tabs holder is visible. </dd>
+  <dt>selected-sheet-index</dt>      <dd><code>=</code> Gets or sets the index of the current sheet in the <b>FlexSheet</b>. </dd>
+  <dt>dragging-row-column</dt>       <dd><code>&</code> The <b>draggingRowColumn</b> event handler.</dd>
+  <dt>dropping-row-column</dt>       <dd><code>&</code> The <b>droppingRowColumn</b> event handler.</dd>
+  <dt>selected-sheet-changed</dt>    <dd><code>&</code> The <b>selectedSheetChanged</b> event handler.</dd>
+</dl></p>
+
+<p>The <b>wj-flex-sheet</b> directive may contain <a href="topic/wijmo.angular.WjSheet.Class.html"><b>WjSheet</b></a> child directives.</p></p>

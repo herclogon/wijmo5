@@ -1,0 +1,23 @@
+﻿/* hover style for column picker icon */
+.wj-col-picker-icon {
+    opacity: 0.8;
+}
+.wj-col-picker-icon:hover {
+    opacity: 1;
+}
+
+/* column picker drop-down */
+.wj-col-picker-dropdown {
+    min-width:100px;
+    min-height:100px;
+    overflow:auto;
+    padding:6px;
+    background-color:white;
+    border:1px solid black;
+    box-shadow:5px 5px 5px rgba(0,0,0,.3);
+}
+
+/* column picker items */
+.wj-col-picker-item {
+    display:block;
+}

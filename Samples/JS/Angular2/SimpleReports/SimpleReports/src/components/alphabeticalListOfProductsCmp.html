@@ -1,0 +1,51 @@
+﻿<h1>
+    Alphabetical List of Products
+</h1>
+<p>
+    <i>{{today | date}}</i>
+</p>
+
+
+<div *ngIf="products">
+    <div 
+         style="border-top:2px solid black; margin-bottom:24pt; page-break-inside:avoid"
+         *ngFor="let initial of products.groups">
+
+        <p style="font-size:140%; font-weight:bold; margin: 10pt 0;">
+            {{initial.name}}
+        </p>
+
+        <div style="display:flex; font-weight:bold; margin: 0 0 10pt 20pt">
+            <div style="width:200px">
+                Product Name:
+            </div>
+            <div style="width:150px">
+                Category Name:
+            </div>
+            <div style="width:140px">
+                Quantity Per Unit:
+            </div>
+            <div style="text-align:right; width:140px">
+                Units In Stock:
+            </div>
+        </div>
+
+        <div *ngIf="initial" >
+            <div style="display: flex; margin: 0 0 6pt 20pt" *ngFor="let product of initial.items">
+                <div style="width:200px">
+                    {{ product?.ProductName }}
+                </div>
+                <div style="width:150px">
+                    {{ find(categories, 'CategoryID', product?.CategoryID)?.CategoryName }}
+                </div>
+                <div style="width:140px">
+                    {{ product?.QuantityPerUnit }}
+                </div>
+                <div style="text-align:right; width:140px">
+                    {{ product?.UnitsInStock | number }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>

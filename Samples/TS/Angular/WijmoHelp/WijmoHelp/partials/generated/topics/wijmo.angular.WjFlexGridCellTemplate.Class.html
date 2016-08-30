@@ -1,0 +1,197 @@
+<h2>WjFlexGridCellTemplate Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjDirective</b></dd>
+<dt>Module</dt><dd>wijmo.angular</dd>
+<dt>File</dt><dd>wijmo.angular.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>AngularJS directive for the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> cell templates.</p>
+
+<p>The <b>wj-flex-grid-cell-template</b> directive defines a template for a certain 
+cell type in <b>FlexGrid</b>, and must contain a <b>cell-type</b> attribute that 
+specifies the <a href="topic/wijmo.angular.CellTemplateType.Enum.html"><b>CellTemplateType</b></a>. Depending on the template's cell type, 
+the <b>wj-flex-grid-cell-template</b> directive must be a child of either <a href="topic/wijmo.angular.WjFlexGrid.Class.html"><b>WjFlexGrid</b></a> 
+or <a href="topic/wijmo.angular.WjFlexGridColumn.Class.html"><b>WjFlexGridColumn</b></a> directives.</p>
+
+<p>Column-specific cell templates must be contained in <b>wj-flex-grid-column</b>
+directives, and cells that are not column-specific (like row header or top left cells)
+must be contained in the <b>wj-flex-grid directive</b>.</p>
+
+<p>In addition to an HTML fragment, <b>wj-flex-grid-cell-template</b> directives may 
+contain an <b>ng-style</b> or <b>ng-class</b> attribute that provides conditional formatting for cells.</p>
+
+<p>Both the <b>ng-style/ng-class</b> attributes and the HTML fragment can use the <b>$col</b>, 
+<b>$row</b> and <b>$item</b> template variables that refer to the <a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a>, 
+<a href="topic/wijmo.grid.Row.Class.html"><b>Row</b></a> and <b>Row.dataItem</b> objects pertaining to the cell.</p>
+
+<p>For cell types like <b>Group</b> and <b>CellEdit</b>, an additional <b>$value</b> 
+variable containing an unformatted cell value is provided. For example, here is a 
+FlexGrid control with templates for row headers and for the Country column's regular
+and column header cells:</p>
+
+<p><pre>&lt;wj-flex-grid items-source="data"&gt;
+  &lt;wj-flex-grid-cell-template cell-type="RowHeader"&gt;
+    {&#8203;{$row.index}}
+  &lt;/wj-flex-grid-cell-template&gt;
+  &lt;wj-flex-grid-cell-template cell-type="RowHeaderEdit"&gt;
+    ...
+  &lt;/wj-flex-grid-cell-template&gt;
+&nbsp;
+  &lt;wj-flex-grid-column header="Country" binding="country"&gt;
+    &lt;wj-flex-grid-cell-template cell-type="ColumnHeader"&gt;
+      &lt;img ng-src="resources/globe.png" /&gt;
+        {&#8203;{$col.header}}
+      &lt;/wj-flex-grid-cell-template&gt;
+      &lt;wj-flex-grid-cell-template cell-type="Cell"&gt;
+        &lt;img ng-src="resources/{&#8203;{$item.country}}.png" /&gt;
+        {&#8203;{$item.country}}
+      &lt;/wj-flex-grid-cell-template&gt;
+    &lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column header="Sales" binding="sales"&gt;&lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;</pre></p>
+
+<p>For more detailed information on specific cell type templates refer to the 
+documentation for the <b>CellTemplateType</b> enumeration.</p>
+
+<p>Note that the <b>wj-flex-grid-column</b> directive may also contain arbitrary content 
+that is treated as a template for a regular data cell (<i>cell-type="Cell"</i>). But if
+a <b>wj-flex-grid-cell-template</b> directive exists and is set to <i>cell-type="Cell"</i>
+under the <b>wj-flex-grid-column</b> directive, it takes priority and overrides the
+arbitrary content.</p>
+
+<p>The <b>wj-flex-grid-cell-template</b> directive supports the following attributes:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>cell-type</dt>
+  <dd><code>@</code>
+    The <b>CellTemplateType</b> value defining the type of cell the template applies to.
+  </dd>
+  <dt>cell-overflow</dt>
+  <dd><code>@</code>
+    Defines the <b>style.overflow</b> property value for cells.
+  </dd>
+</dl></p>
+
+<p>The <b>cell-type</b> attribute takes any of the following enumerated values:</p>
+
+<p><b>Cell</b></p>
+
+<p>Defines a regular (data) cell template. Must be a child of the <b>WjFlexGridColumn</b> directive.
+For example, this cell template shows flags in the Country column's cells:</p>
+
+<p><pre>&lt;wj-flex-grid-column header="Country" binding="country"&gt;
+  &lt;wj-flex-grid-cell-template cell-type="Cell"&gt;
+    &lt;img ng-src="resources/{&#8203;{$item.country}}.png" /&gt;
+    {&#8203;{$item.country}}
+  &lt;/wj-flex-grid-cell-template&gt;
+&lt;/wj-flex-grid-column&gt;</pre></p>
+
+<p>For a hierarchical <b>FlexGrid</b> (that is, one with the <b>childItemsPath</b> property 
+specified), if no <b>Group</b> template is provided, non-header cells in group rows in 
+this <b>Column</b> also use this template.</p>
+
+<p><b>CellEdit</b></p>
+
+<p>Defines a template for a cell in edit mode. Must be a child of the <b>WjFlexGridColumn</b> directive. 
+This cell type has an additional <b>$value</b> property available for binding. It contains the
+original cell value before editing, and the updated value after editing.
+ 
+For example, here is a template that uses the Wijmo <a href="topic/wijmo.input.InputNumber.Class.html"><b>InputNumber</b></a> control as an editor
+for the "Sales" column:</p>
+
+<p><pre>&lt;wj-flex-grid-column header="Sales" binding="sales"&gt;
+  &lt;wj-flex-grid-cell-template cell-type="CellEdit"&gt;
+    &lt;wj-input-number value="$value" step="1"&gt;&lt;/wj-input-number&gt;
+  &lt;/wj-flex-grid-cell-template&gt;
+&lt;/wj-flex-grid-column&gt;</pre></p>
+
+<p><b>ColumnHeader</b></p>
+
+<p>Defines a template for a column header cell. Must be a child of the <b>WjFlexGridColumn</b> directive. 
+For example, this template adds an image to the header of the "Country" column:</p>
+
+<p><pre>&lt;wj-flex-grid-column header="Country" binding="country"&gt;
+  &lt;wj-flex-grid-cell-template cell-type="ColumnHeader"&gt;
+    &lt;img ng-src="resources/globe.png" /&gt;
+    {&#8203;{$col.header}}
+  &lt;/wj-flex-grid-cell-template&gt;
+&lt;/wj-flex-grid-column&gt;</pre></p>
+
+<p><b>RowHeader</b></p>
+
+<p>Defines a template for a row header cell. Must be a child of the <b>WjFlexGrid</b> directive.
+For example, this template shows row indices in the row headers:</p>
+
+<p><pre>&lt;wj-flex-grid items-source="data"&gt;
+  &lt;wj-flex-grid-cell-template cell-type="RowHeader"&gt;
+    {&#8203;{$row.index}}
+  &lt;/wj-flex-grid-cell-template&gt;
+&lt;/wj-flex-grid&gt;</pre></p>
+
+<p>Note that this template is applied to a row header cell, even if it is in a row that is 
+in edit mode. In order to provide an edit-mode version of a row header cell with alternate 
+content, define the <b>RowHeaderEdit</b> template.</p>
+
+<p><b>RowHeaderEdit</b></p>
+
+<p>Defines a template for a row header cell in edit mode. Must be a child of the 
+<b>WjFlexGrid</b> directive. For example, this template shows dots in the header
+of rows being edited:</p>
+
+<p><pre>&lt;wj-flex-grid items-source="data"&gt;
+  &lt;wj-flex-grid-cell-template cell-type="RowHeaderEdit"&gt;
+      ...
+  &lt;/wj-flex-grid-cell-template&gt;
+&lt;/wj-flex-grid&gt;</pre></p>
+
+<p>To add the standard edit-mode indicator to cells where the <b>RowHeader</b> template 
+applies, use the following <b>RowHeaderEdit</b> template:</p>
+
+<p><pre>&lt;wj-flex-grid items-source="data"&gt;
+  &lt;wj-flex-grid-cell-template cell-type="RowHeaderEdit"&gt;
+    {&#8203;{&amp;#x270e;}}
+  &lt;/wj-flex-grid-cell-template&gt;
+&lt;/wj-flex-grid&gt;</pre></p>
+
+<p><b>TopLeft</b></p>
+
+<p>Defines a template for the top left cell. Must be a child of the <b>WjFlexGrid</b> directive. 
+For example, this template shows a down/right glyph in the top-left cell of the grid:</p>
+
+<p><pre>&lt;wj-flex-grid items-source="data"&gt;
+  &lt;wj-flex-grid-cell-template cell-type="TopLeft"&gt;
+    &lt;span class="wj-glyph-down-right"&gt;&lt;/span&gt;
+  &lt;/wj-flex-grid-cell-template&gt;
+&lt;/wj-flex-grid&gt;</pre></p>
+
+<p><p><b>GroupHeader</b></p></p>
+
+<p>Defines a template for a group header cell in a <a href="topic/wijmo.grid.GroupRow.Class.html"><b>GroupRow</b></a>, Must be a child of the <b>WjFlexGridColumn</b> directive.</p>
+
+<p>The <b>$row</b> variable contains an instance of the <b>GroupRow</b> class. If the grouping comes 
+from the a <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>, the <b>$item</b> variable references the <a href="topic/wijmo.collections.CollectionViewGroup.Class.html"><b>CollectionViewGroup</b></a> object.</p>
+
+<p>For example, this template uses a checkbox element as an expand/collapse toggle:</p>
+
+<p><pre>&lt;wj-flex-grid-column header="Country" binding="country"&gt;
+  &lt;wj-flex-grid-cell-template cell-type="GroupHeader"&gt;
+    &lt;input type="checkbox" ng-model="$row.isCollapsed"/&gt; 
+    {&#8203;{$item.name}} ({&#8203;{$item.items.length}} items)
+  &lt;/wj-flex-grid-cell-template&gt;
+&lt;/wj-flex-grid-column&gt;</pre></p>
+
+<p><b>Group</b></p>
+
+<p>Defines a template for a regular cell (not a group header) in a <b>GroupRow</b>. Must be a child of the 
+<b>WjFlexGridColumn</b> directive. This cell type has an additional <b>$value</b> varible available for 
+binding. In cases where columns have the <b>aggregate</b> property specified, it contains the unformatted 
+aggregate value.</p>
+
+<p>For example, this template shows an aggregate's value and kind for group row cells in the "Sales"
+column:</p>
+
+<p><pre>&lt;wj-flex-grid-column header="Sales" binding="sales" aggregate="Avg"&gt;
+  &lt;wj-flex-grid-cell-template cell-type="Group"&gt;
+    Average: {&#8203;{$value | number:2}}
+  &lt;/wj-flex-grid-cell-template&gt;
+&lt;/wj-flex-grid-column&gt;</pre></p></p>

@@ -1,0 +1,21 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Introduction
+        </h3>
+        <p>
+            This view shows the <b>FlexPie</b>'s labels created using <b>itemFormatter</b>.
+        </p>
+    </div>
+    <div>
+
+        <!-- the chart -->
+        <wj-flex-pie class="chart"  style="display:block"
+                     [binding]="'value'"
+                     [bindingName]="'name'"
+                     [itemsSource]="itemsSource"
+                     [plotMargin]="10"
+                     [itemFormatter]="itemFormatter">
+        </wj-flex-pie>
+    </div>
+</div>

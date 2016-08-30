@@ -1,0 +1,174 @@
+﻿<div class="header visible-xs visible-sm">
+    <div class="container">
+        <h1>FlexGrid Import Export</h1>
+    </div>
+</div>
+<div class="header hidden-xs hidden-sm">
+    <div class="container">
+        <img src="resources/wijmo5.png" />
+        <h1>FlexGrid Import Export</h1>
+    </div>
+</div>
+<nav>
+    <div class="container">
+        <ul>
+            <li class="active"><a href="FlexGridImportExport.htm">FlexGrid Import Export</a></li>
+            <li><a href="ExpenseReportExport.htm">Expense Report</a></li>
+            <li><a href="DrawWorkbook.htm">Workbook Viewer</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- commands -->
+<div class="container">
+    <p>
+        The sample demonstrates how to export or import FlexGrid content to/from an Excel xlsx file.
+    </p>
+    <p>
+        To export FlexGrid content, pass the FlexGrid instance to the <b>FlexGridXlsxConverter.save</b> method.
+        This generates xlsx file content, which can be saved to a local file or sent to a server.
+    </p>
+    <p>
+        To populate FlexGrid with data from an xlsx file, pass the FlexGrid instance and the xlsx file content to the
+        <b>FlexGridXlsxConverter.load</b> method.
+    </p>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-inline well well-lg">
+                <input type="file" class="form-control" id="importFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel.sheet.macroEnabled.12" />
+                <button class="btn btn-default" (click)="importExcel()">Import</button>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" [(ngModel)]="includeColumnHeader"> Include Column Header
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="form-inline well well-lg">
+                <button class="btn btn-default" (click)="exportExcel()">Export</button>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" [(ngModel)]="includeColumnHeader"> Include Column Header
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- the flex grid -->
+    <div class="row">
+        <wj-flex-grid #flexGrid style="max-height:400px"
+                      [(itemsSource)]="data" (initialized)="updateGroup(flexGrid)">
+            <wj-flex-grid-column header="ID" binding="id"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Start Date" binding="start" format="d"></wj-flex-grid-column>
+            <wj-flex-grid-column header="End Date" binding="end" format="d"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Country" binding="country"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Product" binding="product"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Color" binding="color"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Amount" binding="amount" format="c" aggregate="Sum"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Pending" binding="amount2" format="c2" aggregate="Sum"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Discount" binding="discount" format="p1" aggregate="Avg"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Active" binding="active"></wj-flex-grid-column>
+        </wj-flex-grid>
+    </div>
+    <div class="row appCopy">
+        <div class="col-md-6 col-xs-12">
+            <h2>Load</h2>
+            <p>
+                The <b>load</b> function, implemented in the <b>FlexGridXlsxConverter</b> class, takes an Excel file's content as input, parses it using the
+                <b>wijmo.xlsx.js</b> library, and populates the specified FlexGrid instance with the
+                parsed data.
+            </p>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;input type="file" class="form-control" id="importFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/&gt;
+&lt;button class="btn btn-default" (click)="importExcel()"&gt;Import&lt;/button&gt;
+&lt;div class="checkbox"&gt;
+    &lt;label&gt;
+        &lt;input type="checkbox" [(ngModel)]="ctx.includeColumnHeader"&gt; Include Column Header
+    &lt;/label&gt;
+&lt;/div&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="JS">
+                    <div class="pane-content">
+importExcel() {
+    var fileInput = &lt;HTMLInputElement&gt;$('#importFile')[0];
+    if (fileInput.files[0]) {
+        wijmo.grid.xlsx.FlexGridXlsxConverter.load(this.flexGrid, fileInput.files[0], { includeColumnHeaders: this.includeColumnHeader });
+    }
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+    </div>
+    <div class="row appCopy">
+        <div class="col-md-6 col-xs-12">
+            <h2>Save</h2>
+            <p>
+                The <b>save</b> function, implemented in the <b>FlexGridXlsxConverter</b> class,
+                takes a FlexGrid instance as input, converts its data and formatting
+                to Excel format using the <b>wijmo.xlsx.js</b> library.
+                <br />
+                If the the file name is specified, it will save it to a file on the local disk.
+                <br />
+                Otherwise it returns an <b>Workbook</b> instance containing content for the Excel file.
+            </p>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;button class="btn btn-default" (click)="exportExcel()"&gt;Export&lt;/button&gt;
+&lt;div class="checkbox"&gt;
+    &lt;label&gt;
+        &lt;inputtype="checkbox" [(ngModel)]="includeColumnHeader"&gt;Include Column Header
+    &lt;/label&gt;
+&lt;/div&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="JS">
+                    <div class="pane-content">
+exportExcel() {
+    wijmo.grid.xlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: this.includeColumnHeader, includeCellStyles: false }, 'FlexGrid.xlsx');
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+    </div>
+    <h2>Adding it to your application</h2>
+    <p>To add Excel import or export support to your application, follow these steps:</p>
+    <ol>
+        <li>
+            Add the <b>wijmo.xlsx.js</b> and <b>wijmo.grid.xlsx.js</b> files from this sample
+            to your application.
+        </li>
+        <li>
+            In the HTML page, add references to the following files.
+            <ul>
+                <li>
+                    the <b>jszip.js</b> library that you can find in the following CDN:
+                    <br />
+                    http://cdnjs.cloudflare.com/ajax/libs/jszip/2.2.1/jszip.min.js
+                </li>
+                <li><b>wijmo.xlsx.js</b> </li>
+                <li><b>wijmo.grid.xlsx.js</b></li>
+            </ul>
+        </li>
+        <li>
+            Add the code from the <b>FlexGridImportExportCmp.exportExcel</b> function (on the JS tab in
+            the Export code), which saves the export results to a local file.
+        </li>
+        <li>
+            Add the code from the <b>FlexGridImportExportCmp.importExcel</b> function (on the JS tab in
+            the Import code), which reads an Excel file from the disk.
+        </li>
+    </ol>
+    <footer>
+        <p>&copy; 2015 GrapeCity, inc. Rights Reserved.<br />All product and company names herein may be trademarks of their respective owners.<br />Contact: <a href="mailto:sales@wijmo.com">sales@wijmo.com</a> - <a href="http://wijmo.com">http://wijmo.com</a></p>
+    </footer>
+</div>

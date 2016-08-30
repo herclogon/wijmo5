@@ -1,0 +1,121 @@
+<h2>Module wijmo.chart.analytics</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd>wijmo.chart.analytics.js</dd>
+</dl>
+<p>Defines classes that add analytics features to charts including <a href="topic/wijmo.chart.analytics.TrendLine.Class.html"><b>TrendLine</b></a>,
+<a href="topic/wijmo.chart.analytics.MovingAverage.Class.html"><b>MovingAverage</b></a> and <a href="topic/wijmo.chart.analytics.FunctionSeries.Class.html"><b>FunctionSeries</b></a>.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
+<span class="glyph-collapsed" ng-show="hideClasses"></span>
+<span class="glyph-expanded" ng-hide="hideClasses"></span>
+Classes
+</h3>
+</div>
+<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.analytics.FunctionSeries.Class.html"><b>FunctionSeries</b></a></td>
+      <td>Represents a base class of function series for <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a>.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.analytics.MovingAverage.Class.html"><b>MovingAverage</b></a></td>
+      <td>Represents a moving average trendline for <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> and <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.
+It is a calculation to analyze data points by creating a series of averages of
+different subsets of the full data set. You may define a different type on each
+<b>MovingAverage</b> object by setting the type property on the MovingAverage itself.
+The MovingAverage class has a period property that allows you to set the number of
+periods for computing the average value.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.analytics.ParametricFunctionSeries.Class.html"><b>ParametricFunctionSeries</b></a></td>
+      <td><p>Represents a parametric function series for <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a>.</p>
+
+<p>The @see::ParametricFunctionSeries allows to plot a function defined by formulas
+x=f(t) and y=f(t).
+The x and y values are calcluated by the given xFunc and yFunc.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.analytics.TrendLine.Class.html"><b>TrendLine</b></a></td>
+      <td><p>Represents a trend line for <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> and <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</p>
+
+<p>A trendline is a line superimposed on a chart revealing the overall direction
+of data.
+You may define a different fit type for each <b>TrendLine</b> object that you 
+add to the <b>FlexChart</b> series collection by setting the fitType property.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.analytics.TrendLineBase.Class.html"><b>TrendLineBase</b></a></td>
+      <td>Represents base class for various trend lines.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.analytics.Waterfall.Class.html"><b>Waterfall</b></a></td>
+      <td><p>Represents a Waterfall series of <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a>.</p>
+
+<p>The @see::Waterfall series is normally used to demonstrate how the starting position either increases or decreases through a series of changes.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.analytics.YFunctionSeries.Class.html"><b>YFunctionSeries</b></a></td>
+      <td><p>Represents a Y function series of <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a>.</p>
+
+<p>The @see::YFunctionSeries allows to plot a function defined by formula y=f(x).</p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEnumerations = !hideEnumerations">
+<span class="glyph-collapsed" ng-show="hideEnumerations"></span>
+<span class="glyph-expanded" ng-hide="hideEnumerations"></span>
+Enumerations
+</h3>
+</div>
+<table ng-hide="hideEnumerations" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.analytics.MovingAverageType.Enum.html"><b>MovingAverageType</b></a></td>
+      <td>Specifies the type of MovingAverage Series.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.analytics.TrendLineFitType.Enum.html"><b>TrendLineFitType</b></a></td>
+      <td>Specifies the fit type of the trendline series.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

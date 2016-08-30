@@ -1,0 +1,930 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Gauge Introduction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jQuery/Angular/Bootstrap -->
+    <script src="http://knockoutjs.com/downloads/knockout-3.2.0.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.gauge.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.knockout.min.js" type="text/javascript"></script>
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+
+    <!-- app styles -->
+    <link rel="stylesheet" href="styles/app.css" />
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <img src="resources/wijmo5.png" alt="Wijmo 5" />
+            <h1>
+                Gauge 101
+            </h1>
+            <p>
+                This page shows how to get started with Wijmo's Gauge controls.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Getting Started -->
+        <div>
+            <h2>Getting Started</h2>
+            <p>
+                Steps for getting started with the Gauge controls in KnockoutJS applications:
+            </p>
+            <ol>
+                <li>Add references to KnockoutJS, Wijmo, and Wijmo's KnockoutJS bindings.</li>
+                <li>Add a view model to provide data and logic.</li>
+                <li>Add a Wijmo Gauge control to the page and bind it to your data.</li>
+                <li>(Optional) Add some CSS to customize the input control's appearance.</li>
+            </ol>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href="css/bootstrap.css"/&gt;
+    &lt;link rel="stylesheet" type="text/css" href="css/wijmo.css" /&gt;
+    &lt;link rel="stylesheet" href="styles/app.css" /&gt;
+    &lt;script src="scripts/knockout.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.input.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.gauge.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.knockout.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/bindings/appBindings.js"&gt;&lt;/script&gt;
+    &lt;script src="scripts/app.js"&gt;&lt;/script&gt;
+    &lt;script src="scripts/viewmodels/appVM.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;!-- Wijmo 5 LinearGauge directive --&gt;
+    &lt;div data-bind="wjLinearGauge: {
+            value: props.value,
+            min: props.min,
+            max: props.max,
+            format: props.format }"&gt;&lt;/div&gt;
+
+    &lt;!-- Wijmo 5 RadialGauge directive --&gt;
+    &lt;div data-bind="wjRadialGauge: {
+            value: props.value,
+            min: props.min,
+            max: props.max,
+            format: props.format }"&gt;&lt;/div&gt;
+
+    &lt;!-- Wijmo 5 InputNumber directive --&gt;
+    &lt;div class="app-input-group"&gt;
+        &lt;label&gt;Gauge Value&lt;/label&gt;
+        &lt;div data-bind="wjInputNumber: {
+                value: props.value,
+                min: props.min,
+                max: props.max,
+                format: props.format,
+                step: props.step }"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/html&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+// create and apply application view model
+function viewModel1() {
+    this.props = {
+        format: 'p0',
+        max: 1,
+        min: 0,
+        value: ko.observable(0.5)
+        .............
+    };
+};
+
+(function () {
+    ko.applyBindings(new viewModel1());
+})();
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div data-bind="wjLinearGauge: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format }"
+                         class="linear-gauge"></div>
+                    <div data-bind="wjRadialGauge: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format }"
+                         class="radial-gauge"></div>
+
+                    <div class="app-input-group">
+                        <label>Gauge Value</label>
+                        <div data-bind="wjInputNumber: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            step: props.step }"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Displaying Values -->
+        <div>
+            <h2>Displaying Values</h2>
+            <p>
+                The gauge controls offer a <b>showText</b> property that determines which values to display
+                as text with the gauge.  There are four valid values for the <b>showText</b> property:
+            </p>
+            <ul>
+                <li>
+                    <b>Value</b>:  Displays the Gauge's current value.
+                </li>
+                <li>
+                    <b>MinMax</b>:  Displays the Gauge's min and max values.
+                </li>
+                <li>
+                    <b>All</b>:  Displays the Gauge's min, max, and current values. This option is a combination of
+                    the <b>Value</b> and <b>MinMax</b> options.
+                </li>
+                <li>
+                    <b>None</b>:  Displays no text in the Gauge control.
+                </li>
+            </ul>
+            <p>
+                The example below shows what happens when you change the <b>showText</b> property.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;div data-bind="wjLinearGauge: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        showText: props.showText }"
+        class="linear-gauge"&gt;&lt;/div&gt;
+&lt;div data-bind="wjRadialGauge: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        showText: props.showText }"
+        class="radial-gauge"&gt;&lt;/div&gt;
+
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Gauge Value&lt;/label&gt;
+    &lt;div data-bind="wjInputNumber: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        step: props.step }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div data-bind="wjMenu: { value: props.showText, header: 'Show Text' }"&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'Value' }"&gt;Value&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'MinMax' }"&gt;Min/Max&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'All' }"&gt;All&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'None' }"&gt;None&lt;/span&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+this.props = {
+    format: 'p0',
+    max: 1,
+    min: 0,
+    showText: ko.observable('All'),
+    step: 0.25,
+    value: ko.observable(0.5)
+};
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div data-bind="wjLinearGauge: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            showText: props.showText }"
+                         class="linear-gauge"></div>
+                    <div data-bind="wjRadialGauge: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            showText: props.showText }"
+                         class="radial-gauge"></div>
+
+                    <div class="app-input-group">
+                        <label>Gauge Value</label>
+                        <div data-bind="wjInputNumber: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            step: props.step }"></div>
+                    </div>
+
+                    <div data-bind="wjMenu: { value: props.showText, header: 'Show Text' }">
+                        <span data-bind="wjMenuItem: { value: 'Value' }">Value</span>
+                        <span data-bind="wjMenuItem: { value: 'MinMax' }">Min/Max</span>
+                        <span data-bind="wjMenuItem: { value: 'All' }">All</span>
+                        <span data-bind="wjMenuItem: { value: 'None' }">None</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Using Ranges -->
+        <div>
+            <h2>Using Ranges</h2>
+            <p>
+                All Wijmo gauges have a <b>ranges</b> property that contains an array of <b>Range</b> objects.  By default, the ranges
+                are displayed on the face of gauge to indicate zones of interest; however, you can use the <b>showRanges</b> property to
+                to hide the ranges.  Instead, the gauge determines which range contains the current value and applies that
+                range's color to the gauge pointer.
+            </p>
+            <p>
+                The Range object itself offers properties such as <b>min</b>, <b>max</b>, and <b>color</b> to customize each zone.
+            </p>
+            <p>
+                The following example demonstrates how to use ranges with the LinearGauge, BulletGraph, and RadialGauge.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;div data-bind="wjLinearGauge: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        showRanges: props.showRanges }"
+        class="linear-gauge"&gt;
+    &lt;div data-bind="wjRange: { wjProperty: 'pointer', thickness: props.ranges.pointerThickness }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjRange: { min: props.ranges.lower.min, max: props.ranges.lower.max, color: props.ranges.lower.color }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjRange: { min: props.ranges.middle.min, max: props.ranges.middle.max, color: props.ranges.middle.color }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjRange: { min: props.ranges.upper.min, max: props.ranges.upper.max, color: props.ranges.upper.color }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div data-bind="wjBulletGraph: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        good: props.ranges.middle.max,
+        bad: props.ranges.middle.min,
+        target: props.ranges.target,
+        showRanges: props.showRanges }"
+        class="linear-gauge"&gt;
+    &lt;div data-bind="wjRange: { wjProperty: 'pointer', thickness: props.ranges.pointerThickness }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div data-bind="wjRadialGauge: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        showRanges: props.showRanges }"
+        class="radial-gauge"&gt;
+    &lt;div data-bind="wjRange: { wjProperty: 'pointer', thickness: props.ranges.pointerThickness }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjRange: { min: props.ranges.lower.min, max: props.ranges.lower.max, color: props.ranges.lower.color }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjRange: { min: props.ranges.middle.min, max: props.ranges.middle.max, color: props.ranges.middle.color }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjRange: { min: props.ranges.upper.min, max: props.ranges.upper.max, color: props.ranges.upper.color }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Gauge Value&lt;/label&gt;
+    &lt;div data-bind="wjInputNumber: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        step: props.step }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;label&gt;
+    Show Ranges&nbsp;
+    &lt;input type="checkbox" data-bind="checked: props.showRanges" /&gt;
+&lt;/label&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+var self = this;
+
+// a set of property values for the Wijmo Gauges
+this.props = {
+    format: 'p0',
+    max: 1,
+    min: 0,
+    showRanges: ko.observable(true),
+    step: 0.25,
+    value: ko.observable(0.5)
+};
+this.props.ranges = {
+    pointerThickness: ko.computed(function () { return self.props.showRanges() ? 0.5 : 1; }),
+        target: .75,
+        lower: {
+            min: 0,
+            max: .33,
+            color: ko.computed(function () { return self.props.showRanges() ? 'rgba(255,100,100,.1)' : 'red'; })
+        },
+        middle: {
+            min: .33,
+            max: .66,
+            color: ko.computed(function () { return self.props.showRanges() ? 'rgba(255,255,100,.1)' : 'yellow'; })
+        },
+        upper: {
+            min: .66,
+            max: 1,
+            color: ko.computed(function () { return self.props.showRanges() ? 'rgba(100,255,100,.1)' : 'green'; })
+        }
+};
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div data-bind="wjLinearGauge: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            showRanges: props.showRanges }"
+                         class="linear-gauge">
+                        <div data-bind="wjRange: { wjProperty: 'pointer', thickness: props.ranges.pointerThickness }"></div>
+                        <div data-bind="wjRange: { min: props.ranges.lower.min, max: props.ranges.lower.max, color: props.ranges.lower.color }"></div>
+                        <div data-bind="wjRange: { min: props.ranges.middle.min, max: props.ranges.middle.max, color: props.ranges.middle.color }"></div>
+                        <div data-bind="wjRange: { min: props.ranges.upper.min, max: props.ranges.upper.max, color: props.ranges.upper.color }"></div>
+                    </div>
+
+                    <div data-bind="wjBulletGraph: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            good: props.ranges.middle.max,
+                            bad: props.ranges.middle.min,
+                            target: props.ranges.target,
+                            showRanges: props.showRanges }"
+                         class="linear-gauge">
+                        <div data-bind="wjRange: { wjProperty: 'pointer', thickness: props.ranges.pointerThickness }"></div>
+                    </div>
+
+                    <div data-bind="wjRadialGauge: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            showRanges: props.showRanges }"
+                         class="radial-gauge">
+                        <div data-bind="wjRange: { wjProperty: 'pointer', thickness: props.ranges.pointerThickness }"></div>
+                        <div data-bind="wjRange: { min: props.ranges.lower.min, max: props.ranges.lower.max, color: props.ranges.lower.color }"></div>
+                        <div data-bind="wjRange: { min: props.ranges.middle.min, max: props.ranges.middle.max, color: props.ranges.middle.color }"></div>
+                        <div data-bind="wjRange: { min: props.ranges.upper.min, max: props.ranges.upper.max, color: props.ranges.upper.color }"></div>
+                    </div>
+
+                    <div class="app-input-group">
+                        <label>Gauge Value</label>
+                        <div data-bind="wjInputNumber: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            step: props.step }"></div>
+                    </div>
+
+                    <label>
+                        Show Ranges&nbsp;
+                        <input type="checkbox" data-bind="checked: props.showRanges" />
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Automatic Scaling -->
+        <div>
+            <h2>Automatic Scaling</h2>
+            <p>
+                The RadialGauge offers two properties to configure its layout, <b>startAngle</b> and <b>sweepAngle</b>. The
+                <b>startAngle</b> property specifies the RadialGauge's starting angle, or rotation.  The <b>sweepAngle</b>
+                property specifies an angle representing the length of the RadialGauge's arc.  The angle for both
+                properties are measured clockwise, starting a the 9 o'clock position.
+            </p>
+            <p>
+                The RadialGauge also offers the <b>autoScale</b> property.  When <b>autoScale</b> is set to true, the RadialGauge
+                will be automatically scaled to fill its containing element.
+            </p>
+            <p>
+                The following example allows you to adjust the <b>startAngle</b>, <b>sweepAngle</b>, and <b>autoScale</b> properties
+                in real-time.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;div data-bind="wjRadialGauge: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        autoScale: props.autoScale,
+        startAngle: props.startAngle,
+        sweepAngle: props.sweepAngle}"
+        class="radial-gauge"&gt;&lt;/div&gt;
+
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Gauge Value&lt;/label&gt;
+    &lt;div data-bind="wjInputNumber: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        step: props.step }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Start Angle&lt;/label&gt;
+    &lt;div data-bind="wjInputNumber: {
+        value: props.startAngle,
+        min: -360,
+        max: 360,
+        step: 45 }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Sweep Angle&lt;/label&gt;
+    &lt;div data-bind="wjInputNumber: {
+        value: props.sweepAngle,
+        min: 0,
+        max: 360,
+        step: 45 }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;label&gt;
+    Auto-Scale&nbsp;
+    &lt;input type="checkbox" data-bind="checked: props.autoScale" /&gt;
+&lt;/label&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+this.props = {
+    autoScale: ko.observable(true),
+    format: 'p0',
+    max: 1,
+    min: 0,
+    startAngle: ko.observable(0),
+    sweepAngle: ko.observable(180),
+    value: ko.observable(0.5)
+};
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div data-bind="wjRadialGauge: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            autoScale: props.autoScale,
+                            startAngle: props.startAngle,
+                            sweepAngle: props.sweepAngle}"
+                         class="radial-gauge"></div>
+
+                    <div class="app-input-group">
+                        <label>Gauge Value</label>
+                        <div data-bind="wjInputNumber: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            step: props.step }"></div>
+                    </div>
+
+                    <div class="app-input-group">
+                        <label>Start Angle</label>
+                        <div data-bind="wjInputNumber: {
+                            value: props.startAngle,
+                            min: -360,
+                            max: 360,
+                            step: 45 }"></div>
+                    </div>
+
+                    <div class="app-input-group">
+                        <label>Sweep Angle</label>
+                        <div data-bind="wjInputNumber: {
+                            value: props.sweepAngle,
+                            min: 0,
+                            max: 360,
+                            step: 45 }"></div>
+                    </div>
+
+                    <label>
+                        Auto-Scale&nbsp;
+                        <input type="checkbox" data-bind="checked: props.autoScale" />
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Direction -->
+        <div>
+            <h2>Direction</h2>
+            <p>
+                The RadialGauge's <b>startAngle</b> and <b>sweepAngle</b> properties do not apply to the LinearGauge or
+                BulletGraph.  Instead, the LinearGauge and BulletGraph offer the <b>direction</b> property to determine
+                how it should be displayed.  There are four options for the <b>direction</b> property:
+            </p>
+            <ul>
+                <li>
+                    <b>Up</b>:  The gauge is rendered vertically and its value increases the bottom to top.
+                </li>
+                <li>
+                    <b>Right</b>:  The gauge is rendered horizontally and its value increases the right to left.  This is
+                    the default value.
+                </li>
+                <li>
+                    <b>Down</b>:  The gauge is rendered vertically and its value increases the top to bottom.
+                </li>
+                <li>
+                    <b>Left</b>:  The gauge is rendered horizontally and its value increases the left to right.
+                </li>
+            </ul>
+            <p>
+                The example below allows you to see what happens when the <b>direction</b> property is changed.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;div data-bind="wjLinearGauge: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        direction: props.direction,
+        showRanges: props.showRanges },
+        style: (props.direction() == 'Up' || props.direction() == 'Down') ? {'height' : '300px', 'width': '1.2em'} : {'height' : '', 'width': ''}"
+        class="linear-gauge"&gt;
+    &lt;div data-bind="wjRange: { wjProperty: 'pointer', thickness: props.ranges.pointerThickness }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjRange: { min: props.ranges.lower.min, max: props.ranges.lower.max, color: props.ranges.lower.color }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjRange: { min: props.ranges.middle.min, max: props.ranges.middle.max, color: props.ranges.middle.color }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjRange: { min: props.ranges.upper.min, max: props.ranges.upper.max, color: props.ranges.upper.color }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div data-bind="wjBulletGraph: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        good: props.ranges.middle.max,
+        bad: props.ranges.middle.min,
+        target: props.ranges.target,
+        direction: props.direction,
+        showranges: props.showranges },
+        style: (props.direction() == 'Up' || props.direction() == 'Down') ? {'height' : '300px', 'width': '1.2em'} : {'height' : '', 'width': ''}" 
+        class=" linear-gauge"&gt;
+    &lt;div data-bind="wjRange: { wjProperty: 'pointer', thickness: props.ranges.pointerThickness }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Gauge Value&lt;/label&gt;
+    &lt;div data-bind="wjInputNumber: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        step: props.step }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div data-bind="wjMenu: { value: props.direction, header: 'Direction' }"&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'Up' }"&gt;Up&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'Right' }"&gt;Right&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'Down' }"&gt;Down&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'Left' }"&gt;Left&lt;/span&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+var self = this;
+
+// a set of property values for the Wijmo Gauges
+this.props = {
+    direction: ko.observable('Right'),
+    format: 'p0',
+    max: 1,
+    min: 0,
+    value: ko.observable(0.5)
+};
+this.props.ranges = {
+    pointerThickness: ko.computed(function () { return self.props.showRanges() ? 0.5 : 1 }),
+        target: .75,
+        lower: {
+            min: 0,
+            max: .33,
+            color: ko.computed(function () { return self.props.showRanges() ? 'rgba(255,100,100,.1)' : 'red' })
+        },
+        middle: {
+            min: .33,
+            max: .66,
+            color: ko.computed(function () { return self.props.showRanges() ? 'rgba(255,255,100,.1)' : 'yellow' })
+        },
+        upper: {
+            min: .66,
+            max: 1,
+            color: ko.computed(function () { return self.props.showRanges() ? 'rgba(100,255,100,.1)' : 'green' })
+        }
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="row">
+                        <div data-bind="css: { 'col-md-6': props.direction() == 'Up' || props.direction() == 'Down' }">
+                            <div data-bind="wjLinearGauge: {
+                                    value: props.value,
+                                    min: props.min,
+                                    max: props.max,
+                                    format: props.format,
+                                    direction: props.direction,
+                                    showRanges: props.showRanges },
+                                    style: (props.direction() == 'Up' || props.direction() == 'Down') ? {'height' : '300px', 'width': '1.2em'} : {'height' : '', 'width': ''}"
+                                 class="linear-gauge">
+                                <div data-bind="wjRange: { wjProperty: 'pointer', thickness: props.ranges.pointerThickness }"></div>
+                                <div data-bind="wjRange: { min: props.ranges.lower.min, max: props.ranges.lower.max, color: props.ranges.lower.color }"></div>
+                                <div data-bind="wjRange: { min: props.ranges.middle.min, max: props.ranges.middle.max, color: props.ranges.middle.color }"></div>
+                                <div data-bind="wjRange: { min: props.ranges.upper.min, max: props.ranges.upper.max, color: props.ranges.upper.color }"></div>
+                            </div>
+                        </div>
+
+                        <div data-bind="css: { 'col-md-6': props.direction() == 'Up' || props.direction() == 'Down' }">
+                            <div data-bind="wjBulletGraph: {
+                                    value: props.value,
+                                    min: props.min,
+                                    max: props.max,
+                                    format: props.format,
+                                    good: props.ranges.middle.max,
+                                    bad: props.ranges.middle.min,
+                                    target: props.ranges.target,
+                                    direction: props.direction,
+                                    showranges: props.showranges },
+                                    style: (props.direction() == 'Up' || props.direction() == 'Down') ? {'height' : '300px', 'width': '1.2em'} : {'height' : '', 'width': ''}" 
+                                 class=" linear-gauge">
+                                <div data-bind="wjRange: { wjProperty: 'pointer', thickness: props.ranges.pointerThickness }"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="app-input-group">
+                        <label>Gauge Value</label>
+                        <div data-bind="wjInputNumber: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            step: props.step }"></div>
+                    </div>
+
+                    <div data-bind="wjMenu: { value: props.direction, header: 'Direction' }">
+                        <span data-bind="wjMenuItem: { value: 'Up' }">Up</span>
+                        <span data-bind="wjMenuItem: { value: 'Right' }">Right</span>
+                        <span data-bind="wjMenuItem: { value: 'Down' }">Down</span>
+                        <span data-bind="wjMenuItem: { value: 'Left' }">Left</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Styling -->
+        <div>
+            <h2>Styling</h2>
+            <p>
+                The appearance of the gauge controls is largely defined in CSS.  In addition to the default theme,
+                we include several professionally designed themes that customize the appearance of all Wijmo
+                controls to achieve a consistent, attractive look.
+            </p>
+            <p>
+                You can customize the appearance of the gauges using CSS.  To do this, copy the CSS rules from the
+                default theme to a new CSS file and modify the properties as needed.
+            </p>
+            <p>
+                In this example, we added the "custom-gauge" CSS class to the LinearGauge &amp; RadialGauge, and
+                define some CSS rules to create an orange pointer for both.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;div data-bind="wjLinearGauge: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        showText: 'Value' }"
+        class="custom-gauge"&gt;&lt;/div&gt;
+&lt;div data-bind="wjRadialGauge: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        showText: 'Value' }"
+        class="custom-gauge"&gt;&lt;/div&gt;
+
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Gauge Value&lt;/label&gt;
+    &lt;div data-bind="wjInputNumber: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        step: props.step }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+this.props = {
+    format: 'p0',
+    max: 1,
+    min: 0,
+    value: ko.observable(0.5)
+};
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'CSS'}">
+                            <div class="pane-content">
+.custom-gauge .wj-pointer {
+    fill: #ffa500;
+    stroke: #cd853f;
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div data-bind="wjLinearGauge: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            showText: 'Value' }"
+                         class="custom-gauge"></div>
+                    <div data-bind="wjRadialGauge: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            showText: 'Value' }"
+                         class="custom-gauge"></div>
+
+                    <div class="app-input-group">
+                        <label>Gauge Value</label>
+                        <div data-bind="wjInputNumber: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            step: props.step }"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Editing Values -->
+        <div>
+            <h2>Editing Values</h2>
+            <p>
+                The gauge controls can be used as a simple indicator or as an input control when the <b>isReadOnly</b>
+                property is set to false.  The gauges also offer a <b>step</b> property that determines how much to
+                add or subtract from its current value when being used as an input control.
+            </p>
+            <p>
+                The example below demonstrates how to use the <b>isReadOnly</b> and <b>step</b> properties with the
+                LinearGauge and RadialGauge controls.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;div data-bind="wjLinearGauge: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        step: props.step,
+        isReadOnly: props.isReadOnly }"
+        class="linear-gauge"&gt;&lt;/div&gt;
+&lt;div data-bind="wjRadialGauge: {
+        value: props.value,
+        min: props.min,
+        max: props.max,
+        format: props.format,
+        step: props.step,
+        isReadOnly: props.isReadOnly }"
+        class="radial-gauge"&gt;&lt;/div&gt;
+&lt;label&gt;
+    Read-Only&nbsp;
+    &lt;input type="checkbox" data-bind="checked: props.isReadOnly" /&gt;
+&lt;/label&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+this.props = {
+    format: 'p0',
+    isReadOnly: ko.observable(false),
+    max: 1,
+    min: 0,
+    step: 0.25,
+    value: ko.observable(0.5)
+};
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div data-bind="wjLinearGauge: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            step: props.step,
+                            isReadOnly: props.isReadOnly }"
+                         class="linear-gauge"></div>
+                    <div data-bind="wjRadialGauge: {
+                            value: props.value,
+                            min: props.min,
+                            max: props.max,
+                            format: props.format,
+                            step: props.step,
+                            isReadOnly: props.isReadOnly }"
+                         class="radial-gauge"></div>
+                    <label>
+                        Read-Only&nbsp;
+                        <input type="checkbox" data-bind="checked: props.isReadOnly" />
+                    </label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- app scripts -->
+    <script src="scripts/bindings/appBindings.js"></script>
+    <script src="scripts/viewmodels/appVM.js"></script>
+    <script src="scripts/app.js"></script>
+
+    <!-- Google analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

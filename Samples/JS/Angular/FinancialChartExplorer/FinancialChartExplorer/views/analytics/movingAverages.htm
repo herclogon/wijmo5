@@ -1,0 +1,92 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    Moving average trend lines are used to analyze data by creating a series
+    of averages of the original data set.
+</p>
+
+<!-- FinancialChart -->
+<wj-financial-chart items-source="data"
+                    binding-x="date"
+                    control="ctx.chart"
+                    rendered="chartRendered(s,e)">
+    <wj-financial-chart-series binding-x="date"
+                               binding="close"
+                               name="{{ selectedSymbol | uppercase }}">
+    </wj-financial-chart-series>
+    <wj-flex-chart-moving-average binding="close"
+                                  name="{{ ctx.shortProps.period }} {{ ctx.shortProps.name }}"
+                                  period="{{ ctx.shortProps.period }}"
+                                  type="{{ ctx.shortProps.type }}">
+    </wj-flex-chart-moving-average>
+    <wj-flex-chart-moving-average binding="close"
+                                  name="{{ ctx.longProps.period }} {{ ctx.longProps.name }}"
+                                  period="{{ ctx.longProps.period }}"
+                                  type="{{ ctx.longProps.type }}">
+    </wj-flex-chart-moving-average>
+</wj-financial-chart>
+
+<!-- "Short" MA Settings -->
+<div class="panel-group" id="settingsShort">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#settings" href="#settingsBody" target="_self">{{ ctx.shortProps.period }} {{ ctx.shortProps.name }} Settings</a>
+            </h4>
+        </div>
+        <div id="settingsBody" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <ul class="list-inline">
+                    <li>
+                        <label>Period</label>
+                        <wj-input-number control="inputShortPeriod" value="shortPeriod"
+                                         min="2" max="{{ data.length > 0 ? data.length - 1 : ctx.shortProps.period }}"
+                                         step="1" format="n0">
+                        </wj-input-number>
+                    </li>
+                    <li>
+                        <wj-menu header="Moving Avg. Type"
+                                 value="ctx.shortProps.type">
+                            <wj-menu-item value="'Simple'">Simple</wj-menu-item>
+                            <wj-menu-item value="'Weighted'">Weighted</wj-menu-item>
+                            <wj-menu-item value="'Exponential'">Exponential</wj-menu-item>
+                            <wj-menu-item value="'Triangular'">Triangular</wj-menu-item>
+                        </wj-menu>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- "Long" MA Settings -->
+<div class="panel-group" id="settingsLong">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#settings" href="#settingsBody" target="_self">{{ ctx.longProps.period}} {{ ctx.longProps.name}} Settings</a>
+            </h4>
+        </div>
+        <div id="settingsBody" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <ul class="list-inline">
+                    <li>
+                        <label>Period</label>
+                        <wj-input-number control="inputLongPeriod" value="longPeriod"
+                                         min="2" max="{{ data.length > 0 ? data.length - 1 : ctx.longProps.period }}"
+                                         step="1" format="n0">
+                        </wj-input-number>
+                    </li>
+                    <li>
+                        <wj-menu header="Moving Avg. Type"
+                                 value="ctx.longProps.type">
+                            <wj-menu-item value="'Simple'">Simple</wj-menu-item>
+                            <wj-menu-item value="'Weighted'">Weighted</wj-menu-item>
+                            <wj-menu-item value="'Exponential'">Exponential</wj-menu-item>
+                            <wj-menu-item value="'Triangular'">Triangular</wj-menu-item>
+                        </wj-menu>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

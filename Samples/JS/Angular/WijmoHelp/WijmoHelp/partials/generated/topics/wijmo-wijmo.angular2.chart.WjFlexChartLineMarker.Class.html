@@ -1,0 +1,236 @@
+<h2>WjFlexChartLineMarker Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a></dd>
+<dt>Module</dt><dd>wijmo/wijmo.angular2.chart</dd>
+<dt>File</dt><dd>wijmo.angular2.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>Angular 2 component for the <a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a> control.</p>
+
+<p>The <b>wj-flex-line-marker</b> component must be contained in a 
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> component.</p>
+
+<p>Use the <b>wj-flex-line-marker</b> component to add <b>LineMarker</b> objects to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
+
+<p>The <b>WjFlexChartLineMarker</b> component is derived from the <b>LineMarker</b> class and
+inherits all its properties, events and methods.</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>alignment</b></td>
+      <td><a href="topic/wijmo.chart.LineMarkerAlignment.Enum.html"><b>LineMarkerAlignment</b></a></td>
+      <td><p>Gets or sets the alignment of the LineMarker content.</p>
+
+<p>By default, the LineMarker shows to the right, at the bottom of the target point.
+Use '|' to combine alignment values.</p>
+
+<p><pre>
+// set the alignment to the left.
+marker.alignment = wijmo.chart.LineMarkerAlignment.Left;
+// set the alignment to the left top.
+marker.alignment = wijmo.chart.LineMarkerAlignment.Left | wijmo.chart.LineMarkerAlignment.Top;
+</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>chart</b></td>
+      <td><a href="topic/wijmo.chart.FlexChartCore.Class.html"><b>FlexChartCore</b></a></td>
+      <td>Gets the <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> object that owns the LineMarker.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>content</b></td>
+      <td><b>Function</b></td>
+      <td>Gets or sets the content function that allows you to customize the text content of the LineMarker.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>dragContent</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value indicating whether the content of the marker is draggable when the interaction mode is "Drag."<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>dragLines</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value indicating whether the lines are linked when the horizontal or vertical line is dragged when the interaction mode is "Drag."<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>dragThreshold</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the maximum distance from the horizontal or vertical line that the marker can be dragged.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>horizontalPosition</b></td>
+      <td><b>number</b></td>
+      <td><p>Gets or sets the horizontal position of the LineMarker relative to the plot area. </p>
+
+<p>Its value range is (0, 1).
+If the value is null or undefined and <b>interaction</b> is set to 
+wijmo.chart.LineMarkerInteraction.Move or wijmo.chart.LineMarkerInteraction.Drag, 
+the horizontal position of the marker is calculated automatically based on the 
+pointer's position.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>interaction</b></td>
+      <td><a href="topic/wijmo.chart.LineMarkerInteraction.Enum.html"><b>LineMarkerInteraction</b></a></td>
+      <td>Gets or sets the interaction mode of the LineMarker.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isVisible</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets the visibility of the LineMarker.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>lines</b></td>
+      <td><a href="topic/wijmo.chart.LineMarkerLines.Enum.html"><b>LineMarkerLines</b></a></td>
+      <td>Gets or sets the visibility of the LineMarker lines.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>seriesIndex</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the index of the series in the chart in which the LineMarker appears.
+This takes effect when the <b>interaction</b> property is set to 
+wijmo.chart.LineMarkerInteraction.Move or wijmo.chart.LineMarkerInteraction.Drag.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>verticalPosition</b></td>
+      <td><b>number</b></td>
+      <td><p>Gets or sets the vertical position of the LineMarker relative to the plot area. </p>
+
+<p>Its value range is (0, 1).
+If the value is null or undefined and <b>interaction</b> is set to wijmo.chart.LineMarkerInteraction.Move 
+or wijmo.chart.LineMarkerInteraction.Drag, the vertical position of the LineMarker is calculated automatically based on the pointer's position.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>x</b></td>
+      <td><b>number</b></td>
+      <td>Gets the current x-value as chart data coordinates.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>y</b></td>
+      <td><b>number</b></td>
+      <td>Gets the current y-value as chart data coordinates.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>constructor</b>&#8203;(chart, options?): <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a></td>
+      <td><p>
+<b>chart</b> (<a href="topic/wijmo.chart.FlexChartCore.Class.html"><b>FlexChartCore</b></a>): The chart on which the LineMarker appears.<br/><b>options?</b> (): A JavaScript object containing initialization data for the control.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a> class.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onPositionChanged</b>&#8203;(point)</td>
+      <td><p>
+<b>point</b> (<a href="topic/wijmo.Point.Class.html"><b>Point</b></a>): The target point at which to show the LineMarker.<br/></p>
+</td>
+      <td>Raises the <b>positionChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>remove</b>&#8203;()</td>
+      <td></td>
+      <td>Removes the LineMarker from the chart.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>positionChanged</b></td>
+      <td><a href="topic/wijmo.Point.Class.html"><b>Point</b></a></td>
+      <td>Occurs after the LineMarker's position changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

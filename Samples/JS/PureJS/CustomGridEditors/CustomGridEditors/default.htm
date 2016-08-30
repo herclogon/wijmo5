@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CustomGridEditors</title>
+   
+    <!-- ensure IE uses the latest version of IE (yes, yes...) -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <!-- Bootstrap -->
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js" type="text/javascript"></script>
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+
+    <!-- app scripts and styles -->
+    <script src="scripts/CustomGridEditor.js" type="text/javascript"></script>
+    <script src="scripts/app.js" type="text/javascript"></script>
+    <link href="styles/app.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <h1>
+                Custom Editors on a FlexGrid</h1>
+        </div>
+    </div>
+    <div class="container">
+
+        <p>
+            This sample shows how you can use custom editors to change the values in
+            FlexGrid cells.</p>
+        <p>
+            The sample defines a <b>CustomGridEditor</b> class that creates a mapping
+            between a grid column and a control. When the user starts editing a cell,
+            the class positions the control over the cell and gives it the focus.</p>
+        <p>
+            The ID column is read-only. All others have custom editors (InputDate,
+            InputTime, ComboBox, and InputNumber controls).</p>
+        <p>
+            You can use any Wijmo control that has "value" or "text" properties 
+            (like the ones in <a href="http://wijmo.com/5/docs/topic/wijmo.input.Module.html" 
+            target="_blank">wijmo.input</a>) as a custom editor.
+            Using non-Wijmo controls as editors would require some adjustments 
+            to the sample code.</p>
+        <p>
+            This grid also has a custom context menu created using Wijmo's <b>Menu</b> 
+            control. To see the context menu, right-click on a cell.</p>
+
+        <!-- FlexGrid hosting the custom editors -->
+        <div id="flexGrid"></div>
+
+    </div>
+</body>
+</html>

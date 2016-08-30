@@ -1,0 +1,24 @@
+﻿<h4 ng-init="benchmarkView('spreadjs')">SpreadJS</h4>
+
+<p>
+    <b>SpreadJS</b> is a comprehensive, high-performance JavaScript-HTML5 spreadsheet 
+    component for enterprise web application development.</p>
+<p>
+    For more information please visit:
+    <a href="http://spread.grapecity.com/Products/SpreadJS/" target="_blank">
+        http://spread.grapecity.com/Products/SpreadJS/
+    </a>
+</p>
+
+<wij-spread 
+  class="gridStyle">
+  <wij-spread-sheet title="Sales" data="data">
+    <wij-spread-column binding="id" width="50"></wij-spread-column>
+    <wij-spread-column binding="date" width="100" format="mm-dd-yyyy"></wij-spread-column>
+    <wij-spread-column binding="country" width="100"></wij-spread-column>
+    <wij-spread-column binding="product" width="140"></wij-spread-column>
+    <wij-spread-column binding="color" width="140"></wij-spread-column>
+    <wij-spread-column binding="amount" width="100" format="#,##0.00" read-only="true"></wij-spread-column>
+    <wij-spread-column binding="active" width="60"></wij-spread-column>
+  </wij-spread-sheet>
+</wij-spread>

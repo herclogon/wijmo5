@@ -1,0 +1,60 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    This sample shows how to change the appearance of text to draw rich text.
+    <a href="" target="_self" data-toggle="collapse" data-target=".collapse" class="collapse in read-more">Read More</a>
+</p>
+
+<div class="collapse">
+    <p>
+        In PdfDocument, the text can be filled with any color. It can also be stroked or filled and stroked simultaneously.
+    </p>
+
+    <p>
+        The drawText's options argument has the <b>fill</b> and <b>stroke</b> properties.
+        Leave these properties empty to indicate that the text should be filled (default).
+        Set <b>stroke</b> to <b>true</b> to indicate that the text should be stroked. Set b>fill</b> and <b>stroke</b>, both to true to indicate that text should be both stroked and filled.
+    </p> 
+
+    <p>
+        Each call to drawText starts a new paragraph. To indicate that subsequent text should be placed right after the previous one, set the options argument's <b>continued</b> property to true.
+    </p>
+<pre>
+doc.drawText("Lorem ", null, null, { continued: true });
+doc.drawText("ipsum.");</pre>
+
+    <h3>Setting up the fill color</h3>
+    <p>
+        The fill color can be specified in two ways:
+    </p>
+    <ul>
+        <li>
+            By passing a brush directly to <b>drawText</b> as the <b>options.brush</b> property.
+<pre>
+doc.drawText("Lorem", null, null, {
+    brush: new wijmo.pdf.PdfSolidBrush("#ff000") // or <i>brush: "#ff000"</i>
+});</pre>
+        </li>
+        <li>
+            By changing the default document brush using the <b>doc.setBrush</b> method first. This brush will be used if you call <b>drawText</b> method without passing a brush to it.
+<pre>
+doc.setBrush(new wijmo.pdf.PdfSolidBrush("#ff000")); // or <i>doc.setBrush("#ff000");</i>
+doc.drawText("Lorem");</pre>
+        </li>
+    </ul>
+
+    <h3>Setting up the stroke color</h3>
+    <p>
+        Like the fill color, the stroke color can be specified in the same way by passing a pen to the <b>options.pen</b> property or <b>doc.setPen</b> method.
+    </p>
+
+    <p>
+        For more information about brushes and pens, see the "<a href="#/pdfdocument/drawing-graphics">Drawing graphics</a>" topic.
+    </p>
+
+    <p>
+        PdfDocument doesn't differentiate between text color and vector graphics color, so changing the default document brush or pen affects the vector graphics API too.
+    </p>
+</div>
+
+<!-- Export button -->
+<button class="btn btn-default" id="Button1" ng-click="export()">Export</button>

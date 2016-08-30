@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>AggregateSeries | Wijmo 5</title>
+
+    <!-- ensure IE uses the latest version of IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Stylesheets-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/vendor/wijmo.min.css" />
+    <link rel="stylesheet" href="styles/app.css" />
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.analytics.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.interaction.min.js" type="text/javascript"></script>
+
+    <!-- Aggregate Series -->
+    <script src="scripts/AggregateSeries.js"></script>
+</head>
+<body>
+    <!-- page header -->
+    <div class="header">
+        <div class="container">
+            <h1>
+                <img src="resources/wijmo5.png" alt="Wijmo 5" />
+                AggregateSeries
+            </h1>
+            <p>
+                A custom series to simplify grouping and data aggregation when using Date objects.
+            </p>
+        </div>
+    </div>
+
+    <!-- page body -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <i class="glyphicon glyphicon-info-sign" id="aggInfo"></i>
+                    <select id="aggMenu">
+                        <option value="None">None</option>
+                        <option value="Sum">Sum</option>
+                        <option value="Cnt">Count</option>
+                        <option value="Avg" selected>Average</option>
+                        <option value="Max">Max</option>
+                        <option value="Min">Min</option>
+                        <option value="Rng">Range</option>
+                        <option value="Std">Std</option>
+                        <option value="StdPop">StdPop</option>
+                        <option value="Var">Var</option>
+                        <option value="VarPop">VarPop</option>
+                    </select>
+
+                    <select id="perMenu">
+                        <option value="null">None</option>
+                        <option value="WW" selected>Week</option>
+                        <option value="MM">Month</option>
+                        <option value="YYYY">Year</option>
+                    </select>
+
+                    <select id="ctMenu">
+                        <option value="Column">Column</option>
+                        <option value="LineSymbols" selected>LineSymbols</option>
+                        <option value="Candlestick">Candlestick</option>
+                    </select>
+
+                    <label>
+                        Auto Interval?&nbsp;
+                        <input type="checkbox" id="autoInterval" checked />
+                    </label>
+                </div>
+
+                <div id="chart" style="width: 100%; height: 300px"></div>
+                <div id="selChart" style="width: 100%; height: 150px"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- application script -->
+    <script src="scripts/app.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments);
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

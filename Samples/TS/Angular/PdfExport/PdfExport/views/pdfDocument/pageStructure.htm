@@ -1,0 +1,74 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    This sample shows the page structure of a <b>PdfDocument</b>.
+    <a href="" target="_self" data-toggle="collapse" data-target=".collapse" class="collapse in read-more">Read More</a>
+</p>
+
+<div class="collapse">
+    <h3>Page sections</h3>
+    <p>
+        In <b>PdfDocument</b>, each page is divided into three sections: header, body and footer.
+        Each of these sections denotes a drawing area, represented by the <b>PdfPageArea</b> class, with its own methods for drawing text and graphics.
+        Drawing areas are not isolated from each other, so the drawings made in one area might affect another one.
+    </p>
+    <p>
+        Each of the drawing areas has its own coordinate system, where (0, 0) coordinate points to the upper-left corner.
+    </p>
+    <p>
+        The PdfDocument class instance represents the body section itself, while its <b>header</b> and <b>footer</b> properties represent the header and footer sections respectively:
+    </p>
+    <pre>
+var doc = wijmo.pdf.PdfDocument();
+
+doc.header.drawText("header");
+doc.drawText("body");
+doc.footer.drawText("footer");</pre>
+    <p>
+        To hide footer or header set the area's <b>height</b> property to 0.
+    </p>
+    <pre>
+var doc = wijmo.pdf.PdfDocument({
+    header: { height: 0 },
+    footer: { height: 0 }
+});</pre>
+
+    <h3>Page settings</h3>
+    <p>
+        During initialization, you can define page settings such as <b>layout</b>, <b>size</b> and <b>margins</b> by passing them into PdfDocument's constructor within <b>pageSettings</b> object.
+    </p>
+    <ul>
+        <li>The <b>layout</b> determines the orientation of the page, portrait or landscape.</li>
+        <li>The <b>size</b> determines the dimensions of the page. Both predefined and custom sizes are supported.</li>
+        <li>The <b>margins</b> determines the margins of the page.</li>
+    </ul>
+    <p>
+        For example:
+    </p>
+    <pre>
+var doc = wijmo.pdf.PdfDocument({
+    pageSettings: {
+        layout: wijmo.pdf.PdfPageOrientation.Portrait,
+        margins: {
+            left: 72,
+            top: 72,
+            right: 72,
+            bottom: 72
+        }
+    }
+});</pre>
+    <p>
+        None of these settings can be changed at run-time for already existing pages.
+    </p>
+
+    <p>
+        Use <b>doc.pageSettings</b> property to provide settings for the pages that will be added automatically or by calling <b>doc.addPage</b> method.
+        Use <b>doc.currentPageSettings</b> property to get the current page settings.
+    </p>
+
+    <p>
+        In this sample, layout, size and margins properties are declared explicitly. Each page section is stroked for clarification purposes. 
+    </p>
+</div>
+
+<!-- Export button -->
+<button class="btn btn-default" id="Button1" ng-click="export()">Export</button>

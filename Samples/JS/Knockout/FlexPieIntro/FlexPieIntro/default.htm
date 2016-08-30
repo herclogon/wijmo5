@@ -1,0 +1,628 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FlexPie Introduction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+    <link href="styles/app.css" rel="stylesheet" />
+
+    <!-- Third Party -->
+    <script src="http://knockoutjs.com/downloads/knockout-3.2.0.js" type="text/javascript"></script>
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.knockout.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <img src="resources/wijmo5.png" alt="Wijmo 5" />
+            <h1>
+                FlexPie 101
+            </h1>
+            <p>
+                This page shows how to get started with Wijmo's FlexPie control.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Getting Started -->
+        <div id="gettingStarted">
+            <h2>Getting Started</h2>
+            <p>
+                Steps for getting started with the FlexPie control in KnockoutJS applications:
+            </p>
+            <ol>
+                <li>Add references to KnockoutJS, Wijmo, and Wijmo's KnockoutJS bindings.</li>
+                <li>Add a view model to provide data and logic.</li>
+                <li>Add a Wijmo FlexPie control to the page and bind it to your data.</li>
+                <li>(Optional) Add some CSS to customize the input control's appearance.</li>
+            </ol>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: { title: 'HTML' }">
+                            <div class="pane-content">
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href="css/bootstrap.css"/&gt;
+    &lt;link rel="stylesheet" type="text/css" href="css/wijmo.css" /&gt;
+    &lt;link rel="stylesheet" href="styles/app.css" /&gt;
+    &lt;script src="scripts/knockout.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.input.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.chart.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.knockout.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/bindings/appBindings.js"&gt;&lt;/script&gt;
+    &lt;script src="scripts/app.js"&gt;&lt;/script&gt;
+    &lt;script src="scripts/viewmodels/appViewModel.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;!-- this is the chart --&gt;
+  &lt;div data-bind="wjFlexPie: {
+      itemsSource: itemsSource,
+      binding: 'value',
+      bindingName: 'name' }"&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: { title: 'JS' }">
+                            <div class="pane-content">
+function SimpleVM() {
+  var names = ['Oranges', 'Apples', 'Pears', 'Bananas', 'Pineapples'],
+      data = [];
+
+  // populate itemsSource
+  for (var i = 0; i &lt; names.length; i++) {
+    data.push({
+      name: names[i],
+      value: Math.round(Math.random() * 100)
+    });
+  }
+
+  this.itemsSource = data;
+}
+
+(function() {
+  ko.applyBindings(new SimpleVM());
+})();
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div data-bind="wjFlexPie: {
+                                    itemsSource: itemsSource,
+                                    binding: 'value',
+                                    bindingName: 'name' }">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Basic Features -->
+        <div id="basicFeatures">
+            <h2>Basic Features</h2>
+            <p>
+                The FlexPie control has five basic properties that allow you to customize its layout and appearance:
+            </p>
+            <ul>
+                <li>
+                    <b>innerRadius</b>:  Specifies the control's inner radius to support donut charts.
+                </li>
+                <li>
+                    <b>offset</b>:  Specifies the offset of the pie slices from the center of the control.
+                </li>
+                <li>
+                    <b>startAngle</b>:  Starting at the nine o'clock position, specifies the angle to start drawing pie slices.
+                </li>
+                <li>
+                    <b>palette</b>:  Specifies an array of default colors to be used when rendering pie slices.
+                </li>
+                <li>
+                    <b>reversed</b>:  Determines whether the control should draw pie slices clockwise (false) or counterclockwise (true).
+                </li>
+            </ul>
+            <p>
+                The example below allows you to see what happens when you change these properties.  Also, clicking on a pie slice will
+                display a tooltip for the data point.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: { title: 'HTML' }">
+                            <div class="pane-content">
+&lt;div data-bind="wjFlexPie: {
+                control: chart,
+                itemsSource: itemsSource,
+                binding: 'value',
+                bindingName: 'name',
+                innerRadius: innerRadius,
+                offset: offset,
+                startAngle: startAngle,
+                reversed: reversed}"&gt;
+&lt;/div&gt;
+&lt;div class="form-horizontal"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Inner Radius&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+      &lt;input data-bind="wjInputNumber: { value: innerRadius, min: 0, max: 1, step: .1, format: 'n' }" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Offset&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+      &lt;input data-bind="wjInputNumber: { value: offset, min: 0, max: 1, step: .1, format: 'n' }" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Start Angle&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+      &lt;input data-bind="wjInputNumber: { value: startAngle, min: -360, max: 360, step: 45 }"/&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+      &lt;div data-bind="wjMenu: { value: palette, header: 'Palette', itemClicked: paletteChanged  }"&gt;
+      &lt;span data-bind="wjMenuItem: { value: 'standard' }"&gt;Standard&lt;/span&gt;
+      &lt;span data-bind="wjMenuItem: { value: 'cocoa' }"&gt;Cocoa&lt;/span&gt;
+      &lt;span data-bind="wjMenuItem: { value: 'coral' }"&gt;Coral&lt;/span&gt;
+      &lt;span data-bind="wjMenuItem: { value: 'dark' }"&gt;Dark&lt;/span&gt;
+      &lt;span data-bind="wjMenuItem: { value: 'highcontrast' }"&gt;High Contrast&lt;/span&gt;
+      &lt;span data-bind="wjMenuItem: { value: 'light' }"&gt;Light&lt;/span&gt;
+      &lt;span data-bind="wjMenuItem: { value: 'midnight' }"&gt;Midnight&lt;/span&gt;
+      &lt;span data-bind="wjMenuItem: { value: 'minimal' }"&gt;Minimal&lt;/span&gt;
+      &lt;span data-bind="wjMenuItem: { value: 'modern' }"&gt;Modern&lt;/span&gt;
+      &lt;span data-bind="wjMenuItem: { value: 'organic' }"&gt;Organic&lt;/span&gt;
+      &lt;span data-bind="wjMenuItem: { value: 'slate' }"&gt;Slate&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+      &lt;div class="checkbox"&gt;
+        &lt;label&gt;
+          &lt;input type="checkbox" data-bind="checked: reversed"&gt; Reversed?
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: { title: 'JS' }">
+                            <div class="pane-content">
+var self = this;
+
+// get a reference to the FlexPie control
+this.chart = ko.observable(undefined);
+this.itemsSource = data;
+this.innerRadius = ko.observable(0);
+this.offset = ko.observable(0);
+this.startAngle = ko.observable(0);
+this.reversed = ko.observable(false);
+this.palette = ko.observable('standard');
+
+this.paletteChanged = function (data, sender, args) {
+  // update FlexPie control's palette
+  self.chart().palette = wijmo.chart.Palettes[sender.selectedValue];
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div data-bind="wjFlexPie: {
+                                    control: chart,
+                                    itemsSource: itemsSource,
+                                    binding: 'value',
+                                    bindingName: 'name',
+                                    innerRadius: innerRadius,
+                                    offset: offset,
+                                    startAngle: startAngle,
+                                    reversed: reversed}">
+                    </div>
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Inner Radius</label>
+                            <div class="col-md-9">
+                                <input data-bind="wjInputNumber: { value: innerRadius, min: 0, max: 1, step: .1, format: 'n' }" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Offset</label>
+                            <div class="col-md-9">
+                                <input data-bind="wjInputNumber: { value: offset, min: 0, max: 1, step: .1, format: 'n' }" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Start Angle</label>
+                            <div class="col-md-9">
+                                <input data-bind="wjInputNumber: { value: startAngle, min: -360, max: 360, step: 45 }"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-md-9">
+                                <div data-bind="wjMenu: { value: palette, header: 'Palette', itemClicked: paletteChanged  }">
+                                    <span data-bind="wjMenuItem: { value: 'standard' }">Standard</span>
+                                    <span data-bind="wjMenuItem: { value: 'cocoa' }">Cocoa</span>
+                                    <span data-bind="wjMenuItem: { value: 'coral' }">Coral</span>
+                                    <span data-bind="wjMenuItem: { value: 'dark' }">Dark</span>
+                                    <span data-bind="wjMenuItem: { value: 'highcontrast' }">High Contrast</span>
+                                    <span data-bind="wjMenuItem: { value: 'light' }">Light</span>
+                                    <span data-bind="wjMenuItem: { value: 'midnight' }">Midnight</span>
+                                    <span data-bind="wjMenuItem: { value: 'minimal' }">Minimal</span>
+                                    <span data-bind="wjMenuItem: { value: 'modern' }">Modern</span>
+                                    <span data-bind="wjMenuItem: { value: 'organic' }">Organic</span>
+                                    <span data-bind="wjMenuItem: { value: 'slate' }">Slate</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-md-9">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" data-bind="checked: reversed"> Reversed?
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legend and Titles -->
+        <div id="legendTitles">
+            <h2>Legend &amp; Titles</h2>
+            <p>
+                The <b>legend</b> properties can be used to customize the appearance of the chart's legend.  The
+                <b>header</b> and <b>footer</b> properties can be used to add titles to the FlexPie control as well.
+            </p>
+            <p>
+                The following example allows you to change the FlexPie's <b>legend.position</b>, <b>header</b>, and
+                <b>footer</b> properties in real-time.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: { title: 'HTML' }">
+                            <div class="pane-content">
+&lt;div data-bind="wjFlexPie: {
+                itemsSource: itemsSource,
+                binding: 'value',
+                bindingName: 'name',
+                header: header,
+                footer: footer }"&gt;
+  &lt;div data-bind="wjFlexChartLegend: { position: legendPosition }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-horizontal"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Header&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+      &lt;input
+          type="text"
+          class="form-control"
+          data-bind="value: header, valueUpdate: 'input'"
+          placeholder="Specify the FlexPie's header" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Footer&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+      &lt;input
+          type="text"
+          class="form-control"
+          data-bind="value: footer, valueUpdate: 'input'"
+          placeholder="Specify the FlexPie's footer" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+      &lt;div data-bind="wjMenu: { value: legendPosition, header: 'Legend Position' }"&gt;
+        &lt;span data-bind="wjMenuItem: { value: 'None' }"&gt;None&lt;/span&gt;
+        &lt;span data-bind="wjMenuItem: { value: 'Left' }"&gt;Left&lt;/span&gt;
+        &lt;span data-bind="wjMenuItem: { value: 'Top' }"&gt;Top&lt;/span&gt;
+        &lt;span data-bind="wjMenuItem: { value: 'Right' }"&gt;Right&lt;/span&gt;
+        &lt;span data-bind="wjMenuItem: { value: 'Bottom' }"&gt;Bottom&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: { title: 'JS' }">
+                            <div class="pane-content">
+this.itemsSource = data;
+this.header = ko.observable('Fruit by Value');
+this.footer = ko.observable('2014 GrapeCity, inc.');
+this.legendPosition = ko.observable('Right');
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div data-bind="wjFlexPie: {
+                                    itemsSource: itemsSource,
+                                    binding: 'value',
+                                    bindingName: 'name',
+                                    header: header,
+                                    footer: footer }">
+                        <div data-bind="wjFlexChartLegend: { position: legendPosition }"></div>
+                    </div>
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Header</label>
+                            <div class="col-md-9">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    data-bind="value: header, valueUpdate: 'input'"
+                                    placeholder="Specify the FlexPie's header" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Footer</label>
+                            <div class="col-md-9">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    data-bind="value: footer, valueUpdate: 'input'"
+                                    placeholder="Specify the FlexPie's footer" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-md-9">
+                                <div data-bind="wjMenu: { value: legendPosition, header: 'Legend Position' }">
+                                    <span data-bind="wjMenuItem: { value: 'None' }">None</span>
+                                    <span data-bind="wjMenuItem: { value: 'Left' }">Left</span>
+                                    <span data-bind="wjMenuItem: { value: 'Top' }">Top</span>
+                                    <span data-bind="wjMenuItem: { value: 'Right' }">Right</span>
+                                    <span data-bind="wjMenuItem: { value: 'Bottom' }">Bottom</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selection -->
+        <div id="selection">
+            <h2>Selection</h2>
+            <p>
+                The FlexPie control allows you to select data points by clicking or touching a pie slice. Use the <b>selectionMode</b>
+                property to specify whether you want to allow selection by data point or no selection at all (default).
+            </p>
+            <p>
+                Setting the <b>selctionMode</b> property to <b>Point</b> causes the FlexPie to update the <b>selection</b> property when
+                the user clicks on a pie slice, and to apply the "wj-state-selected" class to the selected element.  Setting the FlexPie's
+                <b>selectionMode</b> property to <b>Series</b> or <b>None</b> will disable selections within the control.
+            </p>
+            <p>
+                The FlexPie offers three additional properties to customize the selection:
+            </p>
+            <ul>
+                <li>
+                    <b>selectedItemOffset</b>:  Specifies the offset of the selected pie slice from the center of the control.
+                </li>
+                <li>
+                    <b>selectedItemPosition</b>:  Specifies the position of the selected pie slice.  The available options are Top, Bottom,
+                    Left, Right, and None (default).
+                </li>
+                <li>
+                    <b>isAnimated</b>:  Determines whether or not to animate the selection.
+                </li>
+            </ul>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: { title: 'HTML' }">
+                            <div class="pane-content">
+&lt;div data-bind="wjFlexPie: {
+                itemsSource: itemsSource,
+                binding: 'value',
+                bindingName: 'name',
+                selectionMode: 'Point',
+                selectedItemPosition: selectedPosition,
+                selectedItemOffset: selectedOffset,
+                isAnimated: isAnimated }"&gt;
+&lt;/div&gt;
+&lt;div class="form-horizontal"&gt;
+  &lt;div class="form-group"&gt;
+      &lt;label class="col-md-3 control-label"&gt;Selected Item Offset&lt;/label&gt;
+      &lt;div class="col-md-9"&gt;
+        &lt;input data-bind="wjInputNumber: {
+                          value: selectedOffset,
+                          min: 0,
+                          max: .5,
+                          step: .1,
+                          format: 'n' }"/&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+      &lt;div data-bind="wjMenu: {
+                      header: 'Selected Item Position',
+                      value: selectedPosition}"&gt;
+        &lt;span data-bind="wjMenuItem: { value: 'None' }"&gt;None&lt;/span&gt;
+        &lt;span data-bind="wjMenuItem: { value: 'Left' }"&gt;Left&lt;/span&gt;
+        &lt;span data-bind="wjMenuItem: { value: 'Top' }"&gt;Top&lt;/span&gt;
+        &lt;span data-bind="wjMenuItem: { value: 'Right' }"&gt;Right&lt;/span&gt;
+        &lt;span data-bind="wjMenuItem: { value: 'Bottom' }"&gt;Bottom&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+      &lt;div class="checkbox"&gt;
+        &lt;label&gt;
+          &lt;input type="checkbox" data-bind="checked: isAnimated"&gt; Is Animated?
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: { title: 'JS' }">
+                            <div class="pane-content">
+this.itemsSource = data;
+this.selectedPosition = ko.observable('Top');
+this.selectedOffset = ko.observable(0);
+this.isAnimated = ko.observable(true);
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div data-bind="wjFlexPie: {
+                                    itemsSource: itemsSource,
+                                    binding: 'value',
+                                    bindingName: 'name',
+                                    selectionMode: 'Point',
+                                    selectedItemPosition: selectedPosition,
+                                    selectedItemOffset: selectedOffset,
+                                    isAnimated: isAnimated }">
+                    </div>
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Selected Item Offset</label>
+                            <div class="col-md-9">
+                                <input data-bind="wjInputNumber: {
+                                                  value: selectedOffset,
+                                                  min: 0,
+                                                  max: .5,
+                                                  step: .1,
+                                                  format: 'n' }"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-md-9">
+                                <div data-bind="wjMenu: {
+                                                header: 'Selected Item Position',
+                                                value: selectedPosition}">
+                                    <span data-bind="wjMenuItem: { value: 'None' }">None</span>
+                                    <span data-bind="wjMenuItem: { value: 'Left' }">Left</span>
+                                    <span data-bind="wjMenuItem: { value: 'Top' }">Top</span>
+                                    <span data-bind="wjMenuItem: { value: 'Right' }">Right</span>
+                                    <span data-bind="wjMenuItem: { value: 'Bottom' }">Bottom</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-md-9">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" data-bind="checked: isAnimated"> Is Animated?
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Theming -->
+        <div id="theming">
+            <h2>Theming</h2>
+            <p>
+                The appearance of the FlexPie control is largely defined in CSS. In addition to the default theme, we
+                include several professionally designed themes that customize the appearance of all Wijmo controls to
+                achieve a consistent, attractive look.
+            </p>
+            <p>
+                You can customize the appearance of the FlexPie control using CSS. To do this, copy the CSS rules from the
+                default theme to a new CSS file and modify the properties as needed.
+            </p>
+            <p>
+                In this example, we added the "custom-pie-chart" CSS class to the control and defined some CSS rules to
+                change the fill, font family, and font weight of the header, footer, and legend.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: { title: 'HTML' }">
+                            <div class="pane-content">
+&lt;div class="custom-pie-chart"
+     data-bind="wjFlexPie: {
+                itemsSource: itemsSource,
+                binding: 'value',
+                bindingName: 'name',
+                header: 'Header',
+                footer: 'Footer' }"&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: { title: 'JS' }">
+                            <div class="pane-content">
+this.itemsSource = data;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: { title: 'CSS' }">
+                            <div class="pane-content">
+.custom-pie-chart.wj-flexchart .wj-header .wj-title,
+.custom-pie-chart.wj-flexchart .wj-footer .wj-title,
+.custom-pie-chart.wj-flexchart .wj-legend &gt; .wj-label {
+  fill: #666;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="custom-pie-chart"
+                         data-bind="wjFlexPie: {
+                                        itemsSource: itemsSource,
+                                        binding: 'value',
+                                        bindingName: 'name',
+                                        header: 'Header',
+                                        footer: 'Footer' }">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- app scripts -->
+    <script src="scripts/bindings/appBindings.js"></script>
+    <script src="scripts/viewModels/appViewModels.js" type="text/javascript"></script>
+    <script src="scripts/app.js" type="text/javascript"></script>
+
+    <!-- Google analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

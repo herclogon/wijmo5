@@ -1,0 +1,92 @@
+﻿
+<div class="header">
+    <div class="container">
+        <h1>
+            Dynamic Columns
+        </h1>
+    </div>
+</div>
+
+<!-- content -->
+<div class="container">
+    <p>
+        This sample shows how you can use Angular's <b>ngFor</b>
+        directive to create dynamic columns in a FlexGrid control.
+    </p>
+    <p>
+        The sample presents a UI used to create and edit a collection
+        of strings. The collection is used in an <b>ngFor</b>
+        directive to generate the grid columns. The markup is simple:
+    </p>
+<pre>&lt;wj-flex-grid [itemsSource]="data"&gt;
+    &lt;wj-flex-grid-column *ngFor="#col of columns.items" [binding]="col"&gt;
+    &lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;</pre>
+
+    <p>
+        Notice how the grid columns are automatically updated as you
+        edit the source collection.
+    </p>
+
+    <div class="col-md-6">
+        <h3>
+            Edit the columns here
+        </h3>
+        <div class="row">
+            <div class="col-md-5">
+                <wj-list-box class="wide" [itemsSource]="columnsAvailable"></wj-list-box>
+            </div>
+
+            <div class="col-md-2">
+                <button type="button"
+                        class="btn btn-default btn-lg btn-block"
+                        title="Add Column"
+                        (click)="addColumn(columnsAvailable.currentItem)">
+                    <span class="wj-glyph-right"></span>
+                </button>
+                <button type="button"
+                        class="btn btn-default btn-lg btn-block"
+                        title="Remove Column"
+                        [disabled]="columns.currentItem == null"
+                        (click)="removeColumn()">
+                    <span class="wj-glyph-left"></span>
+                </button>
+                <button type="button"
+                        class="btn btn-default btn-lg btn-block"
+                        title="Move Column Up"
+                        [disabled]="columns.currentPosition <= 0"
+                        (click)="moveColumn(-1)">
+                    <span class="wj-glyph-up"></span>
+                </button>
+                <button type="button"
+                        class="btn btn-default btn-lg btn-block"
+                        title="Move Column Down"
+                        [disabled]="columns.currentPosition >= columns.itemCount - 1"
+                        (click)="moveColumn(+1)">
+                    <span class="wj-glyph-down"></span>
+                </button>
+            </div>
+
+            <div class="col-md-5">
+                <wj-list-box class="wide" [itemsSource]="columns"></wj-list-box>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h3>
+            See the result here
+        </h3>
+        <ul>
+            <li *ngFor="let col of columns.items">{{col}}</li>
+        </ul>
+        <wj-flex-grid #flex
+                      class="wide"
+                      [itemsSource]="data"
+                      [allowDragging]="'Both'"
+                      (draggedColumn)="draggedColumn(flex)">
+            <wj-flex-grid-column *ngFor="let col of columns.items" [binding]="col">
+            </wj-flex-grid-column>
+        </wj-flex-grid>
+    </div>
+</div>
+

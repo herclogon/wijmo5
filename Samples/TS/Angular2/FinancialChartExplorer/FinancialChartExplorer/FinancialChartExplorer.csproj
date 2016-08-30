@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{5D88E95B-257D-49A4-B783-07F5F0FB859E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <RootNamespace>FinancialChartExplorer</RootNamespace>
+    <AssemblyName>FinancialChartExplorer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    
+    
+    
+    
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default.htm" />
+    <Content Include="readme.txt" />
+    <Content Include="src\app.html" />
+    <Content Include="src\components\analytics\EventAnnotationsCmp.html" />
+    <Content Include="src\components\analytics\FibonacciToolCmp.html" />
+    <Content Include="src\components\analytics\IndicatorsCmp.html" />
+    <Content Include="src\components\analytics\MovingAveragesCmp.html" />
+    <Content Include="src\components\analytics\OverlaysCmp.html" />
+    <Content Include="src\components\analytics\TrendLinesCmp.html" />
+    <Content Include="src\components\charttype\ArmsCandleVolumeCmp.html" />
+    <Content Include="src\components\charttype\CandleVolumeCmp.html" />
+    <Content Include="src\components\charttype\ColumnVolumeCmp.html" />
+    <Content Include="src\components\charttype\EquiVolumeCmp.html" />
+    <Content Include="src\components\charttype\HeikinAshiCmp.html" />
+    <Content Include="src\components\charttype\KagiCmp.html" />
+    <Content Include="src\components\charttype\LineBreakCmp.html" />
+    <Content Include="src\components\charttype\RenkoCmp.html" />
+    <Content Include="src\components\interaction\MarkersCmp.html" />
+    <Content Include="src\components\interaction\RangeSelectorCmp.html" />
+    <Content Include="src\styles\app.css" />
+    <Content Include="resources\wijmo5.png" />
+    <Content Include="systemjs.config.js" />
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app.ts" />
+    <TypeScriptCompile Include="src\components\analytics\EventAnnotationsCmp.ts" />
+    <TypeScriptCompile Include="src\components\analytics\FibonacciToolCmp.ts" />
+    <TypeScriptCompile Include="src\components\analytics\IndicatorsCmp.ts" />
+    <TypeScriptCompile Include="src\components\analytics\MovingAveragesCmp.ts" />
+    <TypeScriptCompile Include="src\components\analytics\OverlaysCmp.ts" />
+    <TypeScriptCompile Include="src\components\analytics\TrendLinesCmp.ts" />
+    <TypeScriptCompile Include="src\components\charttype\ArmsCandleVolumeCmp.ts" />
+    <TypeScriptCompile Include="src\components\charttype\CandleVolumeCmp.ts" />
+    <TypeScriptCompile Include="src\components\charttype\ColumnVolumeCmp.ts" />
+    <TypeScriptCompile Include="src\components\charttype\EquiVolumeCmp.ts" />
+    <TypeScriptCompile Include="src\components\charttype\HeikinAshiCmp.ts" />
+    <TypeScriptCompile Include="src\components\charttype\KagiCmp.ts" />
+    <TypeScriptCompile Include="src\components\charttype\LineBreakCmp.ts" />
+    <TypeScriptCompile Include="src\components\charttype\RenkoCmp.ts" />
+    <TypeScriptCompile Include="src\components\interaction\MarkersCmp.ts" />
+    <TypeScriptCompile Include="src\components\interaction\RangeSelectorCmp.ts" />
+    <TypeScriptCompile Include="src\services\DataSvc.ts" />
+    <TypeScriptCompile Include="src\services\MenuSvc.ts" />
+    <TypeScriptCompile Include="src\services\TooltipSvc.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="package.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="data\box-annotations.json" />
+    <Content Include="data\box.json" />
+    <Content Include="data\fb.json" />
+    <Content Include="data\goog.json" />
+    <Content Include="data\twtr.json" />
+    <Content Include="data\wix.json" />
+    <Content Include="data\zen.json" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <PropertyGroup>
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>False</TypeScriptNoEmitOnError>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+    <TypeScriptExperimentalDecorators>true</TypeScriptExperimentalDecorators>
+    <!--<TypeScriptModuleResolution>Node</TypeScriptModuleResolution>-->
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52705</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52705/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  
+<ItemGroup><Content Include="scripts\vendor\wijmo.min.js" /><Content Include="scripts\vendor\wijmo.input.min.js" /><Content Include="scripts\vendor\wijmo.chart.min.js" /><Content Include="scripts\vendor\wijmo.chart.interaction.min.js" /><Content Include="scripts\vendor\wijmo.chart.analytics.min.js" /><Content Include="scripts\vendor\wijmo.chart.annotation.min.js" /><Content Include="scripts\vendor\wijmo.chart.finance.min.js" /><Content Include="scripts\vendor\wijmo.chart.finance.analytics.min.js" /><Content Include="scripts\vendor\wijmo.angular2.min.js" /><Content Include="styles\vendor\wijmo.min.css" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.analytics.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.animation.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.annotation.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.finance.analytics.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.finance.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.hierarchical.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.interaction.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.gauge.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.detail.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.filter.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.grouppanel.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.multirow.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.pdf.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.sheet.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.xlsx.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.input.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.odata.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.olap.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.pdf.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.xlsx.d.ts" /><TypeScriptCompile Include="scripts\definition\angular.d.ts" /><TypeScriptCompile Include="scripts\definition\globalize.d.ts" /><TypeScriptCompile Include="scripts\definition\jquery.d.ts" /><TypeScriptCompile Include="scripts\definition\knockout.d.ts" /></ItemGroup></Project>

@@ -1,0 +1,24 @@
+﻿<ion-view title="History">
+    <ion-nav-buttons side="right">
+        <a class="button button-icon icon ion-plus" href="#/app/create"></a>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+        <ion-list>
+            <ion-item ng-repeat="expense in expenses | orderBy:'date':reverse track by expense.id" class="item item-icon-left">
+                <i class="icon ion-record {{ expense.category.cssClass }}"></i>
+                <div class="row">
+                    <div class="col-50">
+                        <h2>{{ expense.title }}</h2>
+                    </div>
+                    <div class="col-25">
+                        <small class="light-grey">{{ expense.date | date: 'shortDate' }}</small>
+                    </div>
+                    <div class="col-25">
+                        {{ expense.amount | currency }}
+                    </div>
+                </div>
+                <ion-option-button class="button button-assertive" on-tap="confirmDelete(expense.id)">Delete</ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

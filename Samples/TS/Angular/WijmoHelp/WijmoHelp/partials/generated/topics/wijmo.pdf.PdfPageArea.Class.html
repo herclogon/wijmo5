@@ -1,0 +1,293 @@
+<h2>PdfPageArea Class</h2>
+<dl class="dl-horizontal">
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a>, <a href="topic/wijmo.pdf.PdfRunningTitle.Class.html"><b>PdfRunningTitle</b></a></dd>
+<dt>Module</dt><dd>wijmo.pdf</dd>
+<dt>File</dt><dd>wijmo.pdf.js</dd>
+</dl>
+<p><p>Represents an area of a page with its own coordinate system, where (0, 0) points 
+to the top-left corner.
+Provides methods for drawing text, images, paths and transformations.</p>
+
+<p>This class is not intended to be instantiated in your code.</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
+      <td></td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.pdf.PdfRunningTitle.Class.html"><b>PdfRunningTitle</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>height</b></td>
+      <td><b>number</b></td>
+      <td>Gets the height of the area, in points.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>lineGap</b></td>
+      <td><b>number</b></td>
+      <td><p>Gets or sets the spacing between each line of text, in points.</p>
+
+<p>The default value is 0.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>paths</b></td>
+      <td><a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
+      <td>Gets an object that provides ability to draw paths.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>width</b></td>
+      <td><b>number</b></td>
+      <td>Gets the width of the area, in points.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>x</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the X-coordinate (in points) of the current point in the text flow 
+used to draw a text or an image.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>y</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the Y-coordinate (in points) of the current point in the text flow 
+used to draw a text or an image.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>drawImage</b>&#8203;(url, x?, y?, options?): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
+      <td><p>
+<b>url</b> (<b>string</b>): A string containing the URL to get the image from or the data URI containing a base64 encoded image.<br/><b>x?</b> (<b>number</b>): The x-coordinate of the point to draw the image at, in points.<br/><b>y?</b> (<b>number</b>): The y-coordinate of the point to draw the image at, in points.<br/><b>options?</b> (<a href="topic/wijmo.pdf.IPdfImageDrawSettings.Interface.html"><b>IPdfImageDrawSettings</b></a>): Determines the image drawing options.<br/></p>
+</td>
+      <td><p>Draws an image in JPG or PNG format with the given options.</p>
+
+<p>If x and y are not defined, then <b>x</b> and <b>y</b> are used instead.</p>
+
+<p>Finally, if the image was drawn in the text flow, the method updates <b>y</b>. 
+Hence, any subsequent text or image starts below this point.</p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>drawSvg</b>&#8203;(url, x?, y?, options?): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
+      <td><p>
+<b>url</b> (<b>string</b>): A string containing the URL to get the SVG image from or the data URI containing a base64 encoded SVG image.<br/><b>x?</b> (<b>number</b>): The x-coordinate of the point to draw the image at, in points.<br/><b>y?</b> (<b>number</b>): The y-coordinate of the point to draw the image at, in points.<br/><b>options?</b> (<a href="topic/wijmo.pdf.IPdfSvgDrawSettings.Interface.html"><b>IPdfSvgDrawSettings</b></a>): Determines the SVG image drawing options.<br/></p>
+</td>
+      <td><p>Draws a SVG image with the given options.</p>
+
+<p>If x and y are not defined, then <b>x</b> and <b>y</b> are used instead.</p>
+
+<p>The method uses the values of the width and height attributes of the outermost svg element to determine the
+scale factor according to the options.width and options.height properties. If any of these attributes are
+omitted then scaling is not performed and the image will be rendered in its original size.</p>
+
+<p>Finally, if the image was drawn in the text flow, the method updates <b>y</b>.
+Hence, any subsequent text or image starts below this point.
+The increment value is defined by the options.height property or by the outermost svg element's height attribute, which comes first.
+If none of them is provided then <b>y</b> will stay unchanged.</p>
+
+<p>The method supports a limited set of SVG features and provided primarily for rendering wijmo 5 chart controls.</p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>drawText</b>&#8203;(text, x?, y?, options?): <a href="topic/wijmo.pdf.IPdfTextMeasurementInfo.Interface.html"><b>IPdfTextMeasurementInfo</b></a></td>
+      <td><p>
+<b>text</b> (<b>string</b>): The text to draw.<br/><b>x?</b> (<b>number</b>): The X-coordinate of the point to draw the text at, in points.<br/><b>y?</b> (<b>number</b>): The Y-coordinate of the point to draw the text at, in points.<br/><b>options?</b> (<a href="topic/wijmo.pdf.IPdfTextDrawSettings.Interface.html"><b>IPdfTextDrawSettings</b></a>): Determines the text drawing options.<br/></p>
+</td>
+      <td><p>Draws a string with the given options and returns the measurement information.</p>
+
+<p>If <b>options.pen</b>, <b>options.brush</b> or <b>options.font</b> are omitted,
+the current document's pen, brush or font are used (see <b>setPen</b>,
+<b>setBrush</b>, and  <b>setFont</b>).</p>
+
+<p>The string is drawn within the rectangular area for which top-left corner, width
+and  height are defined by the x, y, <b>options.width</b> and <b>options.height</b>
+values. If x and y are not provided, the <b>x</b> and <b>y</b>
+properties are used instead.</p>
+
+<p>The text is wrapped and clipped automatically within the area.
+If <b>options.height</b> is not provided and the text exceeds the bottom body edge,
+then a new page will be added to accommodate the text.</p>
+
+<p>Finally, the method updates the value of the <b>PdfDocument.x</b> and <b>PdfDocument.y</b>
+properties. Hence, any subsequent text or image starts below this point
+(depending on the value of <b>options.continued</b>).</p>
+
+<p>The measurement result doesn't reflect the fact that text can be split into
+multiple pages or columns; the text is treated as a single block.</p><br/><br/><b>Returns</b> A <a href="topic/wijmo.pdf.IPdfTextMeasurementInfo.Interface.html"><b>IPdfTextMeasurementInfo</b></a> object determines the measurement information.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>lineHeight</b>&#8203;(font?): <b>number</b></td>
+      <td><p>
+<b>font?</b> (<a href="topic/wijmo.pdf.PdfFont.Class.html"><b>PdfFont</b></a>): Font to get the line height.<br/></p>
+</td>
+      <td><p>Gets the line height with a given font.</p>
+
+<p>If font is not specified, then font used in the current document is used.</p><br/><br/><b>Returns</b> The line height, in points.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>measureText</b>&#8203;(text, font?, options?): <a href="topic/wijmo.pdf.IPdfTextMeasurementInfo.Interface.html"><b>IPdfTextMeasurementInfo</b></a></td>
+      <td><p>
+<b>text</b> (<b>string</b>): Text to measure.<br/><b>font?</b> (<a href="topic/wijmo.pdf.PdfFont.Class.html"><b>PdfFont</b></a>): Font to be applied on the text.<br/><b>options?</b> (<a href="topic/wijmo.pdf.IPdfTextSettings.Interface.html"><b>IPdfTextSettings</b></a>): Determines the text drawing options.<br/></p>
+</td>
+      <td><p>Measures a text with the given font and text drawing options without rendering it.</p>
+
+<p>If font is not specified, then the font used in the current document is used.</p>
+
+<p>The method uses the same text rendering engine as <b>drawText</b>, so it is tied up
+in the same way to <b>x</b> and the right page margin, if options.width is not
+provided. The measurement result doesn't reflect the fact that text can be split 
+into multiple pages or columns; the text is treated as a single block.</p><br/><br/><b>Returns</b> A <a href="topic/wijmo.pdf.IPdfTextMeasurementInfo.Interface.html"><b>IPdfTextMeasurementInfo</b></a> object determines the measurement information.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>moveDown</b>&#8203;(lines?, font?): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
+      <td><p>
+<b>lines?</b> (<b>number</b>): Number of lines to move down.<br/><span class="text-info">(default value: <b>1</b>)</span><br/><b>font?</b> (<a href="topic/wijmo.pdf.PdfFont.Class.html"><b>PdfFont</b></a>): Font to calculate the line height.<br/></p>
+</td>
+      <td>Moves down the <b>y</b> by a given number of lines using the given font or,
+using the font of current document, if not specified.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>moveUp</b>&#8203;(lines?, font?): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
+      <td><p>
+<b>lines?</b> (<b>number</b>): Number of lines to move up.<br/><span class="text-info">(default value: <b>1</b>)</span><br/><b>font?</b> (<a href="topic/wijmo.pdf.PdfFont.Class.html"><b>PdfFont</b></a>): Font to calculate the line height.<br/></p>
+</td>
+      <td>Moves up the <b>y</b> by a given number of lines using the given font or,
+using the font of current document, if not specified.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>rotate</b>&#8203;(angle, origin?): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
+      <td><p>
+<b>angle</b> (<b>number</b>): The rotation angle, in degrees.<br/><b>origin?</b> (<a href="topic/wijmo.Point.Class.html"><b>Point</b></a>): The <a href="topic/wijmo.Point.Class.html"><b>Point</b></a> of rotation, in points. If it is not provided,
+then the top left corner is used.<br/></p>
+</td>
+      <td>Rotates the graphic context clockwise by a specified angle.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>scale</b>&#8203;(xFactor, yFactor?, origin?): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
+      <td><p>
+<b>xFactor</b> (<b>number</b>): The factor to scale the X dimension.<br/><b>yFactor?</b> (<b>number</b>): The factor to scale the Y dimension. If it is not provided, it is
+assumed to be equal to xFactor.<br/><span class="text-info">(default value: <b>xFactor</b>)</span><br/><b>origin?</b> (<a href="topic/wijmo.Point.Class.html"><b>Point</b></a>): The <a href="topic/wijmo.Point.Class.html"><b>Point</b></a> to scale around, in points. If it is not provided,
+then the top left corner is used.<br/></p>
+</td>
+      <td><p>Scales the graphic context by a specified scaling factor.</p>
+
+<p>The scaling factor value within the range [0, 1] indicates that the size will be
+decreased.
+The scaling factor value greater than 1 indicates that the size will be increased.</p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>transform</b>&#8203;(a, b, c, d, e, f): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
+      <td><p>
+<b>a</b> (<b>number</b>): Value of the first row and first column.<br/><b>b</b> (<b>number</b>): Value of the first row and second column.<br/><b>c</b> (<b>number</b>): Value of the second row and first column.<br/><b>d</b> (<b>number</b>): Value of the second row and second column.<br/><b>e</b> (<b>number</b>): Value of the third row and first column.<br/><b>f</b> (<b>number</b>): Value of the third row and second column.<br/></p>
+</td>
+      <td><p>Transforms the graphic context with given six numbers which represents a 
+3x3 transformation matrix.</p>
+
+<p>A transformation matrix is written as follows:
+<table>
+  <tr><td>a</td><td>b</td><td>0</td></tr>
+  <tr><td>c</td><td>d</td><td>0</td></tr>
+  <tr><td>e</td><td>f</td><td>1</td></tr>
+</table></p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>translate</b>&#8203;(x, y): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
+      <td><p>
+<b>x</b> (<b>number</b>): The distance to translate along the X-axis, in points.<br/><b>y</b> (<b>number</b>): The distance to translate along the Y-axis, in points.<br/></p>
+</td>
+      <td>Translates the graphic context with a given distance.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

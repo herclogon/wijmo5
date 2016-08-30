@@ -1,0 +1,1744 @@
+<h2>WjFlexGrid Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a></dd>
+<dt>Module</dt><dd>wijmo/wijmo.angular2.grid</dd>
+<dt>File</dt><dd>wijmo.angular2.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>Angular 2 component for the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control.</p>
+
+<p>Use the <b>wj-flex-grid</b> component to add <b>FlexGrid</b> controls to your 
+Angular 2 applications. For details about Angular 2 markup syntax, see 
+<a href="static/angular2Markup.html">Angular 2 Markup</a>. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a data bound FlexGrid control with four columns:&lt;/p&gt;
+&lt;wj-flex-grid [itemsSource]="data"&gt;
+  &lt;wj-flex-grid-column 
+    [header]="'Country'" 
+    [binding]="'country'"&gt;
+  &lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column 
+    [header]="'Sales'" 
+    [binding]="'sales'"&gt;
+  &lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column 
+    [header]="'Expenses'" 
+    [binding]="'expenses'"&gt;
+  &lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column 
+    [header]="'Downloads'" 
+    [binding]="'downloads'"&gt;
+  &lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;</pre></p>
+
+<p>The <b>WjFlexGrid</b> component is derived from the <b>FlexGrid</b> control and
+inherits all its properties, events and methods.</p>
+
+<p>The <b>wj-flex-grid</b> component may contain <a href="topic/wijmo-wijmo.angular2.grid.WjFlexGridColumn.Class.html"><b>WjFlexGridColumn</b></a>, 
+<a href="topic/wijmo-wijmo.angular2.grid.WjFlexGridCellTemplate.Class.html"><b>WjFlexGridCellTemplate</b></a>, 
+<a href="topic/wijmo-wijmo.angular2.grid.detail.WjFlexGridDetail.Class.html"><b>WjFlexGridDetail</b></a> and 
+<a href="topic/wijmo-wijmo.angular2.grid.filter.WjFlexGridFilter.Class.html"><b>WjFlexGridFilter</b></a> child components.</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>activeEditor</b></td>
+      <td><b>HTMLInputElement</b></td>
+      <td>Gets the <b>HTMLInputElement</b> that represents the cell editor currently active.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>allowAddNew</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that indicates whether the grid should provide a new row
+template so users can add items to the source collection.</p>
+
+<p>The new row template will not be displayed if the <b>isReadOnly</b> property
+is set to true.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>allowDelete</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that indicates whether the grid should delete 
+selected rows when the user presses the Delete key.</p>
+
+<p>Selected rows will not be deleted if the <b>isReadOnly</b> property
+is set to true.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>allowDragging</b></td>
+      <td><a href="topic/wijmo.grid.AllowDragging.Enum.html"><b>AllowDragging</b></a></td>
+      <td>Gets or sets a value that determines whether users are allowed to drag 
+rows and/or columns with the mouse.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>allowMerging</b></td>
+      <td><a href="topic/wijmo.grid.AllowMerging.Enum.html"><b>AllowMerging</b></a></td>
+      <td>Gets or sets which parts of the grid provide cell merging.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>allowResizing</b></td>
+      <td><a href="topic/wijmo.grid.AllowResizing.Enum.html"><b>AllowResizing</b></a></td>
+      <td><p>Gets or sets a value that determines whether users may resize 
+rows and/or columns with the mouse.</p>
+
+<p>If resizing is enabled, users can resize columns by dragging
+the right edge of column header cells, or rows by dragging the
+bottom edge of row header cells.</p>
+
+<p>Users may also double-click the edge of the header cells to 
+automatically resize rows and columns to fit their content.
+The auto-size behavior can be customized using the <b>autoSizeMode</b>
+property.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>allowSorting</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that determines whether users are allowed to sort columns 
+by clicking the column header cells.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>autoClipboard</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that determines whether the grid should handle 
+clipboard shortcuts.</p>
+
+<p>The clipboard shortcuts are as follows:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>ctrl+C, ctrl+Ins</dt>    <dd>Copy grid selection to clipboard.</dd>
+  <dt>ctrl+V, shift+Ins</dt>   <dd>Paste clipboard text to grid selection.</dd>
+</dl></p>
+
+<p>Only visible rows and columns are included in clipboard operations.</p>
+
+<p>Read-only cells are not affected by paste operations.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>autoGenerateColumns</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that determines whether the grid should generate columns 
+automatically based on the <b>itemsSource</b>.</p>
+
+<p>The column generation depends on the <b>itemsSource</b> property containing
+at least one item. This data item is inspected and a column is created and
+bound to each property that contains a primitive value (number, string,
+Boolean, or Date).</p>
+
+<p>Properties set to null do not generate columns, because the grid would
+have no way of guessing the appropriate type. In this type of scenario,
+you should set the <b>autoGenerateColumns</b> property to false and create
+the columns explicitly. For example:</p>
+
+<p><pre>var grid = new wijmo.grid.FlexGrid('#theGrid', {
+  autoGenerateColumns: false, // data items may contain null values
+  columns: [                  // so define columns explicitly
+    { binding: 'name', header: 'Name', type: 'String' },
+    { binding: 'amount', header: 'Amount', type: 'Number' },
+    { binding: 'date', header: 'Date', type: 'Date' },
+    { binding: 'active', header: 'Active', type: 'Boolean' }
+  ],
+  itemsSource: customers
+});</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>autoSizeMode</b></td>
+      <td><a href="topic/wijmo.grid.AutoSizeMode.Enum.html"><b>AutoSizeMode</b></a></td>
+      <td><p>Gets or sets which cells should be taken into account when auto-sizing a
+row or column.</p>
+
+<p>This property controls what happens when users double-click the edge of
+a column header.</p>
+
+<p>By default, the grid will automatically set the column width based on the
+content of the header and data cells in the column. This property allows 
+you to change that to include only the headers or only the data.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>cellFactory</b></td>
+      <td><a href="topic/wijmo.grid.CellFactory.Class.html"><b>CellFactory</b></a></td>
+      <td>Gets or sets the <a href="topic/wijmo.grid.CellFactory.Class.html"><b>CellFactory</b></a> that creates and updates cells for this grid.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>cells</b></td>
+      <td><a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a></td>
+      <td>Gets the <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a> that contains the data cells.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>childItemsPath</b></td>
+      <td><b>any</b></td>
+      <td><p>Gets or sets the name of the property (or properties) used to generate 
+child rows in hierarchical grids.</p>
+
+<p>Set this property to a string to specify the name of the property that
+contains an item's child items (e.g. <code>'items'</code>). </p>
+
+<p>If items at different levels child items with different names, then 
+set this property to an array containing the names of the properties 
+that contain child items et each level 
+(e.g. <code>[ 'accounts', 'checks', 'earnings' ]</code>).</p>
+
+<p><a href="http://jsfiddle.net/Wijmo5/t0ncmjwp/" target="_blank" class="btn btn-info">
+  <img src="images/fiddle.png"/>
+  Live Example
+</a>
+</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>clientSize</b></td>
+      <td><a href="topic/wijmo.Size.Class.html"><b>Size</b></a></td>
+      <td>Gets the client size of the control (control size minus headers and scrollbars).<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>collectionView</b></td>
+      <td><b>ICollectionView</b></td>
+      <td>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> that contains the grid data.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>columnHeaders</b></td>
+      <td><a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a></td>
+      <td>Gets the <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a> that contains the column header cells.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>columnLayout</b></td>
+      <td><b>string</b></td>
+      <td><p>Gets or sets a JSON string that defines the current column layout.</p>
+
+<p>The column layout string represents an array with the columns and their
+properties. It can be used to persist column layouts defined by users so 
+they are preserved across sessions, and can also be used to implement undo/redo
+functionality in applications that allow users to modify the column layout.</p>
+
+<p>The column layout string does not include <b>dataMap</b> properties, because
+data maps are not serializable.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>columns</b></td>
+      <td><a href="topic/wijmo.grid.ColumnCollection.Class.html"><b>ColumnCollection</b></a></td>
+      <td>Gets the grid's column collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>controlRect</b></td>
+      <td><a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
+      <td>Gets the bounding rectangle of the control in page coordinates.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span><span class="badge" title="Field">F</span></td>
+      <td><b>controlTemplate</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the template used to instantiate <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> controls.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>deferResizing</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that determines whether row and column resizing 
+should be deferred until the user releases the mouse button.</p>
+
+<p>By default, <b>deferResizing</b> is set to false, causing rows and columns
+to be resized as the user drags the mouse. Setting this property to true
+causes the grid to show a resizing marker and to resize the row or column
+only when the user releases the mouse button.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>editRange</b></td>
+      <td><a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a></td>
+      <td>Gets a <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a> that identifies the cell currently being edited.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>frozenColumns</b></td>
+      <td><b>number</b></td>
+      <td><p>Gets or sets the number of frozen columns.</p>
+
+<p>Frozen columns do not scroll, but the cells they contain 
+may be selected and edited.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>frozenRows</b></td>
+      <td><b>number</b></td>
+      <td><p>Gets or sets the number of frozen rows.</p>
+
+<p>Frozen rows do not scroll, but the cells they contain 
+may be selected and edited.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>groupHeaderFormat</b></td>
+      <td><b>string</b></td>
+      <td><p>Gets or sets the format string used to create the group header content.</p>
+
+<p>The string may contain any text, plus the following replacement strings:
+<ul>
+  <li><b>{name}</b>: The name of the property being grouped on.</li>
+  <li><b>{value}</b>: The value of the property being grouped on.</li>
+  <li><b>{level}</b>: The group level.</li>
+  <li><b>{count}</b>: The total number of items in this group.</li>
+</ul></p>
+
+<p>If a column is bound to the grouping property, the column header is used 
+to replace the <code>{name}</code> parameter, and the column's format and
+data maps are used to calculate the <code>{value}</code> parameter.
+If no column is available, the group information is used instead.</p>
+
+<p>You may add invisible columns bound to the group properties in order to 
+customize the formatting of the group header cells.</p>
+
+<p>The default value for this property is<br/>
+<code>'{name}: &lt;b&gt;{value}&lt;/b&gt;({count:n0} items)'</code>,
+which creates group headers similar to<br/>
+<code>'Country: <b>UK</b> (12 items)'</code> or<br/>
+<code>'Country: <b>Japan</b> (8 items)'</code>.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>headersVisibility</b></td>
+      <td><a href="topic/wijmo.grid.HeadersVisibility.Enum.html"><b>HeadersVisibility</b></a></td>
+      <td>Gets or sets a value that determines whether the row and column headers
+are visible.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>hostElement</b></td>
+      <td><b>HTMLElement</b></td>
+      <td>Gets the DOM element that is hosting the control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>imeEnabled</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that determines whether the grid should support
+Input Method Editors (IME) while not in edit mode.</p>
+
+<p>This property is relevant only for sites/applications in Japanese,
+Chinese, Korean, and other languages that require IME support.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isDisabled</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that determines whether the control is disabled.</p>
+
+<p>Disabled controls cannot get mouse or keyboard events.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isReadOnly</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that determines whether the user can modify
+cell values using the mouse and keyboard.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isTouching</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether the control is currently handling a touch event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isUpdating</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether the control is currently being updated.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>itemFormatter</b></td>
+      <td><b>Function</b></td>
+      <td><p>Gets or sets a formatter function used to customize cells on this grid.</p>
+
+<p>The formatter function can add any content to any cell. It provides 
+complete flexibility over the appearance and behavior of grid cells.</p>
+
+<p>If specified, the function should take four parameters: the <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>
+that contains the cell, the row and column indices of the cell, and the
+HTML element that represents the cell. The function will typically change
+the <b>innerHTML</b> property of the cell element.</p>
+
+<p>For example:
+<pre>
+flex.itemFormatter = function(panel, r, c, cell) {
+  if (panel.cellType == CellType.Cell) {
+    // draw sparklines in the cell
+    var col = panel.columns[c];
+    if (col.name == 'sparklines') {
+      cell.innerHTML = getSparklike(panel, r, c);
+    }
+  }
+}
+</pre></p>
+
+<p>Note that the FlexGrid recycles cells, so if your <b>itemFormatter</b> 
+modifies the cell's style attributes, you must make sure that it resets 
+these attributes for cells that should not have them. For example:</p>
+
+<p><pre>
+flex.itemFormatter = function(panel, r, c, cell) {
+  // reset attributes we are about to customize
+  var s = cell.style;
+  s.color = '';
+  s.backgroundColor = '';
+  // customize color and backgroundColor attributes for this cell
+  ...
+}
+</pre></p>
+
+<p>If you have a scenario where multiple clients may want to customize the
+grid rendering (for example when creating directives or re-usable libraries),
+consider using the <b>formatItem</b> event instead. The event allows multiple
+clients to attach their own handlers.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>itemsSource</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> that contains items shown on the grid.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>mergeManager</b></td>
+      <td><a href="topic/wijmo.grid.MergeManager.Class.html"><b>MergeManager</b></a></td>
+      <td>Gets or sets the <a href="topic/wijmo.grid.MergeManager.Class.html"><b>MergeManager</b></a> object responsible for determining how cells
+should be merged.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>preserveOutlineState</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that determines whether the grid should preserve
+the expanded/collapsed state of nodes when the data is refreshed.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>preserveSelectedState</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that determines whether the grid should preserve
+the selected state of rows when the data is refreshed.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>rowHeaders</b></td>
+      <td><a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a></td>
+      <td>Gets the <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a> that contains the row header cells.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>rows</b></td>
+      <td><a href="topic/wijmo.grid.RowCollection.Class.html"><b>RowCollection</b></a></td>
+      <td>Gets the grid's row collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>scrollPosition</b></td>
+      <td><a href="topic/wijmo.Point.Class.html"><b>Point</b></a></td>
+      <td>Gets or sets a <a href="topic/wijmo.Point.Class.html"><b>Point</b></a> that represents the value of the grid's scrollbars.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>scrollSize</b></td>
+      <td><a href="topic/wijmo.Size.Class.html"><b>Size</b></a></td>
+      <td>Gets the size of the grid content in pixels.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>selectedItems</b></td>
+      <td><b>any</b><b>[]</b></td>
+      <td><p>Gets or sets an array containing the data items that are currently selected.</p>
+
+<p>Note: this property can be read in all selection modes, but it can be
+set only when <b>selectionMode</b> is set to <b>SelectionMode.ListBox</b>.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>selectedRows</b></td>
+      <td><b>any</b><b>[]</b></td>
+      <td><p>Gets or sets an array containing the rows that are currently selected.</p>
+
+<p>Note: this property can be read in all selection modes, but it can be
+set only when <b>selectionMode</b> is set to <b>SelectionMode.ListBox</b>.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>selection</b></td>
+      <td><a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a></td>
+      <td>Gets or sets the current selection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>selectionMode</b></td>
+      <td><a href="topic/wijmo.grid.SelectionMode.Enum.html"><b>SelectionMode</b></a></td>
+      <td>Gets or sets the current selection mode.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>showAlternatingRows</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that determines whether the grid should add the 'wj-alt' 
+class to cells in alternating rows.</p>
+
+<p>Setting this property to false disables alternate row styles without any
+changes to the CSS.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>showGroups</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that determines whether the grid should insert group 
+rows to delimit data groups.</p>
+
+<p>Data groups are created by modifying the <b>groupDescriptions</b>
+property of the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object used as a the grid's <b>itemsSource</b>.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>showMarquee</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that indicates whether the grid should
+display a marquee element around the current selection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>showSelectedHeaders</b></td>
+      <td><a href="topic/wijmo.grid.HeadersVisibility.Enum.html"><b>HeadersVisibility</b></a></td>
+      <td>Gets or sets a value that indicates whether the grid should
+add class names to indicate selected header cells.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>showSort</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that determines whether the grid should display 
+sort indicators in the column headers.</p>
+
+<p>Sorting is controlled by the <b>sortDescriptions</b>
+property of the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object used as a the grid's
+<b>itemsSource</b>.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>sortRowIndex</b></td>
+      <td><b>number</b></td>
+      <td><p>Gets or sets the index of row in the column header panel that
+shows and changes the current sort.</p>
+
+<p>This property is set to null by default, causing the last row
+in the <b>columnHeaders</b> panel to act as the sort row.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>stickyHeaders</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value that determines whether column headers should remain
+visible when the user scrolls the document.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>topLeftCells</b></td>
+      <td><a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a></td>
+      <td>Gets the <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a> that contains the top left cells.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>treeIndent</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the indent used to offset row groups of different levels.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>viewRange</b></td>
+      <td><a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a></td>
+      <td>Gets the range of cells currently in view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>addEventListener</b>&#8203;(target, type, fn, capture?)</td>
+      <td><p>
+<b>target</b> (<b>EventTarget</b>): Target element for the event.<br/><b>type</b> (<b>string</b>): String that specifies the event.<br/><b>fn</b> (<b>any</b>): Function to execute when the event occurs.<br/><b>capture?</b> (<b>boolean</b>): Whether the listener is capturing.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
+</td>
+      <td><p>Adds an event listener to an element owned by this <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>.</p>
+
+<p>The control keeps a list of attached listeners and their handlers,
+making it easier to remove them when the control is disposed (see the
+<b>dispose</b> and <b>removeEventListener</b> method).</p>
+
+<p>Failing to remove event listeners may cause memory leaks.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>applyTemplate</b>&#8203;(classNames, template, parts, namePart?): <b>HTMLElement</b></td>
+      <td><p>
+<b>classNames</b> (<b>string</b>): Names of classes to add to the control's host element.<br/><b>template</b> (<b>string</b>): An HTML string that defines the control template.<br/><b>parts</b> (<b>Object</b>): A dictionary of part variables and their names.<br/><b>namePart?</b> (<b>string</b>): Name of the part to be named after the host element. This
+determines how the control submits data when used in forms.<br/></p>
+</td>
+      <td><p>Applies the template to a new instance of a control, and returns the root element.</p>
+
+<p>This method should be called by constructors of templated controls.
+It is responsible for binding the template parts to the 
+corresponding control members.</p>
+
+<p>For example, the code below applies a template to an instance
+of an <a href="topic/wijmo.input.InputNumber.Class.html"><b>InputNumber</b></a> control. The template must contain elements 
+with the 'wj-part' attribute set to 'input', 'btn-inc', and 'btn-dec'.
+The control members '_tbx', '_btnUp', and '_btnDn' will be assigned
+references to these elements.</p>
+
+<p><pre>this.applyTemplate('wj-control wj-inputnumber', template, {
+  _tbx: 'input',
+  _btnUp: 'btn-inc',
+  _btnDn: 'btn-dec'
+}, 'input');</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>autoSizeColumn</b>&#8203;(c, header?, extra?)</td>
+      <td><p>
+<b>c</b> (<b>number</b>): Index of the column to resize.<br/><b>header?</b> (<b>boolean</b>): Whether the column index refers to a regular or a header row.<br/><span class="text-info">(default value: <b>false</b>)</span><br/><b>extra?</b> (<b>number</b>): Extra spacing, in pixels.<br/><span class="text-info">(default value: <b>4</b>)</span><br/></p>
+</td>
+      <td>Resizes a column to fit its content.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>autoSizeColumns</b>&#8203;(firstColumn?, lastColumn?, header?, extra?)</td>
+      <td><p>
+<b>firstColumn?</b> (<b>number</b>): Index of the first column to resize (defaults to the first column).<br/><b>lastColumn?</b> (<b>number</b>): Index of the last column to resize (defaults to the last column).<br/><b>header?</b> (<b>boolean</b>): Whether the column indices refer to regular or header columns.<br/><span class="text-info">(default value: <b>false</b>)</span><br/><b>extra?</b> (<b>number</b>): Extra spacing, in pixels.<br/><span class="text-info">(default value: <b>4</b>)</span><br/></p>
+</td>
+      <td><p>Resizes a range of columns to fit their content.</p>
+
+<p>The grid will always measure all rows in the current view range, plus up to 2,000 rows
+not currently in view. If the grid contains a large amount of data (say 50,000 rows), 
+then not all rows will be measured since that could potentially take a long time.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>autoSizeRow</b>&#8203;(r, header?, extra?)</td>
+      <td><p>
+<b>r</b> (<b>number</b>): Index of the row to resize.<br/><b>header?</b> (<b>boolean</b>): Whether the row index refers to a regular or a header row.<br/><span class="text-info">(default value: <b>false</b>)</span><br/><b>extra?</b> (<b>number</b>): Extra spacing, in pixels.<br/><span class="text-info">(default value: <b>0</b>)</span><br/></p>
+</td>
+      <td>Resizes a row to fit its content.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>autoSizeRows</b>&#8203;(firstRow?, lastRow?, header?, extra?)</td>
+      <td><p>
+<b>firstRow?</b> (<b>number</b>): Index of the first row to resize.<br/><b>lastRow?</b> (<b>number</b>): Index of the last row to resize.<br/><b>header?</b> (<b>boolean</b>): Whether the row indices refer to regular or header rows.<br/><span class="text-info">(default value: <b>false</b>)</span><br/><b>extra?</b> (<b>number</b>): Extra spacing, in pixels.<br/><span class="text-info">(default value: <b>0</b>)</span><br/></p>
+</td>
+      <td>Resizes a range of rows to fit their content.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>beginUpdate</b>&#8203;()</td>
+      <td></td>
+      <td>Suspends notifications until the next call to <b>endUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>collapseGroupsToLevel</b>&#8203;(level)</td>
+      <td><p>
+<b>level</b> (<b>number</b>): Maximum group level to show.<br/></p>
+</td>
+      <td>Collapses all the group rows to a given level.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>constructor</b>&#8203;(element, options?): <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a></td>
+      <td><p>
+<b>element</b> (<b>any</b>): The DOM element that will host the control, or a selector for the host element (e.g. '#theCtrl').<br/><b>options?</b> (): JavaScript object containing initialization data for the control.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> class.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>containsFocus</b>&#8203;(): <b>boolean</b></td>
+      <td></td>
+      <td>Checks whether this control contains the focused element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>deferUpdate</b>&#8203;(fn)</td>
+      <td><p>
+<b>fn</b> (<b>Function</b>): Function to be executed.<br/></p>
+</td>
+      <td><p>Executes a function within a <b>beginUpdate</b>/<b>endUpdate</b> block.</p>
+
+<p>The control will not be updated until the function has been executed.
+This method ensures <b>endUpdate</b> is called even if the function throws
+an exception.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>dispose</b>&#8203;()</td>
+      <td></td>
+      <td>Disposes of the control by removing its association with the host element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>disposeAll</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<b>HTMLElement</b>): Container element.<br/></p>
+</td>
+      <td>Disposes of all Wijmo controls contained in an HTML element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>endUpdate</b>&#8203;()</td>
+      <td></td>
+      <td>Resumes notifications suspended by calls to <b>beginUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>finishEditing</b>&#8203;(cancel?): <b>boolean</b></td>
+      <td><p>
+<b>cancel?</b> (<b>boolean</b>): Whether pending edits should be canceled or committed.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
+</td>
+      <td>Commits any pending edits and exits edit mode.<br/><br/><b>Returns</b> True if the edit operation finished successfully.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>focus</b>&#8203;()</td>
+      <td></td>
+      <td>Overridden to set the focus to the grid without scrolling the whole grid into view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>getCellBoundingRect</b>&#8203;(r, c, raw?): <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
+      <td><p>
+<b>r</b> (<b>number</b>): Index of the row that contains the cell.<br/><b>c</b> (<b>number</b>): Index of the column that contains the cell.<br/><b>raw?</b> (<b>boolean</b>): Whether to return the rectangle in raw panel coordinates as opposed to viewport coordinates.<br/></p>
+</td>
+      <td><p>Gets a the bounds of a cell element in viewport coordinates.</p>
+
+<p>This method returns the bounds of cells in the <b>cells</b> 
+panel (scrollable data cells). To get the bounds of cells
+in other panels, use the <b>getCellBoundingRect</b> method
+in the appropriate <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a> object.</p>
+
+<p>The returned value is a <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a> object which contains the
+position and dimensions of the cell in viewport coordinates.
+The viewport coordinates are the same used by the 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element.getBoundingClientRect">getBoundingClientRect</a>
+method.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>getCellData</b>&#8203;(r, c, formatted): <b>any</b></td>
+      <td><p>
+<b>r</b> (<b>number</b>): Index of the row that contains the cell.<br/><b>c</b> (<b>number</b>): Index of the column that contains the cell.<br/><b>formatted</b> (<b>boolean</b>): Whether to format the value for display.<br/></p>
+</td>
+      <td>Gets the value stored in a cell in the scrollable area of the grid.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>getClipString</b>&#8203;(rng?): <b>string</b></td>
+      <td><p>
+<b>rng?</b> (<a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a>): <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a> to copy. If omitted, the current selection is used.<br/></p>
+</td>
+      <td><p>Gets the content of a <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a> as a string suitable for 
+copying to the clipboard.</p>
+
+<p>Hidden rows and columns are not included in the clip string.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>getColumn</b>&#8203;(name): <a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a></td>
+      <td><p>
+<b>name</b> (<b>string</b>): The name or binding to find.<br/></p>
+</td>
+      <td><p>Gets a column by name or by binding.</p>
+
+<p>The method searches the column by name. If a column with the given name 
+is not found, it searches by binding. The searches are case-sensitive.</p><br/><br/><b>Returns</b> The column with the specified name or binding, or null if not found.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>getControl</b>&#8203;(element): <a href="topic/wijmo.Control.Class.html"><b>Control</b></a></td>
+      <td><p>
+<b>element</b> (<b>any</b>): The DOM element that is hosting the control, or a selector for the host element (e.g. '#theCtrl').<br/></p>
+</td>
+      <td>Gets the control that is hosted in a given DOM element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>getMergedRange</b>&#8203;(p, r, c, clip?): <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a></td>
+      <td><p>
+<b>p</b> (<a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>): The <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a> that contains the range.<br/><b>r</b> (<b>number</b>): Index of the row that contains the cell.<br/><b>c</b> (<b>number</b>): Index of the column that contains the cell.<br/><b>clip?</b> (<b>boolean</b>): Whether to clip the merged range to the grid's current view range.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Gets a <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a> that specifies the merged extent of a cell
+in a <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>.<br/><br/><b>Returns</b> A <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a> that specifies the merged range, or null if the cell is not merged.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>getSelectedState</b>&#8203;(r, c): <a href="topic/wijmo.grid.SelectedState.Enum.html"><b>SelectedState</b></a></td>
+      <td><p>
+<b>r</b> (<b>number</b>): Row index of the cell to inspect.<br/><b>c</b> (<b>number</b>): Column index of the cell to inspect.<br/></p>
+</td>
+      <td>Gets a <a href="topic/wijmo.grid.SelectedState.Enum.html"><b>SelectedState</b></a> value that indicates the selected state of a cell.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>getTemplate</b>&#8203;(): <b>string</b></td>
+      <td></td>
+      <td><p>Gets the HTML template used to create instances of the control.</p>
+
+<p>This method traverses up the class hierarchy to find the nearest ancestor that
+specifies a control template. For example, if you specify a prototype for the
+<a href="topic/wijmo.input.ComboBox.Class.html"><b>ComboBox</b></a> control, it will override the template defined by the <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a> 
+base class.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>hitTest</b>&#8203;(pt, y?): <a href="topic/wijmo.grid.HitTestInfo.Class.html"><b>HitTestInfo</b></a></td>
+      <td><p>
+<b>pt</b> (<b>any</b>): <a href="topic/wijmo.Point.Class.html"><b>Point</b></a> to investigate, in page coordinates, or a MouseEvent object, or x coordinate of the point.<br/><b>y?</b> (<b>number</b>): Y coordinate of the point in page coordinates (if the first parameter is a number).<br/></p>
+</td>
+      <td><p>Gets a <a href="topic/wijmo.grid.HitTestInfo.Class.html"><b>HitTestInfo</b></a> object with information about a given point.</p>
+
+<p>For example:</p>
+
+<p><pre>// hit test a point when the user clicks on the grid
+flex.hostElement.addEventListener('click', function (e) {
+  var ht = flex.hitTest(e.pageX, e.pageY);
+  console.log('you clicked a cell of type "' +
+    wijmo.grid.CellType[ht.cellType] + '".');
+});</pre></p><br/><br/><b>Returns</b> A <a href="topic/wijmo.grid.HitTestInfo.Class.html"><b>HitTestInfo</b></a> object with information about the point.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>initialize</b>&#8203;(options)</td>
+      <td><p>
+<b>options</b> (<b>any</b>): Object that contains the initialization data.<br/></p>
+</td>
+      <td><p>Initializes the control by copying the properties from a given object.</p>
+
+<p>This method allows you to initialize controls using plain data objects
+instead of setting the value of each property in code.</p>
+
+<p>For example:
+<pre>
+grid.initialize({
+  itemsSource: myList,
+  autoGenerateColumns: false,
+  columns: [
+    { binding: 'id', header: 'Code', width: 130 },
+    { binding: 'name', header: 'Name', width: 60 } 
+  ]
+});
+// is equivalent to
+grid.itemsSource = myList;
+grid.autoGenerateColumns = false;
+// etc.
+</pre></p>
+
+<p>The initialization data is type-checked as it is applied. If the 
+initialization object contains unknown property names or invalid
+data types, this method will throw.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>invalidate</b>&#8203;(fullUpdate?)</td>
+      <td><p>
+<b>fullUpdate?</b> (<b>boolean</b>): Whether to update the control layout as well as the content.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Invalidates the control causing an asynchronous refresh.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>invalidateAll</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<b>HTMLElement</b>): Container element. If set to null, all Wijmo controls
+on the page will be invalidated.<br/></p>
+</td>
+      <td><p>Invalidates all Wijmo controls contained in an HTML element.</p>
+
+<p>Use this method when your application has dynamic panels that change
+the control's visibility or dimensions. For example, splitters, accordions,
+and tab controls usually change the visibility of its content elements.
+In this case, failing to notify the controls contained in the element
+may cause them to stop working properly.</p>
+
+<p>If this happens, you must handle the appropriate event in the dynamic
+container and call the <b>invalidateAll</b> method so the contained
+Wijmo controls will update their layout information properly.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isRangeValid</b>&#8203;(rng): <b>boolean</b></td>
+      <td><p>
+<b>rng</b> (<a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a>): Range to check.<br/></p>
+</td>
+      <td>Checks whether a given CellRange is valid for this grid's row and column collections.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onAutoSizedColumn</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>autoSizedColumn</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onAutoSizedRow</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>autoSizedRow</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onAutoSizingColumn</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>autoSizingColumn</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onAutoSizingRow</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>autoSizingRow</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onBeginningEdit</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>beginningEdit</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onCellEditEnded</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>cellEditEnded</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onCellEditEnding</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td><p>Raises the <b>cellEditEnding</b> event.</p>
+
+<p>You can use this event to perform validation and prevent invalid edits.
+For example, the code below prevents users from entering values that
+do not contain the letter 'a'. The code demonstrates how you can obtain
+the old and new values before the edits are applied.</p>
+
+<p><pre>function cellEditEnding (sender, e) {
+  // get old and new values
+  var flex = sender,
+      oldVal = flex.getCellData(e.row, e.col),
+      newVal = flex.activeEditor.value;
+  // cancel edits if newVal doesn't contain 'a'
+  e.cancel = newVal.indexOf('a') &lt; 0;
+}</pre></p><br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onCopied</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>copied</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onCopying</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>copying</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onDeletedRow</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>deletedRow</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onDeletingRow</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>deletingRow</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onDraggedColumn</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>draggedColumn</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onDraggedRow</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>draggedRow</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onDraggingColumn</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>draggingColumn</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onDraggingRow</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>draggingRow</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onFormatItem</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.FormatItemEventArgs.Class.html"><b>FormatItemEventArgs</b></a>): <a href="topic/wijmo.grid.FormatItemEventArgs.Class.html"><b>FormatItemEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>formatItem</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onGotFocus</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>gotFocus</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onGroupCollapsedChanged</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>groupCollapsedChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onGroupCollapsedChanging</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>groupCollapsedChanging</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onItemsSourceChanged</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>itemsSourceChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onLoadedRows</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>loadedRows</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onLoadingRows</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a>): <a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>loadingRows</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onLostFocus</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>lostFocus</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onPasted</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>pasted</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onPastedCell</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>pastedCell</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onPasting</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>pasting</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onPastingCell</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>pastingCell</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onPrepareCellForEdit</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>prepareCellForEdit</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onResizedColumn</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>resizedColumn</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onResizedRow</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>resizedRow</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onResizingColumn</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>resizingColumn</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onResizingRow</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>resizingRow</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onRowAdded</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>rowAdded</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onRowEditEnded</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>rowEditEnded</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onRowEditEnding</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>rowEditEnding</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onScrollPositionChanged</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>scrollPositionChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onSelectionChanged</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>selectionChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onSelectionChanging</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>selectionChanging</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onSortedColumn</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>sortedColumn</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onSortingColumn</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a>): <a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>sortingColumn</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onUpdatedLayout</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>updatedLayout</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onUpdatedView</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>updatedView</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onUpdatingLayout</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a>): <a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>updatingLayout</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onUpdatingView</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a>): <a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>updatingView</b> event.<br/><br/><b>Returns</b> True if the event was not canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>refresh</b>&#8203;(fullUpdate?)</td>
+      <td><p>
+<b>fullUpdate?</b> (<b>boolean</b>): Whether to update the grid layout and content, or just the content.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Refreshes the grid display.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>refreshAll</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<b>HTMLElement</b>): Container element. If set to null, all Wijmo controls
+on the page will be invalidated.<br/></p>
+</td>
+      <td><p>Refreshes all Wijmo controls contained in an HTML element.</p>
+
+<p>This method is similar to <b>invalidateAll</b>, except the controls
+are updated immediately rather than after an interval.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>refreshCells</b>&#8203;(fullUpdate, recycle?, state?)</td>
+      <td><p>
+<b>fullUpdate</b> (<b>boolean</b>): Whether to update the grid layout and content, or just the content.<br/><b>recycle?</b> (<b>boolean</b>): Whether to recycle existing elements.<br/><b>state?</b> (<b>boolean</b>): Whether to keep existing elements and update their state.<br/></p>
+</td>
+      <td>Refreshes the grid display.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>removeEventListener</b>&#8203;(target?, type?, capture?): <b>number</b></td>
+      <td><p>
+<b>target?</b> (<b>EventTarget</b>): Target element for the event. If null, removes listeners attached to all targets.<br/><b>type?</b> (<b>string</b>): String that specifies the event. If null, removes listeners attached to all events.<br/><b>capture?</b> (<b>boolean</b>): Whether the listener is capturing. If null, removes capturing and non-capturing listeners.<br/></p>
+</td>
+      <td>Removes one or more event listeners attached to elements owned by this <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>.<br/><br/><b>Returns</b> The number of listeners removed.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>scrollIntoView</b>&#8203;(r, c): <b>boolean</b></td>
+      <td><p>
+<b>r</b> (<b>number</b>): Index of the row to scroll into view.<br/><b>c</b> (<b>number</b>): Index of the column to scroll into view.<br/></p>
+</td>
+      <td>Scrolls the grid to bring a specific cell into view.<br/><br/><b>Returns</b> True if the grid scrolled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>select</b>&#8203;(rng, show?)</td>
+      <td><p>
+<b>rng</b> (<b>any</b>): Range to select.<br/><b>show?</b> (<b>any</b>): Whether to scroll the new selection into view.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Selects a cell range and optionally scrolls it into view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>setCellData</b>&#8203;(r, c, value, coerce?, invalidate?): <b>boolean</b></td>
+      <td><p>
+<b>r</b> (<b>number</b>): Index of the row that contains the cell.<br/><b>c</b> (<b>any</b>): Index, name, or binding of the column that contains the cell.<br/><b>value</b> (<b>any</b>): Value to store in the cell.<br/><b>coerce?</b> (<b>boolean</b>): Whether to change the value automatically to match the column's data type.<br/><span class="text-info">(default value: <b>true</b>)</span><br/><b>invalidate?</b> (<b>boolean</b>): Whether to invalidate the grid to show the change.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Sets the value of a cell in the scrollable area of the grid.<br/><br/><b>Returns</b> True if the value was stored successfully, false otherwise.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>setClipString</b>&#8203;(text, rng?)</td>
+      <td><p>
+<b>text</b> (<b>string</b>): Tab and newline delimited text to parse into the grid.<br/><b>rng?</b> (<a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a>): <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a> to copy. If omitted, the current selection is used.<br/></p>
+</td>
+      <td><p>Parses a string into rows and columns and applies the content to a given range.</p>
+
+<p>Hidden rows and columns are skipped.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>startEditing</b>&#8203;(fullEdit?, r?, c?, focus?): <b>boolean</b></td>
+      <td><p>
+<b>fullEdit?</b> (<b>boolean</b>): Whether to stay in edit mode when the user presses the cursor keys. Defaults to false.<br/><span class="text-info">(default value: <b>true</b>)</span><br/><b>r?</b> (<b>number</b>): Index of the row to be edited. Defaults to the currently selected row.<br/><b>c?</b> (<b>number</b>): Index of the column to be edited. Defaults to the currently selected column.<br/><b>focus?</b> (<b>boolean</b>): Whether to give the editor the focus when editing starts. Defaults to true.<br/></p>
+</td>
+      <td><p>Starts editing a given cell.</p>
+
+<p>Editing in the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> is similar to editing in Excel:
+Pressing F2 or double-clicking a cell puts the grid in <b>full-edit</b> mode. 
+In this mode, the cell editor remains active until the user presses Enter, Tab, 
+or Escape, or until he moves the selection with the mouse. In full-edit mode, 
+pressing the cursor keys does not cause the grid to exit edit mode.</p>
+
+<p>Typing text directly into a cell puts the grid in <b>quick-edit mode</b>.
+In this mode, the cell editor remains active until the user presses Enter, 
+Tab, or Escape, or any arrow keys.</p>
+
+<p>Full-edit mode is normally used to make changes to existing values. 
+Quick-edit mode is normally used for entering new data quickly.</p>
+
+<p>While editing, the user can toggle between full and quick modes by 
+pressing the F2 key.</p><br/><br/><b>Returns</b> True if the edit operation started successfully.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>autoSizedColumn</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs after the user auto-sizes a column by double-clicking the 
+right edge of a column header cell.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>autoSizedRow</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs after the user auto-sizes a row by double-clicking the 
+bottom edge of a row header cell.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>autoSizingColumn</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs before the user auto-sizes a column by double-clicking the 
+right edge of a column header cell.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>autoSizingRow</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs before the user auto-sizes a row by double-clicking the 
+bottom edge of a row header cell.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>beginningEdit</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs before a cell enters edit mode.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>cellEditEnded</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs when a cell edit has been committed or canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>cellEditEnding</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs when a cell edit is ending.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>copied</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs after the user has copied the selection content to the 
+clipboard by pressing one of the clipboard shortcut keys
+(see the <b>autoClipboard</b> property).<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>copying</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td><p>Occurs when the user is copying the selection content to the 
+clipboard by pressing one of the clipboard shortcut keys
+(see the <b>autoClipboard</b> property).</p>
+
+<p>The event handler may cancel the copy operation.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>deletedRow</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs after the user has deleted a row by pressing the Delete 
+key (see the <b>allowDelete</b> property).<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>deletingRow</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td><p>Occurs when the user is deleting a selected row by pressing the Delete 
+key (see the <b>allowDelete</b> property).</p>
+
+<p>The event handler may cancel the row deletion.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>draggedColumn</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs when the user finishes dragging a column.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>draggedRow</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs when the user finishes dragging a row.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>draggingColumn</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs when the user starts dragging a column.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>draggingRow</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs when the user starts dragging a row.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>formatItem</b></td>
+      <td><a href="topic/wijmo.grid.FormatItemEventArgs.Class.html"><b>FormatItemEventArgs</b></a></td>
+      <td><p>Occurs when an element representing a cell has been created.</p>
+
+<p>This event can be used to format cells for display. It is similar 
+in purpose to the <b>itemFormatter</b> property, but has the advantage 
+of allowing multiple independent handlers.</p>
+
+<p>For example, this code removes the 'wj-wrap' class from cells in 
+group rows:</p>
+
+<p><pre>flex.formatItem.addHandler(function (s, e) {
+  if (flex.rows[e.row] instanceof wijmo.grid.GroupRow) {
+    wijmo.removeClass(e.cell, 'wj-wrap');
+  }
+});</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>gotFocus</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs when the control gets the focus.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>groupCollapsedChanged</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs after a group has been expanded or collapsed.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>groupCollapsedChanging</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs when a group is about to be expanded or collapsed.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>itemsSourceChanged</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs after the grid has been bound to a new items source.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>loadedRows</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs after the grid rows have been bound to items in the data source.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>loadingRows</b></td>
+      <td><a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a></td>
+      <td>Occurs before the grid rows are bound to items in the data source.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>lostFocus</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs when the control loses the focus.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>pasted</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs after the user has pasted content from the 
+clipboard by pressing one of the clipboard shortcut keys
+(see the <b>autoClipboard</b> property).<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>pastedCell</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs after the user has pasted content from the 
+clipboard into a cell (see the <b>autoClipboard</b> property).<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>pasting</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td><p>Occurs when the user is pasting content from the clipboard 
+by pressing one of the clipboard shortcut keys
+(see the <b>autoClipboard</b> property).</p>
+
+<p>The event handler may cancel the copy operation.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>pastingCell</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td><p>Occurs when the user is pasting content from the clipboard 
+into a cell (see the <b>autoClipboard</b> property).</p>
+
+<p>The event handler may cancel the copy operation.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>prepareCellForEdit</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs when an editor cell is created and before it becomes active.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>resizedColumn</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs when the user finishes resizing a column.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>resizedRow</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs when the user finishes resizing rows.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>resizingColumn</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs as columns are resized.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>resizingRow</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs as rows are resized.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>rowAdded</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td><p>Occurs when the user creates a new item by editing the new row template
+(see the <b>allowAddNew</b> property).</p>
+
+<p>The event handler may customize the content of the new item or cancel
+the new item creation.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>rowEditEnded</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs when a row edit has been committed or canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>rowEditEnding</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs when a row edit is ending, before the changes are committed or canceled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>scrollPositionChanged</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs after the control has scrolled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>selectionChanged</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs after selection changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>selectionChanging</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs before selection changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>sortedColumn</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs after the user applies a sort by clicking on a column header.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>sortingColumn</b></td>
+      <td><a href="topic/wijmo.grid.CellRangeEventArgs.Class.html"><b>CellRangeEventArgs</b></a></td>
+      <td>Occurs before the user applies a sort by clicking on a column header.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>updatedLayout</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs after the grid has updated its internal layout.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>updatedView</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td><p>Occurs when the grid finishes creating/updating the elements that 
+make up the current view.</p>
+
+<p>The grid updates the view in response to several actions, including:</p>
+
+<p><ul>
+<li>refreshing the grid or its data source,</li>
+<li>adding, removing, or changing rows or columns,</li>
+<li>resizing or scrolling the grid,</li>
+<li>changing the selection.</li>
+</ul></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>updatingLayout</b></td>
+      <td><a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a></td>
+      <td>Occurs before the grid updates its internal layout.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>updatingView</b></td>
+      <td><a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a></td>
+      <td>Occurs when the grid starts creating/updating the elements that
+make up the current view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

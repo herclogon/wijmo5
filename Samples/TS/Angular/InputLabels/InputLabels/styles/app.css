@@ -1,0 +1,56 @@
+﻿form {
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    max-width: 900px;
+}
+.wj-dialog-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+    .wj-dialog-body > .wj-labeled-input {
+        width: 200px;
+        margin: 0 .15in;
+    }
+
+body {
+    background-color: #f8f8f8;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    padding: 0 0 10px;
+    margin-bottom: 1in;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #c2185b;
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-left: -12px;
+}
+
+.header {
+    color: #f8d2e1;
+    background-color: #c2185b;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        color: #fff;
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+    .header a {
+        color: inherit;
+        font-weight: bold;
+    }
+

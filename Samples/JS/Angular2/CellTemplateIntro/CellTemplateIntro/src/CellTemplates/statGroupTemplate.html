@@ -1,0 +1,30 @@
+﻿<div style="font-size:small;text-align:center">
+    <wj-flex-grid *ngIf="colDef.reportType == 'Table'"
+                    [itemsSource]="cell.item.items"
+                    [isReadOnly]="false"
+                    [headersVisibility]="'None'"
+                    [selectionMode]="'Cell'"
+                    [format]="cell.col.format"
+                    style="height:142px;width:200px">
+        <wj-flex-grid-column 
+            binding="date" 
+            [width]="'*'">
+        </wj-flex-grid-column>
+        <wj-flex-grid-column 
+            [binding]="cell.col.binding" 
+            [width]="'*'">
+        </wj-flex-grid-column>
+    </wj-flex-grid>
+    <wj-flex-pie 
+        *ngIf="colDef.reportType == 'Chart'"
+        [itemsSource]="cell.item.items" 
+        [binding]="cell.col.binding" 
+        tooltipContent="<b>{value:{{cell.col.format}}}</b><br/>{date:MMM yyyy}" 
+        style="height:140px;width:140px;display:inline-block;font-size:9px">
+        <wj-flex-chart-legend [position]="'None'"></wj-flex-chart-legend>
+        <wj-flex-pie-data-label 
+            [content]="'{date:MMM}'" 
+            [position]="'Inside'">
+        </wj-flex-pie-data-label>
+    </wj-flex-pie>
+</div>

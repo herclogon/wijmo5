@@ -1,0 +1,962 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FlexChart Introduction</title>
+
+    <!-- ensure IE uses the latest version of IE (yes, yes...) -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Third Party -->
+    <script src="http://knockoutjs.com/downloads/knockout-3.2.0.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.knockout.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="styles/vendor/wijmo.min.css" />
+
+    <!-- app styles -->
+    <link href="styles/app.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="header visible-xs visible-sm">
+        <div class="container">
+            <h1>
+                FlexChart 101</h1>
+        </div>
+    </div>
+    <div class="header hidden-xs hidden-sm">
+        <div class="container">
+            <img src="resources/wijmo5.png" />
+            <h1>
+                FlexChart 101</h1>
+            <p>
+                This page shows how to get started with Wijmo's FlexChart control.</p>
+        </div>
+    </div>
+    <div class="container">
+
+        <!-- getting started -->
+        <h2>
+            Getting Started</h2>
+        <p>
+            Steps for getting started with the FlexChart in KnockoutJS applications:</p>
+        <ol>
+            <li>Add references to KnockoutJS, Wijmo, and Wijmo's KnockoutJS bindings.</li>
+            <li>Add a view model to provide data and logic.</li>
+            <li>Add a Wijmo FlexChart control to the page and bind it to your data.</li>
+            <li>(Optional) Add some CSS to customize the input control's appearance.</li>
+        </ol>
+        <div class="row">
+            <div class="col-md-6">
+                <div data-bind="appTab: {}">
+                    <div data-bind="appTabPane: {title: 'HTML'}">
+                        <div class="pane-content">
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href="css/bootstrap.css"/&gt;
+    &lt;link rel="stylesheet" type="text/css" href="css/wijmo.css" /&gt;
+    &lt;link rel="stylesheet" href="styles/app.css" /&gt;
+    &lt;script src="scripts/knockout.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.input.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.chart.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/wijmo.knockout.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="scripts/bindings/appBindings.js"&gt;&lt;/script&gt;
+    &lt;script src="scripts/app.js"&gt;&lt;/script&gt;
+    &lt;script src="scripts/viewmodels/appVM.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;!-- this is the chart --&gt;
+    &lt;div data-bind="wjFlexChart: { itemsSource: data, bindingX: 'country' }"&gt;
+        &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+        &lt;div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"&gt;&lt;/div&gt;
+        &lt;div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+                        </div>
+                    </div>
+                    <div data-bind="appTabPane: {title: 'JS'}">
+                        <div class="pane-content">
+// create and apply application view model
+function viewModel1() {
+
+    // generate some random data
+    var countries = 'US,Germany,UK,Japan,Italy,Greece'.split(','),
+        data = [];
+    for (var i = 0; i < countries.length; i++) {
+        data.push({
+            country: countries[i],
+            downloads: Math.round(Math.random() * 20000),
+            sales: Math.random() * 10000,
+            expenses: Math.random() * 5000
+        });
+    }
+
+    // add data array to scope
+    this.data = data;
+};
+
+(function () {
+    ko.applyBindings(new viewModel1());
+})();
+                        </div>
+                    </div>
+                    <div data-bind="appTabPane: {title: 'CSS'}" >
+                        <div class="pane-content">
+/* set default chart style */
+.wj-flexchart {
+    height: 400px;
+    background-color: white;
+    box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+    padding: 8px;
+    margin-bottom: 12px;
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div data-bind="wjFlexChart: { itemsSource: data, bindingX: 'country' }">
+                    <div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"></div>
+            </div>
+        </div>
+        </div>
+
+        <!-- chart types -->
+        <h2>
+            Chart Types</h2>
+        <p>
+            The FlexChart control has three properties that allow you to customize the chart 
+            type:</p>
+        <ol>
+            <li>
+                <b>chartType</b>: Selects the default chart type to be used for all series.
+                Individual series may override this.</li>
+            <li>
+                <b>stacking</b>: Determines whether series are plotted independently, 
+                stacked, or stacked so their sum is 100%.</li>
+            <li>
+                <b>rotated</b>: Flips the X and Y axes so X becomes vertical and Y horizontal.</li> 
+        </ol>
+        <p>
+            The example below allows you to see what happens when you change these properties:</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div data-bind="appTab: {}">
+                    <div data-bind="appTabPane: {title: 'HTML'}">
+                        <div class="pane-content">
+&lt;div data-bind="wjFlexChart: {
+        itemsSource: data,
+        bindingX: 'country',
+        chartType: chartProps.chartType,
+        stacking: chartProps.stacking,
+        rotated: chartProps.rotated}"&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div data-bind="wjMenu: { value: chartProps.chartType, header: 'Chart Type' }"&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'Column' }"&gt;Column&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'Bar' }"&gt;Bar&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'Scatter' }"&gt;Scatter&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'Line' }"&gt;Line&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'LineSymbols' }"&gt;LineSymbols&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'Area' }"&gt;Area&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'Spline' }"&gt;Spline&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'SplineSymbols' }"&gt;SplineSymbols&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'SplineArea' }"&gt;SplineArea&lt;/span&gt;
+&lt;/div&gt;
+&lt;div data-bind="wjMenu: { value: chartProps.stacking, header: 'Stacking' }"&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'None' }"&gt;None&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'Stacked' }"&gt;Stacked&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: 'Stacked100pc' }"&gt;Stacked 100%&lt;/span&gt;
+&lt;/div&gt;
+&lt;div data-bind="wjMenu: { value: chartProps.rotated, header: 'Rotated' }"&gt;
+    &lt;span data-bind="wjMenuItem: { value: false }"&gt;False&lt;/span&gt;
+    &lt;span data-bind="wjMenuItem: { value: true }"&gt;True&lt;/span&gt;
+&lt;/div&gt;
+                        </div>
+                    </div>
+                    <div data-bind="appTabPane: {title: 'JS'}">
+                        <div class="pane-content">
+// add chart properties to view model
+this.chartProps = {
+    chartType: ko.observable('Column'),
+    stacking: ko.observable('None'),
+    rotated: ko.observable(false),
+    ............
+};
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div data-bind="wjFlexChart: {
+                        itemsSource: data,
+                        bindingX: 'country',
+                        chartType: chartProps.chartType,
+                        stacking: chartProps.stacking,
+                        rotated: chartProps.rotated}">
+                    <div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"></div>
+            </div>
+                <div data-bind="wjMenu: { value: chartProps.chartType, header: 'Chart Type' }">
+                    <span data-bind="wjMenuItem: { value: 'Column' }">Column</span>
+                    <span data-bind="wjMenuItem: { value: 'Bar' }">Bar</span>
+                    <span data-bind="wjMenuItem: { value: 'Scatter' }">Scatter</span>
+                    <span data-bind="wjMenuItem: { value: 'Line' }">Line</span>
+                    <span data-bind="wjMenuItem: { value: 'LineSymbols' }">LineSymbols</span>
+                    <span data-bind="wjMenuItem: { value: 'Area' }">Area</span>
+                    <span data-bind="wjMenuItem: { value: 'Spline' }">Spline</span>
+                    <span data-bind="wjMenuItem: { value: 'SplineSymbols' }">SplineSymbols</span>
+                    <span data-bind="wjMenuItem: { value: 'SplineArea' }">SplineArea</span>
+        </div>
+                <div data-bind="wjMenu: { value: chartProps.stacking, header: 'Stacking' }">
+                    <span data-bind="wjMenuItem: { value: 'None' }">None</span>
+                    <span data-bind="wjMenuItem: { value: 'Stacked' }">Stacked</span>
+                    <span data-bind="wjMenuItem: { value: 'Stacked100pc' }">Stacked 100%</span>
+                </div>
+                <div data-bind="wjMenu: { value: chartProps.rotated, header: 'Rotated' }">
+                    <span data-bind="wjMenuItem: { value: false }">False</span>
+                    <span data-bind="wjMenuItem: { value: true }">True</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- mixed chart types -->
+        <h2>
+            Mixed Chart Types</h2>
+        <p>
+            You can use different chart types for each chart series by setting the <b>chartType</b>
+            property on the series itself. This overrides the chart's default chart type.</p>
+        <p>
+            In the example below, the chart's <b>chartType</b> property is set to <b>Column</b>,
+            but the <b>Downloads</b> series overrides that to use the <b>LineAndSymbol</b>
+            chart type:</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div  data-bind="appTab: {}">
+                    <div data-bind="appTabPane: {title: 'HTML'}">
+                        <div class="pane-content">
+&lt;div data-bind="wjFlexChart: { itemsSource: data, bindingX: 'country', chartType: 'Column' }"&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads', chartType: 'LineSymbols' }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div data-bind="wjFlexChart: { itemsSource: data, bindingX: 'country', chartType: 'Column' }">
+                    <div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads', chartType: 'LineSymbols' }"></div>
+            </div>
+        </div>
+        </div>
+
+        <!-- legend and titles -->
+        <h2>
+            Legend and Titles</h2>
+        <p>
+            Use the <b>legend</b> properties to customize the appearance of the chart legend, and
+            the <b>header</b>, <b>footer</b>, and axis <b>title</b> properties to add titles
+            to your charts.</p>
+        <p>
+            You can style the legend and titles using CSS. The CSS tab below shows the rules
+            used to customize the appearance of the legend and titles. Notice that these are
+            SVG elements, so you have to use CSS attributes such as "fill" instead of "color."</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div data-bind="appTab: {}">
+                    <div data-bind="appTabPane: {title: 'HTML'}">
+                        <div class="pane-content">
+&lt;div data-bind="wjFlexChart: { 
+        itemsSource: data, 
+        bindingX: 'country', 
+        header: chartProps.header, 
+        footer: chartProps.footer }"&gt;
+    &lt;div data-bind="wjFlexChartLegend : { position: chartProps.legendPosition }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartAxis: { wjProperty: 'axisX', title: chartProps.titleX }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartAxis: { wjProperty: 'axisY', title: chartProps.titleY }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Header&lt;/dt&gt;&lt;dd&gt;&lt;input data-bind="value: chartProps.header, valueUpdate: 'input'" class="form-control"/&gt;&lt;/dd&gt;
+    &lt;dt&gt;Footer&lt;/dt&gt;&lt;dd&gt;&lt;input data-bind="value: chartProps.footer, valueUpdate: 'input'" class="form-control"/&gt;&lt;/dd&gt;
+    &lt;dt&gt;X-Axis Title&lt;/dt&gt;&lt;dd&gt;&lt;input data-bind="value: chartProps.titleX, valueUpdate: 'input'" class="form-control"/&gt;&lt;/dd&gt;
+    &lt;dt&gt;Y-Axis Title&lt;/dt&gt;&lt;dd&gt;&lt;input data-bind="value: chartProps.titleY, valueUpdate: 'input'" class="form-control"/&gt;&lt;/dd&gt;
+    &lt;dt&gt;&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;div data-bind="wjMenu: { value: chartProps.legendPosition, header: 'Legend' }"&gt;
+            &lt;span data-bind="wjMenuItem: { value: 'None' }"&gt;None&lt;/span&gt;
+            &lt;span data-bind="wjMenuItem: { value: 'Left' }"&gt;Left&lt;/span&gt;
+            &lt;span data-bind="wjMenuItem: { value: 'Top' }"&gt;Top&lt;/span&gt;
+            &lt;span data-bind="wjMenuItem: { value: 'Right' }"&gt;Right&lt;/span&gt;
+            &lt;span data-bind="wjMenuItem: { value: 'Bottom' }"&gt;Bottom&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+                        </div>
+                    </div>
+                    <div data-bind="appTabPane: {title: 'JS'}">
+                        <div class="pane-content">
+this.chartProps = {
+    chartType: ko.observable('Column'),
+    stacking: ko.observable('None'),
+    legendPosition: ko.observable('Right'),
+    rotated: ko.observable(false),
+    header: ko.observable('Sample Chart'),
+    footer: ko.observable('copyright (c) ComponentOne'),
+    titleX: ko.observable('country'),
+    titleY: ko.observable('amount'),
+};
+
+                        </div>
+                    </div>
+                    <div data-bind="appTabPane: {title: 'CSS'}">
+                        <div class="pane-content">
+.wj-flexchart .wj-title {
+    font-weight: bold;
+}
+.wj-flexchart .wj-header .wj-title {
+    font-size: 18pt;
+    fill: #80044d;
+}
+.wj-flexchart .wj-footer .wj-title {
+    fill: #80044d;
+}
+.wj-flexchart .wj-axis-x .wj-title, 
+.wj-flexchart .wj-axis-y .wj-title {
+    font-style: italic;
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div data-bind="wjFlexChart: { 
+                        itemsSource: data, 
+                        bindingX: 'country', 
+                        header: chartProps.header, 
+                        footer: chartProps.footer }">
+                    <div data-bind="wjFlexChartLegend : { position: chartProps.legendPosition }"></div>
+                    <div data-bind="wjFlexChartAxis: { wjProperty: 'axisX', title: chartProps.titleX }"></div>
+                    <div data-bind="wjFlexChartAxis: { wjProperty: 'axisY', title: chartProps.titleY }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"></div>
+            </div>
+                <dl class="dl-horizontal">
+                  <dt>Header</dt><dd><input data-bind="value: chartProps.header, valueUpdate: 'input'" class="form-control"/></dd>
+                  <dt>Footer</dt><dd><input data-bind="value: chartProps.footer, valueUpdate: 'input'" class="form-control"/></dd>
+                  <dt>X-Axis Title</dt><dd><input data-bind="value: chartProps.titleX, valueUpdate: 'input'" class="form-control"/></dd>
+                  <dt>Y-Axis Title</dt><dd><input data-bind="value: chartProps.titleY, valueUpdate: 'input'" class="form-control"/></dd>
+                  <dt></dt>
+                  <dd>
+                    <div data-bind="wjMenu: { value: chartProps.legendPosition, header: 'Legend' }">
+                        <span data-bind="wjMenuItem: { value: 'None' }">None</span>
+                        <span data-bind="wjMenuItem: { value: 'Left' }">Left</span>
+                        <span data-bind="wjMenuItem: { value: 'Top' }">Top</span>
+                        <span data-bind="wjMenuItem: { value: 'Right' }">Right</span>
+                        <span data-bind="wjMenuItem: { value: 'Bottom' }">Bottom</span>
+        </div>
+                  </dd>
+                </dl>
+            </div>
+        </div>
+
+        <!-- tooltips -->
+        <h2>
+            Tooltips</h2>
+        <p>
+            The FlexChart has built-in support for tooltips. By default, the control displays
+            tooltips when the user touches or hovers the mouse on a data point.</p>
+        <p>
+            The tooltip content is generated using a template that may contain the following
+            parameters:</p>
+        <ul>
+            <li><b>seriesName</b>: The name of the series that contains the chart element.</li>
+            <li><b>pointIndex</b>: The index of the chart element within the series.</li>
+            <li><b>x</b>: The <b>x</b> value of the chart element.</li>
+            <li><b>y</b>: The <b>y</b> value of the chart element.</li>
+        </ul>
+        <p>
+            By default, the tooltip template is set to
+            <code>&lt;b&gt;{seriesName}&lt;/b&gt;&lt;br/&gt;{x} {y}</code>,
+            and you can see how that works in the  charts above.
+            In this example, we set the tooltip template to 
+            <code>&lt;b&gt;{seriesName}&lt;/b&gt; &lt;img src='resources/{x}.png'/&gt;&lt;br/&gt;{y}</code>,
+            which replaces the country name with the country's flag.</p>
+        <p>
+            You can disable the chart tooltips by setting the template to an empty string.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div data-bind="appTab: {}">
+                    <div data-bind="appTabPane: {title: 'HTML'}">
+                        <div class="pane-content">
+&lt;div data-bind="wjFlexChart: {
+        itemsSource: data, 
+        bindingX: 'country', 
+        tooltipContent: '&lt;img src=&#34;resources/{x}.png&#34;/&gt; &lt;b&gt;{seriesName}&lt;/b&gt;&lt;br/&gt;{y}' }"&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div data-bind="wjFlexChart: {
+                        itemsSource: data, 
+                        bindingX: 'country', 
+                        tooltipContent: '<img src=&#34;resources/{x}.png&#34;/> <b>{seriesName}</b><br/>{y}' }">
+                    <div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"></div>
+            </div>
+        </div>
+        </div>
+
+        <!-- styling series -->
+        <h2>
+            Styling Series</h2>
+        <p>
+            The FlexChart automatically picks colors for each series based on a default
+            palette, which you can override by setting the <b>palette</b> property.
+            But you can also override the default settings by setting the <b>style</b> 
+            property of any series to an object that specifies SVG styling attributes, 
+            including <b>fill</b>, <b>stroke</b>, <b>strokeThickness</b>, and so on.</p>
+        <p>
+            The <b>Series.style</b> property is an exception to the general rule that
+            all styling in Wijmo is done through CSS. The exception reflects the fact
+            that many charts have dynamic series, which would be impossible to style
+            in advance. For example, a stock chart may show series selected by the 
+            user while running the application.<p>
+        <p>
+            The chart in this example uses the <b>style</b> and <b>symbolStyle</b> properties 
+            to select style attributes for each series:</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div data-bind="appTab: {}">
+                    <div data-bind="appTabPane: {title: 'HTML'}">
+                        <div class="pane-content">
+&lt;div data-bind="wjFlexChart: {
+        itemsSource: data, 
+        bindingX: 'country' }"&gt;
+    &lt;div data-bind="wjFlexChartSeries: { 
+            name: 'Sales', 
+            binding: 'sales',
+            style: {fill:'green', stroke:'darkgreen', 'stroke-width': '1'} }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { 
+            name: 'Expenses', 
+            binding: 'expenses',
+            style: {fill:'red', stroke:'darkred', 'stroke-width': '1'} }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { 
+            name: 'Downloads', 
+            binding: 'downloads' ,
+            chartType: 'LineSymbols',
+            style: { stroke:'orange', 'stroke-width': '5'},
+            symbolStyle: {fill:'gold', stroke:'gold' } }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div data-bind="wjFlexChart: {
+                        itemsSource: data, 
+                        bindingX: 'country' }">
+                    <div data-bind="wjFlexChartSeries: { 
+                            name: 'Sales', 
+                            binding: 'sales',
+                            style: {fill:'green', stroke:'darkgreen', 'stroke-width': '1'} }"></div>
+                    <div data-bind="wjFlexChartSeries: { 
+                            name: 'Expenses', 
+                            binding: 'expenses',
+                            style: {fill:'red', stroke:'darkred', 'stroke-width': '1'} }"></div>
+                    <div data-bind="wjFlexChartSeries: { 
+                            name: 'Downloads', 
+                            binding: 'downloads' ,
+                            chartType: 'LineSymbols',
+                            style: { stroke:'orange', 'stroke-width': '5'},
+                            symbolStyle: {fill:'gold', stroke:'gold' } }"></div>
+            </div>
+        </div>
+        </div>
+
+        <!-- customizing axes -->
+        <h2>
+            Customizing Axes</h2>
+        <p>
+            Use axis properties to customize the chart's axes,
+            including ranges (minimum and maximum), label format, tickmark spacing, and
+            gridlines.</p>
+        <p>
+            The <b>Axis</b> class has boolean properties that allow you to turn features on
+            or off (<b>axisLine</b>, <b>labels</b>, <b>majorTickMarks</b>, and <b>majorGrid</b>.)
+            You can style the appearance of the features that are turned on using CSS.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div data-bind="appTab: {}">
+                    <div data-bind="appTabPane: {title: 'HTML'}">
+                        <div class="pane-content">
+&lt;div data-bind="wjFlexChart: {
+            itemsSource: data, 
+            bindingX: 'country' }"&gt;
+    &lt;div data-bind="wjFlexChartAxis: { 
+            wjProperty: 'axisX', 
+            axisLine: true,
+            majorGrid: true }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartAxis: { 
+            wjProperty: 'axisY', 
+            format: 'c0',
+            max: 10000,
+            majorUnit: 2000,
+            axisLine: true,
+            majorGrid: true }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { 
+            name: 'Sales', 
+            binding: 'sales' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { 
+            name: 'Expenses', 
+            binding: 'expenses' }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div data-bind="wjFlexChart: {
+                        itemsSource: data, 
+                        bindingX: 'country' }">
+                    <div data-bind="wjFlexChartAxis: { 
+                        wjProperty: 'axisX', 
+                        axisLine: true,
+                        majorGrid: true }"></div>
+                    <div data-bind="wjFlexChartAxis: { 
+                        wjProperty: 'axisY', 
+                        format: 'c0',
+                        max: 10000,
+                        majorUnit: 2000,
+                        axisLine: true,
+                        majorGrid: true }"></div>
+                    <div data-bind="wjFlexChartSeries: { 
+                        name: 'Sales', 
+                        binding: 'sales' }"></div>
+                    <div data-bind="wjFlexChartSeries: { 
+                        name: 'Expenses', 
+                        binding: 'expenses' }"></div>
+            </div>
+            </div>
+        </div>
+
+        <!-- theming -->
+        <h2>
+            Theming</h2>
+        <p>
+            The appearance of the FlexChart is defined in CSS. In addition to the default theme, we 
+            include about a dozen professionally designed themes that customize the appearance of
+            all Wijmo controls to achieve a consistent, attractive look.</p>
+        <p>
+            To customize the appearance of the chart, inspect the elements you want to style and 
+            create some CSS rules that apply to those elements.</p>
+        <p>
+            For example, if you right-click one of the labels on the X axis in IE or Chrome, you 
+            will see that it is an element with the "wj-label" class, that it is contained in an 
+            element with the "wj-axis-x" class, which is contained in the the top-level control 
+            element, which has the "wj-flexchart" class. The first CSS rule in this example uses
+            this information to customize the X labels. The rule selector adds the additional 
+            requirement that the parent element must be have the "wj-flexchart" <b>and</b> the
+            "custom-flex-chart" classes. Without this, the rule would apply to all charts on the
+            page.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div  data-bind="appTab: {}">
+                    <div data-bind="appTabPane: {title: 'HTML'}">
+                        <div class="pane-content">
+&lt;div class="custom-flex-chart" data-bind="wjFlexChart: { itemsSource: data, bindingX: 'country' }"&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                    </div>
+                    <div data-bind="appTabPane: {title: 'CSS'}">
+                        <div class="pane-content">
+/* custom chart theme */
+.custom-flex-chart.wj-flexchart .wj-axis-x .wj-label {
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+}
+.custom-flex-chart.wj-flexchart .wj-legend .wj-label {
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+}
+.custom-flex-chart.wj-flexchart .wj-legend > rect {
+    fill: #f8f8f8;
+    stroke: #c0c0c0;
+}
+.custom-flex-chart.wj-flexchart .wj-plot-area >  rect {
+    fill: #f8f8f8;
+    stroke: #c0c0c0;
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="custom-flex-chart" data-bind="wjFlexChart: { itemsSource: data, bindingX: 'country' }">
+                    <div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"></div>
+            </div>
+            </div>
+        </div>
+
+        <!-- selection modes -->
+        <h2>
+            Selection Modes</h2>
+        <p>
+            The FlexChart allows you to select series or data points by clicking or touching them.
+            Use the <b>selectionMode</b> property to specify whether you want to allow selection 
+            by series, by data point, or no selection at all (selection is off by default.)</p>
+        <p>
+            Setting the <b>selectionMode</b> property to <b>Series</b> or <b>Point</b> causes
+            the FlexChart to update the <b>Selection</b> property when the user clicks the
+            mouse, and to apply the "wj-state-selected" class to selected chart elements.</p>
+        <p>
+            The <b>Selection</b> property returns the currently selected series. To get the
+            currently selected data point, get the currently selected item within the 
+            selected series using the <b>Series.collectionView.currentItem</b> property
+            as shown in the example.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div data-bind="appTab: {}">
+                    <div data-bind="appTabPane: {title: 'HTML'}">
+                        <div class="pane-content">
+&lt;div data-bind="wjFlexChart: {
+        itemsSource: data,
+        bindingX: 'country',
+        tooltipContent: '',
+        chartType: chartProps.chartType,
+        selectionMode: chartProps.selectionMode,
+        selection: chartProps.selection,
+        selectionChanged: selectionChangedEH }"&lt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&lt;&lt;/div&lt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"&lt;&lt;/div&lt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"&lt;&lt;/div&lt;
+&lt;/div&lt;
+&lt;div data-bind="wjMenu: { value: chartProps.selectionMode, header: 'Selection Mode' }"&lt;
+    &lt;span data-bind="wjMenuItem: { value: 'None' }"&lt;None&lt;/span&lt;
+    &lt;span data-bind="wjMenuItem: { value: 'Series' }"&lt;Series&lt;/span&lt;
+    &lt;span data-bind="wjMenuItem: { value: 'Point' }"&lt;Point&lt;/span&lt;
+&lt;/div&lt;
+&lt;div data-bind="wjMenu: { value: chartProps.chartType, header: 'Chart Type' }"&lt;
+    &lt;span data-bind="wjMenuItem: { value: 'Column' }"&lt;Column&lt;/span&lt;
+    &lt;span data-bind="wjMenuItem: { value: 'Bar' }"&lt;Bar&lt;/span&lt;
+    &lt;span data-bind="wjMenuItem: { value: 'Scatter' }"&lt;Scatter&lt;/span&lt;
+    &lt;span data-bind="wjMenuItem: { value: 'Line' }"&lt;Line&lt;/span&lt;
+    &lt;span data-bind="wjMenuItem: { value: 'LineSymbols' }"&lt;LineSymbols&lt;/span&lt;
+    &lt;span data-bind="wjMenuItem: { value: 'Area' }"&lt;Area&lt;/span&lt;
+    &lt;span data-bind="wjMenuItem: { value: 'Spline' }"&lt;Spline&lt;/span&lt;
+    &lt;span data-bind="wjMenuItem: { value: 'SplineSymbols' }"&lt;SplineSymbols&lt;/span&lt;
+    &lt;span data-bind="wjMenuItem: { value: 'SplineArea' }"&lt;SplineArea&lt;/span&lt;
+&lt;/div&lt;
+&lt;div data-bind="if: chartProps.selectionMode() != 'None' && chartProps.selection()"&lt;
+    &lt;h4&lt;
+        Current Selection&lt;/h4&lt;
+    &lt;p&lt;
+        Series: &lt;b&lt;&lt;span data-bind="text: chartProps.selection().name"&lt;&lt;/span&lt;&lt;/b&lt;&lt;/p&lt;
+    &lt;div data-bind="ifnot: chartProps.selectionMode() != 'Point' || chartProps.selectionPoint() == null"&lt;
+        &lt;dl class="dl-horizontal" data-bind="with: chartProps.selectionPoint"&lt;
+            &lt;dt&lt;Country&lt;/dt&lt;&lt;dd data-bind="text: country" &lt;&lt;/dd&lt;
+            &lt;dt&lt;Sales&lt;/dt&lt;&lt;dd data-bind="text: $parent.format(sales, 'n2')"&lt;&lt;/dd&lt;
+            &lt;dt&lt;Expenses&lt;/dt&lt;&lt;dd data-bind="text: $parent.format(expenses, 'n2')"&lt;&lt;/dd&lt;
+            &lt;dt&lt;Downloads&lt;/dt&lt;&lt;dd data-bind="text: $parent.format(downloads, 'n0')"&lt;&lt;/dd&lt;
+        &lt;/dl&lt;
+    &lt;/div&lt;
+&lt;/div&lt;
+                        </div>
+                    </div>
+                    <div data-bind="appTabPane: {title: 'JS'}">
+                        <div class="pane-content">
+this.chartProps = {
+    chartType: ko.observable('Column'),
+    stacking: ko.observable('None'),
+    legendPosition: ko.observable('Right'),
+    rotated: ko.observable(false),
+    header: ko.observable('Sample Chart'),
+    footer: ko.observable('copyright (c) ComponentOne'),
+    titleX: ko.observable('country'),
+    titleY: ko.observable('amount'),
+    selectionMode: ko.observable('Series'),
+    selection: ko.observable(null),
+    selectionPoint: ko.observable()
+};
+
+// update the selectionPoint observable on selection change
+this.selectionChangedEH = function (data, sender, args) {
+    var curSel = sender.selection;
+    self.chartProps.selectionPoint(curSel && curSel.collectionView.currentItem);
+
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div data-bind="wjFlexChart: {
+                        itemsSource: data,
+                        bindingX: 'country',
+                        tooltipContent: '',
+                        chartType: chartProps.chartType,
+                        selectionMode: chartProps.selectionMode,
+                        selection: chartProps.selection,
+                        selectionChanged: selectionChangedEH }">
+                    <div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads' }"></div>
+                </div>
+                <div data-bind="wjMenu: { value: chartProps.selectionMode, header: 'Selection Mode' }">
+                    <span data-bind="wjMenuItem: { value: 'None' }">None</span>
+                    <span data-bind="wjMenuItem: { value: 'Series' }">Series</span>
+                    <span data-bind="wjMenuItem: { value: 'Point' }">Point</span>
+                </div>
+                <div data-bind="wjMenu: { value: chartProps.chartType, header: 'Chart Type' }">
+                    <span data-bind="wjMenuItem: { value: 'Column' }">Column</span>
+                    <span data-bind="wjMenuItem: { value: 'Bar' }">Bar</span>
+                    <span data-bind="wjMenuItem: { value: 'Scatter' }">Scatter</span>
+                    <span data-bind="wjMenuItem: { value: 'Line' }">Line</span>
+                    <span data-bind="wjMenuItem: { value: 'LineSymbols' }">LineSymbols</span>
+                    <span data-bind="wjMenuItem: { value: 'Area' }">Area</span>
+                    <span data-bind="wjMenuItem: { value: 'Spline' }">Spline</span>
+                    <span data-bind="wjMenuItem: { value: 'SplineSymbols' }">SplineSymbols</span>
+                    <span data-bind="wjMenuItem: { value: 'SplineArea' }">SplineArea</span>
+                    </div>
+                <div data-bind="if: chartProps.selectionMode() != 'None' && chartProps.selection()">
+                    <h4>
+                        Current Selection</h4>
+                    <p>
+                        Series: <b><span data-bind="text: chartProps.selection().name"></span></b></p>
+                    <div data-bind="ifnot: chartProps.selectionMode() != 'Point' || chartProps.selectionPoint() == null">
+                        <dl class="dl-horizontal" data-bind="with: chartProps.selectionPoint">
+                            <dt>Country</dt><dd data-bind="text: country" ></dd>
+                            <dt>Sales</dt><dd data-bind="text: $parent.format(sales, 'n2')"></dd>
+                            <dt>Expenses</dt><dd data-bind="text: $parent.format(expenses, 'n2')"></dd>
+                            <dt>Downloads</dt><dd data-bind="text: $parent.format(downloads, 'n0')"></dd>
+                        </dl>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- toggle series visibility -->
+        <h2>
+            Toggle Series</h2>
+        <p>
+            The <b>Series</b> class has a <b>visibility</b> property that allows you to
+            determine whether a series should be shown in the chart and in the legend,
+            only in the legend, or completely hidden.</p>
+        <p>
+            This sample shows how you can use the <b>visibility</b> property to toggle 
+            the visibility of a series using two methods:</p>
+        <ol>
+            <li>
+                Clicking on legend entries:<br />
+                The chart binding sets the chart's <b>legendToggle</b> property to true, 
+                which toggles the <b>visibility</b> property of a series and an observable bound to it 
+                when its legend entry is clicked.
+            </li>
+            <li>Using checkboxes:<br/>
+                The page uses Knockout writable computed observables to bind input controls 
+                to observables bound to the <b>visibility</b> property of each series and to convert
+                values between boolean and SeriesVisibility values.</li>
+        </ol>
+        <div class="row">
+            <div class="col-md-6">
+                <div  data-bind="appTab: {}">
+                    <div data-bind="appTabPane: {title: 'HTML'}">
+                        <div class="pane-content">
+&lt;div data-bind="wjFlexChart: {
+        itemsSource: data,
+        legendToggle: true }"&lt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales', visibility: visibility1 }"&lt;&lt;/div&lt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses', visibility: visibility2 }"&lt;&lt;/div&lt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads', visibility: visibility3 }"&lt;&lt;/div&lt;
+&lt;/div&lt;
+&lt;!-- toggle series with checkboxes --&lt;
+Sales &lt;input type="checkbox" data-bind="checked: ko.computed(null, visibility1, visibilityToBool)"/&lt;&lt;br /&lt;
+Expenses &lt;input type="checkbox" data-bind="checked: ko.computed(null, visibility2, visibilityToBool)"/&lt;&lt;br /&lt;
+Downloads &lt;input type="checkbox" data-bind="checked: ko.computed(null, visibility3, visibilityToBool)"/&lt;&lt;br /&lt;
+                        </div>
+                    </div>
+                    <div data-bind="appTabPane: {title: 'JS'}">
+                        <div class="pane-content">
+this.visibility1 = ko.observable();
+this.visibility2 = ko.observable();
+this.visibility3 = ko.observable();
+
+// SeriesVisibility-to-boolean writable computed observable. 'this' references a source SeriesVisibility observable.
+this.visibilityToBool = {
+    read: function () {
+        var vis = this();
+        return vis === wijmo.chart.SeriesVisibility.Visible || vis === wijmo.chart.SeriesVisibility.Plot;
+    },
+    write: function (value) {
+        this(value ? wijmo.chart.SeriesVisibility.Visible : wijmo.chart.SeriesVisibility.Legend);
+    }
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div data-bind="wjFlexChart: {
+                        itemsSource: data,
+                        legendToggle: true }">
+                    <div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales', visibility: visibility1 }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Expenses', binding: 'expenses', visibility: visibility2 }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Downloads', binding: 'downloads', visibility: visibility3 }"></div>
+            </div>
+                <!-- toggle series with checkboxes -->
+                Sales <input type="checkbox" data-bind="checked: ko.computed(null, visibility1, visibilityToBool)"/><br />
+                Expenses <input type="checkbox" data-bind="checked: ko.computed(null, visibility2, visibilityToBool)"/><br />
+                Downloads <input type="checkbox" data-bind="checked: ko.computed(null, visibility3, visibilityToBool)"/><br />
+            </div>
+        </div>
+
+        <!-- dynamic charts -->
+        <h2>
+            Dynamic Charts</h2>
+        <p>
+            The FlexChart uses an <b>ICollectionView</b> internally, so any changes you make to
+            the data source are automatically reflected in the chart.</p>
+        <p>
+            In this sample, we use a timer to add items to the data source, discarding old items 
+            to keep the total count at 200. The result is a dynamic chart that scrolls as new 
+            data arrives.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div data-bind="appTab: {}">
+                    <div data-bind="appTabPane: {title: 'HTML'}">
+                        <div class="pane-content">
+&lt;div data-bind="wjFlexChart: { 
+        itemsSource: trafficData,
+        chartType: 'Area',
+        stacking: 'Stacked',
+        bindingX: 'time' }"&gt;
+    &lt;div data-bind="wjFlexChartAxis: { wjProperty: 'axisX', format: 'mm:ss' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Trucks', binding: 'trucks' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Ships', binding: 'ships' }"&gt;&lt;/div&gt;
+    &lt;div data-bind="wjFlexChartSeries: { name: 'Planes', binding: 'planes' }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Update Speed&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;div class="btn-group"&gt;
+            &lt;button type="button" class="btn btn-default" data-bind="click: setInterval.bind($data, 200)"&gt;Slow&lt;/button&gt;
+            &lt;button type="button" class="btn btn-default" data-bind="click: setInterval.bind($data, 100)"&gt;Medium&lt;/button&gt;
+            &lt;button type="button" class="btn btn-default" data-bind="click: setInterval.bind($data, 50)"&gt;Fast&lt;/button&gt;
+            &lt;button type="button" class="btn btn-default" data-bind="click: setInterval.bind($data, 0)"&gt;Stop&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+                        </div>
+                    </div>
+                    <div data-bind="appTabPane: {title: 'JS'}">
+                        <div class="pane-content">
+var toAddData;
+this.trafficData = new wijmo.collections.ObservableArray();
+this.setInterval = function (interval) {
+    if (toAddData) {
+        clearTimeout(toAddData);
+        toAddData = null;
+    }
+    self.interval = interval;
+    if (interval) {
+        toAddData = setTimeout(addTrafficItem);
+    }
+};
+this.setInterval(500);
+
+function addTrafficItem() {
+    // add random data, limit array length
+    ...
+    // keep adding
+    ...
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div data-bind="wjFlexChart: { 
+                        itemsSource: trafficData,
+                        chartType: 'Area',
+                        stacking: 'Stacked',
+                        bindingX: 'time' }">
+                    <div data-bind="wjFlexChartAxis: { wjProperty: 'axisX', format: 'mm:ss' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Trucks', binding: 'trucks' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Ships', binding: 'ships' }"></div>
+                    <div data-bind="wjFlexChartSeries: { name: 'Planes', binding: 'planes' }"></div>
+                </div>
+                <dl class="dl-horizontal">
+                    <dt>Update Speed</dt>
+                    <dd>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default" data-bind="click: setInterval.bind($data, 200)">Slow</button>
+                          <button type="button" class="btn btn-default" data-bind="click: setInterval.bind($data, 100)">Medium</button>
+                          <button type="button" class="btn btn-default" data-bind="click: setInterval.bind($data, 50)">Fast</button>
+                          <button type="button" class="btn btn-default" data-bind="click: setInterval.bind($data, 0)">Stop</button>
+            </div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <!-- app scripts -->
+    <script src="scripts/bindings/appBindings.js"></script>
+    <script src="scripts/viewmodels/appVM.js" type="text/javascript"></script>
+    <script src="scripts/app.js" type="text/javascript"></script>
+
+    <!-- Google analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

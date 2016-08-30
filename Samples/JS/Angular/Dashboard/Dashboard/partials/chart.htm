@@ -1,0 +1,38 @@
+﻿<div class="row-fluid">
+
+    <!-- select chart type -->
+    <div class="well col-md-2">
+        <button class="btn btn-block btn-link" ng-click="setChartType('Column')">Bar</button>
+        <button class="btn btn-block btn-link" ng-click="setChartType('Scatter')">Scatter</button>
+        <button class="btn btn-block btn-link" ng-click="setChartType('Line')">Line</button>
+        <button class="btn btn-block btn-link" ng-click="setChartType('LineSymbols')">Line and Symbols</button>
+        <button class="btn btn-block btn-link" ng-click="setChartType('Area')">Area</button>
+    </div>
+
+    <!-- show chart -->
+    <div class="col-md-10">
+        <p class="text-info" >
+            Chart shows unit sales <b>forecast</b> for the current quarter ({{qThis}}).<br />
+            The order of the products reflects average units shipped per trimester.
+        </p>
+        <wj-flex-chart 
+            class="col-md-12"
+            style="height:500px"
+            chart-type="{{chartType}}"
+            items-source="chartData"
+            binding-x="product"
+            rotated="true">
+            <wj-flex-chart-series 
+                binding="sales">
+            </wj-flex-chart-series>
+            <wj-flex-chart-axis 
+                wj-property="axisY" 
+                reversed="true">
+            </wj-flex-chart-axis>
+        </wj-flex-chart>
+    </div>
+</div>
+
+<p class="text-right" ng-hide="loading">
+    <a class="btn btn-link" href="default.htm#/bullets">show bullets</a>
+</p>

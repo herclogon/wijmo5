@@ -1,0 +1,39 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Multiple plot areas</h3>
+        <p>
+            This view shows the <b>FlexChart</b> with several plot areas.</p>
+    </div>
+    <div>
+
+        <!-- the chart -->
+        <wj-flex-chart 
+            chart-type="Area" 
+            class="chart"
+            control="ctx.chart"
+            items-source="ctx.itemsSource"
+            binding-x="t">
+
+            <wj-flex-chart-axis wj-property="axisX" title="time, s"></wj-flex-chart-axis>
+
+            <wj-flex-chart-plot-area row="0" name="plot1" ng-attr-style="{ fill: 'rgba(136,189,230,0.2)' }"></wj-flex-chart-plot-area>
+            <wj-flex-chart-plot-area row="1" name="div1" height="20"></wj-flex-chart-plot-area>
+            <wj-flex-chart-plot-area row="2" name="plot2" ng-attr-style="{ fill: 'rgba(251,178,58,0.2)' }"></wj-flex-chart-plot-area>
+            <wj-flex-chart-plot-area row="3" name="div2" height="20"></wj-flex-chart-plot-area>
+            <wj-flex-chart-plot-area row="4" name="plot3" ng-attr-style="{ fill: 'rgba(144,205,151,0.2)' }"></wj-flex-chart-plot-area>
+
+            <wj-flex-chart-series name="acceleration" binding="a"></wj-flex-chart-series>
+            <wj-flex-chart-series name="velocity" binding="v">
+                <wj-flex-chart-axis wj-property="axisY" position="Left" major-grid="true"
+                                    plot-area="ctx.chart.plotAreas.getPlotArea('plot2')">
+                </wj-flex-chart-axis>
+            </wj-flex-chart-series>
+            <wj-flex-chart-series name="distance" binding="s">
+                <wj-flex-chart-axis wj-property="axisY" position="Left" major-grid="true"
+                                    plot-area="ctx.chart.plotAreas.getPlotArea('plot3')">
+                </wj-flex-chart-axis>
+            </wj-flex-chart-series>
+        </wj-flex-chart>
+    </div>
+</div>

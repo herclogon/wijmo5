@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>PrintDocument</title>
+
+    <!-- Angular/Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.grid.filter.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.gauge.min.js" type="text/javascript"></script>
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+
+    <!-- Wijmo-Angular interop -->
+    <script src="scripts/vendor/wijmo.angular.min.js" type="text/javascript"></script>
+
+    <!-- app scripts/styles -->
+    <script src="scripts/app.js" type="text/javascript"></script>
+    <script src="scripts/controllers/appCtrl.js" type="text/javascript"></script>
+    <link href="styles/app.css" rel="stylesheet" />
+</head>
+
+<body ng-app="app" ng-controller="appCtrl">
+    <div class="container">
+
+        <h1>
+            PrintDocument Class</h1>
+        <div id="titleDiv" style="font-family:Arial;color:navy">
+            <p>
+                The <b>PrintDocument</b> class makes it easy to create documents for printing or 
+                exporting to PDF. Most browsers allow you to select the paper size, orientation,
+                margins, and whether to include page headers and footers.</p>
+        </div>
+
+        <p>
+            Here is a table with some radial gauges. The table will be included in the <b>PrintDocument</b>.</p>
+        <table id="gaugeDiv">
+            <tr>
+                <td>
+                    <wj-radial-gauge min="0" max="100" value="20"></wj-radial-gauge>
+                </td>
+                <td>
+                    <wj-radial-gauge min="0" max="100" value="80"></wj-radial-gauge>
+                </td>
+            </tr>
+        </table>
+
+        <p>
+            Here is a <b>FlexGrid</b> control. Printing it directly would show the scrollbars and the
+            part of the content that is visible. The <b>PrintDocument</b> class allows us to replace
+            that with a printer-friendly version of the grid.</p>
+        <p>
+            The <b>FlexGrid</b> allows you to group, sort, and filter the data. When used with the 
+            <b>PrintDocument</b> class, it can be used to create simple ad-hoc reporting solutions.</p>
+        <label>
+            <input type="checkbox" ng-model="groupData" />
+            Group by Country
+        </label>
+        <wj-flex-grid control="flex"
+            show-marquee="true"
+            items-source="data">
+            <wj-flex-grid-filter></wj-flex-grid-filter>
+            <wj-flex-grid-column header="Country" binding="country" data-map="dataMap"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Date" binding="date"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Revenue" binding="amount" format="c" aggregate="Sum"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Active" binding="active" aggregate="Sum"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Discount" binding="discount" format="p0" aggregate="Avg"></wj-flex-grid-column>
+        </wj-flex-grid>
+        <button class="btn btn-default" ng-click="printDocument()">Print with PrintDocument</button>
+        <button class="btn btn-default" ng-click="printWindow()">Print directly</button>
+    </div>
+</body>
+</html>

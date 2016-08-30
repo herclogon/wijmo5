@@ -1,0 +1,265 @@
+﻿body {
+    background-color: #f8f8f8;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    padding: 0 0 10px;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-left: -12px;
+}
+
+.header {
+    color: #cdbfe3;
+    background-color: #3f5766;
+    margin-bottom: 14px;
+    padding: 10px 0 20px 0;
+    color: #ffffff;
+}
+
+.header h1 {
+    color: #fff;
+    font-size: 40px;
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.header img {
+    vertical-align: baseline;
+}
+
+.header a {
+    font-weight: bold;
+    color: #cdd3d4;
+}
+
+.header p {
+    color: #cdd3d4;
+}
+
+.match {
+    background-color: #475f6e;
+}
+
+/* set default chart style */
+.wj-flexchart {
+    background: #000;
+    border: none;
+    display: block;
+}
+
+/* customize appearance of chart selection */
+.wj-flexchart .wj-state-selected {
+    stroke-width: 6px;
+}
+
+.panel-heading .stock-info {
+    display: block;
+    border-top: 1px solid #ddd;
+    margin-top: 5px;
+}
+
+.stock-info > div {
+    display: inline-block;
+    margin: 5px 5px 0px 0px;
+}
+
+.panel-default > .panel-heading {
+    border-color: transparent;
+}
+
+.rschart {
+    height: 100px;
+}
+
+.overlap {
+    position: absolute;
+    z-index: 999;
+    background: url('/resources/spinner.gif') no-repeat center center rgba(225, 225, 225, 0.1);
+}
+
+.wj-flexchart .wj-chart-linemarker {
+  background: rgba(42, 42, 42, 0.8);
+  color: #aaa;
+}
+
+.wj-flexchart .wj-chart-linemarker .wj-chart-linemarker-hline {
+    height: 1px;
+    margin-top: -3px;
+}
+
+.wj-flexchart .wj-chart-linemarker .wj-chart-linemarker-vline {
+    width: 1px;
+    margin-left: -3px;
+}
+
+#djiinfo {
+    margin-top: 5px;
+}
+
+.stock-info > span {
+    margin-top: 5px;
+}
+
+.volchart {
+    margin: 0;
+    padding: 0;
+    height: 80px;
+    border: 0;
+}
+
+.stchart {
+    margin: 0;
+    padding: 0;
+    border-bottom: 0;
+    -ms-touch-action: none;
+}
+
+input.wj-form-control {
+    line-height: 20px;
+}
+
+.col-md-3, .col-md-6, .col-md-5, .col-md-4 {
+    padding-left: 5px;
+    padding-right: 0;
+}
+
+.panel-heading .portfolio-search input {
+    font-size: 14px !important;
+    font-family: 'Segoe UI', sans-serif !important;
+    width: 170px;
+}
+
+.wj-listbox .wj-listbox-item {
+    font-size: 14px !important;
+    font-family: 'Segoe UI', sans-serif !important;
+}
+
+.panel-heading .row .portfolio-search {
+    padding-left: 12px;
+}
+
+.row .pull-right {
+    padding-right: 15px;
+}
+
+.volchart .wj-chart-linemarker-vline {
+    margin-top: -380px;
+}
+
+.panel-heading .moving-average {
+    border-top: 1px solid #ddd;
+    margin-top: 5px;
+}
+
+    .panel-heading .moving-average > div {
+        margin-top: 5px;
+    }
+
+    .panel-heading .moving-average .desc {
+        margin-right: 15px;
+    }
+
+    .panel-heading .moving-average .wj-dropdown {
+        margin: 0 15px;
+        width: 200px;
+    }
+
+    .panel-heading .moving-average .wj-inputnumber {
+        width: 100px;
+    }
+
+footer.container {
+    margin-top: 60px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+}
+
+footer.container p {
+    font-size: 12px;
+    color: #555;
+    line-height: 10px;
+}
+
+footer {
+    margin-bottom: 100px;
+}
+
+.pull-right label {
+    margin-right: 2px;
+    margin-left: 10px;
+}
+
+
+/* ---------- Dark ---------- */
+
+body {
+    background: #000;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.panel {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.panel-default > .panel-heading {
+    color: #888888;
+    background-color: #222;
+    border-color: transparent;
+    border-radius: 0;
+}
+
+.panel-heading {
+    border-radius: 0;
+}
+
+.panel-heading .moving-average {
+    border-top: 1px solid #333;
+    margin-top: 15px;
+    padding-top: 5px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.panel-heading .moving-average label, .panel-heading .moving-average input {
+    vertical-align: middle;
+}
+
+.panel-heading .moving-average label:not(.ng-hide) {
+    display: inline !important;
+}
+
+.panel-heading .stock-info {
+    border-top: 1px solid #333;
+    margin-top: 15px;
+    padding-top: 5px;
+}
+
+.wj-control, .btn-xs, .btn-group-xs > .btn {
+    border-radius: 0;
+}
+
+.btn-default {
+    background: #424242;
+    border-color: #424242;
+    color: #fff;
+}
+
+.btn-default:active, .btn-default.active {
+    color: #FFF;
+    background-color: #1c1c1c;
+    border-color: #1c1c1c;
+}
+
+.btn, .btn:active, .wj-btn, .wj-input-group {
+    min-height: 32px;
+    border-radius: 0;
+    border: 0;
+}

@@ -1,0 +1,145 @@
+﻿<!--<div>I'm Explorer!</div>
+<a [router-link]="['/InputListBox']">Go ListBox</a>
+<a [router-link]="['/InputCombo']">Go ComboBox</a>
+<router-outlet></router-outlet>-->
+<!--<a href="#/input/combo">Go ComboBox</a>-->
+
+<!--<a [router-link]="['/input/listbox']">Go ListBox</a>-->
+<!--<a [router-link]="['/input/combo']">Go ComboBox</a>-->
+
+    <!-- content -->
+        <!-- navigation menu -->
+        <!-- current component -->
+
+
+
+
+<!--Mobile/Tablet Header-->
+<div class="navbar navbar-inverse navbar-fixed-top visible-xs visible-sm" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" (click)="navCollapsed = !navCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="resources/wijmo5.png" width="25" alt="Wijmo 5" />
+                <span class="hidden-sm">Wijmo 5 Explorer for Angular 2</span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" [ngClass]="{in: !navCollapsed}">
+            <ul class="nav navbar-nav">
+                <li *ngFor="let item of menuData" class="dropdown">
+                    <a href="#" target="_self" class="dropdown-toggle" data-toggle="dropdown">{{ item.section }} <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li *ngFor="let link of item.links">
+                            <a *ngIf="link.alias" [routerLink]="['/' + link.alias]" (click)="navCollapsed = true">{{ link.text }}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="visible-xs visible-sm theme-mobile">
+    <wj-menu [(value)]="activeTheme" [header]="'Theme'">
+        <wj-menu-item [value]="''">Default</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.cleandark.min.css'">CleanDark</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.cleanlight.min.css'">CleanLight</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.cocoa.min.css'">Cocoa</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.coral.min.css'">Coral</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.dark.min.css'">Dark</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.grayscale.min.css'">Grayscale</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.highcontrast.min.css'">High Contrast</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.light.min.css'">Light</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.material.min.css'">Material</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.midnight.min.css'">Midnight</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.modern.min.css'">Modern</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.office.min.css'">Office</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.organic.min.css'">Organic</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.trust.min.css'">Trust</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.zen.min.css'">Zen</wj-menu-item>
+        <wj-menu-separator></wj-menu-separator>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.cyborg.min.css'">Cyborg</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.superhero.min.css'">Superhero</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.flatly.min.css'">Flatly</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.darkly.min.css'">Darkly</wj-menu-item>
+        <wj-menu-item [value]="'../styles/vendor/wijmo.theme.cerulean.min.css'">Cerulean</wj-menu-item>
+    </wj-menu>
+</div>
+
+<!--Desktop Header-->
+<div class="header hidden-xs hidden-sm">
+    <div class="container" style="position:relative">
+        <h1>
+            <img src="resources/wijmo5.png" alt="Wijmo 5" />
+            Wijmo 5 Explorer for Angular 2
+        </h1>
+        <!-- Themes menu -->
+        <wj-menu [(value)]="activeTheme" [header]="'Theme'" style="position:absolute;right:10px;bottom:10px;color:black;background-color:white">
+            <wj-menu-item [value]="''">Default</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.cleandark.min.css'">CleanDark</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.cleanlight.min.css'">CleanLight</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.cocoa.min.css'">Cocoa</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.coral.min.css'">Coral</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.dark.min.css'">Dark</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.grayscale.min.css'">Grayscale</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.highcontrast.min.css'">High Contrast</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.light.min.css'">Light</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.material.min.css'">Material</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.midnight.min.css'">Midnight</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.modern.min.css'">Modern</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.office.min.css'">Office</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.organic.min.css'">Organic</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.trust.min.css'">Trust</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.zen.min.css'">Zen</wj-menu-item>
+            <wj-menu-separator></wj-menu-separator>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.cyborg.min.css'">Cyborg</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.superhero.min.css'">Superhero</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.flatly.min.css'">Flatly</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.darkly.min.css'">Darkly</wj-menu-item>
+            <wj-menu-item [value]="'../styles/vendor/wijmo.theme.cerulean.min.css'">Cerulean</wj-menu-item>
+        </wj-menu>
+    </div>
+</div>
+
+<!-- Navigation menu -->
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-2">
+            <div class="panel-group hidden-xs hidden-sm" id="accordion" >
+                <div *ngFor="let item of menuData, let index = index"
+                     class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" [href]="'#' + item.section" target="_self">
+                                {{ item.section }}
+                            </a>
+                        </h4>
+                    </div>
+                    <div [id]="item.section" class="panel-collapse collapse" [ngClass]="{ in: index == 0 }">
+                        <div class="panel-body">
+                            <ul class="flatList">
+                                <li *ngFor="let link of item.links">
+                                    <!-- [href] doesn't work in IE/Edge -->
+                                    <!--<a [href]="'#' + link.url">{{ link.text }}</a>-->
+                                    <a *ngIf="link.alias" [routerLink]="['/' + link.alias]">{{ link.text }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10" >
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br />
+
+

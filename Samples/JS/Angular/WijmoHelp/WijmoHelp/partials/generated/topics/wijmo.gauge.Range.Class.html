@@ -1,0 +1,185 @@
+<h2>Range Class</h2>
+<dl class="dl-horizontal">
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.angular.WjRange.Class.html"><b>WjRange</b></a></dd>
+<dt>Module</dt><dd>wijmo.gauge</dd>
+<dt>File</dt><dd>wijmo.gauge.js</dd>
+</dl>
+<p><p>Defines ranges to be used with <a href="topic/wijmo.gauge.Gauge.Class.html"><b>Gauge</b></a> controls.</p>
+
+<p><b>Range</b> objects have <b>min</b> and <b>max</b> properties that
+define the range's domain, as well as <b>color</b> and <b>thickness</b>
+properties that define the range's appearance.</p>
+
+<p>Every <b>Gauge</b> control has at least two ranges: 
+the 'face' defines the minimum and maximum values for the gauge, and
+the 'pointer' displays the gauge's current value.</p>
+
+<p>In addition to the built-in ranges, gauges may have additional
+ranges used to display regions of significance (for example, 
+low, medium, and high values).</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(name?): <a href="topic/wijmo.gauge.Range.Class.html"><b>Range</b></a></td>
+      <td><p>
+<b>name?</b> (<b>string</b>): The name of the range.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.gauge.Range.Class.html"><b>Range</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>color</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the color used to display this range.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>max</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the maximum value for this range.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>min</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the minimum value for this range.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>name</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the name of this <a href="topic/wijmo.gauge.Range.Class.html"><b>Range</b></a>.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>thickness</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the thickness of this range as a percentage of 
+the parent gauge's thickness.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>onPropertyChanged</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><b>PropertyChangedEventArgs</b></a>): <a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><b>PropertyChangedEventArgs</b></a> that contains the property
+name, old, and new values.<br/></p>
+</td>
+      <td>Raises the <b>propertyChanged</b> event.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>propertyChanged</b></td>
+      <td><a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><b>PropertyChangedEventArgs</b></a></td>
+      <td>Occurs when the value of a property in this <b>Range</b> changes.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

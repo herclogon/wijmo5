@@ -1,0 +1,55 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            FlexChart TrendLine
+        </h3>
+        <p>
+            This view shows TrendLine in FlexChart.
+        </p>
+        <p>
+            You can use different trendline types by setting the <b>fitType</b>
+            property of TrendLine. The points on the plot can be dragged by mouse
+            which updates the trend line and its equation automatically. 
+        </p>
+    </div>
+    <div class="container-fluid well">
+        <div class="row">
+            <div class="col-sm-3 col-xs-12">
+                <label id="labelShowEquation" for="checkboxShowEquation">Show Equation:</label>
+                <input type="checkbox" id="checkboxShowEquation" ng-model="showEquation" />
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <wj-menu id="menuFitType" value="fitType" header="FitType" text="fitType">
+                    <wj-menu-item value="'Linear'">Linear</wj-menu-item>
+                    <wj-menu-item value="'Exponential'">Exponential</wj-menu-item>
+                    <wj-menu-item value="'Logarithmic'">Logarithmic</wj-menu-item>
+                    <wj-menu-item value="'Power'">Power</wj-menu-item>
+                    <wj-menu-item value="'Fourier'">Fourier</wj-menu-item>
+                    <wj-menu-item value="'Polynomial'">Polynomial</wj-menu-item>
+                    <wj-menu-item value="'MinX'">MinX</wj-menu-item>
+                    <wj-menu-item value="'MinY'">MinY</wj-menu-item>
+                    <wj-menu-item value="'MaxX'">MaxX</wj-menu-item>
+                    <wj-menu-item value="'MaxY'">MaxY</wj-menu-item>
+                    <wj-menu-item value="'AverageX'">AverageX</wj-menu-item>
+                    <wj-menu-item value="'AverageY'">AverageY</wj-menu-item>
+                </wj-menu>
+            </div>
+            <div class="col-sm-5 col-xs-12">
+                <label id="labelOrder" class="order" for="inputOrder">Order:</label>
+                <wj-input-number id="inputOrder" class="order" value="iptOrder" control="inputOrder"
+                                 min="1"
+                                 max="9"
+                                 step="1"
+                                 format="n0">
+                </wj-input-number>
+            </div>
+        </div>
+    </div>
+    <wj-flex-chart items-source="itemsSource"
+                   binding-x="x"
+                   control="trendlinechart">
+        <wj-flex-chart-axis wj-property="axisY" min="0" max="100"></wj-flex-chart-axis>
+        <wj-flex-chart-legend position="Right"></wj-flex-chart-legend>
+        <wj-flex-chart-series chart-type="Scatter" name="Base Data" binding="y"></wj-flex-chart-series>
+    </wj-flex-chart>
+</div>

@@ -1,0 +1,1200 @@
+﻿
+<div class="header">
+    <div class="container">
+        <img src="resources/wijmo5.png" alt="Wijmo 5" />
+        <h1>
+            Input 101
+        </h1>
+        <p>
+            This page shows how to get started with Wijmo's Input controls.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- Getting Started -->
+    <div>
+        <h2 id="Start">Getting Started</h2>
+        <p>
+            Steps for getting started with Input controls in AngularJS applications:
+        </p>
+        <ol>
+            <li>Add references to AngularJS, Wijmo, and Wijmo's AngularJS directives.</li>
+            <li>Add a component to provide data and logic.<br /></li>
+            <li>Add a Wijmo Input control to the page and bind it to your data.</li>
+            <li>(Optional) Add some CSS to customize the input control's appearance.</li>
+        </ol>
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;link rel="stylesheet" type="text/css" href="css/bootstrap.css" /&gt;
+&lt;link rel="stylesheet" type="text/css" href="css/wijmo.css" /&gt;
+&lt;link rel="stylesheet" type="text/css" href="css/app.css"/&gt;
+&lt;!-- Angular 2 --/&gt;
+&lt;script src="scripts/angular2.dev.js"/&gt;&lt;/script/&gt;
+&lt;script src="scripts/wijmo.js" type="text/javascript"/&gt;&lt;/script/&gt;
+&lt;script src="scripts/wijmo.input.js" type="text/javascript"/&gt;&lt;/script/&gt;
+&lt;script src="scripts/wijmo.angular2.js" type="text/javascript"/&gt;&lt;/script/&gt;
+&lt;script&gt;
+    System.import('./src/app');
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!-- Add root application component --&gt;
+&lt;app-cmp&gt;
+    &lt;wj-input-number [(value)]="someValue" [format]="'n'" [step]=".5"&gt; &lt;/wj-input-number&gt;
+&lt;/app-cmp&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+// Angular
+import { Component, View, EventEmitter, provide, Input, Inject, enableProdMode } from 'angular2/core';
+import { CORE_DIRECTIVES } from 'angular2/common';
+import { bootstrap } from 'angular2/platform/browser';
+import  * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+
+@Component({
+    selector: 'app-cmp',
+    directives: [CORE_DIRECTIVES, wjNg2Input.WjInputNumber]
+})
+
+export class AppCmp {
+    // Data for InputNumber
+    someValue = 3.5;
+}
+
+enableProdMode();
+// Bootstrap application with hash style navigation and global services.
+bootstrap(AppCmp);
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-input-number [(value)]="someValue" [format]="'n'" [step]=".5"></wj-input-number>
+            </div>
+        </div>
+    </div>
+
+    <!-- AutoComplete -->
+    <div>
+        <h2 id="AutoComplete">AutoComplete</h2>
+        <p>
+            The AutoComplete control is an auto-complete control that allows you to filter its
+            item list as you type, as well as select a value directly from its drop-down list.
+        </p>
+        <p>
+            To use the AutoComplete control, you must minimally set the <b>itemsSource</b>
+            property to an array of data in order to populate its item list. The AutoComplete
+            control also offers several other properties to alter its behavior, such as the
+            <b>cssMatch</b> property. The <b>cssMatch</b> property allows you to specify the CSS
+            class that is used to highlight parts of the content that match your search terms.
+        </p>
+        <p>
+            The example below uses an array of strings to populate the AutoComplete control's
+            item list using the <b>itemsSource</b> property. To see a list of suggestions, type
+            <b>"ab"</b> or <b>"za"</b> in the AutoComplete controls below.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+ &lt;label&gt;itemsSource Only&lt;/label&gt;
+ &lt;wj-auto-complete [itemsSource]="countries"
+                       [isRequired]="false"&gt;
+ &lt;/wj-auto-complete&gt;
+ &lt;label&gt;itemsSource &amp; cssMatch&lt;/label&gt;
+ &lt;wj-auto-complete [itemsSource]="countries"
+                       [cssMatch]="'highlight'"
+                       [isRequired]="false"&gt;
+&lt;/wj-auto-complete&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+ // The Explorer application root component.
+ @Component({
+     selector: 'app-cmp',
+     directives: [CORE_DIRECTIVES, wjNg2Input.WjAutoComplete]
+ })
+export class AppCmp {
+     // Data for for AutoComplete
+    countries = [
+        'Afghanistan', 'Albania', 'Algeria', 'American Samoa', 
+        'Andorra', 'Angola', 'Anguilla', 'Antigua', 
+        'Argentina', 'Armenia',......]
+} 
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="CSS">
+                        <div class="pane-content">
+.highlight {
+    background-color: #ff0;
+    color: #000;
+}
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="app-input-group">
+                    <label>itemsSource Only</label>
+                    <wj-auto-complete [itemsSource]="countries"
+                                      [isRequired]="false"
+                                      [placeholder]="'(country)'"></wj-auto-complete>
+                </div>
+                <div class="app-input-group">
+                    <label>itemsSource &amp; cssMatch</label>
+                    <wj-auto-complete [itemsSource]="countries"
+                                      [cssMatch]="'highlight'"
+                                      [isRequired]="false"
+                                      [placeholder]="'(country)'"></wj-auto-complete>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ComboBox -->
+    <div>
+        <h2 id="ComboBox">ComboBox</h2>
+        <p>
+            The ComboBox control is very similar to the AutoComplete control, but rather than
+            providing a list of suggestions as you type, the ComboBox will automatically complete
+            and select the entry as you type.
+        </p>
+        <p>
+            Like the AutoComplete control, you must minimally set the ComboBox's <b>itemsSource</b>
+            property to an array of data in order to populate its item list. You may also want to
+            specify whether the ComboBox is editable via the <b>isEditable</b> property. The
+            <b>isEditable</b> property determines whether or not a user can enter values that do
+            not appear in the ComboBox's item list.
+        </p>
+        <p>
+            The example below uses two ComboBoxes bound to the same data source as the AutoComplete
+            control above. The first ComboBox's <b>isEditable</b> property is set to false, while the
+            second ComboBox's <b>isEditable</b> property is set to true.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+&lt;label>Non-Editable&lt;/label&gt;
+&lt;wj-combo-box [itemsSource]="countries"
+              [isEditable]="false"&gt;
+&lt;/wj-combo-box&gt;
+
+&lt;label>Editable&lt;/label&gt;
+&lt;wj-combo-box [itemsSource]="countries"
+              [isEditable]="true"&gt;
+&lt;/wj-combo-box&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+@Component({
+    selector: 'app-cmp',
+    directives: [CORE_DIRECTIVES,wjNg2Input.WjComboBox]
+})
+ export class AppCmp {
+      // Data for for ComboBox
+     countries = [
+         'Afghanistan', 'Albania', 'Algeria', 'American Samoa',
+         'Andorra', 'Angola', 'Anguilla', 'Antigua',
+         'Argentina', 'Armenia',......]
+ }
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="app-input-group">
+                    <label>Non-Editable</label>
+                    <wj-combo-box [itemsSource]="countries"
+                                  [isEditable]="false">
+                    </wj-combo-box>
+                </div>
+                <div class="app-input-group">
+                    <label>Editable</label>
+                    <wj-combo-box [itemsSource]="countries"
+                                  [isEditable]="true">
+                    </wj-combo-box>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- InputDate and Calendar -->
+    <div>
+        <h2 id="Calendar">InputDate and Calendar</h2>
+        <p>
+            The InputDate control allows you to edit and select dates via a drop-down calendar,
+            preventing you from entering an incorrect value. The InputDate's drop-down calendar
+            was developed as a separate control and can be used be used independently
+            from the InputDate control.
+        </p>
+        <p>
+            Both InputDate and Calendar specify several properties to alter the controls' behavior.
+            The most commonly used properties include:
+        </p>
+        <ul>
+            <li>
+                <b>value</b>: Specifies the date value for the control.
+            </li>
+            <li>
+                <b>min</b>: Specifies the minimum date value that can be entered in the control.
+            </li>
+            <li>
+                <b>max</b>: Specifies the maximum date value that can be entered in the control.
+            </li>
+        </ul>
+        <p>
+            The example below demonstrates how to use these properties.
+        </p>
+        <p>
+            In addition to these basic properties, the Calendar control has a <b>formatItem</b> event
+            that you can use to customize the display of specific days in the calendar. The sample
+            below uses this event to customize the appearance of weekends and holidays.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+&lt;div&gt;
+&lt;label&gt;Bound InputDate with min &amp; max&lt;/label&gt;
+&lt;wj-input-date [(value)]="today"
+               [min]="minDate"
+               [max]="maxDate"&gt;
+&lt;/wj-input-date&gt;
+
+&lt;label>Bound Calendar with min &amp; max&lt;/label>
+&lt;wj-calendar #calendar
+             style="width:300px;display:block"
+             [(value)]="today"
+             [min]="minDate"
+             [max]="maxDate"
+             (formatItem)="formatItem(calendar,$event)"&gt;
+&lt;/wj-calendar&gt;
+&lt;p&gt;
+&lt;b>Selected Date: {&#8203;{ today | date }&#8203;}&lt;/b&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;/b&gt;Valid Range: {&#8203;{ minDate | date }&#8203;} to {&#8203;{ maxDate | date }&#8203;}
+&lt;/b&gt;
+&lt;/p&gt;
+</div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+ @Component({
+     selector: 'app-cmp',
+     directives: [CORE_DIRECTIVES,wjNg2Input.WjInputDate, wjNg2Input.WjCalendar] 
+ })
+ export class AppCmp {
+     today: Date;
+     minDate: Date;
+     maxDate: Date;
+     constructor( ) {
+         // values for InputDate, Calendar
+         let today = new Date();
+         this.today = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 13, 30);
+         this.minDate = new Date(today.getFullYear(), 0, 1);
+         this.maxDate = new Date(today.getFullYear(), 11, 31);
+     }
+
+     // apply special styles to weekends and holidays, use arrow function to ensure correct 'this'
+     formatItem = (s: wijmo.input.Calendar, e: wijmo.input.FormatItemEventArgs) => {
+         let weekday = e.data.getDay(),
+         holiday = this._getHoliday(e.data);
+         wijmo.toggleClass(e.item, 'date-weekend', weekday == 0 || weekday == 6);
+         wijmo.toggleClass(e.item, 'date-holiday', !!holiday);
+         e.item.title = holiday;
+    }
+
+     // gets the holiday for a given date
+     private _getHoliday(date: Date) {
+         var day = date.getDate(),
+         month = date.getMonth() + 1;
+         switch (month + '/' + day) { // simple holidays (fixed dates)
+             case '1/1': return 'New Year\'s Day';
+             case '6/14': return 'Flag Day';
+             case '7/4': return 'Independence Day';
+             case '11/11': return 'Veteran\'s Day';
+             case '12/25': return 'Christmas Day';
+        }
+
+        var weekDay = date.getDay(),
+        weekNum = Math.floor((day - 1) / 7) + 1;
+        switch (month + '/' + weekNum + '/' + weekDay) {
+            case '1/3/1': return 'Martin Luther King\'s Birthday'; // third Monday in January
+            case '2/3/1': return 'Washington\'s Birthday'; // third Monday in February
+            case '5/3/6': return 'Armed Forces Day'; // third Saturday in May
+            case '9/1/1': return 'Labor Day'; // first Monday in September
+            case '10/2/1': return 'Columbus Day'; // second Monday in October
+            case '11/4/4': return 'Thanksgiving Day'; // fourth Thursday in November
+        }
+            return ''; // no holiday today
+        }
+ }
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="CSS">
+                        <div class="pane-content">
+.wj-calendar .date-holiday {
+    /* holidays in calendar */
+    color: #008f22;
+    outline: 2px solid #008f22;
+}
+.wj-calendar .date-weekend:not(.wj-state-selected) {
+    /* weekends in calendar */
+    background-color: #d8ffa6;
+}
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="app-input-group">
+                    <label>Bound InputDate with min &amp; max</label>
+                    <wj-input-date [(value)]="today"
+                                   [min]="minDate"
+                                   [max]="maxDate">
+                    </wj-input-date>
+                </div>
+                <div class="app-input-group">
+                    <label>Bound Calendar with min &amp; max</label>
+                    <wj-calendar #calendar
+                                 style="width:300px;display:block"
+                                 [(value)]="today"
+                                 [min]="minDate"
+                                 [max]="maxDate"
+                                 (formatItem)="formatItem(calendar,$event)">
+                    </wj-calendar>
+                </div>
+                <p>
+                    <b>Selected Date: {{ today | date }}</b>
+                </p>
+                <p>
+                    <b>Valid Range: {{ minDate | date }} to {{ maxDate | date }}</b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- InputDate, InputTime and InputDateTime Controls-->
+    <div>
+        <h2 id="InputTime">InputDate, InputTime and InputDateTime Controls</h2>
+        <p>
+            Similar to the InputDate control, the InputTime control allows you to modify the time portion of
+            a JavaScript date. The InputTime control shares many of the same properties as the InputDate control,
+            including <b>format</b>, <b>min</b>, <b>max</b>, and <b>value</b>. The InputTime control also offers a
+            <b>step</b> property that allows you to specify the number of minutes between entries in its drop-down
+            list.
+        </p>
+        <p>
+            The InputDateTime control combines the InputDate and InputTime controls, allowing you to set the date
+            and time portions of a JavaScript date. The The InputDateTime control has two drop-downs: a Calendar
+            for picking dates, and a list for picking times.
+        </p>
+        <p>
+            The example below illustrates how to use the InputTime control in conjunction with the InputDate
+            control. Notice that these controls work together to edit the same JavaScript <b>Date</b> object
+            and only update the part of the DateTime that they are responsible for.
+        </p>
+        <p>
+            The example also shows an InputDateTime that updates both the date and time parts of the
+            JavaScript <b>Date</b> object.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+ &lt;label&gt;Bound InputDate with min, max, &amp; format&lt;/label&gt;
+ &lt;wj-input-date [(value)]="today"
+     [min]="minDate"
+     [max]="maxDate"
+     [format]="'MMM dd, yyyy'"&gt;
+ &lt;/wj-input-date&gt;
+
+
+ &lt;label&gt;Bound InputTime with min, max, &amp; step&lt;/label&gt;
+ &lt;wj-input-time [(value)]="today"
+     [step]="15"
+     [min]="'09:00' | toDate"
+     [max]="'17:00' | toDate"&gt;
+ &lt;/wj-input-time&gt;
+
+ &lt;label&gt;Bound InputDateTime with min, max, format, and step&lt;/label&gt;
+ &lt;wj-input-date-time [(value)]="today"
+     [format]="'MMM dd, yyyy hh:mm tt'"
+     [min]="minDate"
+     [max]="maxDate"
+     [timeStep]="15"
+     [timeMin]="'09:00' | toDate"
+     [timeMax]="'17:00' | toDate"&gt;
+ &lt;/wj-input-date-time&gt;
+
+ &lt;p&gt;
+ &lt;b&gt;Selected Date &amp; Time: {&#8203;{ today | date: 'medium' }&#8203;}&lt;/b&gt;
+ &lt;/p&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+@Component({
+    selector: 'app-cmp',
+    directives: [CORE_DIRECTIVES,
+            wjNg2Input.WjInputDate, wjNg2Input.WjInputTime, wjNg2Input.WjInputDateTime]
+})
+export class AppCmp {
+    today: Date;
+    minDate: Date;
+    maxDate: Date;
+    constructor( ) {
+        // values for InputDate, InputTime, InputDateTime
+        let today = new Date();
+        this.today = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 13, 30);
+        this.minDate = new Date(today.getFullYear(), 0, 1);
+        this.maxDate = new Date(today.getFullYear(), 11, 31);
+    }
+}
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="app-input-group">
+                    <label>Bound InputDate with min, max, &amp; format</label>
+                    <wj-input-date [(value)]="today"
+                                   [min]="minDate"
+                                   [max]="maxDate"
+                                   [format]="'MMM dd, yyyy'">
+                    </wj-input-date>
+                </div>
+                <div class="app-input-group">
+                    <label>Bound InputTime with min, max, &amp; step</label>
+                    <wj-input-time [(value)]="today"
+                                   [step]="15"
+                                   [min]="'09:00' | toDate"
+                                   [max]="'17:00' | toDate">
+                    </wj-input-time>
+                </div>
+                <div class="app-input-group">
+                    <label>Bound InputDateTime with min, max, format, and step</label>
+                    <wj-input-date-time [(value)]="today"
+                                        [format]="'MMM dd, yyyy hh:mm tt'"
+                                        [min]="minDate"
+                                        [max]="maxDate"
+                                        [timeStep]="15"
+                                        [timeMin]="'09:00' | toDate"
+                                        [timeMax]="'17:00' | toDate">
+                    </wj-input-date-time>
+                </div>
+                <p>
+                    <b>Selected Date &amp; Time: {{ today | date: 'medium' }}</b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- InputDate and Validation -->
+    <div>
+        <h2 id="H1">InputDate and Validation</h2>
+        <p>
+            The InputDate control automatically parses dates typed in by the user using the format specified
+            by the <b>format</b> property. Invalid dates are ignored and the original value is preserved.
+            The InputDate control also checks the range and ensures that date values are between the values
+            specified by the <b>min</b> and <b>max</b> properties.
+        </p>
+        <p>
+            But in many cases, not all dates between the <b>min</b> and <b>max</b> properties are valid. For
+            example, you may be creating an appointment scheduler application and want to ensure that users
+            don't schedule appointments for weekends, holidays, or dates that already have a certain number
+            of appointments scheduled.
+        </p>
+        <p>
+            To handle these situations, the InputDate (and the Calendar) have an <b>itemValidator</b> property.
+            This property represents a function that takes a date as a parameter and returns true if the date
+            is valid for selection, or false otherwise. Invalid dates will automatically be disabled and users
+            will not be able to select them in the calendar or to enter them by typing.
+        </p>
+        <p>
+            The example below demonstrates this with an InputDate that has an <b>itemValidator</b> function
+            that returns false for weekends and US federal holidays. The example also uses an <b>itemFormatter</b>
+            function to add some special formatting and a tooltip with the name of the holidays.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+ &lt;label&gt;Select a date that is not a weekend or a holiday:&lt;/label&gt;
+ &lt;wj-input-date [(value)]="theDate"
+     [itemFormatter]="itemFormatter"
+     [itemValidator]="itemValidator"&gt;
+ &lt;/wj-input-date&gt;
+
+ &lt;p&gt;
+ &lt;b&gt;Selected Date: {&#8203;{ theDate | date }&#8203;}&lt;/b&gt;
+ &lt;/p&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+ @Component({
+     selector: 'app-cmp',
+     directives: [CORE_DIRECTIVES, wjNg2Input.WjInputDate]    
+ })
+ export class AppCmp {
+     theDate: Date;
+     constructor( ) {
+        // Value for InputDate
+       let theDate = new Date();
+       while (!this.itemValidator(theDate)) {
+        theDate = wijmo.DateTime.addDays(theDate, 1);
+       }
+       this.theDate = theDate; // start with a valid date
+     }
+
+     // show item formatter and validator, use arrow function to ensure correct 'this'
+     itemFormatter = (date: Date, element: HTMLElement) => {
+         let weekday = date.getDay(),
+         holiday = this._getHoliday(date);
+         wijmo.toggleClass(element, 'date-weekend', weekday == 0 || weekday == 6);
+         wijmo.toggleClass(element, 'date-holiday', !!holiday);
+         element.title = holiday;
+     }
+
+     itemValidator = (date: Date) => {
+         switch (date.getDay()) {
+             case 0:
+             case 6:
+             return false; // no appointments on weekends
+         }
+         if (this._getHoliday(date)) {
+            return false; // no appointments on holidays
+         }
+         return true; // not a weekend or a holiday, this date is OK！
+     }
+
+     // gets the holiday for a given date
+     private _getHoliday(date: Date) {
+         var day = date.getDate(),
+         month = date.getMonth() + 1;
+         switch (month + '/' + day) { 
+         // simple holidays (fixed dates)
+             case '1/1': return 'New Year\'s Day';
+             case '6/14': return 'Flag Day';
+             case '7/4': return 'Independence Day';
+             case '11/11': return 'Veteran\'s Day';
+             case '12/25': return 'Christmas Day';
+          }
+         var weekDay = date.getDay(),
+         weekNum = Math.floor((day - 1) / 7) + 1;
+         switch (month + '/' + weekNum + '/' + weekDay) {
+             case '1/3/1': return 'Martin Luther King\'s Birthday'; // third Monday in January
+             case '2/3/1': return 'Washington\'s Birthday'; // third Monday in February
+             case '5/3/6': return 'Armed Forces Day'; // third Saturday in May
+             case '9/1/1': return 'Labor Day'; // first Monday in September
+             case '10/2/1': return 'Columbus Day'; // second Monday in October
+             case '11/4/4': return 'Thanksgiving Day'; // fourth Thursday in November
+         }
+
+         return ''; // no holiday today
+       }
+ }
+
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="CSS">
+                        <div class="pane-content">
+                            .wj-calendar .date-holiday {
+                                color: #008f22;
+                                outline: 2px solid #008f22;
+                            }
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="app-input-group">
+                    <label>Select a date that is not a weekend or a holiday:</label>
+                    <wj-input-date [(value)]="theDate"
+                                   [itemFormatter]="itemFormatter"
+                                   [itemValidator]="itemValidator">
+                    </wj-input-date>
+                </div>
+                <p>
+                    <b>Selected Date: {{ theDate | date }}</b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ListBox -->
+    <div>
+        <h2 id="ListBox">ListBox</h2>
+        <p>
+            The ListBox control displays a list of items and allows you to select items using your
+            mouse and keyboard. Like the AutoComplete and ComboBox controls, you must specify the
+            ListBox's <b>itemsSource</b> property in order to use the control.
+        </p>
+        <p>
+            An arbitrary item content can be optionally defined using the <b>wj-item-template</b> directive,
+            where the <b>$item</b> and <b>$itemIndex</b> variables representing a data item and its index
+            respectively can be used in Angular bindings.
+        </p>
+        <p>
+            The example below allows you to select an item within the ListBox control and displays
+            the control's <b>selectedIndex</b> and <b>selectedValue</b> properties.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+ &lt;label&gt;Simple ListBox&lt;/label&gt;
+ &lt;wj-list-box #listBox    style="height:150px;width:250px;"
+     [itemsSource]="cities"&gt;
+ &lt;/wj-list-box&gt;
+ &lt;p&gt;
+     &lt;b&gt;selectedIndex: {&#8203;{listBox.selectedIndex}&#8203;}&lt;/b&gt;
+     &lt;/p&gt;
+     &lt;p&gt;
+     &lt;b&gt;selectedValue: {&#8203;{listBox.selectedValue}&#8203;}&lt;/b&gt;
+ &lt;/p&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+// Common data service
+@Injectable()
+export class DataSvc {
+    // data used to generate random items
+    getMusicians(): any[] {
+        var names = 'Paul,Mark,Pete,Ringo,Luke,Jacob,John,Nate,Zym,George,Toom,Crash,Boom,Dewd'.split(','),
+        musicians = [];
+        for (var i = 0; i < names.length; i++) {
+            var item = {
+            id: i,
+            name: names[i],
+                photo: '|Paul|John|George|Ringo|'
+                .indexOf('|' + names[i] + '|') >= 0
+                ? 'resources/' + names[i] + '.png'
+                : null
+            };
+            musicians.push(item);
+         }
+        return musicians;
+    }
+
+ @Component({
+     selector: 'app-cmp',
+     directives: [CORE_DIRECTIVES,
+            wjNg2Input.WjListBox, wjNg2Input.WjItemTemplate]
+ })
+ export class AppCmp {
+     musicians: { id: number, name: string, photo: string }[];
+     constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+         //Data for ListBox
+         this.musicians = this.dataSvc.getMusicians();
+     }
+ }
+
+ enableProdMode();
+ // Bootstrap application with hash style navigation and global services.
+ bootstrap(AppCmp, [
+ DataSvc
+ ]);
+}
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="app-input-group">
+                    <label>Simple ListBox</label>
+                    <wj-list-box #listBox
+                                 style="height:150px;width:250px;"
+                                 [itemsSource]="cities">
+                    </wj-list-box>
+                    <p>
+                        <b>selectedIndex: {{listBox.selectedIndex}}</b>
+                    </p>
+                    <p>
+                        <b>selectedValue: {{listBox.selectedValue}}</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <p>
+            This second example demonstrates how you can use templates to populate
+            ListBox controls. It uses an item template to show items with a complex
+            layout, including images when available.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+ &lt;label&gt;ListBox with item template&lt;/label&gt;
+ &lt;wj-list-box style="max-height:300px;width:250px;"
+     [itemsSource]="musicians"&gt;
+     &lt;template wjItemTemplate let-item="item" let-itemIndex="itemIndex"&gt;
+         {&#8203;{itemIndex + 1}&#8203;}.
+         &lt;b&gt;{&#8203;{item.name}&#8203;}&lt;/b&gt;
+         &lt;div *ngIf="item.photo"&gt;
+             &lt;img [src]="item.photo"
+             height="100" /&gt;
+             &lt;br /&gt;
+             &lt;a [href]="'https://www.google.ru/#newwindow=1&q=The+Beatles+' + item.name" target="_blank"
+             style="color:red"&gt;go there!&lt;/a&gt;
+         &lt;/div&gt;
+     &lt;/template&gt;
+ &lt;/wj-list-box&gt;
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="app-input-group">
+                    <label>ListBox with item template</label>
+                    <wj-list-box style="max-height:300px;width:250px;"
+                                 [itemsSource]="musicians">
+                        <template wjItemTemplate let-item="item" let-itemIndex="itemIndex">
+                            {{itemIndex + 1}}.
+                            <b>{{item.name}}</b>
+                            <div *ngIf="item.photo">
+                                <img [src]="item.photo"
+                                     height="100" />
+                                <br />
+                                <a [href]="'https://www.google.ru/#newwindow=1&q=The+Beatles+' + item.name"
+                                   target="_blank"
+                                   style="color:red">go there!</a>
+                            </div>
+                        </template>
+                    </wj-list-box>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- InputNumber -->
+    <div>
+        <h2 id="InputNumber">InputNumber</h2>
+        <p>
+            The InputNumber control allows you to edit numbers, preventing you from entering invalid
+            data and optionally formatting the numeric value as it is edited. The InputNumber can be
+            used without specifying any of its properties; however, you'll typically want to bind it
+            to some data using the <b>value</b> property.
+        </p>
+        <p>
+            In addition to the <b>value</b> property, the InputNumber control offers several other
+            properties that can be used to alter its behavior, such as:
+        </p>
+        <ul>
+            <li>
+                <b>min</b>: Specifies the minimum numeric value that can be entered.
+            </li>
+            <li>
+                <b>max</b>: Specifies the maximum numeric value that can be entered.
+            </li>
+            <li>
+                <b>step</b>: Specifies the amount to add or subtract from the current
+                value when the spinner buttons are clicked.
+            </li>
+            <li>
+                <b>format</b>: Specifies the numeric format used to display the number being
+                edited. The format property uses a .NET-style
+                <a href="http://msdn.microsoft.com/en-us/library/dwhawy9k(v=vs.110).aspx" target="_blank">numeric format string</a>.
+            </li>
+        </ul>
+        <p>
+            The example below demonstrates how to use all of these properties.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+ &lt;label&gt;Unbound with "n0" format&lt;/label&gt;
+ &lt;wj-input-number [format]="'n0'"&gt;
+ &lt;/wj-input-number&gt;
+
+ &lt;label&gt;Bound with "n" format&lt;/label&gt;
+ &lt;wj-input-number [(value)]="pi"
+    [format]="'n'"&gt;
+ &lt;/wj-input-number&gt;
+
+ &lt;label&gt;Bound with min (0), max (10), step, and "c2" format&lt;/label&gt;
+ &lt;wj-input-number [value]="price"
+     [format]="'c2'"
+     [step]=".5"
+     [min]="0"
+     [max]="10"&gt;
+ &lt;/wj-input-number&gt;
+
+ &lt;label&gt;Unbound with placeholder and required="false"&lt;/label&gt;
+ &lt;wj-input-number [placeholder]="'Enter a number...'"
+     [isRequired]="false"
+     [(value)]="nullVal"&gt;
+ &lt;/wj-input-number&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+@Component({
+    selector: 'app-cmp',
+    directives: [CORE_DIRECTIVES, wjNg2Input.WjInputNumber]
+    
+})                       
+export class AppCmp {
+    // values for InputNumber
+    pi = Math.PI;
+    someValue = 3.5;
+    price = 3.5;
+    nullVal = null;
+}
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="app-input-group">
+                    <label>Unbound with "n0" format</label>
+                    <wj-input-number [format]="'n0'">
+                    </wj-input-number>
+                </div>
+                <div class="app-input-group">
+                    <label>Bound with "n" format</label>
+                    <wj-input-number [(value)]="pi"
+                                     [format]="'n'">
+                    </wj-input-number>
+                </div>
+                <div class="app-input-group">
+                    <label>Bound with min (0), max (10), step, and "c2" format</label>
+                    <wj-input-number [value]="price"
+                                     [format]="'c2'"
+                                     [step]=".5"
+                                     [min]="0"
+                                     [max]="10">
+                    </wj-input-number>
+                </div>
+                <div class="app-input-group">
+                    <label>Unbound with placeholder and isRequired="false"</label>
+                    <wj-input-number [placeholder]="'Enter a number...'"
+                                     [isRequired]="false"
+                                     [(value)]="nullVal">
+                    </wj-input-number>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- InputMask -->
+    <div>
+        <h2 id="InputMask">InputMask</h2>
+        <p>
+            The InputMask control allows you to validate and format user input as it is entered, preventing
+            invalid data.  The InputMask control can be used without specifying any of its properties; however,
+            you will typically set its <b>value</b> and <b>mask</b> properties.  Like the other Wijmo input
+            controls, the <b>value</b> property specifies the value for the InputMask control.  The <b>mask</b> property
+            specifies the control's mask and supports a combination of the following characters:
+        </p>
+        <dl class="dl-horizontal">
+            <dt>0</dt>
+            <dd>Digit.</dd>
+            <dt>9</dt>
+            <dd>Digit or space.</dd>
+            <dt>#</dt>
+            <dd>Digit, sign, or space.</dd>
+            <dt>L</dt>
+            <dd>Letter.</dd>
+            <dt>l</dt>
+            <dd>Letter or space.</dd>
+            <dt>A</dt>
+            <dd>Alphanumeric.</dd>
+            <dt>a</dt>
+            <dd>Alphanumeric or space.</dd>
+            <dt>.</dt>
+            <dd>Localized decimal point.</dd>
+            <dt>,</dt>
+            <dd>Localized thousand separator.</dd>
+            <dt>:</dt>
+            <dd>Localized time separator.</dd>
+            <dt>/</dt>
+            <dd>Localized date separator.</dd>
+            <dt>$</dt>
+            <dd>Localized currency symbol.</dd>
+            <dt>&lt;</dt>
+            <dd>Converts characters that follow to lowercase.</dd>
+            <dt>&gt;</dt>
+            <dd>Converts characters that follow to uppercase.</dd>
+            <dt>|</dt>
+            <dd>Disables case conversion.</dd>
+            <dt>\</dt>
+            <dd>Escapes any character, turning it into a literal.</dd>
+            <dt>All others</dt>
+            <dd>Literals.</dd>
+        </dl>
+        <p>
+            The examples below demonstrates how to use the <b>value</b> and <b>mask</b> properties with the
+            InputMask, InputDate, and InputTime controls.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+ &lt;label&gt;Social Security Number&lt;/label&gt;
+ &lt;wj-input-mask [mask]="'000-00-0000'"
+    [title]="'Mask: 000-00-0000'"&gt;
+ &lt;/wj-input-mask&gt;
+
+ &lt;label&gt;Phone Number&lt;/label&gt;
+ &lt;wj-input-mask [mask]="'(999) 000-0000'"
+    [title]="'Mask: (999) 000-0000'"&gt;
+ &lt;/wj-input-mask&gt;
+
+ &lt;label&gt;Try your own&lt;/label&gt;
+ &lt;wj-input-mask [(value)]="customMask"
+    [isRequired]="false"
+    [placeholder]="'Enter an input mask...'"&gt;
+ &lt;/wj-input-mask&gt;
+ &lt;wj-input-mask [mask]="customMask"
+    [title]="'Mask: ' + (customMask || 'N/A')"
+    [isRequired]="false"
+    [placeholder]="'Try your input mask...'"&gt;
+ &lt;/wj-input-mask&gt;
+
+ &lt;label&gt;InputDate with mask&lt;/label&gt;
+ &lt;wj-input-date [(value)]="maskToday"
+     [format]="'d'"
+     [mask]="'99/99/9999'"
+     [title]="'Mask: 99/99/9999'"&gt;
+ &lt;/wj-input-date&gt;
+
+ &lt;label&gt;InputTime with mask&lt;/label&gt;
+ &lt;wj-input-time [(value)]="maskToday"
+     [format]="'t'"
+     [isEditable]="true"
+     [step]="15"
+     [mask]="'00:00 &gt;LL'"
+     [title]="'Mask: 00:00 &gt;LL'"&gt;
+ &lt;/wj-input-time&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+@Component({
+    selector: 'app-cmp',
+    directives: [CORE_DIRECTIVES,   
+        wjNg2Input.WjInputDate, wjNg2Input.WjInputTime, wjNg2Input.WjInputMask]
+})
+ export class AppCmp {
+     // values for InputMask
+     customMask = null;
+     maskToday = new Date();
+ }
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="app-input-group">
+                    <label>Social Security Number</label>
+                    <wj-input-mask [mask]="'000-00-0000'"
+                                   [title]="'Mask: 000-00-0000'">
+                    </wj-input-mask>
+                </div>
+                <div class="app-input-group">
+                    <label>Phone Number</label>
+                    <wj-input-mask [mask]="'(999) 000-0000'"
+                                   [title]="'Mask: (999) 000-0000'">
+                    </wj-input-mask>
+                </div>
+                <div class="app-input-group">
+                    <label>Try your own</label>
+                    <wj-input-mask [(value)]="customMask"
+                                   [isRequired]="false"
+                                   [placeholder]="'Enter an input mask...'">
+                    </wj-input-mask>
+                    <wj-input-mask [mask]="customMask"
+                                   [title]="'Mask: ' + (customMask || 'N/A')"
+                                   [isRequired]="false"
+                                   [placeholder]="'Try your input mask...'">
+                    </wj-input-mask>
+                </div>
+                <div class="app-input-group">
+                    <label>InputDate with mask</label>
+                    <wj-input-date [(value)]="maskToday"
+                                   [format]="'d'"
+                                   [mask]="'99/99/9999'"
+                                   [title]="'Mask: 99/99/9999'">
+                    </wj-input-date>
+                </div>
+                <div class="app-input-group">
+                    <label>InputTime with mask</label>
+                    <wj-input-time [(value)]="maskToday"
+                                   [format]="'t'"
+                                   [isEditable]="true"
+                                   [step]="15"
+                                   [mask]="'00:00 >LL'"
+                                   [title]="'Mask: 00:00 >LL'">
+                    </wj-input-time>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu -->
+    <div>
+        <h2 id="Menu">Menu</h2>
+        <p>
+            The Menu control allows you to create a simple drop-down list with clickable items. The Menu's
+            items can be defined directly or by using the <b>itemsSource</b> property similar to the ComboBox.
+            To specify the text displayed on the Menu, you can set the <b>header</b> property.
+        </p>
+        <p>
+            The Menu control offers two ways to handle user selections, specifying a command on each menu item
+            and the <b>itemClicked</b> event. Unlike the <b>itemClicked</b> event, commands are objects that
+            implement two methods:
+        </p>
+        <ul>
+            <li>
+                <b>executeCommand(param)</b>: A method that executes the command.
+            </li>
+            <li>
+                <b>canExecuteCommand(param)</b>: A method that returns a Boolean value specifying whether or
+                not the command can be executed. If the return value is false, the menu item is disabled automatically.
+            </li>
+        </ul>
+        <p>
+            The example below demonstrates how to use both approaches.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+&lt;label&gt;itemClicked Event&lt;/label&gt;
+    &lt;wj-menu #fileMenu [header]="'File'" (itemClicked)="menuItemClicked(fileMenu)"&gt;
+    &lt;wj-menu-item&gt;&lt;i class="fa fa-file-o"&gt;&lt;/i&gt;&nbsp;&nbsp;&lt;b&gt;New&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;create a new file&lt;/i&gt;&lt;/small&gt;&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item&gt;&lt;i class="fa fa-folder-open-o"&gt;&lt;/i&gt;&nbsp;&nbsp;&lt;b&gt;Open&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;open an existing file or folder&lt;/i&gt;&lt;/small&gt;&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item&gt;&lt;i class="fa fa-save"&gt;&lt;/i&gt;&nbsp;&nbsp;&lt;b&gt;Save&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;save the current file&lt;/i&gt;&lt;/small&gt;&lt;/wj-menu-item&gt;
+    &lt;wj-menu-separator&gt;&lt;/wj-menu-separator&gt;
+    &lt;wj-menu-item&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&nbsp;&nbsp;&lt;b&gt;Exit&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;exit the application&lt;/i&gt;&lt;/small&gt;&lt;/wj-menu-item&gt;
+&lt;/wj-menu&gt;
+&lt;wj-menu #editMenu [header]="'Edit'" (itemClicked)="menuItemClicked(editMenu)"&gt;
+    &lt;wj-menu-item&gt;&lt;i class="fa fa-cut"&gt;&lt;/i&gt;&nbsp;&nbsp;&lt;b&gt;Cut&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;move the current selection to the clipboard&lt;/i&gt;&lt;/small&gt;&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item&gt;&lt;i class="fa fa-copy"&gt;&lt;/i&gt;&nbsp;&nbsp;&lt;b&gt;Copy&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;copy the current selection to the clipboard&lt;/i&gt;&lt;/small&gt;&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item&gt;&lt;i class="fa fa-paste"&gt;&lt;/i&gt;&nbsp;&nbsp;&lt;b&gt;Paste&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;insert clipboard content at the cursor position&lt;/i&gt;&lt;/small&gt;&lt;/wj-menu-item&gt;
+&lt;/wj-menu&gt;
+
+&lt;label&gt;Commands&lt;/label&gt;
+&lt;wj-menu [header]="'Change Tax'"&gt;
+    &lt;wj-menu-item [cmd]="menuCommand" [cmdParam]=".25"&gt;+ 25%&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item [cmd]="menuCommand" [cmdParam]=".10"&gt;+ 10%&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item [cmd]="menuCommand" [cmdParam]=".05"&gt;+ 5%&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item [cmd]="menuCommand" [cmdParam]=".01"&gt;+ 1%&lt;/wj-menu-item&gt;
+    &lt;wj-menu-separator&gt;&lt;/wj-menu-separator&gt;
+    &lt;wj-menu-item [cmd]="menuCommand" [cmdParam]="-.01"&gt;- 1%&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item [cmd]="menuCommand" [cmdParam]="-.05"&gt;- 5%&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item [cmd]="menuCommand" [cmdParam]="-.10"&gt;- 10%&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item [cmd]="menuCommand" [cmdParam]="-.25"&gt;- 25%&lt;/wj-menu-item&gt;
+&lt;/wj-menu&gt;
+&lt;wj-input-number [(value)]="tax" [format]="'p0'" [min]="0" [max]="1" [step]=".05"&gt;&lt;/wj-input-number&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="TS">
+                        <div class="pane-content">
+ @Component({
+     selector: 'app-cmp',
+     directives: [CORE_DIRECTIVES,
+         wjNg2Input.WjMenu, wjNg2Input.WjMenuItem,
+         wjNg2Input.WjMenuSeparator]
+ })
+export class AppCmp {
+    // value for Menu
+    tax = .07;
+
+    menuCommand = {
+        executeCommand: (arg) => {
+            this.tax += arg;
+        },
+        canExecuteCommand: (arg) => {
+            if (wijmo.isNumber(arg)) {
+                var val = this.tax + arg;
+                return val >= 0 && val <= 1;
+            }
+            return false;
+         }
+    };
+
+    menuItemClicked(menu: wijmo.input.Menu) {
+        alert('You\'ve selected option ' + menu.selectedIndex + ' from the ' + menu.header + ' menu!');
+    };
+}
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="app-input-group">
+                    <label>itemClicked Event</label>
+                    <wj-menu #fileMenu [header]="'File'" (itemClicked)="menuItemClicked(fileMenu)">
+                        <wj-menu-item><i class="fa fa-file-o"></i>&nbsp;&nbsp;<b>New</b><br><small><i>create a new file</i></small></wj-menu-item>
+                        <wj-menu-item><i class="fa fa-folder-open-o"></i>&nbsp;&nbsp;<b>Open</b><br><small><i>open an existing file or folder</i></small></wj-menu-item>
+                        <wj-menu-item><i class="fa fa-save"></i>&nbsp;&nbsp;<b>Save</b><br><small><i>save the current file</i></small></wj-menu-item>
+                        <wj-menu-separator></wj-menu-separator>
+                        <wj-menu-item><i class="fa fa-times"></i>&nbsp;&nbsp;<b>Exit</b><br><small><i>exit the application</i></small></wj-menu-item>
+                    </wj-menu>
+                    <wj-menu #editMenu [header]="'Edit'" (itemClicked)="menuItemClicked(editMenu)">
+                        <wj-menu-item><i class="fa fa-cut"></i>&nbsp;&nbsp;<b>Cut</b><br><small><i>move the current selection to the clipboard</i></small></wj-menu-item>
+                        <wj-menu-item><i class="fa fa-copy"></i>&nbsp;&nbsp;<b>Copy</b><br><small><i>copy the current selection to the clipboard</i></small></wj-menu-item>
+                        <wj-menu-item><i class="fa fa-paste"></i>&nbsp;&nbsp;<b>Paste</b><br><small><i>insert clipboard content at the cursor position</i></small></wj-menu-item>
+                    </wj-menu>
+                </div>
+                <div class="app-input-group">
+                    <label>Commands</label>
+                    <wj-menu [header]="'Change Tax'">
+                        <wj-menu-item [cmd]="menuCommand" [cmdParam]=".25">+ 25%</wj-menu-item>
+                        <wj-menu-item [cmd]="menuCommand" [cmdParam]=".10">+ 10%</wj-menu-item>
+                        <wj-menu-item [cmd]="menuCommand" [cmdParam]=".05">+ 5%</wj-menu-item>
+                        <wj-menu-item [cmd]="menuCommand" [cmdParam]=".01">+ 1%</wj-menu-item>
+                        <wj-menu-separator></wj-menu-separator>
+                        <wj-menu-item [cmd]="menuCommand" [cmdParam]="-.01">- 1%</wj-menu-item>
+                        <wj-menu-item [cmd]="menuCommand" [cmdParam]="-.05">- 5%</wj-menu-item>
+                        <wj-menu-item [cmd]="menuCommand" [cmdParam]="-.10">- 10%</wj-menu-item>
+                        <wj-menu-item [cmd]="menuCommand" [cmdParam]="-.25">- 25%</wj-menu-item>
+                    </wj-menu>
+                    <wj-input-number [(value)]="tax" [format]="'p0'" [min]="0" [max]="1" [step]=".05"></wj-input-number>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

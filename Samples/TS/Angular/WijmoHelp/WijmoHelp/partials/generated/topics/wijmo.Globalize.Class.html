@@ -1,0 +1,193 @@
+<h2>Globalize Class</h2>
+<dl class="dl-horizontal">
+<dt>Module</dt><dd>wijmo</dd>
+<dt>File</dt><dd>wijmo.js</dd>
+</dl>
+<p><p>Class that implements formatting and parsing of numbers and Dates.</p>
+
+<p>By default, <b>Globalize</b> uses the American English culture.
+To switch cultures, include the appropriate <b>wijmo.culture.*.js</b> 
+file after the wijmo files.</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>format</b>&#8203;(value, format, trim?, truncate?): <b>string</b></td>
+      <td><p>
+<b>value</b> (<b>any</b>): Number or Date to format (all other types are converted to strings).<br/><b>format</b> (<b>string</b>): Format string to use when formatting numbers or dates.<br/><b>trim?</b> (<b>boolean</b>): Whether to remove trailing zeros from numeric results.<br/><b>truncate?</b> (<b>boolean</b>): Whether to truncate the numeric values rather than round them.<br/></p>
+</td>
+      <td><p>Formats a number or a date.</p>
+
+<p>The format strings used with the <b>format</b> function are similar to 
+the ones used by <b>Globalize.js</b> and by the .NET Globalization
+library. The tables below contains links that describe the formats
+available:</p>
+
+<p><ul>
+<li><a href="http://msdn.microsoft.com/en-us/library/dwhawy9k(v=vs.110).aspx">
+     Standard Numeric Format Strings</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx">
+     Standard Date and Time Format Strings</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx">
+     Custom Date and Time Format Strings</a></li>
+</ul></p><br/><br/><b>Returns</b> A string representation of the given value.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>formatDate</b>&#8203;(value, format): <b>string</b></td>
+      <td><p>
+<b>value</b> (<b>Date</b>): Number or Date to format.<br/><b>format</b> (<b>string</b>): .NET-style Date format string.<br/></p>
+</td>
+      <td><p>Formats a date using the current culture.</p>
+
+<p>The <b>format</b> parameter contains a .NET-style 
+<a href="http://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx">Date format string</a>
+with the following additions:
+<ul>
+ <li><i>Q, q</i> Calendar quarter.</li>
+ <li><i>U</i> Fiscal quarter (government).</li>
+ <li><i>u</i> Fiscal quarter (private sector).</li>
+ <li><i>EEEE, EEE, EE, E</i> Fiscal year (government).</li>
+ <li><i>eeee, eee, ee, e</i> Fiscal year (private sector).</li>
+</ul></p>
+
+<p>For example:</p>
+
+<p><pre>
+var d = new Date(2015, 9, 1); // Oct 1, 2015
+console.log(wijmo.Globalize.format(d, '"FY"EEEE"Q"U') + ' (US culture)');
+&gt; FY2016Q1 (US culture)
+</pre></p><br/><br/><b>Returns</b> A string representation of the given date.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>formatNumber</b>&#8203;(value, format, trim?, truncate?): <b>string</b></td>
+      <td><p>
+<b>value</b> (<b>number</b>): Number to format.<br/><b>format</b> (<b>string</b>): .NET-style standard numeric format string (e.g. 'n2', 'c4', 'p0', 'g2', 'd2').<br/><b>trim?</b> (<b>boolean</b>): Whether to remove trailing zeros from the result.<br/><b>truncate?</b> (<b>boolean</b>): Whether to truncate the value rather than round it.<br/></p>
+</td>
+      <td><p>Formats a number using the current culture.</p>
+
+<p>The <b>formatNumber</b> method accepts most .NET-style 
+<a href="http://msdn.microsoft.com/en-us/library/dwhawy9k(v=vs.110).aspx">
+Standard Numeric Format Strings</a>, except for the 'e' and 'x' formats
+(scientific notation and hexadecimal) which are not supported.</p>
+
+<p>Numeric format strings takes the form <i>Axxccss</i>, where:
+<ul>
+<li>
+ <i>A</i> is a single case-insensitive alphabetic character called the 
+ format specifier.</li>
+<li>
+ <i>xx</i> is an optional integer called the precision specifier. 
+ The precision specifier affects the number of digits in the result.</li>
+<li>
+ <i>cc</i> is an optional string used to override the currency symbol 
+ when formatting currency values. This is useful when formatting 
+ currency values for cultures different than the current default 
+ (for example, when formatting Euro or Yen values in applications
+ that use the English culture).</li>
+<li>
+ <i>ss</i> is an optional string used to scale the number. If provided,
+ it must consist of commas. The number is divided by 1000 for each comma 
+ specified.</li>
+</ul></p>
+
+<p>The following table describes the standard numeric format specifiers and 
+displays sample output produced by each format specifier for the default
+culture.</p>
+
+<p><b>n</b> Number: <code>formatNumber(1234.5, 'n2') => '1,234.50'</code><br/>
+<b>f</b> Fixed-point: <code>formatNumber(1234.5, 'f2') => '1234.50'</code><br/>
+<b>g</b> General (no trailing zeros): <code>formatNumber(1234.5, 'g2') => '1,234.5'</code><br/>
+<b>d</b> Decimal (integers): <code>formatNumber(-1234, 'd6') => '-001234'</code><br/>
+<b>x</b> Hexadecimal (integers): <code>formatNumber(1234, 'x6') => '0004d2'</code><br/>
+<b>c</b> Currency: <code>formatNumber(1234, 'c') => '$ 1,234.00'</code><br/>
+<b>p</b> Percent: <code>formatNumber(0.1234, 'p2') => '12.34 %'</code></p>
+
+<p>The scaling specifier is especially useful when charting large values. For 
+example, the markup below creates a chart that plots population versus GDP.
+The raw data expresses the population is units and the GDP in millions.
+The scaling specified in the axes formats causes the chart to show population
+in millions and GDP in trillions:</p>
+
+<p><pre>&lt;wj-flex-chart
+  items-source="countriesGDP" binding-x="pop" chart-type="Scatter"&gt;
+  &lt;wj-flex-chart-series
+    name="GDP" binding="gdp"&gt;&lt;/wj-flex-chart-series&gt;
+  &lt;wj-flex-chart-axis
+    wj-property="axisX" title="Population (millions)" 
+    format="n0,,"&gt;
+  &lt;/wj-flex-chart-axis&gt;
+  &lt;wj-flex-chart-axis
+    wj-property="axisY" title="GDP (US$ trillions)"
+    format="c0,,"&gt;
+  &lt;/wj-flex-chart-axis&gt;
+&lt;/wj-flex-chart&gt;</pre></p><br/><br/><b>Returns</b> A string representation of the given number.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>getFirstDayOfWeek</b>&#8203;(): <b>number</b></td>
+      <td></td>
+      <td><p>Gets the first day of the week according to the current culture.</p>
+
+<p>The value returned is between zero (Sunday) and six (Saturday).</p></td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>getNumberDecimalSeparator</b>&#8203;(): <b>string</b></td>
+      <td></td>
+      <td>Gets the symbol used as a decimal separator in numbers.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>parseDate</b>&#8203;(value, format): <b>Date</b></td>
+      <td><p>
+<b>value</b> (<b>string</b>): String to convert to a Date.<br/><b>format</b> (<b>string</b>): Format string used to parse the date.<br/></p>
+</td>
+      <td>Parses a string into a Date.<br/><br/><b>Returns</b> The date represented by the given string, or null if the string
+cannot be parsed into a Date.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>parseFloat</b>&#8203;(value, format?): <b>number</b></td>
+      <td><p>
+<b>value</b> (<b>string</b>): String to convert to a number.<br/><b>format?</b> (<b>string</b>): Format to use when parsing the number.<br/></p>
+</td>
+      <td>Parses a string into a floating point number.<br/><br/><b>Returns</b> The floating point number represented by the given string, 
+or <b>NaN</b> if the string cannot be parsed into a floating point number.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>parseInt</b>&#8203;(value, format?): <b>number</b></td>
+      <td><p>
+<b>value</b> (<b>string</b>): String to convert to an integer.<br/><b>format?</b> (<b>string</b>): Format to use when parsing the number.<br/></p>
+</td>
+      <td>Parses a string into an integer.<br/><br/><b>Returns</b> The integer represented by the given string, 
+or <b>NaN</b> if the string cannot be parsed into an integer.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

@@ -1,0 +1,51 @@
+﻿<div>
+    <h2>FlexChart {{title}}</h2>
+
+    <p>
+        This view shows Waterfall in FlexChart.
+    </p>
+    <p>
+        The Waterfall series is normally used to demonstrate how the starting position either increases or decreases through a series of changes.
+    </p>
+    <!-- Settings -->
+    <div class="panel-group" id="settings">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <ul class="list-inline">
+                    <li>
+                        <label for="checkboxRelativeData">Is RelativeData:</label>
+                        <input type="checkbox" id="checkboxRelativeData" [(ngModel)]="relativeData" />
+                    </li>
+                    <li>
+                        <label for="checkboxShowConnectorLines">Show Connector Lines:</label>
+                        <input type="checkbox" id="checkboxShowConnectorLines" [(ngModel)]="connectorLines" />
+                    </li>
+                    <li>
+                        <label for="checkboxShowTotal">Show Total:</label>
+                        <input type="checkbox" id="checkboxShowTotal" [(ngModel)]="showTotal" />
+                    </li>
+                    <li>
+                        <label for="checkboxShowIntermediateTotal">Show Intermediate Total:</label>
+                        <input type="checkbox" id="checkboxShowIntermediateTotal" [(ngModel)]="showIntermediateTotal" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <wj-flex-chart #waterfallChart [itemsSource]="itemsSource" bindingX="name" binding="value">
+            <wj-flex-chart-waterfall #waterfall
+                                     [relativeData]="relativeData"
+                                     [connectorLines]="connectorLines"
+                                     [showTotal]="showTotal"
+                                     [start]="1000"
+                                     [showIntermediateTotal]="showIntermediateTotal"
+                                     [intermediateTotalPositions]="[3, 6, 9, 12]"
+                                     [intermediateTotalLabels]="['Q1', 'Q2', 'Q3', 'Q4']"
+                                     name="Increase,Decrease,Total"
+                                     [styles]="styles">
+            </wj-flex-chart-waterfall>
+        </wj-flex-chart>
+    </div>
+
+</div>

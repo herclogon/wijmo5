@@ -1,0 +1,79 @@
+<h2>IWorkbookRow Class</h2>
+<dl class="dl-horizontal">
+<dt>Module</dt><dd>wijmo.xlsx</dd>
+<dt>File</dt><dd>wijmo.xlsx.js</dd>
+</dl>
+<p>Represents the Workbook Object Model row definition.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>cells?</b></td>
+      <td><a href="topic/wijmo.xlsx.IWorkbookCell.Interface.html"><b>IWorkbookCell</b></a><b>[]</b></td>
+      <td><p>Gets or sets an array of cells in the row.</p>
+
+<p>Each <a href="topic/wijmo.xlsx.IWorkbookCell.Interface.html"><b>IWorkbookCell</b></a> object in the array describes a cell at the corresponding position in the row, 
+i.e. the cell with index 0
+pertain to column with index A, cell with index 1 defines cell pertain to column with index B, and so on. If a certain cell 
+has no definition (empty) in xlsx file then corresponding array element is undefined for both export and import operations.</p></td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>collapsed?</b></td>
+      <td><b>boolean</b></td>
+      <td>TBD: Indicating if the row is in the collapsed outline state.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>groupLevel?</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the group level of the row.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>height?</b></td>
+      <td><b>number</b></td>
+      <td><p>Gets or sets the row height in device-independent (1/96th inch) pixels.</p>
+
+<p>If height is not specified then the default height is applied.</p></td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>style?</b></td>
+      <td><a href="topic/wijmo.xlsx.IWorkbookStyle.Interface.html"><b>IWorkbookStyle</b></a></td>
+      <td><p>Gets or sets the row style.</p>
+
+<p>The property defines the style for all cells in the row, and can be overridden by the specific cell styles.</p></td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>visible?</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets the row visibility.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

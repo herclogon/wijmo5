@@ -1,0 +1,216 @@
+<h2>Color Class</h2>
+<dl class="dl-horizontal">
+<dt>Module</dt><dd>wijmo</dd>
+<dt>File</dt><dd>wijmo.js</dd>
+</dl>
+<p><p>Color class.</p>
+
+<p>The <b>Color</b> class parses colors specified as CSS strings and exposes
+their red, green, blue, and alpha channels as read-write properties.</p>
+
+<p>The <b>Color</b> class also provides <b>fromHsb</b> and <b>fromHsl</b> methods 
+for creating colors using the HSB and HSL color models instead of RGB, 
+as well as <b>getHsb</b> and <b>getHsl</b> methods for retrieving the color
+components using those color models.</p>
+
+<p>Finally, the <b>Color</b> class provides an <b>interpolate</b> method that 
+creates colors by interpolating between two colors using the HSL model.
+This method is especially useful for creating color animations with the
+<b>animate</b> method.</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(color): <a href="topic/wijmo.Color.Class.html"><b>Color</b></a></td>
+      <td><p>
+<b>color</b> (<b>string</b>): CSS color specification.<br/></p>
+</td>
+      <td>Initializes a new <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> from a CSS color specification.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>a</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the alpha component of this <a href="topic/wijmo.Color.Class.html"><b>Color</b></a>,
+in a range from 0 to 1 (zero is transparent, one is solid).</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>b</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the blue component of this <a href="topic/wijmo.Color.Class.html"><b>Color</b></a>,
+in a range from 0 to 255.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>g</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the green component of this <a href="topic/wijmo.Color.Class.html"><b>Color</b></a>,
+in a range from 0 to 255.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>r</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the red component of this <a href="topic/wijmo.Color.Class.html"><b>Color</b></a>,
+in a range from 0 to 255.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>equals</b>&#8203;(clr): <b>boolean</b></td>
+      <td><p>
+<b>clr</b> (<a href="topic/wijmo.Color.Class.html"><b>Color</b></a>): <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> to compare to this <b>Color</b>.<br/></p>
+</td>
+      <td>Returns true if a <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> has the same value as this <b>Color</b>.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>fromHsb</b>&#8203;(h, s, b, a?): <a href="topic/wijmo.Color.Class.html"><b>Color</b></a></td>
+      <td><p>
+<b>h</b> (<b>number</b>): Hue value, from 0 to 1.<br/><b>s</b> (<b>number</b>): Saturation value, from 0 to 1.<br/><b>b</b> (<b>number</b>): Brightness value, from 0 to 1.<br/><b>a?</b> (<b>number</b>): Alpha value, from 0 to 1.<br/><span class="text-info">(default value: <b>1</b>)</span><br/></p>
+</td>
+      <td>Creates a new <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> using the specified HSB values.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>fromHsl</b>&#8203;(h, s, l, a?): <a href="topic/wijmo.Color.Class.html"><b>Color</b></a></td>
+      <td><p>
+<b>h</b> (<b>number</b>): Hue value, from 0 to 1.<br/><b>s</b> (<b>number</b>): Saturation value, from 0 to 1.<br/><b>l</b> (<b>number</b>): Lightness value, from 0 to 1.<br/><b>a?</b> (<b>number</b>): Alpha value, from 0 to 1.<br/><span class="text-info">(default value: <b>1</b>)</span><br/></p>
+</td>
+      <td>Creates a new <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> using the specified HSL values.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>fromRgba</b>&#8203;(r, g, b, a?): <a href="topic/wijmo.Color.Class.html"><b>Color</b></a></td>
+      <td><p>
+<b>r</b> (<b>number</b>): Value for the red channel, from 0 to 255.<br/><b>g</b> (<b>number</b>): Value for the green channel, from 0 to 255.<br/><b>b</b> (<b>number</b>): Value for the blue channel, from 0 to 255.<br/><b>a?</b> (<b>number</b>): Value for the alpha channel, from 0 to 1.<br/><span class="text-info">(default value: <b>1</b>)</span><br/></p>
+</td>
+      <td>Creates a new <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> using the specified RGBA color channel values.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>fromString</b>&#8203;(value): <a href="topic/wijmo.Color.Class.html"><b>Color</b></a></td>
+      <td><p>
+<b>value</b> (<b>string</b>): String containing a CSS color specification.<br/></p>
+</td>
+      <td>Creates a new <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> from a CSS color string.<br/><br/><b>Returns</b> A new <a href="topic/wijmo.Color.Class.html"><b>Color</b></a>, or null if the string cannot be parsed into a color.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getHsb</b>&#8203;(): <b>number</b><b>[]</b></td>
+      <td></td>
+      <td>Gets an array with this color's HSB components.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getHsl</b>&#8203;(): <b>number</b><b>[]</b></td>
+      <td></td>
+      <td>Gets an array with this color's HSL components.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>interpolate</b>&#8203;(c1, c2, pct): <a href="topic/wijmo.Color.Class.html"><b>Color</b></a></td>
+      <td><p>
+<b>c1</b> (<a href="topic/wijmo.Color.Class.html"><b>Color</b></a>): First color.<br/><b>c2</b> (<a href="topic/wijmo.Color.Class.html"><b>Color</b></a>): Second color.<br/><b>pct</b> (<b>number</b>): Value between zero and one that determines how close the
+interpolation should be to the second color.<br/></p>
+</td>
+      <td>Creates a <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> by interpolating between two colors.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Static">S</span></td>
+      <td><b>toOpaque</b>&#8203;(c, bkg?): <a href="topic/wijmo.Color.Class.html"><b>Color</b></a></td>
+      <td><p>
+<b>c</b> (<b>any</b>): <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> to be converted to an opaque color 
+(the color may also be specified as a string).<br/><b>bkg?</b> (<b>any</b>): Background color to use when removing the transparency
+(defaults to white).<br/></p>
+</td>
+      <td>Gets the closest opaque color to a given color.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>toString</b>&#8203;(): <b>string</b></td>
+      <td></td>
+      <td>Gets a string representation of this <a href="topic/wijmo.Color.Class.html"><b>Color</b></a>.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

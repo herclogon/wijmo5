@@ -1,0 +1,105 @@
+<h2>Module wijmo.chart.interaction</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd>wijmo.chart.interaction.js</dd>
+</dl>
+<p>Defines classes that add interactive features to charts.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
+<span class="glyph-collapsed" ng-show="hideClasses"></span>
+<span class="glyph-expanded" ng-hide="hideClasses"></span>
+Classes
+</h3>
+</div>
+<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.interaction.ChartGestures.Class.html"><b>ChartGestures</b></a></td>
+      <td><p>The <b>ChartGestures</b> control allows the user to zoom or pan on  
+the specified <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a>.</p>
+
+<p>To use the <b>ChartGestures</b> control, specify the <b>FlexChart</b>
+control on which to zoom or pan.</p>
+
+<p><pre>
+ var chartGestures = new wijmo.chart.interaction.ChartGestures(chart);
+</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a></td>
+      <td><p>The <b>RangeSelector</b> control displays a range selector that allows the user to
+choose the range of data to display on the specified <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a>.</p>
+
+<p>To use the <b>RangeSelector</b> control, specify the <b>FlexChart</b>
+control to display the selected range of data.</p>
+
+<p>The <b>rangeChanged</b> event is fired when there is a change in min or max value.
+For example:
+<pre>
+ var rangeSelector = new wijmo.chart.interaction.RangeSelector(chart);
+ rangeSelector.rangeChanged.addHandler(function () {
+    // perform related updates
+    // e.g. modify displayed range of another chart
+    update(rangeSelector.min, rangeSelector.max);
+  });
+</pre></p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEnumerations = !hideEnumerations">
+<span class="glyph-collapsed" ng-show="hideEnumerations"></span>
+<span class="glyph-expanded" ng-hide="hideEnumerations"></span>
+Enumerations
+</h3>
+</div>
+<table ng-hide="hideEnumerations" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.interaction.InteractiveAxes.Enum.html"><b>InteractiveAxes</b></a></td>
+      <td>Specifies the interactive axes of the chart gestures.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.interaction.MouseAction.Enum.html"><b>MouseAction</b></a></td>
+      <td>Specifies the mouse action of the chart gestures.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.chart.interaction.Orientation.Enum.html"><b>Orientation</b></a></td>
+      <td>Specifies the orientation of the range selector.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

@@ -1,0 +1,93 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            LinearGauge</h3>
+        <p>
+            The LinearGauge control displays a linear scale with an indicator that represents 
+            a single value and optional ranges to represent reference values.</p>
+        <p>
+            You can use the LinearGauge as a simple progress indicator, or set the <b>isReadOnly</b>
+            property to false and use it as an input control similar to the HTML input type="range".</p>
+        <p>
+            You can also populate the <b>ranges</b> collection to define ranges of interest, shown
+            in different colors.</p>
+
+        <p>
+            This is a LinearGauge with default settings:</p>
+        <wj-linear-gauge 
+            class="lineargauge"
+            value="ctx.gauge.value" 
+            min="{{ctx.gauge.min}}" 
+            max="{{ctx.gauge.max}}">
+        </wj-linear-gauge>
+
+        <p>
+            In this example, the <b>isReadOnly</b> property was set to false.
+            This makes the gauge editable, similar to an HTML input element with type="range".
+            Notice how the mouse pointer changes to indicate the gauge is editable:</p>
+        <wj-linear-gauge 
+            class="lineargauge"
+            value="ctx.gauge.value" 
+            is-read-only="false"
+            step="{{ctx.gauge.step}}"
+            min="{{ctx.gauge.min}}"
+            max="{{ctx.gauge.max}}">
+        </wj-linear-gauge>
+
+        <p>
+            This is a LinearGauge with a thinner pointer and ranges that indicate good,
+            acceptable, and bad values:</p>
+        <wj-linear-gauge 
+            class="lineargauge"
+            value="ctx.gauge.value" 
+            thickness=".5"
+            is-read-only="false"
+            step="{{ctx.gauge.step}}"
+            min="{{ctx.gauge.min}}" 
+            max="{{ctx.gauge.max}}">
+            <wj-range wj-property="pointer" thickness="0.2"></wj-range>
+            <wj-range min="0" max="{{ctx.gauge.max*.33}}" color="rgba(100,255,100,.1)"></wj-range>
+            <wj-range min="{{ctx.gauge.max*.33}}" max="{{ctx.gauge.max*.66}}" color="rgba(255,255,100,.1)"></wj-range>
+            <wj-range min="{{ctx.gauge.max*.66}}" max="{{ctx.gauge.max}}" color="rgba(255,100,100,.1)"></wj-range>
+        </wj-linear-gauge>
+
+        <p>
+            This is a LinearGauge with a thinner pointer that changes color from green
+            to yellow and then to red as the value grows.</p>
+        <p>
+            In this example, the <b>showRanges</b> property was set to false.
+            This makes the gauge use the ranges only to calculate the color of the pointer.</p>
+        <wj-linear-gauge 
+            class="lineargauge"
+            value="ctx.gauge.value" 
+            thickness=".5"
+            is-read-only="false"
+            step="{{ctx.gauge.step}}"
+            min="{{ctx.gauge.min}}" 
+            max="{{ctx.gauge.max}}"
+            show-ranges="false">
+            <wj-range wj-property="pointer" thickness="0.2"></wj-range>
+            <wj-range min="0" max="{{ctx.gauge.max*.33}}" color="green"></wj-range>
+            <wj-range min="{{ctx.gauge.max*.33}}" max="{{ctx.gauge.max*.66}}" color="yellow"></wj-range>
+            <wj-range min="{{ctx.gauge.max*.66}}" max="{{ctx.gauge.max}}" color="red"></wj-range>
+        </wj-linear-gauge>
+
+        <p>
+            This is a LinearGauge that shows the current value as text:</p>
+        <wj-linear-gauge 
+            class="lineargauge"
+            value="ctx.gauge.value" 
+            show-text="Value"
+            thickness=".2"
+            is-read-only="false"
+            step="{{ctx.gauge.step}}"
+            min="{{ctx.gauge.min}}" 
+            max="{{ctx.gauge.max}}"
+            show-ranges="false">
+            <wj-range wj-property="pointer"></wj-range>
+            <wj-range min="0" max="{{ctx.gauge.max*.33}}" color="rgb(150,255,150)"></wj-range>
+            <wj-range min="{{ctx.gauge.max*.33}}" max="{{ctx.gauge.max*.66}}" color="rgb(255,255,100)"></wj-range>
+            <wj-range min="{{ctx.gauge.max*.66}}" max="{{ctx.gauge.max}}" color="rgb(255,150,150)"></wj-range>
+        </wj-linear-gauge>
+    </div>
+</div>

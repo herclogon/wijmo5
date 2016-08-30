@@ -1,0 +1,857 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CellTemplate Introduction</title>
+
+    <!-- ensure IE uses the latest version of IE (yes, yes...) -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Third Party -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.angular.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="styles/vendor/wijmo.min.css" />
+
+    <!-- app scripts and styles -->
+    <script src="scripts/app.js" type="text/javascript"></script>
+    <script src="scripts/directives/appDctv.js" type="text/javascript"></script>
+    <script src="scripts/controllers/appCtrl.js" type="text/javascript"></script>
+    <link href="styles/app.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body ng-app="app" ng-controller="appCtrl as ctrl">
+
+    <div class="header visible-xs visible-sm">
+        <div class="container">
+            <h1>
+                CellTemplate 101
+            </h1>
+        </div>
+    </div>
+    <div class="header hidden-xs hidden-sm">
+        <div class="container">
+            <img src="resources/wijmo5.png" />
+            <h1>
+                CellTemplate 101
+            </h1>
+            <p>
+                This page shows how to work with Wijmo's FlexGrid cell templates for Angular.
+            </p>
+        </div>
+    </div>
+    <div class="container">
+
+        <!-- getting started -->
+        <h2 id="Start">
+            Getting Started
+        </h2>
+        <p>
+            Wijmo provides a WjFlexGridCellTemplate directive for Angular that allows you to define a template 
+            for any type of FlexGrid cell. 
+        </p>
+        <p>
+            This example shows a FlexGrid that includes all of the cell types available, and allows you to 
+            selectively apply specific cell templates to the control. Each template applies to every cell of 
+            its specified type within the control. Clear a checkbox to see the template removed from all 
+            instances of that cell type.
+        </p>
+        <p>
+            Note that in order to see the change for the CellEdit cell type, you must first double-click inside 
+            a cell to put it in edit mode. To see the change for the RowHeaderEdit cell type, put any cell 
+            into edit mode, and look at the RowHeader cell for that row. 
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+&lt;wj-flex-grid 
+    items-source="data1" 
+    allow-sorting="false" 
+    defer-resizing="true"&gt;
+    &lt;wj-flex-grid-cell-template 
+        cell-type="TopLeft" 
+        ng-if="customTopLeft"&gt;
+        №
+    &lt;/wj-flex-grid-cell-template&gt;
+    &lt;wj-flex-grid-cell-template 
+        cell-type="RowHeader" 
+        ng-if="customRowHeader"&gt;
+        {&#8203;{$row.index}}
+    &lt;/wj-flex-grid-cell-template&gt;
+    &lt;wj-flex-grid-cell-template 
+        cell-type="RowHeaderEdit" 
+        ng-if="customRowHeaderEdit"&gt;
+        ...
+    &lt;/wj-flex-grid-cell-template&gt;
+
+    &lt;wj-flex-grid-column 
+        header="Country" 
+        binding="country" 
+        width="*"&gt;
+        &lt;wj-flex-grid-cell-template 
+            cell-type="Cell" 
+            ng-if="customCell"&gt;
+            &lt;img ng-src="resources/{&#8203;{$item.country}}.png" /&gt;
+            {&#8203;{$item.country}}
+        &lt;/wj-flex-grid-cell-template&gt;
+        &lt;wj-flex-grid-cell-template 
+            cell-type="CellEdit" 
+            ng-if="customCellEdit"&gt;
+            &lt;wj-combo-box 
+                items-source="countries" 
+                selected-value="$value" 
+                is-editable="false"&gt;&lt;/wj-combo-box&gt;
+        &lt;/wj-flex-grid-cell-template&gt;
+        &lt;wj-flex-grid-cell-template 
+            cell-type="GroupHeader" 
+            ng-if="customGroupHeader"&gt;
+            &lt;input type="checkbox" ng-model="$row.isCollapsed" /&gt; 
+            {&#8203;{$item.name}} ({&#8203;{$item.items.length}} items)
+        &lt;/wj-flex-grid-cell-template&gt;
+    &lt;/wj-flex-grid-column&gt;
+
+    &lt;wj-flex-grid-column 
+        header="Downloads" 
+        binding="downloads" 
+        width="170" 
+        aggregate="Sum"&gt;
+        &lt;wj-flex-grid-cell-template 
+            cell-type="ColumnHeader" 
+            ng-if="customColumnHeader"&gt;
+            &lt;input type="checkbox" ng-model="uiCtx.highlightDownloads" /&gt; 
+            Downloads
+        &lt;/wj-flex-grid-cell-template&gt;
+        &lt;wj-flex-grid-cell-template 
+            cell-type="Cell" 
+            ng-if="customCell"&gt;
+            &lt;span ng-style="uiCtx.highlightDownloads &&
+                    ($item.downloads &gt; 10000 && {'color': 'green'} 
+                            || {'color': 'red'})"
+                    style="font-weight:700"&gt;
+                {&#8203;{$item.downloads}}
+            &lt;/span&gt;
+        &lt;/wj-flex-grid-cell-template&gt;
+        &lt;wj-flex-grid-cell-template 
+            cell-type="CellEdit" 
+            ng-if="customCellEdit"&gt;
+            &lt;wj-input-number 
+                value="$value" 
+                step="1"&gt;&lt;/wj-input-number&gt;
+        &lt;/wj-flex-grid-cell-template&gt;
+        &lt;wj-flex-grid-cell-template 
+            cell-type="Group" 
+            ng-if="customGroup"&gt;
+            Sum = {&#8203;{$value | number:0}}
+        &lt;/wj-flex-grid-cell-template&gt;
+    &lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;
+
+&lt;div class="checkbox-list"&gt;
+    &lt;label class="checkbox"&gt;
+        &lt;input type="checkbox" ng-model="customTopLeft" /&gt; 
+            TopLeft
+    &lt;/label&gt;
+    &lt;label class="checkbox"&gt;
+        &lt;input type="checkbox" ng-model="customRowHeader" /&gt; 
+            RowHeader
+    &lt;/label&gt;
+    &lt;label class="checkbox"&gt;
+        &lt;input type="checkbox" ng-model="customRowHeaderEdit" /&gt; 
+            RowHeaderEdit
+    &lt;/label&gt;
+    &lt;label class="checkbox"&gt;
+        &lt;input type="checkbox" ng-model="customCell" /&gt; 
+            Cell
+    &lt;/label&gt;
+    &lt;label class="checkbox"&gt;
+        &lt;input type="checkbox" ng-model="customCellEdit" /&gt; 
+            CellEdit
+    &lt;/label&gt;
+    &lt;label class="checkbox"&gt;
+        &lt;input type="checkbox" ng-model="customColumnHeader" /&gt; 
+            ColumnHeader
+    &lt;/label&gt;
+    &lt;label class="checkbox"&gt;
+        &lt;input type="checkbox" ng-model="customGroupHeader" /&gt; 
+            GroupHeader
+    &lt;/label&gt;
+    &lt;label class="checkbox"&gt;
+        &lt;input type="checkbox" ng-model="customGroup" /&gt; 
+            Group
+    &lt;/label&gt;
+&lt;/div&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="JS">
+                        <div class="pane-content">
+// create some random data
+var countries = 'US,Germany,UK,Japan,Italy,Greece'.split(','),
+    data = [];
+for (var i = 0; i &lt; 30; i++) {
+    data.push({
+        id: i,
+        date: new Date(2015, Math.floor(i / countries.length) % 12, (Math.floor(i / countries.length) + 1) % 28),
+        country: countries[i % countries.length],
+        countryMapped: i % countries.length,
+        downloads: Math.round(Math.random() * 20000),
+        sales: Math.random() * 10000,
+        expenses: Math.random() * 5000,
+        checked: i % 9 == 0
+    });
+}
+var getCv = function (data) {
+    var dataCv = new wijmo.collections.CollectionView(data);
+    dataCv.sortDescriptions.push(new wijmo.collections.SortDescription('date', true));
+    dataCv.groupDescriptions.push(new wijmo.collections.PropertyGroupDescription('country'));
+    return dataCv;
+}
+
+$scope.data1 = getCv(data);
+
+$scope.countries = countries;
+
+$scope.customTopLeft = true;
+$scope.customRowHeader = true;
+$scope.customRowHeaderEdit = true;
+$scope.customCell = true;
+$scope.customCellEdit = true;
+$scope.customColumnHeader = true;
+$scope.customGroupHeader = true;
+$scope.customGroup = true;
+
+$scope.uiCtx = {
+    highlightDownloads: true,
+};
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-flex-grid 
+                    items-source="data1" 
+                    allow-sorting="false" 
+                    defer-resizing="true">
+                    <wj-flex-grid-cell-template 
+                        cell-type="TopLeft" 
+                        ng-if="customTopLeft">
+                        №
+                    </wj-flex-grid-cell-template>
+                    <wj-flex-grid-cell-template 
+                        cell-type="RowHeader" 
+                        ng-if="customRowHeader">
+                        {{$row.index}}
+                    </wj-flex-grid-cell-template>
+                    <wj-flex-grid-cell-template 
+                        cell-type="RowHeaderEdit" 
+                        ng-if="customRowHeaderEdit">
+                        ...
+                    </wj-flex-grid-cell-template>
+                    <wj-flex-grid-column 
+                        header="Country" 
+                        binding="country" 
+                        width="*">
+
+                        <wj-flex-grid-cell-template 
+                            cell-type="Cell" 
+                            ng-if="customCell">
+                            <img ng-src="resources/{{$item.country}}.png" />
+                            {{$item.country}}
+                        </wj-flex-grid-cell-template>
+
+                        <wj-flex-grid-cell-template 
+                            cell-type="CellEdit" 
+                            ng-if="customCellEdit">
+                            <wj-combo-box 
+                                items-source="countries" 
+                                selected-value="$value" 
+                                is-editable="false"></wj-combo-box>
+                        </wj-flex-grid-cell-template>
+
+                        <wj-flex-grid-cell-template 
+                            cell-type="GroupHeader" 
+                            ng-if="customGroupHeader">
+                            <input type="checkbox" ng-model="$row.isCollapsed" /> 
+                            {{$item.name}} ({{$item.items.length}} items)
+                        </wj-flex-grid-cell-template>
+
+                    </wj-flex-grid-column>
+
+                    <wj-flex-grid-column 
+                        header="Downloads" 
+                        binding="downloads" 
+                        width="170" 
+                        aggregate="Sum">
+                        <wj-flex-grid-cell-template 
+                            cell-type="ColumnHeader" 
+                            ng-if="customColumnHeader">
+                            <input type="checkbox" ng-model="uiCtx.highlightDownloads" /> 
+                            Downloads
+                        </wj-flex-grid-cell-template>
+                        <wj-flex-grid-cell-template 
+                            cell-type="Cell" 
+                            ng-if="customCell">
+                            <span ng-style="uiCtx.highlightDownloads &&
+                                    ($item.downloads > 10000 && {'color': 'green'} || {'color': 'red'})"
+                                  style="font-weight:700">
+                                {{$item.downloads}}
+                            </span>
+                        </wj-flex-grid-cell-template>
+                        <wj-flex-grid-cell-template 
+                            cell-type="CellEdit" 
+                            ng-if="customCellEdit">
+                            <wj-input-number 
+                                value="$value" 
+                                step="1"></wj-input-number>
+                        </wj-flex-grid-cell-template>
+                        <wj-flex-grid-cell-template 
+                            cell-type="Group" 
+                            ng-if="customGroup">
+                            Sum = {{$value | number:0}}
+                        </wj-flex-grid-cell-template>
+                    </wj-flex-grid-column>
+
+                </wj-flex-grid>
+
+                <div class="checkbox-list">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="customTopLeft" /> TopLeft
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="customRowHeader" /> RowHeader
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="customRowHeaderEdit" /> RowHeaderEdit
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="customCell" /> Cell
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="customCellEdit" /> CellEdit
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="customColumnHeader" /> ColumnHeader
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="customGroupHeader" /> GroupHeader
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="customGroup" /> Group
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Conditional templates -->
+        <h2 id="H1">
+            Conditional templates
+        </h2>
+        <p>
+            This sample demonstrates cell templates with conditional content controlled by the Angular <b>ng-if</b> 
+            directive. It is based on the same CollectionView data source as the previous example, grouped on the 
+            Country column, but this one appears like a summary report. It shows only group rows with a white background. 
+            (The background color is set in the CSS tab.) There are no visible detail rows in this grid. 
+        </p>
+        <p>
+            The first Country column shows GroupHeader cells that are customized to show country flags. The Downloads 
+            column shows Group cells with a nested FlexGrid or FlexChart control bound to the group’s child 
+            items (<code>items-source="$item.items"</code>). This allows us to show statistical data for the group, 
+            either as a chart or as a table. The customized Downloads column’s template adds a ComboBox that allows the user 
+            to choose how to represent the data. 
+        </p>
+        <p> 
+            The <b>ng-if</b> attribute on the FlexGrid and FlexChart directives is bound to the value selected in the
+            ComboBox, and controls which one appears in the group cell.
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+&lt;div class="col-md-6 conditional"&gt;
+    &lt;wj-flex-grid 
+        items-source="data2" 
+        allow-sorting="false" 
+        initialized="s.collapseGroupsToLevel(0)" 
+        style="height:300px" 
+        selection-mode="None" 
+        allow-dragging="None" 
+        defer-resizing="true"&gt;
+        &lt;wj-flex-grid-column 
+            header="Country" 
+            binding="country"&gt;
+            &lt;wj-flex-grid-cell-template cell-type="GroupHeader"&gt;
+                &lt;img ng-src="resources/{&#8203;{$item.name}}.png" /&gt;
+                {&#8203;{$item.name}}
+            &lt;/wj-flex-grid-cell-template&gt;
+        &lt;/wj-flex-grid-column&gt;
+
+        &lt;wj-flex-grid-column 
+            header="Downloads" 
+            binding="downloads" 
+            width="*" 
+            aggregate="Sum" 
+            align="center"&gt;
+            &lt;wj-flex-grid-cell-template cell-type="ColumnHeader"&gt;
+                {&#8203;{$col.header}}:
+                &lt;wj-combo-box 
+                    items-source="['Chart', 'Table']" 
+                    selected-value="uiCtx.reportType"
+                    style="width:100px;font-weight:400" 
+                    is-editable="false"&gt;
+                &lt;/wj-combo-box&gt;
+            &lt;/wj-flex-grid-cell-template&gt;
+            &lt;wj-flex-grid-cell-template cell-type="Group"&gt;
+                &lt;div style="font-size:small;text-align:center"&gt;
+                    &lt;wj-flex-grid 
+                            ng-if="uiCtx.reportType == 'Table'"
+                            items-source="$item.items"
+                            is-read-only="false"
+                            headers-visibility="None"
+                            selection-mode="Cell"
+                            style="height:140px;width:200px"&gt;
+                        &lt;wj-flex-grid-column 
+                            binding="date" 
+                            width="*"&gt;
+                        &lt;/wj-flex-grid-column&gt;
+                        &lt;wj-flex-grid-column 
+                            binding="{&#8203;{$col.binding}}" 
+                            width="*"&gt;
+                        &lt;/wj-flex-grid-column&gt;
+                    &lt;/wj-flex-grid&gt;
+                    &lt;wj-flex-chart 
+                            ng-if="uiCtx.reportType == 'Chart'"
+                            style="height:140px;width:200px;display:inline-block"
+                            items-source="$item.items"
+                            binding-x="date"
+                            chart-type="Column"
+                            plot-margin="5"&gt;
+                        &lt;wj-flex-chart-legend position="None"&gt;
+                        &lt;/wj-flex-chart-legend&gt;
+                        &lt;wj-flex-chart-axis 
+                            wj-property="axisX"
+                            axis-line="false"
+                            labels="false"&gt;
+                        &lt;/wj-flex-chart-axis&gt;
+                        &lt;wj-flex-chart-axis 
+                            wj-property="axisY"
+                            axis-line="false"
+                            labels="false"&gt;
+                        &lt;/wj-flex-chart-axis&gt;
+                        &lt;wj-flex-chart-series binding="{&#8203;{$col.binding}}"&gt;
+                        &lt;/wj-flex-chart-series&gt;
+
+                    &lt;/wj-flex-chart&gt;
+                &lt;/div&gt;
+            &lt;/wj-flex-grid-cell-template&gt;
+        &lt;/wj-flex-grid-column&gt;
+
+    &lt;/wj-flex-grid&gt;
+&lt;/div&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="JS">
+                        <div class="pane-content">
+var getCv = function (data) {
+    var dataCv = new wijmo.collections.CollectionView(data);
+    dataCv.sortDescriptions.push(new wijmo.collections.SortDescription('date', true));
+    dataCv.groupDescriptions.push(new wijmo.collections.PropertyGroupDescription('country'));
+    return dataCv;
+}
+
+$scope.data2 = getCv(data);
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="CSS">
+                        <div class="pane-content">
+/* Provide group rows with a white background  */
+.conditional .wj-flexgrid .wj-group {
+    background: #fff;
+}
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6 conditional">
+                <h4>Result (live):</h4>
+                <wj-flex-grid 
+                    items-source="data2" 
+                    allow-sorting="false" 
+                    initialized="s.collapseGroupsToLevel(0)" 
+                    style="height:300px" 
+                    selection-mode="None"
+                    allow-dragging="None" 
+                    defer-resizing="true">
+                    <wj-flex-grid-column 
+                        header="Country" 
+                        binding="country">
+                        <wj-flex-grid-cell-template cell-type="GroupHeader">
+                            <img ng-src="resources/{{$item.name}}.png" />
+                            {{$item.name}}
+                        </wj-flex-grid-cell-template>
+                    </wj-flex-grid-column>
+
+                    <wj-flex-grid-column 
+                        header="Downloads" 
+                        binding="downloads" 
+                        width="*" 
+                        aggregate="Sum" 
+                        align="center">
+                        <wj-flex-grid-cell-template cell-type="ColumnHeader">
+                            {{$col.header}}:
+                            <wj-combo-box 
+                                items-source="['Chart', 'Table']" 
+                                selected-value="uiCtx.reportType"
+                                style="width:100px;font-weight:400" 
+                                is-editable="false">
+                            </wj-combo-box>
+                        </wj-flex-grid-cell-template>
+                        <wj-flex-grid-cell-template cell-type="Group">
+                            <div style="font-size:small;text-align:center">
+                                <wj-flex-grid ng-if="uiCtx.reportType == 'Table'"
+                                              items-source="$item.items"
+                                              is-read-only="false"
+                                              headers-visibility="None"
+                                              selection-mode="Cell"
+                                              style="height:140px;width:200px">
+                                    <wj-flex-grid-column 
+                                        binding="date" 
+                                        width="*">
+                                    </wj-flex-grid-column>
+                                    <wj-flex-grid-column 
+                                        binding="{{$col.binding}}" 
+                                        width="*">
+                                    </wj-flex-grid-column>
+                                </wj-flex-grid>
+                                <wj-flex-chart ng-if="uiCtx.reportType == 'Chart'"
+                                               style="height:140px;width:200px;display:inline-block"
+                                               items-source="$item.items"
+                                               binding-x="date"
+                                               chart-type="Column"
+                                               plot-margin="5">
+                                    <wj-flex-chart-legend position="None"></wj-flex-chart-legend>
+                                    <wj-flex-chart-axis 
+                                        wj-property="axisX"
+                                        axis-line="false"
+                                        labels="false">
+                                    </wj-flex-chart-axis>
+                                    <wj-flex-chart-axis 
+                                        wj-property="axisY"
+                                        axis-line="false"
+                                        labels="false">
+                                    </wj-flex-chart-axis>
+                                    <wj-flex-chart-series binding="{{$col.binding}}"></wj-flex-chart-series>
+
+                                </wj-flex-chart>
+                            </div>
+                        </wj-flex-grid-cell-template>
+                    </wj-flex-grid-column>
+
+                </wj-flex-grid>
+            </div>
+        </div>
+  </div>
+
+    <div class="container">
+
+        <!-- Dynamic columns with templates -->
+        <h2 id="H2">
+            Dynamic columns with templates
+        </h2>
+        <p>
+            This example is a variation of the previous example, but the inclusion and settings of statistical data 
+            columns in this grid is defined as an array in the controller. The wj-flex-grid-column directive is bound 
+            to this array via the Angular ng-repeat directive. Each column settings object includes <b>columnHeaderTemplateUrl</b> 
+            and <b>groupTemplateUrl</b> properties containing paths to html files with cell template content for the cells. 
+        </p>
+        <p>
+            This content is included in the wj-flex-grid-cell-template directives using 
+            the Angular <b>ng-include</b> directive.
+        </p>
+        <p>
+            Each column settings object also has an <b>isAvailable</b> property indicating whether the column is included  
+            in the FlexGrid. The inclusion is controlled by the <b>ng-if</b> attribute on the wj-flex-grid-column directive. 
+            You can change this value for each column settings object using the Wijmo ListBox control with checkboxes, 
+            which is bound to the column settings array.
+        </p>
+        <p>
+            The Country column is defined statically in the markup, and retrieves its GroupHeader cell template’s content 
+            from the countryGroupHeaderTemplate.html file.
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+&lt;div class="col-md-6 conditional"&gt;
+    &lt;wj-flex-grid 
+        items-source="data3" 
+        allow-sorting="false" 
+        initialized="dynaColumnsFlexInit(s)"
+        style="height:300px" 
+        selection-mode="None"
+        allow-dragging="None" 
+        defer-resizing="true"&gt;
+        &lt;wj-flex-grid-column 
+            header="Country" 
+            binding="country"&gt;
+            &lt;wj-flex-grid-cell-template cell-type="GroupHeader"&gt;
+                &lt;ng-include 
+                    src="'scripts/CellTemplates/countryGroupHeaderTemplate.html'"&gt;
+                &lt;/ng-include&gt;
+            &lt;/wj-flex-grid-cell-template&gt;
+        &lt;/wj-flex-grid-column&gt;
+
+        &lt;!-- ng-init here creates the colCtx property with subproperties 
+            that are isolated on a column level, that is not visible to 
+            another columns but share data with all the cell templates
+            defined for the column. --&gt;
+        &lt;wj-flex-grid-column
+            ng-repeat="col in statisticsColumns" 
+            ng-init="colCtx = { reportType: col.reportType || 'Chart' }"
+            ng-if="col.isAvailable"
+            header="{&#8203;{col.header}}" 
+            binding="{&#8203;{col.binding}}" 
+            width="{&#8203;{col.width}}" 
+            format="{&#8203;{col.format}}"
+            aggregate="Sum" 
+            align="{&#8203;{col.align}}"&gt;
+            &lt;wj-flex-grid-cell-template 
+                cell-type="ColumnHeader" 
+                ng-if="col.columnHeaderTemplateUrl"&gt;
+                &lt;ng-include src="col.columnHeaderTemplateUrl"&gt;
+                &lt;/ng-include&gt;
+            &lt;/wj-flex-grid-cell-template&gt;
+            &lt;wj-flex-grid-cell-template 
+                cell-type="Group" 
+                ng-if="col.groupTemplateUrl"&gt;
+                &lt;ng-include src="col.groupTemplateUrl"&gt;
+                &lt;/ng-include&gt;
+            &lt;/wj-flex-grid-cell-template&gt;
+        &lt;/wj-flex-grid-column&gt;
+
+    &lt;/wj-flex-grid&gt;
+
+    &lt;div style="margin:5px 0 5px"&gt;&lt;b&gt;Show statistics for:&lt;/b&gt;&lt;/div&gt;
+    &lt;wj-list-box 
+        class="checkable-listbox"
+        style="min-width:150px"
+        items-source="statisticsColumns"
+        display-member-path="header"
+        checked-member-path="isAvailable"&gt;
+
+    &lt;/wj-list-box&gt;
+&lt;/div&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="JS">
+                        <div class="pane-content">
+var getCv = function (data) {
+    var dataCv = new wijmo.collections.CollectionView(data);
+    dataCv.sortDescriptions.push(new wijmo.collections.SortDescription('date', true));
+    dataCv.groupDescriptions.push(new wijmo.collections.PropertyGroupDescription('country'));
+    return dataCv;
+}
+
+$scope.data3 = getCv(data);
+
+$scope.statisticsColumns = [
+    {
+        binding: 'downloads',
+        header: 'Downloads',
+        width: '230',
+        align: 'center',
+        format: 'N0',
+        columnHeaderTemplateUrl: 'scripts/CellTemplates/statHeaderTemplate.html',
+        groupTemplateUrl: 'scripts/CellTemplates/statGroupTemplate.html',
+        reportType: 'Chart',
+        isAvailable: true
+    },
+    {
+        binding: 'sales',
+        header: 'Sales',
+        width: '230',
+        align: 'center',
+        format: 'N2',
+        columnHeaderTemplateUrl: 'scripts/CellTemplates/statHeaderTemplate.html',
+        groupTemplateUrl: 'scripts/CellTemplates/statGroupTemplate.html',
+        reportType: 'Chart',
+        isAvailable: false
+    },
+    {
+        binding: 'expenses',
+        header: 'Expenses',
+        width: '230',
+        align: 'center',
+        format: 'N2',
+        columnHeaderTemplateUrl: 'scripts/CellTemplates/statHeaderTemplate.html',
+        groupTemplateUrl: 'scripts/CellTemplates/statGroupTemplate.html',
+        reportType: 'Table',
+        isAvailable: true
+    },
+];
+
+$scope.dynaColumnsFlexInit = function (flex) {
+    flex.collapseGroupsToLevel(0);
+    flex.columnHeaders.rows.defaultSize = 36;
+    flex.cells.rows.defaultSize = 156;
+}
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="statHeaderTemplate.html">
+                        <div class="pane-content">
+{&#8203;{$col.header}}:
+&lt;wj-combo-box 
+    items-source="['Chart', 'Table']" 
+    selected-value="colCtx.reportType"
+    style="width:100px;font-weight:400" 
+    is-editable="false"&gt;
+&lt;/wj-combo-box&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="statGroupTemplate.html">
+                        <div class="pane-content">
+&lt;div style="font-size:small;text-align:center"&gt;
+    &lt;wj-flex-grid ng-if="colCtx.reportType == 'Table'"
+                    items-source="$item.items"
+                    is-read-only="false"
+                    headers-visibility="None"
+                    selection-mode="Cell"
+                    format="{&#8203;{$col.format}}"
+                    style="height:140px;width:200px"&gt;
+        &lt;wj-flex-grid-column 
+            binding="date" 
+            width="*"&gt;
+        &lt;/wj-flex-grid-column&gt;
+        &lt;wj-flex-grid-column 
+            binding="{&#8203;{$col.binding}}" 
+            width="*"&gt;
+        &lt;/wj-flex-grid-column&gt;
+    &lt;/wj-flex-grid&gt;
+    &lt;wj-flex-pie 
+        ng-if="colCtx.reportType == 'Chart'"
+        items-source="$item.items" 
+        binding="{&#8203;{$col.binding}}"
+        tooltip-content="&lt;b&gt;{value:{&#8203;{$col.format}}}&lt;/b&gt;&lt;br/&gt;{date:MMM yyyy}"                      
+        style="height:140px;width:140px;display:inline-block"&gt;
+        &lt;wj-flex-chart-legend position="None"&gt;&lt;/wj-flex-chart-legend&gt;
+        &lt;wj-flex-pie-data-label 
+            content="'{date:MMM}'" 
+            position="Inside"&gt;
+        &lt;/wj-flex-pie-data-label&gt;
+    &lt;/wj-flex-pie&gt;
+&lt;/div&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="countryGroupHeaderTemplate.html">
+                        <div class="pane-content">
+&lt;img ng-src="resources/{&#8203;{$item.name}}.png" /&gt;
+{&#8203;{$item.name}}
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="CSS">
+                        <div class="pane-content">
+/* Provide group rows with a white background  */
+.conditional .wj-flexgrid .wj-group {
+    background: #fff;
+}
+
+/* Remove highlighting of a selected item in ListBox */
+.checkable-listbox .wj-state-selected {
+    background-color: white;
+    color: black;
+}
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6 conditional">
+                <h4>Result (live):</h4>
+                <wj-flex-grid 
+                    items-source="data3" 
+                    allow-sorting="false" 
+                    initialized="dynaColumnsFlexInit(s)" 
+                    style="height:300px" 
+                    selection-mode="None"
+                    allow-dragging="None" 
+                    defer-resizing="true">
+                    <wj-flex-grid-column 
+                        header="Country" 
+                        binding="country">
+                        <wj-flex-grid-cell-template cell-type="GroupHeader">
+                            <ng-include src="'scripts/CellTemplates/countryGroupHeaderTemplate.html'">
+                            </ng-include>
+                        </wj-flex-grid-cell-template>
+                    </wj-flex-grid-column>
+
+                    <!-- ng-init here creates the colCtx property with subproperties that are isolated at the column
+                        level. It is not visible to other columns, but shares data with all of the cell templates
+                        defined for the column. -->
+                    <wj-flex-grid-column
+                        ng-repeat="col in statisticsColumns" 
+                        ng-init="colCtx = { reportType: col.reportType || 'Chart' }"
+                        ng-if="col.isAvailable"
+                        header="{{col.header}}" 
+                        binding="{{col.binding}}" 
+                        width="{{col.width}}" 
+                        format="{{col.format}}"
+                        aggregate="Sum" 
+                        align="{{col.align}}">
+                        <wj-flex-grid-cell-template 
+                            cell-type="ColumnHeader" 
+                            ng-if="col.columnHeaderTemplateUrl">
+                            <ng-include src="col.columnHeaderTemplateUrl">
+                            </ng-include>
+                        </wj-flex-grid-cell-template>
+                        <wj-flex-grid-cell-template 
+                            cell-type="Group" 
+                            ng-if="col.groupTemplateUrl">
+                            <ng-include src="col.groupTemplateUrl">
+                            </ng-include>
+                        </wj-flex-grid-cell-template>
+                    </wj-flex-grid-column>
+
+                </wj-flex-grid>
+
+                <div style="margin:5px 0 5px"><b>Show statistics for:</b></div>
+                <wj-list-box 
+                    class="checkable-listbox"
+                    style="min-width:150px"
+                    items-source="statisticsColumns"
+                    display-member-path="header"
+                    checked-member-path="isAvailable">
+
+                </wj-list-box>
+
+            </div>
+        </div>
+  </div>
+
+      <!-- Google analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

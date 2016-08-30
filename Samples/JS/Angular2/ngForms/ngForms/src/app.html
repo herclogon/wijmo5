@@ -1,0 +1,325 @@
+﻿
+
+<div class="header" >
+    <div class="container">
+        <img src="resources/wijmo5.png" alt="Wijmo 5" />
+        <h1>
+            ngForms
+        </h1>
+        <p>
+            This page shows how to use Wijmo controls in Angular 2 forms.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div>
+        <p>
+            Wijmo for Angular 2 components can be used in Angular Forms in the same way
+            as native HTML <b>input</b> controls.
+        </p>
+    </div>
+    <!-- Getting Started -->
+    <div>
+        <h2 id="Start">Getting Started</h2>
+        <p>
+            In addition to the usual way of binding attributes to component values,
+            Wijmo's Angular 2 components support binding via the
+            <b>ngModel</b> directive. The ngModel Angular directive
+            augments Wijmo components with its functionalities like validation,
+            adding the control’s state to the form instance, automatic styling
+            of the control using state CSS classes (like ng-dirty and ng-invalid) of
+            ngModel. When an ngModel is used on a Wijmo
+            component, it establishes a binding for the <i>"main value"</i>
+            property of the component. This <i>"main value"</i> property varies from
+            component to component, for example, the <b>value</b> property for
+            InputNumber or InputDate components and the <b>selectedValue</b> property
+            for ComboBox or ListBox components. In order to bind to a different
+            property using the ngModel directive, you can specify the desired
+            property name in the <b>wjModelProperty</b> attribute on the component
+            element. For example, you can bind "text" property of InputNumber by
+            setting <b>[wjModelProperty]="'text'"</b> or "selectedIndex" property of
+            ComboBox by setting <b>[wjModelProperty]="'selectedIndex'"</b>.
+        </p>
+        <p>  !!!!! STOPPED HERE !!!!
+            This example shows a form with native <b>input [type=number]</b> control
+            and multiple Wijmo <b>InputNumber</b> and <b>ComboBox</b> components. Each
+            of them is bound to component properties using the <b>ngModel</b> directive. Each of
+            the controls defines the <b>name</b> attribute that forces ngModel to
+            publish the control state in the form instance.
+        </p>
+        <p>
+            This example implements the <b>evenNumber</b> validator directive that
+            reports errors for odd values. The validator is applied to all input
+            controls including the native <b>input</b> control and Wijmo InputNumber
+            controls. The native Angular <b>required</b> validator is also applied
+            to these controls. There are a <b>span</b> elements next to each control that checks
+            for the <b>evenNumber</b> and <b>required</b> error keys in the control’s state published in
+            the ngModel instances and shows an error message if the key is found there.
+        </p>
+        <p>
+            This example also defines CSS rules for the ngModel state classes:
+            <b>ng-pristine</b> (darker background), <b>ng-valid</b> (green border) and
+            <b>ng-invalid</b> (red border). Notice that these rules automatically
+            get applied to native input as well as to Wijmo InputNumber controls
+            depending on their states.
+        </p>
+        <p>
+            Apart from the InputNumber controls, the form contains two
+            <b>ComboBox</b> controls as well, which are bound using ngModel
+            to different control properties. The first one is bound to the
+            <b>selectedValue</b> property(default behavior), and the second
+            one is bound to the <b>selectedIndex</b> property by using the
+            <b>wjModelProperty</b> attribute on the control’s directive element.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content" style="height:570px">
+&lt;form #form1="ngForm" class="form" *ngIf="active"&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;Input[type=number]&lt;/label&gt;&lt;br /&gt;
+        &lt;input type="number"
+                name="input1"
+                [(ngModel)]="num"
+                #input1="ngModel"
+                evenNumber
+                required /&gt;
+        &lt;span style="color:red" [hidden]="!input1.errors?.evenNumber"&gt;
+            even number required
+        &lt;/span&gt;
+        &lt;span style="color:red" [hidden]="!input1.errors?.required"&gt;
+            required value
+        &lt;/span&gt;
+        &lt;br /&gt;
+        Form value: &lt;b&gt;{&#8203;{input1.value}&#8203;}&lt;/b&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;InputNumber&lt;/label&gt;&lt;br /&gt;
+        &lt;wj-input-number name="inputNumber1"
+                            [(ngModel)]="num1"
+                            #inputNumber1="ngModel"
+                            [step]="1"
+                            [format]="'n0'"
+                            [isRequired]="false"
+                            evenNumber
+                            required&gt;
+        &lt;/wj-input-number&gt;
+        &lt;span style="color:red" 
+                 [hidden]="!inputNumber1.errors?.evenNumber"&gt;
+            even number required
+        &lt;/span&gt;
+        &lt;span style="color:red" 
+                 [hidden]="!inputNumber1.errors?.required"&gt;
+            required value
+        &lt;/span&gt;
+        &lt;br /&gt;
+        Form value: &lt;b&gt;{&#8203;{inputNumber1.value}&#8203;}&lt;/b&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;ComboBox&lt;/label&gt;&lt;br /&gt;
+        &lt;wj-combo-box name="valueCombo"
+                        [(ngModel)]="valueComboValue"
+                        #valueCombo="ngModel"
+                        [itemsSource]="data"
+                        [displayMemberPath]="'name'"
+                        [selectedValuePath]="'name'"&gt;
+        &lt;/wj-combo-box&gt;
+        &lt;br /&gt;
+        Form value: &lt;b&gt;{&#8203;{valueCombo.value}&#8203;}&lt;/b&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;
+             ComboBox ([wjModelProperty]="'selectedIndex'")
+        &lt;/label&gt;&lt;br /&gt;
+        &lt;wj-combo-box name="indexCombo"
+                        [(ngModel)]="indexComboValue"
+                        #indexCombo="ngModel"
+                        [wjModelProperty]="'selectedIndex'"
+                        [itemsSource]="data"
+                        [displayMemberPath]="'name'"
+                        [selectedValuePath]="'name'"&gt;
+        &lt;/wj-combo-box&gt;
+        &lt;br /&gt;
+        Form value: &lt;b&gt;{&#8203;{indexCombo.value}&#8203;}&lt;/b&gt;
+    &lt;/div&gt;
+    &lt;button (click)="makePristine()"&gt;
+        Make Pristine
+    &lt;/button&gt;
+&lt;/form&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="JS">
+                        <div class="pane-content">
+@Component({
+    selector: 'app-cmp',
+    templateUrl: 'src/app.html',
+    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES, EvenNumberValidator, 
+        wjInput.WjInputNumber, wjInput.WjComboBox,
+        DynamicFormAppComponent,
+        AppTab, AppTabPane,]
+})
+export class AppCmp  {
+    active = true;
+
+    num = 3;
+    num1 = 11;
+
+    data = [
+        { name: 'Apple Inc', lastPrice: 98.38 },
+        { name: 'Amazon.com, Inc.', lastPrice: 320.00 },
+        { name: 'Google Inc.', lastPrice: 585.81 },
+        { name: 'Yahoo Inc.', lastPrice: 35.68 },
+    ];
+
+    valueComboValue = 'Apple Inc';
+    indexComboValue = 0;
+
+    reset() {
+        this.active = false;
+        setTimeout(() => this.active = true, 0);
+    }
+}
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="CSS">
+                        <div class="pane-content">
+/* ng-model state classes */
+form input.ng-pristine,
+form .ng-pristine.wj-control {
+    background-color: #f4f4f4;
+}
+.ng-valid {
+    border-color: lightgreen;
+}
+.ng-invalid {
+    border-color: red;
+}
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <form #form1="ngForm" class="form" *ngIf="active">
+                    <div class="form-group">
+                        <label>Input[type=number]</label><br />
+                        <input type="number"
+                                name="input1"
+                                [(ngModel)]="num"
+                                #input1="ngModel"
+                                evenNumber 
+                                required />
+                        <span style="color:red" [hidden]="!input1.errors?.evenNumber">
+                            even number required
+                        </span>
+                        <span style="color:red" [hidden]="!input1.errors?.required">
+                            required value
+                        </span>
+                        <br />
+                        Form value: <b>{{input1.value}}</b>
+                    </div>
+
+                    <div class="form-group">
+                        <label>InputNumber</label><br />
+                        <wj-input-number name="inputNumber1"
+                                         [(ngModel)]="num1"
+                                         #inputNumber1="ngModel"
+                                         [step]="1"
+                                         [format]="'n0'"
+                                         [isRequired]="false"
+                                         evenNumber
+                                         required>
+                        </wj-input-number>
+                        <span style="color:red" [hidden]="!inputNumber1.errors?.evenNumber">
+                            even number required
+                        </span>
+                        <span style="color:red" [hidden]="!inputNumber1.errors?.required">
+                            required value
+                        </span>
+                        <br />
+                        Form value: <b>{{inputNumber1.value}}</b>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ComboBox</label><br />
+                        <wj-combo-box name="valueCombo"
+                                      [(ngModel)]="valueComboValue"
+                                      #valueCombo="ngModel"
+                                      [itemsSource]="data"
+                                      [displayMemberPath]="'name'"
+                                      [selectedValuePath]="'name'">
+                        </wj-combo-box>
+                        <br />
+                        Form value: <b>{{valueCombo.value}}</b>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ComboBox ([wjModelProperty]="'selectedIndex'")</label><br />
+                        <wj-combo-box name="indexCombo"
+                                      [(ngModel)]="indexComboValue"
+                                      #indexCombo="ngModel"
+                                      [wjModelProperty]="'selectedIndex'"
+                                      [itemsSource]="data"
+                                      [displayMemberPath]="'name'"
+                                      [selectedValuePath]="'name'">
+                        </wj-combo-box>
+                        <br />
+                        Form value: <b>{{indexCombo.value}}</b>
+                    </div>
+                    <button (click)="makePristine()">
+                        Make Pristine
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h2 >Dynamic Forms</h2>
+        <p>
+            This is a modification of the Angular 2 
+            <b><a target="_blank" href="https://angular.io/docs/ts/latest/cookbook/dynamic-form.html">Dynamic Forms example</a></b>
+            that uses Wijmo input components. It demonstrates how to create dynamic forms driven by data.
+        </p>
+        <p>
+            The following modifications were made in the original sample:
+            <ul>
+                <li>
+                    <b>WjComboBox</b> component is used instead of native <b>select</b> element.
+                </li>
+                <li>
+                    Added <b>NumericQuestion</b> (<b>question-numeric.ts</b> file) represented by the
+                    <b>WjInputNumber</b> component in a form.
+                </li>
+                <li>
+                    Shows a form control state at the right of a corresponding UI control, to allow you better understand
+                    how it changes.
+                </li>
+            </ul>
+        <!--</p>-->
+        <br />
+        <dynamic-form-app-cmp></dynamic-form-app-cmp>
+
+        <div style="height:200px">
+    </div>
+
+</div>
+
+<!-- Google analytics -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-208280-14', 'auto');
+    ga('send', 'pageview');
+</script>

@@ -1,0 +1,112 @@
+<h2>PropertyGroupDescription Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><a href="topic/wijmo.collections.GroupDescription.Class.html"><b>GroupDescription</b></a></dd>
+<dt>Module</dt><dd>wijmo.collections</dd>
+<dt>File</dt><dd>wijmo.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>Describes the grouping of items using a property name as the criterion.</p>
+
+<p>For example, the code below causes a <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a> to group items 
+by the value of their 'country' property:
+<pre>
+var cv = new wijmo.collections.CollectionView(items);
+var gd = new wijmo.collections.PropertyGroupDescription('country');
+cv.groupDescriptions.push(gd);
+</pre></p>
+
+<p>You may also specify a callback function that generates the group name.
+For example, the code below causes a <b>CollectionView</b> to group items 
+by the first letter of the value of their 'country' property:
+<pre>
+var cv = new wijmo.collections.CollectionView(items);
+var gd = new wijmo.collections.PropertyGroupDescription('country', 
+  function(item, propName) {
+    return item[propName][0]; // return country's initial
+});
+cv.groupDescriptions.push(gd);
+</pre></p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(property, converter?): <a href="topic/wijmo.collections.PropertyGroupDescription.Class.html"><b>PropertyGroupDescription</b></a></td>
+      <td><p>
+<b>property</b> (<b>string</b>): The name of the property that specifies
+which group an item belongs to.<br/><b>converter?</b> (<b>Function</b>): A callback function that takes an item and 
+a property name and returns the group name. If not specified, 
+the group name is the property value for the item.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.collections.PropertyGroupDescription.Class.html"><b>PropertyGroupDescription</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>groupNameFromItem</b>&#8203;(item, level): <b>any</b></td>
+      <td><p>
+<b>item</b> (<b>any</b>): The item to get group name for.<br/><b>level</b> (<b>number</b>): The zero-based group level index.<br/></p>
+</td>
+      <td>Returns the group name for the given item.<br/><br/><b>Returns</b> The name of the group the item belongs to.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>namesMatch</b>&#8203;(groupName, itemName): <b>boolean</b></td>
+      <td><p>
+<b>groupName</b> (<b>any</b>): The name of the group.<br/><b>itemName</b> (<b>any</b>): The name of the item.<br/></p>
+</td>
+      <td>Returns a value that indicates whether the group name and the item name
+match (which implies that the item belongs to the group).<br/><br/><b>Returns</b> True if the names match; otherwise, false.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

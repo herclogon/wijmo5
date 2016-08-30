@@ -1,0 +1,107 @@
+﻿/* to remove alternating row backgrounds:
+
+
+/* document */
+body {
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+/* validation */
+form input:invalid {
+    border-right: 4px solid #c00000;
+}
+
+.grid {
+    width:60%;
+    height: 400px;
+    border: 2px solid #e0e0e0;
+    margin: 6px;
+}
+
+
+.container {
+    width: 85%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h1 {
+    margin: .67em 0;
+}
+
+.list-group .router-link-active {
+    z-index: 2;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+
+/* Bootstrap */
+.header {
+    background-color: #6f5499;
+    background-image: linear-gradient(#563d7c 0px, #6f5499 100%);
+    background-position: 0% 0%;
+    background-repeat: repeat-x;
+    margin-bottom: 14px;
+    padding: 12px 0px;
+    color: #cdbfe3;
+}
+
+    .header h1 {
+        font-size: 40px;
+        line-height: 1;
+        margin: .67em;
+        color: #fff;
+    }
+
+    .header p {
+        margin: .67em;
+    }
+
+
+.list-group {
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+    .list-group-item:first-child {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+.nav {
+    width: 25%;
+    float: left;
+    padding-right: 15px;
+}
+
+.displaycontent {
+    width: 75%;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 15px;
+}

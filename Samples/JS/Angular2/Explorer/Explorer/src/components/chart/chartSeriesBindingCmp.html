@@ -1,0 +1,56 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Chart series binding
+        </h3>
+        <p>
+            This view shows how you can use the <b>FlexChart</b> to show data from
+            multiple data sources, one per series.
+        </p>
+        <p>
+            The sample does the following:
+        </p>
+        <ol>
+            <li>
+                Set the chart's <b>bindingX</b> and <b>binding</b> properties to "x" and "y".
+            </li>
+            <li>
+                Add a <b>Series</b> object to the chart's <b>series</b> array and set its
+                <b>itemsSource</b> property to an array of objects that have "x" and "y" properties.
+            </li>
+            <li>
+                Add a second <b>Series</b> object to the chart's <b>series</b> array and set its
+                <b>itemsSource</b> property to a different array of objects that have "x" and "y"
+                properties.
+            </li>
+        </ol>
+        <p>
+            Alternatively, we could have set the <b>bindingX</b> and <b>binding</b> properties on the
+            <b>Series</b> objects instead of setting then on the chart. In this case this was not necessary
+            because the binding names are the same for all series.
+        </p>
+    </div>
+    <div>
+
+        <wj-flex-chart class="chart" style="display:block"
+                       #chart
+                       [chartType]="'Line'"
+                       [bindingX]="'x'"
+                       [binding]="'y'"
+                       [tooltipContent]="'x={x}, y={y}'">
+            <wj-flex-chart-series [itemsSource]="pts1" [name]="'function 1'"></wj-flex-chart-series>
+            <wj-flex-chart-series [itemsSource]="pts2" [name]="'function 2'"></wj-flex-chart-series>
+            <wj-flex-chart-axis [wjProperty]="'axisX'"
+                                [axisLine]="true"
+                                [majorGrid]="true"
+                                [minorGrid]="true"
+                                [origin]="0"></wj-flex-chart-axis>
+            <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                [axisLine]="true"
+                                [majorGrid]="true"
+                                [minorGrid]="true"
+                                [origin]="0"></wj-flex-chart-axis>
+        </wj-flex-chart>
+    </div>
+
+</div>

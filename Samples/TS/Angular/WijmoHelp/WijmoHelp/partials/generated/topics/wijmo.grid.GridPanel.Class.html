@@ -1,0 +1,186 @@
+<h2>GridPanel Class</h2>
+<dl class="dl-horizontal">
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html"><b>FlexSheetPanel</b></a></dd>
+<dt>Module</dt><dd>wijmo.grid</dd>
+<dt>File</dt><dd>wijmo.grid.js</dd>
+</dl>
+<p>Represents a logical part of the grid, such as the column headers, row headers,
+and scrollable data part.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(g, cellType, rows, cols, element): <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a></td>
+      <td><p>
+<b>g</b> (<a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>): The <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> object that owns the panel.<br/><b>cellType</b> (<a href="topic/wijmo.grid.CellType.Enum.html"><b>CellType</b></a>): The type of cell in the panel.<br/><b>rows</b> (<a href="topic/wijmo.grid.RowCollection.Class.html"><b>RowCollection</b></a>): The rows displayed in the panel.<br/><b>cols</b> (<a href="topic/wijmo.grid.ColumnCollection.Class.html"><b>ColumnCollection</b></a>): The columns displayed in the panel.<br/><b>element</b> (<b>HTMLElement</b>): The HTMLElement that hosts the cells in the control.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>cellType</b></td>
+      <td><a href="topic/wijmo.grid.CellType.Enum.html"><b>CellType</b></a></td>
+      <td>Gets the type of cell contained in the panel.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>columns</b></td>
+      <td><a href="topic/wijmo.grid.ColumnCollection.Class.html"><b>ColumnCollection</b></a></td>
+      <td>Gets the panel's column collection.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>grid</b></td>
+      <td><a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a></td>
+      <td>Gets the grid that owns the panel.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>height</b></td>
+      <td><b>number</b></td>
+      <td>Gets the total height of the content in this panel.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>hostElement</b></td>
+      <td><b>HTMLElement</b></td>
+      <td>Gets the host element for the panel.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>rows</b></td>
+      <td><a href="topic/wijmo.grid.RowCollection.Class.html"><b>RowCollection</b></a></td>
+      <td>Gets the panel's row collection.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>viewRange</b></td>
+      <td><a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a></td>
+      <td>Gets a <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a> that indicates the range of cells currently visible on the panel.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>width</b></td>
+      <td><b>number</b></td>
+      <td>Gets the total width of the content in the panel.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>getCellBoundingRect</b>&#8203;(r, c, raw?): <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
+      <td><p>
+<b>r</b> (<b>number</b>): The index of the row that contains the cell.<br/><b>c</b> (<b>number</b>): The index of the column that contains the cell.<br/><b>raw?</b> (<b>boolean</b>): Whether to return the rectangle in raw panel coordinates as opposed to viewport coordinates.<br/></p>
+</td>
+      <td><p>Gets a cell's bounds in viewport coordinates.</p>
+
+<p>The returned value is a <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a> object which contains the position and dimensions 
+of the cell in viewport coordinates.
+The viewport coordinates are the same as those used by the 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element.getBoundingClientRect"
+target="_blank">getBoundingClientRect</a> method.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getCellData</b>&#8203;(r, c, formatted): <b>any</b></td>
+      <td><p>
+<b>r</b> (<b>number</b>): The row index of the cell.<br/><b>c</b> (<b>any</b>): The index, name, or binding of the column that contains the cell.<br/><b>formatted</b> (<b>boolean</b>): Whether to format the value for display.<br/></p>
+</td>
+      <td>Gets the value stored in a cell in the panel.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getSelectedState</b>&#8203;(r, c, rng): <a href="topic/wijmo.grid.SelectedState.Enum.html"><b>SelectedState</b></a></td>
+      <td><p>
+<b>r</b> (<b>number</b>): Row index of the cell to inspect.<br/><b>c</b> (<b>number</b>): Column index of the cell to inspect.<br/><b>rng</b> (<a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a>): <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a> that contains the cell to inspect.<br/></p>
+</td>
+      <td>Gets a <a href="topic/wijmo.grid.SelectedState.Enum.html"><b>SelectedState</b></a> value that indicates the selected state of a cell.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>setCellData</b>&#8203;(r, c, value, coerce?, invalidate?): <b>boolean</b></td>
+      <td><p>
+<b>r</b> (<b>number</b>): The index of the row that contains the cell.<br/><b>c</b> (<b>any</b>): The index, name, or binding of the column that contains the cell.<br/><b>value</b> (<b>any</b>): The value to store in the cell.<br/><b>coerce?</b> (<b>boolean</b>): Whether to change the value automatically to match the column's data type.<br/><span class="text-info">(default value: <b>true</b>)</span><br/><b>invalidate?</b> (<b>boolean</b>): Whether to invalidate the grid to show the change.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
+</td>
+      <td>Sets the content of a cell in the panel.<br/><br/><b>Returns</b> Returns true if the value is stored successfully, false otherwise (failed cast).</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

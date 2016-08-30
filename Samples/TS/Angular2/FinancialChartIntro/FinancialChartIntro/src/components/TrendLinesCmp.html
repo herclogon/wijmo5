@@ -1,0 +1,159 @@
+﻿<div>
+    <h2 id="TrendLines">
+        Trend Lines
+    </h2>
+    <p>
+        Trend lines are used to represent trends in data and to examine the problems of prediction.
+    </p>
+    <p>
+        The following example indicates moving average trend based on the past prices. User can change the
+        <b>period</b> and <b>type</b> of the moving average line.
+    </p>
+    <ol>
+        <li>
+            <b>period</b>: the calculation period of the moving average line.
+        </li>
+        <li>
+            <b>type</b>: the calculation type of the moving average line. This includes <b>Simple</b>, <b>Weighted</b>, <b>Exponential</b> and <b>Triangular</b> types.
+        </li>
+    </ol>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div ng-non-bindable class="pane-content">
+&lt;wj-financial-chart [header]="header"
+                    [itemsSource]="data"
+                    chartType="Line"
+                    [symbolSize]="4"
+                    bindingX="date"&gt;
+    &lt;wj-financial-chart-series name="Close" binding="close"&gt;&lt;/wj-financial-chart-series&gt;
+    &lt;wj-flex-chart-moving-average binding="close"
+                                    [name]="movingAverageName"
+                                    [period]="movingAveragePeriod"
+                                    [type]="movingAverageType"&gt;
+    &lt;/wj-flex-chart-moving-average&gt;
+    &lt;wj-flex-chart-legend position="Top"&gt;&lt;/wj-flex-chart-legend&gt;
+    &lt;wj-flex-chart-axis wjProperty="axisY" position="Right"&gt;&lt;/wj-flex-chart-axis&gt;
+&lt;/wj-financial-chart&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Period&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-input-number class="period" [value]="2" #inputPeriod (valueChanged)="periodChanged(inputPeriod)"
+                            [min]="2"
+                            [max]="data.length - 1"
+                            [step]="1"
+                            format="n0"&gt;
+        &lt;/wj-input-number&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;Type&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-menu [(value)]="movingAverageType" header="Moving Average Type" #maMenu (itemClicked)="changeType(maMenu)"&gt;
+            &lt;wj-menu-item value="Simple"&gt;Simple&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="Weighted"&gt;Weighted&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="Exponential"&gt;Exponential&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="Triangular"&gt;Triangular&lt;/wj-menu-item&gt;
+        &lt;/wj-menu&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+import { Component, EventEmitter, Inject, ViewChild, Input } from '@angular/core';
+import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
+import { AppTab, AppTabPane } from './AppTab';
+import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import * as wjNg2FlexChart from 'wijmo/wijmo.angular2.chart';
+import * as wjNg2FlexChartAnalytics from 'wijmo/wijmo.angular2.chart.analytics';
+import * as wjNg2FinancialChart from 'wijmo/wijmo.angular2.chart.finance';
+
+import { DataSvc } from './../services/DataSvc';
+
+//TrendLines sample component
+@Component({
+    selector: 'trend-lines-cmp',
+    templateUrl: 'src/components/TrendLinesCmp.html',
+    directives: [wjNg2FinancialChart.WjFinancialChart, wjNg2FinancialChart.WjFinancialChartSeries, wjNg2FlexChart.WjFlexChartAxis, wjNg2FlexChart.WjFlexChartLegend,
+        wjNg2FlexChartAnalytics.WjFlexChartMovingAverage, wjNg2Input.WjInputNumber, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, AppTab, AppTabPane, CORE_DIRECTIVES, FORM_DIRECTIVES]
+})
+
+export class TrendLinesCmp {
+    dataSvc: DataSvc;
+    data: any[];
+    header: string;
+    movingAverageName: string;
+    movingAveragePeriod: number;
+    movingAverageType: string;
+
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+        this.data = [];
+        this.dataSvc = dataSvc;
+        this.setDataSource();
+        this.header = 'Facebook, Inc. (FB)';
+        this.movingAveragePeriod = 2;
+        this.movingAverageType = 'Simple';
+        this.movingAverageName = 'Simple Moving Average';
+    }
+
+    changeType(maMenu) {
+        this.movingAverageName = maMenu.selectedValue + ' Moving Average';
+    }
+
+    periodChanged = (input: wijmo.input.InputNumber) => {
+        if (input.value < input.min || input.value > input.max) {
+            return;
+        }
+        this.movingAveragePeriod = input.value;
+    };
+
+    private setDataSource() {
+        this.dataSvc.getData().subscribe(data => {
+            this.data = data;
+        });
+    }
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>Result (live):</h4>
+            <wj-financial-chart [header]="header"
+                                [itemsSource]="data"
+                                chartType="Line"
+                                [symbolSize]="4"
+                                bindingX="date">
+                <wj-financial-chart-series name="Close" binding="close"></wj-financial-chart-series>
+                <wj-flex-chart-moving-average binding="close"
+                                              [name]="movingAverageName"
+                                              [period]="movingAveragePeriod"
+                                              [type]="movingAverageType">
+                </wj-flex-chart-moving-average>
+                <wj-flex-chart-legend position="Top"></wj-flex-chart-legend>
+                <wj-flex-chart-axis wjProperty="axisY" position="Right"></wj-flex-chart-axis>
+            </wj-financial-chart>
+            <dl class="dl-horizontal">
+                <dt>Period</dt>
+                <dd>
+                    <wj-input-number class="period" [value]="2" #inputPeriod (valueChanged)="periodChanged(inputPeriod)"
+                                     [min]="2"
+                                     [max]="data.length - 1"
+                                     [step]="1"
+                                     format="n0">
+                    </wj-input-number>
+                </dd>
+                <dt>Type</dt>
+                <dd>
+                    <wj-menu [(value)]="movingAverageType" header="Moving Average Type" #maMenu (itemClicked)="changeType(maMenu)">
+                        <wj-menu-item value="Simple">Simple</wj-menu-item>
+                        <wj-menu-item value="Weighted">Weighted</wj-menu-item>
+                        <wj-menu-item value="Exponential">Exponential</wj-menu-item>
+                        <wj-menu-item value="Triangular">Triangular</wj-menu-item>
+                    </wj-menu>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+</div>

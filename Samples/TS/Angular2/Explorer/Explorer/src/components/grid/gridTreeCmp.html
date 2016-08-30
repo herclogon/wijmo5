@@ -1,0 +1,61 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Tree View
+        </h3>
+        <p>
+            This sample shows you can use
+            <a href="http://wijmo.com/5/docs/topic/wijmo.grid.FlexGrid.Class.html" target="_blank">
+                FlexGrid
+            </a> to create hierarchical data trees. You can use the grid as a TreeView control.
+        </p>
+
+        <div class="collapsed-content collapse">
+            <p>
+                We created the tree on the left by populating the grid and adding group rows in code.
+                We created the tree on the right automatically, using the <b>itemsSource</b> and
+                <b>childItemsPath</b> properties.
+            </p>
+            <p>
+                Both samples use the
+                <a href="http://wijmo.com/5/docs/topic/wijmo-wijmo.angular2.grid.WjFlexGrid.Class.html"
+                   target="_blank">WjFlexGrid</a> component with Angular 2, and the one on the right
+                also uses the <a href="http://wijmo.com/5/docs/topic/wijmo-wijmo.angular2.grid.WjFlexGridColumn.Class.html"
+                                 target="_blank">WjFlexGridColumn</a> component.
+            </p>
+            <p>
+                You can collapse or expand tree nodes by clicking the icons on the group rows or by
+                using the left and right arrow keys. Pressing the control key while clicking the icons
+                collapses or expands the entire tree to the level desired.
+            </p>
+        </div>
+        <p>
+            <button type="button" data-toggle="collapse"
+                    data-target=".collapsed-content, .btn.btn-default.btn-xs.collapse"
+                    class="btn btn-default btn-xs collapse in">
+                Read more
+            </button>
+        </p>
+    </div>
+
+    <div class="row">
+        <!-- unbound (populated in code) -->
+        <!-- controller code is located in treeCtrl.js -->
+        <div class="col-md-6">
+            <h4>Populated in code</h4>
+            <wj-flex-grid class="grid" #flexUnbound>
+            </wj-flex-grid>
+        </div>
+
+        <!-- bound (childItemsPath) -->
+        <div class="col-md-6">
+            <h4>Populated with childItemsPath property</h4>
+            <wj-flex-grid class="grid" #flexBound [itemsSource]="persons" [childItemsPath]="'children'">
+                <wj-flex-grid-column [header]="'Name'" [binding]="'name'" [width]="'*'" [minWidth]="120" [allowDragging]="false"></wj-flex-grid-column>
+                <wj-flex-grid-column [header]="'Level'" [binding]="'level'"></wj-flex-grid-column>
+                <wj-flex-grid-column [header]="'Children'" [binding]="'childCount'"></wj-flex-grid-column>
+                <wj-flex-grid-column [header]="'Descendants'" [binding]="'descendantCount'"></wj-flex-grid-column>
+            </wj-flex-grid>
+        </div>
+    </div>
+</div>

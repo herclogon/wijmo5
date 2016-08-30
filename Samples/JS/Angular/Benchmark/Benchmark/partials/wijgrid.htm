@@ -1,0 +1,25 @@
+﻿<h4 ng-init="benchmarkView('wijgrid')">Wijmo Grid</h4>
+
+<p>
+    The <b>wij-grid</b> widget is part of Wijmo 3.
+    For more information please visit:
+    <a href="http://wijmo.com/widgets/wijmo-complete/grid/" target="_blank">
+        http://wijmo.com/widgets/wijmo-complete/grid/</a></p>
+
+<wij-grid 
+    class="gridStyle"
+    data="data"
+    allow-virtual-scrolling="true"
+    allow-sorting="true"
+    scroll-mode="auto"
+    style="height:450px">
+    <columns>
+        <column header-text="ID" data-key="id" data-type="number" width="50"></column>
+        <column header-text="Date" data-key="date" data-type="datetime" width="100"></column>
+        <column header-text="Country" data-key="country" width="100"></column>
+        <column header-text="Product" data-key="product" width="140"></column>
+        <column header-text="Color" data-key="color" width="140"></column>
+        <column header-text="Amount" data-key="amount" data-type="currency" width="100"></column>
+        <column header-text="Active" data-key="active"></column>
+    </columns>
+</wij-grid>

@@ -1,0 +1,312 @@
+﻿[
+  {
+    "name": "waterMarker",
+    "type": "Text", 
+    "attachment": 2, 
+    "point": { "x": 0.5, "y": 0.5 }, 
+    "text": "wijmo.com",
+    "style": { "fill": "#B45F04", "fill-opacity": 0.1, "stroke": "rgba(124,240,10,0.2)", "font-size": "100px" }
+  },
+
+  {
+    "name": "trendLine1",
+    "type": "Line", 
+    "attachment": 1, 
+    "position": 0,
+    "start": { "x": "2014-05-08", "y": 64 },
+    "end": { "x": "2014-09-08", "y": 84 },
+    "style": { "fill": "#FF0040", "stroke": "#3ADF00", "fill-opacity": 2, "stroke-width": 1, "stroke-opacity": 0.5 }
+  },
+
+  {
+    "name": "trendLine2",
+    "type": "Line", 
+    "attachment": 1, 
+    "position": 0,
+    "start": { "x": "2014-05-08", "y": 56 },
+    "end": { "x": "2014-09-08", "y": 76 },
+    "style": { "fill": "#FF0040", "stroke": "#3ADF00", "fill-opacity": 2, "stroke-width": 1, "stroke-opacity": 0.5 }
+  },
+
+  {
+    "name": "eventa",	
+      "type": "Rectangle",
+        "offset": { "x": 0, "y": -10 },               
+        "attachment": 0,
+        "content": "E",
+        "tooltip": "Results of Operations and Financial Condition.",
+        "width": 20, 
+    "height": 20,
+        "pointIndex": 73,
+        "style": { "fill": "#01DFD7", "stroke": "#000000", "fill-opacity": 1, "stroke-width": 1, "stroke-opacity": 1 }              
+     },
+
+  {
+    "name": "eventb",
+    "type": "Rectangle",
+    "offset": { "x": 0, "y": 10 },               
+    "attachment": 0,
+    "content": "E",
+    "tooltip": "Completion of Acquisition or Disposition of Assets, Change in Directors or Principal.",
+    "width": 20, 
+    "height": 20,
+    "pointIndex": 124,
+    "style": { "fill": "#01DFD7", "stroke": "#000000", "fill-opacity": 1, "stroke-width": 1, "stroke-opacity": 1 }              
+     },
+
+  {
+    "name": "eventc",	
+      "type": "Rectangle",
+        "offset": { "x": 0, "y": -10 },               
+        "attachment": 0,
+        "content": "E",
+        "tooltip": "Facebook Inc Earnings Call scheduled for 5:00 pm ET today.",
+        "width": 20, 
+    "height": 20,
+        "pointIndex": 202,
+        "style": { "fill": "#01DFD7", "stroke": "#000000", "fill-opacity": 1, "stroke-width": 1, "stroke-opacity": 1 }              
+     },
+
+  {
+    "name": "eventd",	
+      "type": "Rectangle",
+        "offset": { "x": 0, "y": -20 },               
+        "attachment": 0,
+        "content": "E",
+        "tooltip": "Coverage initiated on Facebook by Brean Capital.",
+        "width": 20, 
+    "height": 20,
+        "pointIndex": 235,
+        "style": { "fill": "#01DFD7", "stroke": "#000000", "fill-opacity": 1, "stroke-width": 1, "stroke-opacity": 1 }              
+     },
+
+  {   
+    "name": "detailContainer",
+    "type": "Square",           
+        "length": 110,
+        "isVisible": false,
+        "point": { "x": 55, "y": 55 },
+        "style": { "fill": "#CCCC00", "stroke": "#0B2F3A", "stroke-width": 1, "stroke-opacity": 0.4 }
+     },
+
+     {
+    "name": "detailLow",
+    "type": "Text", 
+        "position": 0,
+        "offset": { "x": 0, "y": 0 },
+        "attachment": 3,
+        "text": "",
+        "point": { "x": 52, "y": 20 },
+        "style": { "fill": "#6E6E6E", "font-size": "12px" }
+      },
+
+    {
+    "name": "detailHigh",
+    "type": "Text", 
+        "position": 0,
+        "offset": { "x": 0, "y": 0 },
+        "attachment": 3,
+        "text": "",
+        "point": { "x": 52, "y": 40 },
+        "style": { "fill": "#6E6E6E", "font-size": "12px" }
+      },
+
+    {
+    "name": "detailOpen",
+    "type": "Text", 
+        "position": 0,
+        "offset": { "x": 0, "y": 0 },
+        "attachment": 3,
+        "text": "",
+        "point": { "x": 52, "y": 60 },
+        "style": { "fill": "#6E6E6E", "font-size": "12px" }
+      },
+
+    {
+    "name": "detailClose",
+    "type": "Text", 
+        "position": 0,
+        "offset": { "x": 0, "y": 0 },
+        "attachment": 3,
+        "text": "",
+        "point": { "x": 52, "y": 80 },
+        "style": { "fill": "#6E6E6E", "font-size": "12px" }
+      },
+
+    {
+    "name": "detailVolume",
+    "type": "Text", 
+        "position": 0,
+        "offset": { "x": 0, "y": 0 },
+        "attachment": 3,
+        "text": "",
+        "point": { "x": 52, "y": 100 },
+        "style": { "fill": "#6E6E6E", "font-size": "12px" }
+      },
+
+   {
+    "name": "startLine",
+    "type": "Line",
+        "position": 0,
+        "offset": { "x": 0, "y": 0 },
+        "attachment": 1,
+        "tooltip": "Previous close",
+        "start": { "x": "2014-4-10", "y": 59.16 },
+        "end": { "x": "2016-4-10", "y": 59.16 },
+        "style": { "fill": "#000000", "stroke": "#000000", "fill-opacity": 1, "stroke-width": 1, "stroke-opacity": 1 }
+     },
+
+  {
+      "name": "dividea",
+    "type": "Image",
+        "position": 0,
+        "offset": { "x": 0, "y": -20 },
+        "width":20, "height":20,
+        "seriesIndex":1,
+        "href": "resources/divide.png",
+        "tooltip": "Dividend",
+        "attachment": 0,
+        "pointIndex": 42           
+  },
+
+  {
+      "name": "divideb",
+    "type": "Image",
+        "position": 0,
+        "offset": { "x": 0, "y": -10 },
+        "width":20, "height":20,
+        "seriesIndex":1,
+        "href": "resources/divide.png",
+        "tooltip": "Dividend",
+        "attachment": 0,
+        "pointIndex": 73           
+  },
+
+  {
+      "name": "dividec",
+    "type": "Image",
+        "position": 0,
+        "offset": { "x": 0, "y": -10 },
+        "width":20, "height":20,
+        "seriesIndex":1,
+        "href": "resources/divide.png",
+        "tooltip": "Dividend",
+        "attachment": 0,
+        "pointIndex": 92           
+  },
+
+  {
+      "name": "divided",
+    "type": "Image",
+        "position": 0,
+        "offset": { "x": 0, "y": -10 },
+        "width":20, "height":20,
+        "seriesIndex":1,
+        "href": "resources/divide.png",
+        "tooltip": "Dividend",
+        "attachment": 0,
+        "pointIndex": 142           
+  },
+
+  {
+      "name": "dividee",
+    "type": "Image",
+        "position": 0,
+        "offset": { "x": 0, "y": -10 },
+        "width":20, "height":20,
+        "seriesIndex":1,
+        "href": "resources/divide.png",
+        "tooltip": "Dividend",
+        "attachment": 0,
+        "pointIndex": 202           
+  },
+
+  {
+      "name": "tradeRange",
+    "type": "Rectangle",
+        "position": 0,
+        "offset": { "x": 0, "y": -80 },
+        "width": 465, "height": 430,
+        "attachment": 1,
+        "point": { "x": "2014-11-26", "y": 70 },
+        "style": { "fill": "#669999", "stroke": "#B40431", "fill-opacity": 0.2, "stroke-width": 0.5, "stroke-opacity": 0.2 }
+  },
+
+    {
+       "name": "newsa",
+     "type": "Text",
+         "position": 0,
+         "offset": { "x": 0, "y": 25 },
+         "text": "Alibaba Group Holding Ltd (BABA) and ... ",
+         "attachment": 1,
+         "point": { "x": "2015-3-2", "y": 80 }
+     },
+
+   {
+      "name": "newsaMarker",
+    "type": "Image",
+         "position": 0,
+         "offset": { "x": 0, "y": -10 },
+         "href": "resources/flag.png",
+     "tooltip": "2015/3/2, Both JPMorgan Chase and Morgan Stanley offered up favorable comments on the social media giant, with JPMorgan citing that Facebook\"s core services accounted for 24% of all smartphone activity in the U.S. The figure was up 2% from reported usage in ...",   
+         "width":14, "heigh":24,
+         "attachment": 1,
+         "point": { "x": "2015-3-2", "y": 80 }
+     },
+
+    {
+      "name": "newsb",
+     "type": "Text",
+         "position": 0,
+         "offset": { "x": 0, "y": 0 },
+         "text": "Facebook Inc to acquire LiveRail.",        
+         "attachment": 1,
+         "point": { "x": "2014-7-8", "y": 62 }
+     },
+
+   {
+      "name": "newsbMarker",
+     "type": "Image",
+         "position": 0,
+         "offset": { "x": 7, "y": -20 },
+         "href": "resources/flag.png",
+         "width":14, "heigh":24,
+         "attachment": 1,
+         "point": { "x": "2014-7-8", "y": 62 }
+     },
+
+  {
+    "name": "trendDesc",
+     "type": "Text",
+         "position": 0,
+         "offset": { "x": 0, "y": -30 },
+         "text": "Rising wedge",
+         "attachment": 1,
+         "point": { "x": "2014-5-8", "y": 64 },
+         "style": { "font-size": "20px"}
+    },
+
+  {
+    "name": "buyAnno",
+    "type": "Image",
+    "position": 0,
+    "offset": { "x": 0, "y": 15 },
+    "height": 24, "width": 24,
+    "tooltip": "Bid: $73.59",
+    "attachment": 1,
+    "point": { "x": "2014-10-14", "y": 73 },
+    "href": "resources/up.png"
+     },
+
+   {
+    "name": "sellAnno",
+    "type": "Image",
+    "position": 0,
+    "offset": { "x": 0, "y": -10 },
+    "height": 24, "width": 24,
+    "tooltip": "Offer: $77.74",
+    "attachment": 1,
+    "point": { "x": "2015-1-8", "y": 78 },
+    "href": "resources/down.png"
+     }
+]

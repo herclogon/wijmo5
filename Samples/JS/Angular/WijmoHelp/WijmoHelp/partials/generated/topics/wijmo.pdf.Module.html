@@ -1,0 +1,342 @@
+<h2>Module wijmo.pdf</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd>wijmo.pdf.js</dd>
+</dl>
+<p>Defines the <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a> class and associated classes.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
+<span class="glyph-collapsed" ng-show="hideClasses"></span>
+<span class="glyph-expanded" ng-hide="hideClasses"></span>
+Classes
+</h3>
+</div>
+<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfBrush.Class.html"><b>PdfBrush</b></a></td>
+      <td><p>Represents an abstract class that serves as a base class for all brushes.
+Instances of any class that derives from this class are used to fill areas and text.</p>
+
+<p>This class is not intended to be instantiated in your code.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><b>PdfDashPattern</b></a></td>
+      <td>Represents the dash pattern used to stroke paths.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a></td>
+      <td>Represents a PDF document object, based on <a href="https://github.com/devongovett/pdfkit">PDFKit</a> JavaScript library.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfDocumentEndedEventArgs.Class.html"><b>PdfDocumentEndedEventArgs</b></a></td>
+      <td>Provides arguments for the <b>end</b> event.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfFont.Class.html"><b>PdfFont</b></a></td>
+      <td>Represents a font.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfGradientBrush.Class.html"><b>PdfGradientBrush</b></a></td>
+      <td><p>Represents an abstract class that serves as a base class for the 
+<a href="topic/wijmo.pdf.PdfLinearGradientBrush.Class.html"><b>PdfLinearGradientBrush</b></a> and <a href="topic/wijmo.pdf.PdfRadialGradientBrush.Class.html"><b>PdfRadialGradientBrush</b></a> classes.</p>
+
+<p>This class is not intended to be instantiated in your code.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfGradientStop.Class.html"><b>PdfGradientStop</b></a></td>
+      <td>Represents an object which determines a transition point of a gradient.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfLinearGradientBrush.Class.html"><b>PdfLinearGradientBrush</b></a></td>
+      <td>Represents a brush used to fill an area with a linear gradient.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
+      <td><p>Represents an area of a page with its own coordinate system, where (0, 0) points 
+to the top-left corner.
+Provides methods for drawing text, images, paths and transformations.</p>
+
+<p>This class is not intended to be instantiated in your code.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
+      <td><p>Provides methods for creating graphics paths and drawing them or using them for clipping. </p>
+
+<p>Path creation method calls must be finished with the <b>stroke</b>,
+<b>fill</b>, <b>fillAndStroke</b> or <b>clip</b> method.
+Any document methods which don't apply directly to path creation/ drawing/ clipping 
+(changing a pen, drawing a text, saving the graphics state etc) are prohibited to use
+until the path is finished.
+The <b>lineTo</b>, <b>bezierCurveTo</b> and <b>quadraticCurveTo</b> 
+methods should not start the path, they must be preceded with the <b>moveTo</b>.</p>
+
+<p>The methods are chainable:
+<pre>
+doc.paths.moveTo(0, 0).lineTo(100, 100).stroke();
+</pre></p>
+
+<p>This class is not intended to be instantiated in your code.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfPen.Class.html"><b>PdfPen</b></a></td>
+      <td>Determines an object used to stroke paths and text.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfRadialGradientBrush.Class.html"><b>PdfRadialGradientBrush</b></a></td>
+      <td>Represents a brush used to fill an area with a radial gradient.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfRunningTitle.Class.html"><b>PdfRunningTitle</b></a></td>
+      <td><p>Represents a running title of the page, like header and footer.</p>
+
+<p>This class is not intended to be instantiated in your code.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfRunningTitleDeclarativeContent.Class.html"><b>PdfRunningTitleDeclarativeContent</b></a></td>
+      <td>Represents the declarative content of the running title.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><b>PdfSolidBrush</b></a></td>
+      <td>Represents a brush used to fill an area with a color.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideInterfaces = !hideInterfaces">
+<span class="glyph-collapsed" ng-show="hideInterfaces"></span>
+<span class="glyph-expanded" ng-hide="hideInterfaces"></span>
+Interfaces
+</h3>
+</div>
+<table ng-hide="hideInterfaces" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.IPdfBufferedPageRange.Interface.html"><b>IPdfBufferedPageRange</b></a></td>
+      <td>Represents a range of buffered pages returned by <b>bufferedPageRange</b> method.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.IPdfDocumentInfo.Interface.html"><b>IPdfDocumentInfo</b></a></td>
+      <td>Represents the document information used by <b>info</b> property.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.IPdfFontAttributes.Interface.html"><b>IPdfFontAttributes</b></a></td>
+      <td>Represents the font attributes.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.IPdfFontFile.Interface.html"><b>IPdfFontFile</b></a></td>
+      <td>Represents the settings of the font to register by <b>registerFont</b> and
+<b>registerFontAsync</b> methods.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.IPdfImageDrawSettings.Interface.html"><b>IPdfImageDrawSettings</b></a></td>
+      <td><p>Represents the image drawing settings used by <b>drawImage</b> method.</p>
+
+<p>If neither width nor height options are provided, then the image will be rendered
+in its original size. If only width is provided, then the image will be scaled
+proportionally to fit in the provided width. If only height is provided, then the
+image will be scaled proportionally to fit in the provided height. If both width
+and height are provided, then image will be stretched to the dimensions depending
+on the stretchProportionally property.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.IPdfPageMargins.Interface.html"><b>IPdfPageMargins</b></a></td>
+      <td>Represents the page margins.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.IPdfPageSettings.Interface.html"><b>IPdfPageSettings</b></a></td>
+      <td>Represents the page settings.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.IPdfSvgDrawSettings.Interface.html"><b>IPdfSvgDrawSettings</b></a></td>
+      <td>Represents the settings used by <b>drawSvg</b> method to draw a SVG image.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.IPdfTextDrawSettings.Interface.html"><b>IPdfTextDrawSettings</b></a></td>
+      <td>Represents the settings used by <b>drawText</b> method to draw a text
+with the specified <a href="topic/wijmo.pdf.PdfPen.Class.html"><b>PdfPen</b></a> and <a href="topic/wijmo.pdf.PdfBrush.Class.html"><b>PdfBrush</b></a>.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.IPdfTextMeasurementInfo.Interface.html"><b>IPdfTextMeasurementInfo</b></a></td>
+      <td>Represents the text measurement information returned by <b>measureText</b> method.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.IPdfTextSettings.Interface.html"><b>IPdfTextSettings</b></a></td>
+      <td>Represents text settings used by <b>drawText</b> and <b>measureText</b> methods.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEnumerations = !hideEnumerations">
+<span class="glyph-collapsed" ng-show="hideEnumerations"></span>
+<span class="glyph-expanded" ng-hide="hideEnumerations"></span>
+Enumerations
+</h3>
+</div>
+<table ng-hide="hideEnumerations" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfFillRule.Enum.html"><b>PdfFillRule</b></a></td>
+      <td>Specifies a rule that determines if a point falls inside the enclosed path.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfImageHorizontalAlign.Enum.html"><b>PdfImageHorizontalAlign</b></a></td>
+      <td>Specifies the horizontal alignment of the image.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfImageVerticalAlign.Enum.html"><b>PdfImageVerticalAlign</b></a></td>
+      <td>Specifies the vertical alignment of the image.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfLineCapStyle.Enum.html"><b>PdfLineCapStyle</b></a></td>
+      <td>Specifies the shape that shall be used at the ends of open subpaths
+(and dashes, if any) when they are stroked.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfLineJoinStyle.Enum.html"><b>PdfLineJoinStyle</b></a></td>
+      <td>Specifies the shape to be used at the corners of paths that are stroked.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfPageOrientation.Enum.html"><b>PdfPageOrientation</b></a></td>
+      <td>Specifies the page orientation.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfPageSize.Enum.html"><b>PdfPageSize</b></a></td>
+      <td>Specifies the page size, in points.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="topic/wijmo.pdf.PdfTextHorizontalAlign.Enum.html"><b>PdfTextHorizontalAlign</b></a></td>
+      <td>Specifies the horizontal alignment of text content.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters/Return Type</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>ptToPx</b>&#8203;(value): <b>number</b></td>
+      <td><p>
+<b>value</b> (<b>number</b>): The value to convert.<br/></p>
+</td>
+      <td>Converts a point unit value to a pixel unit value.<br/><b>Returns</b> The converted value.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>pxToPt</b>&#8203;(value): <b>number</b></td>
+      <td><p>
+<b>value</b> (<b>number</b>): The value to convert.<br/></p>
+</td>
+      <td>Converts a pixel unit value to a point unit value.<br/><b>Returns</b> The converted value.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>saveBlob</b>&#8203;(blob, fileName): <b>void</b></td>
+      <td><p>
+<b>blob</b> (<b>Blob</b>): The Blob object to save.<br/><b>fileName</b> (<b>string</b>): The name with which the file is saved.<br/></p>
+</td>
+      <td>Saves the Blob object as a file.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

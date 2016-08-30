@@ -1,0 +1,97 @@
+<h2>IWorkSheet Class</h2>
+<dl class="dl-horizontal">
+<dt>Module</dt><dd>wijmo.xlsx</dd>
+<dt>File</dt><dd>wijmo.xlsx.js</dd>
+</dl>
+<p><p>Represents the Workbook Object Model sheet definition that includes sheet properties and data.</p>
+
+<p>The sheet cells are stored in row objects and are accessible using JavaScript expressions like
+<b>sheet.rows[i].cells[j]</b>.</p></p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>columns?</b></td>
+      <td><a href="topic/wijmo.xlsx.IWorkbookColumn.Interface.html"><b>IWorkbookColumn</b></a><b>[]</b></td>
+      <td><p>Gets or sets an array of sheet columns definitions.</p>
+
+<p>Each <a href="topic/wijmo.xlsx.IWorkbookColumn.Interface.html"><b>IWorkbookColumn</b></a> object in the array describes a column at the corresponding position in xlsx sheet, 
+i.e. the column with index 0
+corresponds to xlsx sheet column with index A, object with index 1 defines sheet column with index B, and so on. If certain column 
+has no description in xlsx file then corresponding array element is undefined for both export and import operations.</p>
+
+<p>If <b>IWorkbookColumn</b> object in the array doesn't specify the <b>width</b> property value then the default column width
+is applied.</p></td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>frozenPane?</b></td>
+      <td><a href="topic/wijmo.xlsx.IWorkbookFrozenPane.Interface.html"><b>IWorkbookFrozenPane</b></a></td>
+      <td>Gets or sets the frozen pane settings.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>name?</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the sheet name.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>rows?</b></td>
+      <td><a href="topic/wijmo.xlsx.IWorkbookRow.Interface.html"><b>IWorkbookRow</b></a><b>[]</b></td>
+      <td><p>Gets or sets an array of sheet rows definition.</p>
+
+<p>Each <a href="topic/wijmo.xlsx.IWorkbookRow.Interface.html"><b>IWorkbookRow</b></a> object in the array describes a row at the corresponding position in xlsx sheet, 
+i.e. the column with index 0
+corresponds to xlsx sheet row with index 1, object with index 1 defines sheet row with index 2, and so on. If certain row 
+has no properties and data in xlsx file then corresponding array element is undefined for both export and import operations.</p>
+
+<p>If <b>IWorkbookRow</b> object in the array doesn't specify the <b>height</b> property value then the default row height
+is applied.</p></td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>style?</b></td>
+      <td><a href="topic/wijmo.xlsx.IWorkbookStyle.Interface.html"><b>IWorkbookStyle</b></a></td>
+      <td><p>Gets or sets the sheet style.</p>
+
+<p>The property defines the style for all cells in the worksheet, and can be overridden by the specific cell styles.</p></td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>summaryBelow?</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value indicating whether summary rows appear below or above detail rows.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>visible?</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets the worksheet visibility.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

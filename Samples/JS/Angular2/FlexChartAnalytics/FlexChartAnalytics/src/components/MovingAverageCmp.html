@@ -1,0 +1,53 @@
+﻿<div>
+    <h2>FlexChart {{title}}</h2>
+    <p>
+        This view shows Moving Average in FlexChart.
+    </p>
+    <p>
+        You can use different moving average types by setting the <b>type</b>
+        property of MovingAverage.
+    </p>
+    <p>
+        The MovingAverage class has a <b>period</b> property that allows you to set
+        the number of periods for computing the average value.
+    </p>
+    <!-- Settings -->
+    <div class="panel-group" id="settings">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <ul class="list-inline">
+                    <li>
+                        <wj-menu [(value)]="type" header="Type" text="type">
+                            <wj-menu-item value="Simple">Simple</wj-menu-item>
+                            <wj-menu-item value="Weighted">Weighted</wj-menu-item>
+                            <wj-menu-item value="Exponential">Exponential</wj-menu-item>
+                            <wj-menu-item value="Triangular">Triangular</wj-menu-item>
+                        </wj-menu>
+                    </li>
+                    <li>
+                        <label>Period</label>
+                        <wj-input-number #ipt (valueChanged)="periodChanged(ipt)"
+                                         [value]="3"
+                                         [min]="2"
+                                         [max]="29"
+                                         [step]="1"
+                                         format="n0">
+                        </wj-input-number>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <wj-flex-chart [itemsSource]="itemsSource"
+                       bindingX="x">
+            <wj-flex-chart-series chartType="Line" name="Base Data" binding="y"></wj-flex-chart-series>
+            <wj-flex-chart-moving-average binding="y" bindingX="x"
+                                          [type]="type"
+                                          [period]="period"
+                                          [name]="type[0] + 'MA'">
+            </wj-flex-chart-moving-average>
+        </wj-flex-chart>
+    </div>
+
+</div>

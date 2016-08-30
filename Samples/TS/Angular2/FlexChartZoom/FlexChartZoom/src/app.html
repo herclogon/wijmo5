@@ -1,0 +1,66 @@
+﻿<div>
+    <div class="header">
+        <div class="container">
+            <img src="resources/wijmo5.png" />
+            <h1>
+                FlexChart Zoom (Angular 2)
+            </h1>
+            <p>
+                This page shows how to zoom Wijmo's FlexChart.
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <ul>
+                    <li>
+                        <b>Mouse action:</b>
+                        <ol>
+                            <li> Zoom mode: Select the chart area to zoom in, or scroll mouse wheel to zoom in/out.</li>
+                            <li> Pan mode: Click and drag within the chart area to change the display range.</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <b>Touch action:</b>
+                        <ol>
+                            <li>
+                                Pan the chart area to change the display range; pinch it to zoom in/out.
+                            </li>
+                        </ol>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <wj-menu *ngIf="!isTouch" [(value)]="mouseAction" header="Mouse Action">
+                    <wj-menu-item value="Zoom">Zoom</wj-menu-item>
+                    <wj-menu-item value="Pan">Pan</wj-menu-item>
+                </wj-menu>
+                <wj-menu [(value)]="interactiveAxes" header="Interactive Axes">
+                    <wj-menu-item value="X">X</wj-menu-item>
+                    <wj-menu-item value="Y">Y</wj-menu-item>
+                    <wj-menu-item value="XY">XY</wj-menu-item>
+                </wj-menu>
+                <button id="reset" class="btn btn-primary" (click)="resetAxes()" [disabled]="disabled">Reset Zoom</button>
+            </div>
+            <wj-flex-chart #zoomChart plotMargin="NaN NaN NaN 80"
+                           class="stchart"
+                           chartType="Area"
+                           bindingX="date"
+                           [itemsSource]="data">
+                <wj-flex-chart-legend position="None"></wj-flex-chart-legend>
+                <wj-flex-chart-axis wjProperty="axisX" [axisLine]="false" (rangeChanged)="rangeChanged()"></wj-flex-chart-axis>
+                <wj-flex-chart-axis wjProperty="axisY" (rangeChanged)="rangeChanged()"></wj-flex-chart-axis>
+                <wj-flex-chart-series binding="close" name="Y Value">
+                </wj-flex-chart-series>
+                <wj-flex-chart-gestures #chartGestures 
+                                        [interactiveAxes]="interactiveAxes"
+                                        [mouseAction]="mouseAction">
+                </wj-flex-chart-gestures>
+            </wj-flex-chart>
+        </div>
+    </div>
+</div>

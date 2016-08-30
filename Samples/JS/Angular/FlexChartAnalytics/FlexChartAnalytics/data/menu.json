@@ -1,0 +1,12 @@
+﻿[
+    {
+        "section": "Analytics",
+        "links":  [
+            { "text": "TrendLine", "url": "#/trendline" },
+            { "text": "MovingAverage", "url": "#/movingaverage" },
+            { "text": "YFunctionSeries", "url": "#/yfunctionseries" },
+            { "text": "Parametric FunctionSeries", "url": "#/pfunctionseries" },
+            { "text": "Waterfall", "url": "#/waterfall" }
+        ]
+    }
+]

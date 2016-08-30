@@ -1,0 +1,403 @@
+<h2>Axis Class</h2>
+<dl class="dl-horizontal">
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.angular.WjFlexChartAxis.Class.html"><b>WjFlexChartAxis</b></a></dd>
+<dt>Implements</dt><dd><b>_IAxis</b></dd>
+<dt>Module</dt><dd>wijmo.chart</dd>
+<dt>File</dt><dd>wijmo.chart.js</dd>
+</dl>
+<p>Represents an axis in the chart.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(position?): <a href="topic/wijmo.chart.Axis.Class.html"><b>Axis</b></a></td>
+      <td><p>
+<b>position?</b> (<a href="topic/wijmo.chart.Position.Enum.html"><b>Position</b></a>): The position of the axis on the chart.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.chart.Axis.Class.html"><b>Axis</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>actualMax</b></td>
+      <td><b>any</b></td>
+      <td><p>Gets the actual axis maximum.</p>
+
+<p>It returns a number or a Date object (for time-based data).</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>actualMin</b></td>
+      <td><b>any</b></td>
+      <td><p>Gets the actual axis minimum.</p>
+
+<p>It returns a number or a Date object (for time-based data).</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>axisLine</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value indicating whether the axis line is visible.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>axisType</b></td>
+      <td><a href="topic/wijmo.chart.AxisType.Enum.html"><b>AxisType</b></a></td>
+      <td>Gets the axis type.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>binding</b></td>
+      <td><b>string</b></td>
+      <td><p>Gets or sets the comma-separated property names for the
+<b>itemsSource</b> property to use in axis labels.</p>
+
+<p>The first name specifies the value on the axis, the second represents the corresponding
+axis label. The default value is 'value,text'.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>format</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the format string used for the axis labels
+(see <a href="topic/wijmo.Globalize.Class.html"><b>Globalize</b></a>).</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>hostElement</b></td>
+      <td><b>SVGGElement</b></td>
+      <td>Gets the axis host element.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>itemFormatter</b></td>
+      <td><b>Function</b></td>
+      <td><p>Gets or sets the itemFormatter function for the axis labels.</p>
+
+<p>If specified, the function takes two parameters:
+<ul>
+<li><b>render engine</b>: The <a href="topic/wijmo.chart.IRenderEngine.Interface.html"><b>IRenderEngine</b></a> object to be used
+in formatting the labels.</li>
+<li><b>current label</b>: A string value with the following properties:
+  <ul>
+    <li><b>value</b>: The value of the axis label to format.</li>
+    <li><b>text</b>: The text to use in the label.</li>
+    <li><b>pos</b>: The position in control coordinates at which
+    the label is to be rendered.</li>
+    <li><b>cls</b>: The CSS class to be applied to the label.</li>
+  </ul></li>
+</ul></p>
+
+<p>The function returns the label parameters of labels for which
+properties are modified.</p>
+
+<p>For example:
+<pre>
+chart.axisY.itemFormatter = function(engine, label) {
+    if (label.val &gt; 5){
+        engine.textFill = 'red'; // red text
+        label.cls = null; // no default CSS
+     }
+    return label;
+}
+</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>itemsSource</b></td>
+      <td><b>any</b></td>
+      <td><p>Gets or sets the items source for the axis labels.</p>
+
+<p>Names of the properties are specified by the <b>binding</b>.</p>
+
+<p>For example:</p>
+
+<p><pre>
+ // default value for Axis.binding is 'value,text'
+ chart.axisX.itemsSource = [ { value:1, text:'one' }, { value:2, text:'two' } ];
+</pre></p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>labelAlign</b></td>
+      <td><b>string</b></td>
+      <td><p>Gets or sets the label alignment.</p>
+
+<p>By default the labels are centered. The supported values are 'left' and 'right
+for x-axis and 'top' and 'bottom' for y-axis.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>labelAngle</b></td>
+      <td><b>number</b></td>
+      <td><p>Gets or sets the rotation angle of the axis labels.</p>
+
+<p>The angle is measured in degrees with valid values
+ranging from -90 to 90.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>labelPadding</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the label padding.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>labels</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value indicating whether the axis labels are visible.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>logBase</b></td>
+      <td><b>number</b></td>
+      <td><p>Gets or sets the logarithmic base of the axis.</p>
+
+<p>If the base is not specified the axis uses a linear scale.</p>
+
+<p>Use the <b>logBase</b> property to spread data that is clustered
+around the origin. This is common in several financial and economic
+data sets.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>majorGrid</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value indicating whether the axis includes grid lines.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>majorTickMarks</b></td>
+      <td><a href="topic/wijmo.chart.TickMark.Enum.html"><b>TickMark</b></a></td>
+      <td>Gets or sets the location of the axis tick marks.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>majorUnit</b></td>
+      <td><b>number</b></td>
+      <td><p>Gets or sets the number of units between axis labels.</p>
+
+<p>If the axis contains date values, then the units are
+expressed in days.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>max</b></td>
+      <td><b>any</b></td>
+      <td><p>Gets or sets the maximum value shown on the axis.</p>
+
+<p>If not set, the maximum is calculated automatically.
+The value can be a number or a Date object (for time-based data).</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>min</b></td>
+      <td><b>any</b></td>
+      <td><p>Gets or sets the minimum value shown on the axis.</p>
+
+<p>If not set, the minimum is calculated automatically.
+The value can be a number or a Date object (for time-based data).</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>minorGrid</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value indicating whether the axis includes minor grid lines.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>minorTickMarks</b></td>
+      <td><a href="topic/wijmo.chart.TickMark.Enum.html"><b>TickMark</b></a></td>
+      <td>Gets or sets the location of the minor axis tick marks.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>minorUnit</b></td>
+      <td><b>number</b></td>
+      <td><p>Gets or sets the number of units between minor axis ticks.</p>
+
+<p>If the axis contains date values, then the units are
+expressed in days.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>name</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the axis name.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>origin</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the value at which an axis crosses the perpendicular axis.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>overlappingLabels</b></td>
+      <td><a href="topic/wijmo.chart.OverlappingLabels.Enum.html"><b>OverlappingLabels</b></a></td>
+      <td>Gets or sets a value indicating how to handle the overlapping axis labels.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>plotArea</b></td>
+      <td><a href="topic/wijmo.chart.PlotArea.Class.html"><b>PlotArea</b></a></td>
+      <td>Gets or sets the plot area for the axis.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>position</b></td>
+      <td><a href="topic/wijmo.chart.Position.Enum.html"><b>Position</b></a></td>
+      <td>Gets or sets the enumerated axis position.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>reversed</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value indicating whether the axis is
+reversed (top to bottom or right to left).</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>title</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the title text shown next to the axis.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>convert</b>&#8203;(val, maxValue?, minValue?): <b>number</b></td>
+      <td><p>
+<b>val</b> (<b>number</b>): The data value to convert.<br/><b>maxValue?</b> (<b>number</b>): The max value of the data, it's optional.<br/><b>minValue?</b> (<b>number</b>): The min value of the data, it's optional.<br/></p>
+</td>
+      <td>Converts the specified value from data to pixel coordinates.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>convertBack</b>&#8203;(val): <b>number</b></td>
+      <td><p>
+<b>val</b> (<b>number</b>): The pixel coordinates to convert back.<br/></p>
+</td>
+      <td>Converts the specified value from pixel to data coordinates.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>onRangeChanged</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>rangeChanged</b> event.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>rangeChanged</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs when the axis range changes.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

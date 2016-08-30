@@ -1,0 +1,53 @@
+﻿<div class="header visible-xs visible-sm">
+    <div class="container">
+        <h1>Workbook Viewer</h1>
+    </div>
+</div>
+<div class="header hidden-xs hidden-sm">
+    <div class="container">
+        <img src="resources/wijmo5.png" />
+        <h1>Workbook Viewer</h1>
+    </div>
+</div>
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="FlexGridImportExport.htm">FlexGrid Import Export</a></li>
+            <li><a href="ExpenseReportExport.htm">Expense Report</a></li>
+            <li class="active"><a href="DrawWorkbook.htm">Workbook Viewer</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <p>
+        This sample implements a simple Excel workbook viewer that loads xlsx file content and displays it on the page.
+    </p>
+    <p>
+        The sample creates a Workbook instance, then loads an xlsx file content to the workbook instance using the <b>Workbook.load</b> method.  
+        After that, it walks through the content of the current workbook sheet provided by <b>WorkSheet</b>
+        class, and creates an <b>HTML table</b> that visualizes the content.
+    </p>
+    <p>
+        The sample also creates tabs that allow switching between workbook sheets. It is implemented using
+        the BootstrapJS tab-like styling of the <b>&lt;li&gt;</b> elements with the applied <b>ngFor</b> directive that
+        iterates through the <b>Workbook.sheets</b> collection.
+    </p>
+
+    <input type="file" class="form-control" id="importFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel.sheet.macroEnabled.12"
+           style="width:300px" />
+    <br />
+
+    <!-- Sheet tabs -->
+    <ul *ngIf="workbook" class="nav nav-tabs" style="margin-top:40px">
+        <li role="presentation" *ngFor="let sheet of workbook.sheets; let i = index" [ngClass]="{ active: i == sheetIndex }">
+            <a href="#" (click)="drawSheet(i)">{{sheet.name}}</a>
+        </li>
+    </ul>
+
+    <!-- Current sheet view -->
+    <div id="tableHost"></div>
+
+    <footer>
+        <p>&copy; 2015 GrapeCity, inc. Rights Reserved.<br />All product and company names herein may be trademarks of their respective owners.<br />Contact: <a href="mailto:sales@wijmo.com">sales@wijmo.com</a> - <a href="http://wijmo.com">http://wijmo.com</a></p>
+    </footer>
+</div>

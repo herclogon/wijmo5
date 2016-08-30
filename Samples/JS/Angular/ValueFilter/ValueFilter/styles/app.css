@@ -1,0 +1,11 @@
+﻿/* sample styles */
+.wj-flexgrid {
+    height: 300px;
+}
+.wj-flexgrid .wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background-color: white;
+}
+.wj-flexgrid .wj-cell.wj-header {
+    white-space: nowrap;
+}
+

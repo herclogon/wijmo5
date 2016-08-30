@@ -1,0 +1,72 @@
+﻿<h1 style="background-color:#c0c0c0; color:#ffffff; padding-bottom:.5em">
+    Employees
+</h1>
+
+<div style="display:flex;font-weight:bold; border-bottom:2px solid #c0c0c0">
+    <div style="width:150px">
+        Country
+    </div>
+    <div style="width:150px">
+        City
+    </div> 
+    <div style="width:200px">
+        Address
+    </div> 
+    <div style="width:150px">
+        Home Phone
+    </div>
+</div>
+
+<div *ngFor="let country of employees.groups">
+    <div style="border-top:2px solid black; font-size:150%; font-weight:bold; margin-bottom:12pt">
+        {{ country.name }}
+    </div>
+    <div *ngFor="let city of country.groups">
+        <div style="font-weight:bold; text-decoration:underline; margin-left:150px">
+            {{city.name}}
+        </div>
+        <div 
+            style="display:flex; border-top:1px solid black; border-left:1px solid black; margin-bottom:2em; page-break-inside:avoid"
+            *ngFor="let employee of city.items">
+            <div style="width:250px; padding:10px">
+                <div style="font-weight:bold; text-align:center">
+                    {{ employee.FirstName}} {{ employee.LastName}}
+                </div>
+                
+                <img
+                    style="width:200px"
+                    src="http://cdn.theatlantic.com/assets/media/img/posts/2014/08/{{images[employee.EmployeeID%images.length]}}" />
+            </div>
+            <div style="width:450px">
+                <div style="display:flex; margin-bottom: 12pt">
+                    <div style="width:200px; margin-left:50px">
+                        {{ employee.Address }}
+                    </div>
+                    <div style="width:200px">
+                        {{ employee.HomePhone }}
+                    </div>
+                </div>
+                <div style="display:flex; margin-bottom: 12pt">
+                    <div style="width:200px">
+                        {{ employee.Title }}
+                    </div>
+                    <div style="width:150px">
+                        {{ employee.BirthDate | date }}
+                    </div>
+                    <div style="width:150px">
+                        {{ employee.HireDate | date }}
+                    </div>
+                </div>
+                <div>
+                    {{ employee.FirstName }}'s Notes:
+                </div>
+                <div style="border:1px solid black; font-style:italic; font-size:90%; padding:12pt; margin-bottom: 12pt">
+                    {{ employee.Notes }}
+                </div>
+                <div style="width:300px; height:0.5em; border-top:.5em solid red">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

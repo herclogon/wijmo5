@@ -1,0 +1,26 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Zones</h3>
+        <p>
+            The view creates a scatter chart of student grades, highlighting each grade range using zones. 
+            </p>
+        <p>
+            The zones are drawn in <b>rendering</b> event of <b>FlexChart</b>. Statistic values are calculated and plotted.
+        </p>
+    </div>
+    <div>
+
+        <!-- the chart -->
+        <wj-flex-chart
+            class="chart"
+            control="ctx.chart"
+            chart-type="Scatter"
+            items-source="ctx.itemsSource"
+            binding-x="number">
+            <wj-flex-chart-series binding="score" name="raw score" symbol-size="6"></wj-flex-chart-series>
+        </wj-flex-chart>
+
+    </div>
+
+</div>

@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Wijmo Interop - Angular</title>
+
+    <!-- use the latest version of IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Angular/Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+    <!-- Wijmo -->
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+    <script src="scripts/vendor/wijmo.min.js"></script>
+    <script src="scripts/vendor/wijmo.input.min.js"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js"></script>
+    <script src="scripts/vendor/wijmo.gauge.min.js"></script>
+    <script src="scripts/vendor/wijmo.angular.min.js"></script>
+
+    <!-- app styles and scripts -->
+    <link href="styles/app.css" rel="stylesheet" />
+    <link href="styles/wijmo.inputlabels.css" rel="stylesheet" />
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/appCtrl.js"></script>
+</head>
+<body ng-app="app" ng-controller="appCtrl">
+
+    <div class="header">
+        <div class="container">
+            <img src="resources/wj-ng.png" alt="Wijmo Angular logo" />
+            <h1>
+                Wijmo and Angular
+            </h1>
+        </div>
+    </div>
+    <div id="app" class="container">
+        <p>
+            This sample was designed to show advanced data-binding scenarios using Wijmo
+            and different application frameworks.</p>
+        <p>
+            This version of the sample uses AngularJS 1.x and the <b>wijmo.angular.js</b>
+            interop module. Other versions use <b>RectJS</b> and <b>VueJS</b>.</p>
+        <p>
+            Together, the samples demonstrate the differences between popular application 
+            frameworks and Wijmo's framework-agnostic nature.</p>
+        <h3>
+            FlexGrid
+        </h3>
+        <p>
+            Let's begin by showing some data on an editable <b>FlexGrid</b> control:</p>
+
+        <wj-flex-grid
+            control="theGrid"
+            items-source="view">
+            <wj-flex-grid-column binding="name" header="Name"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="sales" header="Sales" format="c0"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="expenses" header="Expenses" format="c0"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="active" header="Active"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="date" header="Date"></wj-flex-grid-column>
+        </wj-flex-grid>
+        <p>
+            Wijmo Angular directives include a "control" pseudo-property that exposes
+            the control instance to the scope. This allows you to use the control in 
+            your markup. For example, the grid above has 
+            <b>{{ theGrid.rows.length }}</b> rows.</p>
+
+        <h3>
+            FlexChart
+        </h3>
+        <p>
+            Next, let's show the same data as a chart using the <b>FlexChart</b> control:</p>
+
+        <wj-flex-chart 
+            items-source="view"
+            binding-x="name">
+            <wj-flex-chart-series name="Sales" binding="sales"></wj-flex-chart-series>
+            <wj-flex-chart-series name="Expenses" binding="expenses"></wj-flex-chart-series>
+            <wj-flex-chart-series name="Downloads" binding="downloads" chart-type="LineSymbols"></wj-flex-chart-series>
+        </wj-flex-chart>
+
+        <p>
+            The chart is bound to the same <b>CollectionView</b> as the grid, so if you 
+            edit or sort the data on the grid, the changes are automatically reflected
+            on the chart.</p>
+
+        <h3>
+            Gauges
+        </h3>
+        <p>
+            Here's two gauges bound to the current customer's sales.
+            You can use the gauges to see and also to edit the sales amount.</p>
+        <wj-linear-gauge 
+            min="0"
+            max="1000"
+            step="50"
+            format="c0"
+            thumb-size="20"
+            is-read-only="false"
+            show-ranges="false"
+            value="view.currentItem.sales"
+            value-changed="refreshView()">
+            <wj-range wj-property="face" thickness="0.5"></wj-range>
+            <wj-range wj-property="pointer" thickness="0.5"></wj-range>
+            <wj-range min="0" max="333" color="red"></wj-range>
+            <wj-range min="333" max="666" color="gold"></wj-range>
+            <wj-range min="666" max="1000" color="green"></wj-range>
+        </wj-linear-gauge>
+        <wj-radial-gauge 
+            min="0"
+            max="1000"
+            step="50"
+            format="c0"
+            show-text="Value"
+            thumb-size="12"
+            is-read-only="false"
+            show-ranges="false"
+            value="view.currentItem.sales"
+            value-changed="refreshView()">
+            <wj-range wj-property="face" thickness="0.08"></wj-range>
+            <wj-range wj-property="pointer" thickness="0.08"></wj-range>
+            <wj-range min="0" max="333" color="red"></wj-range>
+            <wj-range min="333" max="666" color="gold"></wj-range>
+            <wj-range min="666" max="1000" color="green"></wj-range>
+        </wj-radial-gauge>
+
+        <h3>
+            Input Controls
+        </h3>
+        <p>
+            This section shows several input controls bound to the current item's properties:</p>
+        <table class="table table-condensed">
+            <tr>
+                <td><label for="c">Name:</label></td>
+                <td>
+                    <wj-combo-box
+                        id="c"
+                        placeholder="Name"
+                        text="view.currentItem.name"
+                        text-changed="refreshView()"
+                        items-source="names"
+                        is-editable="true"
+                        is-required="false">
+                    </wj-combo-box>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="n">Sales:</label></td>
+                <td>
+                    <wj-input-number
+                        id="n"
+                        format="c2"
+                        placeholder="Sales"
+                        value="view.currentItem.sales"
+                        value-changed="refreshView()"
+                        min="0"
+                        max="10000"
+                        step="100"
+                        is-required="false">
+                    </wj-input-number>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="d">Date/Time:</label></td>
+                <td>
+                    <wj-input-date
+                        id="d"
+                        placeholder="Date"
+                        value="view.currentItem.date"
+                        value-changed="refreshView()"
+                        is-required="false">
+                    </wj-input-date>
+                    <wj-input-time 
+                        placeholder="Time"
+                        value="view.currentItem.date"
+                        value-changed="refreshView()"
+                        is-required="false">
+                    </wj-input-time>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="dt">DateTime:</label></td>
+                <td>
+                    <wj-input-date-time
+                        id="dt"
+                        placeholder="Date and Time"
+                        value="view.currentItem.date"
+                        value-changed="refreshView()"
+                        is-required="false">
+                    </wj-input-date-time>
+                </td>
+            </tr>
+        </table>
+
+        <h3>
+            Modal Popups and Labeled Inputs
+        </h3>
+        <p>
+            This section shows a modal popup containing input controls with 
+            floating labels (inspired by the 
+            <a href="https://getmdl.io/">Material Design Lite</a> CSS library):</p>
+
+        <button class="btn btn-primary" ng-click="editCurrentItem()">
+            Edit Current Item
+        </button>
+        <wj-popup control="itemEditor" class="modal-content" dialog-result-enter="wj-hide-ok">
+        
+            <div class="modal-header">
+                <button type="button" tabindex="-1" class="close wj-hide">
+                    <span>&times;</span>
+                </button>
+                <h4 class="modal-title">Edit Item</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="wj-labeled-input" >
+                    <wj-combo-box
+                        text="view.currentItem.name"
+                        text-changed="refreshView"
+                        items-source="names"
+                        is-editable="true"
+                        is-required = "false"
+                        id="cmbName">
+                    </wj-combo-box>
+                    <label for="cmbName">Name</label>
+                </div>
+                <div class="wj-labeled-input" >
+                    <wj-input-date
+                        value="view.currentItem.date"
+                        is-required = "false"
+                        id="idDate">
+                    </wj-input-date>
+                    <label for="idDate">Date</label>
+                </div>
+                <br/>
+                <div class="wj-labeled-input" >
+                    <wj-input-number
+                        value="view.currentItem.sales"
+                        min="0"
+                        max="10000"
+                        step="100"
+                        is-required="false"
+                        format="c2"
+                        id="inSales">
+                    </wj-input-number>
+                    <label for="inSales">Sales</label>
+                </div>
+                <div class="wj-labeled-input" >
+                    <wj-input-number
+                        value="view.currentItem.expenses"
+                        min="0"
+                        max="10000"
+                        step="100"
+                        is-required="false"
+                        format="c2"
+                        id="inExpenses">
+                    </wj-input-number>
+                    <label for="inExpenses">Expenses</label>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary wj-hide-ok">OK</button>
+                <button type="button" class="btn btn-default wj-hide">Cancel</button>
+            </div>
+        </wj-popup>
+    </div>
+</body>
+
+</html>

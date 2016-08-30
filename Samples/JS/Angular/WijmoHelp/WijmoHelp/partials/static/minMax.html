@@ -1,0 +1,47 @@
+﻿<!--
+    This page was generated manually.
+    It is not included in the static TOC, instead it should be referenced
+    from appropriate topics using a link such as this:
+    <a href="static/minMax.html">min max</a>
+-->
+<h2>
+    Using the min and max properties</h2>
+<p>
+    Several Wijmo controls have <b>min</b> and <b>max</b> properties
+    that can be used to restrict values entered by users. 
+    Wijmo controls with <b>min</b> and <b>max</b> properties include
+    <b>Gauge</b>, <b>Calendar</b>, <b>InputDate</b>, <b>InputNumber</b>, 
+    and <b>InputNumber</b>.
+<p>
+    The behavior of the <b>min</b> and <b>max</b> properties is the 
+    same for all controls: if specified (they may be set to null),
+    the control will apply them as constraints on the value of the
+    <b>value</b> property. Users will not be able to change the control
+    value to anything smaller than <b>min</b> or larger than <b>max</b>.</p>
+<p>
+    This behavior is different from the <b>min</b> attribute of standard
+    HTML <b>input</b> elements, which does allow users to enter invalid
+    values and raise validation errors. The Wijmo controls simply prevent
+    invalid values from being entered at all.</p>
+<p>
+    However, note that the <b>min</b> and <b>max</b> properties only 
+    restrict the values that the user can enter. They do <b>not</b> restrict 
+    the values that can be assigned to the control in code or via bindings.</p>
+<p>
+    Therefore, if your code sets or changes the value of the <b>min</b> and 
+    <b>max</b> properties, and you want these limits to be applied to the 
+    current control value, you must do that in code as well.</p>
+<p>
+    For example:</p>
+<pre>
+// 'ctl' is any Wijmo control with min/max properties, including
+// Gauge, Calendar, InputDate, InputNumber, and InputNumber.
+//
+// apply new bounds for the value
+ctl.min = newMinValue;
+ctl.max = newMaxValue;
+//
+// ensure that the control value is within the new bounds
+ctl.value = wijmo.clamp(ctl.value, ctl.min, ctl.max); 
+</pre>
+

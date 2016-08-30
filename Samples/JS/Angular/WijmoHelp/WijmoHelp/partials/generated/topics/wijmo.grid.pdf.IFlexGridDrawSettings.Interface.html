@@ -1,0 +1,105 @@
+<h2>IFlexGridDrawSettings Class</h2>
+<dl class="dl-horizontal">
+<dt>Module</dt><dd>wijmo.grid.pdf</dd>
+<dt>File</dt><dd>wijmo.grid.pdf.js</dd>
+</dl>
+<p>Represents the settings used by the <b>draw</b> and 
+<b>drawToPosition</b> methods.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>embeddedFonts?</b></td>
+      <td><a href="topic/wijmo.pdf.IPdfFontFile.Interface.html"><b>IPdfFontFile</b></a><b>[]</b></td>
+      <td><p>Represents an array of custom fonts that will be embedded into the document.</p>
+
+<p>This sample illustrates how to setup the FlexGridPdfConverter to use two custom
+fonts, Cuprum-Bold.ttf and Cuprum-Regular.ttf. The first one is applied to the 
+header cells only, while the second one is applied to all the remaining cells.</p>
+
+<p><pre>
+wijmo.grid.pdf.FlexGridPdfConverter.export(flex, fileName, {
+   embeddedFonts: [{
+      source: 'resources/ttf/Cuprum-Bold.ttf',
+      name: 'cuprum',
+      style: 'normal',
+      weight: 'bold'
+   }, {
+      source: 'resources/ttf/Cuprum-Regular.ttf',
+      name: 'cuprum',
+      style: 'normal',
+      weight: 'normal'
+   }],
+   styles: {
+      cellStyle: {
+         font: {
+            family: 'cuprum'
+         }
+      },
+      headerCellStyle: {
+         font: {
+            weight: 'bold'
+         }
+      }
+   }
+});
+		</pre></p></td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>exportMode?</b></td>
+      <td><a href="topic/wijmo.grid.pdf.ExportMode.Enum.html"><b>ExportMode</b></a></td>
+      <td>Determines the export mode.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>maxPages?</b></td>
+      <td><b>number</b></td>
+      <td>Determines the maximum number of pages to export.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>recalculateStarWidths?</b></td>
+      <td><b>boolean</b></td>
+      <td>Indicates whether star-sized columns widths should be recalculated against the PDF page
+width instead of using the grid's width.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>repeatMergedValuesAcrossPages?</b></td>
+      <td><b>boolean</b></td>
+      <td>Indicates whether merged values should be repeated across pages when the merged range
+is split on multiple pages.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>styles?</b></td>
+      <td><a href="topic/wijmo.grid.pdf.IFlexGridStyle.Interface.html"><b>IFlexGridStyle</b></a></td>
+      <td>Represents the look and feel of an exported <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

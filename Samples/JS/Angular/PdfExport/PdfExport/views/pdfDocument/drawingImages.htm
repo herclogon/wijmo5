@@ -1,0 +1,46 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    This sample shows how to draw images.
+    <a href="" target="_self" data-toggle="collapse" data-target=".collapse" class="collapse in read-more">Read More</a>
+</p>
+<div class="collapse">
+    <p>
+        The <b>drawImage</b> method of drawing area is used to draw images. It takes the following arguments:
+    </p>
+
+    <ul>
+        <li>A string containing the URL of the image to draw</li>
+        <li>The x-coordinate of the point to draw the image at (optional)</li>
+        <li>The y-coordinate of the point to draw the image at (optional)</li>
+        <li>The image drawing options (optional)</li>
+    </ul>
+    <p>For example:</p>    
+    <pre>
+doc.drawImage("resources/wijmo1.png");
+doc.drawImage("resources/wijmo1.png", 0, 30);</pre>
+
+    <p>
+        Like <b>drawText</b> method, it also updates the current text coordinates and uses them if arguments that determine the drawing coordinates are omitted,
+        so any subsequent text or image will be placed below the current one. 
+    </p>
+
+    <p>
+        The image drawing settings determine the size of the image and whether it should be scaled or stretched.
+        By default, image will be rendered in its original size.
+    </p>
+    <p>
+        The following code draws an image at a specified position stretched to fit a rectangle of dimensions 100x25:
+    </p>
+<pre>
+doc.drawImage("resources/wijmo1.png", 0, 0, {
+    height: 25,
+    width: 100
+});</pre>
+
+    <p>
+        This sample shows how to draw images using different drawing settings.
+    </p>
+</div>
+
+<!-- Export button -->
+<button class="btn btn-default" id="Button1" ng-click="export()">Export</button>

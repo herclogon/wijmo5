@@ -1,0 +1,55 @@
+﻿body {
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 11pt;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+}
+
+h1.header {
+    cursor: pointer;
+}
+
+.highlight {
+    font-weight:bold; 
+    background: yellow;
+}
+
+.warning {
+    padding: 15px;
+    background: #faebcc;
+}
+
+.flatList {
+    list-style-type: none;
+    padding-left: 6px;
+}
+
+.glyph-expanded {
+    display: inline-block;
+    border-bottom: .65em solid;
+    border-left: .65em solid transparent;
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.glyph-collapsed {
+    display: inline-block;
+    border-top: .4em solid transparent;
+    border-bottom: .4em solid transparent;
+    border-left: .5em solid;
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+/* http://stackoverflow.com/questions/12764332/how-to-force-twitter-bootstrap-dl-horizontal-dt-content-to-wrap-instead-of-trun */
+@media (min-width: 768px) {
+    .dl-horizontal dt {
+        white-space: normal;
+        width: 200px;
+    }
+    .dl-horizontal dd {
+        margin-left: 220px;
+    }
+}

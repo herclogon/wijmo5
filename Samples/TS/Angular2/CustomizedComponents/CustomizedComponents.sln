@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomizedComponents", "CustomizedComponents\CustomizedComponents.csproj", "{4234C730-8F59-4D8C-A834-6EE7AE66B58C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Evaluation|Any CPU = Evaluation|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Standard|Any CPU = Standard|Any CPU
+		StandardEvaluation|Any CPU = StandardEvaluation|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4234C730-8F59-4D8C-A834-6EE7AE66B58C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4234C730-8F59-4D8C-A834-6EE7AE66B58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4234C730-8F59-4D8C-A834-6EE7AE66B58C}.Evaluation|Any CPU.ActiveCfg = Debug|Any CPU
+		{4234C730-8F59-4D8C-A834-6EE7AE66B58C}.Evaluation|Any CPU.Build.0 = Debug|Any CPU
+		{4234C730-8F59-4D8C-A834-6EE7AE66B58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4234C730-8F59-4D8C-A834-6EE7AE66B58C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4234C730-8F59-4D8C-A834-6EE7AE66B58C}.Standard|Any CPU.ActiveCfg = Debug|Any CPU
+		{4234C730-8F59-4D8C-A834-6EE7AE66B58C}.Standard|Any CPU.Build.0 = Debug|Any CPU
+		{4234C730-8F59-4D8C-A834-6EE7AE66B58C}.StandardEvaluation|Any CPU.ActiveCfg = Debug|Any CPU
+		{4234C730-8F59-4D8C-A834-6EE7AE66B58C}.StandardEvaluation|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

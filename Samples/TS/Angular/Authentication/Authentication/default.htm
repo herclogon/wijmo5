@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="utf-8" />
+    <title>Wijmo5 Authentication Sample</title>
+
+    <!-- ensure IE uses the latest version of IE (yes, yes...) -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Angular/Bootstrap/jQuery -->
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.odata.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.angular.min.js" type="text/javascript"></script>
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+
+    <!-- auth -->
+    <script src="scripts/wijmo.auth/Auth.js" type="text/javascript"></script>
+    <script src='//connect.facebook.net/en_US/all.js' type='text/javascript'></script>
+    <script src='https://apis.google.com/js/client:plusone.js' type='text/javascript'></script>
+
+    <!-- app scripts -->
+    <script src="scripts/app.js" type="text/javascript"></script>
+    <script src="scripts/controllers/appCtrl.js" type="text/javascript"></script>
+
+    <!-- app styles -->
+    <link href="styles/app.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="header">
+        <div class="container" style="position:relative">
+            <h1>
+                <span class="glyphicon glyphicon-lock"></span>
+                Authentication
+            </h1>
+            <p>
+                This sample shows how you can implement an authentication service in your
+                AngularJS application and use it to control access to OData services.
+                All users can see the data, but only authenticated users can modify it.</p>
+            <p>
+                The authentication service is based on an excellent Udacity course on
+                web development:
+                <a href="https://www.udacity.com/course/web-development--cs253">
+                    Udacity Web Development CS253</a>.</p>
+            <p ng-show="!auth.user">
+                <i><b>NOTE:</b> You have not logged in yet, so all grids are in read-only mode.
+                To enable editing, click the 'log in' button on the top-right corner of the screen.</i></p>
+
+            <!-- log in/out/edit user -->
+            <div style="position:absolute;top:0px;right:0px;cursor:pointer">
+                <div ng-show="auth.user != null">
+                    <span class="wj-hide" ng-click="auth.frmEditAccount.show()">{{auth.user.name}}</span>
+                    &nbsp;|&nbsp;
+                    <span ng-click="auth.logOut()">log out</span>
+                </div>
+                <div ng-show="auth.user == null" >
+                    <span class="wj-hide" ng-click="auth.frmLogIn.show()">log in</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- authentication -->
+        <wj-popup class="col-md-6 modal-content" control="auth.frmLogIn" modal="true" hide-trigger="None">
+            <ng-include src="'partials/auth/frmLogIn.htm'"></ng-include>
+        </wj-popup>
+        <wj-popup class="col-md-6 modal-content" control="auth.frmCreateAccount" modal="true" hide-trigger="None">
+            <ng-include src="'partials/auth/frmCreateAccount.htm'"></ng-include>
+        </wj-popup>
+        <wj-popup class="col-md-6 modal-content" control="auth.frmEditAccount" modal="true" hide-trigger="None">
+            <ng-include src="'partials/auth/frmEditAccount.htm'"></ng-include>
+        </wj-popup>
+        <wj-popup class="col-md-6 modal-content" control="auth.frmPasswordReset" modal="true" hide-trigger="None">
+            <ng-include src="'partials/auth/frmPasswordReset.htm'"></ng-include>
+        </wj-popup>
+
+        <!-- use tabs to select the view -->
+        <ul class="nav nav-tabs">
+          <li ng-class="{active: currentView()=='/'}"><a href="#/home">Home</a></li>
+          <li ng-class="{active: currentView()=='/products'}"><a href="#/products">Products</a></li>
+          <li ng-class="{active: currentView()=='/customers'}"><a href="#/customers">Customers</a></li>
+          <li ng-class="{active: currentView()=='/employees'}"><a href="#/employees">Employees</a></li>
+        </ul>
+
+        <!-- view -->
+        <div class="container">
+            <ng-view>
+            </ng-view>
+        </div>
+    </div>
+
+    <!-- Google analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

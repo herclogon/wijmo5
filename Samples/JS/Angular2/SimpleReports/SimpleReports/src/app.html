@@ -1,0 +1,61 @@
+﻿<div class="container">
+
+    <div class="header">
+        <div class="container">
+            <img src="resources/wijmo5.png" alt="Wijmo 5" />
+            <h1>
+                Simple Reports
+            </h1>
+            <p>
+                Creating simple reports is easy with <b>PrintDocument</b>,
+                <b>CollectionView</b>, and a few AngularJS <b>ngFor</b> directives.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <p>
+            Select a report to see a quick preview.
+            Click the print button to print, preview, or export to PDF:
+        </p>
+
+        <div class="shadow">
+            <div class="toolbar {{ viewsLoaded < 6 ? 'disabledtoolbar': ''}}"  >
+                <!-- select report -->
+                <wj-combo-box style="width:300px"
+                              [itemsSource]="reports"
+                              [displayMemberPath]="'header'">
+                </wj-combo-box>
+
+                <!-- zoom -->
+                <span class="glyphicon glyphicon-minus-sign group-start"
+                      title="Zoom Out"
+                      (click)="zoomLevels.moveCurrentToPrevious()">
+                </span>
+                <wj-combo-box style="width:150px"
+                              [itemsSource]="zoomLevels"
+                              [displayMemberPath]="'header'">
+                </wj-combo-box>
+                <div class="glyphicon glyphicon-plus-sign"
+                     title="Zoom In"
+                     (click)="zoomLevels.moveCurrentToNext()">
+                </div>
+
+                <!-- print -->
+                <div class="glyphicon glyphicon-print group-start"
+                     title="Print"
+                     (click)="print()">
+                </div>
+            </div>
+
+            <div class="report">
+                <div class="zoom" #zoomEle>
+                    <div >
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

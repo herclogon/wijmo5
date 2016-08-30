@@ -1,0 +1,939 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FinancialChart Introduction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+    <link href="styles/app.css" rel="stylesheet" />
+
+    <!-- jQuery/Angular/Bootstrap -->
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.interaction.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.analytics.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.annotation.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.animation.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.chart.finance.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <img src="resources/wijmo5.png" alt="Wijmo 5" />
+            <h1>
+                 FinancialChart 101
+            </h1>
+            <p>
+                This page shows how to get started with Wijmo's FinancialChart control.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Getting Started -->
+        <div>
+            <h2>Getting Started</h2>
+        <p>
+             Steps for getting started with the FinancialChart control in JavaScript applications:
+        </p>
+            <ol>
+                <li>Add references to Wijmo.</li>
+                <li>Add markup to serve as the Wijmo control's host.</li>
+                <li>Initialize the Wijmo control(s) via JavaScript.</li>
+                <li>Add some CSS to customize the input control's appearance (Optional).</li>
+            </ol>
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active"><a href="#sHtml" role="tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#sJs" role="tab" data-toggle="tab">JS</a></li>
+                             <li><a href="#sCss" role="tab" data-toggle="tab">CSS</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active pane-content" id="sHtml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" type="text/css" href="css/bootstrap.css"/&gt;
+  &lt;link rel="stylesheet" type="text/css" href="css/wijmo.css" /&gt;
+  &lt;link href="css/app.css" rel="stylesheet" type="text/css" /&gt;
+  &lt;script wj-src="wijmo" src="bin/Devel/loaders/wijmo.load.module.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script wj-src="wijmo.input" src="bin/Devel/loaders/wijmo.load.module.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script wj-src="wijmo.chart" src="bin/Devel/loaders/wijmo.load.module.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script wj-src="wijmo.chart.interaction" src="bin/Devel/loaders/wijmo.load.module.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script wj-src="wijmo.chart.analytics" src="bin/Devel/loaders/wijmo.load.module.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script wj-src="wijmo.chart.annotation" src="bin/Devel/loaders/wijmo.load.module.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script wj-src="wijmo.chart.animation" src="bin/Devel/loaders/wijmo.load.module.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script wj-src="wijmo.chart.finance" src="bin/Devel/loaders/wijmo.load.module.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;!-- FinancialChart --&gt;
+  &lt;div id="introChart"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+                            </div>
+                            <div class="tab-pane pane-content" id="sJs">
+// create controls
+var chart = new wijmo.chart.finance.FinancialChart('#introChart');
+
+chart.initialize({
+    itemsSource: app.chartData,
+    bindingX: 'date',
+    axisY: { axisLine: false, position: 'Right' },
+    series: [
+        { name: 'Open', binding: 'open' },
+        { name: 'Close', binding: 'close' }
+    ]
+});
+                            </div>
+
+                                                        <div class="tab-pane pane-content" id="sCss">
+/* set default chart style */
+.wj-flexchart {
+    height: 400px;
+    background-color: white;
+    box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+    padding: 8px;
+    margin-bottom: 12px;
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div id="introChart"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Types -->
+        <div>
+            <h2>Chart Types</h2>
+<p>
+            The FinancialChart control supports various chart types to allow customization.</p>
+                <p>
+The example below shows what happens when you change the <b>chartType</b>.
+</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active"><a href="#bfHtml" role="tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#bfJs" role="tab" data-toggle="tab">JS</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active pane-content" id="bfHtml">
+&lt;div id="tpChart"&gt;&lt;/div&gt;
+&lt;select id="tpMenu"&gt;
+    &lt;option value="4"&gt;Area&lt;/option&gt;
+    &lt;option selected value="2"&gt;Line&lt;/option&gt;
+    &lt;option value="0"&gt;Column&lt;/option&gt;
+    &lt;option value="5"&gt;Candlestick&lt;/option&gt;
+    &lt;option value="6"&gt;HighLowOpenClose&lt;/option&gt;
+    &lt;option value="7"&gt;HeikinAshi&lt;/option&gt;
+    &lt;option value="8"&gt;LineBreak&lt;/option&gt;
+    &lt;option value="9"&gt;Renko&lt;/option&gt;
+    &lt;option value="10"&gt;Kagi&lt;/option&gt;
+    &lt;option value="11"&gt;ColumnVolume&lt;/option&gt;
+    &lt;option value="12"&gt;EquiVolume&lt;/option&gt;
+    &lt;option value="13"&gt;CandleVolume&lt;/option&gt;
+    &lt;option value="14"&gt;ArmsCandleVolume&lt;/option&gt;
+&lt;/select&gt;
+                            </div>
+                            <div class="tab-pane pane-content" id="bfJs">
+    // create controls
+    var chart = new wijmo.chart.finance.FinancialChart('#tpChart'),       
+        bindingYs = {
+        0: 'close',
+        2: 'close',
+        4: 'close',
+        5: 'high,low,open,close',
+        6: 'high,low,open,close',
+        7: 'high,low,open,close',
+        8: 'high,low,open,close',
+        9: 'high,low,open,close',
+        10: 'high,low,open,close',
+        11: 'close,volume',
+        12: 'high,low,open,close,volume',
+        13: 'high,low,open,close,volume',
+        14: 'high,low,open,close,volume'
+    };
+
+    chart.initialize({
+        header: 'Facebook, Inc. (FB)',
+        itemsSource: app.chartData,
+        bindingX: 'date',
+        series: [{ binding: 'close' }],
+        symbolSize: 4,
+        tooltip: {
+            content: function (ht) {
+                var dateStr = 'Date: ' + ht.x + '&lt;br/&gt;',
+                    hlocStr = 'Open: ' + wijmo.Globalize.format(ht.item.open, 'n2') + '&lt;br/&gt;' +
+                              'High: ' + wijmo.Globalize.format(ht.item.high, 'n2') + '&lt;br/&gt;' +
+                              'Low: ' + wijmo.Globalize.format(ht.item.low, 'n2') + '&lt;br/&gt;' +
+                              'Close: ' + wijmo.Globalize.format(ht.item.close, 'n2') + '&lt;br/&gt;',
+                    closeStr = 'Close: ' + wijmo.Globalize.format(ht.item.close, 'n2'),
+                    volStr = 'Volume: ' + wijmo.Globalize.format(ht.item.volume, 'n0'),
+                    toolTipStr;
+                switch (menu.value) {
+                    case wijmo.chart.finance.FinancialChartType.Line:
+                    case wijmo.chart.finance.FinancialChartType.Column:
+                        toolTipStr = dateStr + closeStr;
+                        break;
+                    case wijmo.chart.finance.FinancialChartType.ColumnVolume:
+                        toolTipStr = dateStr + closeStr + '&lt;br/&gt;' + volStr;
+                        break;
+                    case wijmo.chart.finance.FinancialChartType.EquiVolume:
+                    case wijmo.chart.finance.FinancialChartType.CandleVolume:
+                    case wijmo.chart.finance.FinancialChartType.ArmsCandleVolume:
+                        toolTipStr = dateStr + hlocStr + volStr;
+                        break;
+                    default:
+                        toolTipStr = dateStr + hlocStr;
+                        break;
+                }
+                return toolTipStr;
+            }
+        }
+    });
+
+    // create menu
+    var menu = new wijmo.input.Menu('#tpMenu');
+    menu.itemClicked.addHandler(function (sender) {
+        var arg = wijmo.changeType(sender.selectedValue, wijmo.DataType.Number);
+        // check if the conversion was successful
+        if (wijmo.isNumber(arg)) {
+            // update the value
+            chart.chartType = arg;
+            chart.series[0].binding = bindingYs[arg];
+            switch (arg) {
+                case wijmo.chart.finance.FinancialChartType.LineBreak:
+                    chart.options = {
+                        lineBreak: {
+                            newLineBreaks: 3
+                        }
+                    };
+                    break;
+                case wijmo.chart.finance.FinancialChartType.Renko:
+                    chart.options = {
+                        renko: {
+                            boxSize: 2,
+                            rangeMode: 'Fixed',
+                            fields: 'Close'
+                        }
+                    };
+                    break;
+                case wijmo.chart.finance.FinancialChartType.Kagi:
+                    chart.options = {
+                        kagi: {
+                            reversalAmount: 1,
+                            rangeMode: 'Fixed',
+                            fields: 'Close'
+                        }
+                    };
+                    break;
+                default:
+                    break;
+            }
+        }
+        updateMenuHeader();
+    });
+
+    // update menu header to show current chart type
+    function updateMenuHeader() {
+        menu.header = '&lt;b&gt;Chart Type:&lt;/b&gt; ' + menu.text;
+    }
+    updateMenuHeader();
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div id="tpChart"></div>
+                    <select id="tpMenu">
+                        <option value="4">Area</option>
+                        <option selected value="2">Line</option>
+                        <option value="0">Column</option>
+                        <option value="5">Candlestick</option>
+                        <option value="6">HighLowOpenClose</option>
+                        <option value="7">HeikinAshi</option>
+                        <option value="8">LineBreak</option>
+                        <option value="9">Renko</option>
+                        <option value="10">Kagi</option>
+                        <option value="11">ColumnVolume</option>
+                        <option value="12">EquiVolume</option>
+                        <option value="13">CandleVolume</option>
+                        <option value="14">ArmsCandleVolume</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marker -->
+        <div>
+            <h2>Marker</h2>
+        <p>
+            The marker on FinancialChart consists of a text area with content reflecting data point values, and an optional vertical or horizontal line (or both for a cross-hair effect) positioned over the plot area.</p>
+        <p>
+            In the example below, the vertical and horizontal lines, both get displayed when mouse is hovered over the plot area. The data values corresponding to the marker position are displayed next to x and y axes.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active"><a href="#ltHtml" role="tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#ltJs" role="tab" data-toggle="tab">JS</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active pane-content" id="ltHtml">
+&lt;div id="mkChart"&gt;&lt;/div&gt;
+                            </div>
+                            <div class="tab-pane pane-content" id="ltJs">
+var pt = new wijmo.Point(), markcontents, pOffset;
+
+// create controls
+var chart = new wijmo.chart.finance.FinancialChart('#mkChart'),
+    midMarker = new wijmo.chart.LineMarker(chart, {
+        lines: wijmo.chart.LineMarkerLines.Both,
+        interaction: wijmo.chart.LineMarkerInteraction.Move,
+        alignment: wijmo.chart.LineMarkerAlignment.Top | wijmo.chart.LineMarkerAlignment.Left,
+        content: function () {
+            markcontents = getMarkerContents(new wijmo.Point(pt.x, pt.y));
+            return markcontents ? markcontents.content : '';
+        }
+    }),
+    hMarker = new wijmo.chart.LineMarker(chart, {
+        lines: wijmo.chart.LineMarkerLines.None,
+        interaction: wijmo.chart.LineMarkerInteraction.Move,
+        horizontalPosition: 1,
+        content: function () {
+            return markcontents && markcontents.y ? markcontents.y.toString() : '';
+        }
+
+    }),
+    vMarker = new wijmo.chart.LineMarker(chart, {
+        lines: wijmo.chart.LineMarkerLines.None,
+        interaction: wijmo.chart.LineMarkerInteraction.Move,
+        verticalPosition: 1,
+        content: function () {
+            return markcontents && markcontents.x ? markcontents.x.toString() : '';
+        }
+    });
+
+chart.initialize({
+    chartType: wijmo.chart.finance.FinancialChartType.Candlestick,
+    itemsSource: app.chartData,
+    bindingX: 'date',
+    series: [{ binding: 'high,low,open,close' }],
+    tooltip: { content: '' },
+    axisY: { position: wijmo.chart.Position.Right },
+    header: 'Facebook, Inc. (FB)',
+    symbolSize: 4
+});
+chart.rendered.addHandler(function () {
+    var chartHostEle = chart.hostElement,
+    pa = chartHostEle.querySelector('.wj-plot-area');
+    pOffset = wijmo.getElementRect(pa);
+});
+chart.hostElement.onmouseenter = function (e) {
+    markershowing(lineMarkers, 'visible');
+}
+if ('ontouchstart' in window) {
+    chart.hostElement.ontouchstart = function (e) {
+        markershowing(lineMarkers, 'visible');
+    }
+}
+chart.hostElement.onmouseleave = function (e) {
+    markershowing(lineMarkers, 'hidden');
+}
+
+// linemarker control
+var lineMarkers = chart.hostElement.querySelectorAll('.wj-chart-linemarker-container');
+markershowing(lineMarkers, 'hidden');
+midMarker.positionChanged.addHandler(function (s, e) {
+    pt = e;
+});
+
+function markershowing(lineMarkers, visible) {
+    for (var i = 0; i < lineMarkers.length; i++) {
+        lineMarkers[i].style.visibility = visible;
+    }
+}
+
+function getMarkerContents(pt) {
+    var newHitPoint = new wijmo.Point(pt.x, NaN),
+        ht, xContent, yContent, axisYMax, axisYMin,
+        content = '';
+
+    if (!chart || chart.series.length < 1) {
+        return;
+    }
+    axisYMax = chart.axisY.actualMax;
+    axisYMin = chart.axisY.actualMin;
+    //calculate the y value
+    if (pOffset === undefined) {
+        yContent = 0;
+    } else {
+        yContent = axisYMax - ((pt.y - pOffset.top) / pOffset.height) * (axisYMax - axisYMin);
+        yContent = yContent.toFixed(2);
+    }
+    ht = chart.series[0].hitTest(newHitPoint);
+
+    if (ht.x && ht.y !== null) {
+        xContent = ht.x;
+    }
+    return { content: '', x: xContent, y: yContent };
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div id="mkChart"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Range Selector -->
+        <div>
+            <h2>Range Selector</h2>
+       <p>
+            Range selector allows the user to choose the range of data to display on the FinancialChart.</p>
+        <p>
+            In the example below, the FinancialChart control's min and max values change with the selection of range on range selector.</p>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active"><a href="#selHtml" role="tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#selJs" role="tab" data-toggle="tab">JS</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active pane-content" id="selHtml">
+&lt;div id="stChart" style="border-bottom: 0 none; margin-bottom: 0px;"&gt;&lt;/div&gt;
+&lt;div id="rsChart" style="height:90px"&gt;&lt;/div&gt;
+                            </div>
+                            <div class="tab-pane pane-content" id="selJs">
+// create chart controls
+var stChart = new wijmo.chart.finance.FinancialChart('#stChart'),
+    rsChart = new wijmo.chart.finance.FinancialChart('#rsChart');
+
+stChart.initialize({
+    chartType: wijmo.chart.finance.FinancialChartType.Candlestick,
+    itemsSource: app.chartData,
+    series: [{ binding: 'high,low,open,close' }],
+    header: 'Facebook, Inc. (FB)',
+    symbolSize: 4,
+    bindingX: 'date',
+    axisX: { labels: false, axisLine: false },
+    legend: {position: wijmo.chart.Position.None},
+    plotMargin:'60 30 0 50',
+    tooltip: {content: function (ht) {
+        return 'Date: ' + ht.x + '&lt;br/>' +
+              'Open: ' + wijmo.Globalize.format(ht.item.open, 'n2') + '&lt;br/>' +
+              'High: ' + wijmo.Globalize.format(ht.item.high, 'n2') + '&lt;br/>' +
+              'Low: ' + wijmo.Globalize.format(ht.item.low, 'n2') + '&lt;br/>' +
+              'Close: ' + wijmo.Globalize.format(ht.item.close, 'n2');
+    }}
+});
+
+rsChart.initialize({
+    chartType: wijmo.chart.finance.FinancialChartType.Line,
+    itemsSource: app.chartData,
+    bindingX: 'date',
+    series: [{ binding: 'close' }],
+    axisY: { labels: false, majorGrid: false },
+    tooltip: {content: ''},
+    plotMargin:'0 30 NaN 50'
+});
+
+//create range selector
+var rs = new wijmo.chart.interaction.RangeSelector(rsChart);
+rs.seamless = true;
+rs.rangeChanged.addHandler(function (sender,e) {            
+        if (stChart && rs) {
+            stChart.axisX.min = rs.min;
+            stChart.axisX.max = rs.max;
+            stChart.invalidate();
+        }
+});
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div id="stChart" style="border-bottom: 0 none; margin-bottom: 0px;"></div>
+                     <div id="rsChart" style="height:90px"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TrendLines -->
+        <div>
+            <h2>Trend Lines</h2>
+        <p>
+           Trend lines are used to represent trends in data and to examine the problems of prediction. </p>
+        <p>
+           The following example indicates moving average trend based on the past prices. User can change the 
+            <b>period</b> and <b>type</b> of the moving average line.
+        </p>
+                <ol>
+            <li>
+                <b>period</b>: the calculation period of the moving average line.</li>
+            <li>
+                <b>type</b>: the calculation type of the moving average line. This includes <b>Simple</b>, <b>Weighted</b>, <b>Exponential</b> and <b>Triangular</b> types.</li>
+        </ol>
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active"><a href="#tHtml" role="tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#tJs" role="tab" data-toggle="tab">JS</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active pane-content" id="tHtml">
+&lt;div id="tlChart"&gt;&lt;/div&gt;
+ &lt;dl class="dl-horizontal"&gt;
+     &lt;dt&gt;Period&lt;/dt&gt;
+     &lt;dd&gt;
+          &lt;input id="period" type="text" /&gt;
+     &lt;/dd&gt;
+     &lt;dt&gt;Type&lt;/dt&gt;
+     &lt;dd&gt;
+      &lt;select id="maMenu"&gt;
+          &lt;option value="0"&gt;Simple&lt;/option&gt;
+          &lt;option value="1"&gt;Weighted&lt;/option&gt;
+          &lt;option value="2"&gt;Exponential&lt;/option&gt;
+          &lt;option value="3"&gt;Triangular&lt;/option&gt;
+      &lt;/select&gt;
+     &lt;/dd&gt;
+&lt;/dl&gt;
+                            </div>
+                            <div class="tab-pane pane-content" id="tJs">
+    // create chart controls
+var tlChart = new wijmo.chart.finance.FinancialChart('#tlChart');
+
+tlChart.initialize({
+    header: 'Facebook, Inc. (FB)',
+    itemsSource: app.chartData,
+    bindingX: 'date',
+    chartType: wijmo.chart.finance.FinancialChartType.Line,
+    axisY: { position: wijmo.chart.Position.Right },
+    legend: { position: wijmo.chart.Position.Top },
+    series: [{ name: 'Close', binding: 'close' }]
+});
+
+// add trend line
+var movingAverage = new wijmo.chart.analytics.MovingAverage();
+movingAverage.itemsSource = app.chartData;
+movingAverage.binding = 'close';
+movingAverage.name = wijmo.chart.analytics.MovingAverageType[0] + ' Moving Average';
+movingAverage.period = 2;
+movingAverage.type = wijmo.chart.analytics.MovingAverageType.Simple;
+tlChart.series.push(movingAverage);
+
+// create number control
+var period = new wijmo.input.InputNumber('#period', {
+    step: 1,
+    format: 'n0',
+    value: 2,
+    min: 2,
+    max: 200
+});
+period.valueChanged.addHandler(function () {
+    if (period.value < period.min || period.value > period.max) {
+        return;
+    }
+    tlChart.series[1].period = period.value;
+});
+
+// create menu control
+var menu = new wijmo.input.Menu('#maMenu');
+menu.itemClicked.addHandler(function (sender) {
+    var arg = wijmo.changeType(sender.selectedValue, wijmo.DataType.Number);
+    // check if the conversion was successful
+    if (wijmo.isNumber(arg)) {
+        tlChart.series[1].type = arg;
+    }
+    updateMenuHeader();
+});
+
+// update menu header to show current selection mode
+function updateMenuHeader() {
+    menu.header = '&lt;b&gt;Moving Average Type:&lt;/b&gt; ' + menu.text;
+}
+updateMenuHeader();
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div id="tlChart"></div>
+                                 <dl class="dl-horizontal">
+                  <dt>Period</dt>
+                  <dd>
+                        <input id="period" type="text" />
+                  </dd>
+                  <dt>Type</dt>
+                  <dd>
+               <select id="maMenu">
+                   <option value="0">Simple</option>
+                   <option value="1">Weighted</option>
+                   <option value="2">Exponential</option>
+                   <option value="3">Triangular</option>
+               </select>
+                  </dd>
+              </dl>
+                    
+                </div>
+            </div>
+        </div>
+
+                <!-- Event Annotation -->
+        <div>
+            <h2>Event Annotation</h2>
+        <p>
+            Annotations are used to mark important news or events that can be attached to a specific data point on FinancialChart. Users can hover over the event to display the full annotation text.</p>
+        <p>There are <b>Circle</b>, <b>Ellipse</b>, <b>Image</b>, <b>Line</b>, <b>Polygon</b>, <b>Rectangle</b>, <b>Square</b> and <b>Text</b> annotations that can be used to mark an event.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active"><a href="#aHtml" role="tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#aJs" role="tab" data-toggle="tab">JS</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active pane-content" id="aHtml">
+&lt;div id="anChart"&gt;&lt;/div&gt;
+                            </div>
+                            <div class="tab-pane pane-content" id="aJs">
+ // create chart controls
+ var anChart = new wijmo.chart.finance.FinancialChart('#anChart');
+
+ anChart.initialize({
+     header: 'Facebook, Inc. (FB)',
+     itemsSource: app.chartData,
+     bindingX: 'date',
+     chartType: wijmo.chart.finance.FinancialChartType.Line,
+     series: [
+         { name: 'Close', binding: 'close' }
+     ]
+ });
+
+// add annotation
+var al = new wijmo.chart.annotation.AnnotationLayer(anChart),
+    pos = wijmo.chart.annotation.AnnotationPosition.Center,
+    offset = { x: 0, y: -15 },
+    style = { 'fill': '#cccccc', 'stroke': '#888888', 'fill-opacity': 1, 'stroke-width': 1, 'stroke-opacity': 1 };
+
+// rectangle annotation
+var rect = new wijmo.chart.annotation.Rectangle({
+    width: 40, height: 30, pointIndex: 16,//1/28/15 
+    tooltip: 'FACEBOOK INC Files SEC form 8-K, Results of Operations and Financial Condition',
+    offset: offset,
+    seriesIndex: 0,
+    position: wijmo.chart.annotation.AnnotationPosition.Center,
+    attachment: wijmo.chart.annotation.AnnotationAttachment.DataIndex,
+    style: style,
+    content: 'E'
+});
+al.items.push(rect);
+
+// ellipse annotation
+var ellip = new wijmo.chart.annotation.Ellipse({
+    width: 40, height: 30, pointIndex: 17, //01/29/15
+    offset: offset,
+    seriesIndex: 0,
+    position: wijmo.chart.annotation.AnnotationPosition.Center,
+    attachment: wijmo.chart.annotation.AnnotationAttachment.DataIndex,
+    style: style,
+    content: 'E',
+    tooltip: 'FACEBOOK INC Files SEC form 10-K, Annual Report'
+});
+al.items.push(ellip);
+
+// circle annotation
+var circle = new wijmo.chart.annotation.Circle({
+    radius: 20, pointIndex: 49, //03/17/15
+    tooltip: 'Coverage initiated on Facebook by Brean Capital',
+    offset: offset,
+    seriesIndex: 0,
+    style: style,
+    position: wijmo.chart.annotation.AnnotationPosition.Center,
+    attachment: wijmo.chart.annotation.AnnotationAttachment.DataIndex,
+    content: 'E'
+});
+al.items.push(circle);
+
+// square annotation
+var square = new wijmo.chart.annotation.Square({
+    length: 30, pointIndex: 75, //04/22/15
+    tooltip: 'FACEBOOK INC Files SEC form 8-K, Results of Operations and Financial Condition',
+    offset: offset,
+    seriesIndex: 0,
+    style: style,
+    position: wijmo.chart.annotation.AnnotationPosition.Center,
+    attachment: wijmo.chart.annotation.AnnotationAttachment.DataIndex,
+    content: 'E'
+});
+al.items.push(square);
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div id="anChart"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animation -->
+        <div>
+            <h2>Animation</h2>
+            <p>
+                The FinancialChart control can play animation with <b>wijmo.chart.animation</b> extension.
+            </p>
+            <p>
+                The example below shows how to play animation in FinancialChart control.
+            </p>
+            <p>
+                Click on chart to refresh and play animation.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active"><a href="#animationHtml" role="tab" data-toggle="tab">HTML</a></li>
+                            <li><a href="#animationJs" role="tab" data-toggle="tab">JS</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active pane-content" id="animationHtml">
+&lt;div id="animationChart"&gt;&lt;/div&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Chart Type&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;select id="animationChartType"&gt;
+            &lt;option value="4"&gt;Area&lt;/option&gt;
+            &lt;option selected value="2"&gt;Line&lt;/option&gt;
+            &lt;option value="0"&gt;Column&lt;/option&gt;
+            &lt;option value="5"&gt;Candlestick&lt;/option&gt;
+            &lt;option value="6"&gt;HighLowOpenClose&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;Easing&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;select id="easing"&gt;
+            &lt;option value="Linear"&gt;Linear&lt;/option&gt;
+            &lt;option selected value="Swing"&gt;Swing&lt;/option&gt;
+            &lt;option value="EaseInQuad"&gt;EaseInQuad&lt;/option&gt;
+            &lt;option value="EaseInCubic"&gt;EaseInCubic&lt;/option&gt;
+            &lt;option value="EaseInQuart"&gt;EaseInQuart&lt;/option&gt;
+            &lt;option value="EaseInQuint"&gt;EaseInQuint&lt;/option&gt;
+            &lt;option value="EaseInSine"&gt;EaseInSine&lt;/option&gt;
+            &lt;option value="EaseInExpo"&gt;EaseInExpo&lt;/option&gt;
+            &lt;option value="EaseInCirc"&gt;EaseInCirc&lt;/option&gt;
+            &lt;option value="EaseInBack"&gt;EaseInBack&lt;/option&gt;
+            &lt;option value="EaseInBounce"&gt;EaseInBounce&lt;/option&gt;
+            &lt;option value="EaseInElastic"&gt;EaseInElastic&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;Duration&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;input id="duration" type="text" /&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+                            </div>
+                            <div class="tab-pane pane-content" id="animationJs">
+// create controls
+var chart = new wijmo.chart.finance.FinancialChart('#animationChart'),
+    bindingYs = {
+        0: 'close',
+        2: 'close',
+        4: 'close',
+        5: 'high,low,open,close',
+        6: 'high,low,open,close'
+    }, animation;
+
+chart.initialize({
+    header: 'Facebook, Inc. (FB)',
+    itemsSource: app.chartData,
+    bindingX: 'date',
+    series: [{ binding: 'close' }],
+    symbolSize: 4,
+    footer: 'Click on chart to refresh',
+    tooltip: {
+        content: function (ht) {
+            var dateStr = 'Date: ' + ht.x + '&lt;br/&gt;',
+                hlocStr = 'Open: ' + wijmo.Globalize.format(ht.item.open, 'n2') + '&lt;br/&gt;' +
+                        'High: ' + wijmo.Globalize.format(ht.item.high, 'n2') + '&lt;br/&gt;' +
+                        'Low: ' + wijmo.Globalize.format(ht.item.low, 'n2') + '&lt;br/&gt;' +
+                        'Close: ' + wijmo.Globalize.format(ht.item.close, 'n2') + '&lt;br/&gt;',
+                closeStr = 'Close: ' + wijmo.Globalize.format(ht.item.close, 'n2'),
+                volStr = 'Volume: ' + wijmo.Globalize.format(ht.item.volume, 'n0'),
+            toolTipStr;
+
+            switch (menu.value) {
+                case wijmo.chart.finance.FinancialChartType.Line:
+                case wijmo.chart.finance.FinancialChartType.Column:
+                    toolTipStr = dateStr + closeStr;
+                    break;
+                default:
+                    toolTipStr = dateStr + hlocStr;
+                    break;
+            }
+
+            return toolTipStr;
+        }
+    }
+});  
+
+chart.hostElement.addEventListener('click', function () {
+    if (animation) {
+        chart.refresh(true);
+    }
+});
+
+//create ChartAnimation
+animation = new wijmo.chart.animation.ChartAnimation(chart);
+
+// create chartType
+var chartType = new wijmo.input.Menu('#animationChartType');
+chartType.itemClicked.addHandler(function (sender) {
+    var arg = wijmo.changeType(sender.selectedValue, wijmo.DataType.Number);
+    // check if the conversion was successful
+    if (wijmo.isNumber(arg)) {
+        // update the value
+        chart.chartType = arg;
+        chart.series[0].binding = bindingYs[arg];
+    }
+    updateAnimationTypeHeader();
+});
+
+// update menu header to show current chart type
+function updateAnimationTypeHeader() {
+    chartType.header = '&lt;b&gt;Chart Type:&lt;/b&gt; ' + menu.text;
+}
+updateAnimationTypeHeader();
+
+// create easing
+var easing = new wijmo.input.Menu('#easing');
+easing.itemClicked.addHandler(function (sender) {
+    //var arg = wijmo.changeType(sender.selectedValue, wijmo.DataType.Number);
+    var arg = sender.selectedValue;
+
+    if (arg && arg.length && animation && chart) {
+        animation.easing = wijmo.chart.animation.Easing[arg];
+        chart.refresh(true);
+    }
+
+    updateEasingHeader();
+});
+
+// update menu header to show current chart type
+function updateEasingHeader() {
+    easing.header = '&lt;b&gt;Easing:&lt;/b&gt; ' + easing.text;
+}
+updateEasingHeader();
+
+//create duration
+var duration = new wijmo.input.InputNumber('#duration', {
+    step: 200,
+    format: 'n0',
+    value: 400,
+    min: 200,
+    max: 5000
+});
+duration.valueChanged.addHandler(function (ctrl) {
+    if (animation && chart && ctrl.value >= ctrl.min && ctrl.value <= ctrl.max) {
+        animation.duration = ctrl.value;
+        chart.refresh(true);
+    }
+});
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div id="animationChart"></div>
+                    <dl class="dl-horizontal">
+                        <dt>Chart Type</dt>
+                        <dd>
+                            <select id="animationChartType">
+                                <option value="4">Area</option>
+                                <option selected value="2">Line</option>
+                                <option value="0">Column</option>
+                                <option value="5">Candlestick</option>
+                                <option value="6">HighLowOpenClose</option>
+                            </select>
+                        </dd>
+                        <dt>Easing</dt>
+                        <dd>
+                            <select id="easing">
+                                <option value="Linear">Linear</option>
+                                <option selected value="Swing">Swing</option>
+                                <option value="EaseInQuad">EaseInQuad</option>
+                                <option value="EaseInCubic">EaseInCubic</option>
+                                <option value="EaseInQuart">EaseInQuart</option>
+                                <option value="EaseInQuint">EaseInQuint</option>
+                                <option value="EaseInSine">EaseInSine</option>
+                                <option value="EaseInExpo">EaseInExpo</option>
+                                <option value="EaseInCirc">EaseInCirc</option>
+                                <option value="EaseInBack">EaseInBack</option>
+                                <option value="EaseInBounce">EaseInBounce</option>
+                                <option value="EaseInElastic">EaseInElastic</option>
+                            </select>
+                        </dd>
+                        <dt>Duration</dt>
+                        <dd>
+                            <input id="duration" type="text" />
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- sample scripts -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/gettingStarted.js"></script>
+    <script src="scripts/chartType.js"></script>
+    <script src="scripts/marker.js"></script>
+    <script src="scripts/rangeSelector.js"></script>
+    <script src="scripts/trendline.js"></script>
+    <script src="scripts/annotation.js"></script>
+    <script src="scripts/animation.js"></script>
+    <!-- Google analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

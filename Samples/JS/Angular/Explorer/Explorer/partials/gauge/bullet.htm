@@ -1,0 +1,139 @@
+﻿<div>
+	<h3>
+		BulletGraph</h3>
+	<p>
+		The BulletGraph control is a type of linear gauge designed specifically for use
+		in dashboards. It displays a single key measure along with a comparative
+		measure and qualitative ranges to instantly signal whether the measure is
+		good, bad, or in some other state.</p>
+	<p>
+		Bullet Graphs were created and popularized by dashboard design expert Stephen Few.
+		You can find more details and examples on 
+		<a href="http://en.wikipedia.org/wiki/Bullet_graph">Wikipedia</a>.</p>
+	<p>
+		The page below was created to reproduce the cover of Stephen Few's book 
+		<a href="http://www.amazon.com/Information-Dashboard-Design-At---Glance/dp/1938377001">
+			Information Dashboard Design</a>.
+	</p>
+
+	<br />
+	<br />
+	<h4>
+		Sales Dashboard</h4>
+
+	<!-- key metrics -->
+	<div class="table-responsive">
+		<table class="table table-condensed">
+			<thead>
+                <tr>
+                    <th></th>
+                    <th class="col-sm-2">Key Metrics</th>
+                    <th class="col-sm-3">12 Months</th>
+                    <th class="col-sm-1 text-right">Current</th>
+                    <th class="col-sm-6">Variance from Plan</th>
+                </tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in ctx.keyMetrics">
+					<td class="text-center text-danger">
+						<span class="wj-glyph-circle" ng-show="{{item.current < item.target * .8}}"></span>
+					</td>
+					<td style="white-space:pre">{{item.name}}</td>
+					<td style="color:#0085c7" ng-bind-html="getSparklines(item.last12)"></td>
+					<td class="text-right">{{item.current}}{{item.units}}</td>
+					<td>
+						<span wj-tooltip="{{getTooltip(item)}}">
+							<wj-bullet-graph 
+								value="item.current / item.target - 1"
+								target="0"
+								min="-.15" max=".15"
+								bad="{{item.current / item.target * .9 - 1}}"
+								good="{{item.current / item.target * 1.05 - 1}}">
+							</wj-bullet-graph>
+						</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- regional sales -->
+	<div class="table-responsive">
+		<table class="table table-condensed">
+			<thead>
+                <tr>
+                    <th></th>
+                    <th class="col-sm-2">Regional Sales</th>
+                    <th class="col-sm-3">12 Months</th>
+                    <th class="col-sm-1 text-right">Current</th>
+                    <th class="col-sm-6">
+                        Current <span style="background-color:#0085c7">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        &nbsp;&nbsp;
+                        Target <span style="background-color:black">&nbsp;</span>
+                    </th>
+                </tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in ctx.regionalSales">
+					<td class="text-center text-danger">
+						<span class="wj-glyph-circle" ng-show="{{item.current < item.target * .8}}"></span>
+					</td>
+					<td style="white-space:pre">{{item.name}}</td>
+					<td style="color:#0085c7" ng-bind-html="getSparklines(item.last12)"></td>
+					<td class="text-right">{{item.current}}{{item.units}}</td>
+					<td>
+						<span wj-tooltip="{{getTooltip(item)}}">
+							<wj-bullet-graph 
+								value="item.current"
+								min="0" max="12"
+								target="{{item.target}}"
+								bad="{{item.target * .75}}"
+								good="{{item.target * 1.15}}">
+							</wj-bullet-graph>
+						</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- product sales -->
+	<div class="table-responsive">
+		<table class="table table-condensed">
+			<thead>
+                <tr>
+                    <th></th>
+                    <th class="col-sm-2">Product Sales</th>
+                    <th class="col-sm-3">12 Months</th>
+                    <th class="col-sm-1 text-right">Current</th>
+                    <th class="col-sm-6">
+                        Current <span style="background-color:#0085c7">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        &nbsp;&nbsp;
+                        Target <span style="background-color:black">&nbsp;</span>
+                    </th>
+                </tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in ctx.productSales">
+					<td class="text-center text-danger">
+						<span class="wj-glyph-circle" ng-show="{{item.current < item.target * .8}}"></span>
+					</td>
+					<td style="white-space:pre">{{item.name}}</td>
+					<td style="color:#0085c7" ng-bind-html="getSparklines(item.last12)"></td>
+					<td class="text-right">{{item.current}}{{item.units}}</td>
+					<td>
+						<span wj-tooltip="{{getTooltip(item)}}">
+							<wj-bullet-graph 
+								value="item.current"
+								min="0" max="9"
+								target="{{item.target}}"
+								bad="{{item.target * .75}}"
+								good="{{item.target * 1.15}}">
+							</wj-bullet-graph>
+						</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

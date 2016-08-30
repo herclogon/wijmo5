@@ -1,0 +1,761 @@
+<h2>PivotCollectionView Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a></dd>
+<dt>Module</dt><dd>wijmo.olap</dd>
+<dt>File</dt><dd>wijmo.olap.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p>Extends the <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a> class to preserve the position of subtotal rows
+when sorting.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(engine): <a href="topic/wijmo.olap.PivotCollectionView.Class.html"><b>PivotCollectionView</b></a></td>
+      <td><p>
+<b>engine</b> (<a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a>): <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a> that owns this collection.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.olap.PivotCollectionView.Class.html"><b>PivotCollectionView</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>canAddNew</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether a new item can be added to the collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>canCancelEdit</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether the collection view can discard pending changes 
+and restore the original values of an edited object.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>canChangePage</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether the <b>pageIndex</b> value can change.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>canFilter</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether this view supports filtering via the 
+<b>filter</b> property.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>canGroup</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether this view supports grouping via the 
+<b>groupDescriptions</b> property.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>canRemove</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether items can be removed from the collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>canSort</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether this view supports sorting via the 
+<b>sortDescriptions</b> property.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>currentAddItem</b></td>
+      <td><b>any</b></td>
+      <td>Gets the item that is being added during the current add transaction.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>currentEditItem</b></td>
+      <td><b>any</b></td>
+      <td>Gets the item that is being edited during the current edit transaction.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>currentItem</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the current item in the view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>currentPosition</b></td>
+      <td><b>number</b></td>
+      <td>Gets the ordinal position of the current item in the view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>engine</b></td>
+      <td><a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a></td>
+      <td>Gets a reference to the <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a> that owns this view.</td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>filter</b></td>
+      <td><a href="topic/wijmo.collections.IPredicate.Interface.html"><b>IPredicate</b></a></td>
+      <td><p>Gets or sets a callback used to determine if an item is suitable for 
+inclusion in the view.</p>
+
+<p>The callback function should return true if the item passed in as a
+parameter should be included in the view.</p>
+
+<p>NOTE: If the filter function needs a scope (i.e. a meaningful 'this'
+value) remember to set the filter using the 'bind' function to specify 
+the 'this' object. For example:
+<pre>
+  collectionView.filter = this._filter.bind(this);
+</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>groupDescriptions</b></td>
+      <td><a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a></td>
+      <td>Gets a collection of <a href="topic/wijmo.collections.GroupDescription.Class.html"><b>GroupDescription</b></a> objects that describe how the 
+items in the collection are grouped in the view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>groups</b></td>
+      <td><a href="topic/wijmo.collections.CollectionViewGroup.Class.html"><b>CollectionViewGroup</b></a><b>[]</b></td>
+      <td>Gets an array of <a href="topic/wijmo.collections.CollectionViewGroup.Class.html"><b>CollectionViewGroup</b></a> objects that represents the 
+top-level groups.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isAddingNew</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether an add transaction is in progress.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isEditingItem</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether an edit transaction is in progress.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isEmpty</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether this view contains no items.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isPageChanging</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets a value that indicates whether the page index is changing.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>isUpdating</b></td>
+      <td></td>
+      <td>Gets a value that indicates whether notifications are currently suspended
+(see <b>beginUpdate</b> and <b>endUpdate</b>).<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>itemCount</b></td>
+      <td><b>number</b></td>
+      <td>Gets the total number of items in the view taking paging into account.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>items</b></td>
+      <td><b>any</b><b>[]</b></td>
+      <td>Gets items in the view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>itemsAdded</b></td>
+      <td><a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a></td>
+      <td>Gets an <a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a> containing the records that were added to
+the collection since <b>trackChanges</b> was enabled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>itemsEdited</b></td>
+      <td><a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a></td>
+      <td>Gets an <a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a> containing the records that were edited in
+the collection since <b>trackChanges</b> was enabled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>itemsRemoved</b></td>
+      <td><a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a></td>
+      <td>Gets an <a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a> containing the records that were removed from
+the collection since <b>trackChanges</b> was enabled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>newItemCreator</b></td>
+      <td><b>Function</b></td>
+      <td><p>Gets or sets a function that creates new items for the collection.</p>
+
+<p>If the creator function is not supplied, the <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>
+will try to create an uninitialized item of the appropriate type.</p>
+
+<p>If the creator function is supplied, it should be a function that 
+takes no parameters and returns an initialized object of the proper 
+type for the collection.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>pageCount</b></td>
+      <td><b>number</b></td>
+      <td>Gets the total number of pages.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>pageIndex</b></td>
+      <td><b>number</b></td>
+      <td>Gets the zero-based index of the current page.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>pageSize</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the number of items to display on a page.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>sortComparer</b></td>
+      <td><b>Function</b></td>
+      <td><p>Gets or sets a function used to compare values when sorting.</p>
+
+<p>If provided, the sort comparer function should take as parameters
+two values of any type, and should return -1, 0, or +1 to indicate
+whether the first value is smaller than, equal to, or greater than
+the second. If the sort comparer returns null, the standard built-in
+comparer is used.</p>
+
+<p>This <b>sortComparer</b> property allows you to use custom comparison
+algorithms that in some cases result in sorting sequences that are
+more consistent with user's expectations than plain string comparisons.</p>
+
+<p>For example, see <a href="http://www.davekoelle.com/alphanum.html">Dave Koele's Alphanum algorithm</a>.
+It breaks up strings into chunks composed of strings or numbers, then
+sorts number chunks in value order and string chunks in ASCII order.
+Dave calls the result a "natural sorting order".</p>
+
+<p>The example below shows a typical use for the <b>sortComparer</b> property:
+<pre>// create a CollectionView with a custom sort comparer
+var dataCustomSort = new wijmo.collections.CollectionView(data, {
+  sortComparer: function (a, b) {
+    return wijmo.isString(a) && wijmo.isString(b)
+      ? alphanum(a, b) // custom comparer used for strings
+      : null; // use default comparer used for everything else
+  }
+});</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>sortConverter</b></td>
+      <td><b>Function</b></td>
+      <td><p>Gets or sets a function used to convert values when sorting.</p>
+
+<p>If provided, the function should take as parameters a 
+<a href="topic/wijmo.collections.SortDescription.Class.html"><b>SortDescription</b></a>, a data item, and a value to convert,
+and should return the converted value.</p>
+
+<p>This property provides a way to customize sorting. For example,
+the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control uses it to sort mapped columns by 
+display value instead of by raw value.</p>
+
+<p>For example, the code below causes a <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a> to
+sort the 'country' property, which contains country code integers,
+using the corresponding country names:</p>
+
+<p><pre>var countries = 'US,Germany,UK,Japan,Italy,Greece'.split(',');
+collectionView.sortConverter = function (sd, item, value) {
+  if (sd.property == 'countryMapped') {
+    value = countries[value]; // convert country id into name
+  }
+  return value;
+}</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>sortDescriptions</b></td>
+      <td><a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a></td>
+      <td>Gets a collection of <a href="topic/wijmo.collections.SortDescription.Class.html"><b>SortDescription</b></a> objects that describe how the items 
+in the collection are sorted in the view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>sourceCollection</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the underlying (unfiltered and unsorted) collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>totalItemCount</b></td>
+      <td><b>number</b></td>
+      <td>Gets the total number of items in the view before paging is applied.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>trackChanges</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets a value that determines whether the control should
+track changes to the data.</p>
+
+<p>If <b>trackChanges</b> is set to true, the <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a> keeps
+track of changes to the data and exposes them through the 
+<b>itemsAdded</b>, <b>itemsRemoved</b>, and <b>itemsEdited</b> collections.</p>
+
+<p>Tracking changes is useful in situations where you need to update 
+the server after the user has confirmed that the modifications are 
+valid.</p>
+
+<p>After committing or cancelling changes, use the <b>clearChanges</b> method
+to clear the <b>itemsAdded</b>, <b>itemsRemoved</b>, and <b>itemsEdited</b> 
+collections.</p>
+
+<p>The <b>CollectionView</b> only tracks changes made when the proper 
+<b>CollectionView</b> methods are used (<b>editItem</b>/<b>commitEdit</b>, 
+<b>addNew</b>/<b>commitNew</b>, and <b>remove</b>). 
+Changes made directly to the data are not tracked.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>useStableSort</b></td>
+      <td><b>boolean</b></td>
+      <td><p>Gets or sets whether to use a stable sort algorithm.</p>
+
+<p>Stable sorting algorithms maintain the relative order of records with equal keys.
+For example, consider a collection of objects with an "Amount" field. 
+If you sort the collection by "Amount", a stable sort will keep the original
+order of records with the same Amount value.</p>
+
+<p>This property is false by default, which causes the <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a> to use
+JavaScript's built-in sort method, which is very fast but not stable. Setting
+the <b>useStableSort</b> property to true increases sort times by 30% to 50%, which
+can be significant for large collections.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>addNew</b>&#8203;(): <b>any</b></td>
+      <td></td>
+      <td><p>Creates a new item and adds it to the collection.</p>
+
+<p>This method takes no parameters. It creates a new item, adds it to the
+collection, and prevents refresh operations until the new item is
+committed using the <b>commitNew</b> method or canceled using the 
+<b>cancelNew</b> method.</p>
+
+<p>The code below shows how the <b>addNew</b> method is typically used:</p>
+
+<p><pre>
+// create the new item, add it to the collection
+var newItem = view.addNew();
+// initialize the new item
+newItem.id = getFreshId();
+newItem.name = 'New Customer';
+// commit the new item so the view can be refreshed
+view.commitNew();
+</pre></p>
+
+<p>You can also add new items by pushing them into the <b>sourceCollection</b>
+and then calling the <b>refresh</b> method. The main advantage of <b>addNew</b>
+is in user-interactive scenarios (like adding new items in a data grid),
+because it gives users the ability to cancel the add operation. It also
+prevents the new item from being sorted or filtered out of view until the 
+add operation is committed.</p><br/><br/><b>Returns</b> The item that was added to the collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>beginUpdate</b>&#8203;()</td>
+      <td></td>
+      <td>Suspend refreshes until the next call to <b>endUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>cancelEdit</b>&#8203;()</td>
+      <td></td>
+      <td>Ends the current edit transaction and, if possible, 
+restores the original value to the item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>cancelNew</b>&#8203;()</td>
+      <td></td>
+      <td>Ends the current add transaction and discards the pending new item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>clearChanges</b>&#8203;()</td>
+      <td></td>
+      <td><p>Clears all changes by removing all items in the <b>itemsAdded</b>, 
+<b>itemsRemoved</b>, and <b>itemsEdited</b> collections.</p>
+
+<p>Call this method after committing changes to the server or 
+after refreshing the data from the server.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>commitEdit</b>&#8203;()</td>
+      <td></td>
+      <td>Ends the current edit transaction and saves the pending changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>commitNew</b>&#8203;()</td>
+      <td></td>
+      <td>Ends the current add transaction and saves the pending new item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>contains</b>&#8203;(item): <b>boolean</b></td>
+      <td><p>
+<b>item</b> (<b>any</b>): Item to seek.<br/></p>
+</td>
+      <td>Returns a value indicating whether a given item belongs to this view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>deferUpdate</b>&#8203;(fn)</td>
+      <td><p>
+<b>fn</b> (<b>Function</b>): Function to be executed without updates.<br/></p>
+</td>
+      <td><p>Executes a function within a <b>beginUpdate</b>/<b>endUpdate</b> block.</p>
+
+<p>The collection will not be refreshed until the function finishes. 
+This method ensures <b>endUpdate</b> is called even if the function throws
+an exception.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>editItem</b>&#8203;(item)</td>
+      <td><p>
+<b>item</b> (<b>any</b>): Item to be edited.<br/></p>
+</td>
+      <td>Begins an edit transaction of the specified item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>endUpdate</b>&#8203;()</td>
+      <td></td>
+      <td>Resume refreshes suspended by a call to <b>beginUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>getAggregate</b>&#8203;(aggType, binding)</td>
+      <td><p>
+<b>aggType</b> (<a href="topic/wijmo.Aggregate.Enum.html"><b>Aggregate</b></a>): Type of aggregate to calculate.<br/><b>binding</b> (<b>string</b>): Property to aggregate on.<br/></p>
+</td>
+      <td>Calculates an aggregate value for the items in this collection.<br/><br/><b>Returns</b> The aggregate value.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>implementsInterface</b>&#8203;(interfaceName): <b>boolean</b></td>
+      <td><p>
+<b>interfaceName</b> (<b>string</b>): Name of the interface to look for.<br/></p>
+</td>
+      <td>Returns true if the caller queries for a supported interface.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>moveCurrentTo</b>&#8203;(item): <b>boolean</b></td>
+      <td><p>
+<b>item</b> (<b>any</b>): Item that will become current.<br/></p>
+</td>
+      <td>Sets the specified item to be the current item in the view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>moveCurrentToFirst</b>&#8203;(): <b>boolean</b></td>
+      <td></td>
+      <td>Sets the first item in the view as the current item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>moveCurrentToLast</b>&#8203;(): <b>boolean</b></td>
+      <td></td>
+      <td>Sets the last item in the view as the current item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>moveCurrentToNext</b>&#8203;(): <b>boolean</b></td>
+      <td></td>
+      <td>Sets the item after the current item in the view as the current item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>moveCurrentToPosition</b>&#8203;(index): <b>boolean</b></td>
+      <td><p>
+<b>index</b> (<b>number</b>): Index of the item that will become current.<br/></p>
+</td>
+      <td>Sets the item at the specified index in the view as the current item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>moveCurrentToPrevious</b>&#8203;(): <b>boolean</b></td>
+      <td></td>
+      <td>Sets the item before the current item in the view as the current item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>moveToFirstPage</b>&#8203;(): <b>boolean</b></td>
+      <td></td>
+      <td>Sets the first page as the current page.<br/><br/><b>Returns</b> True if the page index was changed successfully.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>moveToLastPage</b>&#8203;(): <b>boolean</b></td>
+      <td></td>
+      <td>Sets the last page as the current page.<br/><br/><b>Returns</b> True if the page index was changed successfully.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>moveToNextPage</b>&#8203;(): <b>boolean</b></td>
+      <td></td>
+      <td>Moves to the page after the current page.<br/><br/><b>Returns</b> True if the page index was changed successfully.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>moveToPage</b>&#8203;(index): <b>boolean</b></td>
+      <td><p>
+<b>index</b> (<b>number</b>): Index of the page to move to.<br/></p>
+</td>
+      <td>Moves to the page at the specified index.<br/><br/><b>Returns</b> True if the page index was changed successfully.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>moveToPreviousPage</b>&#8203;(): <b>boolean</b></td>
+      <td></td>
+      <td>Moves to the page before the current page.<br/><br/><b>Returns</b> True if the page index was changed successfully.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onCollectionChanged</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (): Contains a description of the change.<br/><span class="text-info">(default value: <b>NotifyCollectionChangedEventArgs.&#8203;reset</b>)</span><br/></p>
+</td>
+      <td>Raises the <b>collectionChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onCurrentChanged</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> ()<br/><span class="text-info">(default value: <b>EventArgs.&#8203;empty</b>)</span><br/></p>
+</td>
+      <td>Raises the <b>currentChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onCurrentChanging</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a>): <a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>currentChanging</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onPageChanged</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> ()<br/><span class="text-info">(default value: <b>EventArgs.&#8203;empty</b>)</span><br/></p>
+</td>
+      <td>Raises the <b>pageChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onPageChanging</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.collections.PageChangingEventArgs.Class.html"><b>PageChangingEventArgs</b></a>): <a href="topic/wijmo.collections.PageChangingEventArgs.Class.html"><b>PageChangingEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>pageChanging</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onSourceCollectionChanged</b>&#8203;(e?)</td>
+      <td><p>
+<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>sourceCollectionChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>onSourceCollectionChanging</b>&#8203;(e): <b>boolean</b></td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a>): <a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a> that contains the event data.<br/></p>
+</td>
+      <td>Raises the <b>sourceCollectionChanging</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>refresh</b>&#8203;()</td>
+      <td></td>
+      <td>Re-creates the view using the current sort, filter, and group parameters.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>remove</b>&#8203;(item)</td>
+      <td><p>
+<b>item</b> (<b>any</b>): Item to be removed from the collection.<br/></p>
+</td>
+      <td>Removes the specified item from the collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>removeAt</b>&#8203;(index)</td>
+      <td><p>
+<b>index</b> (<b>number</b>): Index of the item to be removed from the collection.
+The index is relative to the view, not to the source collection.<br/></p>
+</td>
+      <td>Removes the item at the specified index from the collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>collectionChanged</b></td>
+      <td></td>
+      <td>Occurs when the collection changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>currentChanged</b></td>
+      <td></td>
+      <td>Occurs after the current item changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>currentChanging</b></td>
+      <td><a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a></td>
+      <td>Occurs before the current item changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>pageChanged</b></td>
+      <td></td>
+      <td>Occurs after the page index changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>pageChanging</b></td>
+      <td><a href="topic/wijmo.collections.PageChangingEventArgs.Class.html"><b>PageChangingEventArgs</b></a></td>
+      <td>Occurs before the page index changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>sourceCollectionChanged</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs after the value of the <b>sourceCollection</b> property changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+    <tr ng-show="showInherited">
+      <td></td>
+      <td><b>sourceCollectionChanging</b></td>
+      <td><a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a></td>
+      <td>Occurs before the value of the <b>sourceCollection</b> property changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

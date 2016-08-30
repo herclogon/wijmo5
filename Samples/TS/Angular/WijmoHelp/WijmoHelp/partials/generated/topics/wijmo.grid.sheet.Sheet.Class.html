@@ -1,0 +1,206 @@
+<h2>Sheet Class</h2>
+<dl class="dl-horizontal">
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.angular.WjSheet.Class.html"><b>WjSheet</b></a></dd>
+<dt>Module</dt><dd>wijmo.grid.sheet</dd>
+<dt>File</dt><dd>wijmo.grid.sheet.js</dd>
+</dl>
+<p>Represents a sheet within the <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a> control.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(owner?, grid?, sheetName?, rows?, cols?): <a href="topic/wijmo.grid.sheet.Sheet.Class.html"><b>Sheet</b></a></td>
+      <td><p>
+<b>owner?</b> (<a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a>): The owner @see: FlexSheet control.<br/><b>grid?</b> (<a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>): The associated <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control used to store the sheet data. If not specified then the 
+new <b>FlexGrid</b> control will be created.<br/><b>sheetName?</b> (<b>string</b>): The name of the sheet within the <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a> control.<br/><b>rows?</b> (<b>number</b>): The row count for the sheet.<br/><b>cols?</b> (<b>number</b>): The column count for the sheet.<br/></p>
+</td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>columnCount</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the number of columns in the sheet.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>grid</b></td>
+      <td><a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a></td>
+      <td>Gets the associated <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control used to store the sheet data.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>itemsSource</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> for the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> instance of the sheet.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>name</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the name of the sheet.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>rowCount</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the number of rows in the sheet.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>selectionRanges</b></td>
+      <td><a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a></td>
+      <td>Gets the selection array.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>visible</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets the sheet visibility.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>getCellStyle</b>&#8203;(rowIndex, columnIndex): <a href="topic/wijmo.grid.sheet.ICellStyle.Interface.html"><b>ICellStyle</b></a></td>
+      <td><p>
+<b>rowIndex</b> (<b>number</b>): the row index of the specified cell.<br/><b>columnIndex</b> (<b>number</b>): the column index of the specified cell.<br/></p>
+</td>
+      <td>Gets the style of specified cell.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>onNameChanged</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>nameChanged</b> event.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>onVisibleChanged</b>&#8203;(e)</td>
+      <td><p>
+<b>e</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
+</td>
+      <td>Raises the <b>visibleChanged</b> event.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>nameChanged</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs after the sheet name has changed.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>visibleChanged</b></td>
+      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
+      <td>Occurs after the visible of sheet has changed.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

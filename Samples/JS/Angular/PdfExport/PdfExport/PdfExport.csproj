@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A5D5CA77-DF68-4682-A862-14D69AA5BEF9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PdfExport</RootNamespace>
+    <AssemblyName>PdfExport</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default.htm" />
+    <Content Include="resources\wijmo5.png" />
+    <Content Include="resources\wijmo1.png" />
+    <Content Include="scripts\app.js" />
+    <Content Include="scripts\controllers\fcCustomFontsCtrl.js" />
+    <Content Include="scripts\controllers\fcDrawCtrl.js" />
+    <Content Include="scripts\controllers\fcExpenseAnalysisReportCtrl.js" />
+    <Content Include="scripts\controllers\fcExpensesReportCtrl.js" />
+    <Content Include="scripts\controllers\pdDrawingFlexPieSvgCtrl.js" />
+    <Content Include="scripts\controllers\pdDrawingFlexPieCtrl.js" />
+    <Content Include="scripts\controllers\pdDrawingGraphicsCtrl.js" />
+    <Content Include="scripts\controllers\pdDrawingImagesCtrl.js" />
+    <Content Include="scripts\controllers\pdDrawingTextCtrl.js" />
+    <Content Include="scripts\controllers\fcExportCtrl.js" />
+    <Content Include="scripts\controllers\fcIntroductionCtrl.js" />
+    <Content Include="scripts\controllers\pdCustomFontsCtrl.js" />
+    <Content Include="scripts\controllers\pdExpensesReportCtrl.js" />
+    <Content Include="scripts\controllers\pdFontsCtrl.js" />
+    <Content Include="scripts\controllers\pdIntroductionCtrl.js" />
+    <Content Include="scripts\controllers\pdPageStructureCtrl.js" />
+    <Content Include="scripts\controllers\pdRichTextCtrl.js" />
+    <Content Include="scripts\controllers\pdRunningTitlesCtrl.js" />
+    <Content Include="scripts\controllers\pdDrawingTablesCtrl.js" />
+    <Content Include="scripts\services\dataService.js" />
+    <Content Include="styles\app.css" />
+    <Content Include="views\flexGridPdfConverter\customFonts.htm" />
+    <Content Include="views\flexGridPdfConverter\draw.htm" />
+    <Content Include="views\flexGridPdfConverter\expenseAnalysisReport.htm" />
+    <Content Include="views\flexGridPdfConverter\expensesReport.htm" />
+    <Content Include="views\flexGridPdfConverter\export.htm" />
+    <Content Include="views\flexGridPdfConverter\introduction.htm" />
+    <Content Include="views\pdfDocument\drawingFlexPieSvg.htm" />
+    <Content Include="views\pdfDocument\drawingFlexPie.htm" />
+    <Content Include="views\pdfDocument\drawingGraphics.htm" />
+    <Content Include="views\pdfDocument\drawingImages.htm" />
+    <Content Include="views\pdfDocument\drawingTables.htm" />
+    <Content Include="views\pdfDocument\drawingText.htm" />
+    <Content Include="views\pdfDocument\customFonts.htm" />
+    <Content Include="views\pdfDocument\expensesReport.htm" />
+    <Content Include="views\pdfDocument\fonts.htm" />
+    <Content Include="views\pdfDocument\introduction.htm" />
+    <Content Include="views\pdfDocument\pageStructure.htm" />
+    <Content Include="views\pdfDocument\richText.htm" />
+    <Content Include="views\pdfDocument\runningTitles.htm" />
+    <Content Include="views\sideMenu.htm" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\CanvasRenderEngine.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\fonts\fira\FiraSans-Bold.ttf" />
+    <Content Include="resources\fonts\fira\FiraSans-Regular.ttf" />
+    <Content Include="resources\fonts\fira\LICENSE" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5192/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\vendor\wijmo.min.js" />
+    <Content Include="scripts\vendor\wijmo.grid.min.js" />
+    <Content Include="scripts\vendor\wijmo.chart.min.js" />
+    <Content Include="scripts\vendor\wijmo.input.min.js" />
+    <Content Include="scripts\vendor\wijmo.angular.min.js" />
+    <Content Include="scripts\vendor\wijmo.pdf.min.js" />
+    <Content Include="scripts\vendor\wijmo.grid.pdf.min.js" />
+    <Content Include="styles\vendor\wijmo.min.css" />
+  </ItemGroup>
+</Project>

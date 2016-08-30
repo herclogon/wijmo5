@@ -1,0 +1,25 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            FlexChart YFunctionSeries
+        </h3>
+        <p>
+            This view shows Y Function Series in FlexChart.
+        </p>
+        <p>
+            The YFunctionSeries allows to plot a function that is defined with formula y=y(x).
+            Use the <b>func</b> property to specify the function.
+        </p>
+    </div>
+    <div>
+        <wj-flex-chart>
+            <wj-flex-chart-legend position="Right"></wj-flex-chart-legend>
+            <wj-flex-chart-y-function-series name="YFunctionSeries"
+                                             min="-10"
+                                             max="10"
+                                             sample-count="300"
+                                             func="func">
+            </wj-flex-chart-y-function-series>
+        </wj-flex-chart>
+    </div>
+</div>

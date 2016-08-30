@@ -1,0 +1,103 @@
+<h2>WorkbookColumn Class</h2>
+<dl class="dl-horizontal">
+<dt>Implements</dt><dd><a href="topic/wijmo.xlsx.IWorkbookColumn.Interface.html"><b>IWorkbookColumn</b></a></dd>
+<dt>Module</dt><dd>wijmo.xlsx</dd>
+<dt>File</dt><dd>wijmo.xlsx.js</dd>
+</dl>
+<p>Represents the Workbook Object Model column definition.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
+<span class="glyph-collapsed" ng-show="hideConstructor"></span>
+<span class="glyph-expanded" ng-hide="hideConstructor"></span>
+Constructor
+</h3>
+</div>
+<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>constructor</b>&#8203;(): <a href="topic/wijmo.xlsx.WorkbookColumn.Class.html"><b>WorkbookColumn</b></a></td>
+      <td></td>
+      <td>Initializes a new instance of the <a href="topic/wijmo.xlsx.WorkbookColumn.Class.html"><b>WorkbookColumn</b></a> class.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>autoWidth</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets a value indicating whether the column width is automatically adjusted to fit its cells content.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>style</b></td>
+      <td><a href="topic/wijmo.xlsx.WorkbookStyle.Class.html"><b>WorkbookStyle</b></a></td>
+      <td><p>Gets or sets the column style.</p>
+
+<p>The property defines the style for all cells in the column, and can be overridden by the specific cell styles.</p></td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>visible</b></td>
+      <td><b>boolean</b></td>
+      <td>Gets or sets the column visibility.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>width</b></td>
+      <td><b>any</b></td>
+      <td><p>Gets or sets the width of the column in device-independent (1/96th inch) pixels or characters.</p>
+
+<p>The numeric value defines the width in pixels. On import the widths are always expressed in pixels.</p>
+
+<p>The string value which is a number with the 'ch' suffix, for example '10ch', defines the width in characters. 
+It has the same meaning as the column width defined via Excel UI. The width can be specified in characters
+only for export operations.</p>
+
+<p>If width is not specified then the default width is applied.</p></td>
+    </tr>
+</tbody>
+</table>
+</div>
+

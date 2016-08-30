@@ -1,0 +1,31 @@
+﻿<div>
+	<div class="copy">
+		<h3>
+			Excel I/O
+		</h3>
+		<p>
+			FlexSheet supports to save\load xlsx file by the <b>'save'</b> and <b>'load'</b> method.
+		</p>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-xs-12">
+			<div class="form-inline well well-lg">
+				<input type="file" class="form-control" id="importFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+				<button class="btn btn-default" ng-click="load()">Load</button>
+			</div>
+		</div>
+		<div class="col-md-6 col-xs-12">
+			<div class="form-inline well well-lg">
+				File Name:
+				<input type="text" class="form-control" ng-model="ctx.fileName" />
+				<button class="btn btn-default" ng-click="save()">Save</button>
+			</div>
+		</div>
+	</div>
+	<div>
+		<wj-flex-sheet class="flexSheet" control="ctx.flexSheet" initialized="initialized(s)">
+			<wj-sheet name="Country" items-source="ctx.data"></wj-sheet>
+			<wj-sheet name="Unbound" row-count="20" column-count="8"></wj-sheet>
+		</wj-flex-sheet>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+﻿<h1 style="background-color:#cccccc; padding:6px">
+    Products By Category
+    <br/>
+    <span style="font-size:50%; font-style:italic">
+        As of {{ today | date }}
+    </span>
+</h1>
+
+<div *ngFor="let category of categories.items" style="page-break-inside:avoid">
+    <h2>
+        {{category.CategoryName}}
+    </h2>
+
+    <div style="margin-left:12pt; columns:3"> <!-- multi-column -->
+        <div *ngFor="let product of select(products, 'CategoryID', category.CategoryID), let index=index">
+            {{ index + 1 }}) {{ product.ProductName }}
+        </div>
+    </div>
+</div>

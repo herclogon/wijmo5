@@ -1,0 +1,24 @@
+﻿<h2>{{ title }}</h2>
+<p>
+	This sample illustrates how to export FlexPie as a SVG image using <b>drawSvg</b> method.
+	<a href="" target="_self" data-toggle="collapse" data-target=".collapse" class="collapse in read-more">Read More</a>
+</p>
+
+
+<div class="collapse">
+	<p>
+		The sample uses the ability of any FlexChartBase-based control to convert itself to a SVG image, so the following technique is used here:
+	</p>
+
+	<ol>
+		<li>Instantiate FlexPie control.</li>
+		<li>Convert it to a SVG image using the control's saveImageToDataUrl method.</li>
+		<li>Draw the image onto the document using drawSvg method.</li>
+	</ol>
+</div>
+
+
+<div id="pie" class="hideCtrl" style="width: 500px"></div>
+
+<!-- Export button -->
+<button class="btn btn-default" id="Button1" ng-click="export()">Export</button>

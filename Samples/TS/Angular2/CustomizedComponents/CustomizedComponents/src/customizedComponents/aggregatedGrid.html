@@ -1,0 +1,28 @@
+﻿<!-- Grid with disabled cell selection and standard editing functionality. -->
+<wj-flex-grid #flex 
+              [itemsSource]="itemsSource" 
+              [selectionMode]="'None'"
+              [isReadOnly]="true"
+              (formatItem)="onFormatItem($event)"
+              style="height:100%">
+    <!-- Predefined Select column -->
+    <wj-flex-grid-column [header]="'Select'"
+                         [binding]="'active'"
+                         [name]="'select'">
+        <template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+            <editable-selection-renderer [cell]="cell" [selectionType]="selectionType"></editable-selection-renderer>
+        </template>
+    </wj-flex-grid-column>
+    <!-- Add columns defined by the aggregated-grid-column components. -->
+    <wj-flex-grid-column *ngFor="let col of columns" 
+                         [header]="col.header" 
+                         [binding]="col.binding"
+                         [name]="col.name"
+                         [width]="col.width">
+        <!-- Add cell template if col.cellTemplate is specified. -->
+        <template wjFlexGridCellTemplate *ngIf="col.cellTemplate" [cellType]="'Cell'" let-cell="cell">
+            <!-- Load the component whose type is specified in col.cellTemplate -->
+            <wj-component-loader [component]="col.cellTemplate" [properties]="{cell: cell}"></wj-component-loader>
+        </template>
+    </wj-flex-grid-column>
+</wj-flex-grid>

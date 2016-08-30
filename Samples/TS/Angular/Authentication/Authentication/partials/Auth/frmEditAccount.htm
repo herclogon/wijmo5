@@ -1,0 +1,58 @@
+﻿<!--
+    Edit Account form
+-->
+<form
+    id="frmeditaccount"
+    ng-submit="auth.submit($event)">
+    <h4 class="modal-header">
+        Edit Account
+        <button type="button" tabindex="-1" class="close wj-hide">&times;</button>
+    </h4>
+    <div class="modal-body">
+        <label>
+            Current Password: 
+            <input 
+                class="form-control" 
+                type="password" 
+                ng-model="auth.form.pw"
+                required pattern=".{4,}" title="Please enter 4 characters or more." />
+        </label>
+        <br />
+        <label>
+            New Name:
+            <input
+                class="form-control"
+                ng-model="auth.form.name"
+                pattern=".{2,}" title="Please enter 2 characters or more." />
+        </label>
+        <br />
+        <label>
+            New Password:
+            <input 
+                class="form-control" 
+                ng-model="auth.form.newpw"
+                type="password"
+                pattern=".{4,}" title="Please enter 4 characters or more." />
+        </label>
+        <br />
+        <label>
+            Confirm New Password:
+            <input 
+                class="form-control"
+                ng-model="auth.form.newpw2"
+                type="password" 
+                wj-validation-error="auth.form.newpw != auth.form.newpw2 ? 'Passwords must match' : ''" />
+        </label>
+        <br />
+        <label class="error">
+            {{auth.form.error}}
+        </label>
+    </div>
+    <div class="modal-footer">
+        <button 
+            class="btn btn-primary"
+            type="submit">
+            Update Account
+        </button>
+    </div>
+</form>

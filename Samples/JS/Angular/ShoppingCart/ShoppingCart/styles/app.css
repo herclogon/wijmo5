@@ -1,0 +1,22 @@
+﻿/* customize Bootstrap header classes */
+.header {
+    background-color: #283442;
+    margin-bottom: 14px;
+    padding: 12px 0px;
+    color: #e0efe5;
+}
+.header a {
+    font-weight: bold;
+    color: #ccedf9;
+}
+.header h1 {
+    font-size: 40px;
+    line-height: 1;
+    margin-top: 0;
+    color: #fff;
+}
+
+/* set font for the document */
+body {
+    font-family: 'Segoe UI', sans-serif;
+}

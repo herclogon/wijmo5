@@ -1,0 +1,39 @@
+﻿<div class="header visible-xs visible-sm">
+    <div class="container">
+        <h1>FlexSheet / Stand-alone Sheet</h1>
+    </div>
+</div>
+<div class="header hidden-xs hidden-sm">
+    <div class="container">
+        <img src="resources/wijmo5.png" />
+        <h1>FlexSheet / Stand-alone Sheet</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <p style="margin: 10px 0 20px 0;"><a href="default.htm">&lt; Return to sample home</a></p>
+            <div class="form-inline well well-lg">
+                <input type="file" class="form-control" id="importFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel.sheet.macroEnabled.12" />
+                <button class="btn btn-default" (click)="load()">Load</button>
+                <button class="btn btn-default" (click)="save()">Save</button>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <p style="margin: 10px 0 20px 0;">&nbsp;</p>
+            <div class="form-inline well well-lg" *ngIf="sheets.length > 0">
+                Selected Sheet: &nbsp;
+                <select class="form-control" [(ngModel)]="selectedSheetIndex" (change)="changeSelectedSheet($event)">
+                    <option *ngFor="let sheet of sheets; let i = index" value={{i}}>{{sheet}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <!-- the grid -->
+    <div class="row">
+        <wj-flex-sheet #flexSheet class="flexSheet" [isTabHolderVisible]="false" (initialized)="flexInitialized(flexSheet)">
+            <wj-sheet name="Country"></wj-sheet>
+            <wj-sheet name="Empty Sheet"></wj-sheet>
+        </wj-flex-sheet>
+    </div>
+</div>

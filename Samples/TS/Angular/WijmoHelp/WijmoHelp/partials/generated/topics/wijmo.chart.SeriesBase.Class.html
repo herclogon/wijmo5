@@ -1,0 +1,265 @@
+<h2>SeriesBase Class</h2>
+<dl class="dl-horizontal">
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.chart.analytics.TrendLineBase.Class.html"><b>TrendLineBase</b></a>, <a href="topic/wijmo.chart.analytics.Waterfall.Class.html"><b>Waterfall</b></a>, <a href="topic/wijmo.chart.finance.analytics.Fibonacci.Class.html"><b>Fibonacci</b></a>, <a href="topic/wijmo.chart.finance.analytics.FibonacciArcs.Class.html"><b>FibonacciArcs</b></a>, <a href="topic/wijmo.chart.finance.analytics.FibonacciFans.Class.html"><b>FibonacciFans</b></a>, <a href="topic/wijmo.chart.finance.analytics.FibonacciTimeZones.Class.html"><b>FibonacciTimeZones</b></a>, <a href="topic/wijmo.chart.finance.analytics.OverlayIndicatorBase.Class.html"><b>OverlayIndicatorBase</b></a>, <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><b>FinancialSeries</b></a>, <a href="topic/wijmo.chart.Series.Class.html"><b>Series</b></a></dd>
+<dt>Implements</dt><dd><b>_ISeries</b></dd>
+<dt>Module</dt><dd>wijmo.chart</dd>
+<dt>File</dt><dd>wijmo.chart.js</dd>
+</dl>
+<p>Represents a series of data points to display in the chart.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>altStyle</b></td>
+      <td><b>any</b></td>
+      <td><p>Gets or sets the alternative style for the series. The values from
+this property will be used for negative values in Bar, Column,
+and Scatter charts; and for rising values in financial chart types
+like Candlestick, LineBreak, EquiVolume etc.</p>
+
+<p>If no value is provided, the default styles will be used.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>axisX</b></td>
+      <td><a href="topic/wijmo.chart.Axis.Class.html"><b>Axis</b></a></td>
+      <td>Gets or sets the x-axis for the series.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>axisY</b></td>
+      <td><a href="topic/wijmo.chart.Axis.Class.html"><b>Axis</b></a></td>
+      <td>Gets or sets the y-axis for the series.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>binding</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the name of the property that contains Y values for the series.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>bindingX</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the name of the property that contains X values for the series.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>chart</b></td>
+      <td><a href="topic/wijmo.chart.FlexChartCore.Class.html"><b>FlexChartCore</b></a></td>
+      <td>Gets the <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> object that owns this series.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>collectionView</b></td>
+      <td><a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a></td>
+      <td>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object that contains the data for this series.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>cssClass</b></td>
+      <td><b>string</b></td>
+      <td>Gets or sets the series CSS class.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>hostElement</b></td>
+      <td><b>SVGGElement</b></td>
+      <td>Gets the series host element.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>itemsSource</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object that contains the series data.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>legendElement</b></td>
+      <td><b>SVGGElement</b></td>
+      <td>Gets the series element in the legend.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>name</b></td>
+      <td><b>string</b></td>
+      <td><p>Gets or sets the series name.</p>
+
+<p>The series name is displayed in the chart legend. Any series without a name
+does not appear in the legend.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>style</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the series style.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>symbolMarker</b></td>
+      <td><a href="topic/wijmo.chart.Marker.Enum.html"><b>Marker</b></a></td>
+      <td>Gets or sets the shape of marker to use for each data point in the series.
+Applies to Scatter, LineSymbols, and SplineSymbols chart types.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>symbolSize</b></td>
+      <td><b>number</b></td>
+      <td>Gets or sets the size(in pixels) of the symbols used to render this <a href="topic/wijmo.chart.Series.Class.html"><b>Series</b></a>.
+Applies to Scatter, LineSymbols, and SplineSymbols chart types.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>symbolStyle</b></td>
+      <td><b>any</b></td>
+      <td>Gets or sets the series symbol style.
+Applies to Scatter, LineSymbols, and SplineSymbols chart types.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>visibility</b></td>
+      <td><a href="topic/wijmo.chart.SeriesVisibility.Enum.html"><b>SeriesVisibility</b></a></td>
+      <td>Gets or sets an enumerated value indicating whether and where the series appears.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
+<span class="glyph-collapsed" ng-show="hideMethods"></span>
+<span class="glyph-expanded" ng-hide="hideMethods"></span>
+Methods
+</h3>
+</div>
+<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Parameters</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>drawLegendItem</b>&#8203;(engine, rect, index)</td>
+      <td><p>
+<b>engine</b> (<a href="topic/wijmo.chart.IRenderEngine.Interface.html"><b>IRenderEngine</b></a>): The rendering engine to use.<br/><b>rect</b> (<a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>): The position of the legend item.<br/><b>index</b> (<b>number</b>): Index of legend item(for series with multiple legend items).<br/></p>
+</td>
+      <td>Draw a legend item at the specified position.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getDataRect</b>&#8203;(): <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
+      <td></td>
+      <td><p>Returns series bounding rectangle in data coordinates.</p>
+
+<p>If getDataRect() returns null, the limits are calculated automatically based on the data values.</p></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>getPlotElement</b>&#8203;(pointIndex): <b>any</b></td>
+      <td><p>
+<b>pointIndex</b> (<b>number</b>): The index of the data point.<br/></p>
+</td>
+      <td>Gets the plot element that corresponds to the specified point index.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>hitTest</b>&#8203;(pt, y?): <a href="topic/wijmo.chart.HitTestInfo.Class.html"><b>HitTestInfo</b></a></td>
+      <td><p>
+<b>pt</b> (<b>any</b>): The point to investigate, in window coordinates.<br/><b>y?</b> (<b>number</b>): The Y coordinate of the point (if the first parameter is a number).<br/></p>
+</td>
+      <td>Gets a <a href="topic/wijmo.chart.HitTestInfo.Class.html"><b>HitTestInfo</b></a> object with information about the specified point.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>legendItemLength</b>&#8203;(): <b>number</b></td>
+      <td></td>
+      <td>Returns number of series items in the legend.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>measureLegendItem</b>&#8203;(engine, index): <a href="topic/wijmo.Size.Class.html"><b>Size</b></a></td>
+      <td><p>
+<b>engine</b> (<a href="topic/wijmo.chart.IRenderEngine.Interface.html"><b>IRenderEngine</b></a>): The rendering engine to use.<br/><b>index</b> (<b>number</b>): Index of legend item(for series with multiple legend items).<br/></p>
+</td>
+      <td>Measures height and width of the legend item.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>onRendering</b>&#8203;(engine)</td>
+      <td><p>
+<b>engine</b> (<a href="topic/wijmo.chart.IRenderEngine.Interface.html"><b>IRenderEngine</b></a>): The <a href="topic/wijmo.chart.IRenderEngine.Interface.html"><b>IRenderEngine</b></a> object used to render the series.<br/></p>
+</td>
+      <td>Raises the <b>rendering</b> event.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
+<span class="glyph-collapsed" ng-show="hideEvents"></span>
+<span class="glyph-expanded" ng-hide="hideEvents"></span>
+Events
+</h3>
+</div>
+<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-2">Name</th>
+
+<th class="col-md-5">Arguments</th>
+
+<th class="col-md-5">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td></td>
+      <td><b>rendering</b></td>
+      <td><a href="topic/wijmo.chart.IRenderEngine.Interface.html"><b>IRenderEngine</b></a></td>
+      <td>Occurs when series is rendering.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

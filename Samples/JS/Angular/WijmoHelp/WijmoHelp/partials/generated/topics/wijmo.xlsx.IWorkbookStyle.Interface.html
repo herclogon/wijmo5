@@ -1,0 +1,92 @@
+<h2>IWorkbookStyle Class</h2>
+<dl class="dl-horizontal">
+<dt>Module</dt><dd>wijmo.xlsx</dd>
+<dt>File</dt><dd>wijmo.xlsx.js</dd>
+</dl>
+<p>Represents the Workbook Object Model style definition used to style Excel cells, columns and rows.</p>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
+<span class="glyph-collapsed" ng-show="hideProperties"></span>
+<span class="glyph-expanded" ng-hide="hideProperties"></span>
+Properties
+</h3>
+</div>
+<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
+<thead>
+<tr>
+
+<th></th>
+
+<th class="col-md-3">Name</th>
+
+<th class="col-md-2">Type</th>
+
+<th class="col-md-7">Description</th>
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>basedOn?</b></td>
+      <td><a href="topic/wijmo.xlsx.IWorkbookStyle.Interface.html"><b>IWorkbookStyle</b></a></td>
+      <td><p>Defines the base style that this style inherits from.</p>
+
+<p>This property is applicable for export operations only. The style gets all the properties defined in the base style, 
+and can override or augment them by setting its own properties.</p></td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>borders?</b></td>
+      <td><a href="topic/wijmo.xlsx.IWorkbookBorder.Interface.html"><b>IWorkbookBorder</b></a></td>
+      <td>Cell outline setting.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>fill?</b></td>
+      <td><a href="topic/wijmo.xlsx.IWorkbookFill.Interface.html"><b>IWorkbookFill</b></a></td>
+      <td>Gets or sets cells background.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>font?</b></td>
+      <td><a href="topic/wijmo.xlsx.IWorkbookFont.Interface.html"><b>IWorkbookFont</b></a></td>
+      <td>Gets or sets the font properties.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>format?</b></td>
+      <td><b>string</b></td>
+      <td><p>Cell value format, defined using Excel format syntax.</p>
+
+<p>The description of Excel format syntax can be found 
+<a href="https://support.office.com/en-us/article/Create-or-delete-a-custom-number-format-78f2a361-936b-4c03-8772-09fab54be7f4" target="_blank">here</a>.</p>
+
+<p>You may use the <b>toXlsxNumberFormat</b> and <b>toXlsxDateFormat</b> static functions of the
+<a href="topic/wijmo.xlsx.Workbook.Class.html"><b>Workbook</b></a> class to convert from .Net (<a href="topic/wijmo.Globalize.Class.html"><b>Globalize</b></a>) format to Excel format.</p></td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>hAlign?</b></td>
+      <td><a href="topic/wijmo.xlsx.HAlign.Enum.html"><b>HAlign</b></a></td>
+      <td>Gets or sets a horizontal alignment of a text.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>indent?</b></td>
+      <td><b>number</b></td>
+      <td>Text indent.
+It is an integer value, where an increment of 1 represents 3 spaces.</td>
+    </tr>
+    <tr>
+      <td><span class="badge" title="Field">F</span></td>
+      <td><b>vAlign?</b></td>
+      <td><a href="topic/wijmo.xlsx.VAlign.Enum.html"><b>VAlign</b></a></td>
+      <td>Gets or sets vertical alignment of a text.</td>
+    </tr>
+</tbody>
+</table>
+</div>
+

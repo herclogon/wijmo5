@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunburstIntro", "SunburstIntro\SunburstIntro.csproj", "{28207628-B8AB-45A3-A91F-B8913BF356F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Evaluation|Any CPU = Evaluation|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Standard|Any CPU = Standard|Any CPU
+		StandardEvaluation|Any CPU = StandardEvaluation|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28207628-B8AB-45A3-A91F-B8913BF356F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28207628-B8AB-45A3-A91F-B8913BF356F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28207628-B8AB-45A3-A91F-B8913BF356F4}.Evaluation|Any CPU.ActiveCfg = Release|Any CPU
+		{28207628-B8AB-45A3-A91F-B8913BF356F4}.Evaluation|Any CPU.Build.0 = Release|Any CPU
+		{28207628-B8AB-45A3-A91F-B8913BF356F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28207628-B8AB-45A3-A91F-B8913BF356F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28207628-B8AB-45A3-A91F-B8913BF356F4}.Standard|Any CPU.ActiveCfg = Release|Any CPU
+		{28207628-B8AB-45A3-A91F-B8913BF356F4}.Standard|Any CPU.Build.0 = Release|Any CPU
+		{28207628-B8AB-45A3-A91F-B8913BF356F4}.StandardEvaluation|Any CPU.ActiveCfg = Release|Any CPU
+		{28207628-B8AB-45A3-A91F-B8913BF356F4}.StandardEvaluation|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

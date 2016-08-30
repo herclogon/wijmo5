@@ -1,0 +1,18 @@
+﻿/* flyout styles */
+.wj-flyout {
+    background-color: #fffaf2;
+    opacity: .9;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 8px;
+    margin: 4px;
+    padding: 4px;
+}
+    .wj-flyout .glyphicon {
+        font-size: 200%;
+        padding: 8px;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+        .wj-flyout .glyphicon:hover {
+            background-color: rgba(0, 0, 0, 0.08)
+        }

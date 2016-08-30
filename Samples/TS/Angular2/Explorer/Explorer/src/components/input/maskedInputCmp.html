@@ -1,0 +1,134 @@
+﻿<div>
+    <h3>
+        InputMask
+    </h3>
+    <p>
+        The <a href="http://wijmo.com/5/docs/topic/wijmo.input.InputMask.Class.html"
+               target="_blank">InputMask</a> control uses a mask to validate input as the
+        user types. It prevents users from accidentally entering invalid data and
+        formats the input as it is typed.
+    </p>
+    <p>
+        The mask is specified by the <b>mask</b> property as a string composed
+        of one or more of the following masking characters:
+    </p>
+    <dl class="dl-horizontal">
+        <dt>0</dt>
+        <dd>Digit.</dd>
+        <dt>9</dt>
+        <dd>Digit or space.</dd>
+        <dt>#</dt>
+        <dd>Digit, sign, or space.</dd>
+        <dt>L</dt>
+        <dd>Letter.</dd>
+        <dt>l</dt>
+        <dd>Letter or space.</dd>
+        <dt>A</dt>
+        <dd>Alphanumeric.</dd>
+        <dt>a</dt>
+        <dd>Alphanumeric or space.</dd>
+        <dt>.</dt>
+        <dd>Localized decimal point.</dd>
+        <dt>,</dt>
+        <dd>Localized thousand separator.</dd>
+        <dt>:</dt>
+        <dd>Localized time separator.</dd>
+        <dt>/</dt>
+        <dd>Localized date separator.</dd>
+        <dt>$</dt>
+        <dd>Localized currency symbol.</dd>
+        <dt>&lt;</dt>
+        <dd>Converts characters that follow to lowercase.</dd>
+        <dt>&gt;</dt>
+        <dd>Converts characters that follow to uppercase.</dd>
+        <dt>|</dt>
+        <dd>Disables case conversion.</dd>
+        <dt>\</dt>
+        <dd>Escapes any character, turning it into a literal.</dd>
+        <dt>All others</dt>
+        <dd>Literals.</dd>
+    </dl>
+    <p>
+        These samples use the
+        <a no-href="http://wijmo.com/5/docs/topic/wijmo.angular2.WjInputMask.Class.html"
+           target="_blank">WjInputMask</a> component and Angular 2.
+    </p>
+    <div class="well">
+        <dl class="dl-horizontal">
+            <dt><u>P</u>hone number</dt>
+            <dd>
+                <wj-input-mask accesskey="p" class="fixedPitch" title="mask: (999) 000-0000" [mask]="'(999) 000-0000'"></wj-input-mask>
+            </dd>
+            <dt><u>C</u>redit Card number</dt>
+            <dd>
+                <wj-input-mask accesskey="c" class="fixedPitch" title="mask: 0000 0000 0000 0000" [mask]="'0000 0000 0000 0000'"></wj-input-mask>
+            </dd>
+            <dt><u>S</u>ocial Security number</dt>
+            <dd>
+                <wj-input-mask accesskey="s" class="fixedPitch" title="mask: 000-00-0000" [mask]="'000-00-0000'"></wj-input-mask>
+            </dd>
+            <dt><u>Z</u>IP Code</dt>
+            <dd>
+                <wj-input-mask accesskey="z" class="fixedPitch" title="mask: 00000-0000" [mask]="'00000-0000'"></wj-input-mask>
+            </dd>
+            <dt><u>U</u>K/Canada Postal Code</dt>
+            <dd>
+                <wj-input-mask accesskey="u" class="fixedPitch" title="mask: >L0L 0A0" [mask]="'>L0L 0L0'"></wj-input-mask>
+            </dd>
+            <dt>
+                <wj-input-mask [(value)]="mask"></wj-input-mask>
+            </dt>
+            <dd>
+                <wj-input-mask class="fixedPitch" title="mask: {{mask}}" [mask]="mask"></wj-input-mask>
+            </dd>
+        </dl>
+    </div>
+
+    <p>
+        In some cases, you may want to get or set the <b>InputMask</b> value excluding the
+        literal and prompt characters. You can do this using the <b>rawValue</b> property
+        as shown below:
+    </p>
+    <div class="well">
+        <p>
+            Phone number:
+            <wj-input-mask #inputMaskRaw
+                           class="fixedPitch"
+                           [mask]="'(999) 000-0000'"></wj-input-mask>
+        </p>
+        <p>Mask: <b>{{inputMaskRaw.mask}}</b></p>
+        <p>Value: <b>{{inputMaskRaw.value}}</b></p>
+        <p>RawValue: <b>{{inputMaskRaw.rawValue}}</b></p>
+    </div>
+
+    <h3>
+        Masked InputDate and InputTime
+    </h3>
+    <p>
+        The <a href="http://wijmo.com/5/docs/topic/wijmo.input.InputDate.Class.html"
+               target="_blank">InputDate</a> and
+        <a href="http://wijmo.com/5/docs/topic/wijmo.input.InputTime.Class.html"
+           target="_blank">InputTime</a> controls have a <b>mask</b> property that can make
+        data entry easier in some cases.
+    </p>
+
+    <div class="well">
+        <dl class="dl-horizontal">
+            <dt>InputDate with mask</dt>
+            <dd>
+                <wj-input-date [(value)]="departureDate"
+                               [format]="'d'"
+                               [mask]="'99/99/9999'">
+                </wj-input-date>
+            </dd>
+            <dt>InputTime with mask</dt>
+            <dd>
+                <wj-input-time [(value)]="departureDate"
+                               [format]="'t'"
+                               [isEditable]="true"
+                               [mask]="'99:99 >LL'">
+                </wj-input-time>
+            </dd>
+        </dl>
+    </div>
+</div>

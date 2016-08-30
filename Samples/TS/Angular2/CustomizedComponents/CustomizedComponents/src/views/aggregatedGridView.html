@@ -1,0 +1,59 @@
+﻿<h2>Aggregate WjFlexGrid</h2>
+<p>
+    This sample demonstrates how to create a custom FlexGrid component by aggregating 
+    the WjFlexGrid component in your custom grid component. It implements the AggregatedGrid component 
+    which is a customized grid with cells immediately available
+    for editing and a Select column that allows to select a single or multiple rows depending
+    on the setting specified in the "Selection type" menu. The Select column is embedded to the
+    grid, you don't need to specify it in the column list. Another columns that should be shown
+    by the grid are defined in a usual way by means of the child WjFlexGridColumn components.
+    Cell editing can be disabled, but row selection functionality is always available.
+</p>
+<p>
+    The standard Wijmo WjFlexGridColumn components can't be used to specify grid columns 
+    for the AggregatedGrid component in
+    Angular 2 markup, because WjFlexGridColumn require WjFlexGrid or derived component as
+    its parent. To manage this challenge we added the AggregatedGridColumn component intended to play
+    a role of a column descriptor for the AggregatedGrid component. The AggregatedGridColumn doesn't
+    include any implementation code, the only it does is defines a component 'selector' and
+    enumerates all the properties defined in the WjFlexGridColumn component decorator in its
+    decorator's 'input' property. For this, it reads ComponentMetadata of the WjFlexGridColumn
+    component using the Ng2Utils.getTypeAnnotation function, and assigns ComponentMetadata.inputs
+    array concatenated with the AggregatedGridColumn specific properties like 'cellTemplate', to
+    the AggregatedGridColumn decorator's 'input' property. This way, AggregatedGridColumn exposes
+    all the properties of WjFlexGridColumn as available for binding, in a single line of code.
+</p>
+<p>
+    The AggregatedGrid component defines the 'columns' property that collects all child AggregatedGridColumn 
+    components using the Angular's @ContentChildren query. The AggregatedGrid's template defines 
+    wj-flex-grid with the preset Select wj-flex-grid-column component and the other wj-flex-grid-column
+    bound to the AggregatedGrid.columns collection via Angular ngFor directive, with wj-flex-grid-column
+    properties bound to the same named aggregated-grid-column properties, thus filling grid with a list of columns
+    defined by the aggregated-grid-column components. Each wj-flex-grid-column optionally (using ngIf) adds a column
+    cell template in case where the AggregatedGridColumn.cellTemplate property is specified. 
+    The wj-component-loader component is used to load the specified component.
+</p>
+
+<wj-menu [header]="'Selection type'" [(value)]="selectionType">
+    <wj-menu-item [value]="SelectionTypeEnum.Single">Single</wj-menu-item>
+    <wj-menu-item [value]="SelectionTypeEnum.Multiple">Multiple</wj-menu-item>
+</wj-menu>
+<input type="checkbox" [(ngModel)]="grid.isEditable" style="margin-left:30px" /> Editable
+<br />
+<br />
+<aggregated-grid #grid
+                 [itemsSource]="data" 
+                 [showSelectColumn]="false" 
+                 [selectionType]="selectionType"
+                 style="height:300px;display:block;width:auto">
+    <aggregated-grid-column [header]="'ID'" [binding]="'id'" [width]="80"></aggregated-grid-column>
+    <aggregated-grid-column [binding]="'date'"
+                            [header]="'Date'"
+                            [width]="150"
+                            [cellTemplate]="editableDateRenderer">
+    </aggregated-grid-column>
+    <aggregated-grid-column [binding]="'country'"
+                            [header]="'Country'"
+                            [cellTemplate]="editableStringRenderer">
+    </aggregated-grid-column>
+</aggregated-grid>

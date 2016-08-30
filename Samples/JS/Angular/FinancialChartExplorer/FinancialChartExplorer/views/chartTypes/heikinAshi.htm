@@ -1,0 +1,59 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    Heikin-Ashi charts are a variation of Japanese candlestick charts that were designed to remove
+    noise from candlesticks and behave much like a moving average. These charts can be used
+    to identify trends, potential reversal points, and other technical analysis patterns.
+    <a href="" target="_self" data-toggle="collapse" data-target=".collapse" class="collapse in read-more">Read More</a>
+</p>
+<div class="collapse">
+    <p>
+        While the appearance of Heikin-Ashi charts are identical to candlestick charts, the underlying
+        price values are calculated based on the following formulas:
+    </p>
+    <dl class="dl-horizontal">
+        <dt>haHigh</dt>
+        <dd>Max(high[0], haOpen[0], haClose[0])</dd>
+        <dt>haLow</dt>
+        <dd>Min(low[0], haOpen[0], haClose[0])</dd>
+        <dt>haOpen</dt>
+        <dd>Avg(haOpen[-1], haClose[-1])</dd>
+        <dt>haClose</dt>
+        <dd>Avg(high[0], low[0], open[0], close[0])</dd>
+    </dl>
+    <div class="small">"-1" indicates the previous period; "0" indicates the current period</div>
+</div>
+
+<!-- Symbol -->
+<label>Symbol</label>
+<wj-combo-box items-source="dataList"
+              selected-index-changed="selectedSymbolChanged(s,e)"
+              display-member-path="name"
+              selected-value-path="symbol"
+              selected-value="selectedSymbol">
+</wj-combo-box>
+
+<!-- FinancialChart -->
+<wj-financial-chart items-source="data"
+                    binding-x="date"
+                    chart-type="HeikinAshi"
+                    control="ctx.chart"
+                    rendered="chartRendered(s,e)">
+    <wj-financial-chart-series binding="high,low,open,close"
+                               name="{{ selectedSymbol | uppercase }}">
+    </wj-financial-chart-series>
+</wj-financial-chart>
+
+<!-- Range Selector -->
+<wj-financial-chart items-source="data"
+                    binding-x="date"
+                    chart-type="HeikinAshi"
+                    style="height: 200px"
+                    control="ctx.selectorChart"
+                    tooltip-content=""
+                    rendered="selectorChartRendered(s,e)">
+    <wj-financial-chart-series binding="high,low,open,close"></wj-financial-chart-series>
+    <wj-flex-chart-range-selector control="ctx.selector"
+                                  seamless="true"
+                                  range-changed="rangeChanged(s,e)">
+    </wj-flex-chart-range-selector>
+</wj-financial-chart>

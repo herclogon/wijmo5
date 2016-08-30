@@ -1,0 +1,225 @@
+﻿<div>
+    <h2 id="Animation">
+        Animation
+    </h2>
+    <p>
+        The FinancialChart control can play animation with <b>wijmo.chart.animation</b> extension.
+    </p>
+    <p>
+        The example below shows how to play animation in FinancialChart control.
+    </p>
+    <p>
+        Click on chart to refresh and play animation.
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div ng-non-bindable class="pane-content">
+&lt;wj-financial-chart #chart
+                    [itemsSource]="data"
+                    [header]="header"
+                    [footer]="footer"
+                    [chartType]="chartType"
+                    [symbolSize]="4"
+                    bindingX="date"&gt;
+    &lt;wj-financial-chart-series [binding]="bindingY"&gt;&lt;/wj-financial-chart-series&gt;
+    &lt;wj-flex-chart-animation #animation [easing]="easing" [duration]="duration"&gt;&lt;/wj-flex-chart-animation&gt;
+&lt;/wj-financial-chart&gt;
+
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Type&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-menu [(value)]="chartType" header="Chart Type" #typeMenu (itemClicked)="typeChanged(typeMenu)"&gt;
+            &lt;wj-menu-item value="Area"&gt;Area&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="Line"&gt;Line&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="Column"&gt;Column&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="Candlestick"&gt;Candlestick&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="HighLowOpenClose"&gt;HighLowOpenClose&lt;/wj-menu-item&gt;
+        &lt;/wj-menu&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;Easing&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-menu [(value)]="easing" header="Easing" #easingMenu (itemClicked)="easingChanged(easingMenu)"&gt;
+            &lt;wj-menu-item value="Linear"&gt;Linear&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="Swing"&gt;Swing&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="EaseInQuad"&gt;EaseInQuad&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="EaseInCubic"&gt;EaseInCubic&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="EaseInQuart"&gt;EaseInQuart&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="EaseInQuint"&gt;EaseInQuint&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="EaseInSine"&gt;EaseInSine&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="EaseInExpo"&gt;EaseInExpo&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="EaseInCirc"&gt;EaseInCirc&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="EaseInBack"&gt;EaseInBack&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="EaseInBounce"&gt;EaseInBounce&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="EaseInElastic"&gt;EaseInElastic&lt;/wj-menu-item&gt;
+        &lt;/wj-menu&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;Duration&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-input-number [value]="400" #ipt [min]="200" [max]="5000" [step]="200" format="n0"
+                            (valueChanged)="durationChanged(ipt)"&gt;&lt;/wj-input-number&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+import { Component, AfterViewInit, EventEmitter, Inject, ViewChild, Input } from '@angular/core';
+import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
+import { AppTab, AppTabPane } from './AppTab';
+import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import * as wjNg2FlexChartAnimation from 'wijmo/wijmo.angular2.chart.animation';
+import * as wjNg2FinancialChart from 'wijmo/wijmo.angular2.chart.finance';
+
+import { DataSvc } from './../services/DataSvc';
+
+//Animation sample component
+@Component({
+    selector: 'animation-cmp',
+    templateUrl: 'src/components/AnimationCmp.html',
+    directives: [wjNg2FinancialChart.WjFinancialChart, wjNg2FinancialChart.WjFinancialChartSeries, wjNg2FlexChartAnimation.WjFlexChartAnimation,
+        wjNg2Input.WjInputNumber, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, AppTab, AppTabPane, CORE_DIRECTIVES, FORM_DIRECTIVES]
+})
+
+export class AnimationCmp {
+    dataSvc: DataSvc;
+    data: any[];
+    header: string;
+    footer: string;
+    chartType: string;
+    easing: string;
+    duration: number;
+    bindingY: string;
+    bindingYs: any;
+    @ViewChild('chart') chart: wijmo.chart.finance.FinancialChart;
+    @ViewChild('animation') animation: wijmo.chart.animation.ChartAnimation;
+
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+        this.data = [];
+        this.dataSvc = dataSvc;
+        this.setDataSource();
+        this.header = 'Facebook, Inc. (FB)';
+        this.footer = 'Click on chart to refresh';
+        this.chartType = 'Line';
+        this.easing = 'Swing';
+        this.duration = 400;
+        this.bindingY = 'close';
+        this.bindingYs = {
+            Column: 'close',
+            Line: 'close',
+            Area: 'close',
+            Candlestick: 'high,low,open,close',
+            HighLowOpenClose: 'high,low,open,close'
+        };
+    }
+
+    private setDataSource() {
+        this.dataSvc.getData().subscribe(data => {
+            this.data = data;
+        });
+    }
+
+    ngAfterViewInit() {
+        this.chart.tooltip.content = ht => {
+            var dateStr = 'Date: ' + ht.x + '&lt;br /&gt;',
+                hlocStr = 'Open: ' + wijmo.Globalize.format(ht.item.open, 'n2') + '&lt;br /&gt;' +
+                    'High: ' + wijmo.Globalize.format(ht.item.high, 'n2') + '&lt;br /&gt;' +
+                    'Low: ' + wijmo.Globalize.format(ht.item.low, 'n2') + '&lt;br /&gt;' +
+                    'Close: ' + wijmo.Globalize.format(ht.item.close, 'n2') + '&lt;br /&gt;',
+                closeStr = 'Close: ' + wijmo.Globalize.format(ht.item.close, 'n2'),
+                volStr = 'Volume: ' + wijmo.Globalize.format(ht.item.volume, 'n0'),
+                toolTipStr;
+            switch (this.chartType) {
+                case 'Line':
+                case 'Column':
+                    toolTipStr = dateStr + closeStr;
+                    break;
+                default:
+                    toolTipStr = dateStr + hlocStr;
+                    break;
+            }
+            return toolTipStr;
+        };
+
+        this.chart.hostElement.addEventListener('click', () => {
+            this._refreshChart();
+        });
+    }
+
+    typeChanged(menu) {
+        var chartType = menu.selectedValue;
+        this.bindingY = this.bindingYs[chartType];
+    }
+
+    easingChanged(menu) {
+        this.animation.easing = menu.selectedValue;
+        this._refreshChart();
+    }
+
+    durationChanged(input) {
+        this.animation.duration = input.value;
+        this._refreshChart();
+    }
+
+    _refreshChart() {
+        if (this.chart) {
+            this.chart.refresh(true);
+        }
+    }
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>Result (live):</h4>
+            <wj-financial-chart #chart
+                                [itemsSource]="data"
+                                [header]="header"
+                                [footer]="footer"
+                                [chartType]="chartType"
+                                [symbolSize]="4"
+                                bindingX="date">
+                <wj-financial-chart-series [binding]="bindingY"></wj-financial-chart-series>
+                <wj-flex-chart-animation #animation [easing]="easing" [duration]="duration"></wj-flex-chart-animation>
+            </wj-financial-chart>
+
+            <dl class="dl-horizontal">
+                <dt>Type</dt>
+                <dd>
+                    <wj-menu [(value)]="chartType" header="Chart Type" #typeMenu (itemClicked)="typeChanged(typeMenu)">
+                        <wj-menu-item value="Area">Area</wj-menu-item>
+                        <wj-menu-item value="Line">Line</wj-menu-item>
+                        <wj-menu-item value="Column">Column</wj-menu-item>
+                        <wj-menu-item value="Candlestick">Candlestick</wj-menu-item>
+                        <wj-menu-item value="HighLowOpenClose">HighLowOpenClose</wj-menu-item>
+                    </wj-menu>
+                </dd>
+                <dt>Easing</dt>
+                <dd>
+                    <wj-menu [(value)]="easing" header="Easing" (itemClicked)="refreshChart()">
+                        <wj-menu-item value="Linear">Linear</wj-menu-item>
+                        <wj-menu-item value="Swing">Swing</wj-menu-item>
+                        <wj-menu-item value="EaseInQuad">EaseInQuad</wj-menu-item>
+                        <wj-menu-item value="EaseInCubic">EaseInCubic</wj-menu-item>
+                        <wj-menu-item value="EaseInQuart">EaseInQuart</wj-menu-item>
+                        <wj-menu-item value="EaseInQuint">EaseInQuint</wj-menu-item>
+                        <wj-menu-item value="EaseInSine">EaseInSine</wj-menu-item>
+                        <wj-menu-item value="EaseInExpo">EaseInExpo</wj-menu-item>
+                        <wj-menu-item value="EaseInCirc">EaseInCirc</wj-menu-item>
+                        <wj-menu-item value="EaseInBack">EaseInBack</wj-menu-item>
+                        <wj-menu-item value="EaseInBounce">EaseInBounce</wj-menu-item>
+                        <wj-menu-item value="EaseInElastic">EaseInElastic</wj-menu-item>
+                    </wj-menu>
+                </dd>
+                <dt>Duration</dt>
+                <dd>
+                    <wj-input-number #ipt [value]="400" [min]="200" [max]="5000" [step]="200" format="n0"
+                                     (valueChanged)="durationChanged(ipt)"></wj-input-number>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+</div>

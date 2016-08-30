@@ -1,0 +1,19 @@
+﻿/* sample styles */
+.wj-flexgrid {
+    max-height: 500px;
+}
+.wj-flexgrid .wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background-color: white;
+}
+.wj-flexgrid .wj-cell.wj-header {
+    white-space: nowrap;
+}
+
+h1, h2, h3, h4 {
+    margin-left: -14pt;
+}
+h3, h4 {
+    margin-top: 25pt;
+    padding-top: 6pt;
+    border-top: 1px solid #c0c0c0
+}

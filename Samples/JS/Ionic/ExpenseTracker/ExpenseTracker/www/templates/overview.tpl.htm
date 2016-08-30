@@ -1,0 +1,30 @@
+﻿<ion-view title="Overview">
+    <ion-nav-buttons side="right">
+        <a class="button button-icon icon ion-plus" href="#/app/create"></a>
+    </ion-nav-buttons>
+    <ion-content class="has-header padding">
+        <div ng-show="hasExpenses">
+            <hgroup class="text-center padding-vertical">
+                <h2 class="title">
+                    <span ng-class="expensesCssClass">{{ totalExpenses | currency }}</span> of {{ budget | currency }}
+                </h2>
+                <h4>{{ budgetMsg }}</h4>
+            </hgroup>
+            <wj-flex-chart items-source="categories"
+                           chart-type="Bar" binding-x="name"
+                           tooltip-content=""
+                           selection-mode="Point"
+                           footer="Tap the chart's bars to see history by category"
+                           selection-changed="selectionChanged(s)"
+                           item-formatter="itemFormatter"
+                           style="height: 400px;">
+                <wj-flex-chart-series binding="total"></wj-flex-chart-series>
+                <wj-flex-chart-axis wj-property="axisX" format="c0"></wj-flex-chart-axis>
+                <wj-flex-chart-axis wj-property="axisY" reversed="true" major-grid="false" axis-line="true"></wj-flex-chart-axis>
+            </wj-flex-chart>
+        </div>
+        <div ng-hide="hasExpenses">
+            <h4 class="padding text-center">You haven't added any expenses yet!  Click the <i class="icon ion-plus"></i> button to get started!</h4>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,31 @@
+<h2>wjFinancialChart Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjFlexChartBaseBinding</b></dd>
+<dt>Module</dt><dd>wijmo.knockout</dd>
+<dt>File</dt><dd>wijmo.knockout.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>KnockoutJS binding for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a> control.</p>
+
+<p>Use the <b>wjFinancialChart</b> binding to add <b>FinancialChart</b> controls to your
+KnockoutJS applications. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a FinancialChart control:&lt;/p&gt;
+&lt;div data-bind="wjFinancialChart: { itemsSource: data, chartType: 'Candlestick' }"&gt;
+    &lt;div data-bind="wjFlexChartLegend : { 
+        position: 'Top' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFinancialChartSeries: {
+         name: 'close', 
+        binding: 'high,low,open,close' }"&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjFinancialChart</b> binding may contain the following child bindings:
+<a href="topic/wijmo.knockout.wjFlexChartAxis.Class.html"><b>wjFlexChartAxis</b></a>, <a href="topic/wijmo.knockout.wjFinancialChartSeries.Class.html"><b>wjFinancialChartSeries</b></a>, <a href="topic/wijmo.knockout.wjFlexChartLegend.Class.html"><b>wjFlexChartLegend</b></a>.</p>
+
+<p>The <b>wjFinancialChart</b> binding supports all read-write properties and events of
+the <b>FinancialChart</b> control, and the additional <b>tooltipContent</b> property
+that assigns a value to the <b>FinancialChart.tooltip.content</b> property.
+The <b>selection</b> property provides two-way binding mode.</p></p>

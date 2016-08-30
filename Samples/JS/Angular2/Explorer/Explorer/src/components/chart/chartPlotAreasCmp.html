@@ -1,0 +1,40 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Multiple plot areas
+        </h3>
+        <p>
+            This view shows the <b>FlexChart</b> with several plot areas.
+        </p>
+    </div>
+    <div>
+
+        <!-- the chart -->
+        <wj-flex-chart [chartType]="'Area'" style="display:block"
+                       class="chart"
+                       #chart
+                       [itemsSource]="itemsSource"
+                       [bindingX]="'t'">
+
+            <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="'time, s'"></wj-flex-chart-axis>
+
+            <wj-flex-chart-plot-area [row]="0" [name]="'plot1'" [style]="{ fill: 'rgba(136,189,230,0.2)' }"></wj-flex-chart-plot-area>
+            <wj-flex-chart-plot-area [row]="1" [name]="'div1'" [height]="20"></wj-flex-chart-plot-area>
+            <wj-flex-chart-plot-area #plot2 [row]="2" [name]="'plot2'" [style]="{ fill: 'rgba(251,178,58,0.2)' }"></wj-flex-chart-plot-area>
+            <wj-flex-chart-plot-area [row]="3" [name]="'div2'" [height]="20"></wj-flex-chart-plot-area>
+            <wj-flex-chart-plot-area #plot3 [row]="4" [name]="'plot3'" [style]="{ fill: 'rgba(144,205,151,0.2)' }"></wj-flex-chart-plot-area>
+
+            <wj-flex-chart-series [name]="'acceleration'" [binding]="'a'"></wj-flex-chart-series>
+            <wj-flex-chart-series [name]="'velocity'" [binding]="'v'">
+                <wj-flex-chart-axis #velAxis [wjProperty]="'axisY'" [position]="'Left'" [majoGrid]="true"
+                                    [plotArea]="plot2">
+                </wj-flex-chart-axis>
+            </wj-flex-chart-series>
+            <wj-flex-chart-series [name]="'distance'" [binding]="'s'">
+                <wj-flex-chart-axis #distAxis [wjProperty]="'axisY'" [position]="'Left'" [majorGrid]="true"
+                                    [plotArea]="plot3">
+                </wj-flex-chart-axis>
+            </wj-flex-chart-series>
+        </wj-flex-chart>
+    </div>
+</div>

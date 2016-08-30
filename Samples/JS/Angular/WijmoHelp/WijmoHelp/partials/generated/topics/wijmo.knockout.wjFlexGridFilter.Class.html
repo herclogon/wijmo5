@@ -1,0 +1,37 @@
+<h2>wjFlexGridFilter Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><b>WjBinding</b></dd>
+<dt>Module</dt><dd>wijmo.knockout</dd>
+<dt>File</dt><dd>wijmo.knockout.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>KnockoutJS binding for the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> object.</p>
+
+<p>The <b>wjFlexGridFilter</b> binding must be contained in a <a href="topic/wijmo.knockout.wjFlexGrid.Class.html"><b>wjFlexGrid</b></a> binding. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a FlexGrid control with column filters:&lt;/p&gt;
+&lt;div data-bind="wjFlexGrid: { itemsSource: data }"&gt;
+    &lt;div data-bind="wjFlexGridFilter: { filterColumns: ['country', 'amount']  }"&gt;&lt;/div&gt;
+&nbsp;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Country', 
+        binding: 'country', 
+        width: '*' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Date', 
+        binding: 'date' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Revenue', 
+        binding: 'amount', 
+        format: 'n0' }"&gt;
+    &lt;/div&gt;
+    &lt;div data-bind="wjFlexGridColumn: { 
+        header: 'Active', 
+        binding: 'active' }"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre></p>
+
+<p>The <b>wjFlexGridFilter</b> binding supports all read-write properties and events of 
+the <b>FlexGridFilter</b> class.</p></p>

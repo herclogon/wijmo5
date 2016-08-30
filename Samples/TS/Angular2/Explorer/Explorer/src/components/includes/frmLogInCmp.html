@@ -1,0 +1,44 @@
+﻿<!--
+    Log In form
+-->
+<form (ngSubmit)="onSubmit('logging in...')">
+    <h4 class="modal-header">
+        Log in
+        <button type="button" tabindex="-1" class="close wj-hide">&times;</button>
+    </h4>
+    <div class="modal-body">
+        <label>
+            Email: <input class="form-control"
+                          required type="email" />
+        </label>
+        <br />
+        <label>
+            Password: <input class="form-control"
+                             type="password"
+                             required pattern=".{4,}" title="Please enter 4 characters or more." />
+        </label>
+        <br />
+        <label>
+            Remember Me
+            <input type="checkbox" />
+        </label>
+        <br />
+        <a href="" class="wj-hide" (click)="onCreateAccount()">Don't have an account yet?</a>
+    </div>
+    <div class="modal-footer">
+        <div style="float:left">
+            <img src="resources/facebook.png"
+                 title="Log in using your Facebook account"
+                 class="wj-hide"
+                 (click)="hide('logging in via Facebook...')" />
+            <img src="resources/google.png"
+                 title="Log in using your Google account"
+                 class="wj-hide"
+                 (click)="hide('logging in via Google...')" />
+        </div>
+        <button class="btn btn-primary"
+                type="submit">
+            Log in
+        </button>
+    </div>
+</form>

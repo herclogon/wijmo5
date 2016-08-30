@@ -1,0 +1,26 @@
+﻿<div style="display:flex; flex-wrap:wrap" *ngIf="customers">
+    <div 
+        style="width:2.2in; height:1.25in; padding:6px; border:1px dotted #e0e0e0; page-break-inside:avoid" 
+        *ngFor="let customer of customers.items">
+        {{ customer.CompanyName	}}<br />
+        {{ customer.Address	}}<br />
+        {{ customer.City + ' ' +  customer.PostalCode}}<br />
+        {{ customer.Country	}}
+    </div>
+</div>
+
+
+<!-- 
+    this works well in Chrome,
+    but not so well in IE
+<div style="column-width:2.2in; column-count:3">
+    <div 
+        style="height:1.25in; padding:6px; border:1px dotted #e0e0e0; page-break-inside:avoid" 
+        ng-repeat="customer in customers.items">
+        {{ customer.CompanyName	}}<br />
+        {{ customer.Address	}}<br />
+        {{ customer.City + ' ' +  customer.PostalCode}}<br />
+        {{ customer.Country	}}
+    </div>
+</div>        
+-->

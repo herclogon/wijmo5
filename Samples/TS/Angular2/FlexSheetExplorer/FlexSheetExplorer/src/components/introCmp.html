@@ -1,0 +1,62 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Introduction
+        </h3>
+        <p>
+            The <a href="http://wijmo.com/5/docs/topic/wijmo.grid.sheet.FlexSheet.Class.html"
+                   target="_blank">FlexSheet</a> control extends the FlexGrid control and provides an Excel-like functionality.
+            So the FlexSheet control supports all the FlexGrid's features.
+            FlexSheet is focused on the key features from Excel besides the FlexGrid's features.
+        </p>
+        <div class="collapsed-content collapse">
+            <p>
+                FlexSheet provides following Excel-like features:
+            </p>
+            <dl class="dl-horizontal">
+                <dt>Multiple Sheets</dt>
+                <dd>FlexSheet allows multiple separated sheets in it.</dd>
+                <dt>Formulas</dt>
+                <dd>
+                    FlexSheet includes a calculation engine for built-in formula support,
+                    complete with nearly 100 formulas and auto-completion.
+                    Our formula operations were built to align with Microsoft Excel,
+                    including operations for aggregation, mathematics, logic and text.
+                </dd>
+                <dt>Cell Style</dt>
+                <dd>
+                    FlexSheet supports to apply style for each cell includes format, font, horizontal alignment,
+                    fore color, fill color and etc..
+                </dd>
+                <dt>Merge Cells</dt>
+                <dd>
+                    FlexSheet supports any cells merging.  This is different with FlexGrid.
+                    FlexGrid just supports content-driven cell merging.
+                </dd>
+                <dt>Undo/Redo</dt>
+                <dd>
+                    FlexSheet supports undo/redo mutiple operations includes edit cell, insert/remove rows/columns,
+                    apply cell style, merge cells, resize rows/columns, drag & drop rows/columns and etc..
+                </dd>
+                <dt>Drag & Drop</dt>
+                <dd>FlexSheet supports drag & drop rows/columns to move or copy current rows/columns to other rows/columns</dd>
+                <dt>Select whole column</dt>
+                <dd>FlexSheet supports select whole column by clicking the column header.</dd>
+            </dl>
+        </div>
+        <p>
+            <button type="button"
+                    data-toggle="collapse"
+                    data-target=".collapsed-content, .btn.btn-default.btn-xs.collapse"
+                    class="btn btn-default btn-xs collapse in">
+                Read more
+            </button>
+        </p>
+    </div>
+    <div>
+        <wj-flex-sheet #flexSheet class="flexSheet" (initialized)="flexSheetInit(flexSheet)">
+            <wj-sheet [rowCount]="25" [columnCount]="12"></wj-sheet>
+            <wj-sheet [rowCount]="25" [columnCount]="12"></wj-sheet>
+        </wj-flex-sheet>
+    </div>
+</div>

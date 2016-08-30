@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CellFactory</title>
+
+    <!-- use the latest version of IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+    <!-- Wijmo -->
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+    <script src="scripts/vendor/wijmo.min.js"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js"></script>
+
+    <!-- app scripts and styles -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/CustomCellFactory.js"></script>
+    <link href="styles/app.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>
+            FlexGrid with Custom CellFactory</h1>
+        <p>
+            This grid uses a custom <b>cellFactory</b> to customize cells for display.</p>
+        <p>
+            Using a custom <b>cellFactory</b> class is slightly more complex than using an 
+            <b>itemFormatter</b> or the <b>formatItem</b> event, but it can be more efficient 
+            because it allows you to bypass the default cell content generation and recycle 
+            custom cells.</p>
+        <p>
+            The <b>CustomCellFactory</b> class used in this example uses the base class to 
+            position the cell elements without changing their content, which is updated only 
+            when necessary. Because the grid reorders and recycles cells, this results in 
+            improved rendering performance.</p>
+        <p>
+            Compare the performance of each rendering mode by selecting an option below and
+            scrolling the grid with the mouse or keyboard:</p>
+
+        <div id="renderMode">
+            <label>
+                <input type="radio" name="renderMode" value="Default">
+                Default Rendering (fastest)
+            </label><br/>
+            <label>
+                <input type="radio" name="renderMode" value="CustomCellFactory" checked>
+                Custom CellFactory (fast)
+            </label><br/>
+            <label>
+                <input type="radio" name="renderMode" value="ItemFormatter">
+                ItemFormatter function (slowest)
+            </label>
+        </div>
+
+        <div id="theGrid"></div>
+
+    </div>
+</body>
+
+</html>

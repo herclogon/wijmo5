@@ -1,0 +1,123 @@
+﻿body {
+    background-color: #f8f8f8;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    padding: 0 0 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #80044d;
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-left: -12px;
+}
+
+.header {
+    color: #cdbfe3;
+    background-color: #6f5499;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        color: #fff;
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+    .header img {
+		float: left;
+		margin: 0 10px 5px 0;
+	}
+
+.pane-content {
+    background-color: white;
+    padding: 0px 8px;
+    border: 1px solid #dddddd;
+    border-top: none;
+    white-space: pre;
+    overflow: auto;
+    font-size: 13px;
+    font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+}
+
+/* some extra spacing between the items */
+.row {
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+/* set default grid height and some shadow */
+.wj-flexsheet {
+    height: 400px;
+    background-color: white;
+    box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+    margin-bottom: 12px;
+}
+
+/* responsive layout */
+@media(min-width: 992px) {
+    .collapse.app-lg-visible {
+        display: block;
+    }
+
+    .btn.collapse {
+        display: none !important;
+    }
+}
+
+@media(max-width: 991px) {
+    .header h1 {
+        font-size: 22px;
+        line-height: 1;
+        margin-top: 7px;
+        color: #fff;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin: 10px 0 25px 0;
+    }
+
+    h4 {
+        display: none;
+    }
+
+    .wj-flexchart {
+        box-shadow: 2px 2px 8px 0 rgba(50, 50, 50, 0.5);
+        margin-bottom: 15px;
+    }
+
+    .tabbable {
+        margin-bottom: 20px;
+    }
+
+    .wj-dropdown {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .dl-horizontal, .btn-group, .input-group {
+        margin-bottom: 10px;
+    }
+
+    .btn[data-target] {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .row {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+@media(max-width: 767px) {
+    code {
+        white-space: normal;
+    }
+}

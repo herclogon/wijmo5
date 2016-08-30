@@ -1,0 +1,47 @@
+﻿<div class="container">
+    <h1>
+        GroupPanel
+    </h1>
+    <p>
+        The <b>GroupPanel</b> control allows you to add a drag-drop grouping UI
+        to any FlexGrid control.
+    </p>
+    <p>
+        To use the <b>GroupPanel</b>, include the "wijmo.grid.grouppanel.js" file
+        in your app, add an element to hold the grouping UI, and create the control
+        when the page loads:
+    </p>
+    <pre>// add a FlexGrid to the page
+var flex = new wijmo.grid.FlexGrid('#gridId');
+// add a GroupPanel to enable grouping on the grid
+var panel = new wijmo.grouppanel.GroupPanel('#panelId', { grid: flex});</pre>
+    <p>
+        If you are using AngularJS, you can simply use the <b>wj-group-panel</b>
+        directive:
+    </p>
+    <pre>&lt;!-- create a FlexGrid with groups --&gt;
+&lt;wj-group-panel
+    [grid]="flex"
+    [placeholder]="'Drag columns here to create Groups'"
+    [maxGroups]="4"&gt;
+&lt;/wj-group-panel&gt;
+&lt;wj-flex-grid
+    #flex
+    [itemsSource]="data"&gt;</pre>
+
+    <wj-group-panel [grid]="flex"
+                    [placeholder]="'Drag columns here to create Groups'"
+                    [maxGroups]="4">
+    </wj-group-panel>
+    <wj-flex-grid #flex
+                  [itemsSource]="data">
+        <wj-flex-grid-column [binding]="'id'"></wj-flex-grid-column>
+        <wj-flex-grid-column [binding]="'name'" [wordWrap]="true"></wj-flex-grid-column>
+        <wj-flex-grid-column [binding]="'date'"></wj-flex-grid-column>
+        <wj-flex-grid-column [binding]="'country'"></wj-flex-grid-column>
+        <wj-flex-grid-column [binding]="'downloads'" [aggregate]="'Sum'"></wj-flex-grid-column>
+        <wj-flex-grid-column [binding]="'sales'" [aggregate]="'Sum'"></wj-flex-grid-column>
+        <wj-flex-grid-column [binding]="'expenses'" [aggregate]="'Sum'"></wj-flex-grid-column>
+        <wj-flex-grid-column [binding]="'checked'" [aggregate]="'Cnt'"></wj-flex-grid-column>
+    </wj-flex-grid>
+</div>

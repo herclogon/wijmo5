@@ -1,0 +1,40 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Zoom
+        </h3>
+        <p>
+            This view shows how to implement a custom zoom for the <b>FlexChart</b> control.
+        </p>
+        <p>
+            Use the mouse to select a rectangular area on the plot area. The chart will zoom
+            in on the selected area. When you are done, click the "Reset Zoom" button below
+            the chart to return to the original view.
+        </p>
+    </div>
+    <div>
+
+        <wj-flex-chart class="chart"  style="display:block"
+                       #chart
+                       [chartType]="'LineSymbols'"
+                       [bindingX]="'x'"
+                       [binding]="'y'"
+                       [tooltipContent]="">
+            <wj-flex-chart-series [itemsSource]="pts1" [name]="'function 1'"></wj-flex-chart-series>
+            <wj-flex-chart-series [itemsSource]="pts2" [name]="'function 2'"></wj-flex-chart-series>
+
+
+        </wj-flex-chart>
+
+        <div id="plotSelection" style="background-color:rgba(85, 85, 85, 0.05); border:2px dashed #808080;position:absolute;display:block;left:0;top:0;pointer-events:none;visibility:hidden">
+        </div>
+        <div>
+            <button type="button"
+                    class="btn btn-default"
+                    (click)="resetZoom()"
+                    [ngStyle]="{display:canResetZoom()?'':'none'}">
+                Reset zoom
+            </button>
+        </div>
+    </div>
+</div>

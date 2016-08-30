@@ -1,0 +1,899 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CollectionView Introduction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/app.css" type="text/css" />
+
+    <!-- Third Party -->
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="http://knockoutjs.com/downloads/knockout-3.2.0.js"></script>
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js"></script>
+    <script src="scripts/vendor/wijmo.input.min.js"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js"></script>
+    <script src="scripts/vendor/wijmo.knockout.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <img src="resources/wijmo5.png" />
+            <h1>
+                CollectionView 101
+            </h1>
+            <p>
+                This page shows how to get started with Wijmo's CollectionView class.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Introduction -->
+        <div>
+            <p>
+                Wijmo 5 has a solid infrastructure based on a powerful data layer that is familiar to
+                .NET developers. The main data binding interface is the
+                <a target="_blank" href="http://wijmo.com/5/docs/topic/wijmo.collections.ICollectionView.Interface.html">ICollectionView</a>.
+                Wijmo includes several classes that implement ICollectionView. The most basic is the
+                <a target="_blank" href="http://wijmo.com/5/docs/topic/wijmo.collections.CollectionView.Class.html">CollectionView</a> class,
+                which uses regular JavaScript arrays as data sources.
+            </p>
+            <p>
+                The CollectionView class implements the following interfaces:
+            </p>
+            <ul>
+                <li>
+                    <b>ICollectionView</b>: Provides current record management, custom sorting,
+                    filtering, and grouping.
+                </li>
+                <li>
+                    <b>IEditableCollectionView</b>: Provides methods for editing, adding, and
+                    removing items.
+                </li>
+                <li>
+                    <b>IPagedCollectionView</b>: Provides paging for navigating through large
+                    numbers of items.
+                </li>
+            </ul>
+            <p>
+                The CollectionView class can keep track of changes made to the data. This
+                feature is useful for submitting changes to the server.
+            </p>
+        </div>
+
+        <!-- getting started -->
+        <div id="gettingStarted">
+            <h2>Getting Started</h2>
+            <p>
+                To use the CollectionView class, start by declaring it and passing in a regular array as the data source.
+                Then access the CollectionView using the view model's <b>collectionView</b> property.
+            </p>
+            <p>
+                In this example, we show the CollectionView instance in a Wijmo 5 FlexGrid.
+            </p>
+            <p>
+                Steps to getting started with the CollectionView class in KnockoutJS applications:
+            </p>
+            <ol>
+                <li>Add references to KnockoutJS, Wijmo, and the Wijmo KnockoutJS bindings.</li>
+                <li>Add table (or FlexGrid) to the page and bind it to the CollectionView data.</li>
+                <li>Add a view model to provide data and logic.</li>
+                <li>(Optional) Add some CSS to customize the grid's appearance.</li>
+            </ol>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" type="text/css" href="css/wijmo.css"/&gt;
+  &lt;script src="scripts/knockout.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script src="scripts/wijmo.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script src="scripts/wijmo.grid.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;script src="scripts/wijmo.knockout.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="gettingStarted"&gt;
+    &lt;div data-bind="wjFlexGrid: { itemsSource: collectionView }"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+function basicVM(data) {
+  this.collectionView = new wijmo.collections.CollectionView(data);
+}
+ko.applyBindings(new basicVM(dataSvc.getData(100)), document.getElementById('gettingStarted'));
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div data-bind="wjFlexGrid: { itemsSource: collectionView }"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- current record management -->
+        <div id="currentRecordMgmt">
+            <h2>Current Record Management</h2>
+            <p>
+                As implementing the interface <b>ICollectionView</b>, <b>CollectionView</b> can manage the current record.
+            </p>
+            <p>
+                This example shows how you can manage the current record through APIs provided by the <b>CollectionView</b> class.
+            </p>
+            <p>
+                In this case, we use the properties <b>currentPosition</b> to obtain the current record position in the collection.
+                We also use the methods <b>moveCurrentTo(item)</b>, <b>moveCurrentToFirst()</b>, <b>moveCurrentToLast()</b>,
+                <b>moveCurrentToNext()</b>, <b>moveCurrentToPosition(index)</b> and <b>moveCurrentToPrevious()</b> to change the
+                current position. When the current is changed, we use the events <b>currentChanging</b> and <b>currentChanged</b> to
+                track it. We can cancel the current changing in the event <b>currentChanging</b>.
+            </p>
+            <p>
+                Notes: Click the "Move To Next" button to move the current to the next one. Click the "Move to Previous" to move the
+                current to the previous on. Clicking the "Stop in 4th Row" button will cause the current is forbidden to be changed
+                when it locates in the 4th row. Then clicking the "Clear Stopping" button will let the current be changed freely.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;div class="well btn-group"&gt;
+  &lt;button class="btn btn-default" 
+          data-bind="click: function() { collectionView.moveCurrentToNext() }"&gt;
+        Move Next
+  &lt;/button&gt;
+  &lt;button class="btn btn-default" 
+          data-bind="click: function() { collectionView.moveCurrentToPrevious() }"&gt;
+        Move Previous
+  &lt;/button&gt;
+  &lt;button class="btn btn-default" data-bind="click: addStopping"&gt;Stop in 4th Row&lt;/button&gt;
+  &lt;button class="btn btn-default" data-bind="click: clearStopping"&gt;Clear Stopping&lt;/button&gt;
+&lt;/div&gt;
+&lt;div data-bind="wjFlexGrid: { itemsSource: collectionView }"&gt;&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+this.collectionView = new wijmo.collections.CollectionView(data);
+
+this.addStopping = function () {
+  this.collectionView.currentChanging.addHandler(stoppingHandler);
+};
+
+this.clearStopping = function () {
+  this.collectionView.currentChanging.removeHandler(stoppingHandler);
+};
+
+function stoppingHandler (sender, args) {
+  if (sender.currentPosition === 3) {
+    args.cancel = true;
+  }
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="well btn-group">
+                        <button class="btn btn-default" 
+                                data-bind="click: function() { collectionView.moveCurrentToNext() }">
+                            Move Next
+                        </button>
+                        <button class="btn btn-default" 
+                                data-bind="click: function() { collectionView.moveCurrentToPrevious() }">
+                            Move Previous
+                        </button>
+                        <button class="btn btn-default" data-bind="click: addStopping">Stop in 4th Row</button>
+                        <button class="btn btn-default" data-bind="click: clearStopping">Clear Stopping</button>
+                    </div>
+                    <div data-bind="wjFlexGrid: { itemsSource: collectionView }"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- sorting -->
+        <div id="sorting">
+            <h2>Sorting</h2>
+            <p>
+                The <b>CollectionView</b> class supports sorting through the <b>ICollectionView</b> interface, which is identical to the
+                one in .NET. To enable sorting, add one or more <b>sortDescriptions</b> objects to the <b>CollectionView.sortDescriptions</b>
+                property. Then the sorted result can be obtained from the <b>CollectionView.items</b> property.
+            </p>
+            <p>
+                <b>SortDescription</b> objects are flexible, allowing you to sort data based on value in ascending or descending order.
+                In the sample below, you can sort the collection based on the corresponding field value choosed in the first list. You can
+                also specify the sorting order in the second list.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;div class="row well"&gt;
+  &lt;div class="col-md-8"&gt;
+    &lt;select class="form-control"
+            data-bind="options: names,
+                       value: currentSort,
+                       optionsCaption: 'Please choose the field you wish to sort by...'"&gt;&lt;/select&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-4"&gt;
+    &lt;select class="form-control" data-bind="value: sortOrder"&gt;
+      &lt;option value="true" selected&gt;Ascending&lt;/option&gt;
+      &lt;option value="false"&gt;Descending&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div data-bind="wjFlexGrid: { itemsSource: collectionView }"&gt;&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+this.collectionView = new wijmo.collections.CollectionView(data);
+this.names = names;
+
+this.currentSort = ko.observable();
+this.currentSort.subscribe(applySort, this);
+
+this.sortOrder = ko.observable();
+this.sortOrder.subscribe(applySort, this);
+
+// perform CollectionView sorting when dropdown value changes
+function applySort(newVal) {
+  var currentSort = this.currentSort(),
+      sortOrder = this.sortOrder() === 'true',
+      cv = this.collectionView;
+
+  if (!currentSort) return;
+
+  cv.sortDescriptions.clear();
+  cv.sortDescriptions.push(new wijmo.collections.SortDescription(currentSort, sortOrder));
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="row well">
+                        <div class="col-md-8">
+                            <select class="form-control"
+                                    data-bind="options: names,
+                                           value: currentSort,
+                                           optionsCaption: 'Please choose the field you wish to sort by...'"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control" data-bind="value: sortOrder">
+                                <option value="true" selected>Ascending</option>
+                                <option value="false">Descending</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div data-bind="wjFlexGrid: { itemsSource: collectionView }"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- filtering -->
+        <div id="filtering">
+            <h2>Filtering</h2>
+            <p>
+                The <b>CollectionView</b> class supports filtering through the <b>ICollectionView</b> interface, which is identical to
+                the one in .NET. To enable filtering, set the <b>CollectionView.filter</b> property to a function that determines which
+                objects to be included in the view.
+            </p>
+            <p>
+                In this example, we create a filter for the country, and get the filter value from the input control. When you input the
+                filter, the grid will be refreshed and render the fitlered data.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;div class="well"&gt;
+  &lt;input type="text" class="form-control" data-bind="textInput: filterText" placeholder="Filter by 'country'" /&gt;
+&lt;/div&gt;
+&lt;div data-bind="wjFlexGrid: { itemsSource: collectionView }"&gt;&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+this.collectionView = new wijmo.collections.CollectionView(data);
+this.collectionView.filter = filterFn.bind(this);
+
+this.filterText = ko.observable('');
+this.filterText.subscribe(function(newVal) {
+  this.collectionView.refresh();
+}, this);
+
+// function used to filter the CollectionView
+function filterFn(dataItem) {
+  if (!this.hasOwnProperty('filterText')) return true;
+
+  var filterText = this.filterText().toLowerCase();
+  return !filterText || dataItem.country.toLowerCase().indexOf(filterText) &gt; -1;
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="well">
+                        <input type="text" class="form-control" data-bind="textInput: filterText" placeholder="Filter by 'country'" />
+                    </div>
+                    <div data-bind="wjFlexGrid: { itemsSource: collectionView }"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- grouping -->
+        <div id="grouping">
+            <h2>Grouping</h2>
+            <p>
+                The <b>CollectionView</b> class supports grouping through the <b>ICollectionView</b> interface, which is identical to the
+                one in .NET. To enable grouping, add one or more <b>GroupDescription</b> objects to the <b>CollectionView.groupDescriptions</b>
+                property, and ensure that the grid's <b>showGroups</b> property is set to true when creating the grid instance(the default
+                value is false.).
+            </p>
+            <p>
+                <b>GroupDescription</b> objects are flexible, allowing you to group data based on value or on grouping functions.
+            </p>
+            <p>
+                The example below groups the collection by the field which you select from the list. The grid shows not only the items content,
+                but also the group information: the group name and the average value of amount in the group.
+            </p>
+            <p>
+                Notes: Selecting one item in the list will add a new instance of GroupDescription. If the GroupDescription already exists,
+                nothing happens. In order to clear the group setting, select the first item in the list.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;div class="well"&gt;
+  &lt;select class="form-control"
+          data-bind="options: names,
+                     value: currentGroup,
+                     optionsCaption: 'Please choose the field you wish to group by...'"&gt;&lt;/select&gt;
+&lt;/div&gt;
+&lt;div data-bind="wjFlexGrid: { itemsSource: collectionView }"&gt;&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+this.collectionView = new wijmo.collections.CollectionView(data);
+this.names = names;
+this.currentGroup = ko.observable();
+this.currentGroup.subscribe(function (newVal) {
+  var currentGroup = newVal,
+      cv = this.collectionView;
+
+  // clear groups when the "placeholder" is selected
+  if (!currentGroup) {
+    cv.groupDescriptions.clear();
+    return;
+  }
+
+  // prevent double grouping
+  var exists = cv.groupDescriptions.some(function (item) {
+    return item.propertyName === currentGroup;
+  });
+  if (exists) return;
+
+  // perform grouping
+  cv.groupDescriptions.push(new wijmo.collections.PropertyGroupDescription(currentGroup));
+}, this);
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="well">
+                        <select class="form-control"
+                                data-bind="options: names,
+                                           value: currentGroup,
+                                           optionsCaption: 'Please choose the field you wish to group by...'"></select>
+                    </div>
+                    <div data-bind="wjFlexGrid: { itemsSource: collectionView }"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- editing -->
+        <div id="editing">
+            <h2>Editing</h2>
+            <p>
+                As implementing the interface <b>IEditableCollectionView</b>, the <b>CollectionView</b> class supports editing.
+            </p>
+            <p>
+                This sample shows how you can update, add, and remove the specified item in the collection.
+            </p>
+            <p>
+                In this sample, you can select the row in the grid and press the Edit Detail button to start editing. After finishing editing
+                in the popup dialog, press the OK button to commit your updating. If you want to add a new record to the collection, press the
+                Add button and customize the item content in the popup dialog. Then press the OK button to commit your adding. If you don't want
+                to update/add the record, just press the Cancel button in the dialog. Select the row and press the Delete button will let you
+                remove the record from the collection.
+            </p>
+            <p>
+                After updating, adding, and removing records, the grid will be refreshed accordingly.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;div data-bind="wjFlexGrid: { itemsSource: collectionView() }"&gt;&lt;/div&gt;
+&lt;div class="well"&gt;
+  &lt;button class="btn btn-default" data-toggle="modal" data-target="#editingModal" data-bind="disable: !currentItem()"&gt;Edit Details&lt;/button&gt;
+  &lt;button class="btn btn-default" data-toggle="modal" data-target="#editingModal" data-bind="click: addItem"&gt;Add&lt;/button&gt;
+  &lt;button class="btn btn-default" data-bind="click: collectionView().remove(currentItem()), disable: !currentItem()"&gt;Delete&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="modal" id="editingModal" data-backdrop="static" data-keyboard="false"&gt;
+  &lt;div class="modal-dialog"&gt;
+    &lt;div class="modal-content"&gt;
+      &lt;div class="modal-header"&gt;
+        &lt;button class="close" data-dismiss="modal"&gt;&amp;times;&lt;/button&gt;
+        &lt;h4&gt;Edit Item&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-body"&gt;
+        &lt;div class="form-horizontal"&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label class="col-sm-3"&gt;ID&lt;/label&gt;
+            &lt;div class="col-sm-9"&gt;
+              &lt;input class="form-control" data-bind="value: currentItem().id" disabled /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label class="col-sm-3"&gt;Start Date&lt;/label&gt;
+            &lt;div class="col-sm-9"&gt;
+              &lt;input class="form-control" data-bind="value: currentItem().start" placeholder="Start Date" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label class="col-sm-3"&gt;End Date&lt;/label&gt;
+            &lt;div class="col-sm-9"&gt;
+              &lt;input class="form-control" data-bind="value: currentItem().end" placeholder="End Date" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label class="col-sm-3"&gt;Country&lt;/label&gt;
+            &lt;div class="col-sm-9"&gt;
+              &lt;input class="form-control" data-bind="value: currentItem().country" placeholder="Country" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label class="col-sm-3"&gt;Product&lt;/label&gt;
+            &lt;div class="col-sm-9"&gt;
+              &lt;input class="form-control" data-bind="value: currentItem().product" placeholder="Product" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label class="col-sm-3"&gt;Color&lt;/label&gt;
+            &lt;div class="col-sm-9"&gt;
+              &lt;input class="form-control" data-bind="value: currentItem().color" placeholder="Color" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label class="col-sm-3"&gt;Amount&lt;/label&gt;
+            &lt;div class="col-sm-9"&gt;
+              &lt;input class="form-control" data-bind="value: currentItem().amount" placeholder="Amount" /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label class="col-sm-3"&gt;Active&lt;/label&gt;
+            &lt;div class="col-sm-9"&gt;
+              &lt;div class="checkbox"&gt;
+                &lt;label&gt;
+                  &lt;input type="checkbox" data-bind="checked: currentItem().active" /&gt;
+                &lt;/label&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-footer"&gt;
+        &lt;button class="btn btn-primary" data-dismiss="modal" data-bind="click: commitUpdate"&gt;OK&lt;/button&gt;
+        &lt;button class="btn btn-warning" data-dismiss="modal" data-bind="click: cancelUpdate"&gt;Cancel&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+var collectionView = new wijmo.collections.CollectionView(data);
+collectionView.newItemCreator = function () {
+  // return object with an ID property
+  return {
+      id: wijmo.getAggregate(wijmo.Aggregate.Max, collectionView.sourceCollection, 'id') + 1
+  };
+};
+
+this.collectionView = ko.observable(collectionView);
+this.currentItem = ko.computed(function () {
+  return this.collectionView().currentItem;
+}, this);
+
+this.addItem = function () {
+  collectionView.addNew();
+};
+
+// commit CollectionView's changes
+this.commitUpdate = function () {
+  collectionView.commitEdit();
+  collectionView.commitNew();
+  collectionView.refresh();
+};
+
+// cancel CollectionView's changes
+this.cancelUpdate = function () {
+  collectionView.cancelEdit();
+  collectionView.cancelNew();
+  collectionView.refresh();
+};
+
+collectionView.collectionChanged.addHandler(notifyChange.bind(this));
+collectionView.currentChanged.addHandler(notifyChange.bind(this));
+function notifyChange() {
+  this.collectionView.valueHasMutated();
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div data-bind="wjFlexGrid: { itemsSource: collectionView() }"></div>
+                    <div class="well">
+                        <button class="btn btn-default" data-toggle="modal" data-target="#editingModal" data-bind="disable: !currentItem()">Edit Details</button>
+                        <button class="btn btn-default" data-toggle="modal" data-target="#editingModal" data-bind="click: addItem">Add</button>
+                        <button class="btn btn-default" data-bind="click: collectionView().remove(currentItem()), disable: !currentItem()">Delete</button>
+                    </div>
+                    <div class="modal" id="editingModal" data-backdrop="static" data-keyboard="false">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button class="close" data-dismiss="modal">&times;</button>
+                                    <h4>Edit Item</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-sm-3">ID</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" data-bind="value: currentItem().id" disabled />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3">Start Date</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" data-bind="value: currentItem().start" placeholder="Start Date" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3">End Date</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" data-bind="value: currentItem().end" placeholder="End Date" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3">Country</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" data-bind="value: currentItem().country" placeholder="Country" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3">Product</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" data-bind="value: currentItem().product" placeholder="Product" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3">Color</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" data-bind="value: currentItem().color" placeholder="Color" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3">Amount</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" data-bind="value: currentItem().amount" placeholder="Amount" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3">Active</label>
+                                            <div class="col-sm-9">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" data-bind="checked: currentItem().active" />
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" data-dismiss="modal" data-bind="click: commitUpdate">OK</button>
+                                    <button class="btn btn-warning" data-dismiss="modal" data-bind="click: cancelUpdate">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- paging -->
+        <div id="paging">
+            <h2>Paging</h2>
+            <p>
+                The <b>CollectionView</b> class supports paging through the <b>IPagedCollectionView</b> interface, which is nearly identical
+                to the one in .NET. To enable paging, set the <b>IPagedCollectionView.pageSize</b> property to the number of items you want
+                on each page, and provide a UI for navigating the pages.
+            </p>
+            <p>
+                In this example, we use JavaScript to show 10 items per page. You can customize it in the text box. We add navigation buttons,
+                and call IPagedCollectionView methods in the button click. Note that we use the <strong>pageIndex</strong> and <strong>pageCount</strong>
+                properties to show the current page and total number of pages. You can customize the page size in the first text box. Let it be empty
+                or 0 to make CollectionView no paging. Then the navigation buttons will be invisible.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;div class="row well"&gt;
+  &lt;div class="col-md-5"&gt;
+    &lt;input type="text" class="form-control" data-bind="textInput: pageSize" placeholder="Please enter the page size..." /&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-7"&gt;
+    &lt;div class="btn-group" data-bind="visible: pageSize() &gt; 0"&gt;
+      &lt;button class="btn btn-default" data-bind="click: collectionView().moveToFirstPage.bind(collectionView()), disable: isBeginning"&gt;
+        &lt;span class="glyphicon glyphicon-fast-backward"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button class="btn btn-default" data-bind="click: collectionView().moveToPreviousPage.bind(collectionView()), disable: isBeginning"&gt;
+        &lt;span class="glyphicon glyphicon-step-backward"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button class="btn btn-default" disabled&gt;
+        &lt;span data-bind="text: collectionView().pageIndex + 1"&gt;&lt;/span&gt; / &lt;span data-bind="text: collectionView().pageCount"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button class="btn btn-default" data-bind="click: collectionView().moveToNextPage.bind(collectionView()), disable: isEnd"&gt;
+        &lt;span class="glyphicon glyphicon-step-forward"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;button class="btn btn-default" data-bind="click: collectionView().moveToLastPage.bind(collectionView()), disable: isEnd"&gt;
+        &lt;span class="glyphicon glyphicon-fast-forward"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div data-bind="wjFlexGrid: { itemsSource: collectionView() }"&gt;&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+var collectionView = new wijmo.collections.CollectionView(data);
+collectionView.pageSize = 10;
+
+this.collectionView = ko.observable(collectionView);
+
+// computed property to help get/set the CollectionView's pageSize property
+this.pageSize = ko.computed({
+  read: function () {
+    return this.collectionView().pageSize;
+  },
+  write: function (newVal) {
+    this.collectionView().pageSize = Math.abs(parseInt(newVal)) || 0;
+  }
+}, this);
+
+// determine if previous/first page buttons should be disabled/enabled
+this.isBeginning = ko.computed(function () {
+  return this.collectionView().pageIndex === 0;
+}, this);
+
+// determine if next/last page buttons should be disabled/enabled
+this.isEnd = ko.computed(function () {
+  return (this.collectionView().pageIndex + 1) === this.collectionView().pageCount;
+}, this);
+
+collectionView.collectionChanged.addHandler(notifyChange.bind(this));
+collectionView.currentChanged.addHandler(notifyChange.bind(this));
+collectionView.pageChanged.addHandler(notifyChange.bind(this));
+function notifyChange() {
+  this.collectionView.valueHasMutated();
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="row well">
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" data-bind="textInput: pageSize" placeholder="Please enter the page size..." />
+                        </div>
+                        <div class="col-md-7">
+                            <div class="btn-group" data-bind="visible: pageSize() > 0">
+                                <button class="btn btn-default" data-bind="click: collectionView().moveToFirstPage.bind(collectionView()), disable: isBeginning">
+                                    <span class="glyphicon glyphicon-fast-backward"></span>
+                                </button>
+                                <button class="btn btn-default" data-bind="click: collectionView().moveToPreviousPage.bind(collectionView()), disable: isBeginning">
+                                    <span class="glyphicon glyphicon-step-backward"></span>
+                                </button>
+                                <button class="btn btn-default" disabled>
+                                    <span data-bind="text: collectionView().pageIndex + 1"></span> / <span data-bind="text: collectionView().pageCount"></span>
+                                </button>
+                                <button class="btn btn-default" data-bind="click: collectionView().moveToNextPage.bind(collectionView()), disable: isEnd">
+                                    <span class="glyphicon glyphicon-step-forward"></span>
+                                </button>
+                                <button class="btn btn-default" data-bind="click: collectionView().moveToLastPage.bind(collectionView()), disable: isEnd">
+                                    <span class="glyphicon glyphicon-fast-forward"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-bind="wjFlexGrid: { itemsSource: collectionView() }"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- change tracking -->
+        <div id="changeTracking">
+            <h2>Tracking Changes</h2>
+            <p>
+                The <b>CollectionView</b> class can keep track of changes made to the data. It is useful in situations where you must submit changes
+                to the server. To turn on change tracking, set the <b>trackChanges</b> property to true. Once you do that, the <b>CollectionView</b>
+                keeps track of any changes made to the data and exposes them in three arrays:
+            </p>
+            <ul>
+                <li>
+                    <b>itemsEdited</b>: This list contains items that are edited using the <b>beginEdit</b> and <b>commitEdit</b> methods.
+                </li>
+                <li>
+                    <b>itemsAdded</b>: This list contains items that are added using the <b>addNew</b> and <b>commitNew</b> methods.
+                </li>
+                <li>
+                    <b>itemsRemoved</b>: This list contains items that are removed using the <b>remove</b> method.
+                </li>
+            </ul>
+            <p>
+                This feature is demonstrated below using a <b>FlexGrid</b>. The grid is bound to a <b>CollectionView</b> with <b>trackChanges</b>
+                set to true.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div data-bind="appTab: {}">
+                        <div data-bind="appTabPane: {title: 'HTML'}">
+                            <div class="pane-content">
+&lt;h5&gt;Change the data here&lt;/h5&gt;
+&lt;div data-bind="wjFlexGrid: { itemsSource: collectionView, allowAddNew: true, allowDelete: true }" style="height: 300px;"&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'id', binding: 'id' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'start', binding: 'start' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'end', binding: 'end' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'country', binding: 'country' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'product', binding: 'product' }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;h6&gt;Items added:&lt;/h6&gt;
+&lt;div data-bind="wjFlexGrid: { itemsSource: collectionView.itemsAdded }" style="height: 150px;"&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'id', binding: 'id' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'start', binding: 'start' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'end', binding: 'end' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'country', binding: 'country' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'product', binding: 'product' }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;h6&gt;Items edited:&lt;/h6&gt;
+&lt;div data-bind="wjFlexGrid: { itemsSource: collectionView.itemsEdited }" style="height: 150px;"&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'id', binding: 'id' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'start', binding: 'start' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'end', binding: 'end' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'country', binding: 'country' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'product', binding: 'product' }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;h6&gt;Items removed:&lt;/h6&gt;
+&lt;div data-bind="wjFlexGrid: { itemsSource: collectionView.itemsRemoved }" style="height: 150px;"&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'id', binding: 'id' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'start', binding: 'start' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'end', binding: 'end' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'country', binding: 'country' }"&gt;&lt;/div&gt;
+  &lt;div data-bind="wjFlexGridColumn: { header: 'product', binding: 'product' }"&gt;&lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                        <div data-bind="appTabPane: {title: 'JS'}">
+                            <div class="pane-content">
+var collectionView = new wijmo.collections.CollectionView(data);
+collectionView.trackChanges = true;
+
+this.collectionView = collectionView;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <h5>Change the data here</h5>
+                    <div data-bind="wjFlexGrid: { itemsSource: collectionView, allowAddNew: true, allowDelete: true }" style="height: 300px;">
+                        <div data-bind="wjFlexGridColumn: { header: 'id', binding: 'id' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'start', binding: 'start' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'end', binding: 'end' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'country', binding: 'country' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'product', binding: 'product' }"></div>
+                    </div>
+                    <h6>Items added:</h6>
+                    <div data-bind="wjFlexGrid: { itemsSource: collectionView.itemsAdded }" style="height: 150px;">
+                        <div data-bind="wjFlexGridColumn: { header: 'id', binding: 'id' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'start', binding: 'start' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'end', binding: 'end' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'country', binding: 'country' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'product', binding: 'product' }"></div>
+                    </div>
+                    <h6>Items edited:</h6>
+                    <div data-bind="wjFlexGrid: { itemsSource: collectionView.itemsEdited }" style="height: 150px;">
+                        <div data-bind="wjFlexGridColumn: { header: 'id', binding: 'id' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'start', binding: 'start' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'end', binding: 'end' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'country', binding: 'country' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'product', binding: 'product' }"></div>
+                    </div>
+                    <h6>Items removed:</h6>
+                    <div data-bind="wjFlexGrid: { itemsSource: collectionView.itemsRemoved }" style="height: 150px;">
+                        <div data-bind="wjFlexGridColumn: { header: 'id', binding: 'id' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'start', binding: 'start' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'end', binding: 'end' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'country', binding: 'country' }"></div>
+                        <div data-bind="wjFlexGridColumn: { header: 'product', binding: 'product' }"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- app scripts -->
+    <script src="scripts/bindings/appBindings.js"></script>
+    <script src="scripts/viewModels/basic.js"></script>
+    <script src="scripts/viewModels/currentRecord.js"></script>
+    <script src="scripts/viewModels/sorting.js"></script>
+    <script src="scripts/viewModels/filtering.js"></script>
+    <script src="scripts/viewModels/grouping.js"></script>
+    <script src="scripts/viewModels/editing.js"></script>
+    <script src="scripts/viewModels/paging.js"></script>
+    <script src="scripts/viewModels/changeTracking.js"></script>
+    <script src="scripts/app.js"></script>
+
+    <!-- Google analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

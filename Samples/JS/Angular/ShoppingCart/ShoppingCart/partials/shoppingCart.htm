@@ -1,0 +1,80 @@
+﻿<p class="text-info">
+    Thanks for shopping at the Angular Store.<br />
+    This is your shopping cart. Here you can edit the items, 
+    go back to the store, clear the cart, or check out.
+</p>
+<div class="row">
+    <div class="col-md-8">
+        <!-- items -->
+        <table class="table table-bordered">
+            <!-- header -->
+            <tr class="well">
+                <td><b>Item</b></td>
+                <td class="text-center"><b>Quantity</b></td>
+                <td class="text-right"><b>Price</b></td>
+                <td />
+            </tr>
+            <!-- empty cart message -->
+            <tr ng-hide="getTotalCount() > 0" >
+                <td class="text-center" colspan="4">
+                    Your cart is empty.
+                </td>
+            </tr>
+            <!-- cart items -->
+            <tr ng-repeat="item in ctx.cartItems | orderBy:'name'">
+                <td>{{item.name}}</td>
+                <td class="text-center">
+                    <wj-input-number
+                        value="item.quantity"
+                        min="0"
+                        max="100000"
+                        step="1"
+                        format="n0"
+                        width="80">
+                    </wj-input-number>
+                    <store-product-quantity value="item.quantity" width="80" />
+                </td>
+                <td class="text-right">{{item.price * item.quantity | currency}}</td>
+                <td class="text-center" title="remove from cart">
+                    <a href="" ng-click="clearCartItem(item.sku)" >
+                        <i class="glyphicon glyphicon-remove" />
+                    </a>
+                </td>
+            </tr>
+            <!-- footer -->
+            <tr class="well">
+                <td><b>Total</b></td>
+                <td class="text-center"><b>{{getTotalCount()}} items</b></td>
+                <td class="text-right"><b>{{getTotalPrice() | currency}}</b></td>
+                <td />
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <button 
+            class="btn btn-block" 
+            onclick="window.location.href=''">
+            <i class="glyphicon glyphicon-chevron-left" /> back to store
+        </button>
+        <button 
+            class="btn btn-block btn-danger" 
+            ng-click="clearCartItem()" 
+            ng-disabled="getTotalCount() < 1" >
+            <i class="glyphicon glyphicon-trash icon-white" /> clear cart
+        </button>
+        <br /><br />
+        <button
+            class="btn btn-block btn-primary"
+            ng-click="checkout('PayPal')"
+            ng-disabled="getTotalCount() < 1">
+            <i class="glyphicon glyphicon-ok" /> check out using PayPal
+        </button>
+        <br /><br />
+        <button 
+            class="btn btn-block btn-link"
+            ng-click="checkout('PayPal')"
+            ng-disabled="getTotalCount() < 1" >
+            <img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" alt="checkout PayPal"/>
+        </button>
+    </div>
+</div>

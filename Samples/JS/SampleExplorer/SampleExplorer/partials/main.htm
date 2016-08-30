@@ -1,0 +1,53 @@
+﻿<!-- Start of mainView -->
+<div id="mainView">
+	<div class="container">
+		<div class="searchBar">
+			<form role="search">
+				<div class="form-group">
+					<input type="search" ng-model="q" ng-delay="500" ng-change="updateFilters()" placeholder="Search" class="form-control searchBox" />
+				</div>
+			</form>
+			<div class="frameworkList">
+				<div ng-repeat="label in frameworks | orderBy:'label.name'" class="checkboxItem">
+					<label class="checkboxItem"><input type="checkbox" name="selectedFws" value="label.name" ng-model="label.show" ng-change="updateFilters()" />{{label.name}}</label>
+				</div>
+			</div>
+		</div>
+		<div style="clear: both;"></div><!-- reset search bar floats -->
+		<div ng-show="collection.ready">
+			<div ng-if="collection.cv.totalItemCount>0 && collection.ready==true" ng-repeat="sample in collection.cv.items" class="sampleItem" style="background-image:url('{{sample.Screenshot}}');">
+				<div class="sampleInfo">
+					<h1 class="sample-title">
+						<a href="Sample/{{sample.DirTitle}}">{{sample.Name}}</a>
+					</h1>
+					<div class="sampleDetail">
+						<!--<span ng-repeat="cat in sample.Category" class="sampleCategory">{{cat}}{{$last ? '' : ', '}}</span>-->
+						<p>{{sample.Title}}</p>
+						<p><a href="Sample/{{sample.DirTitle}}">More Information</a></p>
+						<span>
+							<div class="btn-group desktop">
+								<a class="btn btn-default purple" ng-repeat="imp in sample.implementations" ng-if="imp.Address" href="{{imp.Address}}" target="_blank">
+									Run {{imp.Category}} Version
+								</a>
+							</div>
+							<div class="btn-group-vertical mobile">
+								<a class="btn btn-default purple" ng-repeat="imp in sample.implementations" ng-if="imp.Address" href="{{imp.Address}}" target="_blank">
+									Run {{imp.Category}} Version
+								</a>
+							</div>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div ng-if="collection.cv.totalItemCount==0 && collection.ready==true">
+				<p>No samples matching the filters.</p>
+			</div>
+		</div>
+		<div ng-show="collection.loading">
+			<p>Loading...</p>
+		</div>
+		<div ng-show="collection.error">
+			<p>Error: {{collection.errorMessage}}</p>
+		</div>
+	</div>
+</div>

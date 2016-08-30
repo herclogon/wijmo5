@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxisScrollbar", "AxisScrollbar\AxisScrollbar.csproj", "{C728A652-0993-4D43-951A-B99D972055D4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Evaluation|Any CPU = Evaluation|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C728A652-0993-4D43-951A-B99D972055D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C728A652-0993-4D43-951A-B99D972055D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C728A652-0993-4D43-951A-B99D972055D4}.Evaluation|Any CPU.ActiveCfg = Release|Any CPU
+		{C728A652-0993-4D43-951A-B99D972055D4}.Evaluation|Any CPU.Build.0 = Release|Any CPU
+		{C728A652-0993-4D43-951A-B99D972055D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C728A652-0993-4D43-951A-B99D972055D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

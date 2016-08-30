@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="appCtrl">
+<head>
+    <meta charset="utf-8" />
+    <title>Sorting/Grouping UI</title>
+
+    <!-- ensure IE uses the latest version of IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- jQuery/Angular/Bootstrap -->
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+    <!-- Wijmo -->
+    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+    <script src="scripts/vendor/wijmo.angular.min.js" type="text/javascript"></script>
+
+    <!-- app scripts -->
+    <script src="scripts/app.js" type="text/javascript"></script>
+    <script src="scripts/controllers/sortManager.js" type="text/javascript"></script>
+    <script src="scripts/controllers/groupManager.js" type="text/javascript"></script>
+    <script src="scripts/controllers/appCtrl.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <h1>
+                Sorting/Grouping UI</h1>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div class="container">
+        <p>
+            The <b>CollectionView</b> class allows you to sort and group data 
+            by multiple fields. This application shows how you can build an 
+            Excel-style UI for managing the sorting and grouping fields in a 
+            <b>CollectionView</b>.</p>
+        <p>
+            Use the buttons below to edit the <b>SortDescriptions</b> and
+            <b>GroupDescriptions</b> associated with the application's data 
+            source. The buttons use different dialogs which acts as views on 
+            controllers that provide editing services for the 
+            <b>sortDescriptions</b> and <b>groupDescriptions</b> properties
+            of a <b>CollectionView</b> object.</p>
+
+        <!-- edit sort definitions -->
+        <p>
+            Edit <b>sort definitions</b> using a ComboBox-based dialog:
+            <button
+                class="btn btn-default"
+                data-toggle="modal"
+                data-backdrop="static"
+                data-keyboard="false"
+                data-target="#dlgSortCombo"
+                ng-click="sortManager.setView(view)">
+                <span class="glyphicon glyphicon-align-justify"></span>
+                Sort...
+            </button>
+            <ng-include src="'templates/sortDialogCombo.htm'"></ng-include>
+
+            Or using a FlexGrid-based dialog:
+            <button
+                class="btn btn-default"
+                data-toggle="modal"
+                data-backdrop="static"
+                data-keyboard="false"
+                data-target="#dlgSortFlex"
+                ng-click="sortManager.setView(view)">
+                <span class="glyphicon glyphicon-th"></span>
+                Sort...
+            </button>
+            <ng-include src="'templates/sortDialogFlex.htm'"></ng-include>
+        </p>
+
+        <!-- edit group definitions -->
+        <p>
+            Edit <b>group definitions</b> using a ComboBox-based dialog:
+            <button
+                class="btn btn-default"
+                data-toggle="modal"
+                data-backdrop="static"
+                data-keyboard="false"
+                data-target="#dlgGroupCombo"
+                ng-click="groupManager.setView(view, properties)">
+                <span class="glyphicon glyphicon-align-justify"></span>
+                Group...
+            </button>
+            <ng-include src="'templates/groupDialogCombo.htm'"></ng-include>
+
+            Or using a FlexGrid-based dialog:
+            <button
+                class="btn btn-default"
+                data-toggle="modal"
+                data-backdrop="static"
+                data-keyboard="false"
+                data-target="#dlgGroupFlex"
+                ng-click="groupManager.setView(view, properties)">
+                <span class="glyphicon glyphicon-th"></span>
+                Group...
+            </button>
+            <ng-include src="'templates/groupDialogFlex.htm'"></ng-include>
+        </p>
+
+        <p>
+            See the effect of the sorting and grouping on the grid below:</p>
+        <wj-flex-grid 
+            style="max-height:300px"
+            allow-sorting="false"
+            items-source="view">
+            <wj-flex-grid-column binding="id" header="ID"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="date" header="Date"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="country" header="Country" data-map="countries"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="product" header="Product" data-map="products"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="color" header="Color" data-map="colors"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="amount" header="Amount" format="n2"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="discount" header="Discount" format="p0"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="active" header="Active"></wj-flex-grid-column>
+        </wj-flex-grid>
+    </div>
+</body>
+</html>

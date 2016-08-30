@@ -1,0 +1,31 @@
+﻿/* default grid formatting */
+.wj-flexgrid {
+    height: 600px;
+}
+
+.centered-cell {
+    display: table;
+    table-layout: fixed;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+    .centered-cell div {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+.rotated-cell {
+    display: flex;
+    flex: 0;
+    min-width: 35px;
+    align-items: center;
+    justify-content: center;
+    width: 1.5em;
+    line-height: 1.5;
+}
+    .rotated-cell > div {
+        display: inline-block;
+        white-space: nowrap;
+        pointer-events: none;
+        transform: rotate(-90deg);
+    }

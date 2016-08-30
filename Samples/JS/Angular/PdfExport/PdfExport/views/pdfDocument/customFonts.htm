@@ -1,0 +1,39 @@
+﻿<h2>{{ title }}</h2>
+<p>
+    This sample shows how custom fonts can be embedded into a document.
+    <a href="" target="_self" data-toggle="collapse" data-target=".collapse" class="collapse in read-more">Read More</a>
+</p>
+<div class="collapse">
+    <p>
+        Along with use of the standard fonts, PdfDocument also provides an ability to embed custom fonts into document.
+        The following font formats are supported: .ttf, .ttc, .dfont.
+    </p>
+    <p>
+        First of all, a custom font must be registered using the <b>registerFont</b> (or <b>registerFontAsync</b>) method. 
+        This method loads font from a URL and associates it with a specified font family name and font attributes (like the style, weight, whether it is a serif or sans serif font etc).
+        After that the font family name can be used in association with PdfFont class just like any other standard font.
+    </p>
+    <p>
+        For example:
+    </p>
+<pre>
+doc.registerFont({
+    source: "resources/fonts/fira/FiraSans-Regular.ttf",
+    name: "fira",
+    style: "normal",
+    weight: "normal",
+    sansSerif: true
+});
+
+doc.drawText("Here is the FiraSans-Regular font.", null, null, {
+    // an equivalent of font: new wijmo.pdf.PdfFont("fira", 10, "normal", "normal")
+    font: new wijmo.pdf.PdfFont("fira")
+});
+</pre>
+    <p>
+        In this sample, the <a href="https://github.com/mozilla/Fira">Fira</a> font family is used and two fonts, <b>FiraSans-Regular.ttf</b> and <b>FiraSans-Bold.ttf</b>, are embedded into the document.
+    </p>
+</div>
+
+<!-- Export button -->
+<button class="btn btn-default" id="Button1" ng-click="export()">Export</button>

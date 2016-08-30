@@ -1,0 +1,31 @@
+<h2>WjMultiSelect Class</h2>
+<dl class="dl-horizontal">
+<dt>Base Class</dt><dd><a href="topic/wijmo.angular.WjComboBox.Class.html"><b>WjComboBox</b></a></dd>
+<dt>Module</dt><dd>wijmo.angular</dd>
+<dt>File</dt><dd>wijmo.angular.js</dd>
+<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+</dl>
+<p><p>AngularJS directive for the <a href="topic/wijmo.input.MultiSelect.Class.html"><b>MultiSelect</b></a> control.</p>
+
+<p>Use the <b>wj-multi-select</b> directive to add <b>MultiSelect</b> controls to your AngularJS applications. 
+Note that directive and parameter names must be formatted as lower-case with dashes 
+instead of camel-case. For example:</p>
+
+<p><pre>&lt;p&gt;Here is a MultiSelect bound to a collection of objects:&lt;/p&gt;
+&lt;wj-multi-select
+    placeholder="Select Countries"
+    items-source="ctx.items"
+    header-format="{count} countries selected"
+    display-Member-path="country"
+    checked-Member-path="selected"&gt;
+&lt;/wj-multi-select&gt;</pre></p>
+
+<p>The <b>wj-multi-select</b> directive extends <a href="topic/wijmo.angular.WjComboBox.Class.html"><b>WjComboBox</b></a> with the following attributes:</p>
+
+<p><dl class="dl-horizontal">
+  <dt>checked-member-path</dt>  <dd><code>@</code> The name of the property used to control the checkboxes placed next to each item.</dd>
+  <dt>header-format</dt>        <dd><code>@</code> The format string used to create the header content when the control has more than <b>maxHeaderItems</b> items checked.</dd>
+  <dt>header-formatter</dt>     <dd><code>=</code> A function that gets the HTML in the control header.</dd>
+  <dt>max-header-items</dt>     <dd><code>@</code> The maximum number of items to display on the control header.</dd>
+  <dt>checked-items-changed</dt><dd><code>&</code> The <b>checkedItemsChanged</b> event handler.</dd>
+</dl></p></p>

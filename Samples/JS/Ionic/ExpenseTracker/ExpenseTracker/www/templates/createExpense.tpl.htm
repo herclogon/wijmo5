@@ -1,0 +1,27 @@
+﻿<ion-view title="Create">
+    <ion-content class="has-header padding">
+        <form name="frmCreate">
+            <div class="custom-form-list list">
+                <label class="item item-input">
+                    <i class="icon ion-alert-circled placeholder-icon assertive" ng-show="!frmCreate.title.$pristine && frmCreate.title.$invalid"></i>
+                    <input name="title" type="text" placeholder="Title" ng-model="expense.title" ng-maxlength="55" required>
+                </label>
+                <wj-input-number value="expense.amount" min="0" step="5" format="c2"></wj-input-number>
+                <wj-calendar value="expense.date"></wj-calendar>
+                <wj-combo-box items-source="categories"
+                              display-member-path="htmlContent"
+                              selected-value-path="id"
+                              selected-value="expense.categoryId"
+                              is-editable="false"
+                              is-content-html="true"></wj-combo-box>
+                <label class="item item-input">
+                    <textarea placeholder="Description" ng-model="expense.description"></textarea>
+                </label>
+            </div>
+            <div class="button-bar">
+                <button type="button" class="button button-dark icon-left ion-close" on-tap="cancel()">Cancel</button>
+                <button type="button" class="button button-balanced icon-left ion-checkmark" on-tap="addExpense()" ng-disabled="frmCreate.title.$invalid">Save</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

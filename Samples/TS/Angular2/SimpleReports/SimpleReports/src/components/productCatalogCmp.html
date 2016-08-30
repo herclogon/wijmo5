@@ -1,0 +1,83 @@
+﻿<h1 style="text-align:center">
+    Northwind Traders
+</h1>
+
+<div style="text-align:center; color:#800000; page-break-after:always" >
+    <h4>
+        Fall Catalog
+    </h4>
+    <div style="border:2px solid black; text-align:center; padding:12pt; margin:3in 30% 1in 30%">
+        <h4 style="font-weight:bold; font-size:120%">
+            Commitment to Quality
+        </h4>
+        <h4>
+            Northwind Traders is committed to bringing you products of the highest quality from all
+            over the world. If at any time you are not completely satisfied with any of our products,
+            you may return them to us for a full refund.
+        </h4>
+    </div>
+</div>
+
+<div style="text-align:center; margin:3in 15% 1in 15%; font-style:italic; color:#000080; page-break-after:always">
+    <h4>
+        Tour the Gastronomic World with Northwind Traders!
+    </h4>
+    <h4>
+        When Northwind Traders buyers set out to search for the Wonders of the Gastronomic World 
+        they found a lot more than seven of them. And here they are--tastefully presented in our 
+        Fall Catalog.
+    </h4>
+    <h4>
+        The beverages and confections we're featuring this fall are sure to please even the most 
+        discerning palates. For thirst quenchers, try exotic Chang, hearty Laughing Lumberjack 
+        Lager, robust Rhonbrau Klosterbier, and refreshing Lakkalikoori.
+    </h4>
+    <h4>
+        And for a taste of something sweet, try Pavlova, the intriguing meringue dessert from 
+        Australia; Teatime Chocolate Biscuits from England, tasty Maxilaku from Finland; and 
+        the Berlin specialty, NuNuCa Nus-Nougat-Creme.
+    </h4>
+    <h4>
+        Our sales representatives are ready to take your orders now. For your convenience, 
+        we've included details on ordering on the last page of this catalog.
+    </h4>
+</div>
+
+<div *ngFor="let category of categories.items" style="page-break-inside:avoid">
+    <h2>
+        {{category.CategoryName}}
+    </h2>
+    <p style="font-style:italic; width: 20%">
+        {{category.Description}}
+    </p>
+    <div
+        style="display:flex; font-weight:bold; font-style:italic; background-color:#c0c0c0">
+        <div style="width:300px">
+            Product Name:
+        </div>
+        <div style="width:150px;text-align:right;margin-right:12pt">
+            Product ID:
+        </div>
+        <div style="width:200px">
+            Quantity Per Unit:
+        </div>
+        <div style="width:150px;text-align:right;margin-right:12pt">
+            Unit Price:
+        </div>
+    </div>
+
+    <div style="display:flex;margin-bottom:4pt" *ngFor="let product of  select(products, 'CategoryID', category.CategoryID)">
+        <div style="width:300px">
+            <b>{{ product.ProductName }}</b>
+        </div>
+        <div style="width:150px;text-align:right;margin-right:12pt">
+            {{ product.ProductID }}
+        </div>
+        <div style="width:200px">
+            {{ product.QuantityPerUnit }}
+        </div>
+        <div style="width:150px;text-align:right;margin-right:12pt">
+            {{ product.UnitPrice | currency:'USD':true }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿<!-- End sampleView, Start of codeView -->
+<div id="codeView">
+	<div class="breadcrumbBar">
+		<ol class="breadcrumb container">
+			<li><a href=".#">Sample Explorer Search</a></li>
+			<li ng-show="sample.state.ready"><a href="Sample/{{sample.data.DirTitle}}">{{sample.data.Name}}</a></li>
+			<li ng-hide="sample.state.ready">Sample</li>
+			<li class="active">View Source Code</li>
+		</ol>
+	</div>
+	<div class="container">
+		<div ng-show="sample.state.ready">
+			<h1>
+				{{sample.data.Name}} ({{routeParams['sampleFw']}})
+			</h1>
+			<p>Sample source code view</p>
+			<div class="codeViewer">
+
+				<!-- TREE: -->
+				<div class="codeViewer-tree" ng-show="fileTree.ready">
+					<h1>File Structure</h1>
+					<wj-flex-grid class=""
+								  id="code-tree"
+								  control="fileTree.flex"
+								  items-source="fileTree.data"
+								  child-items-path="children"
+								  allow-resizing="None"
+								  selection-mode="Cell"
+								  headers-visibility="None"
+								  selection-changed="selectedFileChanged(s,e)"
+								  items-source-changed="itemsSourceChanged(s,e)">
+						<wj-flex-grid-column binding="DirTitle"
+											 width="*">
+						</wj-flex-grid-column>
+					</wj-flex-grid>
+				</div>
+				<div class="codeViewer-tree" ng-show="fileTree.loading">
+					<h1>File Structure</h1>
+					<div>Loading project...</div>
+				</div>
+				<div class="codeViewer-tree" ng-show="fileTree.error">
+					<h1>Error!</h1>
+					<div>{{fileTree.errorMessage}}</div>
+				</div>
+
+				<!-- CODE: -->
+				<span ng-hide="selectedFile.loading==false && selectedFile.ready==false && selectedFile.error==false">
+					<div class="codeViewer-code" ng-show="selectedFile.ready">
+						<h1>{{selectedFile.name}}</h1>
+						<pre id="code-pre">
+						<code>{{selectedFile.txt}}</code>
+                        </pre>
+					</div>
+					<div class="codeViewer-code" ng-show="selectedFile.loading">
+						<h1>{{selectedFile.name}}</h1>
+						<pre id="code-pre" ng-show="selectedFile.loading">
+						<code>Loading file...</code>
+                        </pre>
+					</div>
+					<div class="codeViewer-code" ng-show="selectedFile.error">
+						<h1>{{selectedFile.name}}</h1>
+						<pre id="code-pre" ng-show="selectedFile.error">
+						<code>Error: {{selectedFile.errorMessage}}</code>
+                        </pre>
+					</div>
+				</span>
+				<span class="" ng-if="selectedFile.loading==false && selectedFile.ready==false && selectedFile.error==false">
+					<div class="codeViewer-code">
+						<h1>Selected File</h1>
+						<pre id="code-pre"><code></code></pre>
+					</div>
+				</span>
+			</div>
+		</div>
+		<div ng-show="sample.state.loading">
+			<p>Loading sample...</p>
+		</div>
+		<div ng-show="sample.state.error">
+			<p>Error: {{sample.state.errorMessage}}</p>
+		</div>
+	</div>
+</div>

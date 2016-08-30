@@ -1,0 +1,172 @@
+﻿<div class="container">
+    <h1>
+        FlexGridFilter
+    </h1>
+    <p>
+        The <b>FlexGridFilter</b> extension (wijmo.grid.filter.js) allows you to add a
+        filtering UI to any FlexGrid control.
+    </p>
+    <p>
+        The filtering UI adds filter icons to the grid's column headers. Clicking the
+        icons brings up an editor where users can select the values to show (value filter)
+        or they can set up conditions that must be satisfied by the values (condition filter).
+    </p>
+    <p>
+        You may also customize the filter to show specific types of filter on each column,
+        as this sample does.
+    </p>
+    <p>
+        To use the extension, include the file in your page and enable filtering like so:
+    </p>
+    <pre>// add column filters to the flexGrid control
+var filter = new wijmo.grid.filter.FlexGridFilter(flexGrid);</pre>
+    <p>
+        If you are using AngularJS, you can simply use the wj-flex-grid-filter directive:
+    </p>
+    <pre>&lt;!-- create a FlexGrid with column filters --&gt;
+&lt;wj-flex-grid ... &gt;
+    &lt;wj-flex-grid-filter #filter &gt;&lt;/wj-flex-grid-filter&gt;
+&lt;/wj-flex-grid&gt;</pre>
+    <wj-flex-grid style="height:300px"
+                  (initialized)="initialized(s, e)"
+                  [itemsSource]="data">
+        <wj-flex-grid-filter #filter></wj-flex-grid-filter>
+        <wj-flex-grid-column [header]="'ID'" [binding]="'id'"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Date'" [binding]="'date'" [format]="'MMM/dd/yyyy'"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Time'" [binding]="'time'" [format]="'t'"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Country'" [binding]="'country'"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Country ID'" [binding]="'countryMapped'" [dataMap]="countryMap"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Downloads'" [binding]="'downloads'"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Sales'" [binding]="'sales'"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Expenses'" [binding]="'expenses'"></wj-flex-grid-column>
+        <wj-flex-grid-column [header]="'Checked'" [binding]="'checked'"></wj-flex-grid-column>
+    </wj-flex-grid>
+    <p>
+        Now showing {{data.items.length | number}} items.
+    </p>
+
+    <h3>
+        Configure the filter
+    </h3>
+    <p>
+        The <b>FlexGridFilter</b> class has properties and methods that allow you to
+        customize the filter behavior. For example, you can turn off the filter
+        icons, change the default filter type (value and/or condition), or
+        change the filter type for specific columns.
+    </p>
+    <pre>
+// Show filter icons
+&lt;label&gt;
+  Show filter icons
+ &lt;input type="checkbox" [(ngModel)]="filter.showFilterIcons" /&gt;
+&lt;/label&gt;
+
+// Clear the filter, save and load filter definitions to local storage:
+&lt;button class="btn btn-default" (click)="filter.clear()"&gt;
+    Clear
+&lt;/button&gt;
+
+// Set the default filter type:
+&lt;wj-menu [header]="'Filter Type'"
+         [(value)]="filter.defaultFilterType"&gt;
+    &lt;wj-menu-item [value]="0"&gt;None&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item [value]="1"&gt;Condition&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item [value]="2"&gt;Value&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item [value]="3"&gt;Both&lt;/wj-menu-item&gt;
+&lt;/wj-menu&gt;
+
+// Set the filter type for the "Downloads" column:
+&lt;wj-menu [header]="'Filter Type'"
+         [(value)]="downloadsColumnFilterType"&gt;
+    &lt;wj-menu-item [value]="0"&gt;None&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item [value]="1"&gt;Condition&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item [value]="2"&gt;Value&lt;/wj-menu-item&gt;
+    &lt;wj-menu-item [value]="3"&gt;Both&lt;/wj-menu-item&gt;
+&lt;/wj-menu&gt;
+
+</pre>
+    <label>
+        Show filter icons
+        <input type="checkbox" [(ngModel)]="filter.showFilterIcons" />
+    </label>
+    <br />
+    <p>
+        Clear the filter, save and load filter definitions to local storage:
+        <button class="btn btn-default" (click)="filter.clear()">
+            Clear
+        </button>
+        <button class="btn btn-default" (click)="saveFilter()">
+            Save
+        </button>
+        <button class="btn btn-default" (click)="restoreFilter()">
+            Load
+        </button>
+    </p>
+    <p>
+        Set the default filter type:
+        <wj-menu [header]="'Filter Type'"
+                 [(value)]="filter.defaultFilterType">
+            <wj-menu-item [value]="0">None</wj-menu-item>
+            <wj-menu-item [value]="1">Condition</wj-menu-item>
+            <wj-menu-item [value]="2">Value</wj-menu-item>
+            <wj-menu-item [value]="3">Both</wj-menu-item>
+        </wj-menu>
+    </p>
+    <p>
+        Set the filter type for the "Downloads" column:
+        <wj-menu [header]="'Filter Type'"
+                 [(value)]="downloadsColumnFilterType">
+            <wj-menu-item [value]="0">None</wj-menu-item>
+            <wj-menu-item [value]="1">Condition</wj-menu-item>
+            <wj-menu-item [value]="2">Value</wj-menu-item>
+            <wj-menu-item [value]="3">Both</wj-menu-item>
+        </wj-menu>
+    </p>
+    <p>
+        The filter editor is localizable:
+        <wj-menu [(value)]="culture" [header]="'Culture'" [maxDropDownHeight]="200">
+            <wj-menu-item [value]="'ar-AE'">Arabic (U.A.E.)</wj-menu-item>
+            <wj-menu-item [value]="'eu'">Basque</wj-menu-item>
+            <wj-menu-item [value]="'bg'">Bulgarian</wj-menu-item>
+            <wj-menu-item [value]="'ca'">Catalan</wj-menu-item>
+            <wj-menu-item [value]="'zh'">Chinese</wj-menu-item>
+            <wj-menu-item [value]="'zh-HK'">Chinese (Traditional, Hong Kong SAR)</wj-menu-item>
+            <wj-menu-item [value]="'zh-TW'">Chinese (Traditional, Taiwan)</wj-menu-item>
+            <wj-menu-item [value]="'hr'">Croatian</wj-menu-item>
+            <wj-menu-item [value]="'cs'">Czech</wj-menu-item>
+            <wj-menu-item [value]="'da'">Danish</wj-menu-item>
+            <wj-menu-item [value]="'nl'">Dutch</wj-menu-item>
+            <wj-menu-item [value]="'en'">English</wj-menu-item>
+            <wj-menu-item [value]="'en-GB'">English (United Kingdom)</wj-menu-item>
+            <wj-menu-item [value]="'et'">Estonian</wj-menu-item>
+            <wj-menu-item [value]="'fi'">Finnish</wj-menu-item>
+            <wj-menu-item [value]="'fr'">French</wj-menu-item>
+            <wj-menu-item [value]="'fr-CA'">French (Canada)</wj-menu-item>
+            <wj-menu-item [value]="'gl'">Galician</wj-menu-item>
+            <wj-menu-item [value]="'de'">German</wj-menu-item>
+            <wj-menu-item [value]="'el'">Greek</wj-menu-item>
+            <wj-menu-item [value]="'he'">Hebrew</wj-menu-item>
+            <wj-menu-item [value]="'hi'">Hindi</wj-menu-item>
+            <wj-menu-item [value]="'hu'">Hungarian</wj-menu-item>
+            <wj-menu-item [value]="'id'">Indonesian</wj-menu-item>
+            <wj-menu-item [value]="'it'">Italian</wj-menu-item>
+            <wj-menu-item [value]="'ja'">Japanese</wj-menu-item>
+            <wj-menu-item [value]="'kk'">Kazakh</wj-menu-item>
+            <wj-menu-item [value]="'ko'">Korean</wj-menu-item>
+            <wj-menu-item [value]="'lv'">Latvian</wj-menu-item>
+            <wj-menu-item [value]="'lt'">Lithuanian</wj-menu-item>
+            <wj-menu-item [value]="'no'">Norwegian</wj-menu-item>
+            <wj-menu-item [value]="'pl'">Polish</wj-menu-item>
+            <wj-menu-item [value]="'pt'">Portuguese</wj-menu-item>
+            <wj-menu-item [value]="'ro'">Romanian</wj-menu-item>
+            <wj-menu-item [value]="'ru'">Russian</wj-menu-item>
+            <wj-menu-item [value]="'sr'">Serbian</wj-menu-item>
+            <wj-menu-item [value]="'sk'">Slovak</wj-menu-item>
+            <wj-menu-item [value]="'sl'">Slovenian</wj-menu-item>
+            <wj-menu-item [value]="'sv'">Swedish</wj-menu-item>
+            <wj-menu-item [value]="'th'">Thai</wj-menu-item>
+            <wj-menu-item [value]="'tr'">Turkish</wj-menu-item>
+            <wj-menu-item [value]="'uk'">Ukrainian</wj-menu-item>
+        </wj-menu>
+    </p>
+</div>

@@ -8,3 +8,5 @@ export declare class AppCmp implements AfterViewInit {
     ngAfterViewInit(): void;
     private _initializeFlyout(s);
 }
+export declare class AppModule {
+}

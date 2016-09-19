@@ -1,37 +1,33 @@
-<h2>WjInputNumber Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">WjInputNumber</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><b>WjDirective</b></dd>
-<dt>Module</dt><dd>wijmo.angular</dd>
-<dt>File</dt><dd>wijmo.angular.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.angular.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.angular.Module.html"><span class="identifier">wijmo.angular</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p><p>AngularJS directive for the <a href="topic/wijmo.input.InputNumber.Class.html"><b>InputNumber</b></a> control.</p>
-
+<div class="comment"><p>AngularJS directive for the <a href="topic/wijmo.input.InputNumber.Class.html"><span class="identifier">InputNumber</span></a> control.</p>
 <p>Use the <b>wj-input-number</b> directive to add <b>InputNumber</b> controls to your 
 AngularJS applications. 
 Note that directive and parameter names must be formatted as lower-case with dashes 
 instead of camel-case. For example:</p>
 
-<p><pre>&lt;p&gt;Here is an InputNumber control:&lt;/p&gt;
+
+<pre>&lt;p&gt;Here is an InputNumber control:&lt;/p&gt;
 &lt;wj-input-number
   value="theNumber"
   min="0"
   max="10"
   format="n0"
   placeholder="number between zero and ten"&gt;
-&lt;/wj-input-number&gt;</pre></p>
-
+&lt;/wj-input-number&gt;</pre>
 <p>The example below creates several <b>InputNumber</b> controls and shows the effect
 of using different formats, ranges, and step values.</p>
-
-<p><a href="http://jsfiddle.net/Wijmo5/u7HpD/" target="_blank" class="btn btn-info">
-  <img src="images/fiddle.png"/>
-  Live Example
-</a>
-</p>
-
+<p><div class="member-panel example"><h3 class="node collapsed">Example</h3><div class="fiddle"><script async src="http://jsfiddle.net/Wijmo5/u7HpD/embed/result,html,js,css"></script></div></div></p>
 <p>The <b>wj-input-number</b> directive supports the following attributes:</p>
-
 <p><dl class="dl-horizontal">
   <dt>ng-model</dt>      <dd><code>@</code> Binds the control's <b>value</b> property using the ng-model Angular 
                          directive. Binding the property using the ng-model directive provides standard benefits 
@@ -39,8 +35,8 @@ of using different formats, ranges, and step values.</p>
                          properties on a control that is bound by the ng-model directive, use the wj-model-property 
                          attribute.</dd>
   <dt>wj-model-property</dt>  <dd><code>@</code> Specifies a control property that is bound to a scope using the <b>ng-model</b> directive.</dd>
-  <dt>control</dt>       <dd><code>=</code> A reference to the <b>InputNumber</b> control created by this directive.</dd>
-  <dt>format</dt>        <dd><code>@</code> The format used to display the number (see <a href="topic/wijmo.Globalize.Class.html"><b>Globalize</b></a>).</dd>
+  <dt>control</dt>       <dd><code>=</code> A reference to the <a href="topic/wijmo.input.InputNumber.Class.html"><span class="identifier">InputNumber</span></a> control created by this directive.</dd>
+  <dt>format</dt>        <dd><code>@</code> The format used to display the number (see <a href="topic/wijmo.Globalize.Class.html"><span class="identifier">Globalize</span></a>).</dd>
   <dt>input-type</dt>    <dd><code>@</code> The "type" attribute of the HTML input element hosted by the control.</dd>
   <dt>initialized</dt>   <dd><code>&</code> This event occurs after the binding has finished initializing the control with attribute values.</dd>
   <dt>is-initialized</dt><dd><code>=</code> A value indicating whether the binding has finished initializing the control with attribute values. </dd>
@@ -52,8 +48,11 @@ of using different formats, ranges, and step values.</p>
   <dt>step</dt>          <dd><code>@</code> The amount to add or subtract to the value when the user clicks the spinner buttons.</dd>
   <dt>text</dt>          <dd><code>=</code> The text to show in the control.</dd>
   <dt>value</dt>         <dd><code>=</code> The number being edited.</dd>
-  <dt>got-focus</dt>     <dd><code>&</code> The <b>gotFocus</b> event handler.</dd>
-  <dt>lost-focus</dt>    <dd><code>&</code> The <b>lostFocus</b> event handler.</dd>
-  <dt>text-changed</dt>  <dd><code>&</code> The <b>textChanged</b> event handler.</dd>
-  <dt>value-changed</dt> <dd><code>&</code> The <b>valueChanged</b> event handler.</dd>
-</dl></p></p>
+  <dt>got-focus</dt>     <dd><code>&</code> The <a href="topic/wijmo.input.InputNumber.Class.html/#gotFocus"><span class="identifier">gotFocus</span></a> event handler.</dd>
+  <dt>lost-focus</dt>    <dd><code>&</code> The <a href="topic/wijmo.input.InputNumber.Class.html/#lostFocus"><span class="identifier">lostFocus</span></a> event handler.</dd>
+  <dt>text-changed</dt>  <dd><code>&</code> The <a href="topic/wijmo.input.InputNumber.Class.html/#textChanged"><span class="identifier">textChanged</span></a> event handler.</dd>
+  <dt>value-changed</dt> <dd><code>&</code> The <a href="topic/wijmo.input.InputNumber.Class.html/#valueChanged"><span class="identifier">valueChanged</span></a> event handler.</dd>
+</dl></p></div>
+</div>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+</div>

@@ -6,7 +6,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
 // String cell renderer component that allows to edit a cell without switching to the cell edit mode.
 var EditableStringRenderer = (function () {
     function EditableStringRenderer() {
@@ -18,7 +17,6 @@ var EditableStringRenderer = (function () {
         core_1.Component({
             selector: 'editable-string-renderer',
             templateUrl: 'src/cellTemplates/editableStringRenderer.html',
-            directives: [common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
         })
     ], EditableStringRenderer);
     return EditableStringRenderer;

@@ -1,19 +1,20 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject, OnDestroy } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { InputBaseCmp } from '../input/InputBaseCmp';
+import { Component, EventEmitter, Inject, AfterViewInit, OnDestroy, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Core from 'wijmo/wijmo.angular2.core';
+import { InputBaseCmp } from '../input/InputBaseCmp';
+import { WjCoreModule } from 'wijmo/wijmo.angular2.core';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-
 
 // Wijmo template component.
 @Component({
     selector: 'grid-templates-cmp',
-    templateUrl: 'src/components/infra/templatesCmp.html',
-    directives: [wjNg2Input.WjInputDate, wjNg2Input.WjInputTime, wjNg2Input.WjCalendar, wjNg2Input.WjInputNumber, wjNg2Input.WjComboBox]
-})
+    templateUrl: 'src/components/infra/templatesCmp.html'})
 
 export class TemplatesCmp extends InputBaseCmp implements OnDestroy {
 
@@ -105,4 +106,14 @@ export class TemplatesCmp extends InputBaseCmp implements OnDestroy {
         wjNg2Input.WjComboBox.controlTemplate = this._tplComboBox;
         wjNg2Input.WjCalendar.controlTemplate = this._tplCalendar;
     } 
+}
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: TemplatesCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjCoreModule, WjInputModule],
+    declarations: [TemplatesCmp],
+})
+export class TemplatesModule {
 }

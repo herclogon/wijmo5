@@ -15,10 +15,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var DataSvc_1 = require('../../services/DataSvc');
+var router_1 = require('@angular/router');
 var InputBaseCmp_1 = require('../input/InputBaseCmp');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
+var DataSvc_1 = require('../../services/DataSvc');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // Wijmo TrackChanges component.
 var TrackChangesCmp = (function (_super) {
     __extends(TrackChangesCmp, _super);
@@ -41,14 +42,26 @@ var TrackChangesCmp = (function (_super) {
     TrackChangesCmp = __decorate([
         core_1.Component({
             selector: 'grid-trackChanges-cmp',
-            templateUrl: 'src/components/infra/trackChangesCmp.html',
-            directives: [wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjMenuSeparator,
-                wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn,
-                wjNg2Input.WjCalendar, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/infra/trackChangesCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], TrackChangesCmp);
     return TrackChangesCmp;
 }(InputBaseCmp_1.InputBaseCmp));
 exports.TrackChangesCmp = TrackChangesCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: TrackChangesCmp }
+]);
+var TrackChangesModule = (function () {
+    function TrackChangesModule() {
+    }
+    TrackChangesModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_grid_1.WjGridModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [TrackChangesCmp],
+        })
+    ], TrackChangesModule);
+    return TrackChangesModule;
+}());
+exports.TrackChangesModule = TrackChangesModule;
 //# sourceMappingURL=TrackChangesCmp.js.map

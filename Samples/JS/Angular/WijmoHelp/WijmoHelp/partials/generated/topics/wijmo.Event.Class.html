@@ -1,129 +1,112 @@
-<h2>Event Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">Event</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo</dd>
-<dt>File</dt><dd>wijmo.js</dd>
+<dt>File</dt><dd class="filename">wijmo.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.Module.html"><span class="identifier">wijmo</span></a></dd>
 </dl>
-<p><p>Represents an event.</p>
-
+<div class="comment"><p>Represents an event.</p>
 <p>Wijmo events are similar to .NET events. Any class may define events by 
 declaring them as fields. Any class may subscribe to events using the 
-event's <b>addHandler</b> method and unsubscribe using the <b>removeHandler</b> 
+event's <a href="topic/wijmo.Event.Class.html/#addHandler"><span class="identifier">addHandler</span></a> method and unsubscribe using the <a href="topic/wijmo.Event.Class.html/#removeHandler"><span class="identifier">removeHandler</span></a> 
 method.</p>
-
 <p>Wijmo event handlers take two parameters: <i>sender</i> and <i>args</i>. 
 The first is the object that raised the event, and the second is an object 
 that contains the event parameters.</p>
-
 <p>Classes that define events follow the .NET pattern where for every event 
 there is an <i>on[EVENTNAME]</i> method that raises the event. This pattern 
 allows derived classes to override the <i>on[EVENTNAME]</i> method and 
 handle the event before and/or after the base class raises the event. 
 Derived classes may even suppress the event by not calling the base class 
 implementation.</p>
-
 <p>For example, the TypeScript code below overrides the <b>onValueChanged</b>
 event for a control to perform some processing before and after the 
 <b>valueChanged</b> event fires:</p>
 
-<p><pre>// override base class
+
+<pre>// override base class
 onValueChanged(e: EventArgs) {
+
   // execute some code before the event fires
   console.log('about to fire valueChanged');
+
   // optionally, call base class to fire the event
   super.onValueChanged(e);
+
   // execute some code after the event fired
   console.log('valueChanged event just fired');
-}</pre></p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+}</pre></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>hasHandlers</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether this event has any handlers.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.Event.Class.html/#hasHandlers">hasHandlers</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.Event.Class.html/#addHandler">addHandler</a></li>
+<li class="mmethod"><a href="topic/wijmo.Event.Class.html/#raise">raise</a></li>
+<li class="mmethod"><a href="topic/wijmo.Event.Class.html/#removeAllHandlers">removeAllHandlers</a></li>
+<li class="mmethod"><a href="topic/wijmo.Event.Class.html/#removeHandler">removeHandler</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="hasHandlers" class="member-panel mproperty">
+<h3>hasHandlers</h3>
+<div class="comment"><p>Gets a value that indicates whether this event has any handlers.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>addHandler</b>&#8203;(handler, self?)</td>
-      <td><p>
-<b>handler</b> (<a href="topic/wijmo.IEventHandler.Interface.html"><b>IEventHandler</b></a>): Function invoked when the event is raised.<br/><b>self?</b> (<b>any</b>): Object that defines the event handler 
-(accessible as 'this' from the handler code).<br/></p>
-</td>
-      <td>Adds a handler to this event.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>raise</b>&#8203;(sender, args?)</td>
-      <td><p>
-<b>sender</b> (<b>any</b>): Source object.<br/><b>args?</b> (): Event parameters.<br/><span class="text-info">(default value: <b>EventArgs.&#8203;empty</b>)</span><br/></p>
-</td>
-      <td>Raises this event, causing all associated handlers to be invoked.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>removeAllHandlers</b>&#8203;()</td>
-      <td></td>
-      <td>Removes all handlers associated with this event.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>removeHandler</b>&#8203;(handler, self?)</td>
-      <td><p>
-<b>handler</b> (<a href="topic/wijmo.IEventHandler.Interface.html"><b>IEventHandler</b></a>): Function invoked when the event is raised.<br/><b>self?</b> (<b>any</b>): Object that defines the event handler (accessible as 'this' from the handler code).<br/></p>
-</td>
-      <td>Removes a handler from this event.</td>
-    </tr>
-</tbody>
-</table>
 </div>
-
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="addHandler" class="member-panel mmethod">
+<h3>addHandler</h3>
+<pre>addHandler(handler: <a href="topic/wijmo.IEventHandler.Interface.html"><span class="identifier">IEventHandler</span></a>, self?: <span class="identifier">any</span>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Adds a handler to this event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>handler</b>: <a href="topic/wijmo.IEventHandler.Interface.html"><span class="identifier">IEventHandler</span></a><br/><p>Function invoked when the event is raised.</p></li><li><b>self</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>Object that defines the event handler 
+(accessible as 'this' from the handler code).</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="raise" class="member-panel mmethod">
+<h3>raise</h3>
+<pre>raise(sender: <span class="identifier">any</span>, args?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises this event, causing all associated handlers to be invoked.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>sender</b>: <span class="identifier">any</span><br/><p>Source object.</p></li><li><b>args</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/><p>Event parameters.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="removeAllHandlers" class="member-panel mmethod">
+<h3>removeAllHandlers</h3>
+<pre>removeAllHandlers(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Removes all handlers associated with this event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="removeHandler" class="member-panel mmethod">
+<h3>removeHandler</h3>
+<pre>removeHandler(handler: <a href="topic/wijmo.IEventHandler.Interface.html"><span class="identifier">IEventHandler</span></a>, self?: <span class="identifier">any</span>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Removes a handler from this event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>handler</b>: <a href="topic/wijmo.IEventHandler.Interface.html"><span class="identifier">IEventHandler</span></a><br/><p>Function invoked when the event is raised.</p></li><li><b>self</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>Object that defines the event handler (accessible as 'this' from the handler code).</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>

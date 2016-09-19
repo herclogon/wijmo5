@@ -1,26 +1,28 @@
-<h2>WjRadialGauge Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">WjRadialGauge</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><b>WjGauge</b></dd>
-<dt>Module</dt><dd>wijmo.angular</dd>
-<dt>File</dt><dd>wijmo.angular.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.angular.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.angular.Module.html"><span class="identifier">wijmo.angular</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p><p>AngularJS directive for the <a href="topic/wijmo.gauge.RadialGauge.Class.html"><b>RadialGauge</b></a> control.</p>
-
+<div class="comment"><p>AngularJS directive for the <a href="topic/wijmo.gauge.RadialGauge.Class.html"><span class="identifier">RadialGauge</span></a> control.</p>
 <p>Use the <b>wj-radial-gauge</b> directive to add radial gauges to your AngularJS applications. 
 Note that directive and parameter names must be formatted as lower-case with dashes 
 instead of camel-case. For example:</p>
 
-<p><pre>Here is a &lt;b&gt;RadialGauge&lt;/b&gt; control:&lt;/p&gt;
+
+<pre>Here is a &lt;b&gt;RadialGauge&lt;/b&gt; control:&lt;/p&gt;
 &lt;wj-radial-gauge
   style="height:300px" 
   value="count" 
   min="0" max="10"
   is-read-only="false"&gt;
-&lt;/wj-radial-gauge&gt;</pre></p>
-
+&lt;/wj-radial-gauge&gt;</pre>
 <p>The <b>wj-radial-gauge</b> directive supports the following attributes:</p>
-
 <p><dl class="dl-horizontal">
   <dt>ng-model</dt>      <dd><code>@</code> Binds the control's <b>value</b> property using the ng-model Angular 
                          directive. Binding the property using the ng-model directive provides standard benefits 
@@ -49,7 +51,7 @@ instead of camel-case. For example:</p>
                          can display.</dd>
   <dt>max</dt>           <dd><code>@</code> The maximum value that the gauge  
                          can display.</dd>
-  <dt>show-text</dt>     <dd><code>@</code> A <a href="topic/wijmo.gauge.ShowText.Enum.html"><b>ShowText</b></a> value indicating 
+  <dt>show-text</dt>     <dd><code>@</code> A <a href="topic/wijmo.gauge.ShowText.Enum.html"><span class="identifier">ShowText</span></a> value indicating 
                          which values display as text within the gauge.</dd>
   <dt>step</dt>          <dd><code>@</code> The amount to add or subtract to the 
                          value property when the user presses the arrow keys.</dd>
@@ -60,14 +62,11 @@ instead of camel-case. For example:</p>
   <dt>thickness</dt>     <dd><code>@</code> The thickness of the gauge, on a scale 
                          of zero to one.</dd>
   <dt>value</dt>         <dd><code>=</code> The value displayed on the gauge.</dd>
-  <dt>got-focus</dt>     <dd><code>&</code> The <b>gotFocus</b> event handler.</dd>
-  <dt>lost-focus</dt>    <dd><code>&</code> The <b>lostFocus</b> event handler.</dd>
+  <dt>got-focus</dt>     <dd><code>&</code> The <a href="topic/wijmo.gauge.RadialGauge.Class.html/#gotFocus"><span class="identifier">gotFocus</span></a> event handler.</dd>
+  <dt>lost-focus</dt>    <dd><code>&</code> The <a href="topic/wijmo.gauge.RadialGauge.Class.html/#lostFocus"><span class="identifier">lostFocus</span></a> event handler.</dd>
 </dl></p>
-
-<p>The <b>wj-radial-gauge</b> directive may contain one or more <a href="topic/wijmo.angular.WjRange.Class.html"><b>WjRange</b></a> directives.</p>
-
-<p><a href="http://jsfiddle.net/Wijmo5/7ec2144u/" target="_blank" class="btn btn-info">
-  <img src="images/fiddle.png"/>
-  Live Example
-</a>
-</p></p>
+<p>The <b>wj-radial-gauge</b> directive may contain one or more <a href="topic/wijmo.angular.WjRange.Class.html"><span class="identifier">WjRange</span></a> directives.</p>
+<p><div class="member-panel example"><h3 class="node collapsed">Example</h3><div class="fiddle"><script async src="http://jsfiddle.net/Wijmo5/7ec2144u/embed/result,html,js,css"></script></div></div></p></div>
+</div>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+</div>

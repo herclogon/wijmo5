@@ -1,0 +1,412 @@
+<div class="header-panel module">
+<h2><span class="identifier">wijmo.vue</span> Module</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd class="filename">wijmo.vue.js</dd>
+<dt>Module</dt><dd><span class="identifier">wijmo.vue</span></dd>
+</dl>
+<div class="comment"><p>Wijmo interop module for <a href="https://vuejs.org/">Vue</a>.</p>
+<p>This module provides Vue components that encapsulate Wijmo controls.</p>
+<p>To use it, your application must include references to the Vue 
+framework, as well as the regular Wijmo CSS and js files.</p>
+<p>To add Wijmo controls to Vue pages, include the appropriate
+tags in your HTML files. For example, the code below adds
+an <a href="topic/wijmo.input.InputNumber.Class.html"><span class="identifier">InputNumber</span></a> control to a Vue page:</p>
+
+
+<pre>&lt;wj-input-number
+  format="c2"
+  placeholder="Sales"
+  :value.sync="view.currentItem.sales"
+  :value-changed="refreshView"
+  :min="0"
+  :max="10000"
+  :step="100"
+  :is-required="false"&gt;
+&lt;/wj-input-number&gt;</pre>
+<p>The example illustrates the following important points:</p>
+<p><ol>
+  <li>
+     Wijmo controls have tag names that start with the "wj" prefix, followed by
+     the control name using lower-case and hyphen separators.</li>
+  <li>
+     The tag attribute names match the control's properties and events.</li>
+  <li>
+     Colons before attribute names indicate the attribute value should be
+     interpreted as JavaScript expressions (e.g. <code>:min="0"</code>).</li>
+  <li>
+     The <code>.sync</code> suffix after attribute names indicate the binding
+     it two-way (e.g. <code>:value.sync="view.currentItem.sales"</code>).</li>
+  <li>
+     Event handlers are specified the same way as regular one-way properties
+     (e.g. <code>:value-changed="refreshView"</code>).</li>
+</ol></p>
+<p>All Wijmo Vue components include a "control" pseudo-property that allow you
+to use the control's properties in the markup. For example:</p>
+<p>&lt;wj-list-box style="height:150px;width:250px;"
+  :items-source="countries"
+  control="listBox"&gt;
+&lt;/wj-list-box&gt;
+&lt;p&gt;
+  selectedIndex: {{ listBox.selectedIndex }}&lt;/p&gt;
+&lt;p&gt;
+  selectedValue: {{ listBox.selectedValue }}&lt;/p&gt;</p>
+<p>The markup sets the controller's <b>listBox</b> property to the instance of
+the <b>ListBox</b> control, so it can be used in markup.</p>
+<p>It is important that the <b>listBox</b> property be defined in <b>data</b>
+object of the containing Vue context, or the component properties will not
+be updated properly. For example:</p>
+
+
+<pre>// Vue application
+var app = new Vue({
+  el: '#app',
+  data: {
+    listBox: null // will receive a reference to the ListBox control
+  }
+});</pre></div>
+</div>
+<div class="member-panel module members">
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjAutoComplete">WjAutoComplete</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjBulletGraph">WjBulletGraph</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjCalendar">WjCalendar</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjColorPicker">WjColorPicker</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjComboBox">WjComboBox</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjFlexChart">WjFlexChart</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjFlexChartAxis">WjFlexChartAxis</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjFlexChartLegend">WjFlexChartLegend</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjFlexChartSeries">WjFlexChartSeries</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjFlexGrid">WjFlexGrid</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjFlexGridColumn">WjFlexGridColumn</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjFormat">WjFormat</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjInclude">WjInclude</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjInputColor">WjInputColor</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjInputDate">WjInputDate</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjInputDateTime">WjInputDateTime</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjInputMask">WjInputMask</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjInputNumber">WjInputNumber</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjInputTime">WjInputTime</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjLinearGauge">WjLinearGauge</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjListBox">WjListBox</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjMenu">WjMenu</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjMultiSelect">WjMultiSelect</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjPopup">WjPopup</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjRadialGauge">WjRadialGauge</a></li>
+<li class="mproperty"><a href="topic/wijmo.vue.Module.html/#WjRange">WjRange</a></li>
+</ul>
+</div>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="WjAutoComplete" class="member-panel mproperty">
+<h3>WjAutoComplete</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.AutoComplete.Class.html"><span class="identifier">AutoComplete</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjBulletGraph" class="member-panel mproperty">
+<h3>WjBulletGraph</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.gauge.BulletGraph.Class.html"><span class="identifier">BulletGraph</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjCalendar" class="member-panel mproperty">
+<h3>WjCalendar</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.Calendar.Class.html"><span class="identifier">Calendar</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjColorPicker" class="member-panel mproperty">
+<h3>WjColorPicker</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.ColorPicker.Class.html"><span class="identifier">ColorPicker</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjComboBox" class="member-panel mproperty">
+<h3>WjComboBox</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.ComboBox.Class.html"><span class="identifier">ComboBox</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjFlexChart" class="member-panel mproperty">
+<h3>WjFlexChart</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.chart.FlexChart.Class.html"><span class="identifier">FlexChart</span></a> control.</p>
+<p>The example below shows how to instantiate and initialize a
+<a href="topic/wijmo.chart.FlexChart.Class.html"><span class="identifier">FlexChart</span></a> control using Vue markup:</p>
+
+
+<pre>&lt;wj-flex-chart
+    :items-source="data"
+    binding-x="country"
+    :header="props.header"
+    :footer="props.footer"&gt;
+
+    &lt;wj-flex-chart-legend :position="props.legendPosition"&gt;
+    &lt;/wj-flex-chart-legend&gt;
+    &lt;wj-flex-chart-axis wj-property="axisX" :title="props.titleX"&gt;
+    &lt;/wj-flex-chart-axis&gt;
+    &lt;wj-flex-chart-axis wj-property="axisY" :title="props.titleY"&gt;
+    &lt;/wj-flex-chart-axis&gt;
+
+    &lt;wj-flex-chart-series name="Sales" binding="sales"&gt;
+    &lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series name="Expenses" binding="expenses"&gt;
+    &lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series name="Downloads" binding="downloads"&gt;
+    &lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;</pre>
+<p>The code sets the <b>itemsSource</b> property to a collection that contains the chart
+data and the <b>bindingX</b> property to the data property that contains the chart X values.
+It also sets the chart's <b>header</b> and <b>footer</b> properties to define titles to
+show above and below the chart.</p>
+<p>The <b>wj-flex-chart-legend</b> and <b>wj-flex-chart-axis</b> components are used to
+customize the chart's legend and axes.</p>
+<p>Finally, three <b>wj-flex-chart-series</b> components are used to specify the data
+properties to be shown on the chart.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjFlexChartAxis" class="member-panel mproperty">
+<h3>WjFlexChartAxis</h3>
+<div class="comment"><p>Vue component that represents a <a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a> in a
+<a href="topic/wijmo.chart.FlexChart.Class.html"><span class="identifier">FlexChart</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjFlexChartLegend" class="member-panel mproperty">
+<h3>WjFlexChartLegend</h3>
+<div class="comment"><p>Vue component that represents the <a href="topic/wijmo.chart.Legend.Class.html"><span class="identifier">Legend</span></a> in a
+<a href="topic/wijmo.chart.FlexChart.Class.html"><span class="identifier">FlexChart</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjFlexChartSeries" class="member-panel mproperty">
+<h3>WjFlexChartSeries</h3>
+<div class="comment"><p>Vue component that represents a <a href="topic/wijmo.chart.Series.Class.html"><span class="identifier">Series</span></a> in a
+<a href="topic/wijmo.chart.FlexChart.Class.html"><span class="identifier">FlexChart</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjFlexGrid" class="member-panel mproperty">
+<h3>WjFlexGrid</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a> control.</p>
+<p>The example below shows how to instantiate and initialize a
+<a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a> control using Vue markup:</p>
+
+
+<pre>&lt;wj-flex-grid
+  :items-source="data"&gt;
+  &lt;wj-flex-grid-column binding="name" header="Name"&gt;
+  &lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column binding="sales" header="Sales" format="c0"&gt;
+  &lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column binding="expenses" header="Expenses" format="c0"&gt;
+  &lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column binding="active" header="Active"&gt;
+  &lt;/wj-flex-grid-column&gt;
+  &lt;wj-flex-grid-column binding="date" header="Date"&gt;
+  &lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;</pre>
+<p>The code sets the <b>itemsSource</b> property to a collection that contains the grid
+data, then specifies the columns to display using <b>wj-flex-grid-column</b>
+components.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjFlexGridColumn" class="member-panel mproperty">
+<h3>WjFlexGridColumn</h3>
+<div class="comment"><p>Vue component that represents a <a href="topic/wijmo.grid.Column.Class.html"><span class="identifier">Column</span></a> in a
+<a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjFormat" class="member-panel mproperty">
+<h3>WjFormat</h3>
+<div class="comment"><p>Vue filter that applies globalized formatting to dates and numbers.</p>
+<p>For example, the code below uses the <b>wj-format</b> filter to format
+a number as a currency value and a date as a short date using the
+current Wijmo culture:</p>
+
+
+<pre>&lt;p&gt;value: {&#8203;{ theAmount | wj-format 'c' }}&lt;/p&gt;
+&lt;p&gt;date: {&#8203;{ theDate | wj-format 'd' }}&lt;/p&gt;</pre></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjInclude" class="member-panel mproperty">
+<h3>WjInclude</h3>
+<div class="comment"><p>Vue component that includes a given HTML fragment into the document.</p>
+<p>The <b>wj-include</b> component takes a <b>src</b> attribute that
+specifies a file to load and include into the document. For example:</p>
+
+
+<pre>&lt;wj-popup control="modalDialog" :modal="true" :hide-trigger="None"&gt;
+  &lt;wj-include src="includes/dialog.htm"&gt;&lt;/wj-include&gt;
+&lt;/wj-popup&gt;</pre></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjInputColor" class="member-panel mproperty">
+<h3>WjInputColor</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.InputColor.Class.html"><span class="identifier">InputColor</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjInputDate" class="member-panel mproperty">
+<h3>WjInputDate</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.InputDate.Class.html"><span class="identifier">InputDate</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjInputDateTime" class="member-panel mproperty">
+<h3>WjInputDateTime</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.InputDateTime.Class.html"><span class="identifier">InputDateTime</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjInputMask" class="member-panel mproperty">
+<h3>WjInputMask</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.InputMask.Class.html"><span class="identifier">InputMask</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjInputNumber" class="member-panel mproperty">
+<h3>WjInputNumber</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.InputNumber.Class.html"><span class="identifier">InputNumber</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjInputTime" class="member-panel mproperty">
+<h3>WjInputTime</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.InputTime.Class.html"><span class="identifier">InputTime</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjLinearGauge" class="member-panel mproperty">
+<h3>WjLinearGauge</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.gauge.LinearGauge.Class.html"><span class="identifier">LinearGauge</span></a> control.</p>
+<p>The example below shows how to instantiate and initialize a
+<a href="topic/wijmo.gauge.LinearGauge.Class.html"><span class="identifier">LinearGauge</span></a> control using Vue markup:</p>
+
+
+<pre>&lt;wj-linear-gauge
+    :min="0" :max="1000" :step="50" :is-read-only="false"
+    format="c0" :thumb-size="20"
+    :show-ranges="false"
+    :value.sync="sales"&gt;
+    &lt;wj-range wj-property="face" :thickness="0.5"&gt;
+    &lt;/wj-range&gt;
+    &lt;wj-range wj-property="pointer" :thickness="0.5"&gt;
+    &lt;/wj-range&gt;
+    &lt;wj-range :min="0" :max="333" color="red"&gt;
+    &lt;/wj-range&gt;
+    &lt;wj-range :min="333" :max="666" color="gold"&gt;
+    &lt;/wj-range&gt;
+    &lt;wj-range :min="666" :max="1000" color="green"&gt;
+    &lt;/wj-range&gt;
+&lt;/wj-linear-gauge&gt;</pre>
+<p>The code <b>min</b>, <b>max</b>, <b>step</b>, and <b>isReadOnly</b> properties
+to define the range of the gauge and to allow users to edit its value.
+Next, it binds the gauge's <b>value</b> property to a <b>sales</b> variable
+in the controller.</p>
+<p>Then it sets the <b>format</b>, <b>thumbSize</b>, and <b>showRanges</b>
+properties to define the appearance of the gauge. Finally, the markup sets
+the thickness of the <b>face</b> and <b>pointer</b> ranges, and extra ranges
+that will control the color of the <b>value</b> range depending on the gauge's
+current value.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjListBox" class="member-panel mproperty">
+<h3>WjListBox</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjMenu" class="member-panel mproperty">
+<h3>WjMenu</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.Menu.Class.html"><span class="identifier">Menu</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjMultiSelect" class="member-panel mproperty">
+<h3>WjMultiSelect</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.MultiSelect.Class.html"><span class="identifier">MultiSelect</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjPopup" class="member-panel mproperty">
+<h3>WjPopup</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjRadialGauge" class="member-panel mproperty">
+<h3>WjRadialGauge</h3>
+<div class="comment"><p>Vue component that encapsulates the <a href="topic/wijmo.gauge.RadialGauge.Class.html"><span class="identifier">RadialGauge</span></a> control.</p>
+<p>The example below shows how to instantiate and initialize a
+<a href="topic/wijmo.gauge.RadialGauge.Class.html"><span class="identifier">RadialGauge</span></a> control using Vue markup:</p>
+
+
+<pre>&lt;wj-radial-gauge
+    :min="0" :max="1000" :step="50" :is-read-only="false"
+    format="c0" :thumb-size="12" :show-text="Value"
+    :show-ranges="false"
+    :value.sync="sales"&gt;
+    &lt;wj-range wj-property="face" :thickness="0.5"&gt;
+    &lt;/wj-range&gt;
+    &lt;wj-range wj-property="pointer" :thickness="0.5"&gt;
+    &lt;/wj-range&gt;
+    &lt;wj-range :min="0" :max="333" color="red"&gt;
+    &lt;/wj-range&gt;
+    &lt;wj-range :min="333" :max="666" color="gold"&gt;
+    &lt;/wj-range&gt;
+    &lt;wj-range :min="666" :max="1000" color="green"&gt;
+    &lt;/wj-range&gt;
+&lt;/wj-radial-gauge&gt;</pre>
+<p>The code <b>min</b>, <b>max</b>, <b>step</b>, and <b>isReadOnly</b> properties
+to define the range of the gauge and to allow users to edit its value.
+Next, it binds the gauge's <b>value</b> property to a <b>sales</b> variable
+in the controller.</p>
+<p>Then it sets the <b>format</b>, <b>thumbSize</b>, and <b>showRanges</b>
+properties to define the appearance of the gauge. Finally, the markup sets
+the thickness of the <b>face</b> and <b>pointer</b> ranges, and extra ranges
+that will control the color of the <b>value</b> range depending on the gauge's
+current value.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="WjRange" class="member-panel mproperty">
+<h3>WjRange</h3>
+<div class="comment"><p>Vue component that represents a <a href="topic/wijmo.gauge.Range.Class.html"><span class="identifier">Range</span></a> in a
+<a href="topic/wijmo.gauge.Gauge.Class.html"><span class="identifier">Gauge</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+</div>

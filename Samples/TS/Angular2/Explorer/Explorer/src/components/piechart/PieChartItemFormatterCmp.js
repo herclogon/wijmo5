@@ -15,9 +15,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var DataSvc_1 = require('../../services/DataSvc');
 var PieChartBaseCmp_1 = require('./PieChartBaseCmp');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
 // PieChart Introduction sample component.
 var PieChartItemFormatterCmp = (function (_super) {
     __extends(PieChartItemFormatterCmp, _super);
@@ -43,12 +45,26 @@ var PieChartItemFormatterCmp = (function (_super) {
     PieChartItemFormatterCmp = __decorate([
         core_1.Component({
             selector: 'pie-item-formatter-cmp',
-            templateUrl: 'src/components/piechart/pieChartItemFormatterCmp.html',
-            directives: [wjNg2Chart.WjFlexPie, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/piechart/pieChartItemFormatterCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], PieChartItemFormatterCmp);
     return PieChartItemFormatterCmp;
 }(PieChartBaseCmp_1.PieChartBaseCmp));
 exports.PieChartItemFormatterCmp = PieChartItemFormatterCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: PieChartItemFormatterCmp }
+]);
+var PieChartItemFormatterModule = (function () {
+    function PieChartItemFormatterModule() {
+    }
+    PieChartItemFormatterModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing, wijmo_angular2_chart_1.WjChartModule],
+            declarations: [PieChartItemFormatterCmp],
+        })
+    ], PieChartItemFormatterModule);
+    return PieChartItemFormatterModule;
+}());
+exports.PieChartItemFormatterModule = PieChartItemFormatterModule;
 //# sourceMappingURL=PieChartItemFormatterCmp.js.map

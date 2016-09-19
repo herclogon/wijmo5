@@ -162,7 +162,7 @@ var wijmo;
                 this._zoomFactor = 1;
                 this._viewMode = ViewMode.Single;
                 this._needBind = false;
-                /** Occurs after the document source changes. */
+                // Occurs after the document source changes. */
                 this._documentSourceChanged = new wijmo.Event();
                 /**
                  * Occurs after the page number is changed.
@@ -1997,12 +1997,19 @@ var wijmo;
             return items;
         }
         viewer._enumToArray = _enumToArray;
-        function _removeChildren(node) {
+        function _removeChildren(node, condition) {
             if (!node) {
                 return;
             }
-            while (node.hasChildNodes()) {
-                node.removeChild(node.firstChild);
+            var children = node.children;
+            if (!children) {
+                return;
+            }
+            for (var i = children.length - 1; i > -1; i--) {
+                var child = children[i];
+                if (condition == null || condition(child)) {
+                    node.removeChild(child);
+                }
             }
         }
         viewer._removeChildren = _removeChildren;
@@ -2312,6 +2319,7 @@ var wijmo;
                 },
                 set: function (value) {
                     this._itemSources = value;
+                    this._parameters = {};
                     this._render();
                     var errors = [];
                     (value || []).forEach(function (v) {
@@ -2343,6 +2351,24 @@ var wijmo;
                 this.validate.raise(this, new wijmo.EventArgs());
                 this._setErrorsVisible(false);
             };
+            _ParametersEditor.prototype._deferValidate = function (paramName, beforeValidate, afterValidate) {
+                var _this = this;
+                if (this._validateTimer != null) {
+                    clearTimeout(this._validateTimer);
+                    this._validateTimer = null;
+                }
+                this._validateTimer = setTimeout(function () {
+                    if (beforeValidate != null) {
+                        beforeValidate();
+                    }
+                    _this.onValidate();
+                    if (afterValidate != null) {
+                        afterValidate();
+                    }
+                    _this._lastEditedParam = paramName;
+                    _this._validateTimer = null;
+                }, 500);
+            };
             _ParametersEditor.prototype._updateErrorDiv = function () {
                 var errorList = this._errors || [], errorDivList = this.hostElement.querySelectorAll('.error');
                 for (var i = 0; i < errorDivList.length; i++) {
@@ -2360,55 +2386,67 @@ var wijmo;
             };
             _ParametersEditor.prototype._render = function () {
                 var _this = this;
-                viewer._removeChildren(this.hostElement);
-                var parameters = this._itemSources;
+                var parameters = this._itemSources, lastEditor, condition = null;
+                if (parameters && this._lastEditedParam) {
+                    condition = function (ele) {
+                        var curName = ele.getAttribute(_ParametersEditor._paramIdAttr);
+                        if (curName !== _this._lastEditedParam) {
+                            return true;
+                        }
+                        lastEditor = ele;
+                        return false;
+                    };
+                }
+                viewer._removeChildren(this.hostElement, condition);
                 if (!parameters) {
                     return;
                 }
-                var parentParams = {};
                 for (var i = 0; i < parameters.length; i++) {
-                    if (parameters[i].dependentParameters && parameters[i].dependentParameters.length > 0) {
-                        for (var j = 0; j < parameters[i].dependentParameters.length; j++) {
-                            parentParams[parameters[i].dependentParameters[j]] = null;
-                        }
-                    }
-                }
-                for (var i = 0; i < parameters.length; i++) {
-                    if (!!parameters[i].hidden) {
+                    var curParam = parameters[i];
+                    if (this._lastEditedParam === curParam.name) {
+                        this._lastEditedParam = null;
+                        lastEditor = null;
                         continue;
                     }
-                    var parameterContainer = document.createElement('div'), parameterLabel = document.createElement('span'), parameterControl = null, control, isParentParam = false;
+                    if (!!curParam.hidden) {
+                        continue;
+                    }
+                    var parameterContainer = document.createElement('div'), parameterLabel = document.createElement('span'), parameterControl = null, control;
                     parameterContainer.className = 'wj-parametercontainer';
                     parameterLabel.className = 'wj-parameterhead';
-                    parameterLabel.innerHTML = parameters[i].prompt || parameters[i].name;
-                    isParentParam = parentParams.hasOwnProperty(parameters[i].name);
-                    if (wijmo.isArray(parameters[i].allowedValues)) {
-                        parameterControl = this._generateComboEditor(parameters[i], isParentParam);
+                    parameterLabel.innerHTML = curParam.prompt || curParam.name;
+                    if (wijmo.isArray(curParam.allowedValues)) {
+                        parameterControl = this._generateComboEditor(curParam);
                     }
                     else {
-                        switch (parameters[i].dataType) {
+                        switch (curParam.dataType) {
                             case viewer._ParameterType.Boolean:
-                                parameterControl = this._generateBoolEditor(parameters[i], isParentParam);
+                                parameterControl = this._generateBoolEditor(curParam);
                                 break;
                             case viewer._ParameterType.DateTime:
                             case viewer._ParameterType.Time:
-                                parameterControl = this._generateDateTimeEditor(parameters[i], isParentParam);
+                                parameterControl = this._generateDateTimeEditor(curParam);
                                 break;
                             case viewer._ParameterType.Integer:
                             case viewer._ParameterType.Float:
-                                parameterControl = this._generateNumberEditor(parameters[i], isParentParam);
+                                parameterControl = this._generateNumberEditor(curParam);
                                 break;
                             case viewer._ParameterType.String:
-                                parameterControl = this._generateStringEditor(parameters[i], isParentParam);
+                                parameterControl = this._generateStringEditor(curParam);
                                 break;
                         }
                     }
                     if (parameterControl) {
                         parameterControl.className += ' wj-parametercontrol';
-                        parameterContainer.setAttribute(_ParametersEditor._paramIdAttr, parameters[i].name);
+                        parameterContainer.setAttribute(_ParametersEditor._paramIdAttr, curParam.name);
                         parameterContainer.appendChild(parameterLabel);
                         parameterContainer.appendChild(parameterControl);
-                        this.hostElement.appendChild(parameterContainer);
+                        if (lastEditor) {
+                            this.hostElement.insertBefore(parameterContainer, lastEditor);
+                        }
+                        else {
+                            this.hostElement.appendChild(parameterContainer);
+                        }
                     }
                 }
                 var applyBtn = document.createElement('input');
@@ -2427,11 +2465,12 @@ var wijmo;
             _ParametersEditor.prototype._validateParameters = function () {
                 var textareas = this.hostElement.querySelectorAll('textarea'), element, errorList = [], parameters = this.itemsSource;
                 for (var i = 0; i < parameters.length; i++) {
-                    element = this.hostElement.querySelector('[' + _ParametersEditor._paramIdAttr + '="' + parameters[i].name + '"]');
-                    if (!parameters[i].nullable && !this.parameters.hasOwnProperty(parameters[i].name) && !this.parameters[parameters[i].name]
-                        && (parameters[i].value === null || parameters[i].value === undefined || parameters[i].value === "")) {
+                    var curParam = parameters[i];
+                    element = this.hostElement.querySelector('[' + _ParametersEditor._paramIdAttr + '="' + curParam.name + '"]');
+                    if (!curParam.nullable && !this.parameters.hasOwnProperty(curParam.name) && !this.parameters[curParam.name]
+                        && (curParam.value === null || curParam.value === undefined || curParam.value === "")) {
                         if (element) {
-                            errorList.push({ key: parameters[i].name, value: local.nullParameterError });
+                            errorList.push({ key: curParam.name, value: local.nullParameterError });
                         }
                     }
                 }
@@ -2473,9 +2512,9 @@ var wijmo;
                 }
                 return true;
             };
-            _ParametersEditor.prototype._generateComboEditor = function (parameter, isParentParam) {
+            _ParametersEditor.prototype._generateComboEditor = function (parameter) {
                 var _this = this;
-                var combo, itemsSource = [], element = document.createElement('div'), multiSelect, values, checkedItems = [], isChildParameter = parameter.dependentParameters && parameter.dependentParameters.length > 0, isParameterResolved = !isChildParameter || (parameter.allowedValues && parameter.allowedValues.length > 0);
+                var combo, itemsSource = [], element = document.createElement('div'), multiSelect, values, checkedItems = [], isParameterResolved = (parameter.allowedValues && parameter.allowedValues.length > 0);
                 if (parameter.multiValue) {
                     combo = new _MultiSelectEx(element);
                 }
@@ -2491,9 +2530,7 @@ var wijmo;
                 combo.isEditable = false;
                 combo.displayMemberPath = 'name';
                 combo.selectedValuePath = 'value';
-                if (isChildParameter && (!parameter.allowedValues || parameter.allowedValues.length <= 0)) {
-                    combo.disabled = true;
-                }
+                combo.isDisabled = !isParameterResolved;
                 for (var i = 0; i < parameter.allowedValues.length; i++) {
                     itemsSource.push({ name: parameter.allowedValues[i].key, value: parameter.allowedValues[i].value });
                 }
@@ -2515,17 +2552,17 @@ var wijmo;
                         multiSelect.checkedItems = checkedItems;
                     }
                     multiSelect.checkedItemsChanged.addHandler(function () {
-                        values = [];
-                        for (var i = 0; i < multiSelect.checkedItems.length; i++) {
-                            values.push(multiSelect.checkedItems[i]['value']);
-                        }
-                        _this._updateParameters(parameter, values);
-                        if (isParentParam) {
-                            _this.onValidate();
-                        }
-                        if (values.length > 0 && !parameter.nullable) {
-                            _this._validateNullValueOfParameter(element);
-                        }
+                        _this._deferValidate(parameter.name, function () {
+                            values = [];
+                            for (var i = 0; i < multiSelect.checkedItems.length; i++) {
+                                values.push(multiSelect.checkedItems[i]['value']);
+                            }
+                            _this._updateParameters(parameter, values);
+                        }, function () {
+                            if (values.length > 0 && !parameter.nullable) {
+                                _this._validateNullValueOfParameter(element);
+                            }
+                        });
                     });
                 }
                 else {
@@ -2537,26 +2574,24 @@ var wijmo;
                     }
                     var updating = false;
                     combo.selectedIndexChanged.addHandler(function (sender) {
-                        if (updating) {
-                            return;
-                        }
-                        _this._updateParameters(parameter, sender.selectedValue);
-                        if (sender.selectedValue && sender.itemsSource[0]['name'] === local.selectParameterValue) {
-                            setTimeout(function () {
-                                updating = true;
-                                var value = sender.selectedValue;
-                                var index = sender.selectedIndex;
-                                sender.itemsSource.shift();
-                                sender.collectionView.refresh();
-                                sender.selectedValue = value;
-                                sender.selectedIndex = index - 1;
-                                updating = false;
-                            });
-                        }
-                        if (isParentParam) {
-                            _this.onValidate();
-                        }
-                        _this._validateNullValueOfParameter(element);
+                        _this._deferValidate(parameter.name, function () {
+                            if (updating) {
+                                return;
+                            }
+                            _this._updateParameters(parameter, sender.selectedValue);
+                            if (sender.selectedValue && sender.itemsSource[0]['name'] === local.selectParameterValue) {
+                                setTimeout(function () {
+                                    updating = true;
+                                    var value = sender.selectedValue;
+                                    var index = sender.selectedIndex;
+                                    sender.itemsSource.shift();
+                                    sender.collectionView.refresh();
+                                    sender.selectedValue = value;
+                                    sender.selectedIndex = index - 1;
+                                    updating = false;
+                                });
+                            }
+                        }, function () { return _this._validateNullValueOfParameter(element); });
                     });
                 }
                 return element;
@@ -2579,7 +2614,7 @@ var wijmo;
                 });
                 this._parameters[parameter.name] = item.value = parameter.value = spliteNewLine(value, parameter.multiValue);
             };
-            _ParametersEditor.prototype._generateBoolEditor = function (parameter, isParentParam) {
+            _ParametersEditor.prototype._generateBoolEditor = function (parameter) {
                 var _this = this;
                 var checkEditor, itemsSource = [], element;
                 if (parameter.nullable) {
@@ -2594,10 +2629,7 @@ var wijmo;
                     checkEditor.itemsSource = itemsSource;
                     checkEditor.selectedValue = parameter.value;
                     checkEditor.selectedIndexChanged.addHandler(function (sender) {
-                        _this._updateParameters(parameter, sender.selectedValue);
-                        if (isParentParam) {
-                            _this.onValidate();
-                        }
+                        _this._deferValidate(parameter.name, function () { return _this._updateParameters(parameter, sender.selectedValue); });
                     });
                 }
                 else {
@@ -2605,15 +2637,12 @@ var wijmo;
                     element.type = 'checkbox';
                     element.checked = parameter.value;
                     viewer._addEvent(element, 'click', function () {
-                        _this._updateParameters(parameter, element.checked);
-                        if (isParentParam) {
-                            _this.onValidate();
-                        }
+                        _this._deferValidate(parameter.name, function () { return _this._updateParameters(parameter, element.checked); });
                     });
                 }
                 return element;
             };
-            _ParametersEditor.prototype._generateStringEditor = function (parameter, isParentParam) {
+            _ParametersEditor.prototype._generateStringEditor = function (parameter) {
                 var self = this, element;
                 if (parameter.multiValue) {
                     element = self._createTextarea(parameter.value, parameter.dataType);
@@ -2625,7 +2654,7 @@ var wijmo;
                         element.value = parameter.value;
                     }
                 }
-                self._bindTextChangedEvent(element, parameter, isParentParam);
+                self._bindTextChangedEvent(element, parameter);
                 return element;
             };
             _ParametersEditor.prototype._createTextarea = function (value, dataType) {
@@ -2648,48 +2677,44 @@ var wijmo;
                 textarea.setAttribute('data-type', dataType.toString());
                 return textarea;
             };
-            _ParametersEditor.prototype._bindTextChangedEvent = function (element, parameter, isParentParam) {
+            _ParametersEditor.prototype._bindTextChangedEvent = function (element, parameter) {
                 var _this = this;
                 viewer._addEvent(element, 'change,keyup,paste,input', function () {
-                    _this._updateParameters(parameter, element.value);
-                    if (isParentParam) {
-                        _this.onValidate();
-                    }
-                    if (element.value && !parameter.nullable) {
-                        _this._validateNullValueOfParameter(element);
-                    }
+                    _this._deferValidate(parameter.name, function () { return _this._updateParameters(parameter, element.value); }, function () {
+                        if (element.value && !parameter.nullable) {
+                            _this._validateNullValueOfParameter(element);
+                        }
+                    });
                 });
             };
-            _ParametersEditor.prototype._generateNumberEditor = function (parameter, isParentParam) {
-                var self = this, element, inputNumber;
+            _ParametersEditor.prototype._generateNumberEditor = function (parameter) {
+                var _this = this;
+                var element, inputNumber;
                 if (parameter.multiValue) {
-                    element = self._createTextarea(parameter.value, parameter.dataType);
-                    self._bindTextChangedEvent(element, parameter, isParentParam);
+                    element = this._createTextarea(parameter.value, parameter.dataType);
+                    this._bindTextChangedEvent(element, parameter);
                 }
                 else {
                     element = document.createElement('div');
                     inputNumber = new wijmo.input.InputNumber(element);
                     inputNumber.format = parameter.dataType === viewer._ParameterType.Integer ? 'n0' : 'n2';
-                    inputNumber.required = !parameter.nullable;
+                    inputNumber.isRequired = !parameter.nullable;
                     if (parameter.value) {
                         inputNumber.value = parameter.dataType === viewer._ParameterType.Integer ? parseInt(parameter.value) : parseFloat(parameter.value);
                     }
                     inputNumber.valueChanged.addHandler(function (sender) {
-                        self._updateParameters(parameter, sender.value);
-                        if (isParentParam) {
-                            this.onValidate();
-                        }
+                        _this._deferValidate(parameter.name, function () { return _this._updateParameters(parameter, sender.value); });
                     });
                 }
                 return element;
             };
-            _ParametersEditor.prototype._generateDateTimeEditor = function (parameter, isParentParam) {
+            _ParametersEditor.prototype._generateDateTimeEditor = function (parameter) {
                 var _this = this;
                 var element, input;
                 if (parameter.multiValue) {
                     element = this._createTextarea(parameter.value, parameter.dataType);
                     element.title = 'MM/dd/yyyy HH:mm';
-                    this._bindTextChangedEvent(element, parameter, isParentParam);
+                    this._bindTextChangedEvent(element, parameter);
                 }
                 else {
                     element = document.createElement('div');
@@ -2700,15 +2725,12 @@ var wijmo;
                         input = new wijmo.input.InputTime(element);
                         input.step = 60;
                     }
-                    input.required = !parameter.nullable;
+                    input.isRequired = !parameter.nullable;
                     if (parameter.value) {
                         input.value = new Date(parameter.value);
                     }
-                    input.valueChanged.addHandler(function (sender) {
-                        _this._updateParameters(parameter, input.value.toJSON());
-                        if (isParentParam) {
-                            _this.onValidate();
-                        }
+                    input.valueChanged.addHandler(function () {
+                        _this._deferValidate(parameter.name, function () { return _this._updateParameters(parameter, input.value.toJSON()); });
                     });
                 }
                 return element;
@@ -2792,12 +2814,12 @@ var wijmo;
                 enumerable: true,
                 configurable: true
             });
-            Object.defineProperty(_MultiSelectEx.prototype, "disabled", {
+            Object.defineProperty(_MultiSelectEx.prototype, "isDisabled", {
                 get: function () {
-                    return this._multiSelect.disabled;
+                    return this._multiSelect.isDisabled;
                 },
                 set: function (value) {
-                    this._multiSelect.disabled = value;
+                    this._multiSelect.isDisabled = value;
                 },
                 enumerable: true,
                 configurable: true

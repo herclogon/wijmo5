@@ -11,20 +11,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 // Angular
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var platform_browser_1 = require('@angular/platform-browser');
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var router_deprecated_1 = require('@angular/router-deprecated');
-var common_2 = require('@angular/common');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
+var router_1 = require('@angular/router');
+var app_routing_1 = require('./app.routing');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 var DataSvc_1 = require('./services/DataSvc');
-var AlphabeticalListOfProductsCmp_1 = require('./components/AlphabeticalListOfProductsCmp');
-var CustomerLabelsCmp_1 = require('./components/CustomerLabelsCmp');
-var EmployeesCmp_1 = require('./components/EmployeesCmp');
-var ProductCatalogCmp_1 = require('./components/ProductCatalogCmp');
-var ProductsByCategoryCmp_1 = require('./components/ProductsByCategoryCmp');
-var SalesByCategoryCmp_1 = require('./components/SalesByCategoryCmp');
-var SalesChartCmp_1 = require('./components/SalesChartCmp');
-var EmployeeSalesByCountryCmp_1 = require('./components/EmployeeSalesByCountryCmp');
 'use strict';
 // The application root component.
 var AppCmp = (function () {
@@ -37,14 +29,14 @@ var AppCmp = (function () {
         dataSvc.viewsLoadedFun = this._viewsLoadedChanged.bind(this);
         // report list
         this.reports = new wijmo.collections.CollectionView([
-            { header: 'Alphabetical List of Products', name: 'AalphabeticalListOfProducts' },
-            { header: 'Customer Labels', name: 'CustomerLabels' },
-            { header: 'Employees', name: 'Employees' },
-            { header: 'Product Catalog', name: 'ProductCatalog' },
-            { header: 'Products by Category', name: 'ProductsByCategory' },
-            { header: 'Sales by Category', name: 'SalesByCategory' },
-            { header: 'Sales Chart', name: 'SalesChart' },
-            { header: 'Employee Sales By Country', name: 'EmployeeSalesByCountry' }
+            { header: 'Alphabetical List of Products', name: 'alphabeticalListOfProducts' },
+            { header: 'Customer Labels', name: 'customerLabels' },
+            { header: 'Employees', name: 'employees' },
+            { header: 'Product Catalog', name: 'productCatalog' },
+            { header: 'Products by Category', name: 'productsByCategory' },
+            { header: 'Sales by Category', name: 'salesByCategory' },
+            { header: 'Sales Chart', name: 'salesChart' },
+            { header: 'Employee Sales By Country', name: 'employeeSalesByCountry' }
         ], {
             currentChanged: function (s, e) {
                 router.navigate([s.currentItem.name]);
@@ -96,32 +88,30 @@ var AppCmp = (function () {
     AppCmp = __decorate([
         core_1.Component({
             selector: 'app-cmp',
-            templateUrl: 'src/app.html',
-            directives: [common_1.CORE_DIRECTIVES, router_deprecated_1.ROUTER_DIRECTIVES, wjNg2Input.WjComboBox]
+            templateUrl: 'src/app.html'
         }),
-        router_deprecated_1.RouteConfig([
-            // { path: '/', redirectTo: ['AlphabeticalListOfProducts'] },
-            { path: '/alphabeticalListOfProducts', component: AlphabeticalListOfProductsCmp_1.AlphabeticalListOfProductsCmp, name: 'AalphabeticalListOfProducts', useAsDefault: true },
-            { path: '/customerLabels', component: CustomerLabelsCmp_1.CustomerLabelsCmp, name: 'CustomerLabels' },
-            { path: '/employees', component: EmployeesCmp_1.EmployeesCmp, name: 'Employees' },
-            { path: '/productCatalog', component: ProductCatalogCmp_1.ProductCatalogCmp, name: 'ProductCatalog' },
-            { path: '/productsByCategory', component: ProductsByCategoryCmp_1.ProductsByCategoryCmp, name: 'ProductsByCategory' },
-            { path: '/salesByCategory', component: SalesByCategoryCmp_1.SalesByCategoryCmp, name: 'SalesByCategory' },
-            { path: '/salesChart', component: SalesChartCmp_1.SalesChartCmp, name: 'SalesChart' },
-            { path: '/employeeSalesByCountry', component: EmployeeSalesByCountryCmp_1.EmployeeSalesByCountryCmp, name: 'EmployeeSalesByCountry' },
-        ]),
-        __param(0, core_1.Inject(router_deprecated_1.Router)),
+        __param(0, core_1.Inject(router_1.Router)),
         __param(1, core_1.Inject(DataSvc_1.DataSvc)),
         __param(2, core_1.Inject(core_1.NgZone))
     ], AppCmp);
     return AppCmp;
 }());
 exports.AppCmp = AppCmp;
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [platform_browser_1.BrowserModule, app_routing_1.routing, wijmo_angular2_input_1.WjInputModule],
+            declarations: [AppCmp],
+            providers: [DataSvc_1.DataSvc],
+            bootstrap: [AppCmp]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
 core_1.enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-platform_browser_dynamic_1.bootstrap(AppCmp, [
-    router_deprecated_1.ROUTER_PROVIDERS,
-    core_1.provide(common_2.LocationStrategy, { useClass: common_2.HashLocationStrategy }),
-    DataSvc_1.DataSvc
-]);
+// Bootstrap application 
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(AppModule);
 //# sourceMappingURL=app.js.map

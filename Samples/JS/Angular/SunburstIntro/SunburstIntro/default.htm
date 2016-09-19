@@ -49,7 +49,7 @@
         <div ng-controller="simpleCtrl">
             <h2 id="Start">Getting Started</h2>
             <p>
-                Steps for getting started with the Sunburst chart control in JavaScript applications:
+                Here are the steps for getting started with the Sunburst chart control in AngularJS applications:
             </p>
             <ol>
                 <li>Add references to AngularJS, Wijmo, and Wijmo's AngularJS directives.</li>
@@ -157,7 +157,8 @@
                 </div>
                 <div class="col-md-6">
                     <h4>Result (live):</h4>
-                    <wj-sunburst control="chart"
+                    <wj-sunburst 
+                                 control="chart"
                                  items-source="itemsSource"
                                  binding="value"
                                  binding-name="bindingName">
@@ -335,7 +336,8 @@
                 </div>
                 <div class="col-md-6">
                     <h4>Result (live):</h4>
-                    <wj-sunburst control="chart"
+                    <wj-sunburst 
+                                 control="chart"
                                  items-source="itemsSource"
                                  child-items-path="childItemsPath"
                                  binding="value"
@@ -383,7 +385,8 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-3 col-md-9">
-                                <wj-menu header="Palette: <b>{{ palette }}</b>"
+                                  <wj-menu 
+                                         header="Palette: <b>{{ palette }}</b>"
                                          items-source="palettes"
                                          item-clicked="paletteChanged(s, e)">
                                 </wj-menu>
@@ -407,8 +410,8 @@
         <div ng-controller="legendTitlesCtrl">
             <h2 id="Legend">Legend and Titles</h2>
             <p>
-                The <b>legend</b> properties can be used to customize the appearance of the chart's legend.  The
-                <b>header</b> and <b>footer</b> properties can be used to add titles to the Sunburst chart control.
+                The <b>legend</b> properties can be used to customize the appearance of the chart's legend. You can also use the
+                <b>header</b> and <b>footer</b> properties to add titles to the Sunburst chart control.
             </p>
             <p>
                 The following example allows you to change the Sunburst's <b>legend.position</b>, <b>header</b>, and
@@ -475,7 +478,8 @@
                 </div>
                 <div class="col-md-6">
                     <h4>Result (live):</h4>
-                    <wj-sunburst items-source="itemsSource"
+                    <wj-sunburst 
+                                 items-source="itemsSource"
                                  binding="value"
                                  binding-name="bindingName"
                                  header="{{ header }}"
@@ -613,7 +617,8 @@
                 </div>
                 <div class="col-md-6">
                     <h4>Result (live):</h4>
-                    <wj-sunburst items-source="itemsSource"
+                    <wj-sunburst 
+                                 items-source="itemsSource"
                                  binding="value"
                                  binding-name="bindingName"
                                  selection-mode="Point"
@@ -663,7 +668,7 @@
         <div ng-controller="themingCtrl">
             <h2 id="Theming">Theming</h2>
             <p>
-                The appearance of the Sunburst chart control is largely defined in CSS. In addition to the default theme, we
+                The appearance of the Sunburst chart control is largely defined in CSS. In addition to a default theme, we
                 include several professionally designed themes that customize the appearance of all Wijmo controls to
                 achieve a consistent and attractive look.
             </p>

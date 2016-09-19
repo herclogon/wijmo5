@@ -11,12 +11,15 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 // Angular
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+//import { bootstrap } from '@angular/platform-browser-dynamic';
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
+var platform_browser_1 = require('@angular/platform-browser');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 var appPipes_1 = require('./pipes/appPipes');
+//import { AppTab, AppTabPane } from './components/AppTab';
 var AppTab_1 = require('./components/AppTab');
 var DataSvc_1 = require('./services/DataSvc');
+//import {TestModule} from './testcmp';
 'use strict';
 // The Explorer application root component.
 var AppCmp = (function () {
@@ -147,23 +150,32 @@ var AppCmp = (function () {
     AppCmp = __decorate([
         core_1.Component({
             selector: 'app-cmp',
+            //template: `<div>Hello <test-cmp></test-cmp></div>`,
             templateUrl: 'src/app.html',
-            directives: [common_1.CORE_DIRECTIVES, AppTab_1.AppTab, AppTab_1.AppTabPane,
-                wjNg2Input.WjInputNumber, wjNg2Input.WjAutoComplete, wjNg2Input.WjComboBox,
-                wjNg2Input.WjInputDate, wjNg2Input.WjInputTime, wjNg2Input.WjCalendar, wjNg2Input.WjInputDateTime,
-                wjNg2Input.WjListBox, wjNg2Input.WjItemTemplate, wjNg2Input.WjInputMask,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem,
-                wjNg2Input.WjMenuSeparator],
-            pipes: [appPipes_1.ToDatePipe]
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], AppCmp);
     return AppCmp;
 }());
 exports.AppCmp = AppCmp;
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [wijmo_angular2_input_1.WjInputModule, platform_browser_1.BrowserModule, AppTab_1.TabsModule],
+            declarations: [AppCmp, appPipes_1.ToDatePipe],
+            providers: [DataSvc_1.DataSvc],
+            bootstrap: [AppCmp]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
 core_1.enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-platform_browser_dynamic_1.bootstrap(AppCmp, [
-    DataSvc_1.DataSvc
-]);
+//bootstrap(AppCmp, [
+//    DataSvc
+//]);
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(AppModule);
 //# sourceMappingURL=app.js.map

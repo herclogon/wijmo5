@@ -1,168 +1,106 @@
-<h2>UndoStack Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">UndoStack</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.grid.sheet</dd>
-<dt>File</dt><dd>wijmo.grid.sheet.js</dd>
+<dt>File</dt><dd class="filename">wijmo.grid.sheet.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.grid.sheet.Module.html"><span class="identifier">wijmo.grid.sheet</span></a></dd>
 </dl>
-<p>Controls undo and redo operations in the <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a>.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+<div class="comment"><p>Controls undo and redo operations in the <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><span class="identifier">FlexSheet</span></a>.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(owner): <a href="topic/wijmo.grid.sheet.UndoStack.Class.html"><b>UndoStack</b></a></td>
-      <td><p>
-<b>owner</b> (<a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a>): The <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a> control that the <a href="topic/wijmo.grid.sheet.UndoStack.Class.html"><b>UndoStack</b></a> works for.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.grid.sheet.UndoStack.Class.html"><b>UndoStack</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.UndoStack.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.grid.sheet.UndoStack.Class.html/#canRedo">canRedo</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.sheet.UndoStack.Class.html/#canUndo">canUndo</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.UndoStack.Class.html/#clear">clear</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.UndoStack.Class.html/#onUndoStackChanged">onUndoStackChanged</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.UndoStack.Class.html/#redo">redo</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.UndoStack.Class.html/#undo">undo</a></li>
+</ul>
+<h3 class="node">Events</h3>
+<ul>
+<li class="mevent"><a href="topic/wijmo.grid.sheet.UndoStack.Class.html/#undoStackChanged">undoStackChanged</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(owner: <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><span class="identifier">FlexSheet</span></a>): <a href="topic/wijmo.grid.sheet.UndoStack.Class.html"><span class="identifier">UndoStack</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.grid.sheet.UndoStack.Class.html"><span class="identifier">UndoStack</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>owner</b>: <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><span class="identifier">FlexSheet</span></a><br/><p>The <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><span class="identifier">FlexSheet</span></a> control that the <a href="topic/wijmo.grid.sheet.UndoStack.Class.html"><span class="identifier">UndoStack</span></a> works for.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.grid.sheet.UndoStack.Class.html"><span class="identifier">UndoStack</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>canRedo</b></td>
-      <td><b>boolean</b></td>
-      <td>Checks whether the redo action can be performed.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>canUndo</b></td>
-      <td><b>boolean</b></td>
-      <td>Checks whether the undo action can be performed.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="canRedo" class="member-panel mproperty">
+<h3>canRedo</h3>
+<div class="comment"><p>Checks whether the redo action can be performed.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div id="canUndo" class="member-panel mproperty">
+<h3>canUndo</h3>
+<div class="comment"><p>Checks whether the undo action can be performed.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>clear</b>&#8203;()</td>
-      <td></td>
-      <td>Clears the undo stack.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>onUndoStackChanged</b>&#8203;()</td>
-      <td></td>
-      <td>Raises the <b>undoStackChanged</b> event.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>redo</b>&#8203;()</td>
-      <td></td>
-      <td>Redo the latest undone action.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>undo</b>&#8203;()</td>
-      <td></td>
-      <td>Undo the latest action.</td>
-    </tr>
-</tbody>
-</table>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
-<span class="glyph-collapsed" ng-show="hideEvents"></span>
-<span class="glyph-expanded" ng-hide="hideEvents"></span>
-Events
-</h3>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="clear" class="member-panel mmethod">
+<h3>clear</h3>
+<pre>clear(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Clears the undo stack.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Arguments</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>undoStackChanged</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs after the undo stack has changed.</td>
-    </tr>
-</tbody>
-</table>
+<div id="onUndoStackChanged" class="member-panel mmethod">
+<h3>onUndoStackChanged</h3>
+<pre>onUndoStackChanged(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <b>undoStackChanged</b> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-
+<div id="redo" class="member-panel mmethod">
+<h3>redo</h3>
+<pre>redo(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Redo the latest undone action.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="undo" class="member-panel mmethod">
+<h3>undo</h3>
+<pre>undo(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Undo the latest action.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Events</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="undoStackChanged" class="member-panel mevent">
+<h3>undoStackChanged</h3>
+<div class="comment"><p>Occurs after the undo stack has changed.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+</div>

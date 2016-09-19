@@ -10,8 +10,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
-var wjNg2Analytics = require('wijmo/wijmo.angular2.chart.analytics');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_chart_analytics_1 = require('wijmo/wijmo.angular2.chart.analytics');
 var DataSvc_1 = require('./../services/DataSvc');
 //TrendLine sample component
 var WaterfallCmp = (function () {
@@ -62,12 +64,26 @@ var WaterfallCmp = (function () {
     WaterfallCmp = __decorate([
         core_1.Component({
             selector: 'waterfall-cmp',
-            templateUrl: 'src/components/WaterfallCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Analytics.WjFlexChartWaterfall, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
+            templateUrl: 'src/components/WaterfallCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], WaterfallCmp);
     return WaterfallCmp;
 }());
 exports.WaterfallCmp = WaterfallCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: WaterfallCmp }
+]);
+var WaterfallModule = (function () {
+    function WaterfallModule() {
+    }
+    WaterfallModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, forms_1.FormsModule, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_chart_analytics_1.WjChartAnalyticsModule],
+            declarations: [WaterfallCmp],
+        })
+    ], WaterfallModule);
+    return WaterfallModule;
+}());
+exports.WaterfallModule = WaterfallModule;
 //# sourceMappingURL=WaterfallCmp.js.map

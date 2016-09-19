@@ -7,40 +7,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-//import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, PathLocationStrategy, APP_BASE_HREF,
-//LocationStrategy, HashLocationStrategy } from '@angular/router';
-var router_deprecated_1 = require('@angular/router-deprecated');
+var platform_browser_1 = require('@angular/platform-browser');
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var common_1 = require('@angular/common');
+var app_routing_1 = require('./app.routing');
 var DataSvc_1 = require('./services/DataSvc');
-var InheritedGridView_1 = require('./views/InheritedGridView');
-var AggregatedGridView_1 = require('./views/AggregatedGridView');
-var WijmoStdNg2App;
-(function (WijmoStdNg2App) {
-    //// AppCmp  component.
-    var AppCmp = (function () {
-        function AppCmp() {
-        }
-        AppCmp = __decorate([
-            core_1.Component({
-                selector: 'app-cmp',
-                templateUrl: 'src/app.html',
-                directives: [common_1.CORE_DIRECTIVES, router_deprecated_1.ROUTER_DIRECTIVES]
-            }),
-            router_deprecated_1.RouteConfig([
-                { path: '/', redirectTo: ['InheritedGridView'] },
-                { path: '/inheritedGridView', component: InheritedGridView_1.InheritedGridView, name: 'InheritedGridView' },
-                { path: '/aggregatedGridView', component: AggregatedGridView_1.AggregatedGridView, name: 'AggregatedGridView' },
-            ])
-        ], AppCmp);
-        return AppCmp;
-    }());
-    WijmoStdNg2App.AppCmp = AppCmp;
-})(WijmoStdNg2App = exports.WijmoStdNg2App || (exports.WijmoStdNg2App = {}));
+//// AppCmp  component.
+var AppCmp = (function () {
+    function AppCmp() {
+    }
+    AppCmp = __decorate([
+        core_1.Component({
+            selector: 'app-cmp',
+            templateUrl: 'src/app.html',
+        })
+    ], AppCmp);
+    return AppCmp;
+}());
+exports.AppCmp = AppCmp;
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [platform_browser_1.BrowserModule, app_routing_1.routing],
+            declarations: [AppCmp],
+            providers: [DataSvc_1.DataSvc],
+            bootstrap: [AppCmp]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
 core_1.enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-platform_browser_dynamic_1.bootstrap(WijmoStdNg2App.AppCmp, [
-    router_deprecated_1.ROUTER_PROVIDERS,
-    core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy }),
-    DataSvc_1.DataSvc]);
+// Bootstrap application 
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(AppModule);
 //# sourceMappingURL=App.js.map

@@ -52,3 +52,5 @@ export declare class AppCmp {
     exportImage(exportMenu: any): void;
     periodChanged: (input: wijmo.input.InputNumber) => void;
 }
+export declare class AppModule {
+}

@@ -13,7 +13,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var GaugeBaseCmp_1 = require('./GaugeBaseCmp');
-var wjNg2Gauge = require('wijmo/wijmo.angular2.gauge');
+var router_1 = require('@angular/router');
+var wijmo_angular2_gauge_1 = require('wijmo/wijmo.angular2.gauge');
 // Radial gauge sample component.
 var RadialGaugeCmp = (function (_super) {
     __extends(RadialGaugeCmp, _super);
@@ -23,11 +24,25 @@ var RadialGaugeCmp = (function (_super) {
     RadialGaugeCmp = __decorate([
         core_1.Component({
             selector: 'radial-gauge-cmp',
-            templateUrl: 'src/components/gauge/radialGaugeCmp.html',
-            directives: [wjNg2Gauge.WjRadialGauge, wjNg2Gauge.WjRange, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/gauge/radialGaugeCmp.html'
         })
     ], RadialGaugeCmp);
     return RadialGaugeCmp;
 }(GaugeBaseCmp_1.GaugeBaseCmp));
 exports.RadialGaugeCmp = RadialGaugeCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: RadialGaugeCmp }
+]);
+var RadialGaugeModule = (function () {
+    function RadialGaugeModule() {
+    }
+    RadialGaugeModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_gauge_1.WjGaugeModule],
+            declarations: [RadialGaugeCmp],
+        })
+    ], RadialGaugeModule);
+    return RadialGaugeModule;
+}());
+exports.RadialGaugeModule = RadialGaugeModule;
 //# sourceMappingURL=RadialGaugeCmp.js.map

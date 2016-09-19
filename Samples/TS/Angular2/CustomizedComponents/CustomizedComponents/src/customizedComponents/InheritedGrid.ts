@@ -1,11 +1,9 @@
 ﻿'use strict';
 
 import { Component, Inject, Injector, ElementRef, AfterContentInit, Input } from '@angular/core';
-import * as ng2Core from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
 import {WjComponent, Ng2Utils} from 'wijmo/wijmo.angular2.directiveBase';
 import * as wjGrid from 'wijmo/wijmo.angular2.grid';
-import {EditableSelectionRenderer, SelectionType} from '../cellTemplates/EditableSelectionRenderer';
+import { SelectionType } from '../cellTemplates/EditableSelectionRenderer';
 
 // Custom grid component implemented by deriving from the WjFlexGrid component.
 //
@@ -18,7 +16,6 @@ import {EditableSelectionRenderer, SelectionType} from '../cellTemplates/Editabl
     // But we want to create a grid with a predefined Select column, so we define a custom template
     // that includes the Select column definition, see the template definition in html file for details.
     templateUrl: 'src/customizedComponents/inheritedGrid.html',
-    directives: [wjGrid.WjFlexGridColumn, wjGrid.WjFlexGridCellTemplate, EditableSelectionRenderer],
     // We need to specify only properties added in this class, and they will be merged with properties
     // defined for the WjFlexGrid component.
     inputs: ['selectionType', 'isEditable']

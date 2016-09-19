@@ -1,7 +1,7 @@
 ﻿'use strict';
 
-import { Component, Input, ContentChildren, QueryList, forwardRef, HostBinding, AfterContentInit } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, Input, ContentChildren, QueryList, forwardRef, HostBinding, AfterContentInit, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 // Tab component
 @Component({
@@ -15,7 +15,6 @@ import { CORE_DIRECTIVES } from '@angular/common';
         </ul> 
         <div class="tab-content"><ng-content></ng-content></div> 
     `,
-    directives: [CORE_DIRECTIVES, forwardRef(() => AppTabPane)],
     host: { '[class.tabbable]': 'true' }
 })
 export class AppTab implements AfterContentInit {
@@ -47,7 +46,6 @@ export class AppTab implements AfterContentInit {
 @Component({
     selector: 'app-tab-pane',
     template: `<ng-content></ng-content>`,
-    directives: [CORE_DIRECTIVES],
     host: { '[class.tab-pane]': 'true' }
 })
 export class AppTabPane {
@@ -55,4 +53,10 @@ export class AppTabPane {
     @HostBinding('class.active') selected = false;
 }
 
-
+@NgModule({
+    imports: [CommonModule],
+    declarations: [AppTab, AppTabPane],
+    exports: [AppTab, AppTabPane]
+})
+export class TabsModule {
+}

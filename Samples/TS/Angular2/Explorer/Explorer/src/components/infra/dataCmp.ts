@@ -1,17 +1,18 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { DataSvc } from '../../services/DataSvc';
 import { InputBaseCmp } from '../input/InputBaseCmp';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // Wijmo Data component.
 @Component({
     selector: 'grid-data-cmp',
-    templateUrl: 'src/components/infra/dataCmp.html',
-    directives: [wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjMenuSeparator,
-        wjNg2Input.WjCollectionViewNavigator, wjNg2Input.WjCollectionViewPager, CORE_DIRECTIVES]
+    templateUrl: 'src/components/infra/dataCmp.html'
 })
 
 export class DataCmp extends InputBaseCmp {
@@ -196,4 +197,13 @@ export class DataCmp extends InputBaseCmp {
     }
 }
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: DataCmp }
+]);
 
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjInputModule],
+    declarations: [DataCmp],
+})
+export class DataModule {
+}

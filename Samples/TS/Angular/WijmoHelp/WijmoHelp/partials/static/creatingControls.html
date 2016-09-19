@@ -8,10 +8,14 @@
     For example, this fiddle shows how you can create a <b>FlexGrid</b> and
     a <b>FlexChart</b> and bind them to a small data source:</p>
 <p>
-    <a href="http://jsfiddle.net/Wijmo5/MWue8/" target="_blank" class="btn btn-info">
-        <img src="images/fiddle.png" />
-        Creating Controls
-    </a>
+  <div class="member-panel example">
+    <h3 class="node collapsed">
+      Example: Creating Controls
+    </h3>
+    <div class="fiddle">
+      <script async src="http://jsfiddle.net/Wijmo5/MWue8/embed/result,html,js,css"></script>
+    </div>
+  </div>
 </p>
 <p>
     The fiddle includes all the necessary references (as described in the 
@@ -21,18 +25,18 @@
 <pre>&lt;h1&gt;Hello&lt;/h1&gt;
 
 &lt;p&gt;This is a FlexGrid control:&lt;/p&gt;
-&lt;div id="theGrid" style="width:100%;height:auto;"&gt;&lt;/div&gt;
+&lt;div id="theGrid"&gt;&lt;/div&gt;
 
 &lt;p&gt;And this is a FlexChart:&lt;/p&gt;
-&lt;div id="theChart" style="width:100%;height:350px;"&gt;&lt;/div&gt;
+&lt;div id="theChart"&gt;&lt;/div&gt;
 
 &lt;p&gt;That's it for now...&lt;/p&gt;</pre>
 <p>
     The JavaScript part of the fiddle executes when the document has loaded.
     It creates a small data set, binds the controls to the <b>div</b> elements,
     then binds the controls to the data set:</p>
-<pre>&lt;script id="scriptInit" type="text/javascript"&gt;
-$(document).ready(function () {
+<pre>&lt;script id="scriptInit"&gt;
+onload = function () {
 
   // generate some random data
   var countries = 'US,Germany,UK,Japan,Italy,Greece'.split(','),
@@ -47,12 +51,12 @@ $(document).ready(function () {
   }
 
   // create grid and show data
-  var grid = new wijmo.grid.FlexGrid('#theGrid');
-  grid.itemsSource = data;
-    
+  var grid = new wijmo.grid.FlexGrid('#theGrid', {
+    itemsSource: data
+  });
+
   // create a chart and show the same data    
-  var chart = new wijmo.chart.FlexChart('#theChart');
-  chart.initialize({
+  var chart = new wijmo.chart.FlexChart('#theChart', {
       itemsSource: data,
       bindingX: 'country',
       series: [
@@ -60,14 +64,14 @@ $(document).ready(function () {
           { name: 'Expenses', binding: 'expenses' },
           { name: 'Downloads', binding: 'downloads', chartType: wijmo.chart.ChartType.LineSymbols } ]
   });
-});
+}
 &lt;/script&gt;
 </pre>
 <p>
     Notice that the size and position of the control are determined by the host element. 
-    In this case, we set the grid's height to "auto," causing it to automatically size 
-    itself to its contents. We can also set the height to a fixed value, and the grid
-    automatically shows scrollbars if necessary.</p>
+    In this case, we use CSS to set the grid's height to "auto," causing it to automatically 
+    size itself to its contents. We also set the <b>max-height</b> value so if there are 
+    too many items to fit the space the grid will automatically show scrollbars.</p>
 <p>
     In most cases, you use a CSS framework such as Bootstrap to lay out your pages, 
     and you lay out the controls exactly like any other HTML elements.</p>

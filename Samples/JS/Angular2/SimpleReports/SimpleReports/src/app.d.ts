@@ -1,6 +1,6 @@
 /// <reference path="../typings/globals/core-js/index.d.ts" />
 import { AfterViewInit, ElementRef, NgZone } from '@angular/core';
-import { Router } from '@angular/router-deprecated';
+import { Router } from '@angular/router';
 import { DataSvc } from './services/DataSvc';
 export declare class AppCmp implements AfterViewInit {
     private router;
@@ -14,4 +14,6 @@ export declare class AppCmp implements AfterViewInit {
     ngAfterViewInit(): void;
     print(): void;
     _viewsLoadedChanged(): void;
+}
+export declare class AppModule {
 }

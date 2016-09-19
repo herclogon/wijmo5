@@ -15,10 +15,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var InputBaseCmp_1 = require('../input/InputBaseCmp');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 var appPipes_1 = require('../../pipes/appPipes');
 // Wijmo Themes component.
 var ThemesCmp = (function (_super) {
@@ -36,13 +38,26 @@ var ThemesCmp = (function (_super) {
     ThemesCmp = __decorate([
         core_1.Component({
             selector: 'grid-themes-cmp',
-            templateUrl: 'src/components/infra/themesCmp.html',
-            directives: [wjNg2Input.WjInputDate, wjNg2Input.WjInputTime, wjNg2Input.WjCalendar, wjNg2Grid.WjFlexGrid, common_1.CORE_DIRECTIVES],
-            pipes: [appPipes_1.ToDatePipe]
+            templateUrl: 'src/components/infra/themesCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], ThemesCmp);
     return ThemesCmp;
 }(InputBaseCmp_1.InputBaseCmp));
 exports.ThemesCmp = ThemesCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ThemesCmp }
+]);
+var ThemesModule = (function () {
+    function ThemesModule() {
+    }
+    ThemesModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing, wijmo_angular2_grid_1.WjGridModule, wijmo_angular2_input_1.WjInputModule, appPipes_1.AppPipesModule],
+            declarations: [ThemesCmp],
+        })
+    ], ThemesModule);
+    return ThemesModule;
+}());
+exports.ThemesModule = ThemesModule;
 //# sourceMappingURL=ThemesCmp.js.map

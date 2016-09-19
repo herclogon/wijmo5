@@ -1,0 +1,1182 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FlexGrid Introduction</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap/Vue -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+
+    <!-- Wijmo -->
+    <link rel="stylesheet" href="styles/vendor/wijmo.min.css" />
+    <script src="scripts/vendor/wijmo.min.js"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js"></script>
+    <script src="scripts/vendor/wijmo.input.min.js"></script>
+    <script src="scripts/vendor/wijmo.vue.min.js"></script>
+
+    <!-- app scripts and styles -->
+    <link href="styles/app.css" rel="stylesheet" />
+    <script src="scripts/app.js"></script>
+</head>
+<body>
+    <div class="header visible-xs visible-sm">
+        <div class="container">
+            <h1>
+                FlexGrid 101 (Vue)
+            </h1>
+        </div>
+    </div>
+    <div class="header hidden-xs hidden-sm">
+        <div class="container">
+            <img src="resources/wijmo5.png" />
+            <h1>
+                FlexGrid 101 (Vue)</h1>
+            <p>
+                This page shows how to get started with Wijmo's FlexGrid control.</p>
+        </div>
+    </div>
+    <div id="app" class="container">
+
+        <!-- getting started -->
+        <h2>
+            Getting Started</h2>
+        <p>
+            Steps for getting started with FlexGrid in Vue applications:</p>
+        <ol>
+            <li>Add references to Vue, Wijmo, and Wijmo's Vue interop module.</li>
+            <li>Create a Vue object and give it a host element.</li>
+            <li>Add FlexGrid controls to Vue's host element and bind them to the data.</li>
+            <li>Add some CSS to customize the grid's appearance.</li>
+        </ol>
+        <p>
+            This will create a FlexGrid with default behavior, which includes 
+            automatic column generation, column sorting and reordering, editing, 
+            and clipboard support.</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#gsHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#gsJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="gsHtml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;!-- Vue --&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- Wijmo --&gt;
+    &lt;link href="http://cdn.wijmo.com/5.latest/styles/wijmo.min.css" rel="stylesheet"/&gt;
+    &lt;script src="http://cdn.wijmo.com/5.latest/controls/wijmo.min.js"&gt;&lt;/script&gt;
+    &lt;script src="http://cdn.wijmo.com/5.latest/controls/wijmo.grid.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- Wijmo/Vue interop --&gt;
+    &lt;script src="http://cdn.wijmo.com/5.latest/interop/vue/wijmo.vue.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- app scripts and styles --&gt;
+    &lt;link href="styles/app.css" rel="stylesheet" /&gt;
+    &lt;script src="scripts/app.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="app" class="container"&gt;
+        &lt;wj-flex-grid :items-source="data"&gt;
+        &lt;/wj-flex-grid&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </div>
+                    <div class="tab-pane pane-content" id="gsJs">
+onload = function () {
+
+    // app view
+    var app = new Vue({
+        el: '#app',
+        data: {
+            data: new wijmo.collections.CollectionView(getData(100)),
+            selectionMode: 'CellRange',
+            ...
+        },
+        methods: {
+            ...
+        }
+    });
+}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid :items-source="data">
+                </wj-flex-grid>
+            </div>
+        </div>
+
+        <!-- column definitions -->
+        <h2>
+            Column Definitions</h2>
+        <p>
+            The Getting Started example did not define any columns, so FlexGrid generated them
+            automatically.</p>
+        <p>
+            This example shows how you can define the columns using HTML markup.
+            You can also do this in code, but using markup allows you to have more separation 
+            between the controller and the view.</p>
+        <p>
+            Specifying the columns allows you to choose which columns to show, and in what order. 
+            This also gives you control over each column&#39;s width, heading, formatting, alignment, 
+            and other properties.</p>
+        <p>
+            In this case, we use star sizing to set the width of the "Country" column.
+            This tells the column to stretch to fill the available width of the grid so there is no 
+            empty space.
+            On the "Revenue" column, we set the format property to "n0", which results in numbers
+            with thousand separators and no decimal digits.</p>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#cdHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#cdJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="cdHtml">
+&lt;wj-flex-grid :items-source="data"&gt;
+    &lt;wj-flex-grid-column 
+        header="Country"
+        binding="country"
+        width="*"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column
+        header="Date"
+        binding="date"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column
+        header="Revenue"
+        binding="amount"
+        format="n0"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column
+        header="Active"
+        binding="active"&gt;&lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="cdJs">
+// no code required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid :items-source="data">
+                    <wj-flex-grid-column header="Country" binding="country" width="*"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Date" binding="date"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Revenue" binding="amount" format="n0"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Active" binding="active"></wj-flex-grid-column>
+                </wj-flex-grid>
+            </div>
+        </div>
+
+        <!-- selection modes -->
+        <h2>
+            Selection Modes</h2>
+        <p>
+            By default, FlexGrid allows you to select a range of cells with the mouse or keyboard,
+            just like Excel. The <b>selectionMode</b> property allows you to change that so that you 
+            can select a row, a range of rows, non-contiguous rows (like in a list-box), a single cell,
+            or disable selection altogether.</p>
+        <p>
+            This example allows you to pick the <b>selectionMode</b> from a Wijmo Menu control.</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#smHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#smJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="smHtml">
+&lt;wj-flex-grid
+    :items-source="data"
+    :selection-mode="selMode"&gt;
+&lt;/wj-flex-grid&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;SelectionMode&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-combo-box
+            :items-source="selModes"
+            :text.sync="selMode"&gt;
+        &lt;/wj-combo-box&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="smJs">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid
+                    :items-source="data"
+                    :selection-mode="selMode">
+                </wj-flex-grid>
+                <dl class="dl-horizontal">
+                    <dt>SelectionMode</dt>
+                    <dd>
+                        <wj-combo-box
+                            :items-source="selModes"
+                            :text.sync="selMode">
+                        </wj-combo-box>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <!-- cell freezing -->
+        <h2>
+            Cell Freezing</h2>
+        <p>
+            The FlexGrid allows you to freeze rows and columns so they remain in view as the 
+            user scrolls the grid. Frozen cells can be edited and selected as regular cells, 
+            exactly as in Excel.</p>
+        <p>
+            This example allows you to toggle whether the first two rows and columns should
+            be frozen.</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#cfHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#cfJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="cfHtml">
+&lt;wj-flex-grid
+    control="frozenFlex"
+    :items-source="data" 
+    :frozen-rows="2"
+    :frozen-columns="2"&gt;
+&lt;/wj-flex-grid&gt;
+&lt;button
+    class="btn btn-default"
+    @click="toggleFreeze"&gt;
+    {&#8203;{ frozenFlex.frozenRows == 0 ? 'Freeze' : 'Unfreeze'}}
+&lt;/button&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="cfJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        frozenCount: 2,
+        ...
+    },
+    methods: {
+        toggleFreeze: function () {
+            this.frozenCount = this.frozenCount == 0 ? 2 : 0;
+        }
+    }
+});
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid
+                    :items-source="data" 
+                    :frozen-rows="frozenCount"
+                    :frozen-columns="frozenCount">
+                </wj-flex-grid>
+                <button
+                    class="btn btn-default"
+                    @click="toggleFreeze">
+                    {{ frozenCount == 0 ? 'Freeze' : 'Unfreeze'}}
+                </button>
+            </div>
+        </div>
+
+        <!-- editing -->
+        <h2>
+            Editing</h2>
+        <p>
+            FlexGrid has built-in support for fast, in-cell editing like you find in Excel. There is no 
+            need to add extra columns with Edit buttons that switch between display and edit modes.</p>
+        <p>
+            Users can start editing by typing into any cell. This puts the cell in quick-edit mode. 
+            In this mode, pressing a cursor key finishes the editing and moves the selection to a different cell. 
+            </p>
+        <p>
+            Another way to start editing is by pressing F2 or by clicking a cell twice. This puts the cell in 
+            full-edit mode. In this mode, pressing a cursor key moves the caret within the cell text. 
+            To finish editing and move to another cell, the user must press the Enter, Tab, or Escape key.</p>
+        <p>
+            Data is automatically coerced to the proper type when editing finishes. If the user enters invalid
+            data, the edit is cancelled and the original data remains in place.</p>
+        <p>
+            You can disable editing at the grid, column, or row levels using the <b>isReadOnly</b> property of the 
+            grid, column, or row objects. In this example, we make the ID column read-only.</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#edHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#edJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="edHtml">
+&lt;wj-flex-grid :items-source="data"&gt;
+    &lt;wj-flex-grid-column 
+        header="ID"
+        binding="id"
+        :width="50"
+        :is-read-only="true"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column 
+        header="Country" 
+        binding="country"
+        width="*"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column
+        header="Date"
+        binding="date"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column 
+        header="Revenue"
+        binding="amount"
+        format="n0"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column
+        header="Active"
+        binding="active"&gt;&lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="edJs">
+// no code required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid :items-source="data">
+                    <wj-flex-grid-column header="ID" binding="id" :is-read-only="true" :width="50"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Country" binding="country" width="*"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Date" binding="date"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Revenue" binding="amount" format="n0"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Active" binding="active"></wj-flex-grid-column>
+                </wj-flex-grid>
+            </div>
+        </div>
+
+        <!-- grouping -->
+        <h2>
+            Grouping</h2>
+        <p>
+            FlexGrid supports grouping through the <b>ICollectionView</b> interface, which is identical to the 
+            one in .NET. To enable grouping, add one or more <b>GroupDescription</b> objects to the 
+            <b>CollectionView.groupDescriptions</b> property, and ensure that the grid's <b>showGroups</b> property 
+            is set to true (the default value).</p>
+        <p>
+            <b>GroupDescription</b> objects are flexible, allowing you to group data based on value or on grouping 
+            functions. The example below groups dates by year; amounts by range returning three ranges: over 5,000, 
+            500 to 5,000, and under 500; and anything else by value. Use the menu to see the effects of each grouping.</p>
+        <p>
+            Notice that the "Revenue" column displays the totals in the group rows. We do this by 
+            setting the column's <b>aggregate</b> property to "Sum." The aggregate is automatically 
+            updated when you edit the values in the column.</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#gpHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#gpJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="gpHtml">
+&lt;wj-flex-grid :items-source="cvGroup"&gt;
+    &lt;wj-flex-grid-column header="Country" binding="country" width="*"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column header="Date" binding="date"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column header="Revenue" binding="amount" format="n0" aggregate="Sum"&gt;&lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Group By&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-combo-box
+            :items-source="groupBy"
+            display-member-path="header"
+            :selected-index-changed="updateGroups"&gt;
+        &lt;/wj-combo-box&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="gpJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        cvGroup: new wijmo.collections.CollectionView(getData(100)),
+        groupBy: new wijmo.collections.CollectionView([
+            { value: '', header: '(no grouping)' },
+            { value: 'country', header: 'Country' },
+            { value: 'amount', header: 'Revenue' },
+            { value: 'date', header: 'Date' },
+            { value: 'country,date', header: 'Country and Date' },
+            { value: 'country,amount', header: 'Country and Revenue' },
+            { value: 'country,date,amount', header: 'Country, Date, and Revenue' },
+        ]),
+        ...
+    },
+    methods: {
+        updateGroups: function() {
+            var cv = this.cvGroup;
+            cv.groupDescriptions.clear();
+            if (this.groupBy.currentItem) {
+                var groupNames = this.groupBy.currentItem.value.split(',');
+                for (var i = 0; i &lt; groupNames.length; i++) {
+                    var groupName = groupNames[i];
+                    if (groupName == 'date') { // group dates by year
+                        var groupDesc = new wijmo.collections.PropertyGroupDescription(groupName, function (item, prop) {
+                            return item.date.getFullYear();
+                        });
+                        cv.groupDescriptions.push(groupDesc);
+                    } else if (groupName == 'amount') { // group amounts in ranges
+                        var groupDesc = new wijmo.collections.PropertyGroupDescription(groupName, function (item, prop) {
+                            return item.amount &gt;= 5000 ? '&gt; 5,000' : item.amount &gt;= 500 ? '500 to 5,000' : '&lt; 500';
+                        });
+                        cv.groupDescriptions.push(groupDesc);
+                    } else { // group everything else by value
+                        var groupDesc = new wijmo.collections.PropertyGroupDescription(groupName);
+                        cv.groupDescriptions.push(groupDesc);
+                    }
+                }
+            }
+        }
+    }
+});
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid :items-source="cvGroup">
+                    <wj-flex-grid-column header="Country" binding="country" width="*"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Date" binding="date"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Revenue" binding="amount" format="n0" aggregate="Sum"></wj-flex-grid-column>
+                </wj-flex-grid>
+                <dl class="dl-horizontal">
+                    <dt>Group By</dt>
+                    <dd>
+                        <wj-combo-box
+                            :items-source="groupBy"
+                            display-member-path="header"
+                            :selected-index-changed="updateGroups">
+                        </wj-combo-box>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <!-- filtering -->
+        <h2>
+            Filtering</h2>
+        <p>
+            The FlexGrid supports filtering through the <b>ICollectionView</b> interface, which is identical to the
+            one in .NET. To enable filtering, set the <b>CollectionView.filter</b> property to a function that
+            determines which objects to include in the view.</p>
+        <p>
+            In this example, we create a filter for the country, and get the filter value from the input control.</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#ftHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#ftJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="ftHtml">
+&lt;wj-flex-grid :items-source="cvFilter"&gt;
+&lt;/wj-flex-grid&gt;
+&lt;div class="input-group"&gt;
+    &lt;span class="input-group-addon"&gt;
+        &lt;span class="glyphicon glyphicon-filter"&gt;
+        &lt;/span&gt;
+    &lt;/span&gt;
+    &lt;input type="text" class="form-control" placeholder="filter" v-model="filterText" /&gt;
+&lt;/div&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="ftJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        cvFilter: new wijmo.collections.CollectionView(getData(100)),
+        filterText: '',
+        filterRx: null,
+        ...
+    },
+    methods: {
+        filter: function (item) {
+            return this.filterRx == null || this.filterRx.test(item.country);
+        }
+    },
+    created: function () {
+
+        // attach filter function to CollectionView
+        this.cvFilter.filter = this.filter;
+
+        // when filter text changes,
+        // update filter regex (case-insensitive) and refresh CollectionView
+        this.$watch('filterText', function () {
+            this.filterRx = this.filterText ? new RegExp(this.filterText, 'i') : null;
+            this.cvFilter.refresh();
+        });
+    }
+});
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid :items-source="cvFilter">
+                </wj-flex-grid>
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-filter"></span></span>
+                    <input type="text" class="form-control" placeholder="filter" v-model="filterText" />
+                </div>
+            </div>
+        </div>
+
+        <!-- paging -->
+        <h2>
+            Paging</h2>
+        <p>
+            The FlexGrid supports paging through the <b>IPagedCollectionView</b> interface, which is nearly identical 
+            to the one in .NET. To enable paging, set the <b>IPagedCollectionView.pageSize</b> property to the number
+            of items you want on each page, and provide a UI for navigating the pages.</p>
+        <p>
+            In this example, we use JavaScript to show 10 items per page. We add navigation buttons, and call 
+            IPagedCollectionView methods in the button click directives. Note that we use the <strong>pageIndex</strong> 
+            and <strong>pageCount</strong> properties to show the current page and total number of pages. </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#pgHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#pgJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="pgHtml">
+&lt;wj-flex-grid :items-source="cvPaging" style="height:auto"&gt;
+&lt;/wj-flex-grid&gt;
+
+&lt;div class="btn-group"&gt;
+    &lt;button type="button" class="btn btn-default"
+        @click="cvPaging.moveToFirstPage()"
+        :disabled="cvPaging.pageIndex &lt;= 0"&gt;
+        &lt;span class="glyphicon glyphicon-fast-backward"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button type="button" class="btn btn-default"
+        @click="cvPaging.moveToPreviousPage()"
+        :disabled="cvPaging.pageIndex &lt;= 0"&gt;
+        &lt;span class="glyphicon glyphicon-step-backward"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button type="button" class="btn btn-default" disabled style="width:100px"&gt;
+        {{cvPaging.pageIndex + 1 | number}} / {{cvPaging.pageCount | number}}
+    &lt;/button&gt;
+    &lt;button type="button" class="btn btn-default"
+        @click="cvPaging.moveToNextPage()"
+        :disabled="cvPaging.pageIndex &gt;= cvPaging.pageCount - 1"&gt;
+        &lt;span class="glyphicon glyphicon-step-forward"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button type="button" class="btn btn-default"
+        @click="cvPaging.moveToLastPage()"
+        :disabled="cvPaging.pageIndex &gt;= cvPaging.pageCount - 1"&gt;
+        &lt;span class="glyphicon glyphicon-fast-forward"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="pgJs">
+// no code required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid :items-source="cvPaging" style="height:auto">
+                </wj-flex-grid>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default"
+                        @click="cvPaging.moveToFirstPage()"
+                        :disabled="cvPaging.pageIndex <= 0">
+                        <span class="glyphicon glyphicon-fast-backward"></span>
+                    </button>
+                    <button type="button" class="btn btn-default"
+                        @click="cvPaging.moveToPreviousPage()"
+                        :disabled="cvPaging.pageIndex <= 0">
+                        <span class="glyphicon glyphicon-step-backward"></span>
+                    </button>
+                    <button type="button" class="btn btn-default" disabled style="width:100px">
+                        {{cvPaging.pageIndex + 1 | number}} / {{cvPaging.pageCount | number}}
+                    </button>
+                    <button type="button" class="btn btn-default"
+                        @click="cvPaging.moveToNextPage()"
+                        :disabled="cvPaging.pageIndex >= cvPaging.pageCount - 1">
+                        <span class="glyphicon glyphicon-step-forward"></span>
+                    </button>
+                    <button type="button" class="btn btn-default"
+                        @click="cvPaging.moveToLastPage()"
+                        :disabled="cvPaging.pageIndex >= cvPaging.pageCount - 1">
+                        <span class="glyphicon glyphicon-fast-forward"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- master-detail -->
+        <h2>
+            Master-Detail</h2>
+        <p>
+            The <b>ICollectionView</b> interface has built-in support for currency, which enables you to
+            implement master-detail scenarios with FlexGrid. You can refer to the <b>currentItem</b> and 
+            use it as a binding source for any elements on the page.</p>
+        <p>
+            The sample below shows details for the item that is currently selected on the grid. Notice
+            how the detail section uses the "wj-filter" filter to format dates and numbers using given
+            format strings, which reflect the current culture.</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#mdHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#mdJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="mdHtml">
+&lt;wj-flex-grid :items-source="cvFilter" :is-read-only="true"&gt;
+    &lt;wj-flex-grid-column header="Country" binding="country" width="*"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column header="Date" binding="date"&gt;&lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;
+
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;ID&lt;/dt&gt;
+    &lt;dd&gt;{&#8203;{ cvFilter.currentItem.id }}&lt;/dd&gt;
+    &lt;dt&gt;Country&lt;/dt&gt;
+    &lt;dd&gt;{&#8203;{ cvFilter.currentItem.country }}&lt;/dd&gt;
+    &lt;dt&gt;Date&lt;/dt&gt;
+    &lt;dd&gt;{&#8203;{ cvFilter.currentItem.date | wj-format 'd' }}&lt;/dd&gt;
+    &lt;dt&gt;Revenue&lt;/dt&gt;
+    &lt;dd&gt;{&#8203;{ cvFilter.currentItem.amount | wj-format 'c' }}&lt;/dd&gt;
+&lt;/dl&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="mdJs">
+// no code required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid :items-source="cvFilter" :is-read-only="true">
+                    <wj-flex-grid-column header="Country" binding="country" width="*"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Date" binding="date"></wj-flex-grid-column>
+                </wj-flex-grid>
+                <dl class="dl-horizontal">
+                  <dt>ID</dt>
+                  <dd>{{ cvFilter.currentItem.id }}</dd>
+                  <dt>Country</dt>
+                  <dd>{{ cvFilter.currentItem.country }}</dd>
+                  <dt>Date</dt>
+                  <dd>{{ cvFilter.currentItem.date | wj-format 'd' }}</dd>
+                  <dt>Revenue</dt>
+                  <dd>{{ cvFilter.currentItem.amount | wj-format 'c' }}</dd>
+                </dl>
+            </div>
+        </div>
+
+        <!-- custom cells -->
+        <h2>
+            Custom Cells</h2>
+        <p>
+            FlexGrid has a <b>formatItem</b> event that gives you complete control over
+            the contents of the cells. The event handler can get all the information it
+            needs from the grid, and then modify the cell element accordingly.</p>
+        <p>
+            The example below uses the <b>formatItem</b> event to add a flag to the 
+            content of the 'Country' column:</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#ctHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#ctJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="ctHtml">
+&lt;wj-flex-grid
+    :items-source="data"
+    :format-item="formatItem" &gt;
+&lt;/wj-flex-grid&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="ctJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        data: new wijmo.collections.CollectionView(getData(100)),
+        ...
+    },
+    methods: {
+        formatCountry: function (s, e) {
+            var flex = s;
+            if (e.panel == flex.cells && flex.columns[e.col].binding == 'country') {
+                e.cell.innerHTML = wijmo.format(
+                    '&lt;img src="resources/{country}.png"&gt; {country}',
+                    flex.rows[e.row].dataItem);
+            }
+        }
+    },
+});
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid :items-source="data" :format-item="formatCountry" >
+                </wj-flex-grid>
+            </div>
+        </div>
+
+        <!-- conditional styling -->
+        <h2>
+            Conditional Styling</h2>
+        <p>
+            The <b>formatItem</b> event can also be used to provide conditional formatting for 
+            cells.</p>
+        <p>
+            This example has a <b>formatItem</b> event handler that changes the foreground color
+            of the cell element depending on the amount it contains.</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#csHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#csJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="csHtml">
+&lt;wj-flex-grid
+    :items-source="data"
+    :format-item="formatAmount" &gt;
+&lt;/wj-flex-grid&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="csJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        data: new wijmo.collections.CollectionView(getData(100)),
+        ...
+    },
+    methods: {
+        formatAmount: function (s, e) {
+
+            // format cells in the "cells" panel only (not in headers)
+            if (e.panel == s.cells) {
+
+                // start with default color
+                var color = '';
+
+                // customize color based on amount
+                if (s.columns[e.col].binding == 'amount') {
+                    var amount = s.rows[e.row].dataItem.amount;
+                    color = amount &lt; 500 ? 'darkred' : amount &lt; 2500 ? 'black' : 'darkgreen';
+                }
+
+                // always set the color, since cells are recycled
+                e.cell.style.color = color;
+            }
+        }
+    }
+});
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid :items-source="data" :format-item="formatAmount" >
+                </wj-flex-grid>
+            </div>
+        </div>
+
+        <!-- themes -->
+        <h2>
+            Themes</h2>
+        <p>
+            The appearance of the FlexGrid is defined in CSS. In addition to the default theme, we 
+            include about a dozen professionally designed themes that customize the appearance of
+            all Wijmo controls to achieve a consistent, attractive look.</p>
+        <p>
+            You can customize the appearance of the grid using CSS. To do this, copy CSS rules 
+            from the default theme to a new CSS file and modify the style attributes you want to change.</p>
+        <p>
+            In this example, we add a "custom-flex-grid" class to the grid element and define some
+            CSS rules to create a simple "black and white, no borders" theme for any grids that 
+            have the "custom-flex-grid" class.</p>
+        <p>
+            We also customize the appearance of the glyphs used to show the column sorting direction
+            and the outline nodes in grouped grids. To see the custom glyphs, click a column header
+            cell.</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#thHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#thCss" role="tab" data-toggle="tab">CSS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="thHtml">
+&lt;wj-flex-grid
+    class="custom-flex-grid"
+    :items-source="data"&gt;
+&lt;/wj-flex-grid&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="thCss">
+/* create a 'custom-flex-grid' theme for the FlexGrid */
+.custom-flex-grid .wj-header.wj-cell {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    border-right: solid 1px #404040;
+    border-bottom: solid 1px #404040;
+}
+.custom-flex-grid .wj-cell {
+    border: none;
+    background-color: #fff;
+}
+.custom-flex-grid .wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background-color: #fff;
+}
+.custom-flex-grid .wj-state-selected {
+    background: #000;
+    color: #fff;
+}
+.custom-flex-grid .wj-state-multi-selected {
+    background: #222222;
+    color: #fff;
+}
+
+/* override the glyphs used to show sorting and grouping */
+.custom-flex-grid .wj-glyph-up {
+    background-image:url('../resources/ascending.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    width: 1em; height: 1em;
+    border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
+    opacity: 1;
+}
+.custom-flex-grid .wj-glyph-down {
+    background-image:url('../resources/descending.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    width: 1em; height: 1em;
+    border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
+    opacity: 1;
+}
+.custom-flex-grid .wj-glyph-right {
+    background-image:url('../resources/collapsed.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    width: 1em; height: 1em;
+    border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
+}
+.custom-flex-grid .wj-glyph-down-right {
+    background-image:url('../resources/expanded.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    width: 1em; height: 1em;
+    border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
+}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid :items-source="data" class="custom-flex-grid">
+                </wj-flex-grid>
+            </div>
+        </div>
+
+        <!-- trees/hierarchical data -->
+        <h2>
+            Trees and Hierarchical Data</h2>
+        <p>
+            In addition to grouping, FlexGrid supports hierarchical data, that is, data with items 
+            that have lists of subitems. This type of hierarchical structure is very common, and is 
+            usually displayed in a tree-view control.</p>
+        <p>
+            To use FlexGrid with hierarchical data sources, set the <b>childItemsPath</b> property 
+            to the name of the data element that contains the child elements. The grid automatically 
+            scans the data and builds the tree for you.</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#hdHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#hdJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="hdHtml">
+&lt;wj-flex-grid
+    class="custom-flex-grid"
+    :items-source="treeData" 
+    child-items-path="items" 
+    allow-resizing="None"
+    selection-mode="ListBox"
+    headers-visibility="None"&gt;
+    &lt;wj-flex-grid-column binding="name" width="*"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column binding="length" :width="80" align="center"&gt;&lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="hdJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        treeData: getTreeData(),
+        ...
+    },
+    ...
+});
+
+// generate some hierarchical data
+function getTreeData() {
+    return [
+        {
+            name: '\u266B Adriane Simione', items: [
+              {
+                  name: '\u266A Intelligible Sky', items: [
+                    { name: 'Theories', length: '2:02' },
+                    { name: 'Giant Eyes', length: '3:29' },
+                    { name: 'Jovian Moons', length: '1:02' },
+                    { name: 'Open Minds', length: '2:41' },
+                    { name: 'Spacetronic Eyes', length: '3:41' }]
+              }
+            ]
+        },
+        {
+            name: '\u266B Amy Winehouse', items: [
+              {
+                  name: '\u266A Back to Black', items: [
+                    { name: 'Addicted', length: '1:34' },
+                    { name: 'He Can Only Hold Her', length: '2:22' },
+                    { name: 'Some Unholy War', length: '2:21' },
+                    { name: 'Wake Up Alone', length: '3:43' },
+                    { name: 'Tears Dry On Their Own', length: '1:25' }]
+              },
+              {
+                  name: '\u266A Live in Paradiso', items: [
+                    { name: "You Know That I'm No Good", length: '2:32' },
+                    { name: 'Wake Up Alone', length: '1:04' },
+                    { name: 'Valerie', length: '1:22' },
+                    { name: 'Tears Dry On Their Own', length: '3:15' },
+                    { name: 'Rehab', length: '3:40' }]
+              }]
+        }, ...
+}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid
+                    class="custom-flex-grid"
+                    :items-source="treeData" 
+                    child-items-path="items" 
+                    allow-resizing="None"
+                    selection-mode="ListBox"
+                    headers-visibility="None">
+                    <wj-flex-grid-column binding="name" width="*"></wj-flex-grid-column>
+                    <wj-flex-grid-column binding="length" :width="80" align="center"></wj-flex-grid-column>
+                </wj-flex-grid>
+            </div>
+        </div>
+
+        <!-- sorting trees -->
+        <h2>
+            Sorting Trees</h2>
+        <p>
+            By default, sorting a grid containing hierarchical data only sorts the top-level items.
+            This is because the <b>CollectionView</b> does not know about the data hierarchy, 
+            since the <b>childItemsPath</b> property belongs to the grid and not to the 
+            underlying <b>CollectionView</b>.</p>
+        <p>
+            If you do want to sort some or all of the grid's child items, you should handle the
+            grid's <b>sortedColumn</b> event to enumerate the items and perform the additional
+            sorting on the child items yourself.</p>
+        <p>
+            This example shows how to do this assuming you want the child items sorted in the same
+            order as the top-level items. In this scenario, you can call the <b>sort</b> method on 
+            the child items array using the <b>CollectionView</b>'s <b>_compareItems</b> method to 
+            compare the items. This is the same method the <b>CollectionView</b> uses internally.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#stHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#stJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="stHtml">
+&lt;wj-flex-grid
+    class="custom-flex-grid"
+    :items-source="treeData" 
+    child-items-path="items" 
+    selection-mode="ListBox"
+    headers-visibility="Column"
+    :sorted-column="sortedColumn"&gt;
+    &lt;wj-flex-grid-column binding="name" width="*"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column binding="length" :width="80" align="center"&gt;&lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="stJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        treeData: getTreeData(), 
+        ...
+    },
+    methods: {
+        sortedColumn: function (s, e) {
+
+            // sort top-level items
+            var view = s.collectionView;
+            if (view && s.childItemsPath) {
+                for (var i = 0; i &lt; view.items.length; i++) {
+                    sortItem(view.items[i], view, s.childItemsPath);
+                }
+                view.refresh();
+            }
+
+            // sort child items
+            function sortItem(item, view, childItemsPath) {
+                var children = item[childItemsPath];
+                if (children && wijmo.isArray(children)) {
+                    children.sort(view._compareItems());
+                    for (var i = 0; i &lt; children.length; i++) {
+                        sortItem(children[i], view, childItemsPath);
+                    }
+                }
+            }
+        }
+    }
+});
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid
+                    class="custom-flex-grid"
+                    :items-source="treeData" 
+                    child-items-path="items" 
+                    selection-mode="ListBox"
+                    headers-visibility="Column"
+                    :sorted-column="sortedColumn">
+                    <wj-flex-grid-column binding="name" width="*"></wj-flex-grid-column>
+                    <wj-flex-grid-column binding="length" :width="80" align="center"></wj-flex-grid-column>
+                </wj-flex-grid>
+            </div>
+        </div>
+
+        <!-- handling null values -->
+        <h2>
+            Handling null values</h2>
+        <p>
+            By default, FlexGrid allows you to enter empty values in columns of type string,
+            and will not allow empty/null values in columns of any other type.</p>
+        <p>
+            You can change this behavior using the <b>isRequired</b> property on grid columns.
+            If you set the <b>isRequired</b> property to false, the grid will allow you to 
+            enter empty values in that column, regardless of type. Conversely, if you set
+            the <b>isRequired</b> property to true, the grid will not allow empty values 
+            even in string columns.</p>
+        <p>
+            Setting <b>isRequired</b> to null reverts to the default behavior (nulls allowed
+            only in string columns).</p>
+        <p>
+            The grid below reverts the default behavior. It sets <b>isRequired</b> to true
+            for the first column and to false for the others. You can delete content that
+            is not required by entering an empty string or simply by pressing the delete
+            key.</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#nvHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#nvJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="nvHtml">
+&lt;wj-flex-grid :items-source="data"&gt;
+    &lt;wj-flex-grid-column 
+        header="Country"
+        binding="country"
+        width="*"
+        :is-required="true"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column
+        header="Date" binding="date"
+        :is-required="false"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column
+        header="Revenue"
+        binding="amount"
+        format="n0"
+        :is-required="false"&gt;&lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column
+        header="Active"
+        binding="active"
+        :is-required="false"&gt;&lt;/wj-flex-grid-column&gt;
+&lt;/wj-flex-grid&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="nvJs">
+// no code required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                    Result (live):</h4>
+                <wj-flex-grid :items-source="data">
+                    <wj-flex-grid-column header="Country" binding="country" width="*" :is-required="true"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Date" binding="date" :is-required="false"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Revenue" binding="amount" format="n0" :is-required="false"></wj-flex-grid-column>
+                    <wj-flex-grid-column header="Active" binding="active" :is-required="false"></wj-flex-grid-column>
+                </wj-flex-grid>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

@@ -8,9 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+//import { Component, Inject } from '@angular/core';
+//import { CORE_DIRECTIVES } from '@angular/common';
+//import { DataSvc } from '../services/DataSvc';
+//import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
 var core_1 = require('@angular/core');
 var DataSvc_1 = require('../services/DataSvc');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
 // Component1.
 var Component1Cmp = (function () {
     function Component1Cmp(dataSvc) {
@@ -20,8 +23,7 @@ var Component1Cmp = (function () {
     Component1Cmp = __decorate([
         core_1.Component({
             selector: 'component1-cmp',
-            templateUrl: 'src/components/component1.html',
-            directives: [wjNg2Grid.WjFlexGrid]
+            templateUrl: 'src/components/component1.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], Component1Cmp);

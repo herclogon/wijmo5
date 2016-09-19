@@ -15,10 +15,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
 var GridBaseCmp_1 = require('../grid/GridBaseCmp');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Core = require('wijmo/wijmo.angular2.core');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_core_1 = require('wijmo/wijmo.angular2.core');
 // Wijmo Tooltip component.
 var TooltipsCmp = (function (_super) {
     __extends(TooltipsCmp, _super);
@@ -58,12 +59,26 @@ var TooltipsCmp = (function (_super) {
     TooltipsCmp = __decorate([
         core_1.Component({
             selector: 'grid-tooltips-cmp',
-            templateUrl: 'src/components/infra/tooltipsCmp.html',
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Core.WjTooltip, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/infra/tooltipsCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], TooltipsCmp);
     return TooltipsCmp;
 }(GridBaseCmp_1.GridBaseCmp));
 exports.TooltipsCmp = TooltipsCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: TooltipsCmp }
+]);
+var TooltipsModule = (function () {
+    function TooltipsModule() {
+    }
+    TooltipsModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_grid_1.WjGridModule, wijmo_angular2_core_1.WjCoreModule],
+            declarations: [TooltipsCmp],
+        })
+    ], TooltipsModule);
+    return TooltipsModule;
+}());
+exports.TooltipsModule = TooltipsModule;
 //# sourceMappingURL=TooltipsCmp.js.map

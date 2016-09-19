@@ -1,0 +1,1237 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Input Introduction</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap/Vue -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+
+    <!-- Wijmo -->
+    <link rel="stylesheet" href="styles/vendor/wijmo.min.css" />
+    <script src="scripts/vendor/wijmo.min.js"></script>
+    <script src="scripts/vendor/wijmo.input.min.js"></script>
+    <script src="scripts/vendor/wijmo.vue.min.js"></script>
+
+    <!-- app scripts and styles -->
+    <link href="styles/app.css" rel="stylesheet"/>
+    <script src="scripts/app.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <img src="resources/wijmo5.png" alt="Wijmo 5" />
+            <h1>
+                Input 101 (Vue)
+            </h1>
+            <p>
+                This page shows how to get started with Wijmo's Input controls.</p>
+        </div>
+    </div>
+
+    <div id="app" class="container">
+
+        <!-- Getting Started -->
+        <div>
+            <h2>
+                Getting Started</h2>
+            <p>
+                Steps for getting started with Input controls in Vue applications:
+            </p>
+            <ol>
+                <li>Add references to Vue, Wijmo, and Wijmo's Vue interop module.</li>
+                <li>Create a Vue object and give it a host element.</li>
+                <li>Add Input controls to Vue's host element and bind them to the data.</li>
+            </ol>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#gsHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#gsJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="gsHtml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;!-- Vue --&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- Wijmo --&gt;
+    &lt;link href="http://cdn.wijmo.com/5.latest/styles/wijmo.min.css" rel="stylesheet"/&gt;
+    &lt;script src="http://cdn.wijmo.com/5.latest/controls/wijmo.min.js"&gt;&lt;/script&gt;
+    &lt;script src="http://cdn.wijmo.com/5.latest/controls/wijmo.input.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- Wijmo/Vue interop --&gt;
+    &lt;script src="http://cdn.wijmo.com/5.latest/interop/vue/wijmo.vue.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- app scripts and styles --&gt;
+    &lt;link href="styles/app.css" rel="stylesheet" /&gt;
+    &lt;script src="scripts/app.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="app"&gt;
+        &lt;wj-input-number :value.sync="someValue" :step=".5" format="n"&gt;
+        &lt;/wj-input-number&gt;
+        &lt;br /&gt;
+        value: {&#8203;{ someValue | wj-format 'n2' }}
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                            </div>
+                        <div class="tab-pane pane-content" id="gsJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        someValue: 123
+    },
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <wj-input-number :value.sync="someValue" :step=".5" format="n2">
+                    </wj-input-number>
+                    <br />
+                    value: {{ someValue | wj-format 'n2' }}
+                </div>
+            </div>
+        </div>
+
+        <!-- AutoComplete -->
+        <div>
+            <h2>
+                AutoComplete</h2>
+            <p>
+                The AutoComplete control is an auto-complete control that allows you to filter its
+                item list as you type, as well as select a value directly from its drop-down list.
+            </p>
+            <p>
+                To use the AutoComplete control, you must minimally set the <b>itemsSource</b>
+                property to an array of data in order to populate its item list. The AutoComplete
+                control also offers several other properties to alter its behavior, such as the
+                <b>cssMatch</b> property. The <b>cssMatch</b> property allows you to specify the CSS
+                class that is used to highlight parts of the content that match your search terms.
+            </p>
+            <p>
+                The example below uses an array of strings to populate the AutoComplete control's
+                item list using the <b>itemsSource</b> property. To see a list of suggestions, type
+                <b>"ab"</b> or <b>"za"</b> in the AutoComplete controls below.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#acHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#acJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="acHtml">
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;itemsSource Only&lt;/label&gt;
+    &lt;wj-auto-complete 
+        :items-source="countries"
+        :is-required="false"
+        placeholder="(country)"&gt;&lt;/wj-auto-complete&gt;
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;itemsSource &amp; cssMatch&lt;/label&gt;
+    &lt;wj-auto-complete
+        :items-source="countries"
+        :is-required="false"
+        css-match="highlight"
+        placeholder="(country)"&gt;&lt;/wj-auto-complete&gt;
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="acJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        someValue: 123,
+        countries: getCountries()
+    },
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="app-input-group">
+                        <label>itemsSource Only</label>
+                        <wj-auto-complete 
+                            :items-source="countries"
+                            :is-required="false"
+                            placeholder="(country)"></wj-auto-complete>
+                    </div>
+                    <div class="app-input-group">
+                        <label>itemsSource &amp; cssMatch</label>
+                        <wj-auto-complete
+                            :items-source="countries"
+                            :is-required="false"
+                            css-match="highlight"
+                            placeholder="(country)"></wj-auto-complete>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ComboBox -->
+        <div>
+            <h2>
+                ComboBox</h2>
+            <p>
+                The ComboBox control is very similar to the AutoComplete control, but rather than
+                providing a list of suggestions as you type, the ComboBox will automatically complete
+                and select the entry as you type.
+            </p>
+            <p>
+                Like the AutoComplete control, you must minimally set the ComboBox's <b>itemsSource</b>
+                property to an array of data in order to populate its item list. You may also want to
+                specify whether the ComboBox is editable via the <b>isEditable</b> property. The
+                <b>isEditable</b> property determines whether or not a user can enter values that do
+                not appear in the ComboBox's item list.
+            </p>
+            <p>
+                The example below uses two ComboBoxes bound to the same data source as the AutoComplete
+                control above. The first ComboBox's <b>isEditable</b> property is set to false, while the
+                second ComboBox's <b>isEditable</b> property is set to true.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#cbHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#cbJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="cbHtml">
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Non-Editable&lt;/label&gt;
+    &lt;wj-combo-box
+        :items-source="countries"
+        :is-editable="false"&gt;
+    &lt;/wj-combo-box&gt;
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Editable&lt;/label&gt;
+    &lt;wj-combo-box
+        :items-source="countries"
+        :is-editable="true"&gt;
+    &lt;/wj-combo-box&gt;
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="cbJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        someValue: 123,
+        countries: getCountries()
+    },
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="app-input-group">
+                        <label>Non-Editable</label>
+                        <wj-combo-box
+                            :items-source="countries"
+                            :is-editable="false">
+                        </wj-combo-box>
+                    </div>
+                    <div class="app-input-group">
+                        <label>Editable</label>
+                        <wj-combo-box
+                            :items-source="countries"
+                            :is-editable="true">
+                        </wj-combo-box>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- InputDate and Calendar -->
+        <div>
+            <h2>
+                InputDate and Calendar</h2>
+            <p>
+                The InputDate control allows you to edit and select dates via a drop-down calendar,
+                preventing you from entering an incorrect value. The InputDate's drop-down calendar
+                was developed as a separate control and can be used be used independently
+                from the InputDate control.</p>
+            <p>
+                Both InputDate and Calendar specify several properties to alter the controls' behavior.
+                The most commonly used properties include:</p>
+            <ul>
+                <li>
+                    <b>value</b>: Specifies the date value for the control.</li>
+                <li>
+                    <b>min</b>: Specifies the minimum date value that can be entered in the control.</li>
+                <li>
+                    <b>max</b>: Specifies the maximum date value that can be entered in the control.</li>
+            </ul>
+            <p>
+                The example below demonstrates how to use these properties.</p>
+            <p>
+                In addition to these basic properties, the Calendar control has a <b>formatItem</b> event 
+                that you can use to customize the display of specific days in the calendar. The sample
+                below uses this event to customize the appearance of weekends and holidays.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#idcHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#idcJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="idcHtml">
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Bound InputDate with min &amp; max&lt;/label&gt;
+    &lt;wj-input-date
+        :value.sync="theDate"
+        :min="minDate"
+        :max="maxDate"&gt;
+    &lt;/wj-input-date&gt;
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Bound Calendar with min &amp; max&lt;/label&gt;
+    &lt;wj-calendar style="width:300px;"
+        :value.sync="theDate"
+        :min="minDate"
+        :max="maxDate"
+        :format-item="formatItem"&gt;
+    &lt;/wj-calendar&gt;
+&lt;/div&gt;
+&lt;p&gt;
+    &lt;b&gt;Selected Date: {&#8203;{ theDate | wj-format 'd' }}&lt;/b&gt;
+&lt;/p&gt;
+&lt;p&gt;
+    &lt;b&gt;Valid Range: {&#8203;{ minDate | wj-format 'd' }} to {{ maxDate | wj-format 'd' }}&lt;/b&gt;
+&lt;/p&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="idcJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        someValue: 123,
+        countries: getCountries(),
+        theDate: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 13, 30),
+        minDate: new Date(today.getFullYear(), 0, 1),
+        maxDate: new Date(today.getFullYear(), 11, 31)
+    },
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="app-input-group">
+                        <label>Bound InputDate with min &amp; max</label>
+                        <wj-input-date
+                            :value.sync="theDate"
+                            :min="minDate"
+                            :max="maxDate">
+                        </wj-input-date>
+                    </div>
+                    <div class="app-input-group">
+                        <label>Bound Calendar with min &amp; max</label>
+                        <wj-calendar style="width:300px;"
+                            :value.sync="theDate"
+                            :min="minDate"
+                            :max="maxDate"
+                            :format-item="formatItem">
+                        </wj-calendar>
+                    </div>
+                    <p>
+                        <b>Selected Date: {{ theDate | wj-format 'd' }}</b>
+                    </p>
+                    <p>
+                        <b>Valid Range: {{ minDate | wj-format 'd' }} to {{ maxDate | wj-format 'd' }}</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- InputDate, InputTime and InputDateTime Controls-->
+        <div>
+            <h2>
+                InputDate, InputTime and InputDateTime Controls</h2>
+            <p>
+                Similar to the InputDate control, the InputTime control allows you to modify the time portion of
+                a JavaScript date. The InputTime control shares many of the same properties as the InputDate control,
+                including <b>format</b>, <b>min</b>, <b>max</b>, and <b>value</b>. The InputTime control also offers a
+                <b>step</b> property that allows you to specify the number of minutes between entries in its drop-down
+                list.</p>
+            <p>
+                The InputDateTime control combines the InputDate and InputTime controls, allowing you to set the date 
+                and time portions of a JavaScript date. The InputDateTime control has two drop-downs: a Calendar
+                for picking dates, and a list for picking times.</p>
+            <p>
+                The example below illustrates how to use the InputTime control in conjunction with the InputDate
+                control. Notice that these controls work together to edit the same JavaScript <b>Date</b> object
+                and only update the part of the DateTime that they are responsible for.</p>
+            <p>
+                The example also shows an InputDateTime that updates both the date and time parts of the 
+                JavaScript <b>Date</b> object.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#itHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#itJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="itHtml">
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Bound InputDate with min, max, &amp; format&lt;/label&gt;
+    &lt;wj-input-date
+        :value.sync="theDate"
+        :min="minDate"
+        :max="maxDate"
+        format="MMM dd, yyyy"&gt;
+    &lt;/wj-input-date&gt;
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Bound InputTime with min, max, &amp; step&lt;/label&gt;
+    &lt;wj-input-time
+        :value.sync="theDate"
+        :step="15"
+        min="09:00"
+        max="17:00"&gt;
+    &lt;/wj-input-time&gt;
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Bound InputDateTime with min, max, format, and step&lt;/label&gt;
+    &lt;wj-input-date-time 
+        :value.sync="theDate"
+        format="MMM dd, yyyy hh:mm tt"
+        :min="minDate"
+        :max="maxDate"
+        :time-step="15"
+        time-min="09:00"
+        time-max="17:00"&gt;
+    &lt;/wj-input-date-time&gt;
+&lt;/div&gt;
+&lt;p&gt;
+    &lt;b&gt;Selected Date &amp; Time: {&#8203;{ theDate | wj-format 'f' }}&lt;/b&gt;
+&lt;/p&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="itJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        theDate: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 13, 30),
+        minDate: new Date(today.getFullYear(), 0, 1),
+        maxDate: new Date(today.getFullYear(), 11, 31),
+        ...
+    }
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="app-input-group">
+                        <label>Bound InputDate with min, max, &amp; format</label>
+                        <wj-input-date
+                            :value.sync="theDate"
+                            :min="minDate"
+                            :max="maxDate"
+                            format="MMM dd, yyyy">
+                        </wj-input-date>
+                    </div>
+                    <div class="app-input-group">
+                        <label>Bound InputTime with min, max, &amp; step</label>
+                        <wj-input-time
+                            :value.sync="theDate"
+                            :step="15"
+                            min="09:00"
+                            max="17:00">
+                        </wj-input-time>
+                    </div>
+                    <div class="app-input-group">
+                        <label>Bound InputDateTime with min, max, format, and step</label>
+                        <wj-input-date-time 
+                            :value.sync="theDate"
+                            format="MMM dd, yyyy hh:mm tt"
+                            :min="minDate"
+                            :max="maxDate"
+                            :time-step="15"
+                            time-min="09:00"
+                            time-max="17:00">
+                        </wj-input-date-time>
+                    </div>
+                    <p>
+                        <b>Selected Date &amp; Time: {{ theDate | wj-format 'f' }}</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- InputDate and Validation -->
+        <div>
+            <h2>
+                InputDate and Validation</h2>
+            <p>
+                The InputDate control automatically parses dates typed in by the user using the format specified
+                by the <b>format</b> property. Invalid dates are ignored and the original value is preserved.
+                The InputDate control also checks the range and ensures that date values are between the values
+                specified by the <b>min</b> and <b>max</b> properties.</p>
+            <p>
+                But in many cases, not all dates between the <b>min</b> and <b>max</b> properties are valid. For
+                example, you may be creating an appointment scheduler application and want to ensure that users
+                don't schedule appointments for weekends, holidays, or dates that already have a certain number
+                of appointments scheduled.</p>
+            <p>
+                To handle these situations, the InputDate (and the Calendar) have an <b>itemValidator</b> property.
+                This property represents a function that takes a date as a parameter and returns true if the date
+                is valid for selection, or false otherwise. Invalid dates will automatically be disabled and users
+                will not be able to select them in the calendar or to enter them by typing.</p>
+            <p>
+                The example below demonstrates this with an InputDate that has an <b>itemValidator</b> function
+                that returns false for weekends and US federal holidays. The example also uses an <b>itemFormatter</b>
+                function to add some special formatting and a tooltip with the name of the holidays.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#idvHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#idvJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="idvHtml">
+&lt;wj-input-date
+    :value="theDate"
+    :item-formatter="itemFormatter"
+    :item-validator="itemValidator"&gt;
+&lt;/wj-input-date&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="idvJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        theDate: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 13, 30),
+    },
+    methods: {
+
+        // format and validate dates
+        itemFormatter: function (date, element) {
+            var weekday = date.getDay(),
+                holiday = getHoliday(date);
+            wijmo.toggleClass(element, 'date-weekend', weekday == 0 || weekday == 6);
+            wijmo.toggleClass(element, 'date-holiday', holiday);
+            element.title = holiday;
+        },
+        itemValidator: function (date) {
+            switch (date.getDay()) {
+                case 0:
+                case 6:
+                    return false; // no appointments on weekends
+            }
+            if (getHoliday(date).length > 0) {
+                return false; // no appointments on holidays
+            }
+            return true; // not a weekend or a holiday, this date is OK
+        }
+    }
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="app-input-group">
+                        <label>Select a date that is not a weekend or a holiday:</label>
+                        <wj-input-date
+                            :value="theDate"
+                            :item-formatter="itemFormatter"
+                            :item-validator="itemValidator">
+                        </wj-input-date>
+                    </div>
+                    <p>
+                        <b>Selected Date: {{ theDate | wj-format 'd' }}</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ListBox -->
+        <div>
+            <h2>
+                ListBox</h2>
+            <p>
+                The ListBox control displays a list of items and allows you to select items using your
+                mouse and keyboard. Like the AutoComplete and ComboBox controls, you must specify the
+                ListBox's <b>itemsSource</b> property in order to use the control.</p>
+            <p>
+                The example below allows you to select an item within the ListBox control and displays
+                the control's <b>selectedIndex</b> and <b>selectedValue</b> properties.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#lbHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#lbJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="lbHtml">
+&lt;wj-list-box style="width:250px;height:150px;"
+    :items-source="countries"
+    control="listBox"&gt;
+&lt;/wj-list-box&gt;
+&lt;p&gt;
+    &lt;b&gt;selectedIndex: {&#8203;{ listBox.selectedIndex }}&lt;/b&gt;
+&lt;/p&gt;
+&lt;p&gt;
+    &lt;b&gt;selectedValue: {&#8203;{ listBox.selectedValue }}&lt;/b&gt;
+&lt;/p&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="lbJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        countries: getCountries(),
+        listBox: null // will receive a reference to the ListBox control
+    },
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="app-input-group">
+                        <label>Simple ListBox</label>
+                        <wj-list-box style="width:250px;height:150px;"
+                            :items-source="countries"
+                            control="listBox">
+                        </wj-list-box>
+                        <p>
+                            <b>selectedIndex: {{ listBox.selectedIndex }}</b>
+                        </p>
+                        <p>
+                            <b>selectedValue: {{ listBox.selectedValue }}</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- InputNumber -->
+        <div>
+            <h2>
+                InputNumber</h2>
+            <p>
+                The InputNumber control allows you to edit numbers, preventing you from entering invalid
+                data and optionally formatting the numeric value as it is edited. The InputNumber can be
+                used without specifying any of its properties; however, you'll typically want to bind it
+                to some data using the <b>value</b> property.</p>
+            <p>
+                In addition to the <b>value</b> property, the InputNumber control offers several other
+                properties that can be used to alter its behavior, such as:</p>
+            <ul>
+                <li>
+                    <b>min</b>: Specifies the minimum numeric value that can be entered.</li>
+                <li>
+                    <b>max</b>: Specifies the maximum numeric value that can be entered.</li>
+                <li>
+                    <b>step</b>: Specifies the amount to add or subtract from the current
+                    value when the spinner buttons are clicked.</li>
+                <li>
+                    <b>format</b>: Specifies the numeric format used to display the number being
+                    edited. The format property uses a .NET-style
+                    <a href="http://msdn.microsoft.com/en-us/library/dwhawy9k(v=vs.110).aspx" target="_blank">numeric format string</a>.
+                </li>
+            </ul>
+            <p>
+                The example below demonstrates how to use all of these properties.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#inHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#inJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="intml">
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Unbound with "n0" format&lt;/label&gt;
+    &lt;wj-input-number
+        format="n0"&gt;
+    &lt;/wj-input-number&gt;
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Bound with "n" format&lt;/label&gt;
+    &lt;wj-input-number
+        :value.sync="price"
+        format="n"&gt;
+    &lt;/wj-input-number&gt;
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Bound with min (0), max (10), step, and "c2" format&lt;/label&gt;
+    &lt;wj-input-number
+        :value.sync="price"
+        format="c2"
+        :step=".5"
+        :min="0"
+        :max="10"&gt;
+    &lt;/wj-input-number&gt;
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Unbound with placeholder and isRequired="false"&lt;/label&gt;
+    &lt;wj-input-number
+        placeholder="Enter a number..."
+        :is-required="false"
+        :value="nullVal"&gt;
+    &lt;/wj-input-number&gt;
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="inJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        price: 3.5,
+        nullVal: null, ...
+    }
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="app-input-group">
+                        <label>Unbound with "n0" format</label>
+                        <wj-input-number
+                            format="n0">
+                        </wj-input-number>
+                    </div>
+                    <div class="app-input-group">
+                        <label>Bound with "n" format</label>
+                        <wj-input-number
+                            :value.sync="price"
+                            format="n">
+                        </wj-input-number>
+                    </div>
+                    <div class="app-input-group">
+                        <label>Bound with min (0), max (10), step, and "c2" format</label>
+                        <wj-input-number
+                            :value.sync="price"
+                            format="c2"
+                            :step=".5"
+                            :min="0"
+                            :max="10">
+                        </wj-input-number>
+                    </div>
+                    <div class="app-input-group">
+                        <label>Unbound with placeholder and isRequired="false"</label>
+                        <wj-input-number
+                            placeholder="Enter a number..."
+                            :is-required="false"
+                            :value="nullVal">
+                        </wj-input-number>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- InputMask -->
+        <div>
+            <h2>
+                InputMask</h2>
+            <p>
+                The InputMask control allows you to validate and format user input as it is entered, preventing
+                invalid data.  The InputMask control can be used without specifying any of its properties; however,
+                you will typically set its <b>value</b> and <b>mask</b> properties.  Like the other Wijmo input
+                controls, the <b>value</b> property specifies the value for the InputMask control.  The <b>mask</b> property
+                specifies the control's mask and supports a combination of the following characters:
+            </p>
+            <dl class="dl-horizontal">
+                <dt>0</dt>
+                <dd>Digit.</dd>
+                <dt>9</dt>
+                <dd>Digit or space.</dd>
+                <dt>#</dt>
+                <dd>Digit, sign, or space.</dd>
+                <dt>L</dt>
+                <dd>Letter.</dd>
+                <dt>l</dt>
+                <dd>Letter or space.</dd>
+                <dt>A</dt>
+                <dd>Alphanumeric.</dd>
+                <dt>a</dt>
+                <dd>Alphanumeric or space.</dd>
+                <dt>.</dt>
+                <dd>Localized decimal point.</dd>
+                <dt>,</dt>
+                <dd>Localized thousand separator.</dd>
+                <dt>:</dt>
+                <dd>Localized time separator.</dd>
+                <dt>/</dt>
+                <dd>Localized date separator.</dd>
+                <dt>$</dt>
+                <dd>Localized currency symbol.</dd>
+                <dt>&lt;</dt>
+                <dd>Converts characters that follow to lowercase.</dd>
+                <dt>&gt;</dt>
+                <dd>Converts characters that follow to uppercase.</dd>
+                <dt>|</dt>
+                <dd>Disables case conversion.</dd>
+                <dt>\</dt>
+                <dd>Escapes any character, turning it into a literal.</dd>
+                <dt>All others</dt>
+                <dd>Literals.</dd>
+            </dl>
+            <p>
+                The examples below demonstrates how to use the <b>value</b> and <b>mask</b> properties with the
+                InputMask, InputDate, and InputTime controls.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#imHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#imJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="imtml">
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Social Security Number&lt;/label&gt;
+    &lt;wj-input-mask
+        mask="000-00-0000"
+        title="Mask: 000-00-0000"&gt;
+    &lt;/wj-input-mask&gt;
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Phone Number&lt;/label&gt;
+    &lt;wj-input-mask
+        mask="(999) 000-0000"
+        title="Mask: (999) 000-0000"&gt;
+    &lt;/wj-input-mask&gt;
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Try your own&lt;/label&gt;
+    &lt;wj-input-mask
+        :value.sync="customMask"
+        :is-required="false"
+        placeholder="Enter an input mask..."&gt;
+    &lt;/wj-input-mask&gt;
+    &lt;wj-input-mask 
+        :mask="customMask"
+        title="Mask: {{ customMask || 'N/A' }}"&gt;
+    &lt;/wj-input-mask&gt;
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;InputDate with mask&lt;/label&gt;
+    &lt;wj-input-date
+        :value.sync="theDate"
+        format="MM/dd/yyyy"
+        mask="99/99/9999"
+        title="Mask: 99/99/9999"&gt;
+    &lt;/wj-input-date&gt;
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;InputTime with mask&lt;/label&gt;
+    &lt;wj-input-time
+        :value.sync="theDate"
+        format="hh:mm tt"
+        :is-editable="true"
+        :step="15"
+        mask="00:00 &gt;LL"
+        title="Mask: 00:00 &gt;LL"&gt;
+    &lt;/wj-input-time&gt;
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="imJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        theDate: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 13, 30),
+        customMask: '',
+        ...
+    }
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="app-input-group">
+                        <label>Social Security Number</label>
+                        <wj-input-mask
+                            mask="000-00-0000"
+                            title="Mask: 000-00-0000">
+                        </wj-input-mask>
+                    </div>
+                    <div class="app-input-group">
+                        <label>Phone Number</label>
+                        <wj-input-mask
+                            mask="(999) 000-0000"
+                            title="Mask: (999) 000-0000">
+                        </wj-input-mask>
+                    </div>
+                    <div class="app-input-group">
+                        <label>Try your own</label>
+                        <wj-input-mask
+                            :value.sync="customMask"
+                            :is-required="false"
+                            placeholder="Enter an input mask...">
+                        </wj-input-mask>
+                        <wj-input-mask 
+                            :mask="customMask"
+                            title="Mask: {{ customMask || 'N/A' }}">
+                        </wj-input-mask>
+                    </div>
+                    <div class="app-input-group">
+                        <label>InputDate with mask</label>
+                        <wj-input-date
+                            :value.sync="theDate"
+                            format="MM/dd/yyyy"
+                            mask="99/99/9999"
+                            title="Mask: 99/99/9999">
+                        </wj-input-date>
+                    </div>
+                    <div class="app-input-group">
+                        <label>InputTime with mask</label>
+                        <wj-input-time
+                            :value.sync="theDate"
+                            format="hh:mm tt"
+                            :is-editable="true"
+                            :step="15"
+                            mask="00:00 >LL"
+                            title="Mask: 00:00 >LL">
+                        </wj-input-time>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <div>
+            <h2>
+                Menu</h2>
+            <p>
+                The Menu control allows you to create a simple drop-down list with clickable items. The Menu's
+                items can be defined directly or by using the <b>itemsSource</b> property similar to the ComboBox.
+                To specify the text displayed on the Menu, you can set the <b>header</b> property.</p>
+            <p>
+                The Menu control offers two ways to handle user selections, specifying a command on each menu item
+                and the <b>itemClicked</b> event. Unlike the <b>itemClicked</b> event, commands are objects that
+                implement two methods:</p>
+            <ul>
+                <li>
+                    <b>executeCommand(param)</b>: A method that executes the command.</li>
+                <li>
+                    <b>canExecuteCommand(param)</b>: A method that returns a Boolean value specifying whether or
+                    not the command can be executed. If the return value is false, the menu item is disabled 
+                    automatically.</li>
+            </ul>
+            <p>
+                In most cases, the command methods should be bound to the Vue application, so they have access 
+                to the application state. This can be done in the application's <b>ready</b> hook as shown
+                in the example below:</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#mnHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#mnJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="mntml">
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;itemClicked Event&lt;/label&gt;
+    &lt;wj-menu
+        header="File"
+        :items-source="fileMenuOptions"
+        :item-clicked="menuItemClicked"&gt;
+    &lt;/wj-menu&gt;
+    &lt;wj-menu
+        header="Edit"
+        :items-source="editMenuOptions"
+        :item-clicked="menuItemClicked"&gt;
+    &lt;/wj-menu&gt;
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;Commands&lt;/label&gt;
+    &lt;wj-menu
+        header="Change Tax"
+        display-member-path="text"
+        :items-source="taxMenuOptions"
+        :command="taxMenuCommand"
+        command-parameter-path="parm"&gt;
+    &lt;/wj-menu&gt;
+    &lt;wj-input-number 
+        :value.sync="tax"
+        :min="0"
+        :max="1"
+        :step=".05"
+        format="p0"&gt;
+    &lt;/wj-input-number&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="mnJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        tax: 0.08,
+        fileMenuOptions: [
+            '&lt;i class="fa fa-file-o"&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;New&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;create a new file&lt;/i&gt;&lt;/small&gt;',
+            '&lt;i class="fa fa-folder-open-o"&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;Open&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;open an existing file or folder&lt;/i&gt;&lt;/small&gt;',
+            '&lt;i class="fa fa-save"&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;Save&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;save the current file&lt;/i&gt;&lt;/small&gt;',
+            '&lt;span class="wj-separator"&gt;&lt;/span&gt;',
+            '&lt;i class="fa fa-times"&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;Exit&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;exit the application&lt;/i&gt;&lt;/small&gt;'
+        ],
+        editMenuOptions: [
+            '&lt;i class="fa fa-cut"&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;Cut&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;move the current selection to the clipboard&lt;/i&gt;&lt;/small&gt;',
+            '&lt;i class="fa fa-copy"&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;Copy&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;copy the current selection to the clipboard&lt;/i&gt;&lt;/small&gt;',
+            '&lt;i class="fa fa-paste"&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;&lt;b&gt;Paste&lt;/b&gt;&lt;br&gt;&lt;small&gt;&lt;i&gt;insert clipboard content at the cursor position&lt;/i&gt;&lt;/small&gt;'
+        ],
+        taxMenuOptions: [
+            { text: '+ 25%', parm: .25 },
+            { text: '+ 10%', parm: .10 },
+            { text: '+ 5%', parm: .05 },
+            { text: '+ 1%', parm: .01 },
+            { text: '&lt;span class="wj-separator"&gt;&lt;/span&gt;' },
+            { text: '- 1%', parm: -.01 },
+            { text: '- 5%', parm: -.05 },
+            { text: '- 10%', parm: -.10 },
+            { text: '- 25%', parm: -.25 }
+        ],
+
+        // tax menu command
+        taxMenuCommand: {
+            executeCommand: function (arg) {
+                if (wijmo.isNumber(arg)) {
+                    this.tax += arg;
+                }
+            },
+            canExecuteCommand: function(arg) {
+                if (wijmo.isNumber(arg)) {
+                    var val = this.tax + arg;
+                    return val &gt;= 0 && val &lt;= 1;
+                }
+                return false;
+            }
+        }
+    },
+    methods: {
+        menuItemClicked: function (s, e) {
+            alert('You\'ve selected option ' + s.selectedIndex + ' from the ' + s.header + ' menu!');
+        }
+    },
+    created: function () {
+
+        // bind the menu commands to the app instance
+        var cmd = this.taxMenuCommand;
+        cmd.executeCommand = cmd.executeCommand.bind(this);
+        cmd.canExecuteCommand = cmd.canExecuteCommand.bind(this);
+    }
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <div class="app-input-group">
+                        <label>itemClicked Event</label>
+                        <wj-menu
+                            header="File"
+                            :items-source="fileMenuOptions"
+                            :item-clicked="menuItemClicked">
+                        </wj-menu>
+                        <wj-menu
+                            header="Edit"
+                            :items-source="editMenuOptions"
+                            :item-clicked="menuItemClicked">
+                        </wj-menu>
+                    </div>
+                    <div class="app-input-group">
+                        <label>Commands</label>
+                        <wj-menu
+                            header="Change Tax"
+                            display-member-path="text"
+                            :items-source="taxMenuOptions"
+                            :command="taxMenuCommand"
+                            command-parameter-path="parm">
+                        </wj-menu>
+                        <wj-input-number 
+                            :value.sync="tax"
+                            :min="0"
+                            :max="1"
+                            :step=".05"
+                            format="p0">
+                        </wj-input-number>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dialogs and Popups -->
+        <div>
+            <h2>
+                Dialogs and Popups</h2>
+            <p>
+                The <b>Popup</b> control can be used to display arbitrary content as dialogs 
+                (AKA modals, centered on the screen, without an owner element), 
+                or as popups (AKA popovers, located relative to an owner element).</p>
+            <h3>
+                Dialogs</h3>
+            <p>
+                Click the buttons below to see dialogs:</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#dlgHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#dlgJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="dlgHtml">
+&lt;p&gt;
+    Click to see a modal dialog:
+    &lt;button type="button" class="btn" @click="modalDialog.show()"&gt;
+        Click
+    &lt;/button&gt;
+&lt;/p&gt;
+&lt;wj-popup control="modalDialog" :modal="true" hide-trigger="None"&gt;
+    &lt;wj-include src="includes/dialog.htm"&gt;&lt;/wj-include&gt;
+&lt;/wj-popup&gt;
+&lt;p&gt;
+    Click to see a modeless dialog:
+    &lt;button type="button" class="btn" @click="modelessDialog.show()"&gt;
+        Click
+    &lt;/button&gt;
+&lt;/p&gt;
+&lt;wj-popup control="modelessDialog" :modal="false"&gt;
+    &lt;wj-include src="includes/dialog.htm"&gt;&lt;/wj-include&gt;
+&lt;/wj-popup&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="dlgJs">
+// no code required
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        Click to see a modal dialog:
+                        <button type="button" class="btn" @click="modalDialog.show()">
+                            Click
+                        </button>
+                    </p>
+                    <wj-popup control="modalDialog" :modal="true" hide-trigger="None">
+                        <wj-include src="includes/dialog.htm"></wj-include>
+                    </wj-popup>
+                    <p>
+                        Click to see a modeless dialog:
+                        <button type="button" class="btn" @click="modelessDialog.show()">
+                            Click
+                        </button>
+                    </p>
+                    <wj-popup control="modelessDialog" :modal="false">
+                        <wj-include src="includes/dialog.htm"></wj-include>
+                    </wj-popup>
+                </div>
+            </div>
+
+            <h3>
+                Popups/popovers</h3>
+            <p>
+                Click the buttons below to see popovers:</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#popHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#popJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="popHtml">
+&lt;p&gt;
+    Click to open, move focus away to close:
+    &lt;button id="btn1" type="button" class="btn"&gt;
+        Click
+    &lt;/button&gt;
+&lt;/p&gt;
+&lt;wj-popup class="popover" owner="#btn1" :show-trigger="Click" hide-trigger="Blur"&gt;
+    &lt;wj-include src="includes/popup.htm"&gt;&lt;/wj-include&gt;
+&lt;/wj-popup&gt;
+&lt;p&gt;
+    Click to open, click again to close:
+    &lt;button id="btn2" type="button" class="btn"&gt;
+        Click
+    &lt;/button&gt;
+&lt;/p&gt;
+&lt;wj-popup class="popover" owner="#btn2" :show-trigger="Click" hide-trigger="Click"&gt;
+    &lt;wj-include src="includes/popup.htm"&gt;&lt;/wj-include&gt;
+&lt;/wj-popup&gt;
+&lt;p&gt;
+    Click to open, click close button on popup to close:
+    &lt;button id="btn3" type="button" class="btn"&gt;
+        Click
+    &lt;/button&gt;
+&lt;/p&gt;
+&lt;wj-popup class="popover" owner="#btn3" :show-trigger="Click" hide-trigger="None"&gt;
+    &lt;wj-include src="includes/popup.htm"&gt;&lt;/wj-include&gt;
+&lt;/wj-popup&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="popJs">
+// no code required
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        Click to open, move focus away to close:
+                        <button id="btn1" type="button" class="btn">
+                            Click
+                        </button>
+                    </p>
+                    <wj-popup class="popover" owner="#btn1" :show-trigger="Click" hide-trigger="Blur">
+                        <wj-include src="includes/popup.htm"></wj-include>
+                    </wj-popup>
+                    <p>
+                        Click to open, click again to close:
+                        <button id="btn2" type="button" class="btn">
+                            Click
+                        </button>
+                    </p>
+                    <wj-popup class="popover" owner="#btn2" :show-trigger="Click" hide-trigger="Click">
+                        <wj-include src="includes/popup.htm"></wj-include>
+                    </wj-popup>
+                    <p>
+                        Click to open, click close button on popup to close:
+                        <button id="btn3" type="button" class="btn">
+                            Click
+                        </button>
+                    </p>
+                    <wj-popup class="popover" owner="#btn3" :show-trigger="Click" hide-trigger="None">
+                        <wj-include src="includes/popup.htm"></wj-include>
+                    </wj-popup>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

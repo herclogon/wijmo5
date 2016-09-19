@@ -2,7 +2,6 @@
 
 import { ElementRef, Directive, Self } from '@angular/core';
 import { Input, Inject, OnInit, Injector} from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
 import * as ngCore from '@angular/core';
 import * as WjFlexGrid from 'wijmo/wijmo.angular2.grid';
 

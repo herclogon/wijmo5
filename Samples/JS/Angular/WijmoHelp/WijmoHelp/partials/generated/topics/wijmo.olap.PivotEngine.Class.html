@@ -1,433 +1,455 @@
-<h2>PivotEngine Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">PivotEngine</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.olap</dd>
-<dt>File</dt><dd>wijmo.olap.js</dd>
+<dt>File</dt><dd class="filename">wijmo.olap.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.olap.Module.html"><span class="identifier">wijmo.olap</span></a></dd>
 </dl>
-<p><p>Provides a user interface for interactively transforming regular data tables into Olap
+<div class="comment"><p>Provides a user interface for interactively transforming regular data tables into Olap
 pivot tables.</p>
-
-<p>Tabulates data in the <b>itemsSource</b> collection according to lists of fields and 
-creates the <b>pivotView</b> collection containing the aggregated data.</p>
-
+<p>Tabulates data in the <a href="topic/wijmo.olap.PivotEngine.Class.html/#itemsSource"><span class="identifier">itemsSource</span></a> collection according to lists of fields and 
+creates the <a href="topic/wijmo.olap.PivotEngine.Class.html/#pivotView"><span class="identifier">pivotView</span></a> collection containing the aggregated data.</p>
 <p>Pivot tables group data into one or more dimensions. The dimensions are represented
-by rows and columns on a grid, and the data is stored in the grid cells.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+by rows and columns on a grid, and the data is stored in the grid cells.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(options?): <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a></td>
-      <td><p>
-<b>options?</b> (<b>any</b>): JavaScript object containing initialization data for the field.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotEngine.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#allowFieldEditing">allowFieldEditing</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#async">async</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#autoGenerateFields">autoGenerateFields</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#collectionView">collectionView</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#columnFields">columnFields</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#defaultFilterType">defaultFilterType</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#fields">fields</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#filterFields">filterFields</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#isUpdating">isUpdating</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#isViewDefined">isViewDefined</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#itemsSource">itemsSource</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#pivotView">pivotView</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#rowFields">rowFields</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#showColumnTotals">showColumnTotals</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#showRowTotals">showRowTotals</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#showZeros">showZeros</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#totalsBeforeData">totalsBeforeData</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#valueFields">valueFields</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotEngine.Class.html/#viewDefinition">viewDefinition</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotEngine.Class.html/#beginUpdate">beginUpdate</a></li>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotEngine.Class.html/#cancelPendingUpdates">cancelPendingUpdates</a></li>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotEngine.Class.html/#deferUpdate">deferUpdate</a></li>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotEngine.Class.html/#editField">editField</a></li>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotEngine.Class.html/#endUpdate">endUpdate</a></li>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotEngine.Class.html/#getDetail">getDetail</a></li>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotEngine.Class.html/#invalidate">invalidate</a></li>
+<li class="mmethod raiser"><a href="topic/wijmo.olap.PivotEngine.Class.html/#onItemsSourceChanged">onItemsSourceChanged</a></li>
+<li class="mmethod raiser"><a href="topic/wijmo.olap.PivotEngine.Class.html/#onUpdatedView">onUpdatedView</a></li>
+<li class="mmethod raiser"><a href="topic/wijmo.olap.PivotEngine.Class.html/#onUpdatingView">onUpdatingView</a></li>
+<li class="mmethod raiser"><a href="topic/wijmo.olap.PivotEngine.Class.html/#onViewDefinitionChanged">onViewDefinitionChanged</a></li>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotEngine.Class.html/#refresh">refresh</a></li>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotEngine.Class.html/#removeField">removeField</a></li>
+</ul>
+<h3 class="node">Events</h3>
+<ul>
+<li class="mevent"><a href="topic/wijmo.olap.PivotEngine.Class.html/#itemsSourceChanged">itemsSourceChanged</a></li>
+<li class="mevent"><a href="topic/wijmo.olap.PivotEngine.Class.html/#updatedView">updatedView</a></li>
+<li class="mevent"><a href="topic/wijmo.olap.PivotEngine.Class.html/#updatingView">updatingView</a></li>
+<li class="mevent"><a href="topic/wijmo.olap.PivotEngine.Class.html/#viewDefinitionChanged">viewDefinitionChanged</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(options?: <span class="identifier">any</span>): <a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>options</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>JavaScript object containing initialization data for the field.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>allowFieldEditing</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value that determines whether users should be allowed to edit
-the properties of the <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> objects owned by this <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>async</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets or sets a value that determines whether view updates should be generated asynchronously.</p>
-
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="allowFieldEditing" class="member-panel mproperty">
+<h3>allowFieldEditing</h3>
+<div class="comment"><p>Gets or sets a value that determines whether users should be allowed to edit
+the properties of the <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a> objects owned by this <a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="async" class="member-panel mproperty">
+<h3>async</h3>
+<div class="comment"><p>Gets or sets a value that determines whether view updates should be generated asynchronously.</p>
 <p>This property is set to true by default, so summaries over large data sets are performed
-asynchronously to prevent stopping the UI thread.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>autoGenerateFields</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value that determines whether the engine should generate fields 
-automatically based on the <b>itemsSource</b>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>collectionView</b></td>
-      <td><b>ICollectionView</b></td>
-      <td>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> that contains the raw data.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>columnFields</b></td>
-      <td><a href="topic/wijmo.olap.PivotFieldCollection.Class.html"><b>PivotFieldCollection</b></a></td>
-      <td>Gets the list of <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> objects that define the fields shown as columns in the output table.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>defaultFilterType</b></td>
-      <td><b>FilterType</b></td>
-      <td>Gets or sets the default filter type (by value or by condition).</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>fields</b></td>
-      <td><a href="topic/wijmo.olap.PivotFieldCollection.Class.html"><b>PivotFieldCollection</b></a></td>
-      <td><p>Gets the list of <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> objects exposed by the data source.</p>
-
-<p>This list is created automatically whenever the <b>itemsSource</b> property is set.</p>
-
+asynchronously to prevent stopping the UI thread.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="autoGenerateFields" class="member-panel mproperty">
+<h3>autoGenerateFields</h3>
+<div class="comment"><p>Gets or sets a value that determines whether the engine should generate fields 
+automatically based on the <a href="topic/wijmo.olap.PivotEngine.Class.html/#itemsSource"><span class="identifier">itemsSource</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="collectionView" class="member-panel mproperty">
+<h3>collectionView</h3>
+<div class="comment"><p>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> that contains the raw data.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a></dd>
+</dl>
+</div>
+<div id="columnFields" class="member-panel mproperty">
+<h3>columnFields</h3>
+<div class="comment"><p>Gets the list of <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a> objects that define the fields shown as columns in the output table.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.olap.PivotFieldCollection.Class.html"><span class="identifier">PivotFieldCollection</span></a></dd>
+</dl>
+</div>
+<div id="defaultFilterType" class="member-panel mproperty">
+<h3>defaultFilterType</h3>
+<div class="comment"><p>Gets or sets the default filter type (by value or by condition).</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.grid.filter.FilterType.Enum.html"><span class="identifier">FilterType</span></a></dd>
+</dl>
+</div>
+<div id="fields" class="member-panel mproperty">
+<h3>fields</h3>
+<div class="comment"><p>Gets the list of <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a> objects exposed by the data source.</p>
+<p>This list is created automatically whenever the <a href="topic/wijmo.olap.PivotEngine.Class.html/#itemsSource"><span class="identifier">itemsSource</span></a> property is set.</p>
 <p>Pivot views are defined by copying fields from this list to the lists that define 
-the view: <b>valueFields</b>, <b>rowFields</b>, <b>columnFields</b>, and <b>filterFields</b>.</p>
+the view: <a href="topic/wijmo.olap.PivotEngine.Class.html/#valueFields"><span class="identifier">valueFields</span></a>, <a href="topic/wijmo.olap.PivotEngine.Class.html/#rowFields"><span class="identifier">rowFields</span></a>, <a href="topic/wijmo.olap.PivotEngine.Class.html/#columnFields"><span class="identifier">columnFields</span></a>, and <a href="topic/wijmo.olap.PivotEngine.Class.html/#filterFields"><span class="identifier">filterFields</span></a>.</p>
+<p>For example, the code below assigns a data source to the <a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a> and 
+then defines a view by adding fields to the <a href="topic/wijmo.olap.PivotEngine.Class.html/#rowFields"><span class="identifier">rowFields</span></a>, <a href="topic/wijmo.olap.PivotEngine.Class.html/#columnFields"><span class="identifier">columnFields</span></a>, and 
+<a href="topic/wijmo.olap.PivotEngine.Class.html/#valueFields"><span class="identifier">valueFields</span></a> lists.</p>
 
-<p>For example, the code below assigns a data source to the <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a> and 
-then defines a view by adding fields to the <b>rowFields</b>, <b>columnFields</b>, and 
-<b>valueFields</b> lists.</p>
 
-<p><pre>// create pivot engine
-var pe = new wijmo.olap.PivotEngine();</p>
+<pre>// create pivot engine
+var pe = new wijmo.olap.PivotEngine();
 
-<p>// set data source (populates fields list)
-pe.itemsSource = this.getRawData();</p>
+// set data source (populates fields list)
+pe.itemsSource = this.getRawData();
 
-<p>// prevent updates while building Olap view
-pe.beginUpdate();</p>
+// prevent updates while building Olap view
+pe.beginUpdate();
 
-<p>// show countries in rows
-pe.rowFields.push('Country');</p>
+// show countries in rows
+pe.rowFields.push('Country');
 
-<p>// show categories and products in columns
+// show categories and products in columns
 pe.columnFields.push('Category');
-pe.columnFields.push('Product');</p>
+pe.columnFields.push('Product');
 
-<p>// show total sales in cells
-pe.valueFields.push('Sales');</p>
+// show total sales in cells
+pe.valueFields.push('Sales');
 
-<p>// done defining the view
-pe.endUpdate();</pre></p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>filterFields</b></td>
-      <td><a href="topic/wijmo.olap.PivotFieldCollection.Class.html"><b>PivotFieldCollection</b></a></td>
-      <td><p>Gets the list of <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> objects that define the fields used as filters.</p>
-
-<p>Fields on this list do not appear in the output table, but are still used for filtering the input data.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>isUpdating</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether the engine is currently being updated.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>isViewDefined</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets a value that determines whether a pivot view is currently defined.</p>
-
-<p>A pivot view is defined if the <b>valueFields</b> list is not empty and 
-either the <b>rowFields</b> or <b>columnFields</b> lists are not empty.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>itemsSource</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> that contains the raw data.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>pivotView</b></td>
-      <td><b>ICollectionView</b></td>
-      <td>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> containing the output pivot view.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>rowFields</b></td>
-      <td><a href="topic/wijmo.olap.PivotFieldCollection.Class.html"><b>PivotFieldCollection</b></a></td>
-      <td>Gets the list of <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> objects that define the fields shown as rows in the output table.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>showColumnTotals</b></td>
-      <td><a href="topic/wijmo.olap.ShowTotals.Enum.html"><b>ShowTotals</b></a></td>
-      <td>Gets or sets a value that determines whether the output <b>pivotView</b>
-should include columns containing subtotals or grand totals.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>showRowTotals</b></td>
-      <td><a href="topic/wijmo.olap.ShowTotals.Enum.html"><b>ShowTotals</b></a></td>
-      <td>Gets or sets a value that determines whether the output <b>pivotView</b>
-should include rows containing subtotals or grand totals.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>showZeros</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value that determines whether the Olap output table
-should use zeros to indicate the missing values.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>totalsBeforeData</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets or sets a value that determines whether row and column totals
+// done defining the view
+pe.endUpdate();</pre></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.olap.PivotFieldCollection.Class.html"><span class="identifier">PivotFieldCollection</span></a></dd>
+</dl>
+</div>
+<div id="filterFields" class="member-panel mproperty">
+<h3>filterFields</h3>
+<div class="comment"><p>Gets the list of <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a> objects that define the fields used as filters.</p>
+<p>Fields on this list do not appear in the output table, but are still used for filtering the input data.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.olap.PivotFieldCollection.Class.html"><span class="identifier">PivotFieldCollection</span></a></dd>
+</dl>
+</div>
+<div id="isUpdating" class="member-panel mproperty">
+<h3>isUpdating</h3>
+<div class="comment"><p>Gets a value that indicates whether the engine is currently being updated.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isViewDefined" class="member-panel mproperty">
+<h3>isViewDefined</h3>
+<div class="comment"><p>Gets a value that determines whether a pivot view is currently defined.</p>
+<p>A pivot view is defined if the <a href="topic/wijmo.olap.PivotEngine.Class.html/#valueFields"><span class="identifier">valueFields</span></a> list is not empty and 
+either the <a href="topic/wijmo.olap.PivotEngine.Class.html/#rowFields"><span class="identifier">rowFields</span></a> or <a href="topic/wijmo.olap.PivotEngine.Class.html/#columnFields"><span class="identifier">columnFields</span></a> lists are not empty.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="itemsSource" class="member-panel mproperty">
+<h3>itemsSource</h3>
+<div class="comment"><p>Gets or sets the array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> that contains the raw data.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="pivotView" class="member-panel mproperty">
+<h3>pivotView</h3>
+<div class="comment"><p>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> containing the output pivot view.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a></dd>
+</dl>
+</div>
+<div id="rowFields" class="member-panel mproperty">
+<h3>rowFields</h3>
+<div class="comment"><p>Gets the list of <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a> objects that define the fields shown as rows in the output table.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.olap.PivotFieldCollection.Class.html"><span class="identifier">PivotFieldCollection</span></a></dd>
+</dl>
+</div>
+<div id="showColumnTotals" class="member-panel mproperty">
+<h3>showColumnTotals</h3>
+<div class="comment"><p>Gets or sets a value that determines whether the output <a href="topic/wijmo.olap.PivotEngine.Class.html/#pivotView"><span class="identifier">pivotView</span></a>
+should include columns containing subtotals or grand totals.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.olap.ShowTotals.Enum.html"><span class="identifier">ShowTotals</span></a></dd>
+</dl>
+</div>
+<div id="showRowTotals" class="member-panel mproperty">
+<h3>showRowTotals</h3>
+<div class="comment"><p>Gets or sets a value that determines whether the output <a href="topic/wijmo.olap.PivotEngine.Class.html/#pivotView"><span class="identifier">pivotView</span></a>
+should include rows containing subtotals or grand totals.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.olap.ShowTotals.Enum.html"><span class="identifier">ShowTotals</span></a></dd>
+</dl>
+</div>
+<div id="showZeros" class="member-panel mproperty">
+<h3>showZeros</h3>
+<div class="comment"><p>Gets or sets a value that determines whether the Olap output table
+should use zeros to indicate the missing values.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="totalsBeforeData" class="member-panel mproperty">
+<h3>totalsBeforeData</h3>
+<div class="comment"><p>Gets or sets a value that determines whether row and column totals
 should be displayed before or after regular data rows and columns.</p>
-
 <p>If this value is set to true, total rows appear above data rows
-and total columns appear on the left of regular data columns.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>valueFields</b></td>
-      <td><a href="topic/wijmo.olap.PivotFieldCollection.Class.html"><b>PivotFieldCollection</b></a></td>
-      <td>Gets the list of <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> objects that define the fields summarized in the output table.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>viewDefinition</b></td>
-      <td><b>string</b></td>
-      <td><p>Gets or sets the current pivot view definition as a JSON string.</p>
-
+and total columns appear on the left of regular data columns.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="valueFields" class="member-panel mproperty">
+<h3>valueFields</h3>
+<div class="comment"><p>Gets the list of <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a> objects that define the fields summarized in the output table.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.olap.PivotFieldCollection.Class.html"><span class="identifier">PivotFieldCollection</span></a></dd>
+</dl>
+</div>
+<div id="viewDefinition" class="member-panel mproperty">
+<h3>viewDefinition</h3>
+<div class="comment"><p>Gets or sets the current pivot view definition as a JSON string.</p>
 <p>This property is typically used to persist the current view as 
 an application setting.</p>
-
 <p>For example, the code below implements two functions that save
 and load view definitions using local storage:</p>
 
-<p><pre>// save/load views
+
+<pre>// save/load views
 function saveView() {
   localStorage.viewDefinition = pivotEngine.viewDefinition;
 }
 function loadView() {
   pivotEngine.viewDefinition = localStorage.viewDefinition;
-}</pre></p></td>
-    </tr>
-</tbody>
-</table>
+}</pre></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>beginUpdate</b>&#8203;()</td>
-      <td></td>
-      <td>Suspends the refresh processes until next call to the <b>endUpdate</b>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>cancelPendingUpdates</b>&#8203;()</td>
-      <td></td>
-      <td>Cancels any pending asynchronous view updates.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>deferUpdate</b>&#8203;(fn)</td>
-      <td><p>
-<b>fn</b> (<b>Function</b>): Function to be executed.<br/></p>
-</td>
-      <td><p>Executes a function within a <b>beginUpdate</b>/<b>endUpdate</b> block.</p>
-
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="beginUpdate" class="member-panel mmethod">
+<h3>beginUpdate</h3>
+<pre>beginUpdate(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Suspends the refresh processes until next call to the <a href="topic/wijmo.olap.PivotEngine.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="cancelPendingUpdates" class="member-panel mmethod">
+<h3>cancelPendingUpdates</h3>
+<pre>cancelPendingUpdates(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Cancels any pending asynchronous view updates.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="deferUpdate" class="member-panel mmethod">
+<h3>deferUpdate</h3>
+<pre>deferUpdate(fn: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Executes a function within a <a href="topic/wijmo.olap.PivotEngine.Class.html/#beginUpdate"><span class="identifier">beginUpdate</span></a>/<a href="topic/wijmo.olap.PivotEngine.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a> block.</p>
 <p>The control will not be updated until the function has been executed.
-This method ensures <b>endUpdate</b> is called even if the function throws
-an exception.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>editField</b>&#8203;(field)</td>
-      <td><p>
-<b>field</b> (<a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a>): <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> to be edited.<br/></p>
-</td>
-      <td>Shows a settings dialog where users can edit a field's settings.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>endUpdate</b>&#8203;()</td>
-      <td></td>
-      <td>Resumes refresh processes suspended by calls to <b>beginUpdate</b>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>getDetail</b>&#8203;(item, binding)</td>
-      <td><p>
-<b>item</b> (<b>any</b>): Data item in the <b>pivotView</b> list.<br/><b>binding</b> (<b>string</b>): Name of the property being summarized.<br/></p>
-</td>
-      <td>Gets an array containing the records summarized by a property in the <b>pivotView</b> list.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>invalidate</b>&#8203;()</td>
-      <td></td>
-      <td>Invalidates the view causing an asynchronous refresh.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>onItemsSourceChanged</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>itemsSourceChanged</b> event.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>onUpdatedView</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>updatedView</b> event.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>onUpdatingView</b>&#8203;(e)</td>
-      <td><p>
-<b>e</b> (<a href="topic/wijmo.olap.ProgressEventArgs.Class.html"><b>ProgressEventArgs</b></a>): <a href="topic/wijmo.olap.ProgressEventArgs.Class.html"><b>ProgressEventArgs</b></a> that provides the event data.<br/></p>
-</td>
-      <td>Raises the <b>updatingView</b> event.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>onViewDefinitionChanged</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>viewDefinitionChanged</b> event.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>refresh</b>&#8203;(force?)</td>
-      <td><p>
-<b>force?</b> (<b>boolean</b>): Refresh even while updating (see <b>beginUpdate</b>).<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
-</td>
-      <td>Summarizes the data and updates the output <b>pivotView</b>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>removeField</b>&#8203;(field)</td>
-      <td><p>
-<b>field</b> (<a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a>): <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> to be removed.<br/></p>
-</td>
-      <td>Removes a field from the current view.</td>
-    </tr>
-</tbody>
-</table>
+This method ensures <a href="topic/wijmo.olap.PivotEngine.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a> is called even if the function throws
+an exception.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>fn</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a><br/><p>Function to be executed.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
-<span class="glyph-collapsed" ng-show="hideEvents"></span>
-<span class="glyph-expanded" ng-hide="hideEvents"></span>
-Events
-</h3>
+<div id="editField" class="member-panel mmethod">
+<h3>editField</h3>
+<pre>editField(field: <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Shows a settings dialog where users can edit a field's settings.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>field</b>: <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a><br/><p><a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a> to be edited.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Arguments</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>itemsSourceChanged</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs after the value of the <b>itemsSource</b> property changes.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>updatedView</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs after the engine has finished updating the <b>pivotView</b> list.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>updatingView</b></td>
-      <td><a href="topic/wijmo.olap.ProgressEventArgs.Class.html"><b>ProgressEventArgs</b></a></td>
-      <td>Occurs when the engine starts updating the <b>pivotView</b> list.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>viewDefinitionChanged</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs after the view definition changes.</td>
-    </tr>
-</tbody>
-</table>
+<div id="endUpdate" class="member-panel mmethod">
+<h3>endUpdate</h3>
+<pre>endUpdate(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Resumes refresh processes suspended by calls to <a href="topic/wijmo.olap.PivotEngine.Class.html/#beginUpdate"><span class="identifier">beginUpdate</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-
+<div id="getDetail" class="member-panel mmethod">
+<h3>getDetail</h3>
+<pre>getDetail(item: <span class="identifier">any</span>, binding: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Gets an array containing the records summarized by a property in the <a href="topic/wijmo.olap.PivotEngine.Class.html/#pivotView"><span class="identifier">pivotView</span></a> list.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>item</b>: <span class="identifier">any</span><br/><p>Data item in the <a href="topic/wijmo.olap.PivotEngine.Class.html/#pivotView"><span class="identifier">pivotView</span></a> list.</p></li><li><b>binding</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>Name of the property being summarized.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="invalidate" class="member-panel mmethod">
+<h3>invalidate</h3>
+<pre>invalidate(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Invalidates the view causing an asynchronous refresh.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onItemsSourceChanged" class="member-panel mmethod raiser">
+<h3>onItemsSourceChanged</h3>
+<pre>onItemsSourceChanged(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.olap.PivotEngine.Class.html/#itemsSourceChanged"><span class="identifier">itemsSourceChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onUpdatedView" class="member-panel mmethod raiser">
+<h3>onUpdatedView</h3>
+<pre>onUpdatedView(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.olap.PivotEngine.Class.html/#updatedView"><span class="identifier">updatedView</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onUpdatingView" class="member-panel mmethod raiser">
+<h3>onUpdatingView</h3>
+<pre>onUpdatingView(e: <a href="topic/wijmo.olap.ProgressEventArgs.Class.html"><span class="identifier">ProgressEventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.olap.PivotEngine.Class.html/#updatingView"><span class="identifier">updatingView</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.olap.ProgressEventArgs.Class.html"><span class="identifier">ProgressEventArgs</span></a><br/><p><a href="topic/wijmo.olap.ProgressEventArgs.Class.html"><span class="identifier">ProgressEventArgs</span></a> that provides the event data.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onViewDefinitionChanged" class="member-panel mmethod raiser">
+<h3>onViewDefinitionChanged</h3>
+<pre>onViewDefinitionChanged(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.olap.PivotEngine.Class.html/#viewDefinitionChanged"><span class="identifier">viewDefinitionChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="refresh" class="member-panel mmethod">
+<h3>refresh</h3>
+<pre>refresh(force?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Summarizes the data and updates the output <a href="topic/wijmo.olap.PivotEngine.Class.html/#pivotView"><span class="identifier">pivotView</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>force</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Refresh even while updating (see <a href="topic/wijmo.olap.PivotEngine.Class.html/#beginUpdate"><span class="identifier">beginUpdate</span></a>).</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="removeField" class="member-panel mmethod">
+<h3>removeField</h3>
+<pre>removeField(field: <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Removes a field from the current view.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>field</b>: <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a><br/><p><a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a> to be removed.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Events</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="itemsSourceChanged" class="member-panel mevent">
+<h3>itemsSourceChanged</h3>
+<div class="comment"><p>Occurs after the value of the <a href="topic/wijmo.olap.PivotEngine.Class.html/#itemsSource"><span class="identifier">itemsSource</span></a> property changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="updatedView" class="member-panel mevent">
+<h3>updatedView</h3>
+<div class="comment"><p>Occurs after the engine has finished updating the <a href="topic/wijmo.olap.PivotEngine.Class.html/#pivotView"><span class="identifier">pivotView</span></a> list.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="updatingView" class="member-panel mevent">
+<h3>updatingView</h3>
+<div class="comment"><p>Occurs when the engine starts updating the <a href="topic/wijmo.olap.PivotEngine.Class.html/#pivotView"><span class="identifier">pivotView</span></a> list.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.olap.ProgressEventArgs.Class.html"><span class="identifier">ProgressEventArgs</span></a></dd>
+</dl>
+</div>
+<div id="viewDefinitionChanged" class="member-panel mevent">
+<h3>viewDefinitionChanged</h3>
+<div class="comment"><p>Occurs after the view definition changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+</div>

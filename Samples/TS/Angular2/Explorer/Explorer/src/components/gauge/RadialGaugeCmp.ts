@@ -1,15 +1,16 @@
 ﻿'use strict';
 
-import { Component } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, ViewChild, Input, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { GaugeBaseCmp } from './GaugeBaseCmp';
-import * as wjNg2Gauge from 'wijmo/wijmo.angular2.gauge';
+import { RouterModule } from '@angular/router';
+import { WjGaugeModule } from 'wijmo/wijmo.angular2.gauge';
 
 // Radial gauge sample component.
 @Component({
     selector: 'radial-gauge-cmp',
-    templateUrl: 'src/components/gauge/radialGaugeCmp.html',
-    directives: [wjNg2Gauge.WjRadialGauge, wjNg2Gauge.WjRange, CORE_DIRECTIVES]
+    templateUrl: 'src/components/gauge/radialGaugeCmp.html'
 })
 
 export class RadialGaugeCmp extends GaugeBaseCmp {
@@ -18,5 +19,14 @@ export class RadialGaugeCmp extends GaugeBaseCmp {
         super();
     }
 }
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: RadialGaugeCmp }
+]);
 
+@NgModule({
+    imports: [CommonModule, routing, WjGaugeModule],
+    declarations: [RadialGaugeCmp],
+})
+export class RadialGaugeModule {
+}
 

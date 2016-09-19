@@ -1,16 +1,18 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject, AfterViewInit } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { InputBaseCmp } from '../input/InputBaseCmp';
+import { Component, EventEmitter, Inject, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import { InputBaseCmp } from '../input/InputBaseCmp';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // FlexGrid Data component.
 @Component({
     selector: 'grid-o-data-cmp',
-    templateUrl: 'src/components/infra/oDataCmp.html',
-    directives: [CORE_DIRECTIVES]
+    templateUrl: 'src/components/infra/oDataCmp.html'
 })
 
 export class ODataCmp extends InputBaseCmp implements AfterViewInit {
@@ -31,4 +33,13 @@ export class ODataCmp extends InputBaseCmp implements AfterViewInit {
 
 }
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ODataCmp }
+]);
 
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjInputModule],
+    declarations: [ODataCmp],
+})
+export class ODataModule {
+}

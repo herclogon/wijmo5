@@ -7,8 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // Chart Finance component
 var ChartFinanceCmp = (function () {
     function ChartFinanceCmp() {
@@ -48,12 +49,25 @@ var ChartFinanceCmp = (function () {
     ChartFinanceCmp = __decorate([
         core_1.Component({
             selector: 'chart-finance-cmp',
-            templateUrl: 'src/components/chart/chartFinanceCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/chart/chartFinanceCmp.html'
         })
     ], ChartFinanceCmp);
     return ChartFinanceCmp;
 }());
 exports.ChartFinanceCmp = ChartFinanceCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartFinanceCmp }
+]);
+var ChartFinanceModule = (function () {
+    function ChartFinanceModule() {
+    }
+    ChartFinanceModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [ChartFinanceCmp],
+        })
+    ], ChartFinanceModule);
+    return ChartFinanceModule;
+}());
+exports.ChartFinanceModule = ChartFinanceModule;
 //# sourceMappingURL=ChartFinanceCmp.js.map

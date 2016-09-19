@@ -1,9 +1,13 @@
-﻿import { CORE_DIRECTIVES, DefaultValueAccessor, NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/common';
-import { Directive, forwardRef, Provider, ElementRef, Inject, Renderer} from '@angular/core';
+﻿import { Directive, forwardRef, Provider, ElementRef, Inject, Renderer} from '@angular/core';
+import { DefaultValueAccessor, NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
 
 
-const DATE_VALUE_ACCESSOR = new Provider(
-    NG_VALUE_ACCESSOR, { useExisting: forwardRef(() => FormattedModelAccessor), multi: true });
+
+const DATE_VALUE_ACCESSOR: any = {
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => FormattedModelAccessor),
+        multi: true
+    };
 
 @Directive({
     selector: 'input[formatted-model]',

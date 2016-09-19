@@ -1,6 +1,6 @@
 /*
     *
-    * Wijmo Library 5.20162.198
+    * Wijmo Library 5.20162.207
     * http://wijmo.com/
     *
     * Copyright(c) GrapeCity, Inc.  All rights reserved.
@@ -76,6 +76,7 @@ declare module wijmo.gauge {
         private _readOnly;
         private _step;
         private _showText;
+        private _showTicks;
         private _thumbSize;
         private _filterID;
         private _rangesDirty;
@@ -93,6 +94,7 @@ declare module wijmo.gauge {
         protected _gCover: SVGGElement;
         protected _pFace: SVGPathElement;
         protected _pPointer: SVGPathElement;
+        protected _pTicks: SVGPathElement;
         protected _filter: SVGFilterElement;
         protected _cValue: SVGCircleElement;
         protected _tValue: SVGTextElement;
@@ -201,6 +203,19 @@ declare module wijmo.gauge {
          */
         showText: ShowText;
         /**
+         * Gets or sets a property that determines whether the gauge should display
+         * tickmarks at each @see:step value.
+         *
+         * The tickmarks can be formatted in CSS using the <b>wj-gauge</b> and
+         * <b>wj-ticks</b> class names. For example:
+         *
+         * <pre>.wj-gauge .wj-ticks {
+         *     stroke-width: 2px;
+         *     stroke: white;
+         * }</pre>
+         */
+        showTicks: boolean;
+        /**
          * Gets or sets the size of the element that shows the gauge's current value, in pixels.
          */
         thumbSize: number;
@@ -276,6 +291,7 @@ declare module wijmo.gauge {
         _applyMouseValue(e: any, instant?: boolean): boolean;
         _updateRangeElement(e: SVGPathElement, rng: Range, value: number): void;
         _updateText(): void;
+        _updateTicks(): void;
         _getValueFromPoint(pt: Point): any;
         _fix(n: any): string;
     }
@@ -322,6 +338,7 @@ declare module wijmo.gauge {
         direction: GaugeDirection;
         _updateRangeElement(e: SVGPathElement, rng: Range, value: number): void;
         _updateText(): void;
+        _updateTicks(): void;
         _updateSegment(path: SVGPathElement, rc: Rect): void;
         _setText(e: SVGTextElement, value: number, rc: Rect, pos: string): void;
         _getRangeRect(rng: Range, value?: number): Rect;
@@ -380,6 +397,7 @@ declare module wijmo.gauge {
         refresh(fullUpdate?: boolean): void;
         _updateRangeElement(e: SVGPathElement, rng: Range, value: number): void;
         _updateText(): void;
+        _updateTicks(): void;
         _updateSegment(path: SVGPathElement, ctr: Point, rOut: number, rIn: number, start: number, sweep: number): void;
         _getPoint(ctr: Point, angle: number, radius: number): Point;
         _getValueFromPoint(pt: Point): number;

@@ -1,0 +1,33 @@
+<div class="header-panel module">
+<h2><span class="identifier">wijmo/wijmo.angular2.chart.radar</span> Module</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd class="filename">wijmo.angular2.js</dd>
+<dt>Module</dt><dd><span class="identifier">wijmo/wijmo.angular2.chart.radar</span></dd>
+</dl>
+<div class="comment"><p>Contains Angular 2 components for the <b>wijmo.chart.radar</b> module. </p>
+<p><b>wijmo.angular2.chart.radar</b> is an external TypeScript module that can be imported to your code
+using its ambient module name. For example:</p>
+
+
+<pre>import * as wjRadar from 'wijmo/wijmo.angular2.chart.radar';
+&nbsp;
+&#64;Component({
+    directives: [wjRadar.WjFlexRadar, wjRadar.WjFlexRadarSeries],
+    template: `
+      &lt;wj-flex-radar [itemsSource]="data" [bindingX]="'x'"&gt;
+          &lt;wj-flex-radar-series [binding]="'y'"&gt;&lt;/wj-flex-radar-series&gt;
+      &lt;/wj-flex-radar&gt;`,
+    selector: 'my-cmp',
+})
+export class MyCmp {
+    data: any[];
+}</pre></div>
+</div>
+<div class="member-panel module members">
+<h3 class="node">Classes</h3>
+<ul>
+<li class="mclass"><a href="topic/wijmo-wijmo.angular2.chart.radar.WjFlexRadar.Class.html">WjFlexRadar</a></li>
+<li class="mclass"><a href="topic/wijmo-wijmo.angular2.chart.radar.WjFlexRadarAxis.Class.html">WjFlexRadarAxis</a></li>
+<li class="mclass"><a href="topic/wijmo-wijmo.angular2.chart.radar.WjFlexRadarSeries.Class.html">WjFlexRadarSeries</a></li>
+</ul>
+</div>

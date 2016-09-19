@@ -1,17 +1,16 @@
-<h2>Module wijmo.gauge</h2>
+<div class="header-panel module">
+<h2><span class="identifier">wijmo.gauge</span> Module</h2>
 <dl class="dl-horizontal">
-<dt>File</dt><dd>wijmo.gauge.js</dd>
+<dt>File</dt><dd class="filename">wijmo.gauge.js</dd>
+<dt>Module</dt><dd><span class="identifier">wijmo.gauge</span></dd>
 </dl>
-<p><p>Defines the <a href="topic/wijmo.gauge.RadialGauge.Class.html"><b>RadialGauge</b></a>, <a href="topic/wijmo.gauge.LinearGauge.Class.html"><b>LinearGauge</b></a>, and <a href="topic/wijmo.gauge.BulletGraph.Class.html"><b>BulletGraph</b></a>
+<div class="comment"><p>Defines the <a href="topic/wijmo.gauge.RadialGauge.Class.html"><span class="identifier">RadialGauge</span></a>, <a href="topic/wijmo.gauge.LinearGauge.Class.html"><span class="identifier">LinearGauge</span></a>, and <a href="topic/wijmo.gauge.BulletGraph.Class.html"><span class="identifier">BulletGraph</span></a>
 controls.</p>
-
 <p>Unlike many gauge controls, Wijmo gauges concentrate on the data being
 displayed, with little extraneous color and markup elements. They were 
 designed to be easy to use and to read, especially on small-screen devices.</p>
-
-<p>Wijmo gauges are composed of <a href="topic/wijmo.gauge.Range.Class.html"><b>Range</b></a> objects. Every Wijmo gauge has 
+<p>Wijmo gauges are composed of <a href="topic/wijmo.gauge.Range.Class.html"><span class="identifier">Range</span></a> objects. Every Wijmo gauge has 
 at least two ranges: the "face" and the "pointer".</p>
-
 <p><ul><li>
 The "face" represents the gauge background. The "min" and "max"
 properties of the face range correspond to the "min" and "max" properties 
@@ -21,11 +20,9 @@ The "pointer" is the range that indicates the gauge's current value. The
 "max" property of the pointer range corresponds to the "value" property 
 of the gauge.
 </li></ul></p>
-
 <p>In addition to these two special ranges, gauges may have any number of 
 additional ranges added to their "ranges" collection. These additional 
 ranges can be used for two things:</p>
-
 <p><ul><li>
 By default, the extra ranges appear as part of the gauge background. 
 This way you can show 'zones' within the gauge, like 'good,' 'average,' 
@@ -34,141 +31,20 @@ and 'bad' for example.
 If you set the gauge's "showRanges" property to false, the additional 
 ranges are not shown. Instead, they are used to automatically set the 
 color of the "pointer" based on the current value.
-</li></ul></p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
-<span class="glyph-collapsed" ng-show="hideClasses"></span>
-<span class="glyph-expanded" ng-hide="hideClasses"></span>
-Classes
-</h3>
+</li></ul></p></div>
 </div>
-<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th>Name</th>
-
-<th>Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.gauge.BulletGraph.Class.html"><b>BulletGraph</b></a></td>
-      <td><p>The <b>BulletGraph</b> is a type of linear gauge designed specifically for use
-in dashboards. It displays a single key measure along with a comparative
-measure and qualitative ranges to instantly signal whether the measure is
-good, bad, or in some other state.</p>
-
-<p>Bullet Graphs were created and popularized by dashboard design expert 
-Stephen Few. You can find more details and examples on 
-<a href="http://en.wikipedia.org/wiki/Bullet_graph">Wikipedia</a>.</p>
-
-<p><a href="http://jsfiddle.net/Wijmo5/8uxb1vwf/" target="_blank" class="btn btn-info">
-  <img src="images/fiddle.png"/>
-  Live Example
-</a>
-</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.gauge.Gauge.Class.html"><b>Gauge</b></a></td>
-      <td>Base class for the Wijmo Gauge controls (abstract).</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.gauge.LinearGauge.Class.html"><b>LinearGauge</b></a></td>
-      <td><p>The <b>LinearGauge</b> displays a linear scale with an indicator
-that represents a single value and optional ranges to represent
-reference values.</p>
-
-<p>If you set the gauge's <b>isReadOnly</b> property to
-false, then users will be able to edit the value by clicking on
-the gauge.</p>
-
-<p><a href="http://jsfiddle.net/Wijmo5/t842jozb/" target="_blank" class="btn btn-info">
-  <img src="images/fiddle.png"/>
-  Live Example
-</a>
-</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.gauge.RadialGauge.Class.html"><b>RadialGauge</b></a></td>
-      <td><p>The <b>RadialGauge</b> displays a circular scale with an indicator
-that represents a single value and optional ranges to represent
-reference values.</p>
-
-<p>If you set the gauge's <b>isReadOnly</b> property to
-false, then users will be able to edit the value by clicking on
-the gauge.</p>
-
-<p><a href="http://jsfiddle.net/Wijmo5/7ec2144u/" target="_blank" class="btn btn-info">
-  <img src="images/fiddle.png"/>
-  Live Example
-</a>
-</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.gauge.Range.Class.html"><b>Range</b></a></td>
-      <td><p>Defines ranges to be used with <a href="topic/wijmo.gauge.Gauge.Class.html"><b>Gauge</b></a> controls.</p>
-
-<p><b>Range</b> objects have <b>min</b> and <b>max</b> properties that
-define the range's domain, as well as <b>color</b> and <b>thickness</b>
-properties that define the range's appearance.</p>
-
-<p>Every <b>Gauge</b> control has at least two ranges: 
-the 'face' defines the minimum and maximum values for the gauge, and
-the 'pointer' displays the gauge's current value.</p>
-
-<p>In addition to the built-in ranges, gauges may have additional
-ranges used to display regions of significance (for example, 
-low, medium, and high values).</p></td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel module members">
+<h3 class="node">Classes</h3>
+<ul>
+<li class="mclass"><a href="topic/wijmo.gauge.BulletGraph.Class.html">BulletGraph</a></li>
+<li class="mclass"><a href="topic/wijmo.gauge.Gauge.Class.html">Gauge</a></li>
+<li class="mclass"><a href="topic/wijmo.gauge.LinearGauge.Class.html">LinearGauge</a></li>
+<li class="mclass"><a href="topic/wijmo.gauge.RadialGauge.Class.html">RadialGauge</a></li>
+<li class="mclass"><a href="topic/wijmo.gauge.Range.Class.html">Range</a></li>
+</ul>
+<h3 class="node">Enums</h3>
+<ul>
+<li class="menum"><a href="topic/wijmo.gauge.GaugeDirection.Enum.html">GaugeDirection</a></li>
+<li class="menum"><a href="topic/wijmo.gauge.ShowText.Enum.html">ShowText</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEnumerations = !hideEnumerations">
-<span class="glyph-collapsed" ng-show="hideEnumerations"></span>
-<span class="glyph-expanded" ng-hide="hideEnumerations"></span>
-Enumerations
-</h3>
-</div>
-<table ng-hide="hideEnumerations" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th>Name</th>
-
-<th>Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.gauge.GaugeDirection.Enum.html"><b>GaugeDirection</b></a></td>
-      <td>Represents the direction in which the pointer of a <a href="topic/wijmo.gauge.LinearGauge.Class.html"><b>LinearGauge</b></a>
-increases.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.gauge.ShowText.Enum.html"><b>ShowText</b></a></td>
-      <td>Specifies which values to display as text.</td>
-    </tr>
-</tbody>
-</table>
-</div>
-

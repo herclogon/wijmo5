@@ -10,14 +10,14 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var DataSvc_1 = require('../services/DataSvc');
-var InheritedGrid_1 = require('../customizedComponents/InheritedGrid');
-var wjInput = require('wijmo/wijmo.angular2.input');
-var wjGrid = require('wijmo/wijmo.angular2.grid');
-var wjCore = require('wijmo/wijmo.angular2.core');
-var EditableDateRenderer_1 = require('../cellTemplates/EditableDateRenderer');
+var CustomComponentsModule_1 = require('../customizedComponents/CustomComponentsModule');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_core_1 = require('wijmo/wijmo.angular2.core');
 var EditableSelectionRenderer_1 = require('../cellTemplates/EditableSelectionRenderer');
-var EditableStringRenderer_1 = require('../cellTemplates/EditableStringRenderer');
 //Component2.
 var InheritedGridView = (function () {
     function InheritedGridView(dataSvc) {
@@ -31,14 +31,25 @@ var InheritedGridView = (function () {
         core_1.Component({
             selector: 'inherited-grid-view',
             templateUrl: 'src/views/inheritedGridView.html',
-            directives: [InheritedGrid_1.InheritedGrid, wjGrid.WjFlexGridColumn, wjGrid.WjFlexGridCellTemplate,
-                wjCore.WjComponentLoader, wjInput.WjMenu, wjInput.WjMenuItem,
-                EditableStringRenderer_1.EditableStringRenderer, EditableDateRenderer_1.EditableDateRenderer,
-                common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], InheritedGridView);
     return InheritedGridView;
 }());
 exports.InheritedGridView = InheritedGridView;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: InheritedGridView }
+]);
+var InheritedGridViewModule = (function () {
+    function InheritedGridViewModule() {
+    }
+    InheritedGridViewModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, forms_1.FormsModule, wijmo_angular2_input_1.WjInputModule, wijmo_angular2_grid_1.WjGridModule, wijmo_angular2_core_1.WjCoreModule, CustomComponentsModule_1.CustomComponentsModule],
+            declarations: [InheritedGridView],
+        })
+    ], InheritedGridViewModule);
+    return InheritedGridViewModule;
+}());
+exports.InheritedGridViewModule = InheritedGridViewModule;
 //# sourceMappingURL=InheritedGridView.js.map

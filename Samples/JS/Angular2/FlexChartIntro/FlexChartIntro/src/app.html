@@ -78,15 +78,15 @@
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
-import { Injectable } from '@angular/core';
+import &#123; Injectable } from '@angular/core';
 
 // Common data service
 @Injectable()
-export class DataSvc {    
-    getData(countries: string[]): any[] {
+export class DataSvc &#123;    
+    getData(countries: string[]): any[] &#123;
         var data = [];
-        for (let i = 0; i < countries.length; i++) {
-            data.push({
+        for (let i = 0; i < countries.length; i++) &#123;
+            data.push(&#123;
                 country: countries[i],
                 downloads: Math.round(Math.random() * 20000),
                 sales: Math.random() * 10000,
@@ -97,47 +97,54 @@ export class DataSvc {
     }
 }
 --------------------Component-----------------------
- // Angular
- import { Component, View, EventEmitter, provide, Input, Inject, enableProdMode } from '@angular/core';
- import { CORE_DIRECTIVES } from '@angular/common';
- import { bootstrap } from '@angular/platform-browser-dynamic';
- import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
- import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
- import { DataSvc } from './services/DataSvc';
+// Angular
+import &#123; Component, EventEmitter, Input, Inject, enableProdMode, ViewChild, NgModule } from '@angular/core';
+import &#123; FormsModule } from '@angular/forms';
+import &#123; CommonModule } from '@angular/common';
+import &#123; platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import &#123; BrowserModule } from '@angular/platform-browser';
+import &#123; WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import &#123; WjInputModule } from 'wijmo/wijmo.angular2.input';
+import &#123; TabsModule } from './components/AppTab';
+import &#123; DataSvc } from './services/DataSvc';
 
  // The Explorer application root component.
- @Component({
+ @Component(&#123;
      selector: 'app-cmp',
-     directives: [CORE_DIRECTIVES,
-        CORE_DIRECTIVES, AppTab, AppTabPane,
-        wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartAxis, wjNg2Chart.WjFlexChartLegend,
-        wjNg2Chart.WjFlexChartDataLabel, wjNg2Chart.WjFlexChartSeries,
-        wjNg2Input.WjMenu, wjNg2Input.WjMenuItem]
+     templateUrl: 'src/app.html'
  })
 
- export class AppCmp {        
+ export class AppCmp &#123;        
       countries = 'US,Germany,UK,Japan,Italy,Greece'.split(',');
-      data: { country: string, downloads: number, sales: number, expenses: number }[];
+      data: &#123; country: string, downloads: number, sales: number, expenses: number }[];
       protected dataSvc: DataSvc;
 
-     constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+     constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
        // data for FlexChart
        this.dataSvc = dataSvc;
        this.data = this.dataSvc.getData(this.countries);
      }
  }
 
- enableProdMode();
- // Bootstrap application with hash style navigation and global services.
- bootstrap(AppCmp, [
- DataSvc
- ]);
+ @NgModule(&#123;
+     imports: [WjInputModule, WjChartModule, BrowserModule, FormsModule, TabsModule],
+     declarations: [AppCmp],
+     providers: [DataSvc],
+     bootstrap: [AppCmp]
+ })
+ export class AppModule &#123;
+ }
+
+
+enableProdMode();
+// Bootstrap application with hash style navigation and global services.
+platformBrowserDynamic().bootstrapModule(AppModule);
                     </div>
                 </app-tab-pane>
                 <app-tab-pane title="CSS">
                     <div class="pane-content">
  /* set default chart style */
- .wj-flexchart {
+ .wj-flexchart &#123;
      height: 400px;
      background-color: white;
      box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
@@ -223,9 +230,9 @@ export class DataSvc {
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
-export class AppCmp {     
+export class AppCmp &#123;     
     countries = 'US,Germany,UK,Japan,Italy,Greece'.split(',');
-    data: { country: string, downloads: number, sales: number, expenses: number }[];
+    data: &#123; country: string, downloads: number, sales: number, expenses: number }[];
     protected dataSvc: DataSvc;
 
     //chart properties
@@ -233,7 +240,7 @@ export class AppCmp {
     stacking = 'None';
     rotated = false;
 
-    constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+    constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
       // data for FlexChart
       this.dataSvc = dataSvc;
       this.data = this.dataSvc.getData(this.countries);
@@ -277,7 +284,160 @@ export class AppCmp {
             </wj-menu>
         </div>
     </div>
+    
+    <!-- funnel charts -->
+    <h2 id="funnel">
+        Funnel Charts
+    </h2>
+    <p>
+        The example below shows you how to create and customize Funnel Chart.
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <app-tab>
+                <app-tab-pane title="HTML">
+                    <div class="pane-content">
+&lt;wj-flex-chart #funnelChart
+    [itemsSource]="funnelData" 
+    chartType="Funnel"
+    labelContent="&#123;y}"
+    bindingX="country"&gt;
+    &lt;wj-flex-chart-series name="Sales" binding="sales"&gt;&lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Neck Width&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-input-number #inputNeckWidth (valueChanged)="neckWidthChanged(inputNeckWidth)"
+                            [min]="0"
+                            [value]="0.2"
+                            [max]="1"
+                            [step]=".1"&gt;
+        &lt;/wj-input-number&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Neck Height&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-input-number #inputNeckHeight (valueChanged)="neckHeightChanged(inputNeckHeight)"
+                            [min]="0"
+                            [value]="0.2"
+                            [max]="1"
+                            [step]=".1"&gt;
+        &lt;/wj-input-number&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-menu #funnelTypeMenu header="Funnel Type: " value="default"
+                    (itemClicked)="funnelTypeChanged(funnelTypeMenu)"&gt;
+            &lt;wj-menu-item value="default"&gt;Default&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="rectangle"&gt;Rectangle&lt;/wj-menu-item&gt;
+        &lt;/wj-menu&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+                    </div>
+                </app-tab-pane>
+                <app-tab-pane title="TS">
+                    <div class="pane-content">
+export class AppCmp &#123;
+    funnelData;
+    @ViewChild('funnelChart') funnelChart: wijmo.chart.FlexChart;
+    
+    protected dataSvc: DataSvc;
 
+    constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
+        this.dataSvc = dataSvc;
+        this.funnelData = this.dataSvc.getFunnelData(this.countries);
+    }
+
+    ngAfterViewInit() &#123;
+        this.funnelChart.options = &#123;
+            funnel: &#123;
+                neckWidth: 0.2,
+                neckHeight: 0.2,
+                type: 'default'
+            }
+        };
+    }
+     
+    neckWidthChanged = (sender: wijmo.input.InputNumber) => &#123;
+        if (sender.value < sender.min || sender.value > sender.max) &#123;
+            return;
+        }
+        if (!this.funnelChart.options) &#123;
+            return;
+        }
+        this.funnelChart.options.funnel.neckWidth = sender.value;
+        this.funnelChart.refresh(true);
+    };
+
+    neckHeightChanged = (sender: wijmo.input.InputNumber) => &#123;
+        if (sender.value < sender.min || sender.value > sender.max) &#123;
+            return;
+        }
+        if (!this.funnelChart.options) &#123;
+            return;
+        }
+        this.funnelChart.options.funnel.neckHeight = sender.value;
+        this.funnelChart.refresh(true);
+    };
+
+    funnelTypeChanged = (sender: wijmo.input.Menu) => &#123;
+        if (!this.funnelChart.options) &#123;
+            return;
+        }
+        this.funnelChart.options.funnel.type = sender.selectedValue;
+        this.funnelChart.refresh(true);
+    };
+}
+                    </div>
+                </app-tab-pane>
+            </app-tab>
+        </div>
+        <div class="col-md-6">
+            <h4>Result (live):</h4>
+            <wj-flex-chart #funnelChart
+                [itemsSource]="funnelData" 
+                chartType="Funnel"
+                labelContent="{y}"
+                bindingX="country">
+                <wj-flex-chart-series name="Sales" binding="sales"></wj-flex-chart-series>
+            </wj-flex-chart>
+            <dl class="dl-horizontal">
+                <dt>Neck Width</dt>
+                <dd>
+                    <wj-input-number #inputNeckWidth (valueChanged)="neckWidthChanged(inputNeckWidth)"
+                                     [min]="0"
+                                     [value]="0.2"
+                                     [max]="1"
+                                     [step]=".1">
+                    </wj-input-number>
+                </dd>
+            </dl>
+            <dl class="dl-horizontal">
+                <dt>Neck Height</dt>
+                <dd>
+                    <wj-input-number #inputNeckHeight (valueChanged)="neckHeightChanged(inputNeckHeight)"
+                                     [min]="0"
+                                     [value]="0.2"
+                                     [max]="1"
+                                     [step]=".1">
+                    </wj-input-number>
+                </dd>
+            </dl>
+            <dl class="dl-horizontal">
+                <dt></dt>
+                <dd>
+                    <wj-menu #funnelTypeMenu header="Funnel Type: " value="default"
+                                (itemClicked)="funnelTypeChanged(funnelTypeMenu)">
+                        <wj-menu-item value="default">Default</wj-menu-item>
+                        <wj-menu-item value="rectangle">Rectangle</wj-menu-item>
+                    </wj-menu>
+                </dd>
+            </dl>
+        </div>
+    </div>
     <!-- mixed chart types -->
     <h2 id="Mixed">
         Mixed Chart Types
@@ -373,9 +533,9 @@ export class AppCmp {
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
- export class AppCmp {      
+ export class AppCmp &#123;      
      countries = 'US,Germany,UK,Japan,Italy,Greece'.split(',');
-     data: { country: string, downloads: number, sales: number, expenses: number }[];
+     data: &#123; country: string, downloads: number, sales: number, expenses: number }[];
 
      //chart properties
      chartType = 'Column';
@@ -387,7 +547,7 @@ export class AppCmp {
 
      protected dataSvc: DataSvc;
 
-     constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+     constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
          // data for FlexChart
          this.dataSvc = dataSvc;
          this.data = this.dataSvc.getData(this.countries);
@@ -398,18 +558,18 @@ export class AppCmp {
                 </app-tab-pane>
                 <app-tab-pane title="CSS">
                     <div class="pane-content">
-.wj-flexchart .wj-title {
+.wj-flexchart .wj-title &#123;
     font-weight: bold;
 }
-.wj-flexchart .wj-header .wj-title {
+.wj-flexchart .wj-header .wj-title &#123;
     font-size: 18pt;
     fill: #80044d;
 }
-.wj-flexchart .wj-footer .wj-title {
+.wj-flexchart .wj-footer .wj-title &#123;
     fill: #80044d;
 }
 .wj-flexchart .wj-axis-x .wj-title,
-.wj-flexchart .wj-axis-y .wj-title {
+.wj-flexchart .wj-axis-y .wj-title &#123;
     font-style: italic;
 }
                     </div>
@@ -472,10 +632,10 @@ export class AppCmp {
     </ul>
     <p>
         By default, the tooltip template is set to
-        <code>&lt;b&gt;{seriesName}&lt;/b&gt;&lt;br/&gt;{x} {y}</code>,
+        <code>&lt;b&gt;&#123;seriesName}&lt;/b&gt;&lt;br/&gt;&#123;x} &#123;y}</code>,
         and you can see how that works in the  charts above.
         In this example, we set the tooltip template to
-        <code>&lt;b&gt;{seriesName}&lt;/b&gt; &lt;img src='resources/{x}.png'/&gt;&lt;br/&gt;{y}</code>,
+        <code>&lt;b&gt;&#123;seriesName}&lt;/b&gt; &lt;img src='resources/&#123;x}.png'/&gt;&lt;br/&gt;&#123;y}</code>,
         which replaces the country name with the country's flag.
     </p>
     <p>
@@ -497,16 +657,16 @@ export class AppCmp {
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
- export class AppCmp {      
+ export class AppCmp &#123;      
      countries = 'US,Germany,UK,Japan,Italy,Greece'.split(',');
-     data: { country: string, downloads: number, sales: number, expenses: number }[];
+     data: &#123; country: string, downloads: number, sales: number, expenses: number }[];
 
      //chart properties
-     tooltipContent = '&lt;img src="resources/{x}.png" /&gt; &lt;b&gt;{seriesName} &lt;/b&gt;&lt;br/ &gt; {y}';
+     tooltipContent = '&lt;img src="resources/&#123;x}.png" /&gt; &lt;b&gt;&#123;seriesName} &lt;/b&gt;&lt;br/ &gt; &#123;y}';
 
      protected dataSvc: DataSvc;
 
-     constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+     constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
          // data for FlexChart
          this.dataSvc = dataSvc;
          this.data = this.dataSvc.getData(this.countries);
@@ -559,15 +719,15 @@ export class AppCmp {
      [bindingX]="'country'"&gt;
      &lt;wj-flex-chart-series [name]="'Sales'"
          [binding]="'sales'"
-         [style]="{'fill':'green', 'stroke':'darkgreen', 'stroke-width': '1'}"&gt;&lt;/wj-flex-chart-series&gt;
+         [style]="&#123;'fill':'green', 'stroke':'darkgreen', 'stroke-width': '1'}"&gt;&lt;/wj-flex-chart-series&gt;
          &lt;wj-flex-chart-series [name]="'Expenses'"
          [binding]="'expenses'"
-         [style]="{'fill':'red', 'stroke':'darkred', 'stroke-width': '1'}"&gt;&lt;/wj-flex-chart-series&gt;
+         [style]="&#123;'fill':'red', 'stroke':'darkred', 'stroke-width': '1'}"&gt;&lt;/wj-flex-chart-series&gt;
      &lt;wj-flex-chart-series [name]="'Downloads'"
          [binding]="'downloads'"
          [chartType]="'LineSymbols'"
-         [style]="{'stroke':'orange', 'stroke-width': '5'}"
-         [symbolStyle]="{'fill':'gold', 'stroke':'gold' }"
+         [style]="&#123;'stroke':'orange', 'stroke-width': '5'}"
+         [symbolStyle]="&#123;'fill':'gold', 'stroke':'gold' }"
      &gt;&lt;/wj-flex-chart-series&gt;
  &lt;/wj-flex-chart&gt;
                     </div>
@@ -695,7 +855,7 @@ export class AppCmp {
                 <app-tab-pane title="CSS">
                     <div class="pane-content">
 /* custom chart theme */
- .custom-flex-chart {
+ .custom-flex-chart &#123;
      height: 400px;
      background-color: white;
      box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
@@ -704,19 +864,19 @@ export class AppCmp {
      display:block;
  }
 
- .custom-flex-chart .wj-axis-x .wj-label {
+ .custom-flex-chart .wj-axis-x .wj-label &#123;
      font-family: Courier New, Courier, monospace;
      font-weight: bold;
  }
- .custom-flex-chart .wj-legend .wj-label {
+ .custom-flex-chart .wj-legend .wj-label &#123;
      font-family: Courier New, Courier, monospace;
      font-weight: bold;
  }
- .custom-flex-chart .wj-legend > rect {
+ .custom-flex-chart .wj-legend > rect &#123;
      fill: #f8f8f8;
      stroke: #c0c0c0;
  }
- .custom-flex-chart .wj-plot-area > rect {
+ .custom-flex-chart .wj-plot-area > rect &#123;
      fill: #f8f8f8;
      stroke: #c0c0c0;
  }
@@ -787,31 +947,31 @@ export class AppCmp {
     &lt;wj-menu-item [value]="'SplineArea'"&gt;SplineArea&lt;/wj-menu-item&gt;
 &lt;/wj-menu&gt;
 
-&lt;div [ngStyle]="{display: (selectionMode == 'None' || selectionChart.selection == null) ? 'none' : ''}"&gt;
+&lt;div [ngStyle]="&#123;display: (selectionMode == 'None' || selectionChart.selection == null) ? 'none' : ''}"&gt;
     &lt;h4&gt;
         Current Selection
     &lt;/h4&gt;
     &lt;p&gt;
-        Series: &lt;b&gt;{&#8203;{selectionChart.selection? selectionChart.selection.name : ''}&#8203;}&lt;/b&gt;
+        Series: &lt;b&gt;&#123;&#8203;&#123;selectionChart.selection? selectionChart.selection.name : ''}&#8203;}&lt;/b&gt;
     &lt;/p&gt;
     &lt;dl class="dl-horizontal"  *ngIf="selectionChart.selection && selectionChart.selection.collectionView && selectionChart.selection.collectionView.currentItem"&gt;
         &lt;dt&gt;Country&lt;/dt&gt;
-        &lt;dd&gt;{&#8203;{selectionChart.selection.collectionView.currentItem.country}&#8203;}&lt;/dd&gt;
+        &lt;dd&gt;&#123;&#8203;&#123;selectionChart.selection.collectionView.currentItem.country}&#8203;}&lt;/dd&gt;
         &lt;dt&gt;Sales&lt;/dt&gt;
-        &lt;dd&gt;{&#8203;{selectionChart.selection.collectionView.currentItem.sales | number:'3.1-2'}&#8203;}&lt;/dd&gt;
+        &lt;dd&gt;&#123;&#8203;&#123;selectionChart.selection.collectionView.currentItem.sales | number:'3.1-2'}&#8203;}&lt;/dd&gt;
         &lt;dt&gt;Expenses&lt;/dt&gt;
-        &lt;dd&gt;{&#8203;{selectionChart.selection.collectionView.currentItem.expenses | number:'3.1-2'}&#8203;}&lt;/dd&gt;
+        &lt;dd&gt;&#123;&#8203;&#123;selectionChart.selection.collectionView.currentItem.expenses | number:'3.1-2'}&#8203;}&lt;/dd&gt;
         &lt;dt&gt;Downloads&lt;/dt&gt;
-        &lt;dd&gt;{&#8203;{selectionChart.selection.collectionView.currentItem.downloads | number:'3.1-2'}&#8203;}&lt;/dd&gt;
+        &lt;dd&gt;&#123;&#8203;&#123;selectionChart.selection.collectionView.currentItem.downloads | number:'3.1-2'}&#8203;}&lt;/dd&gt;
     &lt;/dl&gt;
 &lt;/div&gt;
                     </div>
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
- export class AppCmp {      
+ export class AppCmp &#123;      
      countries = 'US,Germany,UK,Japan,Italy,Greece'.split(',');
-     data: { country: string, downloads: number, sales: number, expenses: number }[];
+     data: &#123; country: string, downloads: number, sales: number, expenses: number }[];
 
      //chart properties
      chartType = 'Column';
@@ -819,7 +979,7 @@ export class AppCmp {
 
      protected dataSvc: DataSvc;
 
- constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+ constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
      // data for FlexChart
      this.dataSvc = dataSvc;
      this.data = this.dataSvc.getData(this.countries);
@@ -930,9 +1090,9 @@ export class AppCmp {
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
- export class AppCmp {      
+ export class AppCmp &#123;      
      countries = 'US,Germany,UK,Japan,Italy,Greece'.split(',');
-     data: { country: string, downloads: number, sales: number, expenses: number }[];
+     data: &#123; country: string, downloads: number, sales: number, expenses: number }[];
 
      // chart properties
      selectionMode = 'Series';
@@ -942,20 +1102,20 @@ export class AppCmp {
 
      protected dataSvc: DataSvc;
 
-     constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+     constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
          // data for FlexChart
          this.dataSvc = dataSvc;
          this.data = this.dataSvc.getData(this.countries);
      }
 
-     seriesVisible = (idx, checked) => {
-         if (idx === 0) {
+     seriesVisible = (idx, checked) => &#123;
+         if (idx === 0) &#123;
              this.series1Visible = checked ?
              wijmo.chart.SeriesVisibility.Visible : wijmo.chart.SeriesVisibility.Hidden;
-         } else if (idx === 1) {
+         } else if (idx === 1) &#123;
              this.series2Visible = checked ?
              wijmo.chart.SeriesVisibility.Visible : wijmo.chart.SeriesVisibility.Hidden;
-         } else if (idx === 2) {
+         } else if (idx === 2) &#123;
              this.series3Visible = checked ?
              wijmo.chart.SeriesVisibility.Visible : wijmo.chart.SeriesVisibility.Hidden;
          }
@@ -1029,31 +1189,31 @@ export class AppCmp {
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
- export class AppCmp {
+ export class AppCmp &#123;
      trafficData: wijmo.collections.ObservableArray;
 
      // help
      _toAddData = null;
      _interval = null;
 
-     constructor() {
+     constructor() &#123;
          // data for FlexChart
          this.trafficData = new wijmo.collections.ObservableArray();
          this.setInterval(500);
      }
 
-     setInterval = (interval) => {
-         if (this._toAddData) {
+     setInterval = (interval) => &#123;
+         if (this._toAddData) &#123;
              clearTimeout(this._toAddData);
              this._toAddData = null;
          }
          this._interval = interval;
-         if (interval) {
+         if (interval) &#123;
             this._toAddData = setTimeout(this._addTrafficItem);
          }
  }
 
-     private _addTrafficItem = () => {
+     private _addTrafficItem = () => &#123;
          var len = this.trafficData.length,
          last = len ? this.trafficData[len - 1] : null,
          trucks = last ? last.trucks : 0,
@@ -1064,13 +1224,13 @@ export class AppCmp {
          planes = Math.max(0, planes + Math.round(Math.random() * 10 - 5));
 
          // add random data, limit array length
-         this.trafficData.push({ time: new Date(), trucks: trucks, ships: ships, planes: planes });
-         if (this.trafficData.length > 200) {
+         this.trafficData.push(&#123; time: new Date(), trucks: trucks, ships: ships, planes: planes });
+         if (this.trafficData.length > 200) &#123;
              this.trafficData.splice(0, 1);
          }
 
          // keep adding
-         if (this._interval) {
+         if (this._interval) &#123;
              this._toAddData = setTimeout(this._addTrafficItem, this._interval);
              }
           }

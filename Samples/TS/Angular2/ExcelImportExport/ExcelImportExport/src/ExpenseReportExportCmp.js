@@ -11,8 +11,8 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 // Angular
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
+var platform_browser_1 = require('@angular/platform-browser');
 var DataSvc_1 = require('./services/DataSvc');
 'use strict';
 // The Explorer application root component.
@@ -28,17 +28,28 @@ var ExpenseReportExportCmp = (function () {
     ExpenseReportExportCmp = __decorate([
         core_1.Component({
             selector: 'expence-report-export-cmp',
-            templateUrl: 'src/expenseReportExportCmp.html',
-            directives: [common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/expenseReportExportCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], ExpenseReportExportCmp);
     return ExpenseReportExportCmp;
 }());
 exports.ExpenseReportExportCmp = ExpenseReportExportCmp;
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [platform_browser_1.BrowserModule],
+            declarations: [ExpenseReportExportCmp],
+            providers: [DataSvc_1.DataSvc],
+            bootstrap: [ExpenseReportExportCmp]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
 core_1.enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-platform_browser_dynamic_1.bootstrap(ExpenseReportExportCmp, [
-    DataSvc_1.DataSvc
-]);
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(AppModule);
 //# sourceMappingURL=ExpenseReportExportCmp.js.map

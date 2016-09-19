@@ -1,123 +1,80 @@
-<h2>PdfSolidBrush Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">PdfSolidBrush</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><a href="topic/wijmo.pdf.PdfBrush.Class.html"><b>PdfBrush</b></a></dd>
-<dt>Module</dt><dd>wijmo.pdf</dd>
-<dt>File</dt><dd>wijmo.pdf.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.pdf.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.pdf.Module.html"><span class="identifier">wijmo.pdf</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.pdf.PdfBrush.Class.html"><span class="identifier">PdfBrush</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p>Represents a brush used to fill an area with a color.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+<div class="comment"><p>Represents a brush used to fill an area with a color.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(color?): <a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><b>PdfSolidBrush</b></a></td>
-      <td><p>
-<b>color?</b> (<b>any</b>): The color of this brush. A <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> object or any string
-acceptable by the <b>fromString</b> method.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><b>PdfSolidBrush</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfSolidBrush.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfSolidBrush.Class.html/#color">color</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfSolidBrush.Class.html/#clone">clone</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfSolidBrush.Class.html/#equals">equals</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(color?: <span class="identifier">any</span>): <a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><span class="identifier">PdfSolidBrush</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><span class="identifier">PdfSolidBrush</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>color</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>The color of this brush. A <a href="topic/wijmo.Color.Class.html"><span class="identifier">Color</span></a> object or any string
+acceptable by the <a href="topic/wijmo.Color.Class.html/#fromString"><span class="identifier">fromString</span></a> method.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><span class="identifier">PdfSolidBrush</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>color</b></td>
-      <td><a href="topic/wijmo.Color.Class.html"><b>Color</b></a></td>
-      <td>Gets or sets the color of the brush.
-The default color is black.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="color" class="member-panel mproperty">
+<h3>color</h3>
+<div class="comment"><p>Gets or sets the color of the brush.
+The default color is black.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.Color.Class.html"><span class="identifier">Color</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>clone</b>&#8203;(): <a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><b>PdfSolidBrush</b></a></td>
-      <td></td>
-      <td>Creates a copy of this <a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><b>PdfSolidBrush</b></a>.<br/><br/><b>Returns</b> A copy of this brush.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>equals</b>&#8203;(value): <b>boolean</b></td>
-      <td><p>
-<b>value</b> (<a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><b>PdfSolidBrush</b></a>): <a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><b>PdfSolidBrush</b></a> to compare.<br/></p>
-</td>
-      <td>Determines whether the specified <a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><b>PdfSolidBrush</b></a> instance is equal
-to the current one.<br/><br/><b>Returns</b> true if the specified object is equal to the current one, otherwise false.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="clone" class="member-panel mmethod">
+<h3>clone</h3>
+<pre>clone(): <a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><span class="identifier">PdfSolidBrush</span></a></pre>
+<div class="comment"><p>Creates a copy of this <a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><span class="identifier">PdfSolidBrush</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><span class="identifier">PdfSolidBrush</span></a></dd>
+</dl>
 </div>
-
+<div id="equals" class="member-panel mmethod">
+<h3>equals</h3>
+<pre>equals(value: <a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><span class="identifier">PdfSolidBrush</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Determines whether the specified <a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><span class="identifier">PdfSolidBrush</span></a> instance is equal
+to the current one.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><span class="identifier">PdfSolidBrush</span></a><br/><p><a href="topic/wijmo.pdf.PdfSolidBrush.Class.html"><span class="identifier">PdfSolidBrush</span></a> to compare.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+</div>

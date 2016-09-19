@@ -11,11 +11,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 // Angular
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var wjInput = require('wijmo/wijmo.angular2.input');
-var wjFlexSheet = require('wijmo/wijmo.angular2.grid.sheet');
-//import { AppTab, AppTabPane } from './components/AppTab';
+var platform_browser_1 = require('@angular/platform-browser');
+var wijmo_angular2_grid_sheet_1 = require('wijmo/wijmo.angular2.grid.sheet');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 var DataSvc_1 = require('./services/DataSvc');
 'use strict';
 // The Excellike Sheet application root component.
@@ -1965,17 +1965,28 @@ var ExcellikeSheetCmp = (function () {
     ExcellikeSheetCmp = __decorate([
         core_1.Component({
             selector: 'excellike-sheet-cmp',
-            templateUrl: 'src/excellikeSheetCmp.html',
-            directives: [common_1.CORE_DIRECTIVES, wjFlexSheet.WjFlexSheet, wjFlexSheet.WjSheet, wjInput.WjComboBox, wjInput.WjColorPicker]
+            templateUrl: 'src/excellikeSheetCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], ExcellikeSheetCmp);
     return ExcellikeSheetCmp;
 }());
 exports.ExcellikeSheetCmp = ExcellikeSheetCmp;
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [wijmo_angular2_input_1.WjInputModule, wijmo_angular2_grid_sheet_1.WjGridSheetModule, platform_browser_1.BrowserModule, forms_1.FormsModule],
+            declarations: [ExcellikeSheetCmp],
+            providers: [DataSvc_1.DataSvc],
+            bootstrap: [ExcellikeSheetCmp]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
 core_1.enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-platform_browser_dynamic_1.bootstrap(ExcellikeSheetCmp, [
-    DataSvc_1.DataSvc
-]);
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(AppModule);
 //# sourceMappingURL=excellikeSheetCmp.js.map

@@ -10,3 +10,5 @@ export declare class FlexGridImportExportCmp {
     importExcel(): void;
     updateGroup(flex: wijmo.grid.FlexGrid): void;
 }
+export declare class AppModule {
+}

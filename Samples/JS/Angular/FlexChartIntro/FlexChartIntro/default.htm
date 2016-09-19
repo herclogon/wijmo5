@@ -8,22 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Third Party -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
 
     <!-- Wijmo -->
-    <script src="scripts/vendor/wijmo.min.js" type="text/javascript"></script>
-    <script src="scripts/vendor/wijmo.input.min.js" type="text/javascript"></script>
-    <script src="scripts/vendor/wijmo.chart.min.js" type="text/javascript"></script>
-    <script src="scripts/vendor/wijmo.angular.min.js" type="text/javascript"></script>
+    <script src="scripts/vendor/wijmo.min.js"></script>
+    <script src="scripts/vendor/wijmo.input.min.js"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js"></script>
+    <script src="scripts/vendor/wijmo.angular.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="styles/vendor/wijmo.min.css" />
+    <link rel="stylesheet" href="styles/vendor/wijmo.min.css" />
 
     <!-- app scripts and styles -->
-    <script src="scripts/app.js" type="text/javascript"></script>
-    <script src="scripts/directives/appDctv.js" type="text/javascript"></script>
-    <script src="scripts/controllers/appCtrl.js" type="text/javascript"></script>
-    <link href="styles/app.css" rel="stylesheet" type="text/css" />
+    <script src="scripts/app.js"></script>
+    <script src="scripts/directives/appDctv.js"></script>
+    <script src="scripts/controllers/appCtrl.js"></script>
+    <link href="styles/app.css" rel="stylesheet"/>
 </head>
 <body ng-app="app" ng-controller="appCtrl">
     <div class="header visible-xs visible-sm">
@@ -65,14 +65,14 @@
                         <div class="pane-content">
 &lt;html&gt;
 &lt;head&gt;
-  &lt;link rel="stylesheet" type="text/css" href="css/bootstrap.css"/&gt;
-  &lt;link rel="stylesheet" type="text/css" href="css/wijmo.css" /&gt;
-  &lt;link href="css/app.css" rel="stylesheet" type="text/css" /&gt;
-  &lt;script src="scripts/angular.js" type="text/javascript"&gt;&lt;/script&gt;
-  &lt;script src="scripts/wijmo.js" type="text/javascript"&gt;&lt;/script&gt;
-  &lt;script src="scripts/wijmo.chart.js" type="text/javascript"&gt;&lt;/script&gt;
-  &lt;script src="scripts/wijmo.angular.js" type="text/javascript"&gt;&lt;/script&gt;
-  &lt;script src="scripts/app.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="css/bootstrap.css"/&gt;
+  &lt;link rel="stylesheet" href="css/wijmo.css"/&gt;
+  &lt;link href="css/app.css" rel="stylesheet"/&gt;
+  &lt;script src="scripts/angular.js"&gt;&lt;/script&gt;
+  &lt;script src="scripts/wijmo.js"&gt;&lt;/script&gt;
+  &lt;script src="scripts/wijmo.chart.js"&gt;&lt;/script&gt;
+  &lt;script src="scripts/wijmo.angular.js"&gt;&lt;/script&gt;
+  &lt;script src="scripts/app.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body ng-app="app" ng-controller="appCtrl"&gt;
 
@@ -249,7 +249,158 @@ $scope.chartProps = {
                 </wj-menu>
             </div>
         </div>
+        
+        <!-- Funnel chart -->
+        <h2 id="Funnel">
+            Funnel Charts</h2>
+        <p>           
+             The example below shows you how to create and customize Funnel Chart:
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <app-tab>
+                    <app-tab-pane title="HTML">
+                        <div class="pane-content">
+&lt;wj-flex-chart control="funnelChart"
+    items-source="funnelData" 
+    chart-type="Funnel"
+    binding-x="country"&gt;
+    &lt;wj-flex-chart-series name="Sales" binding="sales"&gt;&lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Neck Width&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;div id="funnelNeckWidth"&gt;&lt;/div&gt;
+        &lt;wj-input-number control="inputNeckWidth"
+                            value="neckWidth"
+                            min="0"
+                            max="1"
+                            step=".1"&gt;
+        &lt;/wj-input-number&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Neck Height&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;div id="funnelNeckHeight"&gt;&lt;/div&gt;
+        &lt;wj-input-number control="inputNeckHeight"
+                            value="neckHeight"
+                            min="0"
+                            max="1"
+                            step=".1"&gt;
+        &lt;/wj-input-number&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-menu header="Funnel Type: &lt;b&gt;{{ funnelType }}&lt;/b&gt;"
+                    item-clicked="funnelTypeChanged(s, e)"&gt;
+            &lt;wj-menu-item value="'default'"&gt;Default&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item value="'rectangle'"&gt;Rectangle&lt;/wj-menu-item&gt;
+        &lt;/wj-menu&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+                        </div>
+                    </app-tab-pane>
+                    <app-tab-pane title="JS">
+                        <div class="pane-content">
+$scope.funnelChart = null;
+$scope.inputNeckWidth = null;
+$scope.inputNeckHeight = null;
+$scope.neckWidth = 0.2;
+$scope.neckHeight = 0.2;
+$scope.funnelType = 'default';
 
+$scope.$watch('funnelChart', function () {
+    var funnelChart = $scope.funnelChart;
+
+    if (funnelChart != null) {
+        funnelChart.options = {
+            funnel: {
+                neckWidth: 0.2,
+                neckHeight: 0.2,
+                type: 'default'
+            }
+        };
+        funnelChart.dataLabel.content = '{y}';
+    }
+});
+
+$scope.$watch('neckWidth', function () {
+    var neckWidth = $scope.inputNeckWidth,
+        val = $scope.neckWidth;
+    if (neckWidth != null) {
+        if (val < neckWidth.min || val > neckWidth.max) {
+            return;
+        }
+        $scope.funnelChart.options.funnel.neckWidth = val;
+        $scope.funnelChart.refresh(true);
+    }
+});
+
+$scope.$watch('neckHeight', function () {
+    var neckHeight = $scope.inputNeckHeight,
+        val = $scope.neckHeight;
+    if (neckHeight != null) {
+        if (val < neckHeight.min || val > neckHeight.max) {
+            return;
+        }
+        $scope.funnelChart.options.funnel.neckHeight = val;
+        $scope.funnelChart.refresh(true);
+    }
+});
+
+$scope.funnelTypeChanged = function (sender) {
+    $scope.funnelChart.options.funnel.type = sender.selectedValue;
+    $scope.funnelChart.refresh(true);
+};  
+                        </div>
+                    </app-tab-pane>
+                </app-tab>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-flex-chart control="funnelChart"
+                    items-source="funnelData" 
+                    chart-type="Funnel"
+                    binding-x="country">
+                    <wj-flex-chart-series name="Sales" binding="sales"></wj-flex-chart-series>
+                </wj-flex-chart>
+                <dl class="dl-horizontal">
+                    <dt>Neck Width</dt>
+                    <dd>
+                        <wj-input-number control="inputNeckWidth"
+                                         value="neckWidth"
+                                         min="0"
+                                         max="1"
+                                         step=".1">
+                        </wj-input-number>
+                    </dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt>Neck Height</dt>
+                    <dd>
+                        <wj-input-number control="inputNeckHeight"
+                                         value="neckHeight"
+                                         min="0"
+                                         max="1"
+                                         step=".1">
+                        </wj-input-number>
+                    </dd>
+                </dl>
+                <dl class="dl-horizontal">
+                    <dt></dt>
+                    <dd>
+                        <wj-menu header="Funnel Type: <b>{{ funnelType }}</b>"
+                                 item-clicked="funnelTypeChanged(s, e)">
+                            <wj-menu-item value="'default'">Default</wj-menu-item>
+                            <wj-menu-item value="'rectangle'">Rectangle</wj-menu-item>
+                        </wj-menu>
+                    </dd>
+                </dl>
+            </div>
+        </div>
         <!-- mixed chart types -->
         <h2 id="Mixed">
             Mixed Chart Types</h2>
@@ -644,7 +795,7 @@ $scope.chartProps = {
     fill: #f8f8f8;
     stroke: #c0c0c0;
 }
-.custom-flex-chart.wj-flexchart .wj-plot-area >  rect {
+.custom-flex-chart.wj-flexchart .wj-plot-area > rect {
     fill: #f8f8f8;
     stroke: #c0c0c0;
 }
@@ -950,6 +1101,7 @@ function addTrafficItem() {
                 </dl>
             </div>
         </div>
+        
     </div>
 
     <!-- Google analytics -->

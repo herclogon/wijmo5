@@ -1,16 +1,16 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, AfterViewInit, ViewChild } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // Chart Finance component
 @Component({
     selector: 'chart-finance-cmp',
-    templateUrl: 'src/components/chart/chartFinanceCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis,
-        wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, CORE_DIRECTIVES]
+    templateUrl: 'src/components/chart/chartFinanceCmp.html'
 })
 
 export class ChartFinanceCmp implements AfterViewInit {
@@ -55,4 +55,15 @@ export class ChartFinanceCmp implements AfterViewInit {
             'Open: ' + ht.item.open.toFixed() + '<br/>' +
             'Close: ' + ht.item.close.toFixed();
     }
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ChartFinanceCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjChartModule, WjInputModule],
+    declarations: [ChartFinanceCmp],
+})
+export class ChartFinanceModule {
 }

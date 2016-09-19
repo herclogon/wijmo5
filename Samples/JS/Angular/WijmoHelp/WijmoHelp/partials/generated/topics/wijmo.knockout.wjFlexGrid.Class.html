@@ -1,17 +1,21 @@
-<h2>wjFlexGrid Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">wjFlexGrid</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><b>WjBinding</b></dd>
-<dt>Derived Classes</dt><dd><a href="topic/wijmo.knockout.wjFlexSheet.Class.html"><b>wjFlexSheet</b></a>, <a href="topic/wijmo.knockout.wjMultiRow.Class.html"><b>wjMultiRow</b></a>, <a href="topic/wijmo.knockout.wjPivotGrid.Class.html"><b>wjPivotGrid</b></a></dd>
-<dt>Module</dt><dd>wijmo.knockout</dd>
-<dt>File</dt><dd>wijmo.knockout.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.knockout.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.knockout.Module.html"><span class="identifier">wijmo.knockout</span></a></dd>
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.knockout.wjFlexSheet.Class.html"><span class="identifier">wjFlexSheet</span></a>, <a href="topic/wijmo.knockout.wjMultiRow.Class.html"><span class="identifier">wjMultiRow</span></a>, <a href="topic/wijmo.knockout.wjPivotGrid.Class.html"><span class="identifier">wjPivotGrid</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p><p>KnockoutJS binding for the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control.</p>
-
-<p>Use the <b>wjFlexGrid</b> binding to add <b>FlexGrid</b> controls to your 
+<div class="comment"><p>KnockoutJS binding for the <a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a> control.</p>
+<p>Use the <a href="topic/wijmo.knockout.wjFlexGrid.Class.html"><span class="identifier">wjFlexGrid</span></a> binding to add <a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a> controls to your 
 KnockoutJS applications. For example:</p>
 
-<p><pre>&lt;p&gt;Here is a FlexGrid control:&lt;/p&gt;
+
+<pre>&lt;p&gt;Here is a FlexGrid control:&lt;/p&gt;
 &lt;div data-bind="wjFlexGrid: { itemsSource: data }"&gt;
     &lt;div data-bind="wjFlexGridColumn: { 
         header: 'Country', 
@@ -31,10 +35,11 @@ KnockoutJS applications. For example:</p>
         header: 'Active', 
         binding: 'active' }"&gt;
     &lt;/div&gt;
-&lt;/div&gt;</pre></p>
-
-<p>The <b>wjFlexGrid</b> binding may contain <a href="topic/wijmo.knockout.wjFlexGridColumn.Class.html"><b>wjFlexGridColumn</b></a> child bindings.</p>
-
+&lt;/div&gt;</pre>
+<p>The <b>wjFlexGrid</b> binding may contain <a href="topic/wijmo.knockout.wjFlexGridColumn.Class.html"><span class="identifier">wjFlexGridColumn</span></a> child bindings.</p>
 <p>The <b>wjFlexGrid</b> binding supports all read-write properties and events of 
-the <b>FlexGrid</b> control, except for the <b>scrollPosition</b> and 
-<b>selection</b> properties.</p></p>
+the <a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a> control, except for the <b>scrollPosition</b> and 
+<b>selection</b> properties.</p></div>
+</div>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+</div>

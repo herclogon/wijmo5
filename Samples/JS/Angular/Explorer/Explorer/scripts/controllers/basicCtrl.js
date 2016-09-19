@@ -478,4 +478,11 @@ app.controller('basicCtrl', function appCtrl($scope, $compile, dataSvc) {
             }
         }
     }
+
+    // add a footer row to display column aggregates below the data
+    $scope.addFooterRow = function (s, e) {
+        var row = new wijmo.grid.GroupRow(); // create a GroupRow to show aggregates
+        s.columnFooters.rows.push(row); // add the row to the column footer panel
+        s.bottomLeftCells.setCellData(0, 0, '\u03A3'); // sigma on the header
+    }
 });

@@ -1,13 +1,15 @@
 ﻿'use strict';
 
-import { Component, Inject, Optional, Output, EventEmitter } from '@angular/core';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, Output, Optional, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ModuleWithProviders } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { FrmBaseCmp } from './FrmBaseCmp';
 
 @Component({
     selector: 'frm-log-in-cmp',
-    templateUrl: 'src/components/includes/frmLogInCmp.html',
-    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES],
+    templateUrl: 'src/components/includes/frmLogInCmp.html'
 })
 export class FrmLogInCmp extends FrmBaseCmp {
     @Output() createAccount = new EventEmitter();
@@ -31,4 +33,13 @@ export class FrmLogInCmp extends FrmBaseCmp {
 
 }
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: FrmLogInCmp }
+]);
 
+@NgModule({
+    imports: [CommonModule, FormsModule, routing],
+    declarations: [FrmLogInCmp],
+})
+export class FrmLogInModule {
+}

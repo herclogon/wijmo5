@@ -103,12 +103,6 @@ h2 {
     stroke: #c0c0c0;
 }
 
-/* some extra spacing between the items */
-.row {
-    margin-top: 40px;
-    margin-bottom: 25px;
-}
-
 /* responsive layout */
 @media(min-width: 992px) {
     .collapse.app-lg-visible {
@@ -154,11 +148,6 @@ h2 {
     .btn[data-target] {
         width: 100%;
         margin-bottom: 20px;
-    }
-
-    .row {
-        margin-top: 20px;
-        margin-bottom: 10px;
     }
 }
 

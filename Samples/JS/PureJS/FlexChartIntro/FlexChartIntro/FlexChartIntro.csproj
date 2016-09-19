@@ -23,6 +23,7 @@
     
     
     
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,6 +70,7 @@
     <Content Include="scripts\app.js" />
     <Content Include="scripts\chartCustomizeAxes.js" />
     <Content Include="scripts\chartLegendAndTitles.js" />
+    <Content Include="scripts\funnelChart.js" />
     <Content Include="scripts\gettingStartedChart.js" />
     <Content Include="scripts\chartLegendToggle.js" />
     <Content Include="scripts\chartSelectionMode.js" />
@@ -127,8 +129,6 @@
     
   </PropertyGroup>
   <ItemGroup>
-    
-    
     
     
     

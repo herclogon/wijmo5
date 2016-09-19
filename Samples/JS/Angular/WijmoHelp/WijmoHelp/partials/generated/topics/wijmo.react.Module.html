@@ -1,0 +1,303 @@
+<div class="header-panel module">
+<h2><span class="identifier">wijmo.react</span> Module</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd class="filename">wijmo.react.js</dd>
+<dt>Module</dt><dd><span class="identifier">wijmo.react</span></dd>
+</dl>
+<div class="comment"><p>Wijmo interop module for <a href="https://facebook.github.io/react/">React</a>.</p>
+<p>This module provides React components that encapsulate Wijmo controls.</p>
+<p>To use it, your application must include references to the React and 
+ReactDOM libraries, as well as the regular Wijmo CSS and js files.</p>
+<p>To add Wijmo controls to React components, include the appropriate
+tags in your JSX (or TSX) files. For example, the code below adds
+an <a href="topic/wijmo.react.Module.html/#InputNumber"><span class="identifier">InputNumber</span></a> control to a React component:</p>
+
+
+<pre>&lt;label htmlFor="inputnumber"&gt;Here's an InputNumber control:&lt;/label&gt;
+&lt;Wj.InputNumber
+  id="inputNumber"
+  format="c2"
+  min={ 0 } max={ 10 } step={ .5 }
+  value={ this.state.value }
+  valueChanged={ this.valueChanged }/&gt;</pre>
+<p>The example illustrates the following important points:</p>
+<p><ol>
+  <li>
+     Wijmo controls have tag names that start with the "Wj" prefix, followed by
+     the control name. The "Wj" is a shorthand for the full module name
+     "wijmo.react" which can also be used.</li>
+<li>
+     The tag attribute names match the control's properties and events.</li>
+<li>
+     Attribute values enclosed in quotes are interpreted as strings, and
+     values enclosed in curly braces are interpreted as JavaScript expressions.</li>
+<li>
+     React components do not have implicit two-way bindings, so controls that
+     modify values typically use event handlers to explicitly apply changes to 
+     the parent component's state.</li>
+</ol></p>
+<p>To illustrate this last point, the component that contains the markup given above
+would typically implement a "valueChanged" event handler as follows:</p>
+
+
+<pre>valueChanged: function(s, e) {
+  this.setState({ value, s.value });
+}</pre>
+<p>The event handler calls React's
+<a href="https://facebook.github.io/react/docs/component-api.html">setState</a>
+method to update the component state, automatically triggering a UI update.
+Notice that the method does not write directly into the "state" object, which
+should be treated as immutable in React applications.</p></div>
+</div>
+<div class="member-panel module members">
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#AutoComplete">AutoComplete</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#BulletGraph">BulletGraph</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#Calendar">Calendar</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#ColorPicker">ColorPicker</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#ComboBox">ComboBox</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#FlexChart">FlexChart</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#FlexGrid">FlexGrid</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#InputColor">InputColor</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#InputDate">InputDate</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#InputDateTime">InputDateTime</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#InputMask">InputMask</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#InputNumber">InputNumber</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#InputTime">InputTime</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#LinearGauge">LinearGauge</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#ListBox">ListBox</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#Menu">Menu</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#MultiSelect">MultiSelect</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#Popup">Popup</a></li>
+<li class="mproperty"><a href="topic/wijmo.react.Module.html/#RadialGauge">RadialGauge</a></li>
+</ul>
+</div>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="AutoComplete" class="member-panel mproperty">
+<h3>AutoComplete</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.AutoComplete.Class.html"><span class="identifier">AutoComplete</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="BulletGraph" class="member-panel mproperty">
+<h3>BulletGraph</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.gauge.BulletGraph.Class.html"><span class="identifier">BulletGraph</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="Calendar" class="member-panel mproperty">
+<h3>Calendar</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.Calendar.Class.html"><span class="identifier">Calendar</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="ColorPicker" class="member-panel mproperty">
+<h3>ColorPicker</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.ColorPicker.Class.html"><span class="identifier">ColorPicker</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="ComboBox" class="member-panel mproperty">
+<h3>ComboBox</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.ComboBox.Class.html"><span class="identifier">ComboBox</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="FlexChart" class="member-panel mproperty">
+<h3>FlexChart</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.chart.FlexChart.Class.html"><span class="identifier">FlexChart</span></a> control.</p>
+<p>The example below shows how to instantiate and initialize a
+<a href="topic/wijmo.chart.FlexChart.Class.html"><span class="identifier">FlexChart</span></a> control in JSX:</p>
+
+
+<pre>&lt;Wj.FlexChart
+  itemsSource={ this.state.data }
+  bindingX="name"
+  header={ this.state.header }
+  footer={ this.state.footer }
+  axisX={&#8203;{ title: this.state.titleX }}
+  axisY={&#8203;{ title: this.state.titleY }}
+  legend={&#8203;{ position: this.state.legendPosition }}
+  series={[
+      { name: 'Sales', binding: 'sales' },
+      { name: 'Expenses', binding: 'expenses' },
+      { name: 'Downloads', binding: 'downloads', chartType: 'LineSymbols' }
+  ]} /&gt;</pre>
+<p>The code sets the <b>itemsSource</b> property to a collection that contains
+the data to chart and the <b>bindingX</b> property to specify the name of the
+data property to use for the chart's X values.</p>
+<p>It sets the <b>header</b> and <b>footer</b> properties to specify the
+chart titles, and customizes the chart's axes and legend.</p>
+<p>Finally, it sets the <b>series</b> property to an array that specifies the
+data items that the chart should display.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="FlexGrid" class="member-panel mproperty">
+<h3>FlexGrid</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a> control.</p>
+<p>The example below shows how to instantiate and initialize a
+<a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a> control in JSX:</p>
+
+
+<pre>&lt;Wj.FlexGrid
+  autoGenerateColumns={ false }
+  columns={[
+    { binding: 'name', header: 'Name' },
+    { binding: 'sales', header: 'Sales', format: 'c0' },
+    { binding: 'expenses', header: 'Expenses', format: 'c0' },
+    { binding: 'active', header: 'Active' },
+    { binding: 'date', header: 'Date' }
+  ]}
+  itemsSource={ this.state.data } /&gt;</pre>
+<p>The code sets the <b>autoGenerateColumns</b> property to false, then
+sets the <b>columns</b> property, and finally sets the <b>itemsSource</b>
+property. This order is important, it prevents the grid from automatically
+generating the columns.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="InputColor" class="member-panel mproperty">
+<h3>InputColor</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.InputColor.Class.html"><span class="identifier">InputColor</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="InputDate" class="member-panel mproperty">
+<h3>InputDate</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.InputDate.Class.html"><span class="identifier">InputDate</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="InputDateTime" class="member-panel mproperty">
+<h3>InputDateTime</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.InputDateTime.Class.html"><span class="identifier">InputDateTime</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="InputMask" class="member-panel mproperty">
+<h3>InputMask</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.InputMask.Class.html"><span class="identifier">InputMask</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="InputNumber" class="member-panel mproperty">
+<h3>InputNumber</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.InputNumber.Class.html"><span class="identifier">InputNumber</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="InputTime" class="member-panel mproperty">
+<h3>InputTime</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.InputTime.Class.html"><span class="identifier">InputTime</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="LinearGauge" class="member-panel mproperty">
+<h3>LinearGauge</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.gauge.LinearGauge.Class.html"><span class="identifier">LinearGauge</span></a> control.</p>
+<p>The example below shows how to instantiate and initialize a
+<a href="topic/wijmo.gauge.LinearGauge.Class.html"><span class="identifier">LinearGauge</span></a> control in JSX:</p>
+
+
+<pre>&lt;Wj.LinearGauge
+  min={ 0 } max={ 1000 } step={ 50 } isReadOnly={ false }
+  value={ this.state.view.currentItem.sales }
+  valueChanged={ this.salesChanged }
+  format="c0" thumbSize={ 20 } showRanges={ false }
+  face={&#8203;{ thickness:0.5 }}
+  pointer={&#8203;{ thickness:0.5 }}
+  ranges={[
+      { min: 0, max: 333, color: 'red' },
+      { min: 333, max: 666, color: 'gold' },
+      { min: 666, max: 1000, color: 'green' }
+  ]} /&gt;</pre>
+<p>The code <b>min</b>, <b>max</b>, <b>step</b>, and <b>isReadOnly</b> properties
+to define the range of the gauge and to allow users to edit its value.
+Next, it sets the <b>value</b> and <b>valueChanged</b> properties to create
+a two-way binding for the gauge's value.</p>
+<p>Then it sets the <b>format</b>, <b>thumbSize</b>, and <b>showRanges</b>
+properties to define the appearance of the gauge. Finally, the markup sets
+the thickness of the <b>face</b> and <b>pointer</b> ranges, and extra ranges
+that will control the color of the <b>value</b> range depending on the gauge's
+current value.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="ListBox" class="member-panel mproperty">
+<h3>ListBox</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="Menu" class="member-panel mproperty">
+<h3>Menu</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.Menu.Class.html"><span class="identifier">Menu</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="MultiSelect" class="member-panel mproperty">
+<h3>MultiSelect</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.MultiSelect.Class.html"><span class="identifier">MultiSelect</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="Popup" class="member-panel mproperty">
+<h3>Popup</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="RadialGauge" class="member-panel mproperty">
+<h3>RadialGauge</h3>
+<div class="comment"><p>React component that encapsulates the <a href="topic/wijmo.gauge.RadialGauge.Class.html"><span class="identifier">RadialGauge</span></a> control.</p>
+<p>The example below shows how to instantiate and initialize a
+<a href="topic/wijmo.gauge.RadialGauge.Class.html"><span class="identifier">RadialGauge</span></a> control in JSX:</p>
+
+
+<pre>&lt;Wj.RadialGauge
+  min={ 0 } max={ 1000 } step={ 50 } isReadOnly={ false }
+  value={ this.state.view.currentItem.sales }
+  valueChanged={ this.salesChanged }
+  format="c0" thumbSize={ 12 } showRanges={ false } showText="Value"
+  face={&#8203;{ thickness:0.5 }}
+  pointer={&#8203;{ thickness:0.5 }}
+  ranges={[
+      { min: 0, max: 333, color: 'red' },
+      { min: 333, max: 666, color: 'gold' },
+      { min: 666, max: 1000, color: 'green' }
+  ]} /&gt;</pre>
+<p>The code <b>min</b>, <b>max</b>, <b>step</b>, and <b>isReadOnly</b> properties
+to define the range of the gauge and to allow users to edit its value.
+Next, it sets the <b>value</b> and <b>valueChanged</b> properties to create
+a two-way binding for the gauge's value.</p>
+<p>Then it sets the <b>format</b>, <b>thumbSize</b>, <b>showText</b>, and
+<b>showRanges</b> properties to define the appearance of the gauge.
+Finally, the markup sets the thickness of the <b>face</b> and <b>pointer</b>
+ranges, and extra ranges that will control the color of the <b>value</b>
+range depending on the gauge's current value.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+</div>

@@ -11,10 +11,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 // Angular
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
+var platform_browser_1 = require('@angular/platform-browser');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
 var AppTab_1 = require('./components/AppTab');
 var DataSvc_1 = require('./services/DataSvc');
 'use strict';
@@ -80,28 +81,76 @@ var AppCmp = (function () {
                 _this._toAddData = setTimeout(_this._addTrafficItem, _this._interval);
             }
         };
+        this.neckWidthChanged = function (sender) {
+            if (sender.value < sender.min || sender.value > sender.max) {
+                return;
+            }
+            if (!_this.funnelChart.options) {
+                return;
+            }
+            _this.funnelChart.options.funnel.neckWidth = sender.value;
+            _this.funnelChart.refresh(true);
+        };
+        this.neckHeightChanged = function (sender) {
+            if (sender.value < sender.min || sender.value > sender.max) {
+                return;
+            }
+            if (!_this.funnelChart.options) {
+                return;
+            }
+            _this.funnelChart.options.funnel.neckHeight = sender.value;
+            _this.funnelChart.refresh(true);
+        };
+        this.funnelTypeChanged = function (sender) {
+            if (!_this.funnelChart.options) {
+                return;
+            }
+            _this.funnelChart.options.funnel.type = sender.selectedValue;
+            _this.funnelChart.refresh(true);
+        };
         this.dataSvc = dataSvc;
         this.data = this.dataSvc.getData(this.countries);
+        this.funnelData = this.dataSvc.getFunnelData(this.countries);
         this.trafficData = new wijmo.collections.ObservableArray();
         this.setInterval(500);
     }
+    AppCmp.prototype.ngAfterViewInit = function () {
+        this.funnelChart.options = {
+            funnel: {
+                neckWidth: 0.2,
+                neckHeight: 0.2,
+                type: 'default'
+            }
+        };
+    };
+    __decorate([
+        core_1.ViewChild('funnelChart')
+    ], AppCmp.prototype, "funnelChart", void 0);
     AppCmp = __decorate([
         core_1.Component({
             selector: 'app-cmp',
-            templateUrl: 'src/app.html',
-            directives: [common_1.CORE_DIRECTIVES, AppTab_1.AppTab, AppTab_1.AppTabPane,
-                wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartAxis, wjNg2Chart.WjFlexChartLegend,
-                wjNg2Chart.WjFlexChartDataLabel, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartLineMarker,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem]
+            templateUrl: 'src/app.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], AppCmp);
     return AppCmp;
 }());
 exports.AppCmp = AppCmp;
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [wijmo_angular2_input_1.WjInputModule, wijmo_angular2_chart_1.WjChartModule, platform_browser_1.BrowserModule, forms_1.FormsModule, AppTab_1.TabsModule],
+            declarations: [AppCmp],
+            providers: [DataSvc_1.DataSvc],
+            bootstrap: [AppCmp]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
 core_1.enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-platform_browser_dynamic_1.bootstrap(AppCmp, [
-    DataSvc_1.DataSvc
-]);
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(AppModule);
 //# sourceMappingURL=app.js.map

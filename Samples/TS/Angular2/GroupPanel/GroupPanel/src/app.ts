@@ -1,12 +1,13 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, EventEmitter, provide, Input, Inject, ViewChild, enableProdMode } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
-import * as wjNg2GridGroupPanel from 'wijmo/wijmo.angular2.grid.grouppanel';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import { Component, EventEmitter, Input, Inject, enableProdMode, ViewChild, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { WjGridGrouppanelModule } from 'wijmo/wijmo.angular2.grid.grouppanel';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 import { DataSvc } from './services/DataSvc';
 
 'use strict';
@@ -14,10 +15,7 @@ import { DataSvc } from './services/DataSvc';
 // The application root component.
 @Component({
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, 
-        wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate, 
-        wjNg2GridGroupPanel.WjGroupPanel]
+    templateUrl: 'src/app.html'
 })
 
 export class AppCmp {    
@@ -34,8 +32,16 @@ export class AppCmp {
     }
 }
 
+@NgModule({
+    imports: [WjInputModule, WjGridModule, WjGridGrouppanelModule, BrowserModule],
+    declarations: [AppCmp],
+    providers: [DataSvc],
+    bootstrap: [AppCmp]
+})
+export class AppModule {
+}
+
+
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);

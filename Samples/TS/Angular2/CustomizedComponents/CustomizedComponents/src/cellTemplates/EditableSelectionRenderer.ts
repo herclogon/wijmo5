@@ -1,8 +1,6 @@
 ﻿'use strict';
 
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import * as wjInput from 'wijmo/wijmo.angular2.input';
 
 export enum SelectionType {
     Single = 0,
@@ -13,7 +11,6 @@ export enum SelectionType {
 @Component({
     selector: 'editable-selection-renderer',
     templateUrl: 'src/cellTemplates/editableSelectionRenderer.html',
-    directives: [wjInput.WjInputDate, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class EditableSelectionRenderer {
     private _selectionType: SelectionType;

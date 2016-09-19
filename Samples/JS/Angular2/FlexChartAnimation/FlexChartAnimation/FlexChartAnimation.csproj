@@ -34,11 +34,11 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\app.routing.js" />
     <Content Include="src\app.js" />
     <Content Include="src\components\FlexChartAnimationCmp.js" />
     <Content Include="src\components\FlexPieAnimationCmp.js" />
     <Content Include="src\services\DataSvc.js" />
-    <Content Include="src\services\MenuSvc.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />

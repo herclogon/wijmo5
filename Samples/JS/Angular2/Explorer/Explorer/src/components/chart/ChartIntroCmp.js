@@ -7,8 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // Chart Intro sample component
 var ChartIntroCmp = (function () {
     function ChartIntroCmp() {
@@ -53,12 +54,25 @@ var ChartIntroCmp = (function () {
     ChartIntroCmp = __decorate([
         core_1.Component({
             selector: 'chart-intro-cmp',
-            templateUrl: 'src/components/chart/chartIntroCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/chart/chartIntroCmp.html'
         })
     ], ChartIntroCmp);
     return ChartIntroCmp;
 }());
 exports.ChartIntroCmp = ChartIntroCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartIntroCmp }
+]);
+var ChartIntroModule = (function () {
+    function ChartIntroModule() {
+    }
+    ChartIntroModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [ChartIntroCmp],
+        })
+    ], ChartIntroModule);
+    return ChartIntroModule;
+}());
+exports.ChartIntroModule = ChartIntroModule;
 //# sourceMappingURL=ChartIntroCmp.js.map

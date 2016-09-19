@@ -1,103 +1,102 @@
-<h2>IWorkbook Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">IWorkbook</span> Interface</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.xlsx</dd>
-<dt>File</dt><dd>wijmo.xlsx.js</dd>
+<dt>File</dt><dd class="filename">wijmo.xlsx.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.xlsx.Module.html"><span class="identifier">wijmo.xlsx</span></a></dd>
 </dl>
-<p><p>Represents an Excel Workbook. This interface is the root of the Excel Workbook Object Model (WOM)
+<div class="comment"><p>Represents an Excel Workbook. This interface is the root of the Excel Workbook Object Model (WOM)
 that provides a way to define properties and data stored in xlsx file.</p>
-
-<p>To create an xlsx file, create a <a href="topic/wijmo.xlsx.Workbook.Class.html"><b>Workbook</b></a> object and populate them with <a href="topic/wijmo.xlsx.WorkSheet.Class.html"><b>WorkSheet</b></a>,
-<a href="topic/wijmo.xlsx.WorkbookColumn.Class.html"><b>WorkbookColumn</b></a>, <a href="topic/wijmo.xlsx.WorkbookRow.Class.html"><b>WorkbookRow</b></a>, and <a href="topic/wijmo.xlsx.WorkbookCell.Class.html"><b>WorkbookCell</b></a> objects.</p>
-
-<p>To save xlsx files, use the <b>save</b> method which can save the book to a file
+<p>To create an xlsx file, create a <a href="topic/wijmo.xlsx.Workbook.Class.html"><span class="identifier">Workbook</span></a> object and populate them with <a href="topic/wijmo.xlsx.WorkSheet.Class.html"><span class="identifier">WorkSheet</span></a>,
+<a href="topic/wijmo.xlsx.WorkbookColumn.Class.html"><span class="identifier">WorkbookColumn</span></a>, <a href="topic/wijmo.xlsx.WorkbookRow.Class.html"><span class="identifier">WorkbookRow</span></a>, and <a href="topic/wijmo.xlsx.WorkbookCell.Class.html"><span class="identifier">WorkbookCell</span></a> objects.</p>
+<p>To save xlsx files, use the <a href="topic/wijmo.xlsx.Workbook.Class.html/#save"><span class="identifier">save</span></a> method which can save the book to a file
 or return it as a base-64 string.</p>
-
-<p>To load existing xlsx files, use the <b>load</b> method which will populate the book.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<p>To load existing xlsx files, use the <a href="topic/wijmo.xlsx.Workbook.Class.html/#load"><span class="identifier">load</span></a> method which will populate the book.</p></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>activeWorksheet?</b></td>
-      <td><b>number</b></td>
-      <td>Index of the active sheet in the xlsx file.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>application?</b></td>
-      <td><b>string</b></td>
-      <td>The name of application that generated the file that appears in the file properties.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>company?</b></td>
-      <td><b>string</b></td>
-      <td>The name of company that generated the file that appears in the file properties.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>created?</b></td>
-      <td><b>Date</b></td>
-      <td>Creation time of the xlsx file.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>creator?</b></td>
-      <td><b>string</b></td>
-      <td>Creator of the xlsx file.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>lastModifiedBy?</b></td>
-      <td><b>string</b></td>
-      <td>Last modifier of the xlsx file.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>modified?</b></td>
-      <td><b>Date</b></td>
-      <td>Last modified time of the xlsx file.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>reservedContent?</b></td>
-      <td><b>any</b></td>
-      <td>The reserved content for the workbook.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>sheets</b></td>
-      <td><a href="topic/wijmo.xlsx.IWorkSheet.Interface.html"><b>IWorkSheet</b></a><b>[]</b></td>
-      <td>Defines an array of Excel Workbook sheets.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>styles?</b></td>
-      <td><a href="topic/wijmo.xlsx.IWorkbookStyle.Interface.html"><b>IWorkbookStyle</b></a><b>[]</b></td>
-      <td>Styles table of the workbook.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkbook.Interface.html/#activeWorksheet">activeWorksheet</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkbook.Interface.html/#application">application</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkbook.Interface.html/#company">company</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkbook.Interface.html/#created">created</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkbook.Interface.html/#creator">creator</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkbook.Interface.html/#lastModifiedBy">lastModifiedBy</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkbook.Interface.html/#modified">modified</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkbook.Interface.html/#reservedContent">reservedContent</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkbook.Interface.html/#sheets">sheets</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkbook.Interface.html/#styles">styles</a></li>
+</ul>
 </div>
-
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="activeWorksheet" class="member-panel mproperty">
+<h3>activeWorksheet</h3>
+<div class="comment"><p>Index of the active sheet in the xlsx file.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="application" class="member-panel mproperty">
+<h3>application</h3>
+<div class="comment"><p>The name of application that generated the file that appears in the file properties.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="company" class="member-panel mproperty">
+<h3>company</h3>
+<div class="comment"><p>The name of company that generated the file that appears in the file properties.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="created" class="member-panel mproperty">
+<h3>created</h3>
+<div class="comment"><p>Creation time of the xlsx file.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></dd>
+</dl>
+</div>
+<div id="creator" class="member-panel mproperty">
+<h3>creator</h3>
+<div class="comment"><p>Creator of the xlsx file.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="lastModifiedBy" class="member-panel mproperty">
+<h3>lastModifiedBy</h3>
+<div class="comment"><p>Last modifier of the xlsx file.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="modified" class="member-panel mproperty">
+<h3>modified</h3>
+<div class="comment"><p>Last modified time of the xlsx file.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></dd>
+</dl>
+</div>
+<div id="reservedContent" class="member-panel mproperty">
+<h3>reservedContent</h3>
+<div class="comment"><p>The reserved content for the workbook.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="sheets" class="member-panel mproperty">
+<h3>sheets</h3>
+<div class="comment"><p>Defines an array of Excel Workbook sheets.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.xlsx.IWorkSheet.Interface.html"><span class="identifier">IWorkSheet</span></a>[]</dd>
+</dl>
+</div>
+<div id="styles" class="member-panel mproperty">
+<h3>styles</h3>
+<div class="comment"><p>Styles table of the workbook.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.xlsx.IWorkbookStyle.Interface.html"><span class="identifier">IWorkbookStyle</span></a>[]</dd>
+</dl>
+</div>
+</div>

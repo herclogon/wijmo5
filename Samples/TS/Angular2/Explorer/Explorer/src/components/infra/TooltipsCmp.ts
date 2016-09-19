@@ -1,17 +1,18 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { GridBaseCmp } from '../grid/GridBaseCmp';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Core from 'wijmo/wijmo.angular2.core';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { WjCoreModule } from 'wijmo/wijmo.angular2.core';
 
 // Wijmo Tooltip component.
 @Component({
     selector: 'grid-tooltips-cmp',
-    templateUrl: 'src/components/infra/tooltipsCmp.html',
-    directives: [wjNg2Grid.WjFlexGrid, wjNg2Core.WjTooltip,  CORE_DIRECTIVES]
+    templateUrl: 'src/components/infra/tooltipsCmp.html'
 })
 
 export class TooltipsCmp extends GridBaseCmp {
@@ -59,5 +60,14 @@ export class TooltipsCmp extends GridBaseCmp {
     }
 
 }
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: TooltipsCmp }
+]);
 
+@NgModule({
+    imports: [CommonModule, routing, WjGridModule, WjCoreModule],
+    declarations: [TooltipsCmp],
+})
+export class TooltipsModule {
+}
 

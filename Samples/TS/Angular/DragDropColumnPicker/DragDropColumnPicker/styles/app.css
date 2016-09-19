@@ -1,0 +1,32 @@
+﻿.wj-flexgrid {
+    height: 400px;
+}
+.wj-dialog-columns {
+    width: 500px;
+}
+.wj-columnpicker {
+    height: 200px;
+    position: relative;
+}
+    .wj-columnpicker .wj-columnlists {
+        height: 100%;
+        display: flex;
+        padding: 4px;
+    }
+    .wj-columnpicker .wj-listbox {
+        flex-grow: 1;
+        height: 100%;
+        padding: 4px;
+        border: none;
+    }
+        .wj-columnpicker .wj-listbox .wj-listbox-item.wj-state-selected {
+            background-color: transparent;
+            color: inherit;
+            font-weight: bold;
+        }
+    .wj-columnpicker .wj-marker {
+        position: absolute;
+        background-color: #0085c7;
+        opacity: 0.5;
+        pointer-events: none;
+    }

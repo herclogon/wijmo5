@@ -10,6 +10,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
 var DataSvc_1 = require('../services/DataSvc');
 var EmployeesCmp = (function () {
     function EmployeesCmp(dataSvc) {
@@ -39,12 +40,26 @@ var EmployeesCmp = (function () {
     EmployeesCmp = __decorate([
         core_1.Component({
             selector: 'employees-cmp',
-            templateUrl: 'src/components/employeesCmp.html',
-            directives: [common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/employeesCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], EmployeesCmp);
     return EmployeesCmp;
 }());
 exports.EmployeesCmp = EmployeesCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: EmployeesCmp }
+]);
+var EmployeesModule = (function () {
+    function EmployeesModule() {
+    }
+    EmployeesModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing],
+            declarations: [EmployeesCmp],
+        })
+    ], EmployeesModule);
+    return EmployeesModule;
+}());
+exports.EmployeesModule = EmployeesModule;
 //# sourceMappingURL=EmployeesCmp.js.map

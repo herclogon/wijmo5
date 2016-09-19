@@ -1,279 +1,316 @@
-<h2>Series Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">Series</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a></dd>
-<dt>Derived Classes</dt><dd><a href="topic/wijmo.angular.WjFlexChartSeries.Class.html"><b>WjFlexChartSeries</b></a></dd>
-<dt>Module</dt><dd>wijmo.chart</dd>
-<dt>File</dt><dd>wijmo.chart.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.chart.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.chart.Module.html"><span class="identifier">wijmo.chart</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+<dt>Derived Classes</dt><dd><a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartSeries.Class.html"><span class="identifier">WjFlexChartSeries</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p><p>Represents a series of data points to display in the chart.</p>
-
-<p>The <b>Series</b> class supports all basic chart types. You may define
-a different chart type on each <b>Series</b> object that you add to the 
-<a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> series collection. This overrides the <b>chartType</b> 
-property set on the chart that is the default for all <b>Series</b> objects
-in its collection.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<div class="comment"><p>Represents a series of data points to display in the chart.</p>
+<p>The <a href="topic/wijmo.chart.Series.Class.html"><span class="identifier">Series</span></a> class supports all basic chart types. You may define
+a different chart type on each <a href="topic/wijmo.chart.Series.Class.html"><span class="identifier">Series</span></a> object that you add to the 
+<a href="topic/wijmo.chart.FlexChart.Class.html"><span class="identifier">FlexChart</span></a> series collection. This overrides the <a href="topic/wijmo.chart.Series.Class.html/#chartType"><span class="identifier">chartType</span></a> 
+property set on the chart that is the default for all <a href="topic/wijmo.chart.Series.Class.html"><span class="identifier">Series</span></a> objects
+in its collection.</p></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>altStyle</b></td>
-      <td><b>any</b></td>
-      <td><p>Gets or sets the alternative style for the series. The values from
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#altStyle">altStyle</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#axisX">axisX</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#axisY">axisY</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#binding">binding</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#bindingX">bindingX</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#chart">chart</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.Series.Class.html/#chartType">chartType</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#collectionView">collectionView</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#cssClass">cssClass</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#hostElement">hostElement</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#itemsSource">itemsSource</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#legendElement">legendElement</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#name">name</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#style">style</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#symbolMarker">symbolMarker</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#symbolSize">symbolSize</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#symbolStyle">symbolStyle</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.Series.Class.html/#visibility">visibility</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.Series.Class.html/#drawLegendItem">drawLegendItem</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.Series.Class.html/#getDataRect">getDataRect</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.Series.Class.html/#getPlotElement">getPlotElement</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.Series.Class.html/#hitTest">hitTest</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.Series.Class.html/#legendItemLength">legendItemLength</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.Series.Class.html/#measureLegendItem">measureLegendItem</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.Series.Class.html/#onRendering">onRendering</a></li>
+</ul>
+<h3 class="node">Events</h3>
+<ul>
+<li class="mevent inherited"><a href="topic/wijmo.chart.Series.Class.html/#rendering">rendering</a></li>
+</ul>
+</div>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="altStyle" class="member-panel mproperty inherited">
+<h3>altStyle</h3>
+<div class="comment"><p>Gets or sets the alternative style for the series. The values from
 this property will be used for negative values in Bar, Column,
 and Scatter charts; and for rising values in financial chart types
 like Candlestick, LineBreak, EquiVolume etc.</p>
-
-<p>If no value is provided, the default styles will be used.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>axisX</b></td>
-      <td><a href="topic/wijmo.chart.Axis.Class.html"><b>Axis</b></a></td>
-      <td>Gets or sets the x-axis for the series.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>axisY</b></td>
-      <td><a href="topic/wijmo.chart.Axis.Class.html"><b>Axis</b></a></td>
-      <td>Gets or sets the y-axis for the series.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>binding</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the name of the property that contains Y values for the series.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>bindingX</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the name of the property that contains X values for the series.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>chart</b></td>
-      <td><a href="topic/wijmo.chart.FlexChartCore.Class.html"><b>FlexChartCore</b></a></td>
-      <td>Gets the <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> object that owns this series.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>chartType</b></td>
-      <td><a href="topic/wijmo.chart.ChartType.Enum.html"><b>ChartType</b></a></td>
-      <td>Gets or sets the chart type for a specific series, overriding the chart type 
-set on the overall chart.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>collectionView</b></td>
-      <td><a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a></td>
-      <td>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object that contains the data for this series.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>cssClass</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the series CSS class.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>hostElement</b></td>
-      <td><b>SVGGElement</b></td>
-      <td>Gets the series host element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>itemsSource</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object that contains the series data.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>legendElement</b></td>
-      <td><b>SVGGElement</b></td>
-      <td>Gets the series element in the legend.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>name</b></td>
-      <td><b>string</b></td>
-      <td><p>Gets or sets the series name.</p>
-
+<p>If no value is provided, the default styles will be used.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="axisX" class="member-panel mproperty inherited">
+<h3>axisX</h3>
+<div class="comment"><p>Gets or sets the x-axis for the series.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+</dl>
+</div>
+<div id="axisY" class="member-panel mproperty inherited">
+<h3>axisY</h3>
+<div class="comment"><p>Gets or sets the y-axis for the series.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+</dl>
+</div>
+<div id="binding" class="member-panel mproperty inherited">
+<h3>binding</h3>
+<div class="comment"><p>Gets or sets the name of the property that contains Y values for the series.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="bindingX" class="member-panel mproperty inherited">
+<h3>bindingX</h3>
+<div class="comment"><p>Gets or sets the name of the property that contains X values for the series.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="chart" class="member-panel mproperty inherited">
+<h3>chart</h3>
+<div class="comment"><p>Gets the <a href="topic/wijmo.chart.FlexChart.Class.html"><span class="identifier">FlexChart</span></a> object that owns this series.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.FlexChartCore.Class.html"><span class="identifier">FlexChartCore</span></a></dd>
+</dl>
+</div>
+<div id="chartType" class="member-panel mproperty">
+<h3>chartType</h3>
+<div class="comment"><p>Gets or sets the chart type for a specific series, overriding the chart type 
+set on the overall chart.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.ChartType.Enum.html"><span class="identifier">ChartType</span></a></dd>
+</dl>
+</div>
+<div id="collectionView" class="member-panel mproperty inherited">
+<h3>collectionView</h3>
+<div class="comment"><p>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> object that contains the data for this series.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a></dd>
+</dl>
+</div>
+<div id="cssClass" class="member-panel mproperty inherited">
+<h3>cssClass</h3>
+<div class="comment"><p>Gets or sets the series CSS class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="hostElement" class="member-panel mproperty inherited">
+<h3>hostElement</h3>
+<div class="comment"><p>Gets the series host element.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/API/SVGGElement" target="_blank"><span class="identifier">SVGGElement</span></a></dd>
+</dl>
+</div>
+<div id="itemsSource" class="member-panel mproperty inherited">
+<h3>itemsSource</h3>
+<div class="comment"><p>Gets or sets the array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> object that contains the series data.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="legendElement" class="member-panel mproperty inherited">
+<h3>legendElement</h3>
+<div class="comment"><p>Gets the series element in the legend.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/API/SVGGElement" target="_blank"><span class="identifier">SVGGElement</span></a></dd>
+</dl>
+</div>
+<div id="name" class="member-panel mproperty inherited">
+<h3>name</h3>
+<div class="comment"><p>Gets or sets the series name.</p>
 <p>The series name is displayed in the chart legend. Any series without a name
-does not appear in the legend.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>style</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the series style.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>symbolMarker</b></td>
-      <td><a href="topic/wijmo.chart.Marker.Enum.html"><b>Marker</b></a></td>
-      <td>Gets or sets the shape of marker to use for each data point in the series.
-Applies to Scatter, LineSymbols, and SplineSymbols chart types.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>symbolSize</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the size(in pixels) of the symbols used to render this <a href="topic/wijmo.chart.Series.Class.html"><b>Series</b></a>.
-Applies to Scatter, LineSymbols, and SplineSymbols chart types.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>symbolStyle</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the series symbol style.
-Applies to Scatter, LineSymbols, and SplineSymbols chart types.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>visibility</b></td>
-      <td><a href="topic/wijmo.chart.SeriesVisibility.Enum.html"><b>SeriesVisibility</b></a></td>
-      <td>Gets or sets an enumerated value indicating whether and where the series appears.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+does not appear in the legend.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div id="style" class="member-panel mproperty inherited">
+<h3>style</h3>
+<div class="comment"><p>Gets or sets the series style.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>drawLegendItem</b>&#8203;(engine, rect, index)</td>
-      <td><p>
-<b>engine</b> (<a href="topic/wijmo.chart.IRenderEngine.Interface.html"><b>IRenderEngine</b></a>): The rendering engine to use.<br/><b>rect</b> (<a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a>): The position of the legend item.<br/><b>index</b> (<b>number</b>): Index of legend item(for series with multiple legend items).<br/></p>
-</td>
-      <td>Draw a legend item at the specified position.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>getDataRect</b>&#8203;(): <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
-      <td></td>
-      <td><p>Returns series bounding rectangle in data coordinates.</p>
-
-<p>If getDataRect() returns null, the limits are calculated automatically based on the data values.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>getPlotElement</b>&#8203;(pointIndex): <b>any</b></td>
-      <td><p>
-<b>pointIndex</b> (<b>number</b>): The index of the data point.<br/></p>
-</td>
-      <td>Gets the plot element that corresponds to the specified point index.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>hitTest</b>&#8203;(pt, y?): <a href="topic/wijmo.chart.HitTestInfo.Class.html"><b>HitTestInfo</b></a></td>
-      <td><p>
-<b>pt</b> (<b>any</b>): The point to investigate, in window coordinates.<br/><b>y?</b> (<b>number</b>): The Y coordinate of the point (if the first parameter is a number).<br/></p>
-</td>
-      <td>Gets a <a href="topic/wijmo.chart.HitTestInfo.Class.html"><b>HitTestInfo</b></a> object with information about the specified point.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>legendItemLength</b>&#8203;(): <b>number</b></td>
-      <td></td>
-      <td>Returns number of series items in the legend.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>measureLegendItem</b>&#8203;(engine, index): <a href="topic/wijmo.Size.Class.html"><b>Size</b></a></td>
-      <td><p>
-<b>engine</b> (<a href="topic/wijmo.chart.IRenderEngine.Interface.html"><b>IRenderEngine</b></a>): The rendering engine to use.<br/><b>index</b> (<b>number</b>): Index of legend item(for series with multiple legend items).<br/></p>
-</td>
-      <td>Measures height and width of the legend item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onRendering</b>&#8203;(engine)</td>
-      <td><p>
-<b>engine</b> (<a href="topic/wijmo.chart.IRenderEngine.Interface.html"><b>IRenderEngine</b></a>): The <a href="topic/wijmo.chart.IRenderEngine.Interface.html"><b>IRenderEngine</b></a> object used to render the series.<br/></p>
-</td>
-      <td>Raises the <b>rendering</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+<div id="symbolMarker" class="member-panel mproperty inherited">
+<h3>symbolMarker</h3>
+<div class="comment"><p>Gets or sets the shape of marker to use for each data point in the series.
+Applies to Scatter, LineSymbols, and SplineSymbols chart types.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.Marker.Enum.html"><span class="identifier">Marker</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
-<span class="glyph-collapsed" ng-show="hideEvents"></span>
-<span class="glyph-expanded" ng-hide="hideEvents"></span>
-Events
-</h3>
+<div id="symbolSize" class="member-panel mproperty inherited">
+<h3>symbolSize</h3>
+<div class="comment"><p>Gets or sets the size(in pixels) of the symbols used to render this <a href="topic/wijmo.chart.Series.Class.html"><span class="identifier">Series</span></a>.
+Applies to Scatter, LineSymbols, and SplineSymbols chart types.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Arguments</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>rendering</b></td>
-      <td><a href="topic/wijmo.chart.IRenderEngine.Interface.html"><b>IRenderEngine</b></a></td>
-      <td>Occurs when series is rendering.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.SeriesBase.Class.html"><b>SeriesBase</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+<div id="symbolStyle" class="member-panel mproperty inherited">
+<h3>symbolStyle</h3>
+<div class="comment"><p>Gets or sets the series symbol style.
+Applies to Scatter, LineSymbols, and SplineSymbols chart types.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
 </div>
-
+<div id="visibility" class="member-panel mproperty inherited">
+<h3>visibility</h3>
+<div class="comment"><p>Gets or sets an enumerated value indicating whether and where the series appears.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.SeriesVisibility.Enum.html"><span class="identifier">SeriesVisibility</span></a></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="drawLegendItem" class="member-panel mmethod inherited">
+<h3>drawLegendItem</h3>
+<pre>drawLegendItem(engine: <a href="topic/wijmo.chart.IRenderEngine.Interface.html"><span class="identifier">IRenderEngine</span></a>, rect: <a href="topic/wijmo.Rect.Class.html"><span class="identifier">Rect</span></a>, index: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Draw a legend item at the specified position.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>engine</b>: <a href="topic/wijmo.chart.IRenderEngine.Interface.html"><span class="identifier">IRenderEngine</span></a><br/><p>The rendering engine to use.</p></li><li><b>rect</b>: <a href="topic/wijmo.Rect.Class.html"><span class="identifier">Rect</span></a><br/><p>The position of the legend item.</p></li><li><b>index</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Index of legend item(for series with multiple legend items).</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="getDataRect" class="member-panel mmethod inherited">
+<h3>getDataRect</h3>
+<pre>getDataRect(): <a href="topic/wijmo.Rect.Class.html"><span class="identifier">Rect</span></a></pre>
+<div class="comment"><p>Returns series bounding rectangle in data coordinates.</p>
+<p>If getDataRect() returns null, the limits are calculated automatically based on the data values.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.Rect.Class.html"><span class="identifier">Rect</span></a></dd>
+</dl>
+</div>
+<div id="getPlotElement" class="member-panel mmethod inherited">
+<h3>getPlotElement</h3>
+<pre>getPlotElement(pointIndex: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <span class="identifier">any</span></pre>
+<div class="comment"><p>Gets the plot element that corresponds to the specified point index.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>pointIndex</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The index of the data point.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="hitTest" class="member-panel mmethod inherited">
+<h3>hitTest</h3>
+<pre>hitTest(pt: <span class="identifier">any</span>, y?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.chart.HitTestInfo.Class.html"><span class="identifier">HitTestInfo</span></a></pre>
+<div class="comment"><p>Gets a <a href="topic/wijmo.chart.HitTestInfo.Class.html"><span class="identifier">HitTestInfo</span></a> object with information about the specified point.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>pt</b>: <span class="identifier">any</span><br/><p>The point to investigate, in window coordinates.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The Y coordinate of the point (if the first parameter is a number).</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.chart.HitTestInfo.Class.html"><span class="identifier">HitTestInfo</span></a></dd>
+</dl>
+</div>
+<div id="legendItemLength" class="member-panel mmethod inherited">
+<h3>legendItemLength</h3>
+<pre>legendItemLength(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></pre>
+<div class="comment"><p>Returns number of series items in the legend.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="measureLegendItem" class="member-panel mmethod inherited">
+<h3>measureLegendItem</h3>
+<pre>measureLegendItem(engine: <a href="topic/wijmo.chart.IRenderEngine.Interface.html"><span class="identifier">IRenderEngine</span></a>, index: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.Size.Class.html"><span class="identifier">Size</span></a></pre>
+<div class="comment"><p>Measures height and width of the legend item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>engine</b>: <a href="topic/wijmo.chart.IRenderEngine.Interface.html"><span class="identifier">IRenderEngine</span></a><br/><p>The rendering engine to use.</p></li><li><b>index</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Index of legend item(for series with multiple legend items).</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.Size.Class.html"><span class="identifier">Size</span></a></dd>
+</dl>
+</div>
+<div id="onRendering" class="member-panel mmethod inherited">
+<h3>onRendering</h3>
+<pre>onRendering(engine: <a href="topic/wijmo.chart.IRenderEngine.Interface.html"><span class="identifier">IRenderEngine</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.chart.Series.Class.html/#rendering"><span class="identifier">rendering</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>engine</b>: <a href="topic/wijmo.chart.IRenderEngine.Interface.html"><span class="identifier">IRenderEngine</span></a><br/><p>The <a href="topic/wijmo.chart.IRenderEngine.Interface.html"><span class="identifier">IRenderEngine</span></a> object used to render the series.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Events</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="rendering" class="member-panel mevent inherited">
+<h3>rendering</h3>
+<div class="comment"><p>Occurs when series is rendering.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.SeriesBase.Class.html"><span class="identifier">SeriesBase</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.chart.IRenderEngine.Interface.html"><span class="identifier">IRenderEngine</span></a></dd>
+</dl>
+</div>
+</div>

@@ -10,6 +10,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
 var DataSvc_1 = require('../services/DataSvc');
 var AlphabeticalListOfProductsCmp = (function () {
     function AlphabeticalListOfProductsCmp(dataSvc) {
@@ -31,12 +32,26 @@ var AlphabeticalListOfProductsCmp = (function () {
     AlphabeticalListOfProductsCmp = __decorate([
         core_1.Component({
             selector: 'alphabetical-list-Of-products-cmp',
-            templateUrl: 'src/components/alphabeticalListOfProductsCmp.html',
-            directives: [common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/alphabeticalListOfProductsCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], AlphabeticalListOfProductsCmp);
     return AlphabeticalListOfProductsCmp;
 }());
 exports.AlphabeticalListOfProductsCmp = AlphabeticalListOfProductsCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: AlphabeticalListOfProductsCmp }
+]);
+var AlphabeticalListOfProductsModule = (function () {
+    function AlphabeticalListOfProductsModule() {
+    }
+    AlphabeticalListOfProductsModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing],
+            declarations: [AlphabeticalListOfProductsCmp],
+        })
+    ], AlphabeticalListOfProductsModule);
+    return AlphabeticalListOfProductsModule;
+}());
+exports.AlphabeticalListOfProductsModule = AlphabeticalListOfProductsModule;
 //# sourceMappingURL=AlphabeticalListOfProductsCmp.js.map

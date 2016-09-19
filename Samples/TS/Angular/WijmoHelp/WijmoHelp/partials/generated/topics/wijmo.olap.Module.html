@@ -1,168 +1,42 @@
-<h2>Module wijmo.olap</h2>
+<div class="header-panel module">
+<h2><span class="identifier">wijmo.olap</span> Module</h2>
 <dl class="dl-horizontal">
-<dt>File</dt><dd>wijmo.olap.js</dd>
+<dt>File</dt><dd class="filename">wijmo.olap.js</dd>
+<dt>Module</dt><dd><span class="identifier">wijmo.olap</span></dd>
 </dl>
-<p><p>Contains components that provide OLAP functionality such as 
+<div class="comment"><p>Contains components that provide OLAP functionality such as 
 pivot tables and charts.</p>
-
-<p>The <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a> class is responsible for summarizing 
+<p>The <a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a> class is responsible for summarizing 
 raw data into pivot views.</p>
-
-<p>The <a href="topic/wijmo.olap.PivotPanel.Class.html"><b>PivotPanel</b></a> control provides a UI for editing the
+<p>The <a href="topic/wijmo.olap.PivotPanel.Class.html"><span class="identifier">PivotPanel</span></a> control provides a UI for editing the
 pivot views by dragging fields into view lists and editing
 their properties.</p>
-
-<p>The <a href="topic/wijmo.olap.PivotGrid.Class.html"><b>PivotGrid</b></a> control extends the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> to 
+<p>The <a href="topic/wijmo.olap.PivotGrid.Class.html"><span class="identifier">PivotGrid</span></a> control extends the <a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a> to 
 display pivot tables with collapsible row and column 
 groups.</p>
-
-<p>The <a href="topic/wijmo.olap.PivotChart.Class.html"><b>PivotChart</b></a> control provides visual representations
-of pivot tables with hierarchical axes.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
-<span class="glyph-collapsed" ng-show="hideClasses"></span>
-<span class="glyph-expanded" ng-hide="hideClasses"></span>
-Classes
-</h3>
+<p>The <a href="topic/wijmo.olap.PivotChart.Class.html"><span class="identifier">PivotChart</span></a> control provides visual representations
+of pivot tables with hierarchical axes.</p></div>
 </div>
-<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th>Name</th>
-
-<th>Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.DetailDialog.Class.html"><b>DetailDialog</b></a></td>
-      <td>Represents a dialog used to display details for a grid cell.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.PivotChart.Class.html"><b>PivotChart</b></a></td>
-      <td><p>Provides visual representations of <b>olap</b> pivot tables.</p>
-
-<p>To use the control, set its <b>itemsSource</b> property to an instance of a 
-<a href="topic/wijmo.olap.PivotPanel.Class.html"><b>PivotPanel</b></a> control or to a <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a>.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.PivotCollectionView.Class.html"><b>PivotCollectionView</b></a></td>
-      <td>Extends the <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a> class to preserve the position of subtotal rows
-when sorting.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a></td>
-      <td><p>Provides a user interface for interactively transforming regular data tables into Olap
-pivot tables.</p>
-
-<p>Tabulates data in the <b>itemsSource</b> collection according to lists of fields and 
-creates the <b>pivotView</b> collection containing the aggregated data.</p>
-
-<p>Pivot tables group data into one or more dimensions. The dimensions are represented
-by rows and columns on a grid, and the data is stored in the grid cells.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a></td>
-      <td>Represents a property of the items in the wijmo.olap data source.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.PivotFieldCollection.Class.html"><b>PivotFieldCollection</b></a></td>
-      <td>Represents a collection of <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> objects.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.PivotFieldEditor.Class.html"><b>PivotFieldEditor</b></a></td>
-      <td>Editor for <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> objects.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.PivotFilter.Class.html"><b>PivotFilter</b></a></td>
-      <td>Represents a filter used to select values for a <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.PivotFilterEditor.Class.html"><b>PivotFilterEditor</b></a></td>
-      <td>Editor for <a href="topic/wijmo.olap.PivotFilter.Class.html"><b>PivotFilter</b></a> objects.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.PivotGrid.Class.html"><b>PivotGrid</b></a></td>
-      <td><p>Extends the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control to display pivot tables.</p>
-
-<p>To use this control, set its <b>itemsSource</b> property to an instance of a 
-<a href="topic/wijmo.olap.PivotPanel.Class.html"><b>PivotPanel</b></a> control or to a <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a>.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.PivotPanel.Class.html"><b>PivotPanel</b></a></td>
-      <td><p>Provides a user interface for interactively transforming regular data tables into Olap
-pivot tables.</p>
-
-<p>Olap pivot tables group data into one or more dimensions. The dimensions are represented
-by rows and columns on a grid, and the summarized data is stored in the grid cells.</p>
-
-<p>Use the <b>itemsSource</b> property to set the source data, and the <b>pivotView</b>
-property to get the output table containing the summarized data.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.ProgressEventArgs.Class.html"><b>ProgressEventArgs</b></a></td>
-      <td>Provides arguments for progress events.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel module members">
+<h3 class="node">Classes</h3>
+<ul>
+<li class="mclass"><a href="topic/wijmo.olap.DetailDialog.Class.html">DetailDialog</a></li>
+<li class="mclass"><a href="topic/wijmo.olap.PivotChart.Class.html">PivotChart</a></li>
+<li class="mclass"><a href="topic/wijmo.olap.PivotCollectionView.Class.html">PivotCollectionView</a></li>
+<li class="mclass"><a href="topic/wijmo.olap.PivotEngine.Class.html">PivotEngine</a></li>
+<li class="mclass"><a href="topic/wijmo.olap.PivotField.Class.html">PivotField</a></li>
+<li class="mclass"><a href="topic/wijmo.olap.PivotFieldCollection.Class.html">PivotFieldCollection</a></li>
+<li class="mclass"><a href="topic/wijmo.olap.PivotFieldEditor.Class.html">PivotFieldEditor</a></li>
+<li class="mclass"><a href="topic/wijmo.olap.PivotFilter.Class.html">PivotFilter</a></li>
+<li class="mclass"><a href="topic/wijmo.olap.PivotFilterEditor.Class.html">PivotFilterEditor</a></li>
+<li class="mclass"><a href="topic/wijmo.olap.PivotGrid.Class.html">PivotGrid</a></li>
+<li class="mclass"><a href="topic/wijmo.olap.PivotPanel.Class.html">PivotPanel</a></li>
+<li class="mclass"><a href="topic/wijmo.olap.ProgressEventArgs.Class.html">ProgressEventArgs</a></li>
+</ul>
+<h3 class="node">Enums</h3>
+<ul>
+<li class="menum"><a href="topic/wijmo.olap.PivotChartType.Enum.html">PivotChartType</a></li>
+<li class="menum"><a href="topic/wijmo.olap.ShowAs.Enum.html">ShowAs</a></li>
+<li class="menum"><a href="topic/wijmo.olap.ShowTotals.Enum.html">ShowTotals</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEnumerations = !hideEnumerations">
-<span class="glyph-collapsed" ng-show="hideEnumerations"></span>
-<span class="glyph-expanded" ng-hide="hideEnumerations"></span>
-Enumerations
-</h3>
-</div>
-<table ng-hide="hideEnumerations" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th>Name</th>
-
-<th>Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.PivotChartType.Enum.html"><b>PivotChartType</b></a></td>
-      <td>Specifies constants that define the chart type.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.ShowAs.Enum.html"><b>ShowAs</b></a></td>
-      <td>Specifies constants that define calculations to be applied to cells in the output view.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.olap.ShowTotals.Enum.html"><b>ShowTotals</b></a></td>
-      <td>Specifies constants that define whether to include totals in the output table.</td>
-    </tr>
-</tbody>
-</table>
-</div>
-

@@ -1,16 +1,17 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, EventEmitter, provide, Input, Inject, ViewChild, enableProdMode } from '@angular/core';
-import { Http, HTTP_BINDINGS } from '@angular/http';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2FlexChart from 'wijmo/wijmo.angular2.chart';
-import * as wjNg2Interaction from 'wijmo/wijmo.angular2.chart.interaction';
-
-// Services
+import { Component, EventEmitter, Input, Inject, enableProdMode, ViewChild, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
+import {WjChartInteractionModule} from 'wijmo/wijmo.angular2.chart.interaction';
 import { DataSvc } from './services/DataSvc';
+
 
 export module FlexChartZoom {
     'use strict';
@@ -18,10 +19,7 @@ export module FlexChartZoom {
     // The FlexChartZoom application root component.
     @Component({
         selector: 'app-cmp',
-        templateUrl: 'src/app.html',
-        directives: [wjNg2FlexChart.WjFlexChart, wjNg2FlexChart.WjFlexChartSeries, wjNg2Interaction.WjFlexChartGestures,
-            wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2FlexChart.WjFlexChartAxis, wjNg2FlexChart.WjFlexChartLegend,
-             CORE_DIRECTIVES, FORM_DIRECTIVES]
+        templateUrl: 'src/app.html'
     })
     export class AppCmp {
         data: any[];
@@ -65,10 +63,16 @@ export module FlexChartZoom {
     }
 }
 
+@NgModule({
+    imports: [WjInputModule, WjChartModule, WjChartInteractionModule, HttpModule, BrowserModule, FormsModule],
+    declarations: [FlexChartZoom.AppCmp],
+    providers: [DataSvc],
+    bootstrap: [FlexChartZoom.AppCmp]
+})
+export class AppModule {
+}
+
+
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(FlexChartZoom.AppCmp, [
-    provide(Http, { useClass: Http }),
-    HTTP_BINDINGS,
-    DataSvc
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);

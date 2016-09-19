@@ -1,16 +1,17 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { InputBaseCmp } from './InputBaseCmp';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // AutoComplete sample component.
 @Component({
     selector: 'auto-complete-cmp',
-    templateUrl: 'src/components/input/autoCompleteCmp.html',
-    directives: [wjNg2Input.WjAutoComplete, CORE_DIRECTIVES]
+    templateUrl: 'src/components/input/autoCompleteCmp.html'
 })
 
 export class AutoCompleteCmp extends InputBaseCmp {
@@ -62,4 +63,13 @@ export class AutoCompleteCmp extends InputBaseCmp {
 
 }
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: AutoCompleteCmp }
+]);
 
+@NgModule({
+    imports: [CommonModule, routing, WjInputModule],
+    declarations: [AutoCompleteCmp],
+})
+export class AutoCompleteModule {
+}

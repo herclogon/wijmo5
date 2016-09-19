@@ -7,7 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
 // Chart zones component
 var ChartZonesCmp = (function () {
     function ChartZonesCmp() {
@@ -130,11 +131,24 @@ var ChartZonesCmp = (function () {
     ChartZonesCmp = __decorate([
         core_1.Component({
             selector: 'chart-zones-cmp',
-            templateUrl: 'src/components/chart/chartZonesCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, common_1.CORE_DIRECTIVES]
-        })
+            templateUrl: 'src/components/chart/chartZonesCmp.html' })
     ], ChartZonesCmp);
     return ChartZonesCmp;
 }());
 exports.ChartZonesCmp = ChartZonesCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartZonesCmp }
+]);
+var ChartZonesModule = (function () {
+    function ChartZonesModule() {
+    }
+    ChartZonesModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule],
+            declarations: [ChartZonesCmp],
+        })
+    ], ChartZonesModule);
+    return ChartZonesModule;
+}());
+exports.ChartZonesModule = ChartZonesModule;
 //# sourceMappingURL=ChartZonesCmp.js.map

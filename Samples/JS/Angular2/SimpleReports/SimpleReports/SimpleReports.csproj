@@ -50,6 +50,7 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\app.routing.js" />
     <Content Include="src\app.js" />
     <Content Include="src\components\AlphabeticalListOfProductsCmp.js" />
     <Content Include="src\components\CustomerLabelsCmp.js" />

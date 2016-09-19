@@ -1,127 +1,82 @@
-<h2>AnnotationLayer Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">AnnotationLayer</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Derived Classes</dt><dd><a href="topic/wijmo.angular.WjFlexChartAnnotationLayer.Class.html"><b>WjFlexChartAnnotationLayer</b></a></dd>
-<dt>Module</dt><dd>wijmo.chart.annotation</dd>
-<dt>File</dt><dd>wijmo.chart.annotation.js</dd>
+<dt>File</dt><dd class="filename">wijmo.chart.annotation.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.chart.annotation.Module.html"><span class="identifier">wijmo.chart.annotation</span></a></dd>
+<dt>Derived Classes</dt><dd><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationLayer.Class.html"><span class="identifier">WjFlexChartAnnotationLayer</span></a></dd>
 </dl>
-<p><p>Represents an annotation layer for <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> and <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</p>
-
+<div class="comment"><p>Represents an annotation layer for <a href="topic/wijmo.chart.FlexChart.Class.html"><span class="identifier">FlexChart</span></a> and <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a>.</p>
 <p>The AnnotationLayer contains a collection of various annotation elements: texts, 
 lines, images, rectangles etc.
-To use the <b>AnnotationLayer</b>, create annotations and push them to the layer's 
-items property.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+To use the <a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><span class="identifier">AnnotationLayer</span></a>, create annotations and push them to the layer's 
+items property.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(chart, options?): <a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><b>AnnotationLayer</b></a></td>
-      <td><p>
-<b>chart</b> (<a href="topic/wijmo.chart.FlexChartCore.Class.html"><b>FlexChartCore</b></a>): A chart to which the <a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><b>AnnotationLayer</b></a> is attached.<br/><b>options?</b> (): A JavaScript object containing initialization data for 
-<a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><b>AnnotationLayer</b></a>.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><b>AnnotationLayer</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html/#items">items</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html/#getItem">getItem</a></li>
+<li class="mmethod"><a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html/#getItems">getItems</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(chart: <a href="topic/wijmo.chart.FlexChartCore.Class.html"><span class="identifier">FlexChartCore</span></a>, options?): <a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><span class="identifier">AnnotationLayer</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><span class="identifier">AnnotationLayer</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>chart</b>: <a href="topic/wijmo.chart.FlexChartCore.Class.html"><span class="identifier">FlexChartCore</span></a><br/><p>A chart to which the <a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><span class="identifier">AnnotationLayer</span></a> is attached.</p></li><li><b>options</b>:  <span class="badge">Optional</span><br/><p>A JavaScript object containing initialization data for 
+<a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><span class="identifier">AnnotationLayer</span></a>.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><span class="identifier">AnnotationLayer</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>items</b></td>
-      <td><a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a></td>
-      <td>Gets the collection of annotation elements in the <a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><b>AnnotationLayer</b></a>.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="items" class="member-panel mproperty">
+<h3>items</h3>
+<div class="comment"><p>Gets the collection of annotation elements in the <a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><span class="identifier">AnnotationLayer</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.ObservableArray.Class.html"><span class="identifier">ObservableArray</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>getItem</b>&#8203;(name): <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><b>AnnotationBase</b></a></td>
-      <td><p>
-<b>name</b> (<b>string</b>): The annotation's name.<br/></p>
-</td>
-      <td>Gets the annotation element by name in the <a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><b>AnnotationLayer</b></a>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>getItems</b>&#8203;(name): <b>Array</b></td>
-      <td><p>
-<b>name</b> (<b>string</b>): The annotations' name.<br/></p>
-</td>
-      <td>Gets the annotation elements by name in the <a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><b>AnnotationLayer</b></a>.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="getItem" class="member-panel mmethod">
+<h3>getItem</h3>
+<pre>getItem(name: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></pre>
+<div class="comment"><p>Gets the annotation element by name in the <a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><span class="identifier">AnnotationLayer</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>name</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>The annotation's name.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></dd>
+</dl>
 </div>
-
+<div id="getItems" class="member-panel mmethod">
+<h3>getItems</h3>
+<pre>getItems(name: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank"><span class="identifier">Array</span></a></pre>
+<div class="comment"><p>Gets the annotation elements by name in the <a href="topic/wijmo.chart.annotation.AnnotationLayer.Class.html"><span class="identifier">AnnotationLayer</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>name</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>The annotations' name.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank"><span class="identifier">Array</span></a></dd>
+</dl>
+</div>
+</div>

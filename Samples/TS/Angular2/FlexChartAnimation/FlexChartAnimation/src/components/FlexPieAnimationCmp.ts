@@ -1,19 +1,19 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject, ViewChild, Input } from '@angular/core';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
-import * as wjNg2Animation from 'wijmo/wijmo.angular2.chart.animation';
+import { Component, EventEmitter, Inject, ViewChild, Input, NgModule, ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjChartAnimationModule } from 'wijmo/wijmo.angular2.chart.animation';
 
 import { DataSvc } from './../services/DataSvc';
 
 //FlexPieAnimation sample component
 @Component({
     selector: 'flex-pie-animation-cmp',
-    templateUrl: 'src/components/FlexPieAnimationCmp.html',
-    directives: [wjNg2Chart.WjFlexPie, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjInputNumber,
-        wjNg2Animation.WjFlexChartAnimation, CORE_DIRECTIVES, FORM_DIRECTIVES]
+    templateUrl: 'src/components/FlexPieAnimationCmp.html'
 })
 
 export class FlexPieAnimationCmp {
@@ -62,11 +62,9 @@ export class FlexPieAnimationCmp {
         }
     }
 
-    animationModeChanged(args) {
-        if (args.selectedValue !== this.animationMode) {
-            this.animation.animationMode = args.selectedValue;
-            this.flexPie.refresh(true);
-        }
+    animationModeChanged() {
+        this.animation.animationMode = <any>this.animationMode;
+        this.flexPie.refresh(true);
     }
 
     innerRadiusChanged = (sender: wijmo.input.InputNumber) => {
@@ -82,4 +80,15 @@ export class FlexPieAnimationCmp {
         }
         this.duration = sender.value;
     };
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: FlexPieAnimationCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, FormsModule, WjInputModule, WjChartModule, WjChartAnimationModule],
+    declarations: [FlexPieAnimationCmp],
+})
+export class FlexPieAnimationModule {
 }

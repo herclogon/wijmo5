@@ -1,5 +1,5 @@
-import { ControlValueAccessor } from '@angular/common';
 import { ElementRef, Renderer } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
 export declare class FormattedModelAccessor implements ControlValueAccessor {
     renderer: Renderer;
     elRef: ElementRef;

@@ -1,15 +1,17 @@
-<h2>WjMenuItem Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">WjMenuItem</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><b>WjDirective</b></dd>
-<dt>Module</dt><dd>wijmo.angular</dd>
-<dt>File</dt><dd>wijmo.angular.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.angular.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.angular.Module.html"><span class="identifier">wijmo.angular</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p><p>AngularJS directive for menu items.</p>
-
-<p>The <b>wj-menu-item</b> directive must be contained in a <a href="topic/wijmo.angular.WjMenu.Class.html"><b>WjMenu</b></a> directive.
+<div class="comment"><p>AngularJS directive for menu items.</p>
+<p>The <b>wj-menu-item</b> directive must be contained in a <a href="topic/wijmo.angular.WjMenu.Class.html"><span class="identifier">WjMenu</span></a> directive.
 It supports the following attributes:</p>
-
 <p><dl class="dl-horizontal">
   <dt>cmd</dt>       <dd><code>=</code> The function to execute in the controller 
                      when the item is clicked.</dd>
@@ -18,9 +20,11 @@ It supports the following attributes:</p>
   <dt>value</dt>     <dd><code>=</code> The value to select when the item is clicked 
                      (use either this or <b>cmd</b>).</dd>
 </dl></p>
-
 <p>The content displayed by the item may contain an arbitrary HTML fragment with AngularJS bindings and directives.
 You can also use <b>ng-repeat</b> and <b>ng-if</b> directives to populate the items in the Menu control.
 In addition to any properties available in a controller, the local <b>$item</b>, 
 <b>$itemIndex</b> and <b>$control</b> template variables can be used in AngularJS bindings
-that refer to the data item, its index, and the owner control.</p></p>
+that refer to the data item, its index, and the owner control.</p></div>
+</div>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+</div>

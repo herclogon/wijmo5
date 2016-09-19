@@ -1,0 +1,51 @@
+<div class="header-panel member">
+<h2><span class="identifier">WjFlexRadarSeries</span> Class</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd class="filename">wijmo.angular.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.angular.Module.html"><span class="identifier">wijmo.angular</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
+</dl>
+<div class="comment"><p>AngularJS directive for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a> object.</p>
+<p>The <b>wj-financial-chart-series</b> directive must be contained in a <a href="topic/wijmo.angular.WjFinancialChart.Class.html"><span class="identifier">WjFinancialChart</span></a> directive.
+It supports the following attributes:</p>
+<p><dl class="dl-horizontal">
+  <dt>axis-x</dt>       <dd><code>@</code> X-axis for the series.</dd>
+  <dt>axis-y</dt>       <dd><code>@</code> Y-axis for the series.</dd>
+  <dt>binding</dt>      <dd><code>@</code> The name of the property that contains Y values for the
+                        series. This value overrides any binding set for the chart.</dd>
+  <dt>binding-x</dt>    <dd><code>@</code> The name of the property that contains X values for the
+                        series. This value overrides any binding set for the chart.</dd>
+  <dt>chart-type</dt>   <dd><code>@</code> The chart type to use in rendering objects for this series
+                        objects. This value overrides the default chart type set on the chart. See
+                        <a href="topic/wijmo.chart.finance.FinancialChartType.Enum.html"><span class="identifier">FinancialChartType</span></a>.</dd>
+  <dt>css-class</dt>    <dd><code>@</code> The CSS class to use for the series.</dd>
+  <dt>items-source</dt> <dd><code>=</code> An array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> object that contains
+                        data for this series.</dd>
+  <dt>name</dt>         <dd><code>@</code> The name of the series to show in the legend.</dd>
+  <dt>style</dt>        <dd><code>=</code> The series style. Use ng-attr-style to specify the series
+                        style object as an object. See the section on ngAttr attribute bindings in
+                        <a target="_blank" href="https://docs.angularjs.org/guide/directive">
+                        AngularJS Creating Custom Directives</a> and the <a target="_blank" href=
+                        "http://demos.wijmo.com/5/Angular/FlexChartIntro/FlexChartIntro/#Styling">
+                        FlexChart 101 Styling Series</a> sample for more information.</dd>
+  <dt>altStyle</dt>     <dd><code>=</code> The series alternative style.</dd>
+  <dt>symbol-marker</dt><dd><code>@</code> The shape of marker to use for the series. This value
+                        overrides the default marker set on the chart. See <a href="topic/wijmo.chart.Marker.Enum.html"><span class="identifier">Marker</span></a>.</dd>
+  <dt>symbol-size</dt>  <dd><code>@</code> The size of the symbols used to render data points in this
+                        series for Scatter, LineSymbols, and SplineSymbols charts, in pixels.
+                        This value overrides any setting at the chart level.</dd>
+  <dt>symbol-style</dt> <dd><code>=</code> The style of the symbols used to render data
+                        points in this series for Scatter, LineSymbols, and SplineSymbols charts.
+                        This value overrides any setting at the chart level.</dd>
+  <dt>visibility</dt>   <dd><code>=</code> The <a href="topic/wijmo.chart.SeriesVisibility.Enum.html"><span class="identifier">SeriesVisibility</span></a> value indicating whether and where to
+                        display the series.</dd>
+</dl></p>
+<p>In most cases, the <b>wj-financial-chart-series</b> specifies the <b>name</b> and <b>binding</b> properties only.
+The remaining values are inherited from the parent <b>wj-financial-chart</b> directive.</p></div>
+</div>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+</div>

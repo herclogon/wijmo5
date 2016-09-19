@@ -64,7 +64,6 @@ var InheritedGrid = (function (_super) {
             // But we want to create a grid with a predefined Select column, so we define a custom template
             // that includes the Select column definition, see the template definition in html file for details.
             templateUrl: 'src/customizedComponents/inheritedGrid.html',
-            directives: [wjGrid.WjFlexGridColumn, wjGrid.WjFlexGridCellTemplate, EditableSelectionRenderer_1.EditableSelectionRenderer],
             // We need to specify only properties added in this class, and they will be merged with properties
             // defined for the WjFlexGrid component.
             inputs: ['selectionType', 'isEditable']

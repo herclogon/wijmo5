@@ -1,13 +1,14 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject, AfterViewInit } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { DataSvc } from '../services/DataSvc';
 
 @Component({
     selector: 'employee-sales-by-country-cmp',
-    templateUrl: 'src/components/employeeSalesByCountryCmp.html',
-    directives: [CORE_DIRECTIVES]
+    templateUrl: 'src/components/employeeSalesByCountryCmp.html'
 })
 
 export class EmployeeSalesByCountryCmp {
@@ -19,5 +20,14 @@ export class EmployeeSalesByCountryCmp {
     }
 
 }
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: EmployeeSalesByCountryCmp }
+]);
 
+@NgModule({
+    imports: [CommonModule, routing],
+    declarations: [EmployeeSalesByCountryCmp],
+})
+export class EmployeeSalesByCountryModule {
+}
 

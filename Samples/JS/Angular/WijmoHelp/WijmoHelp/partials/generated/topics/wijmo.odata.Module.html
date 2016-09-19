@@ -1,92 +1,19 @@
-<h2>Module wijmo.odata</h2>
+<div class="header-panel module">
+<h2><span class="identifier">wijmo.odata</span> Module</h2>
 <dl class="dl-horizontal">
-<dt>File</dt><dd>wijmo.odata.js</dd>
+<dt>File</dt><dd class="filename">wijmo.odata.js</dd>
+<dt>Module</dt><dd><span class="identifier">wijmo.odata</span></dd>
 </dl>
-<p><p>Provides classes that support the OData protocol, including the
-<a href="topic/wijmo.odata.ODataCollectionView.Class.html"><b>ODataCollectionView</b></a> class.</p>
-
+<div class="comment"><p>Provides classes that support the OData protocol, including the
+<a href="topic/wijmo.odata.ODataCollectionView.Class.html"><span class="identifier">ODataCollectionView</span></a> class.</p>
 <p>OData is a standardized protocol for creating and consuming data APIs. 
 OData builds on core protocols like HTTP and commonly accepted methodologies like REST. 
-The result is a uniform way to expose full-featured data APIs. (http://www.odata.org/)</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
-<span class="glyph-collapsed" ng-show="hideClasses"></span>
-<span class="glyph-expanded" ng-hide="hideClasses"></span>
-Classes
-</h3>
+The result is a uniform way to expose full-featured data APIs. (http://www.odata.org/)</p></div>
 </div>
-<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th>Name</th>
-
-<th>Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.odata.ODataCollectionView.Class.html"><b>ODataCollectionView</b></a></td>
-      <td><p>Extends the <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a> class to support loading and saving data
-to and from OData sources.</p>
-
-<p>You can use the <b>ODataCollectionView</b> class to load data from OData services
-and use it as a data source for any Wijmo controls.</p>
-
-<p>In addition to full CRUD support you get all the <b>CollectionView</b> features 
-including sorting, filtering, paging, and grouping. The sorting, filtering, and
-paging functions may be peformed on the server or on the client.</p>
-
-<p>The code below shows how you can instantiate an <b>ODataCollectionView</b> that
-selects some fields from the data source and provides sorting on the client.
-Notice how the 'options' parameter is used to pass in initialization data,
-which is the same approach used when initializing controls:</p>
-
-<p><pre>var url = 'http://services.odata.org/Northwind/Northwind.svc';
-var categories = new wijmo.odata.ODataCollectionView(url, 'Categories', {
-  fields: ['CategoryID', 'CategoryName', 'Description'],
-  sortOnServer: false
-});</pre></p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.odata.ODataVirtualCollectionView.Class.html"><b>ODataVirtualCollectionView</b></a></td>
-      <td><p>Extends the <a href="topic/wijmo.odata.ODataCollectionView.Class.html"><b>ODataCollectionView</b></a> class to support loading data on
-demand, using the <b>setWindow</b> method.</p>
-
-<p>The example below shows how you can declare an <b>ODataCollectionView</b> 
-and synchronize it with a <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control to load the
-data that is within the grid's viewport:</p>
-
-<p><pre>// declare virtual collection view
-var vcv = new wijmo.odata.ODataVirtualCollectionView(url, 'Order_Details_Extendeds', {
-  oDataVersion: 4
-});
-// use virtual collection as grid data source
-flex.itemsSource = vcv;
-// update data window when the grid scrolls
-flex.scrollPositionChanged.addHandler(function () {
-  var rng = flex.viewRange;
-  vcv.setWindow(rng.row, rng.row2);
-});</pre></p>
-
-<p>The <b>ODataVirtualCollectionView</b> class implements a 'data window' so only
-data that is actually being displayed is loaded from the server. Items that are
-not being displayed are added to the collection as null values until a call
-to the <b>setWindow</b> method causes them those items to be loaded.</p>
-
-<p>This 'on-demand' method of loading data has advantages when dealing with large
-data sets, because it prevents the application from loading data until it is
-required. But it does impose some limitation: sorting and filtering must be
-done on the server; grouping and paging are not supported.</p></td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel module members">
+<h3 class="node">Classes</h3>
+<ul>
+<li class="mclass"><a href="topic/wijmo.odata.ODataCollectionView.Class.html">ODataCollectionView</a></li>
+<li class="mclass"><a href="topic/wijmo.odata.ODataVirtualCollectionView.Class.html">ODataVirtualCollectionView</a></li>
+</ul>
 </div>
-

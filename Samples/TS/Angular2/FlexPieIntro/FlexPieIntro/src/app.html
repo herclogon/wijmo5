@@ -72,14 +72,14 @@
                         <div class="pane-content">
 // Common data service
 @Injectable()
-export class DataSvc {
+export class DataSvc &#123;
     // data used to generate random items
-    getData(): any[] {
+    getData(): any[] &#123;
     var names = ['Oranges', 'Apples', 'Pears', 'Bananas', 'Pineapples'],
     data = [];
 
-    for (var i = 0; i < names.length; i++) {
-        data.push({
+    for (var i = 0; i < names.length; i++) &#123;
+        data.push(&#123;
         name: names[i],
         value: Math.round(Math.random() * 100)
         });
@@ -91,35 +91,45 @@ export class DataSvc {
 }
 ----------------Component---------
 // Angular
-import { Component, View, EventEmitter, provide, Input, Inject, enableProdMode } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import { DataSvc } from './services/DataSvc';
+import &#123; Component, EventEmitter, Input, Inject, enableProdMode, NgModule } from '@angular/core';
+import &#123; FormsModule } from '@angular/forms';
+import &#123; CommonModule } from '@angular/common';
+import &#123; platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import &#123; BrowserModule } from '@angular/platform-browser';
+import &#123; WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import &#123; WjInputModule } from 'wijmo/wijmo.angular2.input';
+import &#123; TabsModule } from './components/AppTab';
+import &#123; DataSvc } from './services/DataSvc';
 
 // The Explorer application root component.
-@Component({
-    selector: 'app-cmp',
-    directives: [CORE_DIRECTIVES,
-        wjNg2Chart.WjFlexPie, wjNg2Chart.WjFlexPieDataLabel, wjNg2Chart.WjFlexChartLegend,
-        wjNg2Input.WjInputNumber, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem]
+@Component(&#123;
+    selector: 'app-cmp'
 })
 
-export class AppCmp {
+export class AppCmp &#123;
   protected dataSvc: DataSvc;
-  itemsSource: { name: string, value: number }[];
+  itemsSource: &#123; name: string, value: number }[];
 
-   constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+   constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
        // populate itemsSource
        this.dataSvc = dataSvc;
        this.itemsSource = this.dataSvc.getData();
    }
 }
 
-enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp);
+ @NgModule(&#123;
+     imports: [WjInputModule, WjChartModule, BrowserModule, FormsModule, TabsModule],
+     declarations: [AppCmp],
+     providers: [DataSvc],
+     bootstrap: [AppCmp]
+ })
+ export class AppModule &#123;
+ }
+
+
+ enableProdMode();
+ // Bootstrap application with hash style navigation and global services.
+ platformBrowserDynamic().bootstrapModule(AppModule);
                         </div>
                     </app-tab-pane>
                 </app-tab>
@@ -231,9 +241,9 @@ bootstrap(AppCmp);
                     </app-tab-pane>
                     <app-tab-pane title="TS">
                         <div class="pane-content">
-export class AppCmp {
+export class AppCmp &#123;
     protected dataSvc: DataSvc;
-    itemsSource: { name: string, value: number }[];
+    itemsSource: &#123; name: string, value: number }[];
 
     //properties of FlexPie
     innerRadius = 0;
@@ -244,33 +254,33 @@ export class AppCmp {
     palettes = ['standard', 'cocoa', 'coral', 'dark', 'highcontrast', 'light', 'midnight', 'minimal', 'modern', 'organic', 'slate'];
     chartPalette: wijmo.chart.Palettes;
 
-    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
         this.dataSvc = dataSvc;
         this.itemsSource = this.dataSvc.getData();
     }
 
-    paletteChanged = (sender: wijmo.input.Menu) => {
+    paletteChanged = (sender: wijmo.input.Menu) => &#123;
         var p = this.palettes[sender.selectedIndex];
         this.palette = p;
         this.chartPalette = wijmo.chart.Palettes[p];
     };
 
-    innerRadiusChanged = (sender: wijmo.input.InputNumber) => {
-        if (sender.value < sender.min || sender.value > sender.max) {
+    innerRadiusChanged = (sender: wijmo.input.InputNumber) => &#123;
+        if (sender.value < sender.min || sender.value > sender.max) &#123;
             return;
         }
         this.innerRadius = sender.value;
     };
 
-    offsetChanged = (sender: wijmo.input.InputNumber) => {
-        if (sender.value < sender.min || sender.value > sender.max) {
+    offsetChanged = (sender: wijmo.input.InputNumber) => &#123;
+        if (sender.value < sender.min || sender.value > sender.max) &#123;
             return;
         }
         this.offset = sender.value;
     };
 
-    startAngleChanged = (sender: wijmo.input.InputNumber) => {
-        if (sender.value < sender.min || sender.value > sender.max) {
+    startAngleChanged = (sender: wijmo.input.InputNumber) => &#123;
+        if (sender.value < sender.min || sender.value > sender.max) &#123;
             return;
         }
         this.startAngle = sender.value;
@@ -400,16 +410,16 @@ export class AppCmp {
                     </app-tab-pane>
                     <app-tab-pane title="TS">
                         <div class="pane-content">
-export class AppCmp {
+export class AppCmp &#123;
     protected dataSvc: DataSvc;
-    itemsSource: { name: string, value: number }[];
+    itemsSource: &#123; name: string, value: number }[];
 
     //properties of FlexPie
     header = 'Fruit By Value';
     footer = '2014 GrapeCity, inc.';
     legendPosition = 'Right';
 
-    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
         this.dataSvc = dataSvc;
         this.itemsSource = this.dataSvc.getData();
     }
@@ -532,22 +542,22 @@ export class AppCmp {
                     </app-tab-pane>
                     <app-tab-pane title="TS">
                         <div class="pane-content">
- export class AppCmp {
+ export class AppCmp &#123;
      protected dataSvc: DataSvc;
-     itemsSource: { name: string, value: number }[];
+     itemsSource: &#123; name: string, value: number }[];
 
      //properties of FlexPie
      selectedPosition = 'Top';
      selectedOffset = 0;
      isAnimated = true;
 
-     constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+     constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
          this.dataSvc = dataSvc;
          this.itemsSource = this.dataSvc.getData();
      }
 
-     selectedOffsetChanged = (sender: wijmo.input.InputNumber) => {
-         if (sender.value < sender.min || sender.value > sender.max) {
+     selectedOffsetChanged = (sender: wijmo.input.InputNumber) => &#123;
+         if (sender.value < sender.min || sender.value > sender.max) &#123;
              return;
          }
          this.selectedOffset = sender.value;
@@ -638,7 +648,7 @@ export class AppCmp {
                         <div class="pane-content">
  .custom-pie-chart.wj-flexchart .wj-header .wj-title,
  .custom-pie-chart.wj-flexchart .wj-footer .wj-title,
- .custom-pie-chart.wj-flexchart .wj-legend &gt; .wj-label {
+ .custom-pie-chart.wj-flexchart .wj-legend &gt; .wj-label &#123;
      fill: #666;
      font-family: 'Courier New', Courier, monospace;
      font-weight: bold;

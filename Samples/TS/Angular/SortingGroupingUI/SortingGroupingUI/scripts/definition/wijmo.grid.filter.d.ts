@@ -1,6 +1,6 @@
 /*
     *
-    * Wijmo Library 5.20162.198
+    * Wijmo Library 5.20162.207
     * http://wijmo.com/
     *
     * Copyright(c) GrapeCity, Inc.  All rights reserved.
@@ -303,7 +303,7 @@ declare module wijmo.grid.filter {
          */
         updateFilter(): void;
         private _createOperatorCombo(element);
-        private _createValueInput(element);
+        private _createValueInput(e);
         private _isTimeFormat(fmt);
         private _btnAndOrChanged(e);
     }

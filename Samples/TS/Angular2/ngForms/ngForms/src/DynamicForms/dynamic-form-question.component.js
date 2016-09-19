@@ -7,7 +7,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
-var wjInput = require('wijmo/wijmo.angular2.input');
 var DynamicFormQuestionComponent = (function () {
     function DynamicFormQuestionComponent() {
     }
@@ -31,7 +30,6 @@ var DynamicFormQuestionComponent = (function () {
         core_1.Component({
             selector: 'df-question',
             templateUrl: 'src/DynamicForms/dynamic-form-question.component.html',
-            directives: [forms_1.REACTIVE_FORM_DIRECTIVES, wjInput.WjComboBox, wjInput.WjInputNumber]
         })
     ], DynamicFormQuestionComponent);
     return DynamicFormQuestionComponent;

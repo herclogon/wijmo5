@@ -1,15 +1,15 @@
 ﻿'use strict';
 
-import { Component, EventEmitter} from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
 
 // Chart series binding component
 @Component({
     selector: 'chart-plot-areas-cmp',
-    templateUrl: 'src/components/chart/chartPlotAreasCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, wjNg2Chart.WjFlexChartPlotArea, CORE_DIRECTIVES] 
-})
+    templateUrl: 'src/components/chart/chartPlotAreasCmp.html'})
 
 export class ChartPlotAreasCmp {
 
@@ -28,4 +28,15 @@ export class ChartPlotAreasCmp {
         }
 
     }
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ChartPlotAreasCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjChartModule],
+    declarations: [ChartPlotAreasCmp],
+})
+export class ChartPlotAreasModule {
 }

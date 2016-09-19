@@ -1,6 +1,6 @@
 /*
     *
-    * Wijmo Library 5.20162.198
+    * Wijmo Library 5.20162.207
     * http://wijmo.com/
     *
     * Copyright(c) GrapeCity, Inc.  All rights reserved.
@@ -227,7 +227,7 @@ declare module wijmo.grid.sheet {
         private _oldValue;
         private _newValue;
         private _selection;
-        _effecedFormulas: any;
+        _affectedFormulas: any;
         constructor(owner: FlexSheet);
         undo(): void;
         redo(): void;
@@ -237,7 +237,7 @@ declare module wijmo.grid.sheet {
         private _oldValue;
         private _newValue;
         private _selection;
-        _effecedFormulas: any;
+        _affecedFormulas: any;
         constructor(owner: FlexSheet);
         undo(): void;
         redo(): void;
@@ -274,6 +274,7 @@ declare module wijmo.grid.sheet {
         private _newDroppingCells;
         private _oldDroppingColumnSetting;
         private _newDroppingColumnSetting;
+        private _dragRange;
         private _dropRange;
         private _isCopyCells;
         private _isDraggingColumns;
@@ -785,7 +786,8 @@ declare module wijmo.grid.sheet {
         private _clearForEmptySheet(rowsOrColumns);
         private _containsGroupRows(cellRange);
         private _delSeletionContent();
-        private _updateEffectedFormula(index, count, isAdding, isRow);
+        private _updateAffectedFormula(index, count, isAdding, isRow);
+        _updateColumnFiler(srcColIndex: number, descColIndex: number): void;
         private _isDescendant(paranet, child);
         _clearCalcEngine(): void;
         /**
@@ -1062,6 +1064,14 @@ declare module wijmo.grid.sheet {
      */
     class SheetCollection extends wijmo.collections.ObservableArray {
         private _current;
+        /**
+         * Occurs when the @see:SheetCollection is cleared.
+         */
+        sheetCleared: Event;
+        /**
+         * Raises the sheetCleared event.
+         */
+        onSheetCleared(): void;
         /**
          * Gets or sets the index of the currently selected sheet.
          */

@@ -23,6 +23,19 @@ var DataSvc = (function () {
         }
         return data;
     };
+    ;
+    DataSvc.prototype.getFunnelData = function (countries) {
+        var data = [], sales = 10000;
+        for (var i = 0; i < countries.length; i++) {
+            data.push({
+                country: countries[i],
+                sales: sales
+            });
+            sales = sales - Math.round(Math.random() * 2000);
+        }
+        return data;
+    };
+    ;
     DataSvc = __decorate([
         core_1.Injectable()
     ], DataSvc);

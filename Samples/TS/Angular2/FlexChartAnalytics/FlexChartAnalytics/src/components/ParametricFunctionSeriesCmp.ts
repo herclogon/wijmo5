@@ -1,15 +1,16 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, ViewChild, Input } from '@angular/core';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
-import * as wjNg2Analytics from 'wijmo/wijmo.angular2.chart.analytics';
+import { Component, EventEmitter, Inject, ViewChild, Input, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjChartAnalyticsModule } from 'wijmo/wijmo.angular2.chart.analytics';
 
 //ParametricFunctionSeries sample component
 @Component({
     selector: 'parametric-function-series-cmp',
-    templateUrl: 'src/components/ParametricFunctionSeriesCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Analytics.WjFlexChartParametricFunctionSeries, CORE_DIRECTIVES, FORM_DIRECTIVES]
+    templateUrl: 'src/components/ParametricFunctionSeriesCmp.html'
 })
 
 export class ParametricFunctionSeriesCmp {
@@ -31,4 +32,14 @@ export class ParametricFunctionSeriesCmp {
         }
         this.max = 2 * Math.PI;
     }
+}
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ParametricFunctionSeriesCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjChartModule, WjChartAnalyticsModule],
+    declarations: [ParametricFunctionSeriesCmp],
+})
+export class ParametricFunctionSeriesModule {
 }

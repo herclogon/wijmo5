@@ -1,6 +1,6 @@
 /*
     *
-    * Wijmo Library 5.20162.198
+    * Wijmo Library 5.20162.207
     * http://wijmo.com/
     *
     * Copyright(c) GrapeCity, Inc.  All rights reserved.
@@ -20,7 +20,7 @@ declare module wijmo.grid.multirow {
         /**
          * Initializes a new instance of the @see:Row class.
          *
-         * @param dataItem The data item that this row is bound to.
+         * @param dataItem The data item this row is bound to.
          * @param dataIndex The index of the record within the items source.
          * @param recordIndex The index of this row within the record (data item).
          */
@@ -38,7 +38,7 @@ declare module wijmo.grid.multirow {
 
 declare module wijmo.grid.multirow {
     /**
-     * Extends the @see:Column class to with a @see:colspan property to
+     * Extends the @see:Column class with <b>colspan</b> property to
      * describe a cell in a @see:_CellGroup.
      */
     class _Cell extends Column {
@@ -53,7 +53,7 @@ declare module wijmo.grid.multirow {
          */
         constructor(options?: any);
         /**
-         * Gets or sets the number of physical columns spanned by this @see:_Cell.
+         * Gets or sets the number of physical columns spanned by the @see:_Cell.
          */
         colspan: number;
     }
@@ -72,7 +72,7 @@ declare module wijmo.grid.multirow {
         /**
          * Initializes a new instance of the @see:_CellGroup class.
          *
-         * @param grid @see:MultiRow that owns this @see:_CellGroup.
+         * @param grid @see:MultiRow that owns the @see:_CellGroup.
          * @param options JavaScript object containing initialization data for the new @see:_CellGroup.
          */
         constructor(grid: MultiRow, options?: any);
@@ -97,7 +97,7 @@ declare module wijmo.grid.multirow {
          * @param p The @see:GridPanel that contains the range.
          * @param r The index of the row that contains the cell.
          * @param c The index of the column that contains the cell.
-         * @param clip Whether to clip the merged range to the grid's current view range.
+         * @param clip Specifies whether to clip the merged range to the grid's current view range.
          * @return A @see:CellRange that specifies the merged range, or null if the cell is not merged.
          */
         getMergedRange(p: GridPanel, r: number, c: number, clip?: boolean): CellRange;
@@ -116,7 +116,7 @@ declare module wijmo.grid.multirow {
          */
         constructor(grid: FlexGrid);
         /**
-         * Updates the new row template to ensure it's visible only if the grid is
+         * Updates the new row template to ensure that it is visible only when the grid is
          * bound to a data source that supports adding new items, and that it is
          * in the right position.
          */
@@ -125,13 +125,13 @@ declare module wijmo.grid.multirow {
 }
 
 /**
- * Defines the @see:MultiRow control and associated classes.
+ * Defines the @see:MultiRow control and its associated classes.
  */
 declare module wijmo.grid.multirow {
     /**
      * Extends the @see:FlexGrid control to provide multiple rows per item.
      *
-     * Use the @see:MultiRow.layoutDefinition property to define the layout of the rows
+     * Use the <b>layoutDefinition</b> property to define the layout of the rows
      * used to display each data item.
      *
      * A few @see:FlexGrid properties are disabled in the @see:MultiRow control
@@ -172,8 +172,8 @@ declare module wijmo.grid.multirow {
          * group as follows:
          *
          * <ol>
-         * <li>The grid calculates the group's colspan as the max between the group's own colspan
-         * and the widest cell in the group.</li>
+         * <li>The grid calculates the colspan of the group either as group's own colspan
+         * or as span of the widest cell in the group, whichever is wider.</li>
          * <li>If the cell fits the current row within the group, it is added to the current row.</li>
          * <li>If it doesn't fit, it is added to a new row.</li>
          * </ol>
@@ -191,7 +191,7 @@ declare module wijmo.grid.multirow {
          * | C3 |
          * </pre>
          *
-         * To create a group with two columns, set the group's colspan property:
+         * To create a group with two columns, set <b>colspan</b> property of the group:
          *
          * <pre>{ header: 'Group 1', colspan: 2, cells:[{ binding: 'c1' }, { binding: 'c2'}, { binding: 'c3' }]}</pre>
          *
@@ -224,10 +224,10 @@ declare module wijmo.grid.multirow {
          */
         layoutDefinition: any[];
         /**
-         * Gets the number of rows used do display each item.
+         * Gets the number of rows used to display each item.
          *
          * This value is calculated automatically based on the value
-         * of the @see:layoutDefinition property.
+         * of the <b>layoutDefinition</b> property.
          */
         rowsPerItem: number;
         /**
@@ -248,9 +248,9 @@ declare module wijmo.grid.multirow {
          * should be collapsed and displayed as a single row displaying
          * the group headers.
          *
-         * If you set the @see:collapsedHeaders property to true,
-         * remember to set the header property of every group in order
-         * to avoid empty headers.
+         * If you set the <b>collapsedHeaders</b> property to true,
+         * remember to set the <b>header</b> property of every group in order
+         * to avoid any empty headers.
          */
         collapsedHeaders: boolean;
         /**
@@ -259,7 +259,7 @@ declare module wijmo.grid.multirow {
          * expand the column headers.
          *
          * If the button is visible, clicking on it will cause the grid to
-         * toggle the value of the @see:collapsedHeaders property.
+         * toggle the value of the <b>collapsedHeaders</b> property.
          */
         showHeaderCollapseButton: boolean;
         _addBoundRow(items: any[], index: number): void;

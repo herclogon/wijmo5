@@ -1,14 +1,15 @@
 ﻿'use strict';
 
-import { Component, EventEmitter} from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
+import { Component, EventEmitter, Inject, ViewChild, Input, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
 
 // Chart header footer component
 @Component({
     selector: 'chart-header-footer-cmp',
-    templateUrl: 'src/components/chart/chartHeaderFooterCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, CORE_DIRECTIVES]    
+    templateUrl: 'src/components/chart/chartHeaderFooterCmp.html'  
 })
 
 export class ChartHeaderFooterCmp {
@@ -33,4 +34,15 @@ export class ChartHeaderFooterCmp {
     private _customTooltip(ht: wijmo.chart.HitTestInfo) {
         return 'Month: ' + ht.item.date + '<br/>' + 'Sales: ' + ht.item.sales.toFixed();
     }
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ChartHeaderFooterCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjChartModule],
+    declarations: [ChartHeaderFooterCmp],
+})
+export class ChartHeaderFooterModule {
 }

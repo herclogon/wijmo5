@@ -31,15 +31,24 @@
         </div>
         <div class="collapse navbar-collapse" [ngClass]="{in: !navCollapsed}">
             <ul class="nav navbar-nav">
-                <li *ngFor="let item of menuData" class="dropdown">
+                <li *ngFor="let item of routTree" class="dropdown">
                     <a href="#" target="_self" class="dropdown-toggle" data-toggle="dropdown">{{ item.section }} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li *ngFor="let link of item.links">
-                            <a *ngIf="link.alias" [routerLink]="['/' + link.alias]" (click)="navCollapsed = true">{{ link.text }}</a>
-                        </li>
+              
+                        <template ngFor let-route [ngForOf]="item.routes">
+                            <li *ngIf="route.data?.caption">
+                                <a [routerLink]="route.path" 
+                                   routerLinkActive="active" 
+                                   (click)="navCollapsed = true">
+                                    {{route.data.caption}}
+                                </a>
+                            </li>
+                        </template>
                     </ul>
                 </li>
             </ul>
+
+
         </div>
     </div>
 </div>
@@ -111,7 +120,7 @@
 
         <div class="col-md-2">
             <div class="panel-group hidden-xs hidden-sm" id="accordion" >
-                <div *ngFor="let item of menuData, let index = index"
+                <div *ngFor="let item of routTree, let index = index"
                      class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -123,11 +132,13 @@
                     <div [id]="item.section" class="panel-collapse collapse" [ngClass]="{ in: index == 0 }">
                         <div class="panel-body">
                             <ul class="flatList">
-                                <li *ngFor="let link of item.links">
-                                    <!-- [href] doesn't work in IE/Edge -->
-                                    <!--<a [href]="'#' + link.url">{{ link.text }}</a>-->
-                                    <a *ngIf="link.alias" [routerLink]="['/' + link.alias]">{{ link.text }}</a>
-                                </li>
+                                <template ngFor let-route [ngForOf]="item.routes">
+                                    <li *ngIf="route.data?.caption">
+                                        <a [routerLink]="route.path" routerLinkActive="active">
+                                            {{route.data.caption}}
+                                        </a>
+                                    </li>
+                                </template>
                             </ul>
                         </div>
                     </div>

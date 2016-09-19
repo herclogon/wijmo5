@@ -1,144 +1,207 @@
-<h2>DateTime Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">DateTime</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo</dd>
-<dt>File</dt><dd>wijmo.js</dd>
+<dt>File</dt><dd class="filename">wijmo.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.Module.html"><span class="identifier">wijmo</span></a></dd>
 </dl>
-<p>Provides date and time utilities.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div class="comment"><p>Provides date and time utilities.</p></div>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>addDays</b>&#8203;(value, days): <b>Date</b></td>
-      <td><p>
-<b>value</b> (<b>Date</b>): Original date.<br/><b>days</b> (<b>number</b>): Number of days to add to the given date.<br/></p>
-</td>
-      <td>Gets a new Date that adds the specified number of days to a given Date.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>addHours</b>&#8203;(value, hours): <b>Date</b></td>
-      <td><p>
-<b>value</b> (<b>Date</b>): Original date.<br/><b>hours</b> (<b>number</b>): Number of hours to add to the given date.<br/></p>
-</td>
-      <td>Gets a new Date that adds the specified number of hours to a given Date.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>addMinutes</b>&#8203;(value, minutes): <b>Date</b></td>
-      <td><p>
-<b>value</b> (<b>Date</b>): Original date.<br/><b>minutes</b> (<b>number</b>): Number of minutes to add to the given date.<br/></p>
-</td>
-      <td>Gets a new Date that adds the specified number of minutes to a given Date.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>addMonths</b>&#8203;(value, months): <b>Date</b></td>
-      <td><p>
-<b>value</b> (<b>Date</b>): Original date.<br/><b>months</b> (<b>number</b>): Number of months to add to the given date.<br/></p>
-</td>
-      <td>Gets a new Date that adds the specified number of months to a given Date.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>addSeconds</b>&#8203;(value, seconds): <b>Date</b></td>
-      <td><p>
-<b>value</b> (<b>Date</b>): Original date.<br/><b>seconds</b> (<b>number</b>): Number of seconds to add to the given date.<br/></p>
-</td>
-      <td>Gets a new Date that adds the specified number of seconds to a given Date.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>addYears</b>&#8203;(value, years): <b>Date</b></td>
-      <td><p>
-<b>value</b> (<b>Date</b>): Original date.<br/><b>years</b> (<b>number</b>): Number of years to add to the given date.<br/></p>
-</td>
-      <td>Gets a new Date that adds the specified number of years to a given Date.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>clone</b>&#8203;(date): <b>Date</b></td>
-      <td><p>
-<b>date</b> (<b>Date</b>): Date object to copy.<br/></p>
-</td>
-      <td>Creates a copy of a given Date object.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>equals</b>&#8203;(d1, d2): <b>boolean</b></td>
-      <td><p>
-<b>d1</b> (<b>Date</b>): First date.<br/><b>d2</b> (<b>Date</b>): Second date.<br/></p>
-</td>
-      <td>Returns true if two Date objects refer to the same date and time.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>fromDateTime</b>&#8203;(date, time): <b>Date</b></td>
-      <td><p>
-<b>date</b> (<b>Date</b>): Date object that contains the date (day/month/year).<br/><b>time</b> (<b>Date</b>): Date object that contains the time (hour:minute:second).<br/></p>
-</td>
-      <td>Gets a Date object with the date and time set on two Date objects.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>fromFiscal</b>&#8203;(date, govt)</td>
-      <td><p>
-<b>date</b> (<b>Date</b>): Fiscal year date.<br/><b>govt</b> (<b>boolean</b>): Whether to use the government or corporate fiscal year.<br/></p>
-</td>
-      <td>Converts a fiscal year date to a calendar date using the current culture.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>newDate</b>&#8203;(): <b>Date</b></td>
-      <td></td>
-      <td>Gets a new Date object set to today's date and no time portion.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>sameDate</b>&#8203;(d1, d2): <b>boolean</b></td>
-      <td><p>
-<b>d1</b> (<b>Date</b>): First date.<br/><b>d2</b> (<b>Date</b>): Second date.<br/></p>
-</td>
-      <td>Returns true if two Date objects refer to the same date (ignoring time).</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>sameTime</b>&#8203;(d1, d2): <b>boolean</b></td>
-      <td><p>
-<b>d1</b> (<b>Date</b>): First date.<br/><b>d2</b> (<b>Date</b>): Second date.<br/></p>
-</td>
-      <td>Returns true if two Date objects refer to the same time (ignoring date).</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>toFiscal</b>&#8203;(date, govt)</td>
-      <td><p>
-<b>date</b> (<b>Date</b>): Calendar date.<br/><b>govt</b> (<b>boolean</b>): Whether to use the government or corporate fiscal year.<br/></p>
-</td>
-      <td>Converts a calendar date to a fiscal date using the current culture.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#addDays">addDays</a></li>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#addHours">addHours</a></li>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#addMinutes">addMinutes</a></li>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#addMonths">addMonths</a></li>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#addSeconds">addSeconds</a></li>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#addYears">addYears</a></li>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#clone">clone</a></li>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#equals">equals</a></li>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#fromDateTime">fromDateTime</a></li>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#fromFiscal">fromFiscal</a></li>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#newDate">newDate</a></li>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#sameDate">sameDate</a></li>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#sameTime">sameTime</a></li>
+<li class="mmethod"><a href="topic/wijmo.DateTime.Class.html/#toFiscal">toFiscal</a></li>
+</ul>
 </div>
-
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="addDays" class="member-panel mmethod">
+<h3><span class="badge">Static</span> addDays</h3>
+<pre>addDays(value: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>, days: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></pre>
+<div class="comment"><p>Gets a new Date that adds the specified number of days to a given Date.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Original date.</p></li><li><b>days</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Number of days to add to the given date.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></dd>
+</dl>
+</div>
+<div id="addHours" class="member-panel mmethod">
+<h3><span class="badge">Static</span> addHours</h3>
+<pre>addHours(value: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>, hours: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></pre>
+<div class="comment"><p>Gets a new Date that adds the specified number of hours to a given Date.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Original date.</p></li><li><b>hours</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Number of hours to add to the given date.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></dd>
+</dl>
+</div>
+<div id="addMinutes" class="member-panel mmethod">
+<h3><span class="badge">Static</span> addMinutes</h3>
+<pre>addMinutes(value: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>, minutes: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></pre>
+<div class="comment"><p>Gets a new Date that adds the specified number of minutes to a given Date.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Original date.</p></li><li><b>minutes</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Number of minutes to add to the given date.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></dd>
+</dl>
+</div>
+<div id="addMonths" class="member-panel mmethod">
+<h3><span class="badge">Static</span> addMonths</h3>
+<pre>addMonths(value: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>, months: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></pre>
+<div class="comment"><p>Gets a new Date that adds the specified number of months to a given Date.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Original date.</p></li><li><b>months</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Number of months to add to the given date.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></dd>
+</dl>
+</div>
+<div id="addSeconds" class="member-panel mmethod">
+<h3><span class="badge">Static</span> addSeconds</h3>
+<pre>addSeconds(value: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>, seconds: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></pre>
+<div class="comment"><p>Gets a new Date that adds the specified number of seconds to a given Date.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Original date.</p></li><li><b>seconds</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Number of seconds to add to the given date.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></dd>
+</dl>
+</div>
+<div id="addYears" class="member-panel mmethod">
+<h3><span class="badge">Static</span> addYears</h3>
+<pre>addYears(value: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>, years: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></pre>
+<div class="comment"><p>Gets a new Date that adds the specified number of years to a given Date.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Original date.</p></li><li><b>years</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Number of years to add to the given date.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></dd>
+</dl>
+</div>
+<div id="clone" class="member-panel mmethod">
+<h3><span class="badge">Static</span> clone</h3>
+<pre>clone(date: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></pre>
+<div class="comment"><p>Creates a copy of a given Date object.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>date</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Date object to copy.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></dd>
+</dl>
+</div>
+<div id="equals" class="member-panel mmethod">
+<h3><span class="badge">Static</span> equals</h3>
+<pre>equals(d1: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>, d2: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Returns true if two Date objects refer to the same date and time.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>d1</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>First date.</p></li><li><b>d2</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Second date.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="fromDateTime" class="member-panel mmethod">
+<h3><span class="badge">Static</span> fromDateTime</h3>
+<pre>fromDateTime(date: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>, time: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></pre>
+<div class="comment"><p>Gets a Date object with the date and time set on two Date objects.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>date</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Date object that contains the date (day/month/year).</p></li><li><b>time</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Date object that contains the time (hour:minute:second).</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></dd>
+</dl>
+</div>
+<div id="fromFiscal" class="member-panel mmethod">
+<h3><span class="badge">Static</span> fromFiscal</h3>
+<pre>fromFiscal(date: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>, govt: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Converts a fiscal year date to a calendar date using the current culture.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>date</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Fiscal year date.</p></li><li><b>govt</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a><br/><p>Whether to use the government or corporate fiscal year.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="newDate" class="member-panel mmethod">
+<h3><span class="badge">Static</span> newDate</h3>
+<pre>newDate(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></pre>
+<div class="comment"><p>Gets a new Date object set to today's date and no time portion.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></dd>
+</dl>
+</div>
+<div id="sameDate" class="member-panel mmethod">
+<h3><span class="badge">Static</span> sameDate</h3>
+<pre>sameDate(d1: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>, d2: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Returns true if two Date objects refer to the same date (ignoring time).</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>d1</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>First date.</p></li><li><b>d2</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Second date.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="sameTime" class="member-panel mmethod">
+<h3><span class="badge">Static</span> sameTime</h3>
+<pre>sameTime(d1: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>, d2: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Returns true if two Date objects refer to the same time (ignoring date).</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>d1</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>First date.</p></li><li><b>d2</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Second date.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="toFiscal" class="member-panel mmethod">
+<h3><span class="badge">Static</span> toFiscal</h3>
+<pre>toFiscal(date: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>, govt: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Converts a calendar date to a fiscal date using the current culture.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>date</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Calendar date.</p></li><li><b>govt</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a><br/><p>Whether to use the government or corporate fiscal year.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>

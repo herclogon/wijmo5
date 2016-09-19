@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup, REACTIVE_FORM_DIRECTIVES, AbstractControlDirective, NgModel } from '@angular/forms';
+import { FormGroup, AbstractControlDirective, NgModel } from '@angular/forms';
 import * as wjInput from 'wijmo/wijmo.angular2.input';
 
 import { QuestionBase }     from './question-base';
@@ -7,7 +7,6 @@ import { QuestionBase }     from './question-base';
 @Component({
   selector: 'df-question',
   templateUrl: 'src/DynamicForms/dynamic-form-question.component.html',
-  directives: [REACTIVE_FORM_DIRECTIVES, wjInput.WjComboBox, wjInput.WjInputNumber]
 })
 export class DynamicFormQuestionComponent {
   @Input() question: QuestionBase<any>;

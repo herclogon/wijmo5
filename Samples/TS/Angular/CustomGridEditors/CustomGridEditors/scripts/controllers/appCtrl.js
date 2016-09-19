@@ -6,10 +6,15 @@ app.controller('appCtrl', function appCtrl($scope) {
 
     // show that edit events fire also for custom editors
     $scope.editEnding = function (s, e) {
-        console.log(wijmo.format('Edit ending for cell {row}, {col}', e));
+        log(wijmo.format('Edit ending for cell {row}, {col}', e));
     }
     $scope.editEnded = function (s, e) {
-        console.log(wijmo.format('Edit ended for cell {row}, {col}', e));
+        log(wijmo.format('Edit ended for cell {row}, {col}', e));
+    }
+    function log(msg) {
+        if (console) { // console not available in IE9
+            console.log(msg);
+        }
     }
 
     // expose some data

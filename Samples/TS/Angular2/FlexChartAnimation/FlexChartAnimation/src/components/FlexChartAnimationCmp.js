@@ -10,9 +10,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
-var wjNg2Animation = require('wijmo/wijmo.angular2.chart.animation');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_chart_animation_1 = require('wijmo/wijmo.angular2.chart.animation');
 var DataSvc_1 = require('./../services/DataSvc');
 //FlexChartAnimation sample component
 var FlexChartAnimationCmp = (function () {
@@ -69,6 +71,17 @@ var FlexChartAnimationCmp = (function () {
     FlexChartAnimationCmp.prototype._setDataSource = function () {
         this.data = this.dataService.getData(this.flexChartPoints);
     };
+    //get animationMode(): string {
+    //    return this._animationMode;
+    //}
+    //set animationMode(value: string) {
+    //    if (this._animationMode != value) {
+    //        this._animationMode = value;
+    //        let anim = wijmo.chart.animation.AnimationMode[value];
+    //        this.animation.animationMode = anim;
+    //        this.flexChart.refresh(true);
+    //    }
+    //}
     FlexChartAnimationCmp.prototype.resetChartData = function () {
         this._setDataSource();
     };
@@ -95,11 +108,9 @@ var FlexChartAnimationCmp = (function () {
         funcName = oper + 'ChartSeries' + str;
         this[funcName]();
     };
-    FlexChartAnimationCmp.prototype.animationModeChanged = function (args) {
-        if (args.selectedValue !== this.animationMode) {
-            this.animation.animationMode = args.selectedValue;
-            this.flexChart.refresh(true);
-        }
+    FlexChartAnimationCmp.prototype.animationModeChanged = function () {
+        this.animation.animationMode = this.animationMode;
+        this.flexChart.refresh(true);
     };
     __decorate([
         core_1.ViewChild('flexChart')
@@ -110,13 +121,26 @@ var FlexChartAnimationCmp = (function () {
     FlexChartAnimationCmp = __decorate([
         core_1.Component({
             selector: 'flex-chart-animation-cmp',
-            templateUrl: 'src/components/FlexChartAnimationCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjInputNumber, wjNg2Animation.WjFlexChartAnimation, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
+            templateUrl: 'src/components/FlexChartAnimationCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], FlexChartAnimationCmp);
     return FlexChartAnimationCmp;
 }());
 exports.FlexChartAnimationCmp = FlexChartAnimationCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: FlexChartAnimationCmp }
+]);
+var FlexChartAnimationModule = (function () {
+    function FlexChartAnimationModule() {
+    }
+    FlexChartAnimationModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, forms_1.FormsModule, wijmo_angular2_input_1.WjInputModule, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_chart_animation_1.WjChartAnimationModule],
+            declarations: [FlexChartAnimationCmp],
+        })
+    ], FlexChartAnimationModule);
+    return FlexChartAnimationModule;
+}());
+exports.FlexChartAnimationModule = FlexChartAnimationModule;
 //# sourceMappingURL=FlexChartAnimationCmp.js.map

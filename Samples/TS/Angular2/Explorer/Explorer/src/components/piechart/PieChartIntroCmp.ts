@@ -1,17 +1,19 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject, ViewChild } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, ViewChild, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
 import { PieChartBaseCmp } from './PieChartBaseCmp'
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // PieChart Introduction sample component.
 @Component({
     selector: 'pie-chart-intro-cmp',
-    templateUrl: 'src/components/piechart/pieChartIntroCmp.html',
-    directives: [wjNg2Chart.WjFlexPie, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, CORE_DIRECTIVES]
+    templateUrl: 'src/components/piechart/pieChartIntroCmp.html'
 })
 export class PieChartIntroCmp extends PieChartBaseCmp {
     pal = 0;
@@ -33,4 +35,14 @@ export class PieChartIntroCmp extends PieChartBaseCmp {
         var chart = this.chart;
         return chart && chart.dataLabel.position != 0;
     };
+}
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: PieChartIntroCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjChartModule, WjInputModule],
+    declarations: [PieChartIntroCmp],
+})
+export class PieChartIntroModule {
 }

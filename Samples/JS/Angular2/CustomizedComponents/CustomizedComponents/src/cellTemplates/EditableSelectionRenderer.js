@@ -6,8 +6,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var wjInput = require('wijmo/wijmo.angular2.input');
 (function (SelectionType) {
     SelectionType[SelectionType["Single"] = 0] = "Single";
     SelectionType[SelectionType["Multiple"] = 1] = "Multiple";
@@ -50,7 +48,6 @@ var EditableSelectionRenderer = (function () {
         core_1.Component({
             selector: 'editable-selection-renderer',
             templateUrl: 'src/cellTemplates/editableSelectionRenderer.html',
-            directives: [wjInput.WjInputDate, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
         })
     ], EditableSelectionRenderer);
     return EditableSelectionRenderer;

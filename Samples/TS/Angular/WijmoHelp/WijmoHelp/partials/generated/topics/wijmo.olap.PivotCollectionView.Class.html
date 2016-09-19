@@ -1,296 +1,399 @@
-<h2>PivotCollectionView Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">PivotCollectionView</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a></dd>
-<dt>Module</dt><dd>wijmo.olap</dd>
-<dt>File</dt><dd>wijmo.olap.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.olap.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.olap.Module.html"><span class="identifier">wijmo.olap</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p>Extends the <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a> class to preserve the position of subtotal rows
-when sorting.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+<div class="comment"><p>Extends the <a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a> class to preserve the position of subtotal rows
+when sorting.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(engine): <a href="topic/wijmo.olap.PivotCollectionView.Class.html"><b>PivotCollectionView</b></a></td>
-      <td><p>
-<b>engine</b> (<a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a>): <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a> that owns this collection.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.olap.PivotCollectionView.Class.html"><b>PivotCollectionView</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#canAddNew">canAddNew</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#canCancelEdit">canCancelEdit</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#canChangePage">canChangePage</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#canFilter">canFilter</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#canGroup">canGroup</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#canRemove">canRemove</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#canSort">canSort</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#currentAddItem">currentAddItem</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#currentEditItem">currentEditItem</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#currentItem">currentItem</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#currentPosition">currentPosition</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#engine">engine</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#filter">filter</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#groupDescriptions">groupDescriptions</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#groups">groups</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#isAddingNew">isAddingNew</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#isEditingItem">isEditingItem</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#isEmpty">isEmpty</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#isPageChanging">isPageChanging</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#isUpdating">isUpdating</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#itemCount">itemCount</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#items">items</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#itemsAdded">itemsAdded</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#itemsEdited">itemsEdited</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#itemsRemoved">itemsRemoved</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#newItemCreator">newItemCreator</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#pageCount">pageCount</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#pageIndex">pageIndex</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#pageSize">pageSize</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sortComparer">sortComparer</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sortConverter">sortConverter</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sortDescriptions">sortDescriptions</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sourceCollection">sourceCollection</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#totalItemCount">totalItemCount</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#trackChanges">trackChanges</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#useStableSort">useStableSort</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#addNew">addNew</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#beginUpdate">beginUpdate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#cancelEdit">cancelEdit</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#cancelNew">cancelNew</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#clearChanges">clearChanges</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#commitEdit">commitEdit</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#commitNew">commitNew</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#contains">contains</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#deferUpdate">deferUpdate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#editItem">editItem</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#endUpdate">endUpdate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#getAggregate">getAggregate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#implementsInterface">implementsInterface</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#moveCurrentTo">moveCurrentTo</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#moveCurrentToFirst">moveCurrentToFirst</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#moveCurrentToLast">moveCurrentToLast</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#moveCurrentToNext">moveCurrentToNext</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#moveCurrentToPosition">moveCurrentToPosition</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#moveCurrentToPrevious">moveCurrentToPrevious</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#moveToFirstPage">moveToFirstPage</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#moveToLastPage">moveToLastPage</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#moveToNextPage">moveToNextPage</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#moveToPage">moveToPage</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#moveToPreviousPage">moveToPreviousPage</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#onCollectionChanged">onCollectionChanged</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#onCurrentChanged">onCurrentChanged</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#onCurrentChanging">onCurrentChanging</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#onPageChanged">onPageChanged</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#onPageChanging">onPageChanging</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#onSourceCollectionChanged">onSourceCollectionChanged</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#onSourceCollectionChanging">onSourceCollectionChanging</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#refresh">refresh</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#remove">remove</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#removeAt">removeAt</a></li>
+</ul>
+<h3 class="node">Events</h3>
+<ul>
+<li class="mevent inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#collectionChanged">collectionChanged</a></li>
+<li class="mevent inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#currentChanged">currentChanged</a></li>
+<li class="mevent inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#currentChanging">currentChanging</a></li>
+<li class="mevent inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#pageChanged">pageChanged</a></li>
+<li class="mevent inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#pageChanging">pageChanging</a></li>
+<li class="mevent inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sourceCollectionChanged">sourceCollectionChanged</a></li>
+<li class="mevent inherited"><a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sourceCollectionChanging">sourceCollectionChanging</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(engine: <a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a>): <a href="topic/wijmo.olap.PivotCollectionView.Class.html"><span class="identifier">PivotCollectionView</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.olap.PivotCollectionView.Class.html"><span class="identifier">PivotCollectionView</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>engine</b>: <a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a><br/><p><a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a> that owns this collection.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.olap.PivotCollectionView.Class.html"><span class="identifier">PivotCollectionView</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>canAddNew</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether a new item can be added to the collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>canCancelEdit</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether the collection view can discard pending changes 
-and restore the original values of an edited object.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>canChangePage</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether the <b>pageIndex</b> value can change.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>canFilter</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether this view supports filtering via the 
-<b>filter</b> property.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>canGroup</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether this view supports grouping via the 
-<b>groupDescriptions</b> property.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>canRemove</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether items can be removed from the collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>canSort</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether this view supports sorting via the 
-<b>sortDescriptions</b> property.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>currentAddItem</b></td>
-      <td><b>any</b></td>
-      <td>Gets the item that is being added during the current add transaction.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>currentEditItem</b></td>
-      <td><b>any</b></td>
-      <td>Gets the item that is being edited during the current edit transaction.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>currentItem</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the current item in the view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>currentPosition</b></td>
-      <td><b>number</b></td>
-      <td>Gets the ordinal position of the current item in the view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>engine</b></td>
-      <td><a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a></td>
-      <td>Gets a reference to the <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a> that owns this view.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>filter</b></td>
-      <td><a href="topic/wijmo.collections.IPredicate.Interface.html"><b>IPredicate</b></a></td>
-      <td><p>Gets or sets a callback used to determine if an item is suitable for 
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="canAddNew" class="member-panel mproperty inherited">
+<h3>canAddNew</h3>
+<div class="comment"><p>Gets a value that indicates whether a new item can be added to the collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="canCancelEdit" class="member-panel mproperty inherited">
+<h3>canCancelEdit</h3>
+<div class="comment"><p>Gets a value that indicates whether the collection view can discard pending changes 
+and restore the original values of an edited object.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="canChangePage" class="member-panel mproperty inherited">
+<h3>canChangePage</h3>
+<div class="comment"><p>Gets a value that indicates whether the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#pageIndex"><span class="identifier">pageIndex</span></a> value can change.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="canFilter" class="member-panel mproperty inherited">
+<h3>canFilter</h3>
+<div class="comment"><p>Gets a value that indicates whether this view supports filtering via the 
+<a href="topic/wijmo.olap.PivotCollectionView.Class.html/#filter"><span class="identifier">filter</span></a> property.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="canGroup" class="member-panel mproperty inherited">
+<h3>canGroup</h3>
+<div class="comment"><p>Gets a value that indicates whether this view supports grouping via the 
+<a href="topic/wijmo.olap.PivotCollectionView.Class.html/#groupDescriptions"><span class="identifier">groupDescriptions</span></a> property.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="canRemove" class="member-panel mproperty inherited">
+<h3>canRemove</h3>
+<div class="comment"><p>Gets a value that indicates whether items can be removed from the collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="canSort" class="member-panel mproperty inherited">
+<h3>canSort</h3>
+<div class="comment"><p>Gets a value that indicates whether this view supports sorting via the 
+<a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sortDescriptions"><span class="identifier">sortDescriptions</span></a> property.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="currentAddItem" class="member-panel mproperty inherited">
+<h3>currentAddItem</h3>
+<div class="comment"><p>Gets the item that is being added during the current add transaction.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="currentEditItem" class="member-panel mproperty inherited">
+<h3>currentEditItem</h3>
+<div class="comment"><p>Gets the item that is being edited during the current edit transaction.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="currentItem" class="member-panel mproperty inherited">
+<h3>currentItem</h3>
+<div class="comment"><p>Gets or sets the current item in the view.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="currentPosition" class="member-panel mproperty inherited">
+<h3>currentPosition</h3>
+<div class="comment"><p>Gets the ordinal position of the current item in the view.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="engine" class="member-panel mproperty">
+<h3>engine</h3>
+<div class="comment"><p>Gets a reference to the <a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a> that owns this view.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a></dd>
+</dl>
+</div>
+<div id="filter" class="member-panel mproperty inherited">
+<h3>filter</h3>
+<div class="comment"><p>Gets or sets a callback used to determine if an item is suitable for 
 inclusion in the view.</p>
-
 <p>The callback function should return true if the item passed in as a
 parameter should be included in the view.</p>
-
 <p>NOTE: If the filter function needs a scope (i.e. a meaningful 'this'
 value) remember to set the filter using the 'bind' function to specify 
 the 'this' object. For example:
-<pre>
-  collectionView.filter = this._filter.bind(this);
-</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>groupDescriptions</b></td>
-      <td><a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a></td>
-      <td>Gets a collection of <a href="topic/wijmo.collections.GroupDescription.Class.html"><b>GroupDescription</b></a> objects that describe how the 
-items in the collection are grouped in the view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>groups</b></td>
-      <td><a href="topic/wijmo.collections.CollectionViewGroup.Class.html"><b>CollectionViewGroup</b></a><b>[]</b></td>
-      <td>Gets an array of <a href="topic/wijmo.collections.CollectionViewGroup.Class.html"><b>CollectionViewGroup</b></a> objects that represents the 
-top-level groups.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isAddingNew</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether an add transaction is in progress.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isEditingItem</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether an edit transaction is in progress.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isEmpty</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether this view contains no items.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isPageChanging</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether the page index is changing.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isUpdating</b></td>
-      <td></td>
-      <td>Gets a value that indicates whether notifications are currently suspended
-(see <b>beginUpdate</b> and <b>endUpdate</b>).<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>itemCount</b></td>
-      <td><b>number</b></td>
-      <td>Gets the total number of items in the view taking paging into account.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>items</b></td>
-      <td><b>any</b><b>[]</b></td>
-      <td>Gets items in the view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>itemsAdded</b></td>
-      <td><a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a></td>
-      <td>Gets an <a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a> containing the records that were added to
-the collection since <b>trackChanges</b> was enabled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>itemsEdited</b></td>
-      <td><a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a></td>
-      <td>Gets an <a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a> containing the records that were edited in
-the collection since <b>trackChanges</b> was enabled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>itemsRemoved</b></td>
-      <td><a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a></td>
-      <td>Gets an <a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a> containing the records that were removed from
-the collection since <b>trackChanges</b> was enabled.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>newItemCreator</b></td>
-      <td><b>Function</b></td>
-      <td><p>Gets or sets a function that creates new items for the collection.</p>
+</p>
 
-<p>If the creator function is not supplied, the <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>
+<pre>collectionView.filter = this._filter.bind(this);</pre></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.IPredicate.Interface.html"><span class="identifier">IPredicate</span></a></dd>
+</dl>
+</div>
+<div id="groupDescriptions" class="member-panel mproperty inherited">
+<h3>groupDescriptions</h3>
+<div class="comment"><p>Gets a collection of <a href="topic/wijmo.collections.GroupDescription.Class.html"><span class="identifier">GroupDescription</span></a> objects that describe how the 
+items in the collection are grouped in the view.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.ObservableArray.Class.html"><span class="identifier">ObservableArray</span></a></dd>
+</dl>
+</div>
+<div id="groups" class="member-panel mproperty inherited">
+<h3>groups</h3>
+<div class="comment"><p>Gets an array of <a href="topic/wijmo.collections.CollectionViewGroup.Class.html"><span class="identifier">CollectionViewGroup</span></a> objects that represents the 
+top-level groups.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.CollectionViewGroup.Class.html"><span class="identifier">CollectionViewGroup</span></a>[]</dd>
+</dl>
+</div>
+<div id="isAddingNew" class="member-panel mproperty inherited">
+<h3>isAddingNew</h3>
+<div class="comment"><p>Gets a value that indicates whether an add transaction is in progress.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isEditingItem" class="member-panel mproperty inherited">
+<h3>isEditingItem</h3>
+<div class="comment"><p>Gets a value that indicates whether an edit transaction is in progress.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isEmpty" class="member-panel mproperty inherited">
+<h3>isEmpty</h3>
+<div class="comment"><p>Gets a value that indicates whether this view contains no items.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isPageChanging" class="member-panel mproperty inherited">
+<h3>isPageChanging</h3>
+<div class="comment"><p>Gets a value that indicates whether the page index is changing.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isUpdating" class="member-panel mproperty inherited">
+<h3>isUpdating</h3>
+<div class="comment"><p>Gets a value that indicates whether notifications are currently suspended
+(see <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#beginUpdate"><span class="identifier">beginUpdate</span></a> and <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a>).</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="itemCount" class="member-panel mproperty inherited">
+<h3>itemCount</h3>
+<div class="comment"><p>Gets the total number of items in the view taking paging into account.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="items" class="member-panel mproperty inherited">
+<h3>items</h3>
+<div class="comment"><p>Gets items in the view.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span>[]</dd>
+</dl>
+</div>
+<div id="itemsAdded" class="member-panel mproperty inherited">
+<h3>itemsAdded</h3>
+<div class="comment"><p>Gets an <a href="topic/wijmo.collections.ObservableArray.Class.html"><span class="identifier">ObservableArray</span></a> containing the records that were added to
+the collection since <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#trackChanges"><span class="identifier">trackChanges</span></a> was enabled.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.ObservableArray.Class.html"><span class="identifier">ObservableArray</span></a></dd>
+</dl>
+</div>
+<div id="itemsEdited" class="member-panel mproperty inherited">
+<h3>itemsEdited</h3>
+<div class="comment"><p>Gets an <a href="topic/wijmo.collections.ObservableArray.Class.html"><span class="identifier">ObservableArray</span></a> containing the records that were edited in
+the collection since <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#trackChanges"><span class="identifier">trackChanges</span></a> was enabled.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.ObservableArray.Class.html"><span class="identifier">ObservableArray</span></a></dd>
+</dl>
+</div>
+<div id="itemsRemoved" class="member-panel mproperty inherited">
+<h3>itemsRemoved</h3>
+<div class="comment"><p>Gets an <a href="topic/wijmo.collections.ObservableArray.Class.html"><span class="identifier">ObservableArray</span></a> containing the records that were removed from
+the collection since <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#trackChanges"><span class="identifier">trackChanges</span></a> was enabled.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.ObservableArray.Class.html"><span class="identifier">ObservableArray</span></a></dd>
+</dl>
+</div>
+<div id="newItemCreator" class="member-panel mproperty inherited">
+<h3>newItemCreator</h3>
+<div class="comment"><p>Gets or sets a function that creates new items for the collection.</p>
+<p>If the creator function is not supplied, the <a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a>
 will try to create an uninitialized item of the appropriate type.</p>
-
 <p>If the creator function is supplied, it should be a function that 
 takes no parameters and returns an initialized object of the proper 
-type for the collection.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>pageCount</b></td>
-      <td><b>number</b></td>
-      <td>Gets the total number of pages.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>pageIndex</b></td>
-      <td><b>number</b></td>
-      <td>Gets the zero-based index of the current page.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>pageSize</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the number of items to display on a page.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>sortComparer</b></td>
-      <td><b>Function</b></td>
-      <td><p>Gets or sets a function used to compare values when sorting.</p>
-
+type for the collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a></dd>
+</dl>
+</div>
+<div id="pageCount" class="member-panel mproperty inherited">
+<h3>pageCount</h3>
+<div class="comment"><p>Gets the total number of pages.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="pageIndex" class="member-panel mproperty inherited">
+<h3>pageIndex</h3>
+<div class="comment"><p>Gets the zero-based index of the current page.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="pageSize" class="member-panel mproperty inherited">
+<h3>pageSize</h3>
+<div class="comment"><p>Gets or sets the number of items to display on a page.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="sortComparer" class="member-panel mproperty inherited">
+<h3>sortComparer</h3>
+<div class="comment"><p>Gets or sets a function used to compare values when sorting.</p>
 <p>If provided, the sort comparer function should take as parameters
 two values of any type, and should return -1, 0, or +1 to indicate
 whether the first value is smaller than, equal to, or greater than
 the second. If the sort comparer returns null, the standard built-in
 comparer is used.</p>
-
-<p>This <b>sortComparer</b> property allows you to use custom comparison
+<p>This <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sortComparer"><span class="identifier">sortComparer</span></a> property allows you to use custom comparison
 algorithms that in some cases result in sorting sequences that are
 more consistent with user's expectations than plain string comparisons.</p>
-
 <p>For example, see <a href="http://www.davekoelle.com/alphanum.html">Dave Koele's Alphanum algorithm</a>.
 It breaks up strings into chunks composed of strings or numbers, then
 sorts number chunks in value order and string chunks in ASCII order.
 Dave calls the result a "natural sorting order".</p>
+<p>The example below shows a typical use for the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sortComparer"><span class="identifier">sortComparer</span></a> property:
+</p>
 
-<p>The example below shows a typical use for the <b>sortComparer</b> property:
 <pre>// create a CollectionView with a custom sort comparer
 var dataCustomSort = new wijmo.collections.CollectionView(data, {
   sortComparer: function (a, b) {
@@ -298,464 +401,582 @@ var dataCustomSort = new wijmo.collections.CollectionView(data, {
       ? alphanum(a, b) // custom comparer used for strings
       : null; // use default comparer used for everything else
   }
-});</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>sortConverter</b></td>
-      <td><b>Function</b></td>
-      <td><p>Gets or sets a function used to convert values when sorting.</p>
-
+});</pre></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a></dd>
+</dl>
+</div>
+<div id="sortConverter" class="member-panel mproperty inherited">
+<h3>sortConverter</h3>
+<div class="comment"><p>Gets or sets a function used to convert values when sorting.</p>
 <p>If provided, the function should take as parameters a 
-<a href="topic/wijmo.collections.SortDescription.Class.html"><b>SortDescription</b></a>, a data item, and a value to convert,
+<a href="topic/wijmo.collections.SortDescription.Class.html"><span class="identifier">SortDescription</span></a>, a data item, and a value to convert,
 and should return the converted value.</p>
-
 <p>This property provides a way to customize sorting. For example,
-the <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> control uses it to sort mapped columns by 
+the <a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a> control uses it to sort mapped columns by 
 display value instead of by raw value.</p>
-
-<p>For example, the code below causes a <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a> to
+<p>For example, the code below causes a <a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a> to
 sort the 'country' property, which contains country code integers,
 using the corresponding country names:</p>
 
-<p><pre>var countries = 'US,Germany,UK,Japan,Italy,Greece'.split(',');
+
+<pre>var countries = 'US,Germany,UK,Japan,Italy,Greece'.split(',');
 collectionView.sortConverter = function (sd, item, value) {
   if (sd.property == 'countryMapped') {
     value = countries[value]; // convert country id into name
   }
   return value;
-}</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>sortDescriptions</b></td>
-      <td><a href="topic/wijmo.collections.ObservableArray.Class.html"><b>ObservableArray</b></a></td>
-      <td>Gets a collection of <a href="topic/wijmo.collections.SortDescription.Class.html"><b>SortDescription</b></a> objects that describe how the items 
-in the collection are sorted in the view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>sourceCollection</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the underlying (unfiltered and unsorted) collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>totalItemCount</b></td>
-      <td><b>number</b></td>
-      <td>Gets the total number of items in the view before paging is applied.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>trackChanges</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets or sets a value that determines whether the control should
+}</pre></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a></dd>
+</dl>
+</div>
+<div id="sortDescriptions" class="member-panel mproperty inherited">
+<h3>sortDescriptions</h3>
+<div class="comment"><p>Gets a collection of <a href="topic/wijmo.collections.SortDescription.Class.html"><span class="identifier">SortDescription</span></a> objects that describe how the items 
+in the collection are sorted in the view.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.ObservableArray.Class.html"><span class="identifier">ObservableArray</span></a></dd>
+</dl>
+</div>
+<div id="sourceCollection" class="member-panel mproperty inherited">
+<h3>sourceCollection</h3>
+<div class="comment"><p>Gets or sets the underlying (unfiltered and unsorted) collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="totalItemCount" class="member-panel mproperty inherited">
+<h3>totalItemCount</h3>
+<div class="comment"><p>Gets the total number of items in the view before paging is applied.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="trackChanges" class="member-panel mproperty inherited">
+<h3>trackChanges</h3>
+<div class="comment"><p>Gets or sets a value that determines whether the control should
 track changes to the data.</p>
-
-<p>If <b>trackChanges</b> is set to true, the <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a> keeps
+<p>If <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#trackChanges"><span class="identifier">trackChanges</span></a> is set to true, the <a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a> keeps
 track of changes to the data and exposes them through the 
-<b>itemsAdded</b>, <b>itemsRemoved</b>, and <b>itemsEdited</b> collections.</p>
-
+<a href="topic/wijmo.olap.PivotCollectionView.Class.html/#itemsAdded"><span class="identifier">itemsAdded</span></a>, <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#itemsRemoved"><span class="identifier">itemsRemoved</span></a>, and <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#itemsEdited"><span class="identifier">itemsEdited</span></a> collections.</p>
 <p>Tracking changes is useful in situations where you need to update 
 the server after the user has confirmed that the modifications are 
 valid.</p>
-
-<p>After committing or cancelling changes, use the <b>clearChanges</b> method
-to clear the <b>itemsAdded</b>, <b>itemsRemoved</b>, and <b>itemsEdited</b> 
+<p>After committing or cancelling changes, use the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#clearChanges"><span class="identifier">clearChanges</span></a> method
+to clear the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#itemsAdded"><span class="identifier">itemsAdded</span></a>, <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#itemsRemoved"><span class="identifier">itemsRemoved</span></a>, and <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#itemsEdited"><span class="identifier">itemsEdited</span></a> 
 collections.</p>
-
-<p>The <b>CollectionView</b> only tracks changes made when the proper 
-<b>CollectionView</b> methods are used (<b>editItem</b>/<b>commitEdit</b>, 
-<b>addNew</b>/<b>commitNew</b>, and <b>remove</b>). 
-Changes made directly to the data are not tracked.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>useStableSort</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets or sets whether to use a stable sort algorithm.</p>
-
+<p>The <a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a> only tracks changes made when the proper 
+<a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a> methods are used (<a href="topic/wijmo.olap.PivotCollectionView.Class.html/#editItem"><span class="identifier">editItem</span></a>/<a href="topic/wijmo.olap.PivotCollectionView.Class.html/#commitEdit"><span class="identifier">commitEdit</span></a>, 
+<a href="topic/wijmo.olap.PivotCollectionView.Class.html/#addNew"><span class="identifier">addNew</span></a>/<a href="topic/wijmo.olap.PivotCollectionView.Class.html/#commitNew"><span class="identifier">commitNew</span></a>, and <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#remove"><span class="identifier">remove</span></a>). 
+Changes made directly to the data are not tracked.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="useStableSort" class="member-panel mproperty inherited">
+<h3>useStableSort</h3>
+<div class="comment"><p>Gets or sets whether to use a stable sort algorithm.</p>
 <p>Stable sorting algorithms maintain the relative order of records with equal keys.
 For example, consider a collection of objects with an "Amount" field. 
 If you sort the collection by "Amount", a stable sort will keep the original
 order of records with the same Amount value.</p>
-
-<p>This property is false by default, which causes the <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a> to use
+<p>This property is false by default, which causes the <a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a> to use
 JavaScript's built-in sort method, which is very fast but not stable. Setting
-the <b>useStableSort</b> property to true increases sort times by 30% to 50%, which
-can be significant for large collections.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#useStableSort"><span class="identifier">useStableSort</span></a> property to true increases sort times by 30% to 50%, which
+can be significant for large collections.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>addNew</b>&#8203;(): <b>any</b></td>
-      <td></td>
-      <td><p>Creates a new item and adds it to the collection.</p>
-
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="addNew" class="member-panel mmethod inherited">
+<h3>addNew</h3>
+<pre>addNew(): <span class="identifier">any</span></pre>
+<div class="comment"><p>Creates a new item and adds it to the collection.</p>
 <p>This method takes no parameters. It creates a new item, adds it to the
 collection, and prevents refresh operations until the new item is
-committed using the <b>commitNew</b> method or canceled using the 
-<b>cancelNew</b> method.</p>
+committed using the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#commitNew"><span class="identifier">commitNew</span></a> method or canceled using the 
+<a href="topic/wijmo.olap.PivotCollectionView.Class.html/#cancelNew"><span class="identifier">cancelNew</span></a> method.</p>
+<p>The code below shows how the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#addNew"><span class="identifier">addNew</span></a> method is typically used:</p>
 
-<p>The code below shows how the <b>addNew</b> method is typically used:</p>
 
-<p><pre>
-// create the new item, add it to the collection
+<pre>// create the new item, add it to the collection
 var newItem = view.addNew();
+
 // initialize the new item
 newItem.id = getFreshId();
 newItem.name = 'New Customer';
-// commit the new item so the view can be refreshed
-view.commitNew();
-</pre></p>
 
-<p>You can also add new items by pushing them into the <b>sourceCollection</b>
-and then calling the <b>refresh</b> method. The main advantage of <b>addNew</b>
+// commit the new item so the view can be refreshed
+view.commitNew();</pre>
+<p>You can also add new items by pushing them into the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sourceCollection"><span class="identifier">sourceCollection</span></a>
+and then calling the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#refresh"><span class="identifier">refresh</span></a> method. The main advantage of <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#addNew"><span class="identifier">addNew</span></a>
 is in user-interactive scenarios (like adding new items in a data grid),
 because it gives users the ability to cancel the add operation. It also
 prevents the new item from being sorted or filtered out of view until the 
-add operation is committed.</p><br/><br/><b>Returns</b> The item that was added to the collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>beginUpdate</b>&#8203;()</td>
-      <td></td>
-      <td>Suspend refreshes until the next call to <b>endUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>cancelEdit</b>&#8203;()</td>
-      <td></td>
-      <td>Ends the current edit transaction and, if possible, 
-restores the original value to the item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>cancelNew</b>&#8203;()</td>
-      <td></td>
-      <td>Ends the current add transaction and discards the pending new item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>clearChanges</b>&#8203;()</td>
-      <td></td>
-      <td><p>Clears all changes by removing all items in the <b>itemsAdded</b>, 
-<b>itemsRemoved</b>, and <b>itemsEdited</b> collections.</p>
-
+add operation is committed.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="beginUpdate" class="member-panel mmethod inherited">
+<h3>beginUpdate</h3>
+<pre>beginUpdate(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Suspend refreshes until the next call to <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="cancelEdit" class="member-panel mmethod inherited">
+<h3>cancelEdit</h3>
+<pre>cancelEdit(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Ends the current edit transaction and, if possible, 
+restores the original value to the item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="cancelNew" class="member-panel mmethod inherited">
+<h3>cancelNew</h3>
+<pre>cancelNew(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Ends the current add transaction and discards the pending new item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="clearChanges" class="member-panel mmethod inherited">
+<h3>clearChanges</h3>
+<pre>clearChanges(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Clears all changes by removing all items in the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#itemsAdded"><span class="identifier">itemsAdded</span></a>, 
+<a href="topic/wijmo.olap.PivotCollectionView.Class.html/#itemsRemoved"><span class="identifier">itemsRemoved</span></a>, and <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#itemsEdited"><span class="identifier">itemsEdited</span></a> collections.</p>
 <p>Call this method after committing changes to the server or 
-after refreshing the data from the server.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>commitEdit</b>&#8203;()</td>
-      <td></td>
-      <td>Ends the current edit transaction and saves the pending changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>commitNew</b>&#8203;()</td>
-      <td></td>
-      <td>Ends the current add transaction and saves the pending new item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>contains</b>&#8203;(item): <b>boolean</b></td>
-      <td><p>
-<b>item</b> (<b>any</b>): Item to seek.<br/></p>
-</td>
-      <td>Returns a value indicating whether a given item belongs to this view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>deferUpdate</b>&#8203;(fn)</td>
-      <td><p>
-<b>fn</b> (<b>Function</b>): Function to be executed without updates.<br/></p>
-</td>
-      <td><p>Executes a function within a <b>beginUpdate</b>/<b>endUpdate</b> block.</p>
-
+after refreshing the data from the server.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="commitEdit" class="member-panel mmethod inherited">
+<h3>commitEdit</h3>
+<pre>commitEdit(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Ends the current edit transaction and saves the pending changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="commitNew" class="member-panel mmethod inherited">
+<h3>commitNew</h3>
+<pre>commitNew(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Ends the current add transaction and saves the pending new item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="contains" class="member-panel mmethod inherited">
+<h3>contains</h3>
+<pre>contains(item: <span class="identifier">any</span>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Returns a value indicating whether a given item belongs to this view.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>item</b>: <span class="identifier">any</span><br/><p>Item to seek.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="deferUpdate" class="member-panel mmethod inherited">
+<h3>deferUpdate</h3>
+<pre>deferUpdate(fn: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Executes a function within a <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#beginUpdate"><span class="identifier">beginUpdate</span></a>/<a href="topic/wijmo.olap.PivotCollectionView.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a> block.</p>
 <p>The collection will not be refreshed until the function finishes. 
-This method ensures <b>endUpdate</b> is called even if the function throws
-an exception.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>editItem</b>&#8203;(item)</td>
-      <td><p>
-<b>item</b> (<b>any</b>): Item to be edited.<br/></p>
-</td>
-      <td>Begins an edit transaction of the specified item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>endUpdate</b>&#8203;()</td>
-      <td></td>
-      <td>Resume refreshes suspended by a call to <b>beginUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>getAggregate</b>&#8203;(aggType, binding)</td>
-      <td><p>
-<b>aggType</b> (<a href="topic/wijmo.Aggregate.Enum.html"><b>Aggregate</b></a>): Type of aggregate to calculate.<br/><b>binding</b> (<b>string</b>): Property to aggregate on.<br/></p>
-</td>
-      <td>Calculates an aggregate value for the items in this collection.<br/><br/><b>Returns</b> The aggregate value.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>implementsInterface</b>&#8203;(interfaceName): <b>boolean</b></td>
-      <td><p>
-<b>interfaceName</b> (<b>string</b>): Name of the interface to look for.<br/></p>
-</td>
-      <td>Returns true if the caller queries for a supported interface.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>moveCurrentTo</b>&#8203;(item): <b>boolean</b></td>
-      <td><p>
-<b>item</b> (<b>any</b>): Item that will become current.<br/></p>
-</td>
-      <td>Sets the specified item to be the current item in the view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>moveCurrentToFirst</b>&#8203;(): <b>boolean</b></td>
-      <td></td>
-      <td>Sets the first item in the view as the current item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>moveCurrentToLast</b>&#8203;(): <b>boolean</b></td>
-      <td></td>
-      <td>Sets the last item in the view as the current item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>moveCurrentToNext</b>&#8203;(): <b>boolean</b></td>
-      <td></td>
-      <td>Sets the item after the current item in the view as the current item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>moveCurrentToPosition</b>&#8203;(index): <b>boolean</b></td>
-      <td><p>
-<b>index</b> (<b>number</b>): Index of the item that will become current.<br/></p>
-</td>
-      <td>Sets the item at the specified index in the view as the current item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>moveCurrentToPrevious</b>&#8203;(): <b>boolean</b></td>
-      <td></td>
-      <td>Sets the item before the current item in the view as the current item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>moveToFirstPage</b>&#8203;(): <b>boolean</b></td>
-      <td></td>
-      <td>Sets the first page as the current page.<br/><br/><b>Returns</b> True if the page index was changed successfully.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>moveToLastPage</b>&#8203;(): <b>boolean</b></td>
-      <td></td>
-      <td>Sets the last page as the current page.<br/><br/><b>Returns</b> True if the page index was changed successfully.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>moveToNextPage</b>&#8203;(): <b>boolean</b></td>
-      <td></td>
-      <td>Moves to the page after the current page.<br/><br/><b>Returns</b> True if the page index was changed successfully.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>moveToPage</b>&#8203;(index): <b>boolean</b></td>
-      <td><p>
-<b>index</b> (<b>number</b>): Index of the page to move to.<br/></p>
-</td>
-      <td>Moves to the page at the specified index.<br/><br/><b>Returns</b> True if the page index was changed successfully.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>moveToPreviousPage</b>&#8203;(): <b>boolean</b></td>
-      <td></td>
-      <td>Moves to the page before the current page.<br/><br/><b>Returns</b> True if the page index was changed successfully.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onCollectionChanged</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (): Contains a description of the change.<br/><span class="text-info">(default value: <b>NotifyCollectionChangedEventArgs.&#8203;reset</b>)</span><br/></p>
-</td>
-      <td>Raises the <b>collectionChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onCurrentChanged</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> ()<br/><span class="text-info">(default value: <b>EventArgs.&#8203;empty</b>)</span><br/></p>
-</td>
-      <td>Raises the <b>currentChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onCurrentChanging</b>&#8203;(e): <b>boolean</b></td>
-      <td><p>
-<b>e</b> (<a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a>): <a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a> that contains the event data.<br/></p>
-</td>
-      <td>Raises the <b>currentChanging</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onPageChanged</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> ()<br/><span class="text-info">(default value: <b>EventArgs.&#8203;empty</b>)</span><br/></p>
-</td>
-      <td>Raises the <b>pageChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onPageChanging</b>&#8203;(e): <b>boolean</b></td>
-      <td><p>
-<b>e</b> (<a href="topic/wijmo.collections.PageChangingEventArgs.Class.html"><b>PageChangingEventArgs</b></a>): <a href="topic/wijmo.collections.PageChangingEventArgs.Class.html"><b>PageChangingEventArgs</b></a> that contains the event data.<br/></p>
-</td>
-      <td>Raises the <b>pageChanging</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onSourceCollectionChanged</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>sourceCollectionChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onSourceCollectionChanging</b>&#8203;(e): <b>boolean</b></td>
-      <td><p>
-<b>e</b> (<a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a>): <a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a> that contains the event data.<br/></p>
-</td>
-      <td>Raises the <b>sourceCollectionChanging</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>refresh</b>&#8203;()</td>
-      <td></td>
-      <td>Re-creates the view using the current sort, filter, and group parameters.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>remove</b>&#8203;(item)</td>
-      <td><p>
-<b>item</b> (<b>any</b>): Item to be removed from the collection.<br/></p>
-</td>
-      <td>Removes the specified item from the collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>removeAt</b>&#8203;(index)</td>
-      <td><p>
-<b>index</b> (<b>number</b>): Index of the item to be removed from the collection.
-The index is relative to the view, not to the source collection.<br/></p>
-</td>
-      <td>Removes the item at the specified index from the collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+This method ensures <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a> is called even if the function throws
+an exception.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>fn</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a><br/><p>Function to be executed without updates.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
-<span class="glyph-collapsed" ng-show="hideEvents"></span>
-<span class="glyph-expanded" ng-hide="hideEvents"></span>
-Events
-</h3>
+<div id="editItem" class="member-panel mmethod inherited">
+<h3>editItem</h3>
+<pre>editItem(item: <span class="identifier">any</span>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Begins an edit transaction of the specified item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>item</b>: <span class="identifier">any</span><br/><p>Item to be edited.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Arguments</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>collectionChanged</b></td>
-      <td></td>
-      <td>Occurs when the collection changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>currentChanged</b></td>
-      <td></td>
-      <td>Occurs after the current item changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>currentChanging</b></td>
-      <td><a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a></td>
-      <td>Occurs before the current item changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>pageChanged</b></td>
-      <td></td>
-      <td>Occurs after the page index changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>pageChanging</b></td>
-      <td><a href="topic/wijmo.collections.PageChangingEventArgs.Class.html"><b>PageChangingEventArgs</b></a></td>
-      <td>Occurs before the page index changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>sourceCollectionChanged</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs after the value of the <b>sourceCollection</b> property changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>sourceCollectionChanging</b></td>
-      <td><a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a></td>
-      <td>Occurs before the value of the <b>sourceCollection</b> property changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+<div id="endUpdate" class="member-panel mmethod inherited">
+<h3>endUpdate</h3>
+<pre>endUpdate(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Resume refreshes suspended by a call to <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#beginUpdate"><span class="identifier">beginUpdate</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-
+<div id="getAggregate" class="member-panel mmethod inherited">
+<h3>getAggregate</h3>
+<pre>getAggregate(aggType: <a href="topic/wijmo.Aggregate.Enum.html"><span class="identifier">Aggregate</span></a>, binding: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, currentPage?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Calculates an aggregate value for the items in this collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>aggType</b>: <a href="topic/wijmo.Aggregate.Enum.html"><span class="identifier">Aggregate</span></a><br/><p>Type of aggregate to calculate.</p></li><li><b>binding</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>Property to aggregate on.</p></li><li><b>currentPage</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether to include only items on the current page.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="implementsInterface" class="member-panel mmethod inherited">
+<h3>implementsInterface</h3>
+<pre>implementsInterface(interfaceName: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Returns true if the caller queries for a supported interface.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>interfaceName</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>Name of the interface to look for.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="moveCurrentTo" class="member-panel mmethod inherited">
+<h3>moveCurrentTo</h3>
+<pre>moveCurrentTo(item: <span class="identifier">any</span>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Sets the specified item to be the current item in the view.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>item</b>: <span class="identifier">any</span><br/><p>Item that will become current.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="moveCurrentToFirst" class="member-panel mmethod inherited">
+<h3>moveCurrentToFirst</h3>
+<pre>moveCurrentToFirst(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Sets the first item in the view as the current item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="moveCurrentToLast" class="member-panel mmethod inherited">
+<h3>moveCurrentToLast</h3>
+<pre>moveCurrentToLast(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Sets the last item in the view as the current item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="moveCurrentToNext" class="member-panel mmethod inherited">
+<h3>moveCurrentToNext</h3>
+<pre>moveCurrentToNext(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Sets the item after the current item in the view as the current item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="moveCurrentToPosition" class="member-panel mmethod inherited">
+<h3>moveCurrentToPosition</h3>
+<pre>moveCurrentToPosition(index: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Sets the item at the specified index in the view as the current item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>index</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Index of the item that will become current.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="moveCurrentToPrevious" class="member-panel mmethod inherited">
+<h3>moveCurrentToPrevious</h3>
+<pre>moveCurrentToPrevious(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Sets the item before the current item in the view as the current item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="moveToFirstPage" class="member-panel mmethod inherited">
+<h3>moveToFirstPage</h3>
+<pre>moveToFirstPage(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Sets the first page as the current page.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="moveToLastPage" class="member-panel mmethod inherited">
+<h3>moveToLastPage</h3>
+<pre>moveToLastPage(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Sets the last page as the current page.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="moveToNextPage" class="member-panel mmethod inherited">
+<h3>moveToNextPage</h3>
+<pre>moveToNextPage(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Moves to the page after the current page.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="moveToPage" class="member-panel mmethod inherited">
+<h3>moveToPage</h3>
+<pre>moveToPage(index: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Moves to the page at the specified index.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>index</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Index of the page to move to.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="moveToPreviousPage" class="member-panel mmethod inherited">
+<h3>moveToPreviousPage</h3>
+<pre>moveToPreviousPage(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Moves to the page before the current page.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="onCollectionChanged" class="member-panel mmethod inherited raiser">
+<h3>onCollectionChanged</h3>
+<pre>onCollectionChanged(e?: <a href="topic/wijmo.collections.NotifyCollectionChangedEventArgs.Class.html"><span class="identifier">NotifyCollectionChangedEventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#collectionChanged"><span class="identifier">collectionChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.collections.NotifyCollectionChangedEventArgs.Class.html"><span class="identifier">NotifyCollectionChangedEventArgs</span></a> <span class="badge">Optional</span><br/><p>Contains a description of the change.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onCurrentChanged" class="member-panel mmethod inherited raiser">
+<h3>onCurrentChanged</h3>
+<pre>onCurrentChanged(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#currentChanged"><span class="identifier">currentChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onCurrentChanging" class="member-panel mmethod inherited raiser">
+<h3>onCurrentChanging</h3>
+<pre>onCurrentChanging(e: <a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#currentChanging"><span class="identifier">currentChanging</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a><br/><p><a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a> that contains the event data.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="onPageChanged" class="member-panel mmethod inherited raiser">
+<h3>onPageChanged</h3>
+<pre>onPageChanged(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#pageChanged"><span class="identifier">pageChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onPageChanging" class="member-panel mmethod inherited raiser">
+<h3>onPageChanging</h3>
+<pre>onPageChanging(e: <a href="topic/wijmo.collections.PageChangingEventArgs.Class.html"><span class="identifier">PageChangingEventArgs</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#pageChanging"><span class="identifier">pageChanging</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.collections.PageChangingEventArgs.Class.html"><span class="identifier">PageChangingEventArgs</span></a><br/><p><a href="topic/wijmo.collections.PageChangingEventArgs.Class.html"><span class="identifier">PageChangingEventArgs</span></a> that contains the event data.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="onSourceCollectionChanged" class="member-panel mmethod inherited raiser">
+<h3>onSourceCollectionChanged</h3>
+<pre>onSourceCollectionChanged(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sourceCollectionChanged"><span class="identifier">sourceCollectionChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onSourceCollectionChanging" class="member-panel mmethod inherited raiser">
+<h3>onSourceCollectionChanging</h3>
+<pre>onSourceCollectionChanging(e: <a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sourceCollectionChanging"><span class="identifier">sourceCollectionChanging</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a><br/><p><a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a> that contains the event data.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="refresh" class="member-panel mmethod inherited">
+<h3>refresh</h3>
+<pre>refresh(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Re-creates the view using the current sort, filter, and group parameters.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="remove" class="member-panel mmethod inherited">
+<h3>remove</h3>
+<pre>remove(item: <span class="identifier">any</span>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Removes the specified item from the collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>item</b>: <span class="identifier">any</span><br/><p>Item to be removed from the collection.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="removeAt" class="member-panel mmethod inherited">
+<h3>removeAt</h3>
+<pre>removeAt(index: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Removes the item at the specified index from the collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>index</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Index of the item to be removed from the collection.
+The index is relative to the view, not to the source collection.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Events</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="collectionChanged" class="member-panel mevent inherited">
+<h3>collectionChanged</h3>
+<div class="comment"><p>Occurs when the collection changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.collections.NotifyCollectionChangedEventArgs.Class.html"><span class="identifier">NotifyCollectionChangedEventArgs</span></a></dd>
+</dl>
+</div>
+<div id="currentChanged" class="member-panel mevent inherited">
+<h3>currentChanged</h3>
+<div class="comment"><p>Occurs after the current item changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="currentChanging" class="member-panel mevent inherited">
+<h3>currentChanging</h3>
+<div class="comment"><p>Occurs before the current item changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a></dd>
+</dl>
+</div>
+<div id="pageChanged" class="member-panel mevent inherited">
+<h3>pageChanged</h3>
+<div class="comment"><p>Occurs after the page index changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="pageChanging" class="member-panel mevent inherited">
+<h3>pageChanging</h3>
+<div class="comment"><p>Occurs before the page index changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.collections.PageChangingEventArgs.Class.html"><span class="identifier">PageChangingEventArgs</span></a></dd>
+</dl>
+</div>
+<div id="sourceCollectionChanged" class="member-panel mevent inherited">
+<h3>sourceCollectionChanged</h3>
+<div class="comment"><p>Occurs after the value of the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sourceCollection"><span class="identifier">sourceCollection</span></a> property changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="sourceCollectionChanging" class="member-panel mevent inherited">
+<h3>sourceCollectionChanging</h3>
+<div class="comment"><p>Occurs before the value of the <a href="topic/wijmo.olap.PivotCollectionView.Class.html/#sourceCollection"><span class="identifier">sourceCollection</span></a> property changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a></dd>
+</dl>
+</div>
+</div>

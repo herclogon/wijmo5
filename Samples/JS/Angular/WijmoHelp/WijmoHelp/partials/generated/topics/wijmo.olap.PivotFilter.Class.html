@@ -1,140 +1,98 @@
-<h2>PivotFilter Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">PivotFilter</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.olap</dd>
-<dt>File</dt><dd>wijmo.olap.js</dd>
+<dt>File</dt><dd class="filename">wijmo.olap.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.olap.Module.html"><span class="identifier">wijmo.olap</span></a></dd>
 </dl>
-<p>Represents a filter used to select values for a <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a>.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+<div class="comment"><p>Represents a filter used to select values for a <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a>.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(field): <a href="topic/wijmo.olap.PivotFilter.Class.html"><b>PivotFilter</b></a></td>
-      <td><p>
-<b>field</b> (<a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a>): <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> that owns this filter.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.olap.PivotFilter.Class.html"><b>PivotFilter</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotFilter.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotFilter.Class.html/#conditionFilter">conditionFilter</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotFilter.Class.html/#filterType">filterType</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotFilter.Class.html/#isActive">isActive</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotFilter.Class.html/#valueFilter">valueFilter</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotFilter.Class.html/#apply">apply</a></li>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotFilter.Class.html/#clear">clear</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(field: <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a>): <a href="topic/wijmo.olap.PivotFilter.Class.html"><span class="identifier">PivotFilter</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.olap.PivotFilter.Class.html"><span class="identifier">PivotFilter</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>field</b>: <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a><br/><p><a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a> that owns this filter.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.olap.PivotFilter.Class.html"><span class="identifier">PivotFilter</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>conditionFilter</b></td>
-      <td><a href="topic/wijmo.grid.filter.ConditionFilter.Class.html"><b>ConditionFilter</b></a></td>
-      <td>Gets the <a href="topic/wijmo.grid.filter.ConditionFilter.Class.html"><b>ConditionFilter</b></a> in this <a href="topic/wijmo.olap.PivotFilter.Class.html"><b>PivotFilter</b></a>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>filterType</b></td>
-      <td><b>FilterType</b></td>
-      <td><p>Gets or sets the types of filtering provided by this filter.</p>
-
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="conditionFilter" class="member-panel mproperty">
+<h3>conditionFilter</h3>
+<div class="comment"><p>Gets the <a href="topic/wijmo.grid.filter.ConditionFilter.Class.html"><span class="identifier">ConditionFilter</span></a> in this <a href="topic/wijmo.olap.PivotFilter.Class.html"><span class="identifier">PivotFilter</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.grid.filter.ConditionFilter.Class.html"><span class="identifier">ConditionFilter</span></a></dd>
+</dl>
+</div>
+<div id="filterType" class="member-panel mproperty">
+<h3>filterType</h3>
+<div class="comment"><p>Gets or sets the types of filtering provided by this filter.</p>
 <p>Setting this property to null causes the filter to use the value
-defined by the owner filter's <b>defaultFilterType</b>
-property.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>isActive</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether the filter is active.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>valueFilter</b></td>
-      <td><a href="topic/wijmo.grid.filter.ValueFilter.Class.html"><b>ValueFilter</b></a></td>
-      <td>Gets the <a href="topic/wijmo.grid.filter.ValueFilter.Class.html"><b>ValueFilter</b></a> in this <a href="topic/wijmo.olap.PivotFilter.Class.html"><b>PivotFilter</b></a>.</td>
-    </tr>
-</tbody>
-</table>
+defined by the owner filter's <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html/#defaultFilterType"><span class="identifier">defaultFilterType</span></a>
+property.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.grid.filter.FilterType.Enum.html"><span class="identifier">FilterType</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div id="isActive" class="member-panel mproperty">
+<h3>isActive</h3>
+<div class="comment"><p>Gets a value that indicates whether the filter is active.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>apply</b>&#8203;(value): <b>boolean</b></td>
-      <td><p>
-<b>value</b> (): The value to test.<br/></p>
-</td>
-      <td>Gets a value that indicates whether a value passes the filter.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>clear</b>&#8203;(): <b>void</b></td>
-      <td></td>
-      <td>Clears the filter.</td>
-    </tr>
-</tbody>
-</table>
+<div id="valueFilter" class="member-panel mproperty">
+<h3>valueFilter</h3>
+<div class="comment"><p>Gets the <a href="topic/wijmo.grid.filter.ValueFilter.Class.html"><span class="identifier">ValueFilter</span></a> in this <a href="topic/wijmo.olap.PivotFilter.Class.html"><span class="identifier">PivotFilter</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.grid.filter.ValueFilter.Class.html"><span class="identifier">ValueFilter</span></a></dd>
+</dl>
 </div>
-
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="apply" class="member-panel mmethod">
+<h3>apply</h3>
+<pre>apply(value): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Gets a value that indicates whether a value passes the filter.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <br/><p>The value to test.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="clear" class="member-panel mmethod">
+<h3>clear</h3>
+<pre>clear(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Clears the filter.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>

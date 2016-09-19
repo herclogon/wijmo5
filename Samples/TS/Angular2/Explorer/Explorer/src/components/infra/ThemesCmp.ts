@@ -1,19 +1,21 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, ViewChild, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { InputBaseCmp } from '../input/InputBaseCmp';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
-import { ToDatePipe } from '../../pipes/appPipes';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
+import { AppPipesModule } from '../../pipes/appPipes';
+
 
 // Wijmo Themes component.
 @Component({
     selector: 'grid-themes-cmp',
-    templateUrl: 'src/components/infra/themesCmp.html',
-    directives: [wjNg2Input.WjInputDate, wjNg2Input.WjInputTime, wjNg2Input.WjCalendar, wjNg2Grid.WjFlexGrid, CORE_DIRECTIVES],
-    pipes: [ToDatePipe]
+    templateUrl: 'src/components/infra/themesCmp.html'
 })
 
 export class ThemesCmp extends InputBaseCmp {
@@ -32,4 +34,14 @@ export class ThemesCmp extends InputBaseCmp {
     }
 }
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ThemesCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjGridModule, WjInputModule, AppPipesModule],
+    declarations: [ThemesCmp],
+})
+export class ThemesModule {
+}
 

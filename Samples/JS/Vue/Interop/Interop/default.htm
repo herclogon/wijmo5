@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Wijmo Interop - Vue</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap/Vue -->
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+
+    <!-- Wijmo -->
+    <link href="styles/vendor/wijmo.min.css" rel="stylesheet" />
+    <script src="scripts/vendor/wijmo.min.js"></script>
+    <script src="scripts/vendor/wijmo.input.min.js"></script>
+    <script src="scripts/vendor/wijmo.grid.min.js"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js"></script>
+    <script src="scripts/vendor/wijmo.gauge.min.js"></script>
+
+    <!-- Wijmo/Vue interop -->
+    <script src="scripts/vendor/wijmo.vue.min.js"></script>
+
+    <!-- app styles and scripts -->
+    <link href="styles/wijmo.inputlabels.css" rel="stylesheet" />
+    <link href="styles/app.css" rel="stylesheet" />
+    <script src="scripts/app.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <img src="resources/wj-vue.png" alt="Wijmo Vue logo" />
+            <h1>
+                Wijmo and Vue
+            </h1>
+        </div>
+    </div>
+    <div id="app" class="container">
+        <p>
+            <a href="https://vuejs.org/guide/">Vue</a> is a JavaScript application framework
+            similar to Angular and React, but simpler and lighter.
+            Vue 1.0.25 is less than 80k of minified JavaScript. Angular 1.5.6 and React 15.1.0 
+            are both about twice that size.</p>
+        <p>
+            Despite its tiny footprint, Vue is very powerful and flexible. You can see how it
+            compares with some other popular JavaScript frameworks
+            <a href="https://vuejs.org/guide/comparison.html">here</a>.</p>
+        <p>
+            Wijmo is also compact, powerful and flexible. The two libraries are a great match.
+            You can read more about Wijmo 5
+            <a href="http://wijmo.com/products/wijmo-5/">here</a>.</p>
+        <p>
+            This sample shows how you can easily encapsulate Wijmo controls into <b>Vue</b> components.
+            It has a main component that contains some random data, and several Wijmo controls all
+            bound to the same data. If you use any control to modify the data, the changes are
+            automatically reflected on all other controls on the page.</p>
+
+        <h3>
+            FlexGrid
+        </h3>
+        <p>
+            Let's begin by showing some data on an editable <b>FlexGrid</b> control:</p>
+
+        <wj-flex-grid
+            control="theGrid"
+            :items-source="view">
+            <wj-flex-grid-column binding="name" header="Name"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="sales" header="Sales" format="c0"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="expenses" header="Expenses" format="c0"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="active" header="Active"></wj-flex-grid-column>
+            <wj-flex-grid-column binding="date" header="Date"></wj-flex-grid-column>
+        </wj-flex-grid>
+        <p>
+            The Wijmo Vue components expose a "control" pseudo-property that exposes
+            the control instance to the parent component. This allows you to use the
+            control in your markup. For example, the grid above has 
+            <b>{{ theGrid.rows.length }}</b> rows.</p>
+
+        <h3>
+            FlexChart
+        </h3>
+        <p>
+            Next, let's show the same data as a chart using the <b>FlexChart</b> control:</p>
+
+        <wj-flex-chart 
+            :items-source="view"
+            binding-x="name">
+            <wj-flex-chart-series name="Sales" binding="sales"></wj-flex-chart-series>
+            <wj-flex-chart-series name="Expenses" binding="expenses"></wj-flex-chart-series>
+            <wj-flex-chart-series name="Downloads" binding="downloads" chart-type="LineSymbols"></wj-flex-chart-series>
+        </wj-flex-chart>
+
+        <p>
+            The chart is bound to the same <b>CollectionView</b> as the grid, so if you 
+            edit or sort the data on the grid, the changes will be automatically be 
+            reflected on the chart.</p>
+
+        <h3>
+            Gauges
+        </h3>
+        <p>
+            Here's two gauges bound to the current customer's sales.
+            You can use the gauges to see and also to edit the sales amount.</p>
+        <wj-linear-gauge 
+            :min="0"
+            :max="1000"
+            :step="50"
+            format="c0"
+            :thumb-size="20"
+            :is-read-only="false"
+            :show-ranges="false"
+            :value.sync="view.currentItem.sales"
+            :value-changed="refreshView">
+            <wj-range wj-property="face" :thickness="0.5"></wj-range>
+            <wj-range wj-property="pointer" :thickness="0.5"></wj-range>
+            <wj-range :min="0" :max="333" color="red"></wj-range>
+            <wj-range :min="333" :max="666" color="gold"></wj-range>
+            <wj-range :min="666" :max="1000" color="green"></wj-range>
+        </wj-linear-gauge>
+        <wj-radial-gauge 
+            :min="0"
+            :max="1000"
+            :step="50"
+            format="c0"
+            show-text="Value"
+            :thumb-size="12"
+            :is-read-only="false"
+            :show-ranges="false"
+            :value.sync="view.currentItem.sales"
+            :value-changed="refreshView">
+            <wj-range wj-property="face" :thickness="0.08"></wj-range>
+            <wj-range wj-property="pointer" :thickness="0.08"></wj-range>
+            <wj-range :min="0" :max="333" color="red"></wj-range>
+            <wj-range :min="333" :max="666" color="gold"></wj-range>
+            <wj-range :min="666" :max="1000" color="green"></wj-range>
+        </wj-radial-gauge>
+
+        <h3>
+            Input Controls
+        </h3>
+        <p>
+            This section shows several input controls bound to the current item's properties:</p>
+        <table class="table table-condensed">
+            <tr>
+                <td><label for="c">Name:</label></td>
+                <td>
+                    <wj-combo-box
+                        id="c"
+                        placeholder="Name"
+                        :text.sync="view.currentItem.name"
+                        :text-changed="refreshView"
+                        :items-source="names"
+                        :is-editable="true"
+                        :is-required="false">
+                    </wj-combo-box>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="n">Sales:</label></td>
+                <td>
+                    <wj-input-number
+                        id="n"
+                        format="c2"
+                        placeholder="Sales"
+                        :value.sync="view.currentItem.sales"
+                        :value-changed="refreshView"
+                        :min="0"
+                        :max="10000"
+                        :step="100"
+                        :is-required="false">
+                    </wj-input-number>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="d">Date/Time:</label></td>
+                <td>
+                    <wj-input-date
+                        id="d"
+                        placeholder="Date"
+                        :value.sync="view.currentItem.date"
+                        :value-changed="refreshView"
+                        :is-required="false">
+                    </wj-input-date>
+                    <wj-input-time 
+                        placeholder="Time"
+                        :value.sync="view.currentItem.date"
+                        :value-changed="refreshView"
+                        :is-required="false">
+                    </wj-input-time>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="dt">DateTime:</label></td>
+                <td>
+                    <wj-input-date-time
+                        id="dt"
+                        placeholder="Date and Time"
+                        :value.sync="view.currentItem.date"
+                        :value-changed="refreshView"
+                        :is-required="false">
+                    </wj-input-date-time>
+                </td>
+            </tr>
+        </table>
+
+        <h3>
+            Modal Popup and Labeled Inputs
+        </h3>
+        <p>
+            This section shows a modal popup containing input controls with 
+            floating labels (inspired by the 
+            <a href="https://getmdl.io/">Material Design Lite</a> CSS library):</p>
+
+        <button class="btn btn-primary" v-on:click="editCurrentItem()">
+            Edit Current Item
+        </button>
+        <wj-popup control="itemEditor" class="modal-content" :dialog-result-enter="wj-hide-ok">
+        
+            <div class="modal-header">
+                <button type="button" tabindex="-1" class="close wj-hide">
+                    <span>&times;</span>
+                </button>
+                <h4 class="modal-title">Edit Item</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="wj-labeled-input" >
+                    <wj-combo-box
+                        :text.sync="view.currentItem.name"
+                        :text-changed="refreshView"
+                        :items-source="names"
+                        :is-editable="true"
+                        :is-required = "false"
+                        id="cmbName">
+                    </wj-combo-box>
+                    <label for="cmbName">Name</label>
+                </div>
+                <div class="wj-labeled-input" >
+                    <wj-input-date
+                        :value.sync="view.currentItem.date"
+                        :is-required = "false"
+                        id="idDate">
+                    </wj-input-date>
+                    <label for="idDate">Date</label>
+                </div>
+                <br/>
+                <div class="wj-labeled-input" >
+                    <wj-input-number
+                        :value.sync="view.currentItem.sales"
+                        :min="0"
+                        :max="10000"
+                        :step="100"
+                        :is-required="false"
+                        format="c2"
+                        id="inSales">
+                    </wj-input-number>
+                    <label for="inSales">Sales</label>
+                </div>
+                <div class="wj-labeled-input" >
+                    <wj-input-number
+                        :value.sync="view.currentItem.expenses"
+                        :min="0"
+                        :max="10000"
+                        :step="100"
+                        :is-required="false"
+                        format="c2"
+                        id="inExpenses">
+                    </wj-input-number>
+                    <label for="inExpenses">Expenses</label>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary wj-hide-ok">OK</button>
+                <button type="button" class="btn btn-default wj-hide">Cancel</button>
+            </div>
+
+        </wj-popup>
+    </div>
+</body>
+
+</html>

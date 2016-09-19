@@ -1,0 +1,1046 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FlexChart Introduction</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap/Vue -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+
+    <!-- Wijmo -->
+    <link rel="stylesheet" href="styles/vendor/wijmo.min.css" />
+    <script src="scripts/vendor/wijmo.min.js"></script>
+    <script src="scripts/vendor/wijmo.input.min.js"></script>
+    <script src="scripts/vendor/wijmo.chart.min.js"></script>
+    <script src="scripts/vendor/wijmo.vue.min.js"></script>
+
+    <!-- app scripts and styles -->
+    <link href="styles/app.css" rel="stylesheet"/>
+    <script src="scripts/app.js"></script>
+</head>
+<body>
+    <div class="header visible-xs visible-sm">
+        <div class="container">
+            <h1>
+                FlexChart 101 (Vue)</h1>
+        </div>
+    </div>
+    <div class="header hidden-xs hidden-sm">
+        <div class="container">
+            <img src="resources/wijmo5.png" />
+            <h1>
+                FlexChart 101 (Vue)</h1>
+            <p>
+                This page shows how to get started with Wijmo's FlexChart control.</p>
+        </div>
+    </div>
+    <div id="app" class="container">
+
+        <!-- getting started -->
+        <h2>
+            Getting Started</h2>
+        <p>
+            Steps for getting started with FlexChart in Vue applications:</p>
+        <ol>
+            <li>Add references to Vue, Wijmo, and Wijmo's Vue interop module.</li>
+            <li>Create a Vue object and give it a host element.</li>
+            <li>Add FlexChart controls to Vue's host element and bind them to the data.</li>
+            <li>Add some CSS to customize the chart's appearance.</li>
+        </ol>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#gsHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#gsJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="gsHtml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;!-- Vue --&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- Wijmo --&gt;
+    &lt;link href="http://cdn.wijmo.com/5.latest/styles/wijmo.min.css" rel="stylesheet"/&gt;
+    &lt;script src="http://cdn.wijmo.com/5.latest/controls/wijmo.min.js"&gt;&lt;/script&gt;
+    &lt;script src="http://cdn.wijmo.com/5.latest/controls/wijmo.chart.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- Wijmo/Vue interop --&gt;
+    &lt;script src="http://cdn.wijmo.com/5.latest/interop/vue/wijmo.vue.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- app scripts and styles --&gt;
+    &lt;link href="styles/app.css" rel="stylesheet" /&gt;
+    &lt;script src="scripts/app.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="app"&gt;
+        &lt;wj-flex-chart 
+            :items-source="data"
+            binding-x="country"&gt;
+            &lt;wj-flex-chart-series
+                name="Sales"
+                binding="sales"&gt;&lt;/wj-flex-chart-series&gt;
+            &lt;wj-flex-chart-series
+                name="Expenses"
+                binding="expenses"&gt;&lt;/wj-flex-chart-series&gt;
+            &lt;wj-flex-chart-series
+                name="Downloads"
+                binding="downloads"&gt;&lt;/wj-flex-chart-series&gt;
+        &lt;/wj-flex-chart&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </div>
+                    <div class="tab-pane pane-content" id="gsJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        data: getData(),
+    },
+});
+
+// generate some random data
+function getData() {
+    var countries = 'US,Germany,UK,Japan,Italy,Greece'.split(','),
+        data = [];
+    for (var i = 0; i &lt; countries.length; i++) {
+        data.push({
+            country: countries[i],
+            downloads: Math.round(Math.random() * 20000),
+            sales: Math.random() * 10000,
+            expenses: Math.random() * 5000
+        });
+    }
+    return data;
+}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-flex-chart 
+                    :items-source="data"
+                    binding-x="country">
+                    <wj-flex-chart-series name="Sales" binding="sales"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Expenses" binding="expenses"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Downloads" binding="downloads"></wj-flex-chart-series>
+                </wj-flex-chart>
+            </div>
+        </div>
+
+        <!-- chart types -->
+        <h2>
+            Chart Types</h2>
+        <p>
+            The FlexChart control has three properties that allow you to customize the chart 
+            type:</p>
+        <ol>
+            <li>
+                <b>chartType</b>: Selects the default chart type to be used for all series objects.
+                Individual series objects can override this.</li>
+            <li>
+                <b>stacking</b>: Determines whether series objects are plotted independently, 
+                stacked, or stacked so their sum is 100%.</li>
+            <li>
+                <b>rotated</b>: Flips the X and Y axes so X becomes vertical and Y horizontal.</li> 
+        </ol>
+        <p>
+            The example below allows you to see what happens when you change these properties:</p>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#ctHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#ctJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="ctHtml">
+&lt;wj-flex-chart 
+    :items-source="data" 
+    :chart-type="chartProps.chartType"
+    :stacking="chartProps.stacking"
+    :rotated="chartProps.rotated"
+    binding-x="country"&gt;
+    &lt;wj-flex-chart-series name="Sales" binding="sales"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series name="Expenses" binding="expenses"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series name="Downloads" binding="downloads"&gt;&lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;
+
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Chart Type&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-combo-box 
+            :items-source="chartTypes"
+            :text.sync="chartProps.chartType"&gt;
+        &lt;/wj-combo-box&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;Stacking&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-combo-box 
+            :items-source="stackingOptions"
+            :text.sync="chartProps.stacking"&gt;
+        &lt;/wj-combo-box&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;Rotated&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;input type="checkbox" v-model="chartProps.rotated" /&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="ctJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        data: getData(),
+        chartProps: {
+            chartType: 'Column',
+            stacking: 'None',
+            rotated: false
+        },
+        chartTypes: 'Column,Bar,Scatter,Line,LineSymbols,Area,Spline,SplineSymbols,SplineArea'.split(','),
+        stackingOptions: 'None,Stacked,Stacked100pc'.split(',')
+    },
+});
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-flex-chart 
+                    :items-source="data" 
+                    :chart-type="chartProps.chartType"
+                    :stacking="chartProps.stacking"
+                    :rotated="chartProps.rotated"
+                    binding-x="country">
+                    <wj-flex-chart-series name="Sales" binding="sales"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Expenses" binding="expenses"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Downloads" binding="downloads"></wj-flex-chart-series>
+                </wj-flex-chart>
+
+                <dl class="dl-horizontal">
+                    <dt>Chart Type</dt>
+                    <dd>
+                        <wj-combo-box 
+                            :items-source="chartTypes"
+                            :text.sync="chartProps.chartType">
+                        </wj-combo-box>
+                    </dd>
+                    <dt>Stacking</dt>
+                    <dd>
+                        <wj-combo-box 
+                            :items-source="stackingOptions"
+                            :text.sync="chartProps.stacking">
+                        </wj-combo-box>
+                    </dd>
+                    <dt>Rotated</dt>
+                    <dd>
+                        <input type="checkbox" v-model="chartProps.rotated" />
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <!-- mixed chart types -->
+        <h2>
+            Mixed Chart Types</h2>
+        <p>
+            You can use different chart types for each chart series by setting the <b>chartType</b>
+            property on the series itself. This overrides the chart's default chart type.</p>
+        <p>
+            In the example below, the chart's <b>chartType</b> property is set to <b>Column</b>,
+            but the <b>Downloads</b> series overrides that to use the <b>LineAndSymbol</b>
+            chart type:</p>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#mctHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#mctJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="mctHtml">
+&lt;wj-flex-chart 
+    :items-source="data" 
+    chart-type="Column"
+    binding-x="country"&gt;
+    &lt;wj-flex-chart-series
+        name="Sales"
+        binding="sales"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series
+        name="Expenses"
+        binding="expenses"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series
+        name="Downloads"
+        binding="downloads"
+        chart-type="LineSymbols"&gt;&lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="mctJs">
+// no code required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-flex-chart 
+                    :items-source="data" 
+                    chart-type="Column"
+                    binding-x="country">
+                    <wj-flex-chart-series name="Sales" binding="sales"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Expenses" binding="expenses"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Downloads" binding="downloads" chart-type="LineSymbols"></wj-flex-chart-series>
+                </wj-flex-chart>
+            </div>
+        </div>
+
+        <!-- legend and titles -->
+        <h2>
+            Legend and Titles</h2>
+        <p>
+            Use the <b>legend</b> properties to customize the appearance of the chart legend, and
+            the <b>header</b>, <b>footer</b>, and axis <b>title</b> properties to add titles
+            to your charts.</p>
+        <p>
+            You can style the legend and titles using CSS. The CSS tab below shows the rules
+            used to customize the appearance of the legend and titles. Notice that these are
+            SVG elements, so you have to use CSS attributes such as "fill" instead of "color."</p>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#ltHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#ltJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="ltHtml">
+&lt;wj-flex-chart 
+    :items-source="data" 
+    binding-x="country"
+    :header="chartProps.header"
+    :footer="chartProps.footer"&gt;
+    &lt;wj-flex-chart-legend :position="chartProps.legendPosition"&gt;&lt;/wj-flex-chart-legend&gt;
+    &lt;wj-flex-chart-axis wj-property="axisX" :title="chartProps.titleX"&gt;&lt;/wj-flex-chart-axis&gt;
+    &lt;wj-flex-chart-axis wj-property="axisY" :title="chartProps.titleY"&gt;&lt;/wj-flex-chart-axis&gt;
+    &lt;wj-flex-chart-series name="Sales" binding="sales"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series name="Expenses" binding="expenses"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series name="Downloads" binding="downloads"&gt;&lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Header&lt;/dt&gt;
+    &lt;dd&gt;&lt;input v-model="chartProps.header" class="form-control"/&gt;&lt;/dd&gt;
+    &lt;dt&gt;Footer&lt;/dt&gt;
+    &lt;dd&gt;&lt;input v-model="chartProps.footer" class="form-control"/&gt;&lt;/dd&gt;
+    &lt;dt&gt;X-Axis Title&lt;/dt&gt;
+    &lt;dd&gt;&lt;input v-model="chartProps.titleX" class="form-control"/&gt;&lt;/dd&gt;
+    &lt;dt&gt;Y-Axis Title&lt;/dt&gt;
+    &lt;dd&gt;&lt;input v-model="chartProps.titleY" class="form-control"/&gt;&lt;/dd&gt;
+    &lt;dt&gt;Legend Position&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-combo-box :items-source="legendPositions" :text.sync="chartProps.legendPosition"&gt;
+        &lt;/wj-combo-box&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="ltJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        data: getData(),
+        chartProps: {
+            chartType: 'Column',
+            stacking: 'None',
+            rotated: false,
+            header: 'Sample Chart',
+            footer: 'copyright (c) ComponentOne',
+            titleX: 'country',
+            titleY: 'amount',
+            legendPosition: 'Right'
+        },
+        chartTypes: 'Column,Bar,Scatter,Line,LineSymbols,Area,Spline,SplineSymbols,SplineArea'.split(','),
+        stackingOptions: 'None,Stacked,Stacked100pc'.split(','),
+        legendPositions: 'None,Left,Top,Right,Bottom'.split(',')
+    }
+});
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-flex-chart 
+                    :items-source="data" 
+                    binding-x="country"
+                    :header="chartProps.header"
+                    :footer="chartProps.footer">
+                    <wj-flex-chart-legend :position="chartProps.legendPosition"></wj-flex-chart-legend>
+                    <wj-flex-chart-axis wj-property="axisX" :title="chartProps.titleX"></wj-flex-chart-axis>
+                    <wj-flex-chart-axis wj-property="axisY" :title="chartProps.titleY"></wj-flex-chart-axis>
+                    <wj-flex-chart-series name="Sales" binding="sales"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Expenses" binding="expenses"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Downloads" binding="downloads"></wj-flex-chart-series>
+                </wj-flex-chart>
+                <dl class="dl-horizontal">
+                    <dt>Header</dt>
+                    <dd><input v-model="chartProps.header" class="form-control"/></dd>
+                    <dt>Footer</dt>
+                    <dd><input v-model="chartProps.footer" class="form-control"/></dd>
+                    <dt>X-Axis Title</dt>
+                    <dd><input v-model="chartProps.titleX" class="form-control"/></dd>
+                    <dt>Y-Axis Title</dt>
+                    <dd><input v-model="chartProps.titleY" class="form-control"/></dd>
+                    <dt>Legend Position</dt>
+                    <dd>
+                        <wj-combo-box :items-source="legendPositions" :text.sync="chartProps.legendPosition">
+                        </wj-combo-box>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <!-- tooltips -->
+        <h2>
+            Tooltips</h2>
+        <p>
+            The FlexChart has built-in support for tooltips. By default, the control displays
+            tooltips when the user touches or hovers the mouse on a data point.</p>
+        <p>
+            The tooltip content is generated using a template that may contain the following
+            parameters:</p>
+        <ul>
+            <li><b>seriesName</b>: The name of the series that contains the chart element.</li>
+            <li><b>pointIndex</b>: The index of the chart element within the series.</li>
+            <li><b>x</b>: The <b>x</b> value of the chart element.</li>
+            <li><b>y</b>: The <b>y</b> value of the chart element.</li>
+        </ul>
+        <p>
+            By default, the tooltip template is set to
+            <code>&lt;b&gt;{seriesName}&lt;/b&gt;&lt;br/&gt;{x} {y}</code>,
+            and you can see how that works in the  charts above.
+            In this example, we set the tooltip template to 
+            <code>&lt;b&gt;{seriesName}&lt;/b&gt; &lt;img src='resources/{x}.png'/&gt;&lt;br/&gt;{y}</code>,
+            which replaces the country name with the country's flag.</p>
+        <p>
+            You can disable the chart tooltips by setting the template to an empty string.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#ttHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#ttJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="ttHtml">
+&lt;wj-flex-chart 
+    :items-source="data" 
+    tooltip-content="&lt;img src='resources/{x}.png'/&gt; &lt;b&gt;{seriesName}&lt;/b&gt;&lt;br/&gt;{y}"
+    binding-x="country"&gt;
+    &lt;wj-flex-chart-series
+        name="Sales"
+        binding="sales"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series
+        name="Expenses"
+        binding="expenses"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series
+        name="Downloads"
+        binding="downloads"&gt;&lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="ttJs">
+// no code required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-flex-chart 
+                    :items-source="data" 
+                    tooltip-content="<img src='resources/{x}.png'/> <b>{seriesName}</b><br/>{y}"
+                    binding-x="country">
+                    <wj-flex-chart-series name="Sales" binding="sales"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Expenses" binding="expenses"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Downloads" binding="downloads"></wj-flex-chart-series>
+                </wj-flex-chart>
+            </div>
+        </div>
+
+        <!-- styling series -->
+        <h2>
+            Styling Series</h2>
+        <p>
+            The FlexChart automatically picks colors for each series based on a default
+            palette, which you can override by setting the <b>palette</b> property.
+            But you can also override the default settings by setting the <b>style</b> 
+            property of any series to an object that specifies SVG styling attributes, 
+            including <b>fill</b>, <b>stroke</b>, <b>strokeThickness</b>, and so on.</p>
+        <p>
+            The <b>Series.style</b> property is an exception to the general rule that
+            all styling in Wijmo is done through CSS. The exception reflects the fact
+            that many charts have dynamic series, which would be impossible to style
+            in advance. For example, a stock chart may show series selected by the 
+            user while running the application.</p>
+        <p>
+            The chart in this example uses the <b>style</b> and <b>symbolStyle</b> properties 
+            to select style attributes for each series:</p>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#stHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#stJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="stHtml">
+&lt;wj-flex-chart 
+    :items-source="data" 
+    binding-x="country"&gt;
+    &lt;wj-flex-chart-series 
+        name="Sales" 
+        binding="sales"
+        :style="{ fill:'green', stroke:'darkgreen', 'stroke-width': '1' }"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series 
+        name="Expenses" 
+        binding="expenses"
+        :style="{ fill:'red', stroke:'darkred', 'stroke-width': '1' }"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series 
+        name="Downloads"
+        binding="downloads"
+        chart-type="LineSymbols"
+        :style="{ stroke:'orange', 'stroke-width': '5'}"
+        :symbol-style="{ fill:'gold', stroke:'gold' }"&gt;&lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="stJs">
+// no code required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-flex-chart 
+                    :items-source="data" 
+                    binding-x="country">
+                    <wj-flex-chart-series 
+                        name="Sales" 
+                        binding="sales"
+                        :style="{ fill:'green', stroke:'darkgreen', 'stroke-width': '1' }"></wj-flex-chart-series>
+                    <wj-flex-chart-series 
+                        name="Expenses" 
+                        binding="expenses"
+                        :style="{ fill:'red', stroke:'darkred', 'stroke-width': '1' }"></wj-flex-chart-series>
+                    <wj-flex-chart-series 
+                        name="Downloads"
+                        binding="downloads"
+                        chart-type="LineSymbols"
+                        :style="{ stroke:'orange', 'stroke-width': '5'}"
+                        :symbol-style="{ fill:'gold', stroke:'gold' }"></wj-flex-chart-series>
+                </wj-flex-chart>
+            </div>
+        </div>
+
+        <!-- customizing axes -->
+        <h2>
+            Customizing Axes</h2>
+        <p>
+            Use axis properties to customize the chart's axes,
+            including ranges (minimum and maximum), label format, tickmark spacing, and
+            gridlines.</p>
+        <p>
+            The <b>Axis</b> class has boolean properties that allow you to turn features on
+            or off (<b>axisLine</b>, <b>labels</b>, <b>majorTickMarks</b>, and <b>majorGrid</b>.)
+            You can style the appearance of the features that are turned on using CSS.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#axHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#axJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="axHtml">
+&lt;wj-flex-chart 
+    :items-source="data" 
+    binding-x="country"&gt;
+    &lt;wj-flex-chart-axis 
+        wj-property="axisX" 
+        :axis-line="true" 
+        :major-grid="true"&gt;&lt;/wj-flex-chart-axis&gt;
+    &lt;wj-flex-chart-axis 
+        wj-property="axisY" 
+        format="c0" 
+        :max="10000" 
+        :major-unit="2000" 
+        :axis-line="true" 
+        :major-grid="true"&gt;&lt;/wj-flex-chart-axis&gt;
+    &lt;wj-flex-chart-series 
+        name="Sales" 
+        binding="sales"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series 
+        name="Expenses" 
+        binding="expenses"&gt;&lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="axJs">
+// no code required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-flex-chart 
+                    :items-source="data" 
+                    binding-x="country">
+                    <wj-flex-chart-axis 
+                        wj-property="axisX" 
+                        :axis-line="true" 
+                        :major-grid="true"></wj-flex-chart-axis>
+                    <wj-flex-chart-axis 
+                        wj-property="axisY" 
+                        format="c0" 
+                        :max="10000" 
+                        :major-unit="2000" 
+                        :axis-line="true" 
+                        :major-grid="true"></wj-flex-chart-axis>
+                    <wj-flex-chart-series 
+                        name="Sales" 
+                        binding="sales"></wj-flex-chart-series>
+                    <wj-flex-chart-series 
+                        name="Expenses" 
+                        binding="expenses"></wj-flex-chart-series>
+                </wj-flex-chart>
+            </div>
+        </div>
+
+        <!-- theming -->
+        <h2>
+            Theming</h2>
+        <p>
+            The appearance of the FlexChart is defined in CSS. In addition to the default theme, we 
+            include about a dozen professionally designed themes that customize the appearance of
+            all Wijmo controls to achieve a consistent, attractive look.</p>
+        <p>
+            To customize the appearance of the chart, inspect the elements you want to style and 
+            create some CSS rules that apply to those elements.</p>
+        <p>
+            For example, if you right-click one of the labels on the X axis in IE or Chrome, you 
+            will see that it is an element with the "wj-label" class, that it is contained in an 
+            element with the "wj-axis-x" class, which is contained in the the top-level control 
+            element, which has the "wj-flexchart" class. The first CSS rule in this example uses
+            this information to customize the X labels. The rule selector adds the additional 
+            requirement that the parent element must be have the "wj-flexchart" <b>and</b> the
+            "custom-flex-chart" classes. Without this, the rule would apply to all charts on the
+            page.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#thHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#thCss" role="tab" data-toggle="tab">CSS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="thHtml">
+&lt;wj-flex-chart 
+    class="custom-flex-chart"
+    :items-source="data" 
+    binding-x="country"&gt;
+    &lt;wj-flex-chart-series
+        name="Sales"
+        binding="sales"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series
+        name="Expenses"
+        binding="expenses"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series
+        name="Downloads"
+        binding="downloads"&gt;&lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="thCss">
+/* custom chart theme */
+.custom-flex-chart.wj-flexchart .wj-axis-x .wj-label {
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+}
+.custom-flex-chart.wj-flexchart .wj-legend .wj-label {
+    font-family: Courier New, Courier, monospace;
+    font-weight: bold;
+}
+.custom-flex-chart.wj-flexchart .wj-legend > rect {
+    fill: #f8f8f8;
+    stroke: #c0c0c0;
+}
+.custom-flex-chart.wj-flexchart .wj-plot-area > rect {
+    fill: #f8f8f8;
+    stroke: #c0c0c0;
+}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-flex-chart 
+                    class="custom-flex-chart"
+                    :items-source="data" 
+                    binding-x="country">
+                    <wj-flex-chart-series name="Sales" binding="sales"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Expenses" binding="expenses"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Downloads" binding="downloads"></wj-flex-chart-series>
+                </wj-flex-chart>
+            </div>
+        </div>
+
+        <!-- selection modes -->
+        <h2>
+            Selection Modes</h2>
+        <p>
+            The FlexChart allows you to select series or data points by clicking or touching them.
+            Use the <b>selectionMode</b> property to specify whether you want to allow selection 
+            by series, by data point, or no selection at all (selection is off by default.)</p>
+        <p>
+            Setting the <b>selectionMode</b> property to <b>Series</b> or <b>Point</b> causes
+            the FlexChart to update the <b>Selection</b> property when the user clicks the
+            mouse, and to apply the "wj-state-selected" class to selected chart elements.</p>
+        <p>
+            The <b>Selection</b> property returns the currently selected series. To get the
+            currently selected data point, get the currently selected item within the 
+            selected series using the <b>Series.collectionView.currentItem</b> property
+            as shown in the example.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#smHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#smJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="smHtml">
+&lt;wj-flex-chart
+    :items-source="data" 
+    binding-x="country"
+    tooltip-content=""
+    :chart-type="chartProps.chartType"
+    :selection-mode="chartProps.selectionMode"
+    :selection.sync="chartProps.selection"&gt;
+    &lt;wj-flex-chart-series name="Sales" binding="sales"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series name="Expenses" binding="expenses"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series name="Downloads" binding="downloads"&gt;&lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Selection Mode&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-combo-box
+            :items-source="selectionModes"
+            :text.sync="chartProps.selectionMode"&gt;
+        &lt;/wj-combo-box&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;Chart Type&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-combo-box
+            :items-source="chartTypes"
+            :text.sync="chartProps.chartType"&gt;
+        &lt;/wj-combo-box&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;div v-show="chartProps.selectionMode != 0 && chartProps.selection != null"&gt;
+    &lt;h4&gt;
+        Current Selection&lt;/h4&gt;
+    &lt;p&gt;
+        Series: &lt;b&gt;{&#8203;{ chartProps.selection.name }}&lt;/b&gt;&lt;/p&gt;
+    &lt;dl class="dl-horizontal"
+        v-show="chartProps.selectionMode == 'Point' && chartProps.selection.collectionView.currentItem != null" &gt;
+        &lt;dt&gt;Country&lt;/dt&gt;
+        &lt;dd&gt;{&#8203;{ chartProps.selection.collectionView.currentItem.country }}&lt;/dd&gt;
+        &lt;dt&gt;Sales&lt;/dt&gt;
+        &lt;dd&gt;{&#8203;{ chartProps.selection.collectionView.currentItem.sales | wj-format 'c' }}&lt;/dd&gt;
+        &lt;dt&gt;Expenses&lt;/dt&gt;
+        &lt;dd&gt;{&#8203;{ chartProps.selection.collectionView.currentItem.expenses | wj-format 'c' }}&lt;/dd&gt;
+        &lt;dt&gt;Downloads&lt;/dt&gt;
+        &lt;dd&gt;{&#8203;{ chartProps.selection.collectionView.currentItem.downloads | wj-format 'n0' }}&lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/div&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="smJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        data: getData(),
+        chartProps: {
+            chartType: 'Column',
+            selectionMode: 'None',
+            selection: null
+        },
+        chartTypes: 'Column,Bar,Scatter,Line,LineSymbols,Area,Spline,SplineSymbols,SplineArea'.split(','),
+        selectionModes: 'None,Series,Point'.split(',')
+    },
+});
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-flex-chart
+                    :items-source="data" 
+                    binding-x="country"
+                    tooltip-content=""
+                    :chart-type="chartProps.chartType"
+                    :selection-mode="chartProps.selectionMode"
+                    :selection.sync="chartProps.selection">
+                    <wj-flex-chart-series name="Sales" binding="sales"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Expenses" binding="expenses"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Downloads" binding="downloads"></wj-flex-chart-series>
+                </wj-flex-chart>
+                <dl class="dl-horizontal">
+                    <dt>Selection Mode</dt>
+                    <dd>
+                        <wj-combo-box
+                            :items-source="selectionModes"
+                            :text.sync="chartProps.selectionMode">
+                        </wj-combo-box>
+                    </dd>
+                    <dt>Chart Type</dt>
+                    <dd>
+                        <wj-combo-box
+                            :items-source="chartTypes"
+                            :text.sync="chartProps.chartType">
+                        </wj-combo-box>
+                    </dd>
+                </dl>
+                <div v-show="chartProps.selectionMode != 0 && chartProps.selection != null">
+                    <h4>
+                        Current Selection</h4>
+                    <p>
+                        Series: <b>{{ chartProps.selection.name }}</b></p>
+                    <dl class="dl-horizontal"
+                        v-show="chartProps.selectionMode == 'Point' && chartProps.selection.collectionView.currentItem != null" >
+                        <dt>Country</dt>
+                        <dd>{{ chartProps.selection.collectionView.currentItem.country }}</dd>
+                        <dt>Sales</dt>
+                        <dd>{{ chartProps.selection.collectionView.currentItem.sales | wj-format 'c' }}</dd>
+                        <dt>Expenses</dt>
+                        <dd>{{ chartProps.selection.collectionView.currentItem.expenses | wj-format 'c' }}</dd>
+                        <dt>Downloads</dt>
+                        <dd>{{ chartProps.selection.collectionView.currentItem.downloads | wj-format 'n0' }}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <!-- toggle series visibility -->
+        <h2>
+            Toggle Series</h2>
+        <p>
+            The <b>Series</b> class has a <b>visibility</b> property that allows you to
+            determine whether a series should be shown in the chart and in the legend,
+            only in the legend, or completely hidden.</p>
+        <p>
+            This sample shows how you can use the <b>visibility</b> property to toggle 
+            the visibility of a series using two methods:</p>
+        <ol>
+            <li>
+                Clicking on legend entries:<br />
+                The chart directive sets the chart's <b>legendToggle</b> property to true, 
+                which toggles the <b>visibility</b> property of a series when its legend entry is 
+                clicked.
+            </li>
+            <li>Using checkboxes:<br/>
+                The page uses Vue directives to bind input controls directly to the <b>visibility</b> 
+                property of each series.</li>
+        </ol>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#svHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#svJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="svHtml">
+&lt;wj-flex-chart 
+    :items-source="data"
+    :legend-toggle="true"
+    control="toggleChart"&gt;
+    &lt;wj-flex-chart-series 
+        name="Sales"
+        binding="sales"
+        :visibility="chartProps.seriesVisible[0] ? 'Visible' : 'Hidden'"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series
+        name="Expenses"
+        binding="expenses"
+        :visibility="chartProps.seriesVisible[1] ? 'Visible' : 'Hidden'"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series
+        name="Downloads"
+        binding="downloads"
+        :visibility="chartProps.seriesVisible[2] ? 'Visible' : 'Hidden'"&gt;&lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;
+
+&lt;!-- toggle series with checkboxes --&gt;
+&lt;label&gt;
+    Sales &lt;input type="checkbox" v-model="chartProps.seriesVisible[0]"/&gt;
+&lt;/label&gt;&lt;br /&gt;
+&lt;label&gt;
+    Expenses &lt;input type="checkbox" v-model="chartProps.seriesVisible[1]"/&gt;
+&lt;/label&gt;&lt;br /&gt;
+&lt;label&gt;
+    Downloads &lt;input type="checkbox" v-model="chartProps.seriesVisible[2]"&gt;
+&lt;/label&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="svJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        data: getData(),
+        chartProps: {
+            seriesVisible: [ true, true, true ]
+        }
+    }
+});
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-flex-chart 
+                    :items-source="data"
+                    :legend-toggle="true"
+                    control="toggleChart">
+                    <wj-flex-chart-series 
+                        name="Sales"
+                        binding="sales"
+                        :visibility="chartProps.seriesVisible[0] ? 'Visible' : 'Hidden'"></wj-flex-chart-series>
+                    <wj-flex-chart-series
+                        name="Expenses"
+                        binding="expenses"
+                        :visibility="chartProps.seriesVisible[1] ? 'Visible' : 'Hidden'"></wj-flex-chart-series>
+                    <wj-flex-chart-series
+                        name="Downloads"
+                        binding="downloads"
+                        :visibility="chartProps.seriesVisible[2] ? 'Visible' : 'Hidden'"></wj-flex-chart-series>
+                </wj-flex-chart>
+
+                <!-- toggle series with checkboxes -->
+                <label>
+                    Sales <input type="checkbox" v-model="chartProps.seriesVisible[0]"/>
+                </label><br />
+                <label>
+                    Expenses <input type="checkbox" v-model="chartProps.seriesVisible[1]"/>
+                </label><br />
+                <label>
+                    Downloads <input type="checkbox" v-model="chartProps.seriesVisible[2]">
+                </label>
+            </div>
+        </div>
+
+        <!-- dynamic charts -->
+        <h2>
+            Dynamic Charts</h2>
+        <p>
+            The FlexChart uses an <b>ICollectionView</b> internally, so any changes you make to
+            the data source are automatically reflected in the chart.</p>
+        <p>
+            In this sample, we use a timer to add items to the data source, discarding old items 
+            to keep the total count at 200. The result is a dynamic chart that scrolls as new 
+            data arrives.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#dcHtml" role="tab" data-toggle="tab">HTML</a></li>
+                    <li><a href="#dcJs" role="tab" data-toggle="tab">JS</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active pane-content" id="dcHtml">
+&lt;wj-flex-chart 
+    :items-source="trafficData" 
+    chart-type="Area"
+    stacking="Stacked"
+    binding-x="time"&gt;
+    &lt;wj-flex-chart-axis wj-property="axisX" format="mm:ss"&gt;&lt;/wj-flex-chart-axis&gt;
+    &lt;wj-flex-chart-series name="Trucks" binding="trucks"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series name="Ships" binding="ships"&gt;&lt;/wj-flex-chart-series&gt;
+    &lt;wj-flex-chart-series name="Planes" binding="planes"&gt;&lt;/wj-flex-chart-series&gt;
+&lt;/wj-flex-chart&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Update Speed&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;div class="btn-group"&gt;
+            &lt;button type="button" class="btn btn-default" @click="setInterval(500)"&gt;Slow&lt;/button&gt;
+            &lt;button type="button" class="btn btn-default" @click="setInterval(250)"&gt;Medium&lt;/button&gt;
+            &lt;button type="button" class="btn btn-default" @click="setInterval(50)"&gt;Fast&lt;/button&gt;
+            &lt;button type="button" class="btn btn-default" @click="setInterval(0)"&gt;Stop&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+                    </div>
+                    <div class="tab-pane pane-content" id="dcJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        trafficData: getTrafficData()
+    },
+    methods: {
+        setInterval: function (interval) {
+            setTrafficInterval(interval)
+        }
+    }
+});
+
+// generate some dynamic data
+var trafficInterval,
+    trafficData = new wijmo.collections.ObservableArray();
+function getTrafficData() {
+    return trafficData;
+}
+function setTrafficInterval(value) {
+    clearInterval(trafficInterval);
+    if (value) {
+        trafficInterval = setInterval(addTrafficItem, value);
+    }
+}
+function addTrafficItem() {
+    trafficData.push(...);
+    if (trafficData.length > 200) {
+        trafficData.splice(0, 1);
+    }
+}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <wj-flex-chart 
+                    :items-source="trafficData" 
+                    chart-type="Area"
+                    stacking="Stacked"
+                    binding-x="time">
+                    <wj-flex-chart-axis wj-property="axisX" format="mm:ss"></wj-flex-chart-axis>
+                    <wj-flex-chart-series name="Trucks" binding="trucks"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Ships" binding="ships"></wj-flex-chart-series>
+                    <wj-flex-chart-series name="Planes" binding="planes"></wj-flex-chart-series>
+                </wj-flex-chart>
+                <dl class="dl-horizontal">
+                    <dt>Update Speed</dt>
+                    <dd>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-default" @click="setInterval(500)">Slow</button>
+                          <button type="button" class="btn btn-default" @click="setInterval(250)">Medium</button>
+                          <button type="button" class="btn btn-default" @click="setInterval(50)">Fast</button>
+                          <button type="button" class="btn btn-default" @click="setInterval(0)">Stop</button>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

@@ -1,455 +1,577 @@
-<h2>Sunburst Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">Sunburst</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a></dd>
-<dt>Derived Classes</dt><dd><a href="topic/wijmo.angular.WjSunburst.Class.html"><b>WjSunburst</b></a></dd>
-<dt>Module</dt><dd>wijmo.chart.hierarchical</dd>
-<dt>File</dt><dd>wijmo.chart.hierarchical.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.chart.hierarchical.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.chart.hierarchical.Module.html"><span class="identifier">wijmo.chart.hierarchical</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+<dt>Derived Classes</dt><dd><a href="topic/wijmo-wijmo.angular2.chart.hierarchical.WjSunburst.Class.html"><span class="identifier">WjSunburst</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p>Sunburst chart control.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<div class="comment"><p>Sunburst chart control.</p></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>binding</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the name of the property that contains the chart values.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>bindingName</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the name of the property that contains the name of the data item, it should be an array or a string.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>childItemsPath</b></td>
-      <td><b>any</b></td>
-      <td><p>Gets or sets the name of the property (or properties) used to generate 
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#binding">binding</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#bindingName">bindingName</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#childItemsPath">childItemsPath</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#collectionView">collectionView</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#dataLabel">dataLabel</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#footer">footer</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#footerStyle">footerStyle</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#header">header</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#headerStyle">headerStyle</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#hostElement">hostElement</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#innerRadius">innerRadius</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#isAnimated">isAnimated</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#isDisabled">isDisabled</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#isTouching">isTouching</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#isUpdating">isUpdating</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#itemFormatter">itemFormatter</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#itemsSource">itemsSource</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#legend">legend</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#offset">offset</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#palette">palette</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#plotMargin">plotMargin</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#reversed">reversed</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#selectedIndex">selectedIndex</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#selectedItemOffset">selectedItemOffset</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#selectedItemPosition">selectedItemPosition</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#selectionMode">selectionMode</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#startAngle">startAngle</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#tooltip">tooltip</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#addEventListener">addEventListener</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#applyTemplate">applyTemplate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#beginUpdate">beginUpdate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#containsFocus">containsFocus</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#deferUpdate">deferUpdate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#dispose">dispose</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#disposeAll">disposeAll</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#endUpdate">endUpdate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#focus">focus</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#getControl">getControl</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#getTemplate">getTemplate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#hitTest">hitTest</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#initialize">initialize</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#invalidate">invalidate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#invalidateAll">invalidateAll</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#onGotFocus">onGotFocus</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#onLostFocus">onLostFocus</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#onRendered">onRendered</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#onRendering">onRendering</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#onSelectionChanged">onSelectionChanged</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#refresh">refresh</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#refreshAll">refreshAll</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#removeEventListener">removeEventListener</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#saveImageToDataUrl">saveImageToDataUrl</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#saveImageToFile">saveImageToFile</a></li>
+</ul>
+<h3 class="node">Events</h3>
+<ul>
+<li class="mevent inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#gotFocus">gotFocus</a></li>
+<li class="mevent inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#lostFocus">lostFocus</a></li>
+<li class="mevent inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#rendered">rendered</a></li>
+<li class="mevent inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#rendering">rendering</a></li>
+<li class="mevent inherited"><a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#selectionChanged">selectionChanged</a></li>
+</ul>
+</div>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod inherited">
+<h3>constructor</h3>
+<pre>constructor(element: <span class="identifier">any</span>, options?): <a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>element</b>: <span class="identifier">any</span><br/><p>The DOM element that hosts the control, or a selector for the host element (e.g. '#theCtrl').</p></li><li><b>options</b>:  <span class="badge">Optional</span><br/><p>A Javascript object containing initialization data for the control.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+</dl>
+</div>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="binding" class="member-panel mproperty inherited">
+<h3>binding</h3>
+<div class="comment"><p>Gets or sets the name of the property that contains the chart values.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="bindingName" class="member-panel mproperty">
+<h3>bindingName</h3>
+<div class="comment"><p>Gets or sets the name of the property containing name of the data item;
+it should be an array or a string.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="childItemsPath" class="member-panel mproperty">
+<h3>childItemsPath</h3>
+<div class="comment"><p>Gets or sets the name of the property (or properties) used to generate 
 child items in hierarchical data.</p>
-
 <p>Set this property to a string to specify the name of the property that
 contains an item's child items (e.g. <code>'items'</code>). </p>
-
-<p>If items at different levels child items with different names, then 
-set this property to an array containing the names of the properties 
-that contain child items et each level 
-(e.g. <code>[ 'accounts', 'checks', 'earnings' ]</code>).</p></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>collectionView</b></td>
-      <td><a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a></td>
-      <td>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object that contains the chart data.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>dataLabel</b></td>
-      <td><a href="topic/wijmo.chart.PieDataLabel.Class.html"><b>PieDataLabel</b></a></td>
-      <td>Gets or sets the point data label.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>footer</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the text displayed in the chart footer.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>footerStyle</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the style of the chart footer.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>header</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the text displayed in the chart header.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>headerStyle</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the style of the chart header.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>hostElement</b></td>
-      <td><b>HTMLElement</b></td>
-      <td>Gets the DOM element that is hosting the control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>innerRadius</b></td>
-      <td><b>number</b></td>
-      <td><p>Gets or sets the size of the pie's inner radius.</p>
-
+<p>Set this property to an array containing the names of the properties
+that contain child items at each level, when the items are child items
+at different levels with different names 
+(e.g. <code>[ 'accounts', 'checks', 'earnings' ]</code>).</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="collectionView" class="member-panel mproperty inherited">
+<h3>collectionView</h3>
+<div class="comment"><p>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> object that contains the chart data.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a></dd>
+</dl>
+</div>
+<div id="dataLabel" class="member-panel mproperty inherited">
+<h3>dataLabel</h3>
+<div class="comment"><p>Gets or sets the point data label.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.PieDataLabel.Class.html"><span class="identifier">PieDataLabel</span></a></dd>
+</dl>
+</div>
+<div id="footer" class="member-panel mproperty inherited">
+<h3>footer</h3>
+<div class="comment"><p>Gets or sets the text displayed in the chart footer.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="footerStyle" class="member-panel mproperty inherited">
+<h3>footerStyle</h3>
+<div class="comment"><p>Gets or sets the style of the chart footer.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="header" class="member-panel mproperty inherited">
+<h3>header</h3>
+<div class="comment"><p>Gets or sets the text displayed in the chart header.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="headerStyle" class="member-panel mproperty inherited">
+<h3>headerStyle</h3>
+<div class="comment"><p>Gets or sets the style of the chart header.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="hostElement" class="member-panel mproperty inherited">
+<h3>hostElement</h3>
+<div class="comment"><p>Gets the DOM element that is hosting the control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a></dd>
+</dl>
+</div>
+<div id="innerRadius" class="member-panel mproperty inherited">
+<h3>innerRadius</h3>
+<div class="comment"><p>Gets or sets the size of the pie's inner radius.</p>
 <p>The inner radius is measured as a fraction of the pie radius.</p>
-
 <p>The default value for this property is zero, which creates
 a pie. Setting this property to values greater than zero 
 creates pies with a hole in the middle, also known as 
-doughnut charts.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isAnimated</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets or sets a value indicating whether to use animation when items are selected.</p>
-
-<p>See also the <b>selectedItemPosition</b> and <b>selectionMode</b>
-properties.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isDisabled</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets or sets a value that determines whether the control is disabled.</p>
-
-<p>Disabled controls cannot get mouse or keyboard events.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isTouching</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether the control is currently handling a touch event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isUpdating</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether the control is currently being updated.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>itemFormatter</b></td>
-      <td><b>Function</b></td>
-      <td>Gets or sets the item formatter function that allows you to customize 
+doughnut charts.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="isAnimated" class="member-panel mproperty inherited">
+<h3>isAnimated</h3>
+<div class="comment"><p>Gets or sets a value indicating whether to use animation when items are selected.</p>
+<p>See also the <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#selectedItemPosition"><span class="identifier">selectedItemPosition</span></a> and <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#selectionMode"><span class="identifier">selectionMode</span></a>
+properties.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isDisabled" class="member-panel mproperty inherited">
+<h3>isDisabled</h3>
+<div class="comment"><p>Gets or sets a value that determines whether the control is disabled.</p>
+<p>Disabled controls cannot get mouse or keyboard events.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isTouching" class="member-panel mproperty inherited">
+<h3>isTouching</h3>
+<div class="comment"><p>Gets a value that indicates whether the control is currently handling a touch event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isUpdating" class="member-panel mproperty inherited">
+<h3>isUpdating</h3>
+<div class="comment"><p>Gets a value that indicates whether the control is currently being updated.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="itemFormatter" class="member-panel mproperty inherited">
+<h3>itemFormatter</h3>
+<div class="comment"><p>Gets or sets the item formatter function that allows you to customize 
 the appearance of data points. See the Explorer sample's <a target="_blank" 
 href="http://demos.wijmo.com/5/Angular/Explorer/Explorer/#/chart/itemFormatter">
-Item Formatter</a> for a demonstration.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>itemsSource</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object that contains the data used to create the chart.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>legend</b></td>
-      <td><a href="topic/wijmo.chart.Legend.Class.html"><b>Legend</b></a></td>
-      <td>Gets or sets the chart legend.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>offset</b></td>
-      <td><b>number</b></td>
-      <td><p>Gets or sets the offset of the slices from the pie center.</p>
-
-<p>The offset is measured as a fraction of the pie radius.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>palette</b></td>
-      <td><b>string</b><b>[]</b></td>
-      <td><p>Gets or sets an array of default colors to use for displaying each series.</p>
-
+Item Formatter</a> for a demonstration.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a></dd>
+</dl>
+</div>
+<div id="itemsSource" class="member-panel mproperty inherited">
+<h3>itemsSource</h3>
+<div class="comment"><p>Gets or sets the array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> object that contains the data used to create the chart.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="legend" class="member-panel mproperty inherited">
+<h3>legend</h3>
+<div class="comment"><p>Gets or sets the chart legend.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.Legend.Class.html"><span class="identifier">Legend</span></a></dd>
+</dl>
+</div>
+<div id="offset" class="member-panel mproperty inherited">
+<h3>offset</h3>
+<div class="comment"><p>Gets or sets the offset of the slices from the pie center.</p>
+<p>The offset is measured as a fraction of the pie radius.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="palette" class="member-panel mproperty inherited">
+<h3>palette</h3>
+<div class="comment"><p>Gets or sets an array of default colors to use for displaying each series.</p>
 <p>The array contains strings that represents CSS colors. For example:
-<pre>
-// use colors specified by name
+</p>
+
+<pre>// use colors specified by name
 chart.palette = ['red', 'green', 'blue'];
+
 // or use colors specified as rgba-values
 chart.palette = [
   'rgba(255,0,0,1)', 
   'rgba(255,0,0,0.8)', 
   'rgba(255,0,0,0.6)',
-  'rgba(255,0,0,0.4)'];
-</pre></p>
+  'rgba(255,0,0,0.4)'];</pre>
+<p>There is a set of predefined palettes in the <a href="topic/wijmo.chart.Palettes.Class.html"><span class="identifier">Palettes</span></a> class that you can use, for example:
+</p>
 
-<p>There is a set of predefined palettes in the <a href="topic/wijmo.chart.Palettes.Class.html"><b>Palettes</b></a> class that you can use, for example:
-<pre>
-chart.palette = wijmo.chart.Palettes.coral;
-</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>plotMargin</b></td>
-      <td><b>any</b></td>
-      <td><p>Gets or sets the plot margin in pixels.</p>
-
+<pre>chart.palette = wijmo.chart.Palettes.coral;</pre></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>[]</dd>
+</dl>
+</div>
+<div id="plotMargin" class="member-panel mproperty inherited">
+<h3>plotMargin</h3>
+<div class="comment"><p>Gets or sets the plot margin in pixels.</p>
 <p>The plot margin represents the area between the edges of the control
 and the plot area.</p>
-
 <p>By default, this value is calculated automatically based on the space 
 required by the axis labels, but you can override it if you want
 to control the precise position of the plot area within the control
 (for example, when aligning multiple chart controls on a page).</p>
-
 <p>You may set this property to a numeric value or to a CSS-style
 margin specification. For example:</p>
 
-<p><pre>
-// set the plot margin to 20 pixels on all sides
+
+<pre>// set the plot margin to 20 pixels on all sides
 chart.plotMargin = 20;
+
 // set the plot margin for top, right, bottom, left sides
 chart.plotMargin = '10 15 20 25';
+
 // set the plot margin for top/bottom (10px) and left/right (20px)
-chart.plotMargin = '10 20';
-</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>reversed</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets or sets a value that determines whether angles are reversed 
+chart.plotMargin = '10 20';</pre></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="reversed" class="member-panel mproperty inherited">
+<h3>reversed</h3>
+<div class="comment"><p>Gets or sets a value that determines whether angles are reversed 
 (counter-clockwise).</p>
-
 <p>The default value is false, which causes angles to be measured in
-the clockwise direction.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>selectedIndex</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the index of the selected slice.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>selectedItemOffset</b></td>
-      <td><b>number</b></td>
-      <td><p>Gets or sets the offset of the selected slice from the pie center.</p>
-
-<p>Offsets are measured as a fraction of the pie radius.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>selectedItemPosition</b></td>
-      <td><a href="topic/wijmo.chart.Position.Enum.html"><b>Position</b></a></td>
-      <td><p>Gets or sets the position of the selected slice.</p>
-
+the clockwise direction.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="selectedIndex" class="member-panel mproperty inherited">
+<h3>selectedIndex</h3>
+<div class="comment"><p>Gets or sets the index of the selected slice.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="selectedItemOffset" class="member-panel mproperty inherited">
+<h3>selectedItemOffset</h3>
+<div class="comment"><p>Gets or sets the offset of the selected slice from the pie center.</p>
+<p>Offsets are measured as a fraction of the pie radius.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="selectedItemPosition" class="member-panel mproperty inherited">
+<h3>selectedItemPosition</h3>
+<div class="comment"><p>Gets or sets the position of the selected slice.</p>
 <p>Setting this property to a value other than 'None' causes
 the pie to rotate when an item is selected.</p>
-
 <p>Note that in order to select slices by clicking the chart, 
-you must set the <b>selectionMode</b> property to "Point".</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>selectionMode</b></td>
-      <td><a href="topic/wijmo.chart.SelectionMode.Enum.html"><b>SelectionMode</b></a></td>
-      <td>Gets or sets an enumerated value indicating whether or what is 
-selected when the user clicks the chart.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>startAngle</b></td>
-      <td><b>number</b></td>
-      <td><p>Gets or sets the starting angle for the pie slices, in degrees.</p>
-
-<p>Angles are measured clockwise, starting at the 9 o'clock position.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>tooltip</b></td>
-      <td><a href="topic/wijmo.chart.ChartTooltip.Class.html"><b>ChartTooltip</b></a></td>
-      <td>Gets the chart's <a href="topic/wijmo.Tooltip.Class.html"><b>Tooltip</b></a>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+you must set the <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#selectionMode"><span class="identifier">selectionMode</span></a> property to "Point".</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.Position.Enum.html"><span class="identifier">Position</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div id="selectionMode" class="member-panel mproperty inherited">
+<h3>selectionMode</h3>
+<div class="comment"><p>Gets or sets an enumerated value indicating whether or what is 
+selected when the user clicks the chart.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.grid.SelectionMode.Enum.html"><span class="identifier">SelectionMode</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>addEventListener</b>&#8203;(target, type, fn, capture?)</td>
-      <td><p>
-<b>target</b> (<b>EventTarget</b>): Target element for the event.<br/><b>type</b> (<b>string</b>): String that specifies the event.<br/><b>fn</b> (<b>any</b>): Function to execute when the event occurs.<br/><b>capture?</b> (<b>boolean</b>): Whether the listener is capturing.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
-</td>
-      <td><p>Adds an event listener to an element owned by this <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>.</p>
-
+<div id="startAngle" class="member-panel mproperty inherited">
+<h3>startAngle</h3>
+<div class="comment"><p>Gets or sets the starting angle for the pie slices, in degrees.</p>
+<p>Angles are measured clockwise, starting at the 9 o'clock position.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="tooltip" class="member-panel mproperty inherited">
+<h3>tooltip</h3>
+<div class="comment"><p>Gets the chart's <a href="topic/wijmo.Tooltip.Class.html"><span class="identifier">Tooltip</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.ChartTooltip.Class.html"><span class="identifier">ChartTooltip</span></a></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="addEventListener" class="member-panel mmethod inherited">
+<h3>addEventListener</h3>
+<pre>addEventListener(target: <a href="https://developer.mozilla.org/en/docs/Web/API/EventTarget" target="_blank"><span class="identifier">EventTarget</span></a>, type: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, fn: <span class="identifier">any</span>, capture?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Adds an event listener to an element owned by this <a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a>.</p>
 <p>The control keeps a list of attached listeners and their handlers,
 making it easier to remove them when the control is disposed (see the
-<b>dispose</b> and <b>removeEventListener</b> method).</p>
-
-<p>Failing to remove event listeners may cause memory leaks.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>applyTemplate</b>&#8203;(classNames, template, parts, namePart?): <b>HTMLElement</b></td>
-      <td><p>
-<b>classNames</b> (<b>string</b>): Names of classes to add to the control's host element.<br/><b>template</b> (<b>string</b>): An HTML string that defines the control template.<br/><b>parts</b> (<b>Object</b>): A dictionary of part variables and their names.<br/><b>namePart?</b> (<b>string</b>): Name of the part to be named after the host element. This
-determines how the control submits data when used in forms.<br/></p>
-</td>
-      <td><p>Applies the template to a new instance of a control, and returns the root element.</p>
-
+<a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#dispose"><span class="identifier">dispose</span></a> and <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#removeEventListener"><span class="identifier">removeEventListener</span></a> method).</p>
+<p>Failing to remove event listeners may cause memory leaks.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>target</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/EventTarget" target="_blank"><span class="identifier">EventTarget</span></a><br/><p>Target element for the event.</p></li><li><b>type</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>String that specifies the event.</p></li><li><b>fn</b>: <span class="identifier">any</span><br/><p>Function to execute when the event occurs.</p></li><li><b>capture</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether the listener is capturing.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="applyTemplate" class="member-panel mmethod inherited">
+<h3>applyTemplate</h3>
+<pre>applyTemplate(classNames: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, template: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, parts: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank"><span class="identifier">Object</span></a>, namePart?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a></pre>
+<div class="comment"><p>Applies the template to a new instance of a control, and returns the root element.</p>
 <p>This method should be called by constructors of templated controls.
 It is responsible for binding the template parts to the 
 corresponding control members.</p>
-
 <p>For example, the code below applies a template to an instance
-of an <a href="topic/wijmo.input.InputNumber.Class.html"><b>InputNumber</b></a> control. The template must contain elements 
+of an <a href="topic/wijmo.input.InputNumber.Class.html"><span class="identifier">InputNumber</span></a> control. The template must contain elements 
 with the 'wj-part' attribute set to 'input', 'btn-inc', and 'btn-dec'.
 The control members '_tbx', '_btnUp', and '_btnDn' will be assigned
 references to these elements.</p>
 
-<p><pre>this.applyTemplate('wj-control wj-inputnumber', template, {
+
+<pre>this.applyTemplate('wj-control wj-inputnumber', template, {
   _tbx: 'input',
   _btnUp: 'btn-inc',
   _btnDn: 'btn-dec'
-}, 'input');</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>beginUpdate</b>&#8203;()</td>
-      <td></td>
-      <td>Suspends notifications until the next call to <b>endUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>constructor</b>&#8203;(element, options?): <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a></td>
-      <td><p>
-<b>element</b> (<b>any</b>): The DOM element that hosts the control, or a selector for the host element (e.g. '#theCtrl').<br/><b>options?</b> (): A Javascript object containing initialization data for the control.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a> class.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>containsFocus</b>&#8203;(): <b>boolean</b></td>
-      <td></td>
-      <td>Checks whether this control contains the focused element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>deferUpdate</b>&#8203;(fn)</td>
-      <td><p>
-<b>fn</b> (<b>Function</b>): Function to be executed.<br/></p>
-</td>
-      <td><p>Executes a function within a <b>beginUpdate</b>/<b>endUpdate</b> block.</p>
-
+}, 'input');</pre></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>classNames</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>Names of classes to add to the control's host element.</p></li><li><b>template</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>An HTML string that defines the control template.</p></li><li><b>parts</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank"><span class="identifier">Object</span></a><br/><p>A dictionary of part variables and their names.</p></li><li><b>namePart</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a> <span class="badge">Optional</span><br/><p>Name of the part to be named after the host element. This
+determines how the control submits data when used in forms.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a></dd>
+</dl>
+</div>
+<div id="beginUpdate" class="member-panel mmethod inherited">
+<h3>beginUpdate</h3>
+<pre>beginUpdate(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Suspends notifications until the next call to <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="containsFocus" class="member-panel mmethod inherited">
+<h3>containsFocus</h3>
+<pre>containsFocus(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Checks whether this control contains the focused element.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="deferUpdate" class="member-panel mmethod inherited">
+<h3>deferUpdate</h3>
+<pre>deferUpdate(fn: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Executes a function within a <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#beginUpdate"><span class="identifier">beginUpdate</span></a>/<a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a> block.</p>
 <p>The control will not be updated until the function has been executed.
-This method ensures <b>endUpdate</b> is called even if the function throws
-an exception.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>dispose</b>&#8203;()</td>
-      <td></td>
-      <td><p>Disposes of the control by removing its association with the host element.</p>
-
-<p>The <b>dispose</b> method automatically removes any event listeners added
-with the <b>addEventListener</b> method.</p>
-
-<p>Calling the <b>dispose</b> method is important in applications that create
+This method ensures <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a> is called even if the function throws
+an exception.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>fn</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a><br/><p>Function to be executed.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="dispose" class="member-panel mmethod inherited">
+<h3>dispose</h3>
+<pre>dispose(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Disposes of the control by removing its association with the host element.</p>
+<p>The <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#dispose"><span class="identifier">dispose</span></a> method automatically removes any event listeners added
+with the <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#addEventListener"><span class="identifier">addEventListener</span></a> method.</p>
+<p>Calling the <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#dispose"><span class="identifier">dispose</span></a> method is important in applications that create
 and remove controls dynamically. Failing to dispose of the controls may
-cause memory leaks.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>disposeAll</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<b>HTMLElement</b>): Container element.<br/></p>
-</td>
-      <td>Disposes of all Wijmo controls contained in an HTML element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>endUpdate</b>&#8203;()</td>
-      <td></td>
-      <td>Resumes notifications suspended by calls to <b>beginUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>focus</b>&#8203;()</td>
-      <td></td>
-      <td>Sets the focus to this control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>getControl</b>&#8203;(element): <a href="topic/wijmo.Control.Class.html"><b>Control</b></a></td>
-      <td><p>
-<b>element</b> (<b>any</b>): The DOM element that is hosting the control, or a selector for the host element (e.g. '#theCtrl').<br/></p>
-</td>
-      <td>Gets the control that is hosted in a given DOM element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>getTemplate</b>&#8203;(): <b>string</b></td>
-      <td></td>
-      <td><p>Gets the HTML template used to create instances of the control.</p>
-
+cause memory leaks.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="disposeAll" class="member-panel mmethod inherited">
+<h3><span class="badge">Static</span> disposeAll</h3>
+<pre>disposeAll(e?: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Disposes of all Wijmo controls contained in an HTML element.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a> <span class="badge">Optional</span><br/><p>Container element.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="endUpdate" class="member-panel mmethod inherited">
+<h3>endUpdate</h3>
+<pre>endUpdate(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Resumes notifications suspended by calls to <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#beginUpdate"><span class="identifier">beginUpdate</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="focus" class="member-panel mmethod inherited">
+<h3>focus</h3>
+<pre>focus(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Sets the focus to this control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="getControl" class="member-panel mmethod inherited">
+<h3><span class="badge">Static</span> getControl</h3>
+<pre>getControl(element: <span class="identifier">any</span>): <a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></pre>
+<div class="comment"><p>Gets the control that is hosted in a given DOM element.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>element</b>: <span class="identifier">any</span><br/><p>The DOM element that is hosting the control, or a selector for the host element (e.g. '#theCtrl').</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+</dl>
+</div>
+<div id="getTemplate" class="member-panel mmethod inherited">
+<h3>getTemplate</h3>
+<pre>getTemplate(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></pre>
+<div class="comment"><p>Gets the HTML template used to create instances of the control.</p>
 <p>This method traverses up the class hierarchy to find the nearest ancestor that
 specifies a control template. For example, if you specify a prototype for the
-<a href="topic/wijmo.input.ComboBox.Class.html"><b>ComboBox</b></a> control, it will override the template defined by the <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a> 
-base class.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>hitTest</b>&#8203;(pt, y?): <a href="topic/wijmo.chart.HitTestInfo.Class.html"><b>HitTestInfo</b></a></td>
-      <td><p>
-<b>pt</b> (<b>any</b>): The point to investigate, in window coordinates.<br/><b>y?</b> (<b>number</b>): The Y coordinate of the point (if the first parameter is a number).<br/></p>
-</td>
-      <td>Gets a <a href="topic/wijmo.chart.HitTestInfo.Class.html"><b>HitTestInfo</b></a> object with information about the specified point.<br/><br/><b>Returns</b> A HitTestInfo object containing information about the point.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexPie.Class.html"><b>FlexPie</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>initialize</b>&#8203;(options)</td>
-      <td><p>
-<b>options</b> (<b>any</b>): Object that contains the initialization data.<br/></p>
-</td>
-      <td><p>Initializes the control by copying the properties from a given object.</p>
-
+<a href="topic/wijmo.input.ComboBox.Class.html"><span class="identifier">ComboBox</span></a> control, it will override the template defined by the <a href="topic/wijmo.input.DropDown.Class.html"><span class="identifier">DropDown</span></a> 
+base class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="hitTest" class="member-panel mmethod inherited">
+<h3>hitTest</h3>
+<pre>hitTest(pt: <span class="identifier">any</span>, y?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.grid.HitTestInfo.Class.html"><span class="identifier">HitTestInfo</span></a></pre>
+<div class="comment"><p>Gets a <a href="topic/wijmo.grid.HitTestInfo.Class.html"><span class="identifier">HitTestInfo</span></a> object with information about the specified point.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>pt</b>: <span class="identifier">any</span><br/><p>The point to investigate, in window coordinates.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The Y coordinate of the point (if the first parameter is a number).</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexPie.Class.html"><span class="identifier">FlexPie</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.grid.HitTestInfo.Class.html"><span class="identifier">HitTestInfo</span></a></dd>
+</dl>
+</div>
+<div id="initialize" class="member-panel mmethod inherited">
+<h3>initialize</h3>
+<pre>initialize(options: <span class="identifier">any</span>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Initializes the control by copying the properties from a given object.</p>
 <p>This method allows you to initialize controls using plain data objects
 instead of setting the value of each property in code.</p>
-
 <p>For example:
-<pre>
-grid.initialize({
+</p>
+
+<pre>grid.initialize({
   itemsSource: myList,
   autoGenerateColumns: false,
   columns: [
@@ -457,189 +579,249 @@ grid.initialize({
     { binding: 'name', header: 'Name', width: 60 } 
   ]
 });
+
 // is equivalent to
 grid.itemsSource = myList;
 grid.autoGenerateColumns = false;
-// etc.
-</pre></p>
 
+// etc.</pre>
 <p>The initialization data is type-checked as it is applied. If the 
 initialization object contains unknown property names or invalid
-data types, this method will throw.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>invalidate</b>&#8203;(fullUpdate?)</td>
-      <td><p>
-<b>fullUpdate?</b> (<b>boolean</b>): Whether to update the control layout as well as the content.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
-</td>
-      <td>Invalidates the control causing an asynchronous refresh.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>invalidateAll</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<b>HTMLElement</b>): Container element. If set to null, all Wijmo controls
-on the page will be invalidated.<br/></p>
-</td>
-      <td><p>Invalidates all Wijmo controls contained in an HTML element.</p>
-
+data types, this method will throw.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>options</b>: <span class="identifier">any</span><br/><p>Object that contains the initialization data.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="invalidate" class="member-panel mmethod inherited">
+<h3>invalidate</h3>
+<pre>invalidate(fullUpdate?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Invalidates the control causing an asynchronous refresh.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>fullUpdate</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether to update the control layout as well as the content.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="invalidateAll" class="member-panel mmethod inherited">
+<h3><span class="badge">Static</span> invalidateAll</h3>
+<pre>invalidateAll(e?: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Invalidates all Wijmo controls contained in an HTML element.</p>
 <p>Use this method when your application has dynamic panels that change
 the control's visibility or dimensions. For example, splitters, accordions,
 and tab controls usually change the visibility of its content elements.
 In this case, failing to notify the controls contained in the element
 may cause them to stop working properly.</p>
-
 <p>If this happens, you must handle the appropriate event in the dynamic
-container and call the <b>invalidateAll</b> method so the contained
-Wijmo controls will update their layout information properly.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onGotFocus</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>gotFocus</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onLostFocus</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>lostFocus</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onRendered</b>&#8203;(e)</td>
-      <td><p>
-<b>e</b> (<a href="topic/wijmo.chart.RenderEventArgs.Class.html"><b>RenderEventArgs</b></a>): The <a href="topic/wijmo.chart.RenderEventArgs.Class.html"><b>RenderEventArgs</b></a> object used to render the chart.<br/></p>
-</td>
-      <td>Raises the <b>rendered</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onRendering</b>&#8203;(e)</td>
-      <td><p>
-<b>e</b> (<a href="topic/wijmo.chart.RenderEventArgs.Class.html"><b>RenderEventArgs</b></a>): The <a href="topic/wijmo.chart.RenderEventArgs.Class.html"><b>RenderEventArgs</b></a> object used to render the chart.<br/></p>
-</td>
-      <td>Raises the <b>rendering</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onSelectionChanged</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>selectionChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>refresh</b>&#8203;(fullUpdate?)</td>
-      <td><p>
-<b>fullUpdate?</b> (<b>boolean</b>): A value indicating whether to update the control layout as well as the content.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
-</td>
-      <td>Refreshes the chart.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>refreshAll</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<b>HTMLElement</b>): Container element. If set to null, all Wijmo controls
-on the page will be invalidated.<br/></p>
-</td>
-      <td><p>Refreshes all Wijmo controls contained in an HTML element.</p>
-
-<p>This method is similar to <b>invalidateAll</b>, except the controls
-are updated immediately rather than after an interval.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>removeEventListener</b>&#8203;(target?, type?, capture?): <b>number</b></td>
-      <td><p>
-<b>target?</b> (<b>EventTarget</b>): Target element for the event. If null, removes listeners attached to all targets.<br/><b>type?</b> (<b>string</b>): String that specifies the event. If null, removes listeners attached to all events.<br/><b>capture?</b> (<b>boolean</b>): Whether the listener is capturing. If null, removes capturing and non-capturing listeners.<br/></p>
-</td>
-      <td>Removes one or more event listeners attached to elements owned by this <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>.<br/><br/><b>Returns</b> The number of listeners removed.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>saveImageToDataUrl</b>&#8203;(format, done): <b>void</b></td>
-      <td><p>
-<b>format</b> (<a href="topic/wijmo.chart.ImageFormat.Enum.html"><b>ImageFormat</b></a>): The <a href="topic/wijmo.chart.ImageFormat.Enum.html"><b>ImageFormat</b></a> for the exported image.<br/><b>done</b> (<b>Function</b>): A function to be called after data url is generated. The function gets passed the data url as its argument.<br/></p>
-</td>
-      <td>Save chart to image data url.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>saveImageToFile</b>&#8203;(filename): <b>void</b></td>
-      <td><p>
-<b>filename</b> (<b>string</b>): The filename for the exported image file including extension. Supported types are PNG, JPEG, SVG.<br/></p>
-</td>
-      <td>Save chart to an image file.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+container and call the <a href="topic/wijmo.Control.Class.html/#invalidateAll"><span class="identifier">invalidateAll</span></a> method so the contained
+Wijmo controls will update their layout information properly.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a> <span class="badge">Optional</span><br/><p>Container element. If set to null, all Wijmo controls
+on the page will be invalidated.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
-<span class="glyph-collapsed" ng-show="hideEvents"></span>
-<span class="glyph-expanded" ng-hide="hideEvents"></span>
-Events
-</h3>
+<div id="onGotFocus" class="member-panel mmethod inherited raiser">
+<h3>onGotFocus</h3>
+<pre>onGotFocus(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#gotFocus"><span class="identifier">gotFocus</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Arguments</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>gotFocus</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs when the control gets the focus.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>lostFocus</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs when the control loses the focus.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>rendered</b></td>
-      <td><a href="topic/wijmo.chart.RenderEventArgs.Class.html"><b>RenderEventArgs</b></a></td>
-      <td>Occurs after the chart finishes rendering.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>rendering</b></td>
-      <td><a href="topic/wijmo.chart.RenderEventArgs.Class.html"><b>RenderEventArgs</b></a></td>
-      <td>Occurs before the chart starts rendering data.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>selectionChanged</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs after the selection changes, whether programmatically
+<div id="onLostFocus" class="member-panel mmethod inherited raiser">
+<h3>onLostFocus</h3>
+<pre>onLostFocus(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#lostFocus"><span class="identifier">lostFocus</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onRendered" class="member-panel mmethod inherited raiser">
+<h3>onRendered</h3>
+<pre>onRendered(e: <a href="topic/wijmo.chart.RenderEventArgs.Class.html"><span class="identifier">RenderEventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#rendered"><span class="identifier">rendered</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.chart.RenderEventArgs.Class.html"><span class="identifier">RenderEventArgs</span></a><br/><p>The <a href="topic/wijmo.chart.RenderEventArgs.Class.html"><span class="identifier">RenderEventArgs</span></a> object used to render the chart.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onRendering" class="member-panel mmethod inherited raiser">
+<h3>onRendering</h3>
+<pre>onRendering(e: <a href="topic/wijmo.chart.RenderEventArgs.Class.html"><span class="identifier">RenderEventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#rendering"><span class="identifier">rendering</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.chart.RenderEventArgs.Class.html"><span class="identifier">RenderEventArgs</span></a><br/><p>The <a href="topic/wijmo.chart.RenderEventArgs.Class.html"><span class="identifier">RenderEventArgs</span></a> object used to render the chart.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onSelectionChanged" class="member-panel mmethod inherited raiser">
+<h3>onSelectionChanged</h3>
+<pre>onSelectionChanged(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#selectionChanged"><span class="identifier">selectionChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="refresh" class="member-panel mmethod inherited">
+<h3>refresh</h3>
+<pre>refresh(fullUpdate?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Refreshes the chart.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>fullUpdate</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>A value indicating whether to update the control layout as well as the content.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="refreshAll" class="member-panel mmethod inherited">
+<h3><span class="badge">Static</span> refreshAll</h3>
+<pre>refreshAll(e?: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Refreshes all Wijmo controls contained in an HTML element.</p>
+<p>This method is similar to <a href="topic/wijmo.chart.hierarchical.Sunburst.Class.html/#invalidateAll"><span class="identifier">invalidateAll</span></a>, except the controls
+are updated immediately rather than after an interval.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a> <span class="badge">Optional</span><br/><p>Container element. If set to null, all Wijmo controls
+on the page will be invalidated.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="removeEventListener" class="member-panel mmethod inherited">
+<h3>removeEventListener</h3>
+<pre>removeEventListener(target?: <a href="https://developer.mozilla.org/en/docs/Web/API/EventTarget" target="_blank"><span class="identifier">EventTarget</span></a>, type?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, capture?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></pre>
+<div class="comment"><p>Removes one or more event listeners attached to elements owned by this <a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>target</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/EventTarget" target="_blank"><span class="identifier">EventTarget</span></a> <span class="badge">Optional</span><br/><p>Target element for the event. If null, removes listeners attached to all targets.</p></li><li><b>type</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a> <span class="badge">Optional</span><br/><p>String that specifies the event. If null, removes listeners attached to all events.</p></li><li><b>capture</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether the listener is capturing. If null, removes capturing and non-capturing listeners.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="saveImageToDataUrl" class="member-panel mmethod inherited">
+<h3>saveImageToDataUrl</h3>
+<pre>saveImageToDataUrl(format: <a href="topic/wijmo.chart.ImageFormat.Enum.html"><span class="identifier">ImageFormat</span></a>, done: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Save chart to image data url.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>format</b>: <a href="topic/wijmo.chart.ImageFormat.Enum.html"><span class="identifier">ImageFormat</span></a><br/><p>The <a href="topic/wijmo.chart.ImageFormat.Enum.html"><span class="identifier">ImageFormat</span></a> for the exported image.</p></li><li><b>done</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a><br/><p>A function to be called after data url is generated. The function gets passed the data url as its argument.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="saveImageToFile" class="member-panel mmethod inherited">
+<h3>saveImageToFile</h3>
+<pre>saveImageToFile(filename: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Save chart to an image file.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>filename</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>The filename for the exported image file including extension. Supported types are PNG, JPEG, SVG.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Events</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="gotFocus" class="member-panel mevent inherited">
+<h3>gotFocus</h3>
+<div class="comment"><p>Occurs when the control gets the focus.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="lostFocus" class="member-panel mevent inherited">
+<h3>lostFocus</h3>
+<div class="comment"><p>Occurs when the control loses the focus.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="rendered" class="member-panel mevent inherited">
+<h3>rendered</h3>
+<div class="comment"><p>Occurs after the chart finishes rendering.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.chart.RenderEventArgs.Class.html"><span class="identifier">RenderEventArgs</span></a></dd>
+</dl>
+</div>
+<div id="rendering" class="member-panel mevent inherited">
+<h3>rendering</h3>
+<div class="comment"><p>Occurs before the chart starts rendering data.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.chart.RenderEventArgs.Class.html"><span class="identifier">RenderEventArgs</span></a></dd>
+</dl>
+</div>
+<div id="selectionChanged" class="member-panel mevent inherited">
+<h3>selectionChanged</h3>
+<div class="comment"><p>Occurs after the selection changes, whether programmatically
 or when the user clicks the chart. This is useful, for example,
 when you want to update details in a textbox showing the current
-selection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+selection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
 </div>
-
+</div>

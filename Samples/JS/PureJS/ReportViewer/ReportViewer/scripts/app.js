@@ -1,59 +1,55 @@
 ﻿var reportView = new wijmo.viewer.ReportViewer('#reportViewer'),
     serviceUrl = 'http://demos.componentone.com/aspnet/webapi/',
-    reportNamesCombo = document.querySelector('#reportNames'),
-    reportFilesCombo = document.querySelector('#reportFiles'),
-    reportFiles = [{ folder: 'What\'s New', files: ['FlexCommonTasks', 'BorderStyles', 'BoundImages', 'CalculatedFields', 'CascadingParameters', 'CheckBox', 'ComplexText', 'Filtering', 'MultiDataSource', 'MultivalueParameters', 'NewCharts', 'ParagraphField', 'Parameters', 'RTFField', 'Shapes', 'Sorting', 'SubSections', 'UnboundImages'] },
-    { folder: 'Featured Reports', files: ['BalanceSheet', 'CrossTab', 'EmployeeExpReport', 'InventoryManagementReport', 'MailMerge', 'MarketingProjectPlan', 'MedicalReport', 'MonthlyBudget', 'MonthlyProjectExpenseTracking', 'OrganizationChart', 'PriceComparison'] },
-    { folder: 'Data Binding', files: ['MultiDataSource', 'Nwind', 'StoredProcedure'] },
-    { folder: 'Controls', files: ['AllCharts', 'BarcodeProductLabels', 'BarcodeShippingLabels', 'BoundImages', 'Charts', 'CheckBox', 'ColumnarSubreports', 'ComplexText', 'NewCharts', 'PageHeadersInSubreports', 'ParagraphField', 'RTFField', 'Shapes', 'UnboundImages'] },
-    { folder: 'Data Calculations', files: ['Aggregates', 'CalculatedFields', 'GroupPageCounts', 'RunningSums'] },
-    { folder: 'Data Manipulation', files: ['CascadingParameters', 'MultivalueParameters', 'Parameters', 'Sorting'] },
-    { folder: 'Formatting', files: ['AlternateBackground', 'ConditionalFormatting', 'Watermark'] },
-    { folder: 'Layout', files: ['ContinuedHeaders', 'CustomPaperSize', 'DynamicPH', 'ForcePageBreaks', 'Gutter', 'Layout', 'SubSections'] }];
+    reportsCombo = document.querySelector('#reports');
 
-for (var i = 0; i < reportFiles.length; i++) {
-    var optGroup = document.createElement('optgroup');
-    optGroup.label = reportFiles[i].folder;
-    for (var j = 0; j < reportFiles[i].files.length; j++) {
-        var option = document.createElement('option');
-        option.value = '/ReportsRoot/' + reportFiles[i].folder
-            + '/' + reportFiles[i].files[j] + '.flxr';
-        option.innerHTML = reportFiles[i].files[j];
-        optGroup.appendChild(option);
-    }
-    reportFilesCombo.appendChild(optGroup);
+$.get("ReportInfos.xml", function (data) {
+    fillReportList(data);
+    loadFlexReport();
+});
+
+function sortElements(elements, valFunc) {
+    return elements.sort(function (a, b) {
+        return valFunc(a) === valFunc(b)? 0: valFunc(a) > valFunc(b) ? 1 : -1;
+    });
 }
 
-function fillReportNames() {
-    wijmo.viewer.ReportViewer.getReportNames(serviceUrl, reportFilesCombo.value).then(function (names) {
-        while (reportNamesCombo.hasChildNodes()) {
-            reportNamesCombo.removeChild(reportNamesCombo.firstChild);
-        }
-        for (var i = 0; i < names.length; i++) {
-            var option = document.createElement('option');
-            option.value = names[i];
-            option.innerHTML = names[i];
-            reportNamesCombo.appendChild(option);
-        }
-        loadFlexReport();
+function fillReportList(reportInfos) {
+    var categories = sortElements($.makeArray($(reportInfos).find("Category")), function (ele) {
+        return $(ele).attr("Name")
     });
+
+    for (var i = 0; i < categories.length; i++) {
+        var category = categories[i];
+        var categoryName = $(category).attr("Name");
+        var optGroup = document.createElement('optgroup');
+        optGroup.label = categoryName;
+        var reports = sortElements($.makeArray($(category).find("Report")), function (ele) {
+            return $(ele).find("ReportTitle").text();
+        });
+
+        for (var j = 0; j < reports.length; j++) {
+            var report = $(reports[j]);
+            var option = document.createElement('option');
+            option.value = '/ReportsRoot/' + categoryName
+                + '/' + report.find("FileName").text();
+            $(option).attr("ReportName", report.find("ReportName").text());
+            option.innerHTML = report.find("ReportTitle").text();
+            optGroup.appendChild(option);
+        }
+        reportsCombo.appendChild(optGroup);
+    }
 }
 
 function loadFlexReport() {
     if (reportView) {
         reportView.deferUpdate(function () {
             reportView.serviceUrl = serviceUrl;
-            reportView.filePath = reportFilesCombo.value;
-            reportView.reportName = reportNamesCombo.value;
+            reportView.filePath = $(reportsCombo).val();
+            reportView.reportName = $(reportsCombo).find("option:selected").attr("ReportName");
         });
     }
 }
 
-reportFilesCombo.onchange = function () {
-    fillReportNames();
+reportsCombo.onchange = function () {
+    loadFlexReport();
 }
-reportNamesCombo.onchange = function () {
-    loadFlexReport()
-}
-
-fillReportNames();

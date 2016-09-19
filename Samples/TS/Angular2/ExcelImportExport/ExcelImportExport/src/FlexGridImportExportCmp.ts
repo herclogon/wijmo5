@@ -1,11 +1,13 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, Inject, enableProdMode, ViewChild } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjFlexGrid from 'wijmo/wijmo.angular2.grid';
-import { AppTab, AppTabPane } from './components/AppTab';
+import { Component, EventEmitter, Input, Inject, enableProdMode, ViewChild, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { TabsModule } from './components/AppTab';
 import { DataSvc } from './services/DataSvc';
 
     'use strict';
@@ -13,8 +15,7 @@ import { DataSvc } from './services/DataSvc';
     // The Explorer application root component.
     @Component({
         selector: 'flex-grid-import-export-cmp',
-        templateUrl: 'src/flexGridImportExportCmp.html',
-        directives: [CORE_DIRECTIVES, AppTab, AppTabPane, wjFlexGrid.WjFlexGrid]
+        templateUrl: 'src/flexGridImportExportCmp.html'
     })
     export class FlexGridImportExportCmp {
         protected dataSvc: DataSvc;
@@ -86,8 +87,16 @@ import { DataSvc } from './services/DataSvc';
     }
 
 
-enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-bootstrap(FlexGridImportExportCmp, [
-    DataSvc
-]);
+    @NgModule({
+        imports: [ WjGridModule, BrowserModule, FormsModule, TabsModule],
+        declarations: [FlexGridImportExportCmp],
+        providers: [DataSvc],
+        bootstrap: [FlexGridImportExportCmp]
+    })
+    export class AppModule {
+    }
+
+
+    enableProdMode();
+    // Bootstrap application with hash style navigation and global services.
+    platformBrowserDynamic().bootstrapModule(AppModule);

@@ -26,3 +26,5 @@ export declare class AppCmp {
     startAngleChanged: (sender: wijmo.input.InputNumber) => void;
     selectedOffsetChanged: (sender: wijmo.input.InputNumber) => void;
 }
+export declare class AppModule {
+}

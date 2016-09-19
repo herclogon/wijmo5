@@ -1,20 +1,24 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject, forwardRef, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, ChangeDetectionStrategy, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { GridBaseCmp } from './GridBaseCmp';
+import { WjCoreModule } from 'wijmo/wijmo.angular2.core';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
+
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Core from 'wijmo/wijmo.angular2.core';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
 
 // FlexGrid Templates sample component.
 @Component({
     selector: 'grid-cell-edit-templates-cmp',
-    templateUrl: 'src/components/grid/gridCellEditTemplatesCmp.html',
-    directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate, CORE_DIRECTIVES,
-        wjNg2Input.WjInputNumber, wjNg2Input.WjInputDate, wjNg2Core.WjComponentLoader, wjNg2Core.WjHtmlLoader,
-        forwardRef(() => PersonCellEditorCmp)]
+    templateUrl: 'src/components/grid/gridCellEditTemplatesCmp.html'
+    //directives: [FORM_DIRECTIVES,   wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate, CORE_DIRECTIVES,
+    //    wjNg2Input.WjInputNumber, wjNg2Input.WjInputDate, wjNg2Core.WjComponentLoader, /*wjNg2Core.WjHtmlLoader,*/
+    //    forwardRef(() => PersonCellEditorCmp)]
 })
 
 export class GridCellEditTemplatesCmp extends GridBaseCmp {
@@ -54,7 +58,7 @@ export class GridCellEditTemplatesCmp extends GridBaseCmp {
 `,
         inputs: ['firstName', 'lastName', 'person'],
         outputs: ['firstNameChange', 'lastNameChange', 'personChange'],
-        directives: [CORE_DIRECTIVES],
+        //directives: [CORE_DIRECTIVES],
         changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PersonCellEditorCmp {
@@ -130,3 +134,13 @@ export class Person {
     }
 }
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: GridCellEditTemplatesCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjCoreModule, WjGridModule, WjInputModule],
+    declarations: [GridCellEditTemplatesCmp, PersonCellEditorCmp],
+})
+export class GridCellEditTemplatesModule {
+}

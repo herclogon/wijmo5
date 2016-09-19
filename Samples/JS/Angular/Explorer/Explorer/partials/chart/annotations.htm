@@ -1,0 +1,60 @@
+﻿<div>
+    <div class="copy">
+        <h3>FlexChart Annotations</h3>
+        <div class="alert alert-info" role="alert"><b>Important!</b> This feature requires the <a href="http://wijmo.com/5/docs/topic/wijmo.chart.annotation.Module.html">wijmo.chart.annotation</a> extension module.</div>
+        <p>
+            The sample below shows basic usage of <b>AnnotationLayer</b> and various built-in types of Annotations, including:
+            <b>Circle</b>, <b>Ellipse</b>, <b>Image</b>, <b>Line</b>, <b>Polygon</b>, <b>Rectangle</b>, <b>Square</b> and <b>Text</b>.
+        </p>
+        <p>
+            You can use <b>attachment</b> property to set different attach types of annotation.
+        </p>
+    </div>
+    <div>
+
+        <div>
+            <wj-flex-chart control="basicChart" items-source="basicData" chart-type="Line" binding-x="date">
+                <wj-flex-chart-series binding="sale"></wj-flex-chart-series>
+                <wj-flex-chart-annotation-layer control="al">
+                    <wj-flex-chart-annotation type="Circle" radius="40" offset="{x: 0, y: -15}" series-index="0"
+                                              point-index="33" content="DataIndex" position="Center" attachment="DataIndex"
+                                              tooltip="This is Circle annotation. &lt;/br&gt; radius: 40 &lt;/br&gt; pointIndex: 33 &lt;/br&gt; attachment: DataIndex"
+                                              ng-attr-style="{ 'fill': '#a3d1a7', 'stroke': '#7b9e7e', 'fill-opacity': 1, 'stroke-width': 2, 'stroke-opacity': 1 }"></wj-flex-chart-annotation>
+                    <wj-flex-chart-annotation type="Square" length="80" offset="{x: 0, y: -15}" series-index="0"
+                                              point-index="45" content="DataIndex" position="Center" attachment="DataIndex"
+                                              tooltip="This is square annotation. &lt;/br&gt;length: 80 &lt;/br&gt; pointIndex: 45 &lt;/br&gt; attachment: DataIndex"
+                                              ng-attr-style="{ 'fill': '#c4af71', 'stroke': '#918254', 'fill-opacity': 1, 'stroke-width': 2, 'stroke-opacity': 1 }"></wj-flex-chart-annotation>
+                    <wj-flex-chart-annotation type="Line" content="Absolute" position="Center" start="{x: 50, y: 150}" end="{x: 350, y: 300}"
+                                              tooltip="This is line annotation. &lt;/br&gt; start: { x: 50, y: 150 } end: { x: 350, y: 300 } &lt;/br&gt; attachment: Absolute"
+                                              ng-attr-style="{ 'fill': '#FE2E2E', 'stroke': '#01A9DB', 'fill-opacity': 2, 'stroke-width': 4, 'stroke-opacity': 1 }"></wj-flex-chart-annotation>
+                    <wj-flex-chart-annotation type="Text" attachment="Relative" text="Relative" position="Center" point="{x:0.55, y:0.15}"
+                                              tooltip="This is text annotation.&lt;/br&gt;point: { x: 0.55, y: 0.15 }&lt;/br&gt; attachment: Relative"
+                                              ng-attr-style="{ 'fill': '#bbbbbb', 'font-size': '26px' }"></wj-flex-chart-annotation>
+                    <wj-flex-chart-annotation type="Ellipse" content="Relative" position="Center" attachment="Relative"
+                                              tooltip="This is ellipse annotation.&lt;/br&gt;point: { x: 0.4, y: 0.45 }&lt;/br&gt; attachment: Relative"
+                                              ng-attr-style="{ 'fill': '#f5bc78', 'stroke': '#c2955f', 'fill-opacity': 1, 'stroke-width': 2, 'stroke-opacity': 1 }">
+
+                        <wj-flex-chart-data-point wj-property="point" x="0.9" y="0.5"></wj-flex-chart-data-point>
+
+                    </wj-flex-chart-annotation>
+                    <wj-flex-chart-annotation type="Rectangle" content="DataCoordinate" position="Center" attachment="DataCoordinate" point="{x: date1, y: 30}"
+                                              tooltip="This is rectangle annotation.&lt;/br&gt;point:{ x: new Date(2014, 1, 10), y: 40 }&lt;/br&gt; attachment: DataCoordinate"
+                                              ng-attr-style="{ 'fill': '#c5aacd', 'stroke': '#937f99', 'fill-opacity': 1, 'stroke-width': 2, 'stroke-opacity': 1 }"></wj-flex-chart-annotation>
+                    <wj-flex-chart-annotation type="Image" position="Center" attachment="DataCoordinate" href="resources/wijmo.png"
+                                              point="{x: date2, y: 30}"
+                                              tooltip="This is image annotation.&lt;/br&gt;point:{x: new Date(2014, 0, 25), y: 20}&lt;/br&gt; attachment: DataCoordinate"
+                                              ng-attr-style="{ 'fill': '#01DFD7', 'stroke': '#000000', 'fill-opacity': 1, 'stroke-width': 1, 'stroke-opacity': 1}"></wj-flex-chart-annotation>
+                    <wj-flex-chart-annotation type="Polygon" content="Absolute" position="Center"
+                                              tooltip="This is polygon annotation.&lt;/br&gt;paths: [(200,0),(150,50),(175,100),(255,100),(250, 50)]&lt;/br&gt; attachment: Absolute"
+                                              ng-attr-style="{ 'fill': '#FE2E2E', 'stroke': '#01A9DB', 'fill-opacity': 2, 'stroke-width': 4, 'stroke-opacity': 1 }">
+                        <wj-flex-chart-data-point wj-property="points" x="200" y="0"></wj-flex-chart-data-point>
+                        <wj-flex-chart-data-point wj-property="points" x="150" y="50"></wj-flex-chart-data-point>
+                        <wj-flex-chart-data-point wj-property="points" x="175" y="100"></wj-flex-chart-data-point>
+                        <wj-flex-chart-data-point wj-property="points" x="225" y="100"></wj-flex-chart-data-point>
+                        <wj-flex-chart-data-point wj-property="points" x="250" y="50"></wj-flex-chart-data-point>
+                    </wj-flex-chart-annotation>
+                </wj-flex-chart-annotation-layer>
+            </wj-flex-chart>
+        </div>
+    </div>
+</div>

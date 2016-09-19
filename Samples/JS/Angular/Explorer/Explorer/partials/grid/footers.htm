@@ -1,0 +1,33 @@
+﻿<div>
+    <h3>
+        Column Footers
+    </h3>
+    <p>
+        In some situations you may want to display non-scrollable rows below 
+        the grid data containing summary information such as subtotals.
+        This can be done by adding rows to the grid's <b>columnFooter</b>
+        panel.</p>
+    <p>
+        If you add a <b>GroupRow</b> to the <b>columnFooter</b> panel, the 
+        grid will automatically provide values for any columns that have
+        the <b>aggregate</b> property set. This is what this sample does.</p>
+    <p> 
+        If you add regular rows to the <b>columnFooter</b> panel, then you
+        should set their values using the panel's <b>setCellData</b> method.
+        You can add as many column footer rows as you want, possibly showing
+        different aggregates on each one (sum, count, average, min, max, etc).</p>
+
+    <!-- the grid -->
+    <wj-flex-grid
+        class="grid"
+        items-source="ctx.data"
+        initialized="addFooterRow(s,e)" >
+        <wj-flex-grid-column header="ID" binding="id" width="80" is-read-only="true"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Product" binding="product"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Country" binding="country"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Color" binding="color"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Revenue" binding="amount" format="n0" aggregate="Sum"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Expense" binding="amount2" format="n0" aggregate="Sum"></wj-flex-grid-column>
+        <wj-flex-grid-column header="Active" binding="active" data-type="Boolean" aggregate="Sum"></wj-flex-grid-column>
+    </wj-flex-grid>
+</div>

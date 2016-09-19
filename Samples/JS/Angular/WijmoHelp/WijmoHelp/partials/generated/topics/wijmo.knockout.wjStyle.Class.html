@@ -1,30 +1,32 @@
-<h2>wjStyle Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">wjStyle</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.knockout</dd>
-<dt>File</dt><dd>wijmo.knockout.js</dd>
+<dt>File</dt><dd class="filename">wijmo.knockout.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.knockout.Module.html"><span class="identifier">wijmo.knockout</span></a></dd>
 </dl>
-<p><p>KnockoutJS binding for conditional formatting of <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> <a href="topic/wijmo.grid.Column.Class.html"><b>Column</b></a> cells.</p>
-
-<p>Use the <b>wjStyle</b> binding together with the <a href="topic/wijmo.knockout.wjFlexGridColumn.Class.html"><b>wjFlexGridColumn</b></a> binding to provide
+<div class="comment"><p>KnockoutJS binding for conditional formatting of <a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a> <a href="topic/wijmo.grid.Column.Class.html"><span class="identifier">Column</span></a> cells.</p>
+<p>Use the <a href="topic/wijmo.knockout.wjStyle.Class.html"><span class="identifier">wjStyle</span></a> binding together with the <a href="topic/wijmo.knockout.wjFlexGridColumn.Class.html"><span class="identifier">wjFlexGridColumn</span></a> binding to provide
 conditional formatting to column cells. 
 For example:</p>
 
-<p><pre>&lt;div data-bind="wjFlexGridColumn: { 
+
+<pre>&lt;div data-bind="wjFlexGridColumn: { 
         header: 'Change',
         binding: 'changePercent',
         format: 'p2',
         width: '*'
         },
-        wjStyle: { color: getAmountColor($item().change) }"&gt;&lt;/div&gt;</pre></p>
-
+        wjStyle: { color: getAmountColor($item().change) }"&gt;&lt;/div&gt;</pre>
 <p>
 The <b>wjStyle</b> uses the same syntax as the native KnockoutJS 
 <a href="http://knockoutjs.com/documentation/style-binding.html" target="_blank">style</a> binding.
 In addition to the view model properties, the following observable variables are available in binding
 expressions:</p>
-
 <p><dl class="dl-horizontal">
   <dt>$item</dt>  <dd>References the item that is bound to the current row.</dd>
   <dt>$row</dt>  <dd>The row index.</dd>
   <dt>$col</dt>  <dd>The column index.</dd>
-</dl></p></p>
+</dl></p></div>
+</div>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+</div>

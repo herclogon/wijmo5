@@ -7,7 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
 // Chart series binding component
 var ChartSeriesBindingCmp = (function () {
     function ChartSeriesBindingCmp() {
@@ -21,11 +22,24 @@ var ChartSeriesBindingCmp = (function () {
     ChartSeriesBindingCmp = __decorate([
         core_1.Component({
             selector: 'chart-series-binding-cmp',
-            templateUrl: 'src/components/chart/chartSeriesBindingCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, common_1.CORE_DIRECTIVES]
-        })
+            templateUrl: 'src/components/chart/chartSeriesBindingCmp.html' })
     ], ChartSeriesBindingCmp);
     return ChartSeriesBindingCmp;
 }());
 exports.ChartSeriesBindingCmp = ChartSeriesBindingCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartSeriesBindingCmp }
+]);
+var ChartSeriesBindingModule = (function () {
+    function ChartSeriesBindingModule() {
+    }
+    ChartSeriesBindingModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule],
+            declarations: [ChartSeriesBindingCmp],
+        })
+    ], ChartSeriesBindingModule);
+    return ChartSeriesBindingModule;
+}());
+exports.ChartSeriesBindingModule = ChartSeriesBindingModule;
 //# sourceMappingURL=ChartSeriesBindingCmp.js.map

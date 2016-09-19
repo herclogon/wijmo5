@@ -30,6 +30,7 @@
     <Content Include="partials\static\intellisense.html" />
     <Content Include="partials\static\minMax.html" />
     <Content Include="partials\static\glyphs.html" />
+    <Content Include="partials\static\toc.html" />
     <Content Include="readme.txt" />
     <Content Include="default.htm" />
     <Content Include="images\chapter.png" />
@@ -51,16 +52,14 @@
     <Content Include="partials\static\home.html" />
     <Content Include="partials\static\references.html" />
     <Content Include="partials\static\sizingAndStyling.html" />
-    <Content Include="partials\static\tocStatic.html" />
     <Content Include="partials\static\whatIsLess.html" />
     <Content Include="scripts\app.js" />
+    <Content Include="styles\print.css" />
     <Content Include="styles\app.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="partials\generated\templates\" />
     <Folder Include="partials\generated\topics\" />
-  </ItemGroup>
-  <ItemGroup>
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config">

@@ -1,18 +1,20 @@
 ﻿'use strict';
 
-import { Component, Inject } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, ViewChild, Input, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { GaugeBaseCmp } from './GaugeBaseCmp';
+import { RouterModule } from '@angular/router';
+import { WjCoreModule } from 'wijmo/wijmo.angular2.core';
+import { WjGaugeModule } from 'wijmo/wijmo.angular2.gauge';
+
 import { SparkSvc } from '../../services/SparkSvc';
-import * as wjNg2Core from 'wijmo/wijmo.angular2.core';
-import * as wjNg2Gauge from 'wijmo/wijmo.angular2.gauge';
 
 
 // Bullet gauge sample component.
 @Component({
     selector: 'bullet-gauge-cmp',
-    templateUrl: 'src/components/gauge/bulletGaugeCmp.html',
-    directives: [wjNg2Gauge.WjBulletGraph, wjNg2Core.WjTooltip, CORE_DIRECTIVES]
+    templateUrl: 'src/components/gauge/bulletGaugeCmp.html'
 })
 
 export class BulletGaugeCmp extends GaugeBaseCmp {
@@ -76,4 +78,13 @@ export class BulletGaugeCmp extends GaugeBaseCmp {
 
 }
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: BulletGaugeCmp }
+]);
 
+@NgModule({
+    imports: [CommonModule, routing, WjCoreModule, WjGaugeModule],
+    declarations: [BulletGaugeCmp],
+})
+export class BulletGaugeModule {
+}

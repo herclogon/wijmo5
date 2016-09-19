@@ -1,6 +1,6 @@
 /*
     *
-    * Wijmo Library 5.20162.198
+    * Wijmo Library 5.20162.207
     * http://wijmo.com/
     *
     * Copyright(c) GrapeCity, Inc.  All rights reserved.
@@ -1388,6 +1388,450 @@ declare module wijmo.knockout {
      * the @see:ChartGestures class.
      */
     class wjFlexChartGestures extends WjBinding {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:PlotArea object.
+     *
+     * Use the @see:wjFlexChartPlotArea binding to add @see:PlotArea object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a PlotArea:&lt;/p&gt;
+     * &lt;div data-bind="wjFlexChart: { itemsSource: data, bindingX: 'country' }"&gt;
+     *     &lt;div data-bind="wjFlexChartAxis: { wjProperty: 'axisX', title: 'country' }"&gt;&lt;/div&gt;
+     *     &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+     *     &lt;div data-bind="wjFlexChartPlotArea: { row:0, name:'plot1', style:{ fill: 'rgba(136,189,230,0.2)'} }  "&gt;&lt;/div&gt;
+     * &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartPlotArea</b> binding supports all read-write properties and events of
+     * the @see:PlotArea class.
+     */
+    class wjFlexChartPlotArea extends WjBinding {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:DataPoint object.
+
+     * The <b>wjFlexChartDataPoint</b> must be contained in a
+     * @see:wjFlexChartAnnotation. The property of the parent object
+     * where <b>wjFlexChartDataPoint</b> should assign a value is specified in the
+     * <b>wjProperty</b> attribute.
+     *
+     * Use the @see:wjFlexChartDataPoint binding to add @see:DataPoint object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a DataPoint:&lt;/p&gt;
+     *   &lt;div data-bind="wjFlexChartDataPoint: { wjProperty: 'point', x: 0.9, y:0.4}" &gt;&lt;/div&gt;
+     *  </pre>
+     *
+     * The <b>wjFlexChartDataPoint</b> binding supports all read-write properties and events of
+     * the @see:DataPoint class.
+     */
+    class wjFlexChartDataPoint extends WjBinding {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:AnnotationLayer object.
+     *
+     * Use the @see:wjFlexChartAnnotationLayer binding to add @see:AnnotationLayer object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a AnnotationLayer:&lt;/p&gt;
+     *&lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date', chartType:'Candlestick' }"&gt;
+     *    &lt;div data-bind="wjFinancialChartSeries: { bindingX: 'date', binding: 'high,low,open,close' }"&gt;&lt;/div&gt;
+     *    &lt;div data-bind="wjFlexChartAnnotationLayer: {}"&gt;
+     *        &lt;div data-bind="wjFlexChartAnnotation: { type: 'Rectangle', content: 'E',height:20, width:20,attachment:'DataIndex',pointIndex: 10}"&gt;&lt;/div&gt;
+     *        &lt;div data-bind="wjFlexChartAnnotation: { type: 'Ellipse', content: 'E',height:20, width:20,attachment:'DataIndex',pointIndex: 30}"&gt;&lt;/div&gt;
+     *    &lt;/div&gt;
+      &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartAnnotationLayer</b> binding supports all read-write properties and events of
+     * the @see:AnnotationLayer class.
+     */
+    class wjFlexChartAnnotationLayer extends WjBinding {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for annotations.
+     *
+     * The <b>wjFlexChartAnnotation</b> must be contained in a
+     * @see:wjFlexChartAnnotationLayer binding.For example:
+     * <pre>&lt;p&gt;Here is a AnnotationLayer:&lt;/p&gt;
+     *&lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date', chartType:'Candlestick' }"&gt;
+     *    &lt;div data-bind="wjFinancialChartSeries: { bindingX: 'date', binding: 'high,low,open,close' }"&gt;&lt;/div&gt;
+     *    &lt;div data-bind="wjFlexChartAnnotationLayer: {}"&gt;
+     *        &lt;div data-bind="wjFlexChartAnnotation: { type: 'Rectangle', content: 'E',height:20, width:20,attachment:'DataIndex',pointIndex: 10}"&gt;&lt;/div&gt;
+     *        &lt;div data-bind="wjFlexChartAnnotation: { type: 'Ellipse', content: 'E',height:20, width:20,attachment:'DataIndex',pointIndex: 30}"&gt;&lt;/div&gt;
+     *    &lt;/div&gt;
+      &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartAnnotation</b> is used to represent all types of
+     * possible annotation shapes like <b>Circle</b>, <b>Rectangle</b>, <b>Polygon</b>
+     * and so on. The type of annotation shape is specified
+     * in the <b>type</b> attribute.
+     */
+    class wjFlexChartAnnotation extends WjBinding {
+        _context: any;
+        _createControl(element: any): any;
+        _getMetaDataId(): any;
+        _createWijmoContext(): WjContext;
+    }
+    class wjFlexChartAnnotationContext extends WjContext {
+        _createAnnotation(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:ChartAnimation object.
+     *
+     * Use the @see:wjFlexChartAnimation binding to add @see:ChartAnimation object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a ChartAnimation:&lt;/p&gt;
+     * &lt;div data-bind="wjFlexChart: { itemsSource: data, bindingX: 'country',chartType:'Column' }"&gt;
+     *     &lt;div data-bind="wjFlexChartAxis: { wjProperty: 'axisX', title: 'country' }"&gt;&lt;/div&gt;
+     *     &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+     *     &lt;div data-bind="wjFlexChartAnimation: { animationMode: 'Series',easing:'Swing',duration:2000 }  "&gt;&lt;/div&gt;
+     * &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartAnimation</b> binding supports all read-write properties and events of
+     * the @see:ChartAnimation class.
+     */
+    class wjFlexChartAnimation extends WjBinding {
+        _getControlConstructor(): any;
+    }
+    class WjSeriesBase extends WjBinding {
+        _getControlConstructor(): any;
+    }
+    class WjTrendLineBase extends WjSeriesBase {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:TrendLine object.
+     *
+     * Use the @see:wjFlexChartTrendLine binding to add @see:TrendLine object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a TrendLine:&lt;/p&gt;
+     * &lt;div data-bind="wjFlexChart: { itemsSource: data, bindingX: 'country',chartType:'Column' }"&gt;
+     *     &lt;div data-bind="wjFlexChartAxis: { wjProperty: 'axisX', title: 'country' }"&gt;&lt;/div&gt;
+     *     &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+     *     &lt;div data-bind="wjFlexChartAnimation: { animationMode: 'Series',easing:'Swing',duration:2000 }  "&gt;&lt;/div&gt;
+     * &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartTrendLine</b> binding supports all read-write properties and events of
+     * the @see:TrendLine class.
+     */
+    class wjFlexChartTrendLine extends WjTrendLineBase {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:MovingAverage object.
+     *
+     * Use the @see:wjFlexChartMovingAverage binding to add @see:MovingAverage object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a MovingAverage:&lt;/p&gt;
+     * &lt;div data-bind="wjFlexChart: { itemsSource: trendItemsSource, bindingX: 'x' }"&gt;
+     *     &lt;div data-bind="wjFlexChartAxis: { wjProperty: 'axisX', title: 'country' }"&gt;&lt;/div&gt;
+     *     &lt;div data-bind="wjFlexChartSeries: { chartType: 'Scatter', name: 'Base Data', binding: 'y' }"&gt;&lt;/div&gt;
+     *     &lt;div data-bind="wjFlexChartMovingAverage: { binding: 'y', bindingX: 'x', period:2 }  "&gt;&lt;/div&gt;
+     * &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartMovingAverage</b> binding supports all read-write properties and events of
+     * the @see:MovingAverage class.
+     */
+    class wjFlexChartMovingAverage extends WjTrendLineBase {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:YFunctionSeries object.
+     *
+     * Use the @see:wjFlexChartYFunctionSeries binding to add @see:YFunctionSeries object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a YFunctionSeries:&lt;/p&gt;
+     * &lt;div data-bind="wjFlexChart: { itemsSource: trendItemsSource, bindingX: 'x' }"&gt;
+     *     &lt;div data-bind="wjFlexChartYFunctionSeries: {  min: 10, max: -10, sampleCount:100,func:func }"&gt;&lt;/div&gt;
+     * &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartYFunctionSeries</b> binding supports all read-write properties and events of
+     * the @see:YFunctionSeries class.
+     */
+    class wjFlexChartYFunctionSeries extends WjTrendLineBase {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:ParametricFunctionSeries object.
+     *
+     * Use the @see:wjFlexChartParametricFunctionSeries binding to add @see:ParametricFunctionSeries object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a ParametricFunctionSeries:&lt;/p&gt;
+     * &lt;div data-bind="wjFlexChart: { itemsSource: trendItemsSource, bindingX: 'x' }"&gt;
+     *     &lt;div data-bind="wjFlexChartSeries: { name: 'Sales', binding: 'sales' }"&gt;&lt;/div&gt;
+     *     &lt;div data-bind="wjFlexChartParametricFunctionSeries: {  sampleCount:1000, max: max,xFunc:xFunc,yFunc:yFunc  }"&gt;&lt;/div&gt;
+     * &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartParametricFunctionSeries</b> binding supports all read-write properties and events of
+     * the @see:ParametricFunctionSeries class.
+     */
+    class wjFlexChartParametricFunctionSeries extends WjTrendLineBase {
+        _getControlConstructor(): any;
+        _initialize(): void;
+    }
+    /**
+      * KnockoutJS binding for the @see:Waterfall object.
+      *
+      * Use the @see:wjFlexChartWaterfall binding to add @see:Waterfall object to your
+      * KnockoutJS applications. For example:
+      *
+      * <pre>&lt;p&gt;Here is a Waterfall:&lt;/p&gt;
+      * &lt;div data-bind="wjFlexChart: { itemsSource: trendItemsSource,  binding:'value',bindingX: 'name' }"&gt;
+      *     &lt;div data-bind="wjFlexChartWaterfall: {  relativeData:true, connectorLines: true, start:1000,showIntermediateTotal: true,
+      *                       intermediateTotalPositions: [3, 6, 9, 12], intermediateTotalLabels: ['Q1', 'Q2', 'Q3', 'Q4'],name:'Increase,Decrease,Total'}"&gt;&lt;/div&gt;
+      * &lt;/div&gt;</pre>
+      *
+      * The <b>wjFlexChartWaterfall</b> binding supports all read-write properties and events of
+      * the @see:Waterfall class.
+      */
+    class wjFlexChartWaterfall extends WjSeriesBase {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:Fibonacci object.
+     *
+     * Use the @see:wjFlexChartFibonacci binding to add @see:Fibonacci object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a Fibonacci:&lt;/p&gt;
+     *    &lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date', chartType:'Candlestick' }"&gt;
+     *         &lt;div data-bind="wjFinancialChartSeries: { bindingX: 'date', binding: 'high,low,open,close' }"&gt;&lt;/div&gt;
+     *         &lt;div data-bind="wjFlexChartFibonacci: { binding:'close', symbolSize:1, labelPosition: 'Left',  uptrend: true}"&gt;&lt;/div&gt;
+     *   &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartFibonacci</b> binding supports all read-write properties and events of
+     * the @see:Fibonacci class.
+     */
+    class wjFlexChartFibonacci extends WjSeriesBase {
+        _getControlConstructor(): any;
+        _createControl(element: any): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:FibonacciArcs object.
+     *
+     * Use the @see:wjFlexChartFibonacciArcs binding to add @see:FibonacciArcs object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a FibonacciArcs:&lt;/p&gt;
+     *    &lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date', chartType:'Candlestick' }"&gt;
+     *         &lt;div data-bind="wjFinancialChartSeries: { bindingX: 'date', binding: 'high,low,open,close' }"&gt;&lt;/div&gt;
+     *         &lt;div data-bind="wjFlexChartFibonacciArcs: { binding:'close', start:start, end: end,  labelPosition: 'Top'}"&gt;&lt;/div&gt;
+     *   &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartFibonacciArcs</b> binding supports all read-write properties and events of
+     * the @see:FibonacciArcs class.
+     */
+    class wjFlexChartFibonacciArcs extends WjSeriesBase {
+        _getControlConstructor(): any;
+        _createControl(element: any): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:FibonacciFans object.
+     *
+     * Use the @see:wjFlexChartFibonacciFans binding to add @see:FibonacciFans object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a FibonacciFans:&lt;/p&gt;
+     *    &lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date', chartType:'Candlestick' }"&gt;
+     *         &lt;div data-bind="wjFinancialChartSeries: { bindingX: 'date', binding: 'high,low,open,close' }"&gt;&lt;/div&gt;
+     *         &lt;div data-bind="wjFlexChartFibonacciFans: { binding:'close', start:start, end: end,  labelPosition: 'Top'}"&gt;&lt;/div&gt;
+     *   &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartFibonacciFans</b> binding supports all read-write properties and events of
+     * the @see:FibonacciFans class.
+     */
+    class wjFlexChartFibonacciFans extends WjSeriesBase {
+        _getControlConstructor(): any;
+        _createControl(element: any): any;
+    }
+    /**
+    * KnockoutJS binding for the @see:FibonacciTimeZones object.
+    *
+    * Use the @see:wjFlexChartFibonacciTimeZones binding to add @see:FibonacciTimeZones object to your
+    * KnockoutJS applications. For example:
+    *
+    * <pre>&lt;p&gt;Here is a FibonacciTimeZones:&lt;/p&gt;
+    *    &lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date', chartType:'Candlestick' }"&gt;
+    *         &lt;div data-bind="wjFinancialChartSeries: { bindingX: 'date', binding: 'high,low,open,close' }"&gt;&lt;/div&gt;
+    *         &lt;div data-bind="wjFlexChartFibonacciTimeZones: { binding:'close', startX:zStart, endX: zEnd,  labelPosition: 'Right'}"&gt;&lt;/div&gt;
+    *   &lt;/div&gt;</pre>
+    *
+    * The <b>wjFlexChartFibonacciTimeZones</b> binding supports all read-write properties and events of
+    * the @see:FibonacciTimeZones class.
+    */
+    class wjFlexChartFibonacciTimeZones extends WjSeriesBase {
+        _getControlConstructor(): any;
+        _createControl(element: any): any;
+    }
+    class WjBaseOverlayIndicator extends WjSeriesBase {
+        _getControlConstructor(): any;
+    }
+    class WjBaseSingleOverlayIndicator extends WjBaseOverlayIndicator {
+        _getControlConstructor(): any;
+    }
+    /**
+    * KnockoutJS binding for the @see:ATR object.
+    *
+    * Use the @see:wjFlexChartAtr binding to add @see:ATR object to your
+    * KnockoutJS applications. For example:
+    *
+    * <pre>&lt;p&gt;Here is a ATR:&lt;/p&gt;
+    *    &lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date'}"&gt;
+    *         &lt;div data-bind="wjFlexChartAtr: { binding: 'high,low,open,close',period:'14' }"&gt;&lt;/div&gt;
+    *   &lt;/div&gt;</pre>
+    *
+    * The <b>wjFlexChartAtr</b> binding supports all read-write properties and events of
+    * the @see:ATR class.
+    */
+    class wjFlexChartAtr extends WjBaseSingleOverlayIndicator {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:CCI object.
+     *
+     * Use the @see:wjFlexChartCci binding to add @see:CCI object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a CCI:&lt;/p&gt;
+     *    &lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date'}"&gt;
+     *         &lt;div data-bind="wjFlexChartCci: { binding: 'high,low,open,close',period:20 }"&gt;&lt;/div&gt;
+     *   &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartCci</b> binding supports all read-write properties and events of
+     * the @see:CCI class.
+     */
+    class wjFlexChartCci extends WjBaseSingleOverlayIndicator {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:RSI object.
+     *
+     * Use the @see:wjFlexChartRsi binding to add @see:RSI object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a RSI:&lt;/p&gt;
+     *    &lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date', chartType:'Candlestick' }"&gt;
+     *         &lt;div data-bind="wjFlexChartRsi: { binding: 'high,low,open,close',period:20 }"&gt;&lt;/div&gt;
+     *   &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartRsi</b> binding supports all read-write properties and events of
+     * the @see:RSI class.
+     */
+    class wjFlexChartRsi extends WjBaseSingleOverlayIndicator {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:WilliamsR object.
+     *
+     * Use the @see:wjFlexChartWilliamsR binding to add @see:WilliamsR object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a WilliamsR:&lt;/p&gt;
+     *    &lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date'}"&gt;
+     *         &lt;div data-bind="wjFlexChartWilliamsR: { binding: 'high,low,open,close',period:20 }"&gt;&lt;/div&gt;
+     *   &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartWilliamsR</b> binding supports all read-write properties and events of
+     * the @see:WilliamsR class.
+     */
+    class wjFlexChartWilliamsR extends WjBaseSingleOverlayIndicator {
+        _getControlConstructor(): any;
+    }
+    class WjFlexChartMacdBase extends WjBaseOverlayIndicator {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:Macd object.
+     *
+     * Use the @see:wjFlexChartMacd binding to add @see:Macd object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a Macd:&lt;/p&gt;
+     *    &lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date'}"&gt;
+     *         &lt;div data-bind="wjFlexChartMacd: { binding: 'close',fastPeriod:12, slowPeriod: 26,smoothingPeriod: 9 }" &gt;&lt;/div&gt;
+     *   &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartMacd</b> binding supports all read-write properties and events of
+     * the @see:Macd class.
+     */
+    class wjFlexChartMacd extends WjFlexChartMacdBase {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:MacdHistogram object.
+     *
+     * Use the @see:wjFlexChartMacdHistogram binding to add @see:MacdHistogram object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a MacdHistogram:&lt;/p&gt;
+     *    &lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date'}"&gt;
+     *         &lt;div data-bind="WjFlexChartMacdHistogram: { binding: 'close',fastPeriod:12, slowPeriod: 26,smoothingPeriod: 9 }" &gt;&lt;/div&gt;
+     *   &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartMacdHistogram</b> binding supports all read-write properties and events of
+     * the @see:MacdHistogram class.
+     */
+    class wjFlexChartMacdHistogram extends WjFlexChartMacdBase {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:Stochastic object.
+     *
+     * Use the @see:wjFlexChartStochastic binding to add @see:Stochastic object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a Stochastic:&lt;/p&gt;
+     *    &lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date'}"&gt;
+     *         &lt;div data-bind="wjFlexChartStochastic: { binding: 'high,low,open,close',kPeriod:14,dPeriod:3,smoothingPeriod: 1 }" &gt;&lt;/div&gt;
+     *   &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartStochastic</b> binding supports all read-write properties and events of
+     * the @see:Stochastic class.
+     */
+    class wjFlexChartStochastic extends WjBaseOverlayIndicator {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:BollingerBands object.
+     *
+     * Use the @see:wjFlexChartBollingerBands binding to add @see:BollingerBands object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a BollingerBands:&lt;/p&gt;
+     *    &lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date'}"&gt;
+     *         &lt;div data-bind="wjFlexChartStochastic: { binding: 'high,low,open,close',kPeriod:14,dPeriod:3,smoothingPeriod: 1 }" &gt;&lt;/div&gt;
+     *   &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartBollingerBands</b> binding supports all read-write properties and events of
+     * the @see:BollingerBands class.
+     */
+    class wjFlexChartBollingerBands extends WjBaseOverlayIndicator {
+        _getControlConstructor(): any;
+    }
+    /**
+     * KnockoutJS binding for the @see:Envelopes object.
+     *
+     * Use the @see:wjFlexChartEnvelopes binding to add @see:Envelopes object to your
+     * KnockoutJS applications. For example:
+     *
+     * <pre>&lt;p&gt;Here is a Envelopes:&lt;/p&gt;
+     *    &lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date'}"&gt;
+     *         &lt;div data-bind="wjFlexChartEnvelopes: { binding:'close', type:'Simple', size: 0.03, period:20}" &gt;&lt;/div&gt;
+     *   &lt;/div&gt;</pre>
+     *
+     * The <b>wjFlexChartEnvelopes</b> binding supports all read-write properties and events of
+     * the @see:Envelopes class.
+     */
+    class wjFlexChartEnvelopes extends WjBaseOverlayIndicator {
         _getControlConstructor(): any;
     }
 }

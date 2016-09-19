@@ -47,6 +47,7 @@
     <Content Include="src\app.js" />
     <Content Include="src\components\AppTab.js" />
     <Content Include="src\DynamicForms\app.component.js" />
+    <Content Include="src\DynamicForms\app.module.js" />
     <Content Include="src\DynamicForms\dynamic-form-question.component.js" />
     <Content Include="src\DynamicForms\dynamic-form.component.js" />
     <Content Include="src\DynamicForms\question-base.js" />

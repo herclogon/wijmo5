@@ -14,3 +14,5 @@ export declare module FlexChartZoom {
         rangeChanged(): void;
     }
 }
+export declare class AppModule {
+}

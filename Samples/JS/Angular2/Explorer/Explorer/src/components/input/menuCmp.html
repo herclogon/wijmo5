@@ -116,16 +116,16 @@
         The menu below has items bound to a command in the controller. We
         implement the command as follows:
     </p>
-<pre>this.changeValueCommand = {
-    executeCommand: (parm) =&gt; {
-        if (wijmo.isNumber(parm)) {
+<pre>this.changeValueCommand = &#123;
+    executeCommand: (parm) =&gt; &#123;
+        if (wijmo.isNumber(parm)) &#123;
             this.passengers += parm;
-        } else {
+        } else &#123;
             this.passengers = 1; // reset
         }
     },
-    canExecuteCommand: (parm) =&gt; {
-        if (wijmo.isNumber(parm)) {
+    canExecuteCommand: (parm) =&gt; &#123;
+        if (wijmo.isNumber(parm)) &#123;
             var val = this.passengers + parm;
             return val &gt;= 0 && val &lt;= 100;
         }
@@ -253,12 +253,12 @@
 <pre>// handle clicks on the split button
 // uses the isDroppedDown property to check whether the event was triggered
 // by selecting an item from the drop-down or by clicking the button
-splitButtonItemClicked(sender: wijmo.input.Menu, args) {
+splitButtonItemClicked(sender: wijmo.input.Menu, args) &#123;
     var menu = sender;
-    if (menu.isDroppedDown) {
+    if (menu.isDroppedDown) &#123;
         // the click was on a menu item
         alert('option **' + menu.selectedItem.value + '** is now the default');
-    } else {
+    } else &#123;
         // the click was on the button
         alert('running **' + menu.selectedItem.value + '**');
     }

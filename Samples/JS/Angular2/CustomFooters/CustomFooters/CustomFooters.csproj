@@ -39,7 +39,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\app.js" />
-    <Content Include="src\components\GridFooterForDctv.js" />
     <Content Include="src\components\GroupFootersDctv.js" />
     <Content Include="src\services\DataSvc.js" />
   </ItemGroup>

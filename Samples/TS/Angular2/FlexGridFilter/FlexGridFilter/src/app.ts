@@ -1,12 +1,14 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, EventEmitter, provide, Input, Inject, ViewChild, enableProdMode } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
-import * as wjNg2GridFilter from 'wijmo/wijmo.angular2.grid.filter';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import { Component, EventEmitter, Input, Inject, enableProdMode, ViewChild, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { WjGridFilterModule } from 'wijmo/wijmo.angular2.grid.filter';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 import { DataSvc } from './services/DataSvc';
 
 'use strict';
@@ -14,10 +16,7 @@ import { DataSvc } from './services/DataSvc';
 // The application root component.
 @Component({
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, 
-        wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate, 
-        wjNg2GridFilter.WjFlexGridFilter, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem]
+    templateUrl: 'src/app.html'
 })
 
 export class AppCmp {    
@@ -91,8 +90,16 @@ export class AppCmp {
     }
 }
 
+@NgModule({
+    imports: [WjInputModule, WjGridModule, WjGridFilterModule, BrowserModule, FormsModule],
+    declarations: [AppCmp],
+    providers: [DataSvc],
+    bootstrap: [AppCmp]
+})
+export class AppModule {
+}
+
+
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);

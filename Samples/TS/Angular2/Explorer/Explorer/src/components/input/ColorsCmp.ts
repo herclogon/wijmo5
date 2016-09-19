@@ -1,17 +1,17 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { InputBaseCmp } from './InputBaseCmp';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // Colors sample component.
 @Component({
     selector: 'colors-cmp',
-    templateUrl: 'src/components/input/colorsCmp.html',
-    directives: [wjNg2Input.WjColorPicker, wjNg2Input.WjInputColor,
-        wjNg2Input.WjComboBox, CORE_DIRECTIVES],
+    templateUrl: 'src/components/input/colorsCmp.html'
 })
 
 export class ColorsCmp extends InputBaseCmp {
@@ -20,4 +20,14 @@ export class ColorsCmp extends InputBaseCmp {
     constructor( @Inject(DataSvc) dataSvc: DataSvc) {
         super(dataSvc);
     }
+}
+const routing: ModuleWithProviders = RouterModule.forChild([
+        { path: '', component: ColorsCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjInputModule],
+    declarations: [ColorsCmp],
+})
+export class ColorsModule {
 }

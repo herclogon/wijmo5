@@ -75,12 +75,18 @@
                         <div class="pane-content">
 &lt;wj-flex-grid 
     items-source="data1" 
+    initialized="addFooterRow(s)"
     allow-sorting="false" 
     defer-resizing="true"&gt;
     &lt;wj-flex-grid-cell-template 
         cell-type="TopLeft" 
         ng-if="customTopLeft"&gt;
         №
+    &lt;/wj-flex-grid-cell-template&gt;
+    &lt;wj-flex-grid-cell-template 
+        cell-type="BottomLeft" 
+        ng-if="customBottomLeft"&gt;
+        &amp;#931;
     &lt;/wj-flex-grid-cell-template&gt;
     &lt;wj-flex-grid-cell-template 
         cell-type="RowHeader" 
@@ -152,6 +158,11 @@
             ng-if="customGroup"&gt;
             Sum = {&#8203;{$value | number:0}}
         &lt;/wj-flex-grid-cell-template&gt;
+        &lt;wj-flex-grid-cell-template 
+            cell-type="ColumnFooter" 
+            ng-if="customColumnFooter"&gt;
+            Sum = {&#8203;{$value | number:0}}
+        &lt;/wj-flex-grid-cell-template&gt;
     &lt;/wj-flex-grid-column&gt;
 &lt;/wj-flex-grid&gt;
 
@@ -187,6 +198,14 @@
     &lt;label class="checkbox"&gt;
         &lt;input type="checkbox" ng-model="customGroup" /&gt; 
             Group
+    &lt;/label&gt;
+    &lt;label class="checkbox"&gt;
+        &lt;input type="checkbox" ng-model="customColumnFooter" /&gt; 
+            ColumnFooter
+    &lt;/label&gt;
+    &lt;label class="checkbox"&gt;
+        &lt;input type="checkbox" ng-model="customBottomLeft" /&gt; 
+            BottomLeft
     &lt;/label&gt;
 &lt;/div&gt;
                         </div>
@@ -227,10 +246,16 @@ $scope.customCellEdit = true;
 $scope.customColumnHeader = true;
 $scope.customGroupHeader = true;
 $scope.customGroup = true;
+$scope.customColumnFooter = true;
+$scope.customBottomLeft = true;
 
 $scope.uiCtx = {
     highlightDownloads: true,
 };
+
+$scope.addFooterRow = function(s) {
+    s.columnFooters.rows.push(new wijmo.grid.GroupRow());
+}
                         </div>
                     </app-tab-pane>
                 </app-tab>
@@ -239,12 +264,18 @@ $scope.uiCtx = {
                 <h4>Result (live):</h4>
                 <wj-flex-grid 
                     items-source="data1" 
+                    initialized="addFooterRow(s)"
                     allow-sorting="false" 
                     defer-resizing="true">
                     <wj-flex-grid-cell-template 
                         cell-type="TopLeft" 
                         ng-if="customTopLeft">
                         №
+                    </wj-flex-grid-cell-template>
+                    <wj-flex-grid-cell-template 
+                        cell-type="BottomLeft" 
+                        ng-if="customBottomLeft">
+                        &#931;
                     </wj-flex-grid-cell-template>
                     <wj-flex-grid-cell-template 
                         cell-type="RowHeader" 
@@ -318,6 +349,11 @@ $scope.uiCtx = {
                             ng-if="customGroup">
                             Sum = {{$value | number:0}}
                         </wj-flex-grid-cell-template>
+                        <wj-flex-grid-cell-template 
+                            cell-type="ColumnFooter" 
+                            ng-if="customColumnFooter">
+                            Sum: {{$value | number:0}}
+                        </wj-flex-grid-cell-template>
                     </wj-flex-grid-column>
 
                 </wj-flex-grid>
@@ -346,6 +382,12 @@ $scope.uiCtx = {
                     </label>
                     <label class="checkbox">
                         <input type="checkbox" ng-model="customGroup" /> Group
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="customColumnFooter" /> ColumnFooter
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="customBottomLeft" /> BottomLeft
                     </label>
                 </div>
             </div>

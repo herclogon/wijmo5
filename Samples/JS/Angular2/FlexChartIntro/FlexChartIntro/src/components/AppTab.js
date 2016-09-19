@@ -32,7 +32,6 @@ var AppTab = (function () {
         core_1.Component({
             selector: 'app-tab',
             template: "\n        <ul class=\"nav nav-tabs\"> \n            <li *ngFor=\"let pane of panes\" [ngClass]=\"{active:pane.selected}\"> \n                <a [href]=\"''\" (click)=\"select(pane)\" onclick=\"return false;\">{{pane.title}}</a>\n            </li> \n        </ul> \n        <div class=\"tab-content\"><ng-content></ng-content></div> \n    ",
-            directives: [common_1.CORE_DIRECTIVES, core_1.forwardRef(function () { return AppTabPane; })],
             host: { '[class.tabbable]': 'true' }
         })
     ], AppTab);
@@ -55,11 +54,23 @@ var AppTabPane = (function () {
         core_1.Component({
             selector: 'app-tab-pane',
             template: "<ng-content></ng-content>",
-            directives: [common_1.CORE_DIRECTIVES],
             host: { '[class.tab-pane]': 'true' }
         })
     ], AppTabPane);
     return AppTabPane;
 }());
 exports.AppTabPane = AppTabPane;
+var TabsModule = (function () {
+    function TabsModule() {
+    }
+    TabsModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule],
+            declarations: [AppTab, AppTabPane],
+            exports: [AppTab, AppTabPane]
+        })
+    ], TabsModule);
+    return TabsModule;
+}());
+exports.TabsModule = TabsModule;
 //# sourceMappingURL=AppTab.js.map

@@ -45,9 +45,15 @@
             { "text": "OData", "url": "#/grid/odata" },
             { "text": "Editing", "url": "#/grid/editing" },
             { "text": "Frozen Cells", "url": "#/grid/frozen" },
+            { "text": "Column Footers", "url": "#/grid/footers" },
             { "text": "Right To Left", "url": "#/grid/rtl" },
             { "text": "Templates", "url": "#/grid/templates" },
-            { "text": "No Directive", "url": "#/grid/nodctv" }
+            {"text": "No Directive","url": "#/grid/nodctv"},
+            { "text": "Filter", "url": "#/grid/filter" },
+            { "text": "Group Panel", "url": "#/grid/groupPanel" },
+            { "text": "Row Details", "url": "#/grid/rowDetails" },
+            { "text": "Excel Import/Export", "url": "#/grid/excelImportExport" },
+            { "text": "PDF Export", "url": "#/grid/pdfExport" } 
         ]
     },
     {
@@ -67,7 +73,13 @@
             { "text": "LineMarker", "url": "#/chart/marker" },
             { "text": "Zones", "url": "#/chart/zones" },
             { "text": "Axes", "url": "#/chart/axes" },
-            { "text": "Plot areas", "url": "#/chart/plotAreas" }
+            { "text": "Plot areas", "url": "#/chart/plotAreas" },
+            { "text": "Animation", "url": "#/chart/animation" },
+            { "text": "Annotations", "url": "#/chart/annotations" },
+            { "text": "Range Selector", "url": "#/chart/rangeSelector" },
+            { "text": "Waterfall", "url": "#/chart/waterfall" },
+            { "text": "Trendline", "url": "#/chart/trendline" },
+            { "text": "Sunburst", "url": "#/chart/sunburst" }
         ]
     },
     {
@@ -75,7 +87,8 @@
         "links":  [
             { "text": "Introduction", "url": "#/piechart/intro" },
             { "text": "Selection", "url": "#/piechart/selection" },
-            { "text": "ItemFormatter", "url": "#/piechart/itemFormatter" }
+            { "text": "ItemFormatter", "url": "#/piechart/itemFormatter" },
+            { "text": "Animation", "url": "#/piechart/animation" }
         ]
     },
     {

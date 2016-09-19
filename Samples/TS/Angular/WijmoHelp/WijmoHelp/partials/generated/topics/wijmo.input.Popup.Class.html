@@ -1,395 +1,434 @@
-<h2>Popup Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">Popup</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><a href="topic/wijmo.Control.Class.html"><b>Control</b></a></dd>
-<dt>Derived Classes</dt><dd><a href="topic/wijmo.angular.WjPopup.Class.html"><b>WjPopup</b></a></dd>
-<dt>Module</dt><dd>wijmo.input</dd>
-<dt>File</dt><dd>wijmo.input.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.input.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.input.Module.html"><span class="identifier">wijmo.input</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+<dt>Derived Classes</dt><dd><a href="topic/wijmo-wijmo.angular2.input.WjPopup.Class.html"><span class="identifier">WjPopup</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p><p>Class that shows an element as a popup.</p>
-
-<p>Popups may be have <b>owner</b> elements, in which case they behave
+<div class="comment"><p>Class that shows an element as a popup.</p>
+<p>Popups may be have <a href="topic/wijmo.input.Popup.Class.html/#owner"><span class="identifier">owner</span></a> elements, in which case they behave
 as rich tooltips that may be shown or hidden based on actions
-specified by the <b>showTrigger</b> and <b>hideTrigger</b>
+specified by the <a href="topic/wijmo.input.Popup.Class.html/#showTrigger"><span class="identifier">showTrigger</span></a> and <a href="topic/wijmo.input.Popup.Class.html/#hideTrigger"><span class="identifier">hideTrigger</span></a>
 properties.</p>
-
 <p>Popups with no owner elements behave like dialogs. They are centered
-on the screen and displayed using the <b>show</b> method.</p>
-
-<p>To close a <b>Popup</b>, call the <b>hide</b> method.</p>
-
-<p>Alternatively, any clickable elements within a <b>Popup</b> that have
-the classes starting with the 'wj-hide' string will hide the <b>Popup</b>
-when clicked and will set the <b>dialogResult</b> property to the
+on the screen and displayed using the <a href="topic/wijmo.input.Popup.Class.html/#show"><span class="identifier">show</span></a> method.</p>
+<p>To close a <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a>, call the <a href="topic/wijmo.input.Popup.Class.html/#hide"><span class="identifier">hide</span></a> method.</p>
+<p>Alternatively, any clickable elements within a <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> that have
+the classes starting with the 'wj-hide' string will hide the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a>
+when clicked and will set the <a href="topic/wijmo.input.Popup.Class.html/#dialogResult"><span class="identifier">dialogResult</span></a> property to the
 class name so the caller may take appropriate action.</p>
-
-<p>For example, the <b>Popup</b> below will be hidden when the user presses
-the OK or Cancel buttons, and the <b>Popup.dialogResult</b> property will
+<p>For example, the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> below will be hidden when the user presses
+the OK or Cancel buttons, and the <a href="topic/wijmo.input.Popup.Class.html/#dialogResult"><span class="identifier">dialogResult</span></a> property will
 be set to either 'wj-hide-cancel' or 'wj-hide-ok':</p>
 
-<p><pre>&lt;button id="btnPopup"&gt;Show Popup&lt;/button&gt;
+
+<pre>&lt;button id="btnPopup"&gt;Show Popup&lt;/button&gt;
 &lt;wj-popup owner="#btnPopup" style="padding:12px"&gt;
   &lt;p&gt;Press one of the buttons below to hide the Popup.&lt;/p&gt;
   &lt;hr/&gt;
   &lt;button class="wj-hide-ok" ng-click="handleOK()"&gt;OK&lt;/button&gt;
   &lt;button class="wj-hide-cancel"&gt;Cancel&lt;/button&gt;
-&lt;/wj-popup&gt;</pre></p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+&lt;/wj-popup&gt;</pre></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(element, options?): <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a></td>
-      <td><p>
-<b>element</b> (<b>any</b>): The DOM element that will host the control, or a selector for the host element (e.g. '#theCtrl').<br/><b>options?</b> (<b>any</b>): JavaScript object containing initialization data for the control.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.input.Popup.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.input.Popup.Class.html/#content">content</a></li>
+<li class="mproperty"><a href="topic/wijmo.input.Popup.Class.html/#dialogResult">dialogResult</a></li>
+<li class="mproperty"><a href="topic/wijmo.input.Popup.Class.html/#dialogResultEnter">dialogResultEnter</a></li>
+<li class="mproperty"><a href="topic/wijmo.input.Popup.Class.html/#fadeIn">fadeIn</a></li>
+<li class="mproperty"><a href="topic/wijmo.input.Popup.Class.html/#fadeOut">fadeOut</a></li>
+<li class="mproperty"><a href="topic/wijmo.input.Popup.Class.html/#hideTrigger">hideTrigger</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.input.Popup.Class.html/#hostElement">hostElement</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.input.Popup.Class.html/#isDisabled">isDisabled</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.input.Popup.Class.html/#isTouching">isTouching</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.input.Popup.Class.html/#isUpdating">isUpdating</a></li>
+<li class="mproperty"><a href="topic/wijmo.input.Popup.Class.html/#isVisible">isVisible</a></li>
+<li class="mproperty"><a href="topic/wijmo.input.Popup.Class.html/#modal">modal</a></li>
+<li class="mproperty"><a href="topic/wijmo.input.Popup.Class.html/#owner">owner</a></li>
+<li class="mproperty"><a href="topic/wijmo.input.Popup.Class.html/#showTrigger">showTrigger</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#addEventListener">addEventListener</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#applyTemplate">applyTemplate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#beginUpdate">beginUpdate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#containsFocus">containsFocus</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#deferUpdate">deferUpdate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#dispose">dispose</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#disposeAll">disposeAll</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#endUpdate">endUpdate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#focus">focus</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#getControl">getControl</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#getTemplate">getTemplate</a></li>
+<li class="mmethod"><a href="topic/wijmo.input.Popup.Class.html/#hide">hide</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#initialize">initialize</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#invalidate">invalidate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#invalidateAll">invalidateAll</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.input.Popup.Class.html/#onGotFocus">onGotFocus</a></li>
+<li class="mmethod raiser"><a href="topic/wijmo.input.Popup.Class.html/#onHidden">onHidden</a></li>
+<li class="mmethod raiser"><a href="topic/wijmo.input.Popup.Class.html/#onHiding">onHiding</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.input.Popup.Class.html/#onLostFocus">onLostFocus</a></li>
+<li class="mmethod raiser"><a href="topic/wijmo.input.Popup.Class.html/#onShowing">onShowing</a></li>
+<li class="mmethod raiser"><a href="topic/wijmo.input.Popup.Class.html/#onShown">onShown</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#refresh">refresh</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#refreshAll">refreshAll</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.input.Popup.Class.html/#removeEventListener">removeEventListener</a></li>
+<li class="mmethod"><a href="topic/wijmo.input.Popup.Class.html/#show">show</a></li>
+</ul>
+<h3 class="node">Events</h3>
+<ul>
+<li class="mevent inherited"><a href="topic/wijmo.input.Popup.Class.html/#gotFocus">gotFocus</a></li>
+<li class="mevent"><a href="topic/wijmo.input.Popup.Class.html/#hidden">hidden</a></li>
+<li class="mevent"><a href="topic/wijmo.input.Popup.Class.html/#hiding">hiding</a></li>
+<li class="mevent inherited"><a href="topic/wijmo.input.Popup.Class.html/#lostFocus">lostFocus</a></li>
+<li class="mevent"><a href="topic/wijmo.input.Popup.Class.html/#showing">showing</a></li>
+<li class="mevent"><a href="topic/wijmo.input.Popup.Class.html/#shown">shown</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(element: <span class="identifier">any</span>, options?: <span class="identifier">any</span>): <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>element</b>: <span class="identifier">any</span><br/><p>The DOM element that will host the control, or a selector for the host element (e.g. '#theCtrl').</p></li><li><b>options</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>JavaScript object containing initialization data for the control.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>content</b></td>
-      <td><b>HTMLElement</b></td>
-      <td>Gets or sets the HTML element contained in this <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>dialogResult</b></td>
-      <td><b>any</b></td>
-      <td><p>Gets or sets a value that can be used for handling the content of the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="content" class="member-panel mproperty">
+<h3>content</h3>
+<div class="comment"><p>Gets or sets the HTML element contained in this <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a></dd>
+</dl>
+</div>
+<div id="dialogResult" class="member-panel mproperty">
+<h3>dialogResult</h3>
+<div class="comment"><p>Gets or sets a value that can be used for handling the content of the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a>
 after it is hidden.</p>
-
-<p>This property is set to null when the <b>Popup</b> is displayed, and it can be
-set in response to button click events or in the call to the <b>hide</b> method.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>dialogResultEnter</b></td>
-      <td><b>any</b></td>
-      <td><p>Gets or sets a value to be used as a <b>dialogResult</b> when the user presses
-the Enter key while the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a> is visible.</p>
-
-<p>If the user presses Enter and the <b>dialogResultEnter</b> property is not null,
+<p>This property is set to null when the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> is displayed, and it can be
+set in response to button click events or in the call to the <a href="topic/wijmo.input.Popup.Class.html/#hide"><span class="identifier">hide</span></a> method.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="dialogResultEnter" class="member-panel mproperty">
+<h3>dialogResultEnter</h3>
+<div class="comment"><p>Gets or sets a value to be used as a <a href="topic/wijmo.input.Popup.Class.html/#dialogResult"><span class="identifier">dialogResult</span></a> when the user presses
+the Enter key while the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> is visible.</p>
+<p>If the user presses Enter and the <a href="topic/wijmo.input.Popup.Class.html/#dialogResultEnter"><span class="identifier">dialogResultEnter</span></a> property is not null,
 the popup checks whether all its child elements are in a valid state.
-If so, the popup is closed and the <b>dialogResult</b> property is set to
-the value of the <b>dialogResultEnter</b> property.</p>
-
-<p>If the <b>Popup</b> contains a submit button, pressing the Enter key also checks
-for validity and closes the dialog, returning 'submit' as the <b>dialogResult</b>.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>fadeIn</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value that determines whether the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a> should
-use a fade-out animation when it is shown.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>fadeOut</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value that determines whether the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a> should
-use a fade-out animation when it is hidden.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>hideTrigger</b></td>
-      <td><a href="topic/wijmo.input.PopupTrigger.Enum.html"><b>PopupTrigger</b></a></td>
-      <td><p>Gets or sets the actions that hide the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a>.</p>
-
-<p>By default, the <b>hideTrigger</b> property is set to <b>Blur</b>,
+If so, the popup is closed and the <a href="topic/wijmo.input.Popup.Class.html/#dialogResult"><span class="identifier">dialogResult</span></a> property is set to
+the value of the <a href="topic/wijmo.input.Popup.Class.html/#dialogResultEnter"><span class="identifier">dialogResultEnter</span></a> property.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="fadeIn" class="member-panel mproperty">
+<h3>fadeIn</h3>
+<div class="comment"><p>Gets or sets a value that determines whether the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> should
+use a fade-out animation when it is shown.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="fadeOut" class="member-panel mproperty">
+<h3>fadeOut</h3>
+<div class="comment"><p>Gets or sets a value that determines whether the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> should
+use a fade-out animation when it is hidden.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="hideTrigger" class="member-panel mproperty">
+<h3>hideTrigger</h3>
+<div class="comment"><p>Gets or sets the actions that hide the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a>.</p>
+<p>By default, the <a href="topic/wijmo.input.Popup.Class.html/#hideTrigger"><span class="identifier">hideTrigger</span></a> property is set to <a href="topic/wijmo.input.PopupTrigger.Enum.html"><span class="identifier">Blur</span></a>,
 which hides the popup when it loses focus.</p>
-
-<p>If you set the <b>hideTrigger</b> property to <b>Click</b>, the popup
+<p>If you set the <a href="topic/wijmo.input.Popup.Class.html/#hideTrigger"><span class="identifier">hideTrigger</span></a> property to <a href="topic/wijmo.input.PopupTrigger.Enum.html"><span class="identifier">Click</span></a>, the popup
 will be hidden only when the owner element is clicked.</p>
-
-<p>If you set the <b>hideTrigger</b> property to <b>None</b>, the popup
-will be hidden only when the <b>hide</b> method is called.</p></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>hostElement</b></td>
-      <td><b>HTMLElement</b></td>
-      <td>Gets the DOM element that is hosting the control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isDisabled</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets or sets a value that determines whether the control is disabled.</p>
-
-<p>Disabled controls cannot get mouse or keyboard events.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isTouching</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether the control is currently handling a touch event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isUpdating</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether the control is currently being updated.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>isVisible</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that determines whether the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a> is currently visible.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>modal</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets or sets a value that determines whether the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a> should
+<p>If you set the <a href="topic/wijmo.input.Popup.Class.html/#hideTrigger"><span class="identifier">hideTrigger</span></a> property to <a href="topic/wijmo.input.PopupTrigger.Enum.html"><span class="identifier">None</span></a>, the popup
+will be hidden only when the <a href="topic/wijmo.input.Popup.Class.html/#hide"><span class="identifier">hide</span></a> method is called.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.input.PopupTrigger.Enum.html"><span class="identifier">PopupTrigger</span></a></dd>
+</dl>
+</div>
+<div id="hostElement" class="member-panel mproperty inherited">
+<h3>hostElement</h3>
+<div class="comment"><p>Gets the DOM element that is hosting the control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a></dd>
+</dl>
+</div>
+<div id="isDisabled" class="member-panel mproperty inherited">
+<h3>isDisabled</h3>
+<div class="comment"><p>Gets or sets a value that determines whether the control is disabled.</p>
+<p>Disabled controls cannot get mouse or keyboard events.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isTouching" class="member-panel mproperty inherited">
+<h3>isTouching</h3>
+<div class="comment"><p>Gets a value that indicates whether the control is currently handling a touch event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isUpdating" class="member-panel mproperty inherited">
+<h3>isUpdating</h3>
+<div class="comment"><p>Gets a value that indicates whether the control is currently being updated.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isVisible" class="member-panel mproperty">
+<h3>isVisible</h3>
+<div class="comment"><p>Gets a value that determines whether the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> is currently visible.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="modal" class="member-panel mproperty">
+<h3>modal</h3>
+<div class="comment"><p>Gets or sets a value that determines whether the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> should
 be displayed as a modal dialog.</p>
-
-<p>Modal dialogs show a dark backdrop that makes the <b>Popup</b> stand
+<p>Modal dialogs show a dark backdrop that makes the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> stand
 out from other content on the page.</p>
-
-<p>If you want to make a dialog truly modal, also set the <b>hideTrigger</b>
-property to <b>None</b>, so users won't be able to click the
+<p>If you want to make a dialog truly modal, also set the <a href="topic/wijmo.input.Popup.Class.html/#hideTrigger"><span class="identifier">hideTrigger</span></a>
+property to <a href="topic/wijmo.input.PopupTrigger.Enum.html"><span class="identifier">None</span></a>, so users won't be able to click the
 backdrop to dismiss the dialog. In this case, the dialog will close only
-if the <b>hide</b> method is called or if the user presses the Escape
-key.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>owner</b></td>
-      <td><b>HTMLElement</b></td>
-      <td><p>Gets or sets the element that owns this <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a>.</p>
-
-<p>If the <b>owner</b> is null, the <b>Popup</b> behaves like a dialog.
+if the <a href="topic/wijmo.input.Popup.Class.html/#hide"><span class="identifier">hide</span></a> method is called or if the user presses the Escape
+key.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="owner" class="member-panel mproperty">
+<h3>owner</h3>
+<div class="comment"><p>Gets or sets the element that owns this <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a>.</p>
+<p>If the <a href="topic/wijmo.input.Popup.Class.html/#owner"><span class="identifier">owner</span></a> is null, the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> behaves like a dialog.
 It is centered on the screen and must be shown using the 
-<b>show</b> method.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>showTrigger</b></td>
-      <td><a href="topic/wijmo.input.PopupTrigger.Enum.html"><b>PopupTrigger</b></a></td>
-      <td><p>Gets or sets the actions that show the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a>.</p>
-
-<p>By default, the <b>showTrigger</b> property is set to <b>Click</b>,
+<a href="topic/wijmo.input.Popup.Class.html/#show"><span class="identifier">show</span></a> method.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a></dd>
+</dl>
+</div>
+<div id="showTrigger" class="member-panel mproperty">
+<h3>showTrigger</h3>
+<div class="comment"><p>Gets or sets the actions that show the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a>.</p>
+<p>By default, the <a href="topic/wijmo.input.Popup.Class.html/#showTrigger"><span class="identifier">showTrigger</span></a> property is set to <a href="topic/wijmo.input.PopupTrigger.Enum.html"><span class="identifier">Click</span></a>,
 which causes the popup to appear when the user clicks the owner element.</p>
-
-<p>If you set the <b>showTrigger</b> property to <b>None</b>, the popup
-will be shown only when the <b>show</b> method is called.</p></td>
-    </tr>
-</tbody>
-</table>
+<p>If you set the <a href="topic/wijmo.input.Popup.Class.html/#showTrigger"><span class="identifier">showTrigger</span></a> property to <a href="topic/wijmo.input.PopupTrigger.Enum.html"><span class="identifier">None</span></a>, the popup
+will be shown only when the <a href="topic/wijmo.input.Popup.Class.html/#show"><span class="identifier">show</span></a> method is called.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.input.PopupTrigger.Enum.html"><span class="identifier">PopupTrigger</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>addEventListener</b>&#8203;(target, type, fn, capture?)</td>
-      <td><p>
-<b>target</b> (<b>EventTarget</b>): Target element for the event.<br/><b>type</b> (<b>string</b>): String that specifies the event.<br/><b>fn</b> (<b>any</b>): Function to execute when the event occurs.<br/><b>capture?</b> (<b>boolean</b>): Whether the listener is capturing.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
-</td>
-      <td><p>Adds an event listener to an element owned by this <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>.</p>
-
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="addEventListener" class="member-panel mmethod inherited">
+<h3>addEventListener</h3>
+<pre>addEventListener(target: <a href="https://developer.mozilla.org/en/docs/Web/API/EventTarget" target="_blank"><span class="identifier">EventTarget</span></a>, type: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, fn: <span class="identifier">any</span>, capture?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Adds an event listener to an element owned by this <a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a>.</p>
 <p>The control keeps a list of attached listeners and their handlers,
 making it easier to remove them when the control is disposed (see the
-<b>dispose</b> and <b>removeEventListener</b> method).</p>
-
-<p>Failing to remove event listeners may cause memory leaks.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>applyTemplate</b>&#8203;(classNames, template, parts, namePart?): <b>HTMLElement</b></td>
-      <td><p>
-<b>classNames</b> (<b>string</b>): Names of classes to add to the control's host element.<br/><b>template</b> (<b>string</b>): An HTML string that defines the control template.<br/><b>parts</b> (<b>Object</b>): A dictionary of part variables and their names.<br/><b>namePart?</b> (<b>string</b>): Name of the part to be named after the host element. This
-determines how the control submits data when used in forms.<br/></p>
-</td>
-      <td><p>Applies the template to a new instance of a control, and returns the root element.</p>
-
+<a href="topic/wijmo.input.Popup.Class.html/#dispose"><span class="identifier">dispose</span></a> and <a href="topic/wijmo.input.Popup.Class.html/#removeEventListener"><span class="identifier">removeEventListener</span></a> method).</p>
+<p>Failing to remove event listeners may cause memory leaks.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>target</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/EventTarget" target="_blank"><span class="identifier">EventTarget</span></a><br/><p>Target element for the event.</p></li><li><b>type</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>String that specifies the event.</p></li><li><b>fn</b>: <span class="identifier">any</span><br/><p>Function to execute when the event occurs.</p></li><li><b>capture</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether the listener is capturing.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="applyTemplate" class="member-panel mmethod inherited">
+<h3>applyTemplate</h3>
+<pre>applyTemplate(classNames: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, template: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, parts: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank"><span class="identifier">Object</span></a>, namePart?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a></pre>
+<div class="comment"><p>Applies the template to a new instance of a control, and returns the root element.</p>
 <p>This method should be called by constructors of templated controls.
 It is responsible for binding the template parts to the 
 corresponding control members.</p>
-
 <p>For example, the code below applies a template to an instance
-of an <a href="topic/wijmo.input.InputNumber.Class.html"><b>InputNumber</b></a> control. The template must contain elements 
+of an <a href="topic/wijmo.input.InputNumber.Class.html"><span class="identifier">InputNumber</span></a> control. The template must contain elements 
 with the 'wj-part' attribute set to 'input', 'btn-inc', and 'btn-dec'.
 The control members '_tbx', '_btnUp', and '_btnDn' will be assigned
 references to these elements.</p>
 
-<p><pre>this.applyTemplate('wj-control wj-inputnumber', template, {
+
+<pre>this.applyTemplate('wj-control wj-inputnumber', template, {
   _tbx: 'input',
   _btnUp: 'btn-inc',
   _btnDn: 'btn-dec'
-}, 'input');</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>beginUpdate</b>&#8203;()</td>
-      <td></td>
-      <td>Suspends notifications until the next call to <b>endUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>containsFocus</b>&#8203;(): <b>boolean</b></td>
-      <td></td>
-      <td>Checks whether this control contains the focused element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>deferUpdate</b>&#8203;(fn)</td>
-      <td><p>
-<b>fn</b> (<b>Function</b>): Function to be executed.<br/></p>
-</td>
-      <td><p>Executes a function within a <b>beginUpdate</b>/<b>endUpdate</b> block.</p>
-
+}, 'input');</pre></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>classNames</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>Names of classes to add to the control's host element.</p></li><li><b>template</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>An HTML string that defines the control template.</p></li><li><b>parts</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank"><span class="identifier">Object</span></a><br/><p>A dictionary of part variables and their names.</p></li><li><b>namePart</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a> <span class="badge">Optional</span><br/><p>Name of the part to be named after the host element. This
+determines how the control submits data when used in forms.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a></dd>
+</dl>
+</div>
+<div id="beginUpdate" class="member-panel mmethod inherited">
+<h3>beginUpdate</h3>
+<pre>beginUpdate(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Suspends notifications until the next call to <a href="topic/wijmo.input.Popup.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="containsFocus" class="member-panel mmethod inherited">
+<h3>containsFocus</h3>
+<pre>containsFocus(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Checks whether this control contains the focused element.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="deferUpdate" class="member-panel mmethod inherited">
+<h3>deferUpdate</h3>
+<pre>deferUpdate(fn: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Executes a function within a <a href="topic/wijmo.input.Popup.Class.html/#beginUpdate"><span class="identifier">beginUpdate</span></a>/<a href="topic/wijmo.input.Popup.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a> block.</p>
 <p>The control will not be updated until the function has been executed.
-This method ensures <b>endUpdate</b> is called even if the function throws
-an exception.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>dispose</b>&#8203;()</td>
-      <td></td>
-      <td><p>Disposes of the control by removing its association with the host element.</p>
-
-<p>The <b>dispose</b> method automatically removes any event listeners added
-with the <b>addEventListener</b> method.</p>
-
-<p>Calling the <b>dispose</b> method is important in applications that create
+This method ensures <a href="topic/wijmo.input.Popup.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a> is called even if the function throws
+an exception.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>fn</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a><br/><p>Function to be executed.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="dispose" class="member-panel mmethod inherited">
+<h3>dispose</h3>
+<pre>dispose(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Disposes of the control by removing its association with the host element.</p>
+<p>The <a href="topic/wijmo.input.Popup.Class.html/#dispose"><span class="identifier">dispose</span></a> method automatically removes any event listeners added
+with the <a href="topic/wijmo.input.Popup.Class.html/#addEventListener"><span class="identifier">addEventListener</span></a> method.</p>
+<p>Calling the <a href="topic/wijmo.input.Popup.Class.html/#dispose"><span class="identifier">dispose</span></a> method is important in applications that create
 and remove controls dynamically. Failing to dispose of the controls may
-cause memory leaks.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>disposeAll</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<b>HTMLElement</b>): Container element.<br/></p>
-</td>
-      <td>Disposes of all Wijmo controls contained in an HTML element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>endUpdate</b>&#8203;()</td>
-      <td></td>
-      <td>Resumes notifications suspended by calls to <b>beginUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>focus</b>&#8203;()</td>
-      <td></td>
-      <td>Sets the focus to this control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>getControl</b>&#8203;(element): <a href="topic/wijmo.Control.Class.html"><b>Control</b></a></td>
-      <td><p>
-<b>element</b> (<b>any</b>): The DOM element that is hosting the control, or a selector for the host element (e.g. '#theCtrl').<br/></p>
-</td>
-      <td>Gets the control that is hosted in a given DOM element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>getTemplate</b>&#8203;(): <b>string</b></td>
-      <td></td>
-      <td><p>Gets the HTML template used to create instances of the control.</p>
-
+cause memory leaks.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="disposeAll" class="member-panel mmethod inherited">
+<h3><span class="badge">Static</span> disposeAll</h3>
+<pre>disposeAll(e?: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Disposes of all Wijmo controls contained in an HTML element.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a> <span class="badge">Optional</span><br/><p>Container element.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="endUpdate" class="member-panel mmethod inherited">
+<h3>endUpdate</h3>
+<pre>endUpdate(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Resumes notifications suspended by calls to <a href="topic/wijmo.input.Popup.Class.html/#beginUpdate"><span class="identifier">beginUpdate</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="focus" class="member-panel mmethod inherited">
+<h3>focus</h3>
+<pre>focus(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Sets the focus to this control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="getControl" class="member-panel mmethod inherited">
+<h3><span class="badge">Static</span> getControl</h3>
+<pre>getControl(element: <span class="identifier">any</span>): <a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></pre>
+<div class="comment"><p>Gets the control that is hosted in a given DOM element.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>element</b>: <span class="identifier">any</span><br/><p>The DOM element that is hosting the control, or a selector for the host element (e.g. '#theCtrl').</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+</dl>
+</div>
+<div id="getTemplate" class="member-panel mmethod inherited">
+<h3>getTemplate</h3>
+<pre>getTemplate(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></pre>
+<div class="comment"><p>Gets the HTML template used to create instances of the control.</p>
 <p>This method traverses up the class hierarchy to find the nearest ancestor that
 specifies a control template. For example, if you specify a prototype for the
-<a href="topic/wijmo.input.ComboBox.Class.html"><b>ComboBox</b></a> control, it will override the template defined by the <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a> 
-base class.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>hide</b>&#8203;(dialogResult?)</td>
-      <td><p>
-<b>dialogResult?</b> (<b>any</b>): Optional value assigned to the <b>dialogResult</b> property
-before closing the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a>.<br/></p>
-</td>
-      <td>Hides the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a>.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>initialize</b>&#8203;(options)</td>
-      <td><p>
-<b>options</b> (<b>any</b>): Object that contains the initialization data.<br/></p>
-</td>
-      <td><p>Initializes the control by copying the properties from a given object.</p>
-
+<a href="topic/wijmo.input.ComboBox.Class.html"><span class="identifier">ComboBox</span></a> control, it will override the template defined by the <a href="topic/wijmo.input.DropDown.Class.html"><span class="identifier">DropDown</span></a> 
+base class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="hide" class="member-panel mmethod">
+<h3>hide</h3>
+<pre>hide(dialogResult?: <span class="identifier">any</span>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Hides the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>dialogResult</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>Optional value assigned to the <a href="topic/wijmo.input.Popup.Class.html/#dialogResult"><span class="identifier">dialogResult</span></a> property
+before closing the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a>.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="initialize" class="member-panel mmethod inherited">
+<h3>initialize</h3>
+<pre>initialize(options: <span class="identifier">any</span>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Initializes the control by copying the properties from a given object.</p>
 <p>This method allows you to initialize controls using plain data objects
 instead of setting the value of each property in code.</p>
-
 <p>For example:
-<pre>
-grid.initialize({
+</p>
+
+<pre>grid.initialize({
   itemsSource: myList,
   autoGenerateColumns: false,
   columns: [
@@ -397,134 +436,206 @@ grid.initialize({
     { binding: 'name', header: 'Name', width: 60 } 
   ]
 });
+
 // is equivalent to
 grid.itemsSource = myList;
 grid.autoGenerateColumns = false;
-// etc.
-</pre></p>
 
+// etc.</pre>
 <p>The initialization data is type-checked as it is applied. If the 
 initialization object contains unknown property names or invalid
-data types, this method will throw.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>invalidate</b>&#8203;(fullUpdate?)</td>
-      <td><p>
-<b>fullUpdate?</b> (<b>boolean</b>): Whether to update the control layout as well as the content.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
-</td>
-      <td>Invalidates the control causing an asynchronous refresh.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>invalidateAll</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<b>HTMLElement</b>): Container element. If set to null, all Wijmo controls
-on the page will be invalidated.<br/></p>
-</td>
-      <td><p>Invalidates all Wijmo controls contained in an HTML element.</p>
-
+data types, this method will throw.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>options</b>: <span class="identifier">any</span><br/><p>Object that contains the initialization data.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="invalidate" class="member-panel mmethod inherited">
+<h3>invalidate</h3>
+<pre>invalidate(fullUpdate?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Invalidates the control causing an asynchronous refresh.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>fullUpdate</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether to update the control layout as well as the content.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="invalidateAll" class="member-panel mmethod inherited">
+<h3><span class="badge">Static</span> invalidateAll</h3>
+<pre>invalidateAll(e?: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Invalidates all Wijmo controls contained in an HTML element.</p>
 <p>Use this method when your application has dynamic panels that change
 the control's visibility or dimensions. For example, splitters, accordions,
 and tab controls usually change the visibility of its content elements.
 In this case, failing to notify the controls contained in the element
 may cause them to stop working properly.</p>
-
 <p>If this happens, you must handle the appropriate event in the dynamic
-container and call the <b>invalidateAll</b> method so the contained
-Wijmo controls will update their layout information properly.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onGotFocus</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>gotFocus</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>onHidden</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>hidden</b> event.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>onHiding</b>&#8203;(e): <b>boolean</b></td>
-      <td><p>
-<b>e</b> (<a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>hiding</b> event.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onLostFocus</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>lostFocus</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>onShowing</b>&#8203;(e): <b>boolean</b></td>
-      <td><p>
-<b>e</b> (<a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>showing</b> event.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>onShown</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>shown</b> event.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>refresh</b>&#8203;(fullUpdate?)</td>
-      <td><p>
-<b>fullUpdate?</b> (<b>boolean</b>): Whether to update the control layout as well as the content.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
-</td>
-      <td>Refreshes the control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>refreshAll</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<b>HTMLElement</b>): Container element. If set to null, all Wijmo controls
-on the page will be invalidated.<br/></p>
-</td>
-      <td><p>Refreshes all Wijmo controls contained in an HTML element.</p>
-
-<p>This method is similar to <b>invalidateAll</b>, except the controls
-are updated immediately rather than after an interval.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>removeEventListener</b>&#8203;(target?, type?, capture?): <b>number</b></td>
-      <td><p>
-<b>target?</b> (<b>EventTarget</b>): Target element for the event. If null, removes listeners attached to all targets.<br/><b>type?</b> (<b>string</b>): String that specifies the event. If null, removes listeners attached to all events.<br/><b>capture?</b> (<b>boolean</b>): Whether the listener is capturing. If null, removes capturing and non-capturing listeners.<br/></p>
-</td>
-      <td>Removes one or more event listeners attached to elements owned by this <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>.<br/><br/><b>Returns</b> The number of listeners removed.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>show</b>&#8203;(modal?, handleResult?)</td>
-      <td><p>
-<b>modal?</b> (<b>boolean</b>): Whether to show the popup as a modal dialog. If provided, this 
-sets the value of the <b>modal</b> property.<br/><b>handleResult?</b> (<b>Function</b>): <p>Callback invoked when the popup is hidden. If provided,
+container and call the <a href="topic/wijmo.Control.Class.html/#invalidateAll"><span class="identifier">invalidateAll</span></a> method so the contained
+Wijmo controls will update their layout information properly.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a> <span class="badge">Optional</span><br/><p>Container element. If set to null, all Wijmo controls
+on the page will be invalidated.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onGotFocus" class="member-panel mmethod inherited raiser">
+<h3>onGotFocus</h3>
+<pre>onGotFocus(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.input.Popup.Class.html/#gotFocus"><span class="identifier">gotFocus</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onHidden" class="member-panel mmethod raiser">
+<h3>onHidden</h3>
+<pre>onHidden(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.input.Popup.Class.html/#hidden"><span class="identifier">hidden</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onHiding" class="member-panel mmethod raiser">
+<h3>onHiding</h3>
+<pre>onHiding(e: <a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.input.Popup.Class.html/#hiding"><span class="identifier">hiding</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="onLostFocus" class="member-panel mmethod inherited raiser">
+<h3>onLostFocus</h3>
+<pre>onLostFocus(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.input.Popup.Class.html/#lostFocus"><span class="identifier">lostFocus</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onShowing" class="member-panel mmethod raiser">
+<h3>onShowing</h3>
+<pre>onShowing(e: <a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.input.Popup.Class.html/#showing"><span class="identifier">showing</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="onShown" class="member-panel mmethod raiser">
+<h3>onShown</h3>
+<pre>onShown(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.input.Popup.Class.html/#shown"><span class="identifier">shown</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="refresh" class="member-panel mmethod inherited">
+<h3>refresh</h3>
+<pre>refresh(fullUpdate?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Refreshes the control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>fullUpdate</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether to update the control layout as well as the content.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="refreshAll" class="member-panel mmethod inherited">
+<h3><span class="badge">Static</span> refreshAll</h3>
+<pre>refreshAll(e?: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Refreshes all Wijmo controls contained in an HTML element.</p>
+<p>This method is similar to <a href="topic/wijmo.input.Popup.Class.html/#invalidateAll"><span class="identifier">invalidateAll</span></a>, except the controls
+are updated immediately rather than after an interval.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a> <span class="badge">Optional</span><br/><p>Container element. If set to null, all Wijmo controls
+on the page will be invalidated.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="removeEventListener" class="member-panel mmethod inherited">
+<h3>removeEventListener</h3>
+<pre>removeEventListener(target?: <a href="https://developer.mozilla.org/en/docs/Web/API/EventTarget" target="_blank"><span class="identifier">EventTarget</span></a>, type?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, capture?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></pre>
+<div class="comment"><p>Removes one or more event listeners attached to elements owned by this <a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>target</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/EventTarget" target="_blank"><span class="identifier">EventTarget</span></a> <span class="badge">Optional</span><br/><p>Target element for the event. If null, removes listeners attached to all targets.</p></li><li><b>type</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a> <span class="badge">Optional</span><br/><p>String that specifies the event. If null, removes listeners attached to all events.</p></li><li><b>capture</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether the listener is capturing. If null, removes capturing and non-capturing listeners.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="show" class="member-panel mmethod">
+<h3>show</h3>
+<pre>show(modal?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>, handleResult?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Shows the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>modal</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether to show the popup as a modal dialog. If provided, this 
+sets the value of the <a href="topic/wijmo.input.Popup.Class.html/#modal"><span class="identifier">modal</span></a> property.</p></li><li><b>handleResult</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a> <span class="badge">Optional</span><br/><p>Callback invoked when the popup is hidden. If provided,
 this should be a function that receives the popup as a parameter.</p>
-
 <p>The <b>handleResult</b> callback allows callers to handle the result of modal
-dialogs without attaching handlers to the <b>hidden</b> event. For example,
+dialogs without attaching handlers to the <a href="topic/wijmo.input.Popup.Class.html/#hidden"><span class="identifier">hidden</span></a> event. For example,
 the code below shows a dialog used to edit the current item in a
-<a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a>. The edits are committed or canceled depending on the
-<b>dialogResult</b> value. For example:</p>
+<a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a>. The edits are committed or canceled depending on the
+<a href="topic/wijmo.input.Popup.Class.html/#dialogResult"><span class="identifier">dialogResult</span></a> value. For example:</p>
 
-<p><pre>$scope.editCurrentItem = function () {
+
+<pre>$scope.editCurrentItem = function () {
   $scope.data.editItem($scope.data.currentItem);
   $scope.itemEditor.show(true, function (e) {
     if (e.dialogResult == 'wj-hide-ok') {
@@ -533,75 +644,56 @@ the code below shows a dialog used to edit the current item in a
       $scope.data.cancelEdit();
     }
   });
-}</pre></p><br/></p>
-</td>
-      <td>Shows the <a href="topic/wijmo.input.Popup.Class.html"><b>Popup</b></a>.</td>
-    </tr>
-</tbody>
-</table>
+}</pre></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
-<span class="glyph-collapsed" ng-show="hideEvents"></span>
-<span class="glyph-expanded" ng-hide="hideEvents"></span>
-Events
-</h3>
 </div>
-<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Arguments</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>gotFocus</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs when the control gets the focus.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>hidden</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs after the <b>Popup</b> has been hidden.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>hiding</b></td>
-      <td><a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a></td>
-      <td>Occurs before the <b>Popup</b> is hidden.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>lostFocus</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs when the control loses the focus.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>showing</b></td>
-      <td><a href="topic/wijmo.CancelEventArgs.Class.html"><b>CancelEventArgs</b></a></td>
-      <td>Occurs before the <b>Popup</b> is shown.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>shown</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs after the <b>Popup</b> has been shown.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Events</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="gotFocus" class="member-panel mevent inherited">
+<h3>gotFocus</h3>
+<div class="comment"><p>Occurs when the control gets the focus.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
 </div>
-
+<div id="hidden" class="member-panel mevent">
+<h3>hidden</h3>
+<div class="comment"><p>Occurs after the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> has been hidden.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="hiding" class="member-panel mevent">
+<h3>hiding</h3>
+<div class="comment"><p>Occurs before the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> is hidden.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a></dd>
+</dl>
+</div>
+<div id="lostFocus" class="member-panel mevent inherited">
+<h3>lostFocus</h3>
+<div class="comment"><p>Occurs when the control loses the focus.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="showing" class="member-panel mevent">
+<h3>showing</h3>
+<div class="comment"><p>Occurs before the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> is shown.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.CancelEventArgs.Class.html"><span class="identifier">CancelEventArgs</span></a></dd>
+</dl>
+</div>
+<div id="shown" class="member-panel mevent">
+<h3>shown</h3>
+<div class="comment"><p>Occurs after the <a href="topic/wijmo.input.Popup.Class.html"><span class="identifier">Popup</span></a> has been shown.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+</div>

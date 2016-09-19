@@ -1,15 +1,15 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, AfterViewInit, ViewChild } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
 
 // Chart zoom component
 @Component({
     selector: 'chart-zoom-cmp',
-    templateUrl: 'src/components/chart/chartZoomCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, CORE_DIRECTIVES]
-})
+    templateUrl: 'src/components/chart/chartZoomCmp.html'})
 
 export class ChartZoomCmp implements AfterViewInit {
 
@@ -42,6 +42,17 @@ export class ChartZoomCmp implements AfterViewInit {
             this._hostEl = chart.hostElement;
             this._selection = $('#plotSelection');
 
+            // handle mouse (always)
+            this._hostEl.onmousedown = (e: Event) => {
+                this._mouseDown(e);
+            }
+            this._hostEl.onmousemove = (e: any) => {
+                this._mouseMove(e, new wijmo.Point(e.pageX, e.pageY));
+            }
+            this._hostEl.onmouseup = (e: Event) => {
+                this._mouseUp(e);
+            }
+            // handle touch (if supported by the browser)
             if ('ontouchstart' in window) {
 
                 this._hostEl.ontouchstart = (e: Event) => {
@@ -58,18 +69,23 @@ export class ChartZoomCmp implements AfterViewInit {
                     this._mouseUp(e);
                     e.preventDefault();
                 }
-
-            } else {
-                this._hostEl.onmousedown = (e: Event) => {
-                    this._mouseDown(e);
-                }
-                this._hostEl.onmousemove = (e: any) => {
-                    this._mouseMove(e, new wijmo.Point(e.pageX, e.pageY));
-                }
-                this._hostEl.onmouseup = (e: Event) => {
-                    this._mouseUp(e);
-                }
             }
+            // handle pointer (if supported by the browser)
+            if ('onpointerdown' in window) {
+                this._hostEl.addEventListener('pointerdown', function (e) {
+                    this._mouseDown(e);
+                }, true);
+                this._hostEl.addEventListener('pointermove', function (e) {
+                    this._mouseMove(e, new wijmo.Point(e.pageX, e.pageY));
+                }, true);
+                this._hostEl.addEventListener('pointerup', function (e) {
+                    this._mouseUp(e);
+                }, true);
+
+                // prevent touch scrolling on the chart
+                this._hostEl.style['touchAction'] = 'none';
+            }
+
         }
     }
 
@@ -161,4 +177,15 @@ export class ChartZoomCmp implements AfterViewInit {
         }
     }
 
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ChartZoomCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjChartModule],
+    declarations: [ChartZoomCmp],
+})
+export class ChartZoomModule {
 }

@@ -7,7 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
 // Chart header footer component
 var ChartHeaderFooterCmp = (function () {
     function ChartHeaderFooterCmp() {
@@ -29,11 +30,25 @@ var ChartHeaderFooterCmp = (function () {
     ChartHeaderFooterCmp = __decorate([
         core_1.Component({
             selector: 'chart-header-footer-cmp',
-            templateUrl: 'src/components/chart/chartHeaderFooterCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/chart/chartHeaderFooterCmp.html'
         })
     ], ChartHeaderFooterCmp);
     return ChartHeaderFooterCmp;
 }());
 exports.ChartHeaderFooterCmp = ChartHeaderFooterCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartHeaderFooterCmp }
+]);
+var ChartHeaderFooterModule = (function () {
+    function ChartHeaderFooterModule() {
+    }
+    ChartHeaderFooterModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule],
+            declarations: [ChartHeaderFooterCmp],
+        })
+    ], ChartHeaderFooterModule);
+    return ChartHeaderFooterModule;
+}());
+exports.ChartHeaderFooterModule = ChartHeaderFooterModule;
 //# sourceMappingURL=ChartHeaderFooterCmp.js.map

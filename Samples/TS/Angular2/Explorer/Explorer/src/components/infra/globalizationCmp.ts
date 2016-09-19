@@ -1,19 +1,19 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { DataSvc } from '../../services/DataSvc';
+import { Component, EventEmitter, Inject, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { InputBaseCmp } from '../input/InputBaseCmp';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import { GlbzPipe, ToDatePipe } from '../../pipes/appPipes';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
+import { DataSvc } from '../../services/DataSvc';
+import { AppPipesModule } from '../../pipes/appPipes';
 
 // Wijmo Globalization component.
 @Component({
     selector: 'grid-globalization-cmp',
-    templateUrl: 'src/components/infra/globalizationCmp.html',
-    directives: [wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjMenuSeparator,
-        wjNg2Input.WjCalendar, CORE_DIRECTIVES],
-    pipes: [GlbzPipe, ToDatePipe]
+    templateUrl: 'src/components/infra/globalizationCmp.html'
 })
 
 export class GlobalizationCmp extends InputBaseCmp {
@@ -25,5 +25,14 @@ export class GlobalizationCmp extends InputBaseCmp {
         super(dataSvc);
     }
 }
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: GlobalizationCmp }
+]);
 
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjInputModule, AppPipesModule],
+    declarations: [GlobalizationCmp],
+})
+export class GlobalizationModule {
+}
 

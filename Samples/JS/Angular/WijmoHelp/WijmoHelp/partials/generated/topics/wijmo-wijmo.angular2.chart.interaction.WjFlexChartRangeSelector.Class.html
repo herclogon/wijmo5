@@ -1,177 +1,162 @@
-<h2>WjFlexChartRangeSelector Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">WjFlexChartRangeSelector</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a></dd>
-<dt>Module</dt><dd>wijmo/wijmo.angular2.chart.interaction</dd>
-<dt>File</dt><dd>wijmo.angular2.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.angular2.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo-wijmo.angular2.chart.interaction.Module.html"><span class="identifier">wijmo/wijmo.angular2.chart.interaction</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p><p>Angular 2 component for the <a href="topic/wijmo.angular.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a> object.</p>
-
+<div class="comment"><p>Angular 2 component for the <a href="topic/wijmo.angular.WjFlexChart.Class.html"><span class="identifier">WjFlexChart</span></a> <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a> object.</p>
 <p>The <b>wj-flex-chart-range-selector</b> component must be contained in a 
-<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> component.</p>
-
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><span class="identifier">WjFlexChart</span></a> component.</p>
 <p>Use the <b>wj-flex-chart-range-selector</b> component to add <b>RangeSelector</b> objects to your 
 Angular 2 applications. For details about Angular 2 markup syntax, see 
 <a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
-
 <p>The <b>WjFlexChartRangeSelector</b> component is derived from the <b>RangeSelector</b> class and
-inherits all its properties, events and methods.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+inherits all its properties, events and methods.</p></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isVisible</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets the visibility of the range selector.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>max</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the maximum value of the range.
-If not set, the maximum is calculated automatically.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>maxScale</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the maximum range scale of the range selector.
-The maximum scale is between 0 and 1.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>min</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the minimum value of the range.
-If not set, the minimum is calculated automatically.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>minScale</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the minimum range scale of the range selector.
-The minimum scale is between 0 and 1.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>orientation</b></td>
-      <td><a href="topic/wijmo.chart.interaction.Orientation.Enum.html"><b>Orientation</b></a></td>
-      <td>Gets or sets the orientation of the range selector.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>seamless</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value that determines whether the minimal and maximal 
-handler will move seamlessly.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartRangeSelector.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartRangeSelector.Class.html/#isVisible">isVisible</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartRangeSelector.Class.html/#max">max</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartRangeSelector.Class.html/#maxScale">maxScale</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartRangeSelector.Class.html/#min">min</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartRangeSelector.Class.html/#minScale">minScale</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartRangeSelector.Class.html/#orientation">orientation</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartRangeSelector.Class.html/#seamless">seamless</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod inherited raiser"><a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartRangeSelector.Class.html/#onRangeChanged">onRangeChanged</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartRangeSelector.Class.html/#remove">remove</a></li>
+</ul>
+<h3 class="node">Events</h3>
+<ul>
+<li class="mevent inherited"><a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartRangeSelector.Class.html/#rangeChanged">rangeChanged</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod inherited">
+<h3>constructor</h3>
+<pre>constructor(chart: <a href="topic/wijmo.chart.FlexChartCore.Class.html"><span class="identifier">FlexChartCore</span></a>, options?): <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>chart</b>: <a href="topic/wijmo.chart.FlexChartCore.Class.html"><span class="identifier">FlexChartCore</span></a><br/><p>The <a href="topic/wijmo.chart.FlexChart.Class.html"><span class="identifier">FlexChart</span></a> that displays the selected range.</p></li><li><b>options</b>:  <span class="badge">Optional</span><br/><p>A JavaScript object containing initialization data for the control.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>constructor</b>&#8203;(chart, options?): <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a></td>
-      <td><p>
-<b>chart</b> (<a href="topic/wijmo.chart.FlexChartCore.Class.html"><b>FlexChartCore</b></a>): The <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> that displays the selected range.<br/><b>options?</b> (): A JavaScript object containing initialization data for the control.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a> class.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onRangeChanged</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>rangeChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>remove</b>&#8203;()</td>
-      <td></td>
-      <td>Removes the <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a> control from the chart.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="isVisible" class="member-panel mproperty inherited">
+<h3>isVisible</h3>
+<div class="comment"><p>Gets or sets the visibility of the range selector.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
-<span class="glyph-collapsed" ng-show="hideEvents"></span>
-<span class="glyph-expanded" ng-hide="hideEvents"></span>
-Events
-</h3>
+<div id="max" class="member-panel mproperty inherited">
+<h3>max</h3>
+<div class="comment"><p>Gets or sets the maximum value of the range.
+If not set, the maximum is calculated automatically.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Arguments</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>rangeChanged</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs after the range changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><b>RangeSelector</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+<div id="maxScale" class="member-panel mproperty inherited">
+<h3>maxScale</h3>
+<div class="comment"><p>Gets or sets the maximum range scale of the range selector.
+The maximum scale is between 0 and 1.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-
+<div id="min" class="member-panel mproperty inherited">
+<h3>min</h3>
+<div class="comment"><p>Gets or sets the minimum value of the range.
+If not set, the minimum is calculated automatically.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="minScale" class="member-panel mproperty inherited">
+<h3>minScale</h3>
+<div class="comment"><p>Gets or sets the minimum range scale of the range selector.
+The minimum scale is between 0 and 1.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="orientation" class="member-panel mproperty inherited">
+<h3>orientation</h3>
+<div class="comment"><p>Gets or sets the orientation of the range selector.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.interaction.Orientation.Enum.html"><span class="identifier">Orientation</span></a></dd>
+</dl>
+</div>
+<div id="seamless" class="member-panel mproperty inherited">
+<h3>seamless</h3>
+<div class="comment"><p>Gets or sets a value that determines whether the minimal and maximal 
+handler will move seamlessly.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="onRangeChanged" class="member-panel mmethod inherited raiser">
+<h3>onRangeChanged</h3>
+<pre>onRangeChanged(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo-wijmo.angular2.chart.interaction.WjFlexChartRangeSelector.Class.html/#rangeChanged"><span class="identifier">rangeChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="remove" class="member-panel mmethod inherited">
+<h3>remove</h3>
+<pre>remove(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Removes the <a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a> control from the chart.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Events</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="rangeChanged" class="member-panel mevent inherited">
+<h3>rangeChanged</h3>
+<div class="comment"><p>Occurs after the range changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.interaction.RangeSelector.Class.html"><span class="identifier">RangeSelector</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+</div>

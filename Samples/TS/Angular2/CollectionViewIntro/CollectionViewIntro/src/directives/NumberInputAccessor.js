@@ -9,8 +9,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var NUMBER_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return NumberInputAccessor; }), multi: true });
+var forms_1 = require('@angular/forms');
+var NUMBER_VALUE_ACCESSOR = {
+    provide: forms_1.NG_VALUE_ACCESSOR,
+    useExisting: core_1.forwardRef(function () { return NumberInputAccessor; }),
+    multi: true
+};
 var NumberInputAccessor = (function () {
     function NumberInputAccessor(elRef, renderer) {
         this.elRef = elRef;

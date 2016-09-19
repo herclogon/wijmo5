@@ -1,25 +1,28 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject, Type } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, forwardRef, Type, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { GridBaseCmp } from './GridBaseCmp';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Core from 'wijmo/wijmo.angular2.core';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
+import { RouterModule } from '@angular/router';
+import { WjCoreModule } from 'wijmo/wijmo.angular2.core';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // FlexGrid Dynamic Columns sample component.
 @Component({
     selector: 'grid-dynamic-columns-cmp',
     templateUrl: 'src/components/grid/gridDynamicColumnsCmp.html',
-    directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate, CORE_DIRECTIVES,
-        wjNg2Input.WjInputNumber, wjNg2Core.WjComponentLoader]
+
+    entryComponents: [ forwardRef(()=>ExpenceCellCmp), forwardRef(()=>ExpenceCellEditCmp)]
 })
 
 export class GridDynamicColumnsCmp extends GridBaseCmp {
     columns: {
         binding?: string, header?: string, width?: any, format?: string,
-        cellTemplate?: Type, cellEditTemplate?: Type
+        cellTemplate?: Type<any>, cellEditTemplate?: Type<any>
     }[];
 
     constructor( @Inject(DataSvc) dataSvc: DataSvc) {
@@ -65,10 +68,10 @@ export class ExpenceCellCmp {
 @Component({
     selector: 'expence-cell-edit-cmp',
     template: `
-        <wj-input-number [(value)]="cell.value" [required]="false" [step]="1">
+        <wj-input-number [(value)]="cell.value" [isRequired]="false" [step]="1">
         </wj-input-number>                        
-        `,
-    directives: [wjNg2Input.WjInputNumber]
+        `
+    //directives: [wjNg2Input.WjInputNumber]
 })
 export class ExpenceCellEditCmp {
     item: any;
@@ -79,3 +82,13 @@ export class ExpenceCellEditCmp {
     }
 }
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: GridDynamicColumnsCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjCoreModule, WjGridModule, WjInputModule],
+    declarations: [GridDynamicColumnsCmp, ExpenceCellEditCmp, ExpenceCellCmp],
+})
+export class GridDynamicColumnsModule {
+}

@@ -1,49 +1,18 @@
-<h2>SelectionMode Enum</h2>
-<dl class="dl-horizontal">
-  <dt>Module</dt><dd>wijmo.chart</dd>
-  <dt>File</dt><dd>wijmo.chart.js</dd>
-</dl>
-<p>Specifies what is selected when the user clicks the chart.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideValues = !hideValues">
-<span class="glyph-collapsed" ng-show="hideValues"></span>
-<span class="glyph-expanded" ng-hide="hideValues"></span>
-Values
-</h3>
+<div class="header-panel member">
+  <h2><span class="identifier">SelectionMode</span> Enum</h2>
+  <dl class="dl-horizontal">
+    <dt>File</dt><dd class="filename">wijmo.chart.js</dd>
+    <dt>Module</dt><dd><a href="topic/wijmo.chart.Module.html"><span class="identifier">wijmo.chart</span></a></dd>
+  </dl>
+  <div class="comment"><p>Specifies what is selected when the user clicks the chart.</p></div>
 </div>
-<table ng-hide="hideValues" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th>Name</th>
-
-<th>Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>None</b></td>
-      <td>Select neither series nor data points when the user clicks the chart.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Point</b></td>
-      <td>Select the data point when the user clicks it on the chart. Since Line, Area, Spline,
+<div class="member-panel enum">
+<h3>Members</h3>
+<table class="table table-condensed"><thead>  <tr>    <th>Name</th>    <th>Value</th>    <th>Description</th>  </tr></thead><tbody>
+<tr>  <td><span class="identifier">None</span></td>  <td>0</td>  <td><p>Select neither series nor data points when the user clicks the chart.</p></td><tr>
+<tr>  <td><span class="identifier">Series</span></td>  <td>1</td>  <td><p>Select the whole <a href="topic/wijmo.chart.Series.Class.html"><span class="identifier">Series</span></a> when the user clicks it on the chart.</p></td><tr>
+<tr>  <td><span class="identifier">Point</span></td>  <td>2</td>  <td><p>Select the data point when the user clicks it on the chart. Since Line, Area, Spline,
 and SplineArea charts do not render individual data points, nothing is selected with this
-setting on those chart types.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Series</b></td>
-      <td>Select the whole <a href="topic/wijmo.chart.Series.Class.html"><b>Series</b></a> when the user clicks it on the chart.</td>
-    </tr>
-</tbody>
-</table>
+setting on those chart types.</p></td><tr>
+</tbody></table>
 </div>
-

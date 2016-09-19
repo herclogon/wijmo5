@@ -1,0 +1,13 @@
+﻿<div>
+    <h2 class="title">{{fields.ordersSlipTitle}}</h2>
+    <wj-multi-row control="ctx.multiRow" items-source="ctx.data" layout-definition="ctx.layoutDef">
+    </wj-multi-row>
+    <div class="btn-group">
+        <button class="btn btn-default" ng-click="exportToExcel()">
+            {{fields.exportXlsx}}
+        </button>
+        <button class="btn btn-default" ng-click="exportToPDF()">
+            {{fields.exportPDF}}
+        </button>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿<div>
+    <h2 class="title">{{fields.transferSlipTitle}}</h2>
+    <div class="row show-grid">
+        <div class="col-md-1 grid-title">{{fields.date}}</div>
+        <div class="col-md-2">
+            <wj-input-date value="ctx.data.date"
+                min="2016-01-01"
+                max="2016-12-31"
+                format="d">
+            </wj-input-date>
+        </div>
+        <div class="col-md-2 grid-title">{{fields.slipNo}}</div>
+        <div class="col-md-2">
+            <input type="text" class="form-control" ng-model="ctx.data.slipNo" />
+        </div>
+        <div class="col-md-2 grid-title">{{fields.settlementTitle}}</div>
+        <div class="col-md-2">
+            <input type="text" class="form-control" ng-model="ctx.data.settlement" />
+        </div>
+    </div>
+    <wj-multi-row control="ctx.multiRow" items-source="ctx.items" layout-definition="ctx.layoutDef">
+    </wj-multi-row>
+    <div class="row show-grid">
+        <div style="width:125px;" class="summary-cell">{{fields.debtorSumTitle}}</div>
+        <div style="width:125px;" class="summary-cell">{{ctx.debtorSum}}</div>
+        <div style="width:125px;" class="summary-cell">{{fields.creditorSumTitle}}</div>
+        <div style="width:125px;" class="summary-cell">{{ctx.creditorSum}}</div>
+        <div style="width:110px;" class="summary-cell">{{fields.debtorCreditorBalanceTitle}}</div>
+        <div style="width:100px;" class="summary-cell">{{ctx.balance}}</div>
+    </div>
+    <div class="pull-right btn-group">
+        <button class="btn btn-default" ng-disabled="ctx.pageIndex == 0" ng-click="moveToFirstPage()">
+            <span class="glyphicon glyphicon-fast-backward"></span>
+        </button>
+        <button class="btn btn-default" ng-disabled="ctx.pageIndex == 0" ng-click="moveToPreviousPage()">
+            <span class="glyphicon glyphicon-backward"></span>
+        </button>
+        <button type="button" class="btn" disabled style="width:100px">
+            {{ctx.pageIndex + 1 | number}} / {{ctx.pageCount | number}}
+        </button>
+        <button class="btn btn-default" ng-disabled="ctx.pageIndex == ctx.pageCount - 1" ng-click="moveToNextPage()">
+            <span class="glyphicon glyphicon-forward"></span>
+        </button>
+        <button class="btn btn-default" ng-disabled="ctx.pageIndex == ctx.pageCount - 1" ng-click="moveToLastPage()">
+            <span class="glyphicon glyphicon-fast-forward"></span>
+        </button>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-default" ng-click="exportToExcel()">
+            {{fields.exportXlsx}}
+        </button>
+        <button class="btn btn-default" ng-click="exportToPDF()">
+            {{fields.exportPDF}}
+        </button>
+    </div>
+</div>

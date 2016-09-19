@@ -6,6 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
 // Wijmo Events component.
 var EventsCmp = (function () {
     function EventsCmp() {
@@ -19,4 +21,19 @@ var EventsCmp = (function () {
     return EventsCmp;
 }());
 exports.EventsCmp = EventsCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: EventsCmp }
+]);
+var EventsModule = (function () {
+    function EventsModule() {
+    }
+    EventsModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing],
+            declarations: [EventsCmp],
+        })
+    ], EventsModule);
+    return EventsModule;
+}());
+exports.EventsModule = EventsModule;
 //# sourceMappingURL=EventsCmp.js.map

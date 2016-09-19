@@ -7,8 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
-var wjNg2Analytics = require('wijmo/wijmo.angular2.chart.analytics');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_chart_analytics_1 = require('wijmo/wijmo.angular2.chart.analytics');
 //ParametricFunctionSeries sample component
 var ParametricFunctionSeriesCmp = (function () {
     function ParametricFunctionSeriesCmp() {
@@ -25,11 +26,25 @@ var ParametricFunctionSeriesCmp = (function () {
     ParametricFunctionSeriesCmp = __decorate([
         core_1.Component({
             selector: 'parametric-function-series-cmp',
-            templateUrl: 'src/components/ParametricFunctionSeriesCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Analytics.WjFlexChartParametricFunctionSeries, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
+            templateUrl: 'src/components/ParametricFunctionSeriesCmp.html'
         })
     ], ParametricFunctionSeriesCmp);
     return ParametricFunctionSeriesCmp;
 }());
 exports.ParametricFunctionSeriesCmp = ParametricFunctionSeriesCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ParametricFunctionSeriesCmp }
+]);
+var ParametricFunctionSeriesModule = (function () {
+    function ParametricFunctionSeriesModule() {
+    }
+    ParametricFunctionSeriesModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_chart_analytics_1.WjChartAnalyticsModule],
+            declarations: [ParametricFunctionSeriesCmp],
+        })
+    ], ParametricFunctionSeriesModule);
+    return ParametricFunctionSeriesModule;
+}());
+exports.ParametricFunctionSeriesModule = ParametricFunctionSeriesModule;
 //# sourceMappingURL=ParametricFunctionSeriesCmp.js.map

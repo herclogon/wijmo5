@@ -1,97 +1,71 @@
-<h2>FilterCondition Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">FilterCondition</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.grid.filter</dd>
-<dt>File</dt><dd>wijmo.grid.filter.js</dd>
+<dt>File</dt><dd class="filename">wijmo.grid.filter.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.grid.filter.Module.html"><span class="identifier">wijmo.grid.filter</span></a></dd>
 </dl>
-<p><p>Defines a filter condition.</p>
-
-<p>This class is used by the <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><b>FlexGridFilter</b></a> class; you will rarely have to use it directly.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<div class="comment"><p>Defines a filter condition.</p>
+<p>This class is used by the <a href="topic/wijmo.grid.filter.FlexGridFilter.Class.html"><span class="identifier">FlexGridFilter</span></a> class; you will rarely have to use it directly.</p></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>isActive</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether the condition is active.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>operator</b></td>
-      <td><a href="topic/wijmo.grid.filter.Operator.Enum.html"><b>Operator</b></a></td>
-      <td>Gets or sets the operator used by this <a href="topic/wijmo.grid.filter.FilterCondition.Class.html"><b>FilterCondition</b></a>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>value</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the value used by this <a href="topic/wijmo.grid.filter.FilterCondition.Class.html"><b>FilterCondition</b></a>.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.grid.filter.FilterCondition.Class.html/#isActive">isActive</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.filter.FilterCondition.Class.html/#operator">operator</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.filter.FilterCondition.Class.html/#value">value</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.grid.filter.FilterCondition.Class.html/#apply">apply</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.filter.FilterCondition.Class.html/#clear">clear</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="isActive" class="member-panel mproperty">
+<h3>isActive</h3>
+<div class="comment"><p>Gets a value that indicates whether the condition is active.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>apply</b>&#8203;(value): <b>boolean</b></td>
-      <td><p>
-<b>value</b> (): The value to test.<br/></p>
-</td>
-      <td>Returns a value that determines whether the given value passes this
-<a href="topic/wijmo.grid.filter.FilterCondition.Class.html"><b>FilterCondition</b></a>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>clear</b>&#8203;()</td>
-      <td></td>
-      <td>Clears the condition.</td>
-    </tr>
-</tbody>
-</table>
+<div id="operator" class="member-panel mproperty">
+<h3>operator</h3>
+<div class="comment"><p>Gets or sets the operator used by this <a href="topic/wijmo.grid.filter.FilterCondition.Class.html"><span class="identifier">FilterCondition</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.grid.filter.Operator.Enum.html"><span class="identifier">Operator</span></a></dd>
+</dl>
 </div>
-
+<div id="value" class="member-panel mproperty">
+<h3>value</h3>
+<div class="comment"><p>Gets or sets the value used by this <a href="topic/wijmo.grid.filter.FilterCondition.Class.html"><span class="identifier">FilterCondition</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="apply" class="member-panel mmethod">
+<h3>apply</h3>
+<pre>apply(value): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Returns a value that determines whether the given value passes this
+<a href="topic/wijmo.grid.filter.FilterCondition.Class.html"><span class="identifier">FilterCondition</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <br/><p>The value to test.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="clear" class="member-panel mmethod">
+<h3>clear</h3>
+<pre>clear(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Clears the condition.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>

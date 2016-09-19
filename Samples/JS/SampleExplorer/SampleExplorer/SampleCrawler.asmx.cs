@@ -124,18 +124,25 @@ namespace SampleExplorer // << NOTE: this must match the full class name in the 
             }
             else
             {
-                // not in cache, get it now
+                if (list != null && list.Count == 0)
+                {
+                    LogInformation("Cache Exists but is empty");
+                }
+                // not in cache (or cache empty, get it now
                 CrawlDirs(_path, string.Empty);
+                if (_sampleList.Count > 0)
+                {
+                    // and store in cache
+                    HttpRuntime.Cache.Add(
+                        key,
+                        _sampleList,
+                        null,
+                        DateTime.Now.AddDays(2),
+                        Cache.NoSlidingExpiration,
+                        CacheItemPriority.High,
+                        null);
+                }
 
-                // and store in cache
-                HttpRuntime.Cache.Add(
-                    key,
-                    _sampleList,
-                    null,
-                    DateTime.Now.AddDays(2),
-                    Cache.NoSlidingExpiration,
-                    CacheItemPriority.Low,
-                    null);
             }
 
             // done, return the result
@@ -320,25 +327,25 @@ namespace SampleExplorer // << NOTE: this must match the full class name in the 
                         }
 
                         s.Address = _url + s.Category + "/" + s.DirTitle + "/" + s.DirTitle + "/" + (s.Category == "Ionic" ? "www" : string.Empty);
-                        WebRequest request;
-                        HttpWebResponse response;
-                        try
-                        {
-                            request = WebRequest.Create(s.Address);
-                            response = (HttpWebResponse)request.GetResponse();
-                            if (response == null || response.StatusCode != HttpStatusCode.OK) // if the link is down, erase it.
-                            {
-                                LogInformation("Sample Offline - " + s.Address + " - " + fromPath);
-                                s.Address = string.Empty;
+                        //WebRequest request;
+                        //HttpWebResponse response;
+                        //try
+                        //{
+                        //    request = WebRequest.Create(s.Address);
+                        //    response = (HttpWebResponse)request.GetResponse();
+                        //    if (response == null || response.StatusCode != HttpStatusCode.OK) // if the link is down, erase it.
+                        //    {
+                        //        LogInformation("Sample Offline - " + s.Address + " - " + fromPath);
+                        //        s.Address = string.Empty;
 
-                            }
-                            response.Close();
+                        //    }
+                        //    response.Close();
                             _sampleList.Add(s);
-                        }
-                        catch (Exception x)
-                        {
-                            return;
-                        }
+                        //}
+                        //catch (Exception x)
+                        //{
+                        //    return;
+                        //}
                         return; // when one file is found inside the directory it's enough to say it's a project folder and return to crawling (let's try not to leave files hanging around)
                     }
                 }
@@ -354,7 +361,8 @@ namespace SampleExplorer // << NOTE: this must match the full class name in the 
             {
                 //var s = new Sample();
                 //s.Error += x.Message;
-                throw x;
+                LogInformation(x.Message);
+                //throw x;
                 // _sampleList.Add(s); // not adding samples with errors anymore, chris!
             }
         }

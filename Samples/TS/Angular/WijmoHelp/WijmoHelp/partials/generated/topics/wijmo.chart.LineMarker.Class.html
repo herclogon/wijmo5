@@ -1,272 +1,228 @@
-<h2>LineMarker Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">LineMarker</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Derived Classes</dt><dd><a href="topic/wijmo.angular.WjFlexChartLineMarker.Class.html"><b>WjFlexChartLineMarker</b></a></dd>
-<dt>Module</dt><dd>wijmo.chart</dd>
-<dt>File</dt><dd>wijmo.chart.js</dd>
+<dt>File</dt><dd class="filename">wijmo.chart.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.chart.Module.html"><span class="identifier">wijmo.chart</span></a></dd>
+<dt>Derived Classes</dt><dd><a href="topic/wijmo-wijmo.angular2.chart.WjFlexChartLineMarker.Class.html"><span class="identifier">WjFlexChartLineMarker</span></a></dd>
 </dl>
-<p><p>Represents an extension of the LineMarker for the FlexChart.</p>
-
+<div class="comment"><p>Represents an extension of the LineMarker for the FlexChart.</p>
 <p>The LineMarker consists of a text area with content reflecting data point 
 values, and an optional vertical or horizontal line (or both for a cross-hair 
 effect) positioned over the plot area. It can be static (interaction = None), 
 follow the mouse or touch position (interaction = Move), or move when the user
 drags the line (interaction = Drag).
 For example:
-<pre>
-  // create an interactive marker with a horizontal line and y-value
+</p>
+
+<pre>// create an interactive marker with a horizontal line and y-value
   var lm = new wijmo.chart.LineMarker($scope.ctx.chart, {
       lines: wijmo.chart.LineMarkerLines.Horizontal,
       interaction: wijmo.chart.LineMarkerInteraction.Move,
       alignment : wijmo.chart.LineMarkerAlignment.Top
   });
   lm.content = function (ht) {
+
       // show y-value
       return lm.y.toFixed(2);
-  }
-</pre></p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+  }</pre></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(chart, options?): <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a></td>
-      <td><p>
-<b>chart</b> (<a href="topic/wijmo.chart.FlexChartCore.Class.html"><b>FlexChartCore</b></a>): The chart on which the LineMarker appears.<br/><b>options?</b> (): A JavaScript object containing initialization data for the control.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.chart.LineMarker.Class.html"><b>LineMarker</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.chart.LineMarker.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#alignment">alignment</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#chart">chart</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#content">content</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#dragContent">dragContent</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#dragLines">dragLines</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#dragThreshold">dragThreshold</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#horizontalPosition">horizontalPosition</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#interaction">interaction</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#isVisible">isVisible</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#lines">lines</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#seriesIndex">seriesIndex</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#verticalPosition">verticalPosition</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#x">x</a></li>
+<li class="mproperty"><a href="topic/wijmo.chart.LineMarker.Class.html/#y">y</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.chart.LineMarker.Class.html/#onPositionChanged">onPositionChanged</a></li>
+<li class="mmethod"><a href="topic/wijmo.chart.LineMarker.Class.html/#remove">remove</a></li>
+</ul>
+<h3 class="node">Events</h3>
+<ul>
+<li class="mevent"><a href="topic/wijmo.chart.LineMarker.Class.html/#positionChanged">positionChanged</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(chart: <a href="topic/wijmo.chart.FlexChartCore.Class.html"><span class="identifier">FlexChartCore</span></a>, options?): <a href="topic/wijmo.chart.LineMarker.Class.html"><span class="identifier">LineMarker</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.chart.LineMarker.Class.html"><span class="identifier">LineMarker</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>chart</b>: <a href="topic/wijmo.chart.FlexChartCore.Class.html"><span class="identifier">FlexChartCore</span></a><br/><p>The chart on which the LineMarker appears.</p></li><li><b>options</b>:  <span class="badge">Optional</span><br/><p>A JavaScript object containing initialization data for the control.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.chart.LineMarker.Class.html"><span class="identifier">LineMarker</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>alignment</b></td>
-      <td><a href="topic/wijmo.chart.LineMarkerAlignment.Enum.html"><b>LineMarkerAlignment</b></a></td>
-      <td><p>Gets or sets the alignment of the LineMarker content.</p>
-
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="alignment" class="member-panel mproperty">
+<h3>alignment</h3>
+<div class="comment"><p>Gets or sets the alignment of the LineMarker content.</p>
 <p>By default, the LineMarker shows to the right, at the bottom of the target point.
 Use '|' to combine alignment values.</p>
 
-<p><pre>
-// set the alignment to the left.
-marker.alignment = wijmo.chart.LineMarkerAlignment.Left;
-// set the alignment to the left top.
-marker.alignment = wijmo.chart.LineMarkerAlignment.Left | wijmo.chart.LineMarkerAlignment.Top;
-</pre></p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>chart</b></td>
-      <td><a href="topic/wijmo.chart.FlexChartCore.Class.html"><b>FlexChartCore</b></a></td>
-      <td>Gets the <a href="topic/wijmo.chart.FlexChart.Class.html"><b>FlexChart</b></a> object that owns the LineMarker.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>content</b></td>
-      <td><b>Function</b></td>
-      <td>Gets or sets the content function that allows you to customize the text content of the LineMarker.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>dragContent</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value indicating whether the content of the marker is draggable when the interaction mode is "Drag."</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>dragLines</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value indicating whether the lines are linked when the horizontal or vertical line is dragged when the interaction mode is "Drag."</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>dragThreshold</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the maximum distance from the horizontal or vertical line that the marker can be dragged.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>horizontalPosition</b></td>
-      <td><b>number</b></td>
-      <td><p>Gets or sets the horizontal position of the LineMarker relative to the plot area. </p>
 
+<pre>// set the alignment to the left.
+marker.alignment = wijmo.chart.LineMarkerAlignment.Left;
+
+// set the alignment to the left top.
+marker.alignment = wijmo.chart.LineMarkerAlignment.Left | wijmo.chart.LineMarkerAlignment.Top;</pre></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.LineMarkerAlignment.Enum.html"><span class="identifier">LineMarkerAlignment</span></a></dd>
+</dl>
+</div>
+<div id="chart" class="member-panel mproperty">
+<h3>chart</h3>
+<div class="comment"><p>Gets the <a href="topic/wijmo.chart.FlexChart.Class.html"><span class="identifier">FlexChart</span></a> object that owns the LineMarker.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.FlexChartCore.Class.html"><span class="identifier">FlexChartCore</span></a></dd>
+</dl>
+</div>
+<div id="content" class="member-panel mproperty">
+<h3>content</h3>
+<div class="comment"><p>Gets or sets the content function that allows you to customize the text content of the LineMarker.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a></dd>
+</dl>
+</div>
+<div id="dragContent" class="member-panel mproperty">
+<h3>dragContent</h3>
+<div class="comment"><p>Gets or sets a value indicating whether the content of the marker is draggable when the interaction mode is "Drag."</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="dragLines" class="member-panel mproperty">
+<h3>dragLines</h3>
+<div class="comment"><p>Gets or sets a value indicating whether the lines are linked when the horizontal or vertical line is dragged when the interaction mode is "Drag."</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="dragThreshold" class="member-panel mproperty">
+<h3>dragThreshold</h3>
+<div class="comment"><p>Gets or sets the maximum distance from the horizontal or vertical line that the marker can be dragged.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="horizontalPosition" class="member-panel mproperty">
+<h3>horizontalPosition</h3>
+<div class="comment"><p>Gets or sets the horizontal position of the LineMarker relative to the plot area. </p>
 <p>Its value range is (0, 1).
-If the value is null or undefined and <b>interaction</b> is set to 
+If the value is null or undefined and <a href="topic/wijmo.chart.LineMarker.Class.html/#interaction"><span class="identifier">interaction</span></a> is set to 
 wijmo.chart.LineMarkerInteraction.Move or wijmo.chart.LineMarkerInteraction.Drag, 
 the horizontal position of the marker is calculated automatically based on the 
-pointer's position.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>interaction</b></td>
-      <td><a href="topic/wijmo.chart.LineMarkerInteraction.Enum.html"><b>LineMarkerInteraction</b></a></td>
-      <td>Gets or sets the interaction mode of the LineMarker.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>isVisible</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets the visibility of the LineMarker.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>lines</b></td>
-      <td><a href="topic/wijmo.chart.LineMarkerLines.Enum.html"><b>LineMarkerLines</b></a></td>
-      <td>Gets or sets the visibility of the LineMarker lines.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>seriesIndex</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the index of the series in the chart in which the LineMarker appears.
-This takes effect when the <b>interaction</b> property is set to 
-wijmo.chart.LineMarkerInteraction.Move or wijmo.chart.LineMarkerInteraction.Drag.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>verticalPosition</b></td>
-      <td><b>number</b></td>
-      <td><p>Gets or sets the vertical position of the LineMarker relative to the plot area. </p>
-
+pointer's position.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="interaction" class="member-panel mproperty">
+<h3>interaction</h3>
+<div class="comment"><p>Gets or sets the interaction mode of the LineMarker.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.LineMarkerInteraction.Enum.html"><span class="identifier">LineMarkerInteraction</span></a></dd>
+</dl>
+</div>
+<div id="isVisible" class="member-panel mproperty">
+<h3>isVisible</h3>
+<div class="comment"><p>Gets or sets the visibility of the LineMarker.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="lines" class="member-panel mproperty">
+<h3>lines</h3>
+<div class="comment"><p>Gets or sets the visibility of the LineMarker lines.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.LineMarkerLines.Enum.html"><span class="identifier">LineMarkerLines</span></a></dd>
+</dl>
+</div>
+<div id="seriesIndex" class="member-panel mproperty">
+<h3>seriesIndex</h3>
+<div class="comment"><p>Gets or sets the index of the series in the chart in which the LineMarker appears.
+This takes effect when the <a href="topic/wijmo.chart.LineMarker.Class.html/#interaction"><span class="identifier">interaction</span></a> property is set to 
+wijmo.chart.LineMarkerInteraction.Move or wijmo.chart.LineMarkerInteraction.Drag.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="verticalPosition" class="member-panel mproperty">
+<h3>verticalPosition</h3>
+<div class="comment"><p>Gets or sets the vertical position of the LineMarker relative to the plot area. </p>
 <p>Its value range is (0, 1).
-If the value is null or undefined and <b>interaction</b> is set to wijmo.chart.LineMarkerInteraction.Move 
-or wijmo.chart.LineMarkerInteraction.Drag, the vertical position of the LineMarker is calculated automatically based on the pointer's position.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>x</b></td>
-      <td><b>number</b></td>
-      <td>Gets the current x-value as chart data coordinates.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>y</b></td>
-      <td><b>number</b></td>
-      <td>Gets the current y-value as chart data coordinates.</td>
-    </tr>
-</tbody>
-</table>
+If the value is null or undefined and <a href="topic/wijmo.chart.LineMarker.Class.html/#interaction"><span class="identifier">interaction</span></a> is set to wijmo.chart.LineMarkerInteraction.Move 
+or wijmo.chart.LineMarkerInteraction.Drag, the vertical position of the LineMarker is calculated automatically based on the pointer's position.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div id="x" class="member-panel mproperty">
+<h3>x</h3>
+<div class="comment"><p>Gets the current x-value as chart data coordinates.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>onPositionChanged</b>&#8203;(point)</td>
-      <td><p>
-<b>point</b> (<a href="topic/wijmo.Point.Class.html"><b>Point</b></a>): The target point at which to show the LineMarker.<br/></p>
-</td>
-      <td>Raises the <b>positionChanged</b> event.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>remove</b>&#8203;()</td>
-      <td></td>
-      <td>Removes the LineMarker from the chart.</td>
-    </tr>
-</tbody>
-</table>
+<div id="y" class="member-panel mproperty">
+<h3>y</h3>
+<div class="comment"><p>Gets the current y-value as chart data coordinates.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
-<span class="glyph-collapsed" ng-show="hideEvents"></span>
-<span class="glyph-expanded" ng-hide="hideEvents"></span>
-Events
-</h3>
 </div>
-<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Arguments</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>positionChanged</b></td>
-      <td><a href="topic/wijmo.Point.Class.html"><b>Point</b></a></td>
-      <td>Occurs after the LineMarker's position changes.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="onPositionChanged" class="member-panel mmethod">
+<h3>onPositionChanged</h3>
+<pre>onPositionChanged(point: <a href="topic/wijmo.Point.Class.html"><span class="identifier">Point</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.chart.LineMarker.Class.html/#positionChanged"><span class="identifier">positionChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>point</b>: <a href="topic/wijmo.Point.Class.html"><span class="identifier">Point</span></a><br/><p>The target point at which to show the LineMarker.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-
+<div id="remove" class="member-panel mmethod">
+<h3>remove</h3>
+<pre>remove(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Removes the LineMarker from the chart.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Events</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="positionChanged" class="member-panel mevent">
+<h3>positionChanged</h3>
+<div class="comment"><p>Occurs after the LineMarker's position changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.Point.Class.html"><span class="identifier">Point</span></a></dd>
+</dl>
+</div>
+</div>

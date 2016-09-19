@@ -1,7 +1,7 @@
 ﻿'use strict';
 
-import {Component, EventEmitter, Inject, Input, Output} from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, Output, Input} from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 // Base class for all form components.
 @Component({

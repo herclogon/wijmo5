@@ -1,163 +1,29 @@
-<h2>Module wijmo.chart.finance.analytics</h2>
+<div class="header-panel module">
+<h2><span class="identifier">wijmo.chart.finance.analytics</span> Module</h2>
 <dl class="dl-horizontal">
-<dt>File</dt><dd>wijmo.chart.finance.analytics.js</dd>
+<dt>File</dt><dd class="filename">wijmo.chart.finance.analytics.js</dd>
+<dt>Module</dt><dd><span class="identifier">wijmo.chart.finance.analytics</span></dd>
 </dl>
-<p>Analytics extensions for <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
-<span class="glyph-collapsed" ng-show="hideClasses"></span>
-<span class="glyph-expanded" ng-hide="hideClasses"></span>
-Classes
-</h3>
+<div class="comment"><p>Analytics extensions for <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a>.</p></div>
 </div>
-<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th>Name</th>
-
-<th>Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.ATR.Class.html"><b>ATR</b></a></td>
-      <td><p>Represents an Average True Range indicator series for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</p>
-
-<p>Average true range is used to measure the volatility of an asset. Average true range
-does not provide any indication of the price's trend, but rather the degree of price
-volatility.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.BollingerBands.Class.html"><b>BollingerBands</b></a></td>
-      <td><p>Represents a Bollinger Bands&reg; overlay series for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</p>
-
-<p><i>Bollinger Bands is a registered trademark of John Bollinger.</i></p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.CCI.Class.html"><b>CCI</b></a></td>
-      <td><p>Represents a Commodity Channel Index indicator series for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</p>
-
-<p>The commodity channel index is an oscillator that measures an asset's current price
-level relative to an average price level over a specified period of time.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.Envelopes.Class.html"><b>Envelopes</b></a></td>
-      <td><p>Represents a Moving Average Envelopes overlay series for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</p>
-
-<p>Moving average envelopes are moving averages set above and below a standard moving
-average.  The amount above/below the standard moving average is percentage based and
-dictated by the <b>size</b> property.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.Fibonacci.Class.html"><b>Fibonacci</b></a></td>
-      <td><p>Represents a Fibonacci Retracements tool for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.
-The tool enables the calculation and plotting of various alert levels that are
-useful in financial charts.</p>
-
-<p>To add Fibonacci tool to a <b>FinancialChart</b> control, create an instance
-of the <b>Fibonacci</b> and add it to the <b>series</b> collection of the chart.
-For example:</p>
-
-<p><pre>
-// create chart
-var chart = new wijmo.chart.finance.FinancialChart('#chartElement');
-// create Fibonacci tool
-var ftool = new wijmo.chart.finance.analytics.Fibonacci();
-chart.series.push(ftool);
-</pre></p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.FibonacciArcs.Class.html"><b>FibonacciArcs</b></a></td>
-      <td>Represents a Fibonacci Arcs tool for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.FibonacciFans.Class.html"><b>FibonacciFans</b></a></td>
-      <td>Represents a Fibonacci Fans tool for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.FibonacciTimeZones.Class.html"><b>FibonacciTimeZones</b></a></td>
-      <td>Represents a Fibonacci Time Zones tool for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.Macd.Class.html"><b>Macd</b></a></td>
-      <td><p>Represents a Moving Average Convergence/Divergence (MACD) indicator series
-for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</p>
-
-<p>The MACD indicator is designed to reveal changes in strength, direction, momentum,
-and duration of an asset's price trend.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.MacdBase.Class.html"><b>MacdBase</b></a></td>
-      <td>Base class for <a href="topic/wijmo.chart.finance.analytics.Macd.Class.html"><b>Macd</b></a> and <a href="topic/wijmo.chart.finance.analytics.MacdHistogram.Class.html"><b>MacdHistogram</b></a> series (abstract).</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.MacdHistogram.Class.html"><b>MacdHistogram</b></a></td>
-      <td><p>Represents a Moving Average Convergence/Divergence (MACD) Histogram indicator series
-for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</p>
-
-<p>The MACD indicator is designed to reveal changes in strength, direction, momentum,
-and duration of an asset's price trend.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.OverlayIndicatorBase.Class.html"><b>OverlayIndicatorBase</b></a></td>
-      <td>Base class for overlay and indicator series (abstract).</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.RSI.Class.html"><b>RSI</b></a></td>
-      <td><p>Represents a Relative Strength Index indicator series for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</p>
-
-<p>Relative strength index is a momentum osciallator designed to measure the current
-and historical strength or weakness of an asset based on the closing prices of a
-recent trading period.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.SingleOverlayIndicatorBase.Class.html"><b>SingleOverlayIndicatorBase</b></a></td>
-      <td>Base class for overlay and indicator series that render a single series (abstract).</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.Stochastic.Class.html"><b>Stochastic</b></a></td>
-      <td><p>Represents a Stochastic Oscillator indicator series for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</p>
-
-<p>Stochastic oscillators are momentum indicators designed to predict price turning
-points by comparing an asset's closing price to its high-low range.</p>
-
-<p>The <b>Stochastic</b> series can be used for fast (default), slow and full stochastic
-oscillators.  To create a slow or full stochastic oscillator, set the <b>smoothingPeriod</b>
-to an integer value greater than one; slow stochastic oscillators generally use a fixed
-<b>smoothingPeriod</b> of three.  To create or revert to a fast stochastic oscillator, set the
-<b>smoothingPeriod</b> to an integer value of one.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo.chart.finance.analytics.WilliamsR.Class.html"><b>WilliamsR</b></a></td>
-      <td><p>Represents a Willaims %R indicator series for the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a>.</p>
-
-<p>Williams %R is a momentum indicator that is the inverse of a fast stochastic
-oscillator (<a href="topic/wijmo.chart.finance.analytics.Stochastic.Class.html"><b>Stochastic</b></a>).  The Williams %R indicator is designed to
-tell whether an asset is trading near the high or low of its trading range.</p></td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel module members">
+<h3 class="node">Classes</h3>
+<ul>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.ATR.Class.html">ATR</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.BollingerBands.Class.html">BollingerBands</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.CCI.Class.html">CCI</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.Envelopes.Class.html">Envelopes</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.Fibonacci.Class.html">Fibonacci</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.FibonacciArcs.Class.html">FibonacciArcs</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.FibonacciFans.Class.html">FibonacciFans</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.FibonacciTimeZones.Class.html">FibonacciTimeZones</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.Macd.Class.html">Macd</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.MacdBase.Class.html">MacdBase</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.MacdHistogram.Class.html">MacdHistogram</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.OverlayIndicatorBase.Class.html">OverlayIndicatorBase</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.RSI.Class.html">RSI</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.SingleOverlayIndicatorBase.Class.html">SingleOverlayIndicatorBase</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.Stochastic.Class.html">Stochastic</a></li>
+<li class="mclass"><a href="topic/wijmo.chart.finance.analytics.WilliamsR.Class.html">WilliamsR</a></li>
+</ul>
 </div>
-

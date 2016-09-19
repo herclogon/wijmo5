@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,7 +62,6 @@
     <None Include="readme.txt" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\controllers\appCtrl.js" />
-    <Content Include="scripts\directives\gridFooterForDctv.js" />
     <Content Include="scripts\directives\groupFootersDctv.js" />
     <Content Include="styles\app.css" />
     <Content Include="Web.config" />

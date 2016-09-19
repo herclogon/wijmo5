@@ -5,3 +5,5 @@ export declare class ExpenseReportExportCmp {
     constructor(dataSvc: DataSvc);
     saveExpenses(): void;
 }
+export declare class AppModule {
+}

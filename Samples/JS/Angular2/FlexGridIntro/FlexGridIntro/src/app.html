@@ -68,17 +68,17 @@
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
- import { Injectable } from '@angular/core';
+ import &#123; Injectable } from '@angular/core';
 
  // Common data service
  @Injectable()
- export class DataSvc {
+ export class DataSvc &#123;
      // data used to generate random items
-     getData(count: number): wijmo.collections.ObservableArray {
+     getData(count: number): wijmo.collections.ObservableArray &#123;
          var countries = 'US,Germany,UK,Japan,Italy,Greece'.split(','),
          data = new wijmo.collections.ObservableArray();
-         for (var i = 0; i < count; i++) {
-         data.push({
+         for (var i = 0; i < count; i++) &#123;
+         data.push(&#123;
                  id: i,
                  country: countries[i % countries.length],
                  date: new Date(2014, i % 12, i % 28),
@@ -91,43 +91,51 @@
 
 ---------------------Component-------------------
  // Angular
- import { Component, View, EventEmitter, provide, Input, Inject, enableProdMode } from '@angular/core';
- import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
- import * as wjNg2Chart from 'wijmo/wijmo.angular2.grid';
- import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
- import { DataSvc } from './services/DataSvc';
+import &#123; Component, EventEmitter, Input, Inject, enableProdMode, NgModule } from '@angular/core';
+import &#123; FormsModule } from '@angular/forms';
+import &#123; CommonModule } from '@angular/common';
+import &#123; platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import &#123; BrowserModule } from '@angular/platform-browser';
+import &#123; WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import &#123; WjInputModule } from 'wijmo/wijmo.angular2.input';
+import &#123; TabsModule } from './components/AppTab';
+import &#123; DataSvc } from './services/DataSvc';
 
  // The Explorer application root component.
- @Component({
-     selector: 'app-cmp',
-            directives: [CORE_DIRECTIVES, AppTab, AppTabPane,
-            wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate, wjNg2Grid.WjTemplateCmp,
-            wjNg2Input.WjInputNumber, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem]
+ @Component(&#123;
+     selector: 'app-cmp'
  })
 
- export class AppCmp {
+ export class AppCmp &#123;
      // generate some random data
      protected dataSvc: DataSvc;
      data: wijmo.collections.CollectionView;
 
-     constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+     constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
         this.dataSvc = dataSvc;
         this.data = new wijmo.collections.CollectionView(this.dataSvc.getData(100));
       }
 }
 
- enableProdMode();
- // Bootstrap application with hash style navigation and global services.
- bootstrap(AppCmp, [
- DataSvc
- ]);
+@NgModule(&#123;
+    imports: [WjInputModule, WjGridModule, BrowserModule, FormsModule, TabsModule],
+    declarations: [AppCmp],
+    providers: [DataSvc],
+    bootstrap: [AppCmp]
+})
+export class AppModule &#123;
+}
+
+
+enableProdMode();
+// Bootstrap application with hash style navigation and global services.
+platformBrowserDynamic().bootstrapModule(AppModule);
                     </div>
                 </app-tab-pane>
                 <app-tab-pane title="CSS">
                     <div class="pane-content">
  /* set default grid style */
- .wj-flexgrid {
+ .wj-flexgrid &#123;
      height: 300px;
      background-color: white;
      box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
@@ -232,14 +240,14 @@ import { bootstrap } from '@angular/platform-browser-dynamic';
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
- export class AppCmp {
+ export class AppCmp &#123;
      // generate some random data
      protected dataSvc: DataSvc;
      data: wijmo.collections.CollectionView;
      // grid property
      selectionMode = 'CellRange';
 
-     constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+     constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
          this.dataSvc = dataSvc;
          this.data = new wijmo.collections.CollectionView(this.dataSvc.getData(100));
      }
@@ -291,24 +299,24 @@ import { bootstrap } from '@angular/platform-browser-dynamic';
 &lt;/wj-flex-grid&gt;
 &lt;button class="btn btn-default"
     (click)="toggleFreeze(frozenFlex)"&gt;
-    {&#8203;{ frozenFlex.frozenRows == 0 ? 'Freeze' : 'Unfreeze'}&#8203;}
+    &#123;&#123; frozenFlex.frozenRows == 0 ? 'Freeze' : 'Unfreeze'}&#8203;}
 &lt;/button&gt;
                     </div>
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
- export class AppCmp {
+ export class AppCmp &#123;
      // generate some random data
      protected dataSvc: DataSvc;
      data: wijmo.collections.CollectionView;
 
-     constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+     constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
          this.dataSvc = dataSvc;
          this.data = new wijmo.collections.CollectionView(this.dataSvc.getData(100));
      }
 
-     toggleFreeze(flex: wijmo.grid.FlexGrid) {
-         if (flex) {
+     toggleFreeze(flex: wijmo.grid.FlexGrid) &#123;
+         if (flex) &#123;
              var frozenCount = flex.frozenRows == 0 ? 2 : 0;
              flex.frozenRows = frozenCount;
              flex.frozenColumns = frozenCount;
@@ -320,17 +328,17 @@ import { bootstrap } from '@angular/platform-browser-dynamic';
                 <app-tab-pane title="CSS">
                     <div class="pane-content">
  /* frozen cells */
- .wj-frozen:not(.wj-state-selected):not(.wj-state-multi-selected) {
+ .wj-frozen:not(.wj-state-selected):not(.wj-state-multi-selected) &#123;
     background-color: #f8ffd6;
  }
- .wj-frozen.wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) {
+ .wj-frozen.wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) &#123;
     background-color: #f8ffd6;
  }
  /* frozen area edges */
- .wj-frozen-row {
+ .wj-frozen-row &#123;
     border-bottom: 1px solid rgba(0,0,0,.5);
  }
- .wj-frozen-col {
+ .wj-frozen-col &#123;
     border-right: 1px solid rgba(0,0,0,.5);
  }
                     </div>
@@ -454,45 +462,45 @@ import { bootstrap } from '@angular/platform-browser-dynamic';
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
-export class AppCmp {
+export class AppCmp &#123;
     // generate some random data
     protected dataSvc: DataSvc;
     cvGroup: wijmo.collections.CollectionView;
     private _groupBy = '';
 
-    constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+    constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
         this.dataSvc = dataSvc;
         this.cvGroup = new wijmo.collections.CollectionView(this.dataSvc.getData(100));
     }
 
-    get groupBy(): string {
+    get groupBy(): string &#123;
         return this._groupBy;
     }
-    set groupBy(value: string) {
-        if (this._groupBy != value) {
+    set groupBy(value: string) &#123;
+        if (this._groupBy != value) &#123;
             this._groupBy = value;
             this._applyGroupBy();
         }
     }
-    private _applyGroupBy() {
+    private _applyGroupBy() &#123;
         var cv = this.cvGroup;
         cv.beginUpdate();
         cv.groupDescriptions.clear();
-        if (this.groupBy) {
+        if (this.groupBy) &#123;
             var groupNames = this.groupBy.split(',');
-            for (var i = 0; i < groupNames.length; i++) {
+            for (var i = 0; i < groupNames.length; i++) &#123;
                 var groupName = groupNames[i];
-                if (groupName == 'date') { // group dates by year
-                    var groupDesc = new wijmo.collections.PropertyGroupDescription(groupName, function (item, prop) {
+                if (groupName == 'date') &#123; // group dates by year
+                    var groupDesc = new wijmo.collections.PropertyGroupDescription(groupName, function (item, prop) &#123;
                     return item.date.getFullYear();
                 });
                      cv.groupDescriptions.push(groupDesc);
-                } else if (groupName == 'amount') { // group amounts in ranges
-                    var groupDesc = new wijmo.collections.PropertyGroupDescription(groupName, function (item, prop) {
+                } else if (groupName == 'amount') &#123; // group amounts in ranges
+                    var groupDesc = new wijmo.collections.PropertyGroupDescription(groupName, function (item, prop) &#123;
                     return item.amount >= 5000 ? '> 5,000' : item.amount >= 500 ? '500 to 5,000' : '< 500';
                     });
                     cv.groupDescriptions.push(groupDesc);
-                } else { // group everything else by value
+                } else &#123; // group everything else by value
                     var groupDesc = new wijmo.collections.PropertyGroupDescription(groupName);
                     cv.groupDescriptions.push(groupDesc);
                 }
@@ -556,7 +564,7 @@ export class AppCmp {
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
-export class AppCmp {
+export class AppCmp &#123;
     // generate some random data
     protected dataSvc: DataSvc;
     cvFilter: wijmo.collections.CollectionView;
@@ -564,29 +572,29 @@ export class AppCmp {
     private _filter = '';
     private _toFilter: any;
 
-    constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+    constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
         this.cvFilter = new wijmo.collections.CollectionView(this.dataSvc.getData(100));
         this.cvFilter.filter = this._filterFunction.bind(this);
     }
 
-    get filter(): string {
+    get filter(): string &#123;
         return this._filter;
     }
-    set filter(value: string) {
-        if (this._filter != value) {
+    set filter(value: string) &#123;
+        if (this._filter != value) &#123;
             this._filter = value;
-            if (this._toFilter) {
+            if (this._toFilter) &#123;
                 clearTimeout(this._toFilter);
             }
             var self = this;
-            this._toFilter = setTimeout(function () {
+            this._toFilter = setTimeout(function () &#123;
                 self.cvFilter.refresh();
             }, 500);
         }
     }
 
-    private _filterFunction(item: any) {
-        if (this._filter) {
+    private _filterFunction(item: any) &#123;
+        if (this._filter) &#123;
             return item.country.toLowerCase().indexOf(this._filter.toLowerCase()) > -1;
         }
             return true;
@@ -644,7 +652,7 @@ export class AppCmp {
     &lt;span class="glyphicon glyphicon-step-backward"&gt;&lt;/span&gt;
 &lt;/button&gt;
 &lt;button type="button" class="btn btn-default" disabled style="width:100px"&gt;
-    {&#8203;{cvPaging.pageIndex + 1 | number}&#8203;} / {&#8203;{cvPaging.pageCount | number}&#8203;}
+    &#123;&#123;cvPaging.pageIndex + 1 | number}&#8203;} / &#123;&#8203;&#123;cvPaging.pageCount | number}&#8203;}
 &lt;/button&gt;
 &lt;button type="button" class="btn btn-default"
     (click)="cvPaging.moveToNextPage()"
@@ -661,12 +669,12 @@ export class AppCmp {
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
-export class AppCmp {
+export class AppCmp &#123;
     // generate some random data
     protected dataSvc: DataSvc;
     cvPaging: wijmo.collections.CollectionView;
 
-    constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+    constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
         this.dataSvc = dataSvc;
         this.cvPaging = new wijmo.collections.CollectionView(this.dataSvc.getData(100));
         this.cvPaging.pageSize = 10;
@@ -732,13 +740,13 @@ export class AppCmp {
  &lt;/wj-flex-grid&gt;
  &lt;dl class="dl-horizontal"&gt;
      &lt;dt&gt;ID&lt;/dt&gt;
-     &lt;dd&gt;{&#8203;{cvMaster.currentItem.id}&#8203;}&lt;/dd&gt;
+     &lt;dd&gt;&#123;&#8203;&#123;cvMaster.currentItem.id}&#8203;}&lt;/dd&gt;
      &lt;dt&gt;Country&lt;/dt&gt;
-     &lt;dd&gt;{&#8203;{cvMaster.currentItem.country}&#8203;}&lt;/dd&gt;
+     &lt;dd&gt;&#123;&#8203;&#123;cvMaster.currentItem.country}&#8203;}&lt;/dd&gt;
      &lt;dt&gt;Date&lt;/dt&gt;
-     &lt;dd&gt;{&#8203;{cvMaster.currentItem.date | date}&#8203;}&lt;/dd&gt;
+     &lt;dd&gt;&#123;&#8203;&#123;cvMaster.currentItem.date | date}&#8203;}&lt;/dd&gt;
      &lt;dt&gt;Revenue&lt;/dt&gt;
-     &lt;dd&gt;{&#8203;{cvMaster.currentItem.amount | number:'3.1-2'}&#8203;}&lt;/dd&gt;
+     &lt;dd&gt;&#123;&#8203;&#123;cvMaster.currentItem.amount | number:'3.1-2'}&#8203;}&lt;/dd&gt;
  &lt;/dl&gt;
                     </div>
                 </app-tab-pane>
@@ -790,8 +798,8 @@ export class AppCmp {
     &lt;wj-flex-grid-column [header]="'Country'" [binding]="'country'" [width]="'*'" [isReadOnly]="true"&gt;
     &lt;template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell"&gt;
         &lt;div&gt;
-            &lt;img src="resources/{&#8203;{cell.item.country}&#8203;}.png" /&gt;
-        {&#8203;{cell.item.country}&#8203;}
+            &lt;img src="resources/&#123;&#8203;&#123;cell.item.country}&#8203;}.png" /&gt;
+        &#123;&#8203;&#123;cell.item.country}&#8203;}
         &lt;/div&gt;
     &lt;/template&gt;
     &lt;/wj-flex-grid-column&gt;
@@ -848,8 +856,8 @@ export class AppCmp {
     &lt;wj-flex-grid-column [header]="'Date'" [binding]="'date'"&gt;&lt;/wj-flex-grid-column&gt;
     &lt;wj-flex-grid-column [header]="'Revenue'" [binding]="'amount'" [format]="'n0'" &gt;
     &lt;template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell"&gt;
-        &lt;div [ngStyle]="{color: getAmountColor(cell.item.amount)}"&gt;
-        {&#8203;{cell.item.amount | number:'1.0-0'}&#8203;}
+        &lt;div [ngStyle]="&#123;color: getAmountColor(cell.item.amount)}"&gt;
+        &#123;&#8203;&#123;cell.item.amount | number:'1.0-0'}&#8203;}
         &lt;/div&gt;
     &lt;/template&gt;
     &lt;/wj-flex-grid-column&gt;
@@ -859,17 +867,17 @@ export class AppCmp {
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
- export class AppCmp {
+ export class AppCmp &#123;
      // generate some random data
      protected dataSvc: DataSvc;
      data: wijmo.collections.CollectionView;
 
-     constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+     constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
          this.dataSvc = dataSvc;
          this.data = new wijmo.collections.CollectionView(this.dataSvc.getData(100));
      }
 
-      getAmountColor(amount: number) {
+      getAmountColor(amount: number) &#123;
           if (amount < 500) return 'darkred';
           if (amount < 2500) return 'black';
           return 'darkgreen';
@@ -934,30 +942,30 @@ export class AppCmp {
                 <app-tab-pane title="CSS">
                     <div class="pane-content">
 /* create a 'custom-flex-grid' theme for the FlexGrid */
-.custom-flex-grid .wj-header.wj-cell {
+.custom-flex-grid .wj-header.wj-cell &#123;
     background-color: #000;
     color: #fff;
     font-weight: bold;
     border-right: solid 1px #404040;
     border-bottom: solid 1px #404040;
 }
-.custom-flex-grid .wj-cell {
+.custom-flex-grid .wj-cell &#123;
     border: none;
     background-color: #fff;
 }
-.custom-flex-grid .wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) {
+.custom-flex-grid .wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) &#123;
     
 }
-.custom-flex-grid .wj-state-selected {
+.custom-flex-grid .wj-state-selected &#123;
     background: #000;
     color: #fff;
 }
-.custom-flex-grid .wj-state-multi-selected {
+.custom-flex-grid .wj-state-multi-selected &#123;
     background: #222222;
     color: #fff;
 }
 /* override the glyphs used to show sorting and grouping */
-.custom-flex-grid .wj-glyph-up {
+.custom-flex-grid .wj-glyph-up &#123;
     background-image:url('../../resources/ascending.png');
     background-repeat: no-repeat;
     background-position: bottom right;
@@ -965,7 +973,7 @@ export class AppCmp {
     border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
     opacity: 1;
 }
-.custom-flex-grid .wj-glyph-down {
+.custom-flex-grid .wj-glyph-down &#123;
     background-image:url('../../resources/descending.png');
     background-repeat: no-repeat;
     background-position: bottom right;
@@ -973,14 +981,14 @@ export class AppCmp {
     border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
     opacity: 1;
 }
-.custom-flex-grid .wj-glyph-right {
+.custom-flex-grid .wj-glyph-right &#123;
     background-image:url('../../resources/collapsed.png');
     background-repeat: no-repeat;
     background-position: bottom right;
     width: 1em; height: 1em;
     border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
 }
-.custom-flex-grid .wj-glyph-down-right {
+.custom-flex-grid .wj-glyph-down-right &#123;
     background-image:url('../../resources/expanded.png');
     background-repeat: no-repeat;
     background-position: bottom right;
@@ -1033,33 +1041,33 @@ export class AppCmp {
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
-import { Injectable } from '@angular/core';
+import &#123; Injectable } from '@angular/core';
 
 // Common data service
- export class DataSvc {
-     getTreeData(): [{}] {
+ export class DataSvc &#123;
+     getTreeData(): [&#123;}] &#123;
          return [
-         {
+         &#123;
              name: '\u266B Adriane Simione', items: [
-             {
+             &#123;
                 name: '\u266A Intelligible Sky', items: [
-                    { name: 'Theories', length: '2:02' },
-                    { name: 'Giant Eyes', length: '3:29' },
-                    { name: 'Jovian Moons', length: '1:02' },
-                    { name: 'Open Minds', length: '2:41' },
-                    { name: 'Spacetronic Eyes', length: '3:41' }]
+                    &#123; name: 'Theories', length: '2:02' },
+                    &#123; name: 'Giant Eyes', length: '3:29' },
+                    &#123; name: 'Jovian Moons', length: '1:02' },
+                    &#123; name: 'Open Minds', length: '2:41' },
+                    &#123; name: 'Spacetronic Eyes', length: '3:41' }]
                 }
               ]
              },
-         {
+         &#123;
              name: '\u266B Amy Winehouse', items: [
-             {
+             &#123;
                  name: '\u266A Back to Black', items: [
-                     { name: 'Addicted', length: '1:34' },
-                     { name: 'He Can Only Hold Her', length: '2:22' },
-                     { name: 'Some Unholy War', length: '2:21' },
-                     { name: 'Wake Up Alone', length: '3:43' },
-                     { name: 'Tears Dry On Their Own', length: '1:25' }]
+                     &#123; name: 'Addicted', length: '1:34' },
+                     &#123; name: 'He Can Only Hold Her', length: '2:22' },
+                     &#123; name: 'Some Unholy War', length: '2:21' },
+                     &#123; name: 'Wake Up Alone', length: '3:43' },
+                     &#123; name: 'Tears Dry On Their Own', length: '1:25' }]
                     }
                  ]
                },
@@ -1068,12 +1076,12 @@ import { Injectable } from '@angular/core';
      }
 }
 ----------------------Component---------------
-export class AppCmp {
+export class AppCmp &#123;
     // generate some random data
     protected dataSvc: DataSvc;
-    treeData: [{}];
+    treeData: [&#123;}];
 
-    constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+    constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
         this.dataSvc = dataSvc;
         this.treeData = this.dataSvc.getTreeData();
     }
@@ -1085,7 +1093,7 @@ export class AppCmp {
                 <app-tab-pane title="CSS">
                     <div class="pane-content">
  /* override the glyphs used to show sorting and grouping */
- .custom-flex-grid .wj-glyph-up {
+ .custom-flex-grid .wj-glyph-up &#123;
      background-image:url('../../resources/ascending.png');
      background-repeat: no-repeat;
      background-position: bottom right;
@@ -1093,7 +1101,7 @@ export class AppCmp {
      border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
      opacity: 1;
  }
- .custom-flex-grid .wj-glyph-down {
+ .custom-flex-grid .wj-glyph-down &#123;
      background-image:url('../../resources/descending.png');
      background-repeat: no-repeat;
      background-position: bottom right;
@@ -1101,14 +1109,14 @@ export class AppCmp {
      border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
      opacity: 1;
  }
- .custom-flex-grid .wj-glyph-right {
+ .custom-flex-grid .wj-glyph-right &#123;
      background-image:url('../../resources/collapsed.png');
      background-repeat: no-repeat;
      background-position: bottom right;
      width: 1em; height: 1em;
      border-top: 0px; border-bottom: 0px; border-left: 0px; border-right: 0px;
  }
- .custom-flex-grid .wj-glyph-down-right {
+ .custom-flex-grid .wj-glyph-down-right &#123;
      background-image:url('../../resources/expanded.png');
      background-repeat: no-repeat;
      background-position: bottom right;
@@ -1176,23 +1184,23 @@ export class AppCmp {
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
- export class AppCmp {
+ export class AppCmp &#123;
      // generate some random data
      protected dataSvc: DataSvc;
-     treeData: [{}];
+     treeData: [&#123;}];
 
-     constructor(@Inject(DataSvc) dataSvc: DataSvc) {
+     constructor(@Inject(DataSvc) dataSvc: DataSvc) &#123;
          this.dataSvc = dataSvc;
          this.treeData = this.dataSvc.getTreeData();
      }
 
-     sortedColumn(flex: wijmo.grid.FlexGrid) {
-         if (!flex) {
+     sortedColumn(flex: wijmo.grid.FlexGrid) &#123;
+         if (!flex) &#123;
              return;
          }
          var view = flex.collectionView;
-         if (view && flex.childItemsPath) {
-             for (var i = 0; i < view.items.length; i++) {
+         if (view && flex.childItemsPath) &#123;
+             for (var i = 0; i < view.items.length; i++) &#123;
              this._sortItem(view.items[i], &lt;wijmo.collections.CollectionView&gt;
                 view, flex.childItemsPath);
             }
@@ -1200,11 +1208,11 @@ export class AppCmp {
             }
         }
 
-     private _sortItem(item: any, view: wijmo.collections.CollectionView, childItemsPath: any) {
+     private _sortItem(item: any, view: wijmo.collections.CollectionView, childItemsPath: any) &#123;
          var children = item[childItemsPath];
-         if (children && wijmo.isArray(children)) {
+         if (children && wijmo.isArray(children)) &#123;
              children.sort(view._compareItems());
-             for (var i = 0; i < children.length; i++) {
+             for (var i = 0; i < children.length; i++) &#123;
                 this._sortItem(children[i], view, childItemsPath);
              }
          }

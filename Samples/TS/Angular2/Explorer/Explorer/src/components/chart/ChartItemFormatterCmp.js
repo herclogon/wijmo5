@@ -7,7 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // Chart item formatter component
 var ChartItemFormatterCmp = (function () {
     function ChartItemFormatterCmp() {
@@ -32,11 +34,25 @@ var ChartItemFormatterCmp = (function () {
     ChartItemFormatterCmp = __decorate([
         core_1.Component({
             selector: 'chart-item-formatter-cmp',
-            templateUrl: 'src/components/chart/chartItemFormatterCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/chart/chartItemFormatterCmp.html'
         })
     ], ChartItemFormatterCmp);
     return ChartItemFormatterCmp;
 }());
 exports.ChartItemFormatterCmp = ChartItemFormatterCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartItemFormatterCmp }
+]);
+var ChartItemFormatterModule = (function () {
+    function ChartItemFormatterModule() {
+    }
+    ChartItemFormatterModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [ChartItemFormatterCmp],
+        })
+    ], ChartItemFormatterModule);
+    return ChartItemFormatterModule;
+}());
+exports.ChartItemFormatterModule = ChartItemFormatterModule;
 //# sourceMappingURL=ChartItemFormatterCmp.js.map

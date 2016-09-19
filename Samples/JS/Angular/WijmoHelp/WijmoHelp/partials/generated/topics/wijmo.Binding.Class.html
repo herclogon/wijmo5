@@ -1,132 +1,84 @@
-<h2>Binding Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">Binding</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo</dd>
-<dt>File</dt><dd>wijmo.js</dd>
+<dt>File</dt><dd class="filename">wijmo.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.Module.html"><span class="identifier">wijmo</span></a></dd>
 </dl>
-<p>Provides binding to complex properties (e.g. 'customer.address.city')</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+<div class="comment"><p>Provides binding to complex properties (e.g. 'customer.address.city')</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(path): <a href="topic/wijmo.Binding.Class.html"><b>Binding</b></a></td>
-      <td><p>
-<b>path</b> (<b>string</b>): Name of the property to bind to.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.Binding.Class.html"><b>Binding</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.Binding.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.Binding.Class.html/#path">path</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.Binding.Class.html/#getValue">getValue</a></li>
+<li class="mmethod"><a href="topic/wijmo.Binding.Class.html/#setValue">setValue</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(path: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <a href="topic/wijmo.Binding.Class.html"><span class="identifier">Binding</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.Binding.Class.html"><span class="identifier">Binding</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>path</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>Name of the property to bind to.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.Binding.Class.html"><span class="identifier">Binding</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>path</b></td>
-      <td><b>string</b></td>
-      <td><p>Gets or sets the path for the binding.</p>
-
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="path" class="member-panel mproperty">
+<h3>path</h3>
+<div class="comment"><p>Gets or sets the path for the binding.</p>
 <p>In the simplest case, the path is the name of the property of the source 
 object to use for the binding (e.g. 'street').</p>
-
 <p>Sub-properties of a property can be specified by a syntax similar to that 
-used in JavaScript (e.g. 'address.street').</p></td>
-    </tr>
-</tbody>
-</table>
+used in JavaScript (e.g. 'address.street').</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>getValue</b>&#8203;(object): <b>any</b></td>
-      <td><p>
-<b>object</b> (<b>any</b>): The object that contains the data to be retrieved.<br/></p>
-</td>
-      <td><p>Gets the binding value for a given object.</p>
-
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="getValue" class="member-panel mmethod">
+<h3>getValue</h3>
+<pre>getValue(object: <span class="identifier">any</span>): <span class="identifier">any</span></pre>
+<div class="comment"><p>Gets the binding value for a given object.</p>
 <p>If the object does not contain the property specified by the
-binding <b>path</b>, the method returns null.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>setValue</b>&#8203;(object, value)</td>
-      <td><p>
-<b>object</b> (<b>any</b>): The object that contains the data to be set.<br/><b>value</b> (<b>any</b>): Data value to set.<br/></p>
-</td>
-      <td><p>Sets the binding value on a given object.</p>
-
-<p>If the object does not contain the property specified by the
-binding <b>path</b>, the value is not set.</p></td>
-    </tr>
-</tbody>
-</table>
+binding <a href="topic/wijmo.Binding.Class.html/#path"><span class="identifier">path</span></a>, the method returns null.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>object</b>: <span class="identifier">any</span><br/><p>The object that contains the data to be retrieved.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">any</span></dd>
+</dl>
 </div>
-
+<div id="setValue" class="member-panel mmethod">
+<h3>setValue</h3>
+<pre>setValue(object: <span class="identifier">any</span>, value: <span class="identifier">any</span>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Sets the binding value on a given object.</p>
+<p>If the object does not contain the property specified by the
+binding <a href="topic/wijmo.Binding.Class.html/#path"><span class="identifier">path</span></a>, the value is not set.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>object</b>: <span class="identifier">any</span><br/><p>The object that contains the data to be set.</p></li><li><b>value</b>: <span class="identifier">any</span><br/><p>Data value to set.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>

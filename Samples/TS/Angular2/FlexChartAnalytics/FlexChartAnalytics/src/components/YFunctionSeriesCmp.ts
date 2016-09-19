@@ -1,15 +1,15 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, ViewChild, Input } from '@angular/core';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
-import * as wjNg2Analytics from 'wijmo/wijmo.angular2.chart.analytics';
-
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjChartAnalyticsModule } from 'wijmo/wijmo.angular2.chart.analytics';
 //YFunctionSeries sample component
 @Component({
     selector: 'y-function-series-cmp',
-    templateUrl: 'src/components/YFunctionSeriesCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Analytics.WjFlexChartYFunctionSeries, CORE_DIRECTIVES, FORM_DIRECTIVES]
+    templateUrl: 'src/components/YFunctionSeriesCmp.html'
 })
 
 export class YFunctionSeriesCmp {
@@ -22,4 +22,15 @@ export class YFunctionSeriesCmp {
             return Math.sin(4 * value) * Math.cos(3 * value);
         };
     }
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: YFunctionSeriesCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjChartModule, WjChartAnalyticsModule],
+    declarations: [YFunctionSeriesCmp],
+})
+export class YFunctionSeriesModule {
 }

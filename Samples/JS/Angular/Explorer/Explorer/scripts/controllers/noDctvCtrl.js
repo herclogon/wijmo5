@@ -21,7 +21,7 @@ app.controller('noDctvCtrl', function appCtrl($scope) {
             // populate the grid with the grid's own properties
             var data = [];
             for (var prop in flex) {
-                if (prop.indexOf('_') != 0) {
+                if (prop.indexOf('_') != 0 && prop != 'disabled') {
                     var val = flex[prop];
                     var type = val instanceof wijmo.Event ? 'Event'
                         : val instanceof wijmo.grid.CellRange ? 'CellRange'

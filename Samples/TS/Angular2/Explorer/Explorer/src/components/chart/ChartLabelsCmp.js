@@ -7,8 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // Chart labels component
 var ChartLabelsCmp = (function () {
     function ChartLabelsCmp() {
@@ -26,12 +27,25 @@ var ChartLabelsCmp = (function () {
     ChartLabelsCmp = __decorate([
         core_1.Component({
             selector: 'chart-labels-cmp',
-            templateUrl: 'src/components/chart/chartlabelsCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/chart/chartlabelsCmp.html'
         })
     ], ChartLabelsCmp);
     return ChartLabelsCmp;
 }());
 exports.ChartLabelsCmp = ChartLabelsCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartLabelsCmp }
+]);
+var ChartLabelsModule = (function () {
+    function ChartLabelsModule() {
+    }
+    ChartLabelsModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [ChartLabelsCmp],
+        })
+    ], ChartLabelsModule);
+    return ChartLabelsModule;
+}());
+exports.ChartLabelsModule = ChartLabelsModule;
 //# sourceMappingURL=ChartLabelsCmp.js.map

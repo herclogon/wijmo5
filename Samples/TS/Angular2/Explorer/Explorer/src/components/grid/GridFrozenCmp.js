@@ -14,9 +14,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
 var GridBaseCmp_1 = require('./GridBaseCmp');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
 // FlexGrid Frozen component.
 var GridFrozenCmp = (function (_super) {
     __extends(GridFrozenCmp, _super);
@@ -66,12 +68,26 @@ var GridFrozenCmp = (function (_super) {
     GridFrozenCmp = __decorate([
         core_1.Component({
             selector: 'grid-frozen-cmp',
-            templateUrl: 'src/components/grid/gridFrozenCmp.html',
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn]
+            templateUrl: 'src/components/grid/gridFrozenCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], GridFrozenCmp);
     return GridFrozenCmp;
 }(GridBaseCmp_1.GridBaseCmp));
 exports.GridFrozenCmp = GridFrozenCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: GridFrozenCmp }
+]);
+var GridFrozenModule = (function () {
+    function GridFrozenModule() {
+    }
+    GridFrozenModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_grid_1.WjGridModule],
+            declarations: [GridFrozenCmp],
+        })
+    ], GridFrozenModule);
+    return GridFrozenModule;
+}());
+exports.GridFrozenModule = GridFrozenModule;
 //# sourceMappingURL=GridFrozenCmp.js.map

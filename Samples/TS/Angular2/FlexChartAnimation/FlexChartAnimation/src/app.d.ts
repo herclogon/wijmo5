@@ -1,8 +1,7 @@
 /// <reference path="../typings/globals/core-js/index.d.ts" />
-import { MenuSvc } from './services/MenuSvc';
-export declare module FlexChartAnimation {
-    class AppCmp {
-        menuData: any;
-        constructor(menuSvc: MenuSvc);
-    }
+import { Routes } from '@angular/router';
+export declare class AppCmp {
+    routes: Routes;
+}
+export declare class AppModule {
 }

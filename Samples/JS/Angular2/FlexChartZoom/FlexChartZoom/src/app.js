@@ -11,13 +11,13 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 // Angular
 var core_1 = require('@angular/core');
+var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
-var common_1 = require('@angular/common');
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2FlexChart = require('wijmo/wijmo.angular2.chart');
-var wjNg2Interaction = require('wijmo/wijmo.angular2.chart.interaction');
-// Services
+var platform_browser_1 = require('@angular/platform-browser');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_chart_interaction_1 = require('wijmo/wijmo.angular2.chart.interaction');
 var DataSvc_1 = require('./services/DataSvc');
 var FlexChartZoom;
 (function (FlexChartZoom) {
@@ -61,10 +61,7 @@ var FlexChartZoom;
         AppCmp = __decorate([
             core_1.Component({
                 selector: 'app-cmp',
-                templateUrl: 'src/app.html',
-                directives: [wjNg2FlexChart.WjFlexChart, wjNg2FlexChart.WjFlexChartSeries, wjNg2Interaction.WjFlexChartGestures,
-                    wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2FlexChart.WjFlexChartAxis, wjNg2FlexChart.WjFlexChartLegend,
-                    common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
+                templateUrl: 'src/app.html'
             }),
             __param(0, core_1.Inject(DataSvc_1.DataSvc))
         ], AppCmp);
@@ -72,11 +69,21 @@ var FlexChartZoom;
     }());
     FlexChartZoom.AppCmp = AppCmp;
 })(FlexChartZoom = exports.FlexChartZoom || (exports.FlexChartZoom = {}));
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [wijmo_angular2_input_1.WjInputModule, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_chart_interaction_1.WjChartInteractionModule, http_1.HttpModule, platform_browser_1.BrowserModule, forms_1.FormsModule],
+            declarations: [FlexChartZoom.AppCmp],
+            providers: [DataSvc_1.DataSvc],
+            bootstrap: [FlexChartZoom.AppCmp]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
 core_1.enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-platform_browser_dynamic_1.bootstrap(FlexChartZoom.AppCmp, [
-    core_1.provide(http_1.Http, { useClass: http_1.Http }),
-    http_1.HTTP_BINDINGS,
-    DataSvc_1.DataSvc
-]);
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(AppModule);
 //# sourceMappingURL=app.js.map

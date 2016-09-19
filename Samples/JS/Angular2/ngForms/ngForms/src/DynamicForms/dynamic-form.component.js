@@ -9,8 +9,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
-var forms_1 = require('@angular/forms');
-var dynamic_form_question_component_1 = require('./dynamic-form-question.component');
 var question_control_service_1 = require('./question-control.service');
 var DynamicFormComponent = (function () {
     function DynamicFormComponent(qcs) {
@@ -31,7 +29,6 @@ var DynamicFormComponent = (function () {
         core_1.Component({
             selector: 'dynamic-form',
             templateUrl: 'src/DynamicForms/dynamic-form.component.html',
-            directives: [dynamic_form_question_component_1.DynamicFormQuestionComponent, forms_1.REACTIVE_FORM_DIRECTIVES],
             providers: [question_control_service_1.QuestionControlService]
         }),
         __param(0, core_1.Inject(question_control_service_1.QuestionControlService))

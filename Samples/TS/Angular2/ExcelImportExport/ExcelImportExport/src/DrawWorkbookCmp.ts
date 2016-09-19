@@ -1,18 +1,17 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, enableProdMode, AfterViewInit } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { DataSvc } from './services/DataSvc';
+import { Component, EventEmitter, Input, Inject, enableProdMode, AfterViewInit, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
 
 'use strict';
 
 // The Explorer application root component.
 @Component({
     selector: 'draw-workbook-cmp',
-    templateUrl: 'src/drawWorkbookCmp.html',
-    directives: [CORE_DIRECTIVES]
+    templateUrl: 'src/drawWorkbookCmp.html'
 })
 export class DrawWorkBookCmp implements AfterViewInit {
     workbook: wijmo.xlsx.Workbook;
@@ -49,6 +48,15 @@ export class DrawWorkBookCmp implements AfterViewInit {
     }
 }
 
+@NgModule({
+    imports: [ BrowserModule],
+    declarations: [DrawWorkBookCmp],
+    bootstrap: [DrawWorkBookCmp]
+})
+export class AppModule {
+}
+
+
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(DrawWorkBookCmp, []);
+platformBrowserDynamic().bootstrapModule(AppModule);

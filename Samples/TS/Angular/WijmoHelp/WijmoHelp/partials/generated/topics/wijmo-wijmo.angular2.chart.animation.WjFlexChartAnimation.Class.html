@@ -1,109 +1,87 @@
-<h2>WjFlexChartAnimation Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">WjFlexChartAnimation</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><b>ChartAnimation</b></a></dd>
-<dt>Module</dt><dd>wijmo/wijmo.angular2.chart.animation</dd>
-<dt>File</dt><dd>wijmo.angular2.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.angular2.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo-wijmo.angular2.chart.animation.Module.html"><span class="identifier">wijmo/wijmo.angular2.chart.animation</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><span class="identifier">ChartAnimation</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p><p>Angular 2 component for the <a href="topic/wijmo.angular.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><b>ChartAnimation</b></a> object.</p>
-
+<div class="comment"><p>Angular 2 component for the <a href="topic/wijmo.angular.WjFlexChart.Class.html"><span class="identifier">WjFlexChart</span></a> <a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><span class="identifier">ChartAnimation</span></a> object.</p>
 <p>The <b>wj-flex-chart-animation</b> component must be contained in a 
-<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><b>WjFlexChart</b></a> or <a href="topic/wijmo-wijmo.angular2.chart.WjFlexPie.Class.html"><b>WjFlexPie</b></a> component.</p>
-
+<a href="topic/wijmo-wijmo.angular2.chart.WjFlexChart.Class.html"><span class="identifier">WjFlexChart</span></a> or <a href="topic/wijmo-wijmo.angular2.chart.WjFlexPie.Class.html"><span class="identifier">WjFlexPie</span></a> component.</p>
 <p>Use the <b>wj-flex-chart-animation</b> component to add <b>ChartAnimation</b> objects to your 
 Angular 2 applications. For details about Angular 2 markup syntax, see 
 <a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
-
 <p>The <b>WjFlexChartAnimation</b> component is derived from the <b>ChartAnimation</b> class and
-inherits all its properties, events and methods.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+inherits all its properties, events and methods.</p></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>animationMode</b></td>
-      <td><a href="topic/wijmo.chart.animation.AnimationMode.Enum.html"><b>AnimationMode</b></a></td>
-      <td>Gets or sets whether the plot points animate one at a time, series by series,
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.chart.animation.WjFlexChartAnimation.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.animation.WjFlexChartAnimation.Class.html/#animationMode">animationMode</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.animation.WjFlexChartAnimation.Class.html/#axisAnimation">axisAnimation</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.animation.WjFlexChartAnimation.Class.html/#duration">duration</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.animation.WjFlexChartAnimation.Class.html/#easing">easing</a></li>
+</ul>
+</div>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod inherited">
+<h3>constructor</h3>
+<pre>constructor(chart: <a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a>, options?: <span class="identifier">any</span>): <a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><span class="identifier">ChartAnimation</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><span class="identifier">ChartAnimation</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>chart</b>: <a href="topic/wijmo.chart.FlexChartBase.Class.html"><span class="identifier">FlexChartBase</span></a><br/><p>A chart to which the <a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><span class="identifier">ChartAnimation</span></a> is attached.</p></li><li><b>options</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>A JavaScript object containing initialization data for
+<a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><span class="identifier">ChartAnimation</span></a>.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><span class="identifier">ChartAnimation</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><span class="identifier">ChartAnimation</span></a></dd>
+</dl>
+</div>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="animationMode" class="member-panel mproperty inherited">
+<h3>animationMode</h3>
+<div class="comment"><p>Gets or sets whether the plot points animate one at a time, series by series,
 or all at once.
-The whole animation is still completed within the duration.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><b>ChartAnimation</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>axisAnimation</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value indicating whether animation is applied to the axis.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><b>ChartAnimation</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>duration</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the length of entire animation in milliseconds.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><b>ChartAnimation</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>easing</b></td>
-      <td><a href="topic/wijmo.chart.animation.Easing.Enum.html"><b>Easing</b></a></td>
-      <td>Gets or sets the easing function applied to the animation.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><b>ChartAnimation</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+The whole animation is still completed within the duration.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><span class="identifier">ChartAnimation</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.animation.AnimationMode.Enum.html"><span class="identifier">AnimationMode</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div id="axisAnimation" class="member-panel mproperty inherited">
+<h3>axisAnimation</h3>
+<div class="comment"><p>Gets or sets a value indicating whether animation is applied to the axis.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><span class="identifier">ChartAnimation</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>constructor</b>&#8203;(chart, options?): <a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><b>ChartAnimation</b></a></td>
-      <td><p>
-<b>chart</b> (<a href="topic/wijmo.chart.FlexChartBase.Class.html"><b>FlexChartBase</b></a>): A chart to which the <a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><b>ChartAnimation</b></a> is attached.<br/><b>options?</b> (<b>any</b>): A JavaScript object containing initialization data for
-<a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><b>ChartAnimation</b></a>.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><b>ChartAnimation</b></a> class.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><b>ChartAnimation</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+<div id="duration" class="member-panel mproperty inherited">
+<h3>duration</h3>
+<div class="comment"><p>Gets or sets the length of entire animation in milliseconds.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><span class="identifier">ChartAnimation</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-
+<div id="easing" class="member-panel mproperty inherited">
+<h3>easing</h3>
+<div class="comment"><p>Gets or sets the easing function applied to the animation.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.animation.ChartAnimation.Class.html"><span class="identifier">ChartAnimation</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.animation.Easing.Enum.html"><span class="identifier">Easing</span></a></dd>
+</dl>
+</div>
+</div>

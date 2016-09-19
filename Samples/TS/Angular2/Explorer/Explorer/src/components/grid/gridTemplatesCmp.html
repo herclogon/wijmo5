@@ -29,9 +29,9 @@
             &lt;wj-flex-grid-column [header]="'Product'"
                                  [binding]="'product'"&gt;
                 &lt;template wjFlexGridCellTemplate [cellType]="'Cell'" #item="item"&gt;
-                    &lt;div [ngStyle]="{color: item.productId == 1 ? 'darkred' : 'darkgreen'}"&gt;
+                    &lt;div [ngStyle]="&#123;color: item.productId == 1 ? 'darkred' : 'darkgreen'}"&gt;
                         &lt;span [ngClass]="'glyphicon ' + 'glyphicon-' + [ 'leaf', 'fire', 'magnet' ][item.productId]"&gt;&lt;/span&gt;
-                        {&#8203;{item.product}}
+                        &#123;&#8203;&#123;item.product}}
                     &lt;/div&gt;
                 &lt;/template&gt;
             &lt;/wj-flex-grid-column&gt;
@@ -41,8 +41,8 @@
                                  [binding]="'discount'"
                                  [format]="'p0'"&gt;
                 &lt;template wjFlexGridCellTemplate [cellType]="'Cell'" #item="item"&gt;
-                    &lt;div [ngStyle]="{color: item.discount &gt; 0.12 ? 'darkred' : 'darkgreen'}"&gt;
-                        {&#8203;{item.discount | percent:'1.0-0'}}
+                    &lt;div [ngStyle]="&#123;color: item.discount &gt; 0.12 ? 'darkred' : 'darkgreen'}"&gt;
+                        &#123;&#8203;&#123;item.discount | percent:'1.0-0'}}
                     &lt;/div&gt;
                 &lt;/template&gt;
             &lt;/wj-flex-grid-column&gt;

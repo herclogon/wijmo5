@@ -1,17 +1,18 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { InputBaseCmp } from './InputBaseCmp';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // Menu sample component.
 @Component({
     selector: 'menu-cmp',
-    templateUrl: 'src/components/input/menuCmp.html',
-    directives: [wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjMenuSeparator, wjNg2Input.WjItemTemplate,
-        wjNg2Input.WjContextMenu, wjNg2Input.WjInputNumber, CORE_DIRECTIVES, FORM_DIRECTIVES]
+    templateUrl: 'src/components/input/menuCmp.html'
 })
 
 export class MenuCmp extends InputBaseCmp {
@@ -73,4 +74,13 @@ export class MenuCmp extends InputBaseCmp {
 
 }
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: MenuCmp }
+]);
 
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjInputModule],
+    declarations: [MenuCmp],
+})
+export class MenuModule {
+}

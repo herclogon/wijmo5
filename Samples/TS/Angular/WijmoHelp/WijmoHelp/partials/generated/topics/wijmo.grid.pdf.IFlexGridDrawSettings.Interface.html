@@ -1,46 +1,34 @@
-<h2>IFlexGridDrawSettings Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">IFlexGridDrawSettings</span> Interface</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.grid.pdf</dd>
-<dt>File</dt><dd>wijmo.grid.pdf.js</dd>
+<dt>File</dt><dd class="filename">wijmo.grid.pdf.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.grid.pdf.Module.html"><span class="identifier">wijmo.grid.pdf</span></a></dd>
 </dl>
-<p>Represents the settings used by the <b>draw</b> and 
-<b>drawToPosition</b> methods.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<div class="comment"><p>Represents the settings used by the <a href="topic/wijmo.grid.pdf.FlexGridPdfConverter.Class.html/#draw"><span class="identifier">draw</span></a> and 
+<a href="topic/wijmo.grid.pdf.FlexGridPdfConverter.Class.html/#drawToPosition"><span class="identifier">drawToPosition</span></a> methods.</p></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>embeddedFonts?</b></td>
-      <td><a href="topic/wijmo.pdf.IPdfFontFile.Interface.html"><b>IPdfFontFile</b></a><b>[]</b></td>
-      <td><p>Represents an array of custom fonts that will be embedded into the document.</p>
-
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.grid.pdf.IFlexGridDrawSettings.Interface.html/#embeddedFonts">embeddedFonts</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.pdf.IFlexGridDrawSettings.Interface.html/#exportMode">exportMode</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.pdf.IFlexGridDrawSettings.Interface.html/#maxPages">maxPages</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.pdf.IFlexGridDrawSettings.Interface.html/#recalculateStarWidths">recalculateStarWidths</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.pdf.IFlexGridDrawSettings.Interface.html/#repeatMergedValuesAcrossPages">repeatMergedValuesAcrossPages</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.pdf.IFlexGridDrawSettings.Interface.html/#styles">styles</a></li>
+</ul>
+</div>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="embeddedFonts" class="member-panel mproperty">
+<h3>embeddedFonts</h3>
+<div class="comment"><p>Represents an array of custom fonts that will be embedded into the document.</p>
 <p>This sample illustrates how to setup the FlexGridPdfConverter to use two custom
 fonts, Cuprum-Bold.ttf and Cuprum-Regular.ttf. The first one is applied to the 
 header cells only, while the second one is applied to all the remaining cells.</p>
 
-<p><pre>
-wijmo.grid.pdf.FlexGridPdfConverter.export(flex, fileName, {
+
+<pre>wijmo.grid.pdf.FlexGridPdfConverter.export(flex, fileName, {
    embeddedFonts: [{
       source: 'resources/ttf/Cuprum-Bold.ttf',
       name: 'cuprum',
@@ -64,42 +52,46 @@ wijmo.grid.pdf.FlexGridPdfConverter.export(flex, fileName, {
          }
       }
    }
-});
-		</pre></p></td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>exportMode?</b></td>
-      <td><a href="topic/wijmo.grid.pdf.ExportMode.Enum.html"><b>ExportMode</b></a></td>
-      <td>Determines the export mode.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>maxPages?</b></td>
-      <td><b>number</b></td>
-      <td>Determines the maximum number of pages to export.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>recalculateStarWidths?</b></td>
-      <td><b>boolean</b></td>
-      <td>Indicates whether star-sized columns widths should be recalculated against the PDF page
-width instead of using the grid's width.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>repeatMergedValuesAcrossPages?</b></td>
-      <td><b>boolean</b></td>
-      <td>Indicates whether merged values should be repeated across pages when the merged range
-is split on multiple pages.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>styles?</b></td>
-      <td><a href="topic/wijmo.grid.pdf.IFlexGridStyle.Interface.html"><b>IFlexGridStyle</b></a></td>
-      <td>Represents the look and feel of an exported <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>.</td>
-    </tr>
-</tbody>
-</table>
+});</pre></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.pdf.IPdfFontFile.Interface.html"><span class="identifier">IPdfFontFile</span></a>[]</dd>
+</dl>
 </div>
-
+<div id="exportMode" class="member-panel mproperty">
+<h3>exportMode</h3>
+<div class="comment"><p>Determines the export mode.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.grid.pdf.ExportMode.Enum.html"><span class="identifier">ExportMode</span></a></dd>
+</dl>
+</div>
+<div id="maxPages" class="member-panel mproperty">
+<h3>maxPages</h3>
+<div class="comment"><p>Determines the maximum number of pages to export.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="recalculateStarWidths" class="member-panel mproperty">
+<h3>recalculateStarWidths</h3>
+<div class="comment"><p>Indicates whether star-sized columns widths should be recalculated against the PDF page
+width instead of using the grid's width.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="repeatMergedValuesAcrossPages" class="member-panel mproperty">
+<h3>repeatMergedValuesAcrossPages</h3>
+<div class="comment"><p>Indicates whether merged values should be repeated across pages when the merged range
+is split on multiple pages.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="styles" class="member-panel mproperty">
+<h3>styles</h3>
+<div class="comment"><p>Represents the look and feel of an exported <a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.grid.pdf.IFlexGridStyle.Interface.html"><span class="identifier">IFlexGridStyle</span></a></dd>
+</dl>
+</div>
+</div>

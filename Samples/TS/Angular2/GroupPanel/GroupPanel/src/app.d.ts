@@ -6,3 +6,5 @@ export declare class AppCmp {
     flex: wijmo.grid.FlexGrid;
     constructor(dataSvc: DataSvc);
 }
+export declare class AppModule {
+}

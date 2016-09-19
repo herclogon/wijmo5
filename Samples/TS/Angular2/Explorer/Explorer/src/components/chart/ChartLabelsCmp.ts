@@ -1,16 +1,16 @@
 ﻿'use strict';
 
-import { Component, EventEmitter } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // Chart labels component
 @Component({
     selector: 'chart-labels-cmp',
-    templateUrl: 'src/components/chart/chartlabelsCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis,
-        wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, CORE_DIRECTIVES]  
+    templateUrl: 'src/components/chart/chartlabelsCmp.html'  
 })
 
 export class ChartLabelsCmp {
@@ -29,4 +29,15 @@ export class ChartLabelsCmp {
             });
         }
     }
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ChartLabelsCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjChartModule, WjInputModule],
+    declarations: [ChartLabelsCmp],
+})
+export class ChartLabelsModule {
 }

@@ -13,3 +13,5 @@ export declare class WaterfallCmp implements AfterViewInit {
     constructor(dataSvc: DataSvc);
     ngAfterViewInit(): void;
 }
+export declare class WaterfallModule {
+}

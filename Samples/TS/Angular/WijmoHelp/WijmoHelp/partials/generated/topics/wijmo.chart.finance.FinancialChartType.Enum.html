@@ -1,157 +1,78 @@
-<h2>FinancialChartType Enum</h2>
-<dl class="dl-horizontal">
-  <dt>Module</dt><dd>wijmo.chart.finance</dd>
-  <dt>File</dt><dd>wijmo.chart.finance.js</dd>
-</dl>
-<p>Specifies the type of financial chart.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideValues = !hideValues">
-<span class="glyph-collapsed" ng-show="hideValues"></span>
-<span class="glyph-expanded" ng-hide="hideValues"></span>
-Values
-</h3>
+<div class="header-panel member">
+  <h2><span class="identifier">FinancialChartType</span> Enum</h2>
+  <dl class="dl-horizontal">
+    <dt>File</dt><dd class="filename">wijmo.chart.finance.js</dd>
+    <dt>Module</dt><dd><a href="topic/wijmo.chart.finance.Module.html"><span class="identifier">wijmo.chart.finance</span></a></dd>
+  </dl>
+  <div class="comment"><p>Specifies the type of financial chart.</p></div>
 </div>
-<table ng-hide="hideValues" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th>Name</th>
-
-<th>Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>Area</b></td>
-      <td>Shows line chart with area below the line filled with color.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>ArmsCandleVolume</b></td>
-      <td>Created by Richard Arms, this chart is a combination of EquiVolume and
-CandleVolume chart types. The data for
-this chart type can be defined using the  <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><b>FinancialSeries</b></a>
-<b>binding</b> property as a comma separated value in the following format:
-"highProperty, lowProperty, openProperty, closeProperty, volumeProperty".
-This chart type can only be used at the <b>FinancialChart</b> level, and should not
-be applied on <b>FinancialSeries</b> objects. Only one set of volume data is currently
-supported per <b>FinancialChart</b>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Candlestick</b></td>
-      <td>Presents items with high, low, open, and close values.
+<div class="member-panel enum">
+<h3>Members</h3>
+<table class="table table-condensed"><thead>  <tr>    <th>Name</th>    <th>Value</th>    <th>Description</th>  </tr></thead><tbody>
+<tr>  <td><span class="identifier">Column</span></td>  <td>0</td>  <td><p>Shows vertical bars and allows you to compare values of items across categories.</p></td><tr>
+<tr>  <td><span class="identifier">Scatter</span></td>  <td>1</td>  <td><p>Uses X and Y coordinates to show patterns within the data.</p></td><tr>
+<tr>  <td><span class="identifier">Line</span></td>  <td>2</td>  <td><p>Shows trends over a period of time or across categories.</p></td><tr>
+<tr>  <td><span class="identifier">LineSymbols</span></td>  <td>3</td>  <td><p>Shows line chart with a symbol on each data point.</p></td><tr>
+<tr>  <td><span class="identifier">Area</span></td>  <td>4</td>  <td><p>Shows line chart with area below the line filled with color.</p></td><tr>
+<tr>  <td><span class="identifier">Candlestick</span></td>  <td>5</td>  <td><p>Presents items with high, low, open, and close values.
 The size of the wick line is determined by the High and Low values, while
 the size of the bar is determined by the Open and Close values. The bar is
 displayed using different colors, depending on whether the close value is
 higher or lower than the open value. The data for this chart type can be defined using the
- <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><b>FinancialSeries</b></a> <b>binding</b> property as a comma separated value in the
-following format: "highProperty, lowProperty, openProperty, closeProperty".</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>CandleVolume</b></td>
-      <td>Identical to the standard Candlestick chart, except that the width of each
-bar is determined by Volume value. The data for
-this chart type can be defined using the  <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><b>FinancialSeries</b></a>
-<b>binding</b> property as a comma separated value in the following format:
-"highProperty, lowProperty, openProperty, closeProperty, volumeProperty".
-This chart type can only be used at the <b>FinancialChart</b> level, and should not
-be applied on <b>FinancialSeries</b> objects. Only one set of volume data is currently
-supported per <b>FinancialChart</b>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Column</b></td>
-      <td>Shows vertical bars and allows you to compare values of items across categories.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>ColumnVolume</b></td>
-      <td>Identical to the standard Column chart, except that the width of each bar is
-determined by the Volume value. The data for this chart type can be defined using the
- <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><b>FinancialSeries</b></a> <b>binding</b> property as a comma separated value in the
-following format: "yProperty, volumeProperty".  This chart type can only be used at
-the <b>FinancialChart</b> level, and should not be applied on
-<b>FinancialSeries</b> objects. Only one set of volume data is currently supported
-per <b>FinancialChart</b>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>EquiVolume</b></td>
-      <td>Similar to the Candlestick chart, but shows the high and low values only.
-In addition, the width of each bar is determined by Volume value. The data for
-this chart type can be defined using the  <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><b>FinancialSeries</b></a>
-<b>binding</b> property as a comma separated value in the following format:
-"highProperty, lowProperty, openProperty, closeProperty, volumeProperty".
-This chart type can only be used at the <b>FinancialChart</b> level, and should not
-be applied on <b>FinancialSeries</b> objects. Only one set of volume data is currently
-supported per <b>FinancialChart</b>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>HeikinAshi</b></td>
-      <td>Derived from the candlestick chart and uses information from the current and
-prior period in order to filter out the noise. These charts cannot be combined
-with any other series objects. The data for this chart type can be defined using the
- <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><b>FinancialSeries</b></a> <b>binding</b> property as a comma separated value in the
-following format: "highProperty, lowProperty, openProperty, closeProperty".</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>HighLowOpenClose</b></td>
-      <td>Displays the same information as a candlestick chart, except that opening
+ <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a> <b>binding</b> property as a comma separated value in the
+following format: "highProperty, lowProperty, openProperty, closeProperty".</p></td><tr>
+<tr>  <td><span class="identifier">HighLowOpenClose</span></td>  <td>6</td>  <td><p>Displays the same information as a candlestick chart, except that opening
 values are displayed using lines to the left, while lines to the right
 indicate closing values. The data for this chart type can be defined using the
- <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><b>FinancialSeries</b></a> <b>binding</b> property as a comma separated value in the
-following format: "highProperty, lowProperty, openProperty, closeProperty".</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Kagi</b></td>
-      <td>Ignores time and focuses on price action. These charts cannot be combined with
-any other series objects. The data for this chart type can be defined using the
- <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><b>FinancialSeries</b></a> <b>binding</b> property as a comma separated value in the
-following format: "highProperty, lowProperty, openProperty, closeProperty".</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Line</b></td>
-      <td>Shows trends over a period of time or across categories.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>LineBreak</b></td>
-      <td>Filters out noise by focusing exclusively on price changes. These charts cannot
+ <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a> <b>binding</b> property as a comma separated value in the
+following format: "highProperty, lowProperty, openProperty, closeProperty".</p></td><tr>
+<tr>  <td><span class="identifier">HeikinAshi</span></td>  <td>7</td>  <td><p>Derived from the candlestick chart and uses information from the current and
+prior period in order to filter out the noise. These charts cannot be combined
+with any other series objects. The data for this chart type can be defined using the
+ <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a> <b>binding</b> property as a comma separated value in the
+following format: "highProperty, lowProperty, openProperty, closeProperty".</p></td><tr>
+<tr>  <td><span class="identifier">LineBreak</span></td>  <td>8</td>  <td><p>Filters out noise by focusing exclusively on price changes. These charts cannot
 be combined with any other series objects. The data for this chart type can be defined using the
- <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><b>FinancialSeries</b></a> <b>binding</b> property as a comma separated value in the
-following format: "highProperty, lowProperty, openProperty, closeProperty".</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>LineSymbols</b></td>
-      <td>Shows line chart with a symbol on each data point.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Renko</b></td>
-      <td>Ignores time and focuses on price changes that meet a specified amount. These
+ <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a> <b>binding</b> property as a comma separated value in the
+following format: "highProperty, lowProperty, openProperty, closeProperty".</p></td><tr>
+<tr>  <td><span class="identifier">Renko</span></td>  <td>9</td>  <td><p>Ignores time and focuses on price changes that meet a specified amount. These
 charts cannot be combined with any other series objects. The data for this chart type can be defined using the
- <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><b>FinancialChart</b></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><b>FinancialSeries</b></a> <b>binding</b> property as a comma separated value in the
-following format: "highProperty, lowProperty, openProperty, closeProperty".</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Scatter</b></td>
-      <td>Uses X and Y coordinates to show patterns within the data.</td>
-    </tr>
-</tbody>
-</table>
+ <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a> <b>binding</b> property as a comma separated value in the
+following format: "highProperty, lowProperty, openProperty, closeProperty".</p></td><tr>
+<tr>  <td><span class="identifier">Kagi</span></td>  <td>10</td>  <td><p>Ignores time and focuses on price action. These charts cannot be combined with
+any other series objects. The data for this chart type can be defined using the
+ <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a> <b>binding</b> property as a comma separated value in the
+following format: "highProperty, lowProperty, openProperty, closeProperty".</p></td><tr>
+<tr>  <td><span class="identifier">ColumnVolume</span></td>  <td>11</td>  <td><p>Identical to the standard Column chart, except that the width of each bar is
+determined by the Volume value. The data for this chart type can be defined using the
+ <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a> <b>binding</b> property as a comma separated value in the
+following format: "yProperty, volumeProperty".  This chart type can only be used at
+the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> level, and should not be applied on
+<a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a> objects. Only one set of volume data is currently supported
+per <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a>.</p></td><tr>
+<tr>  <td><span class="identifier">EquiVolume</span></td>  <td>12</td>  <td><p>Similar to the Candlestick chart, but shows the high and low values only.
+In addition, the width of each bar is determined by Volume value. The data for
+this chart type can be defined using the  <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a>
+<b>binding</b> property as a comma separated value in the following format:
+"highProperty, lowProperty, openProperty, closeProperty, volumeProperty".
+This chart type can only be used at the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> level, and should not
+be applied on <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a> objects. Only one set of volume data is currently
+supported per <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a>.</p></td><tr>
+<tr>  <td><span class="identifier">CandleVolume</span></td>  <td>13</td>  <td><p>Identical to the standard Candlestick chart, except that the width of each
+bar is determined by Volume value. The data for
+this chart type can be defined using the  <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a>
+<b>binding</b> property as a comma separated value in the following format:
+"highProperty, lowProperty, openProperty, closeProperty, volumeProperty".
+This chart type can only be used at the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> level, and should not
+be applied on <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a> objects. Only one set of volume data is currently
+supported per <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a>.</p></td><tr>
+<tr>  <td><span class="identifier">ArmsCandleVolume</span></td>  <td>14</td>  <td><p>Created by Richard Arms, this chart is a combination of EquiVolume and
+CandleVolume chart types. The data for
+this chart type can be defined using the  <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> or <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a>
+<b>binding</b> property as a comma separated value in the following format:
+"highProperty, lowProperty, openProperty, closeProperty, volumeProperty".
+This chart type can only be used at the <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a> level, and should not
+be applied on <a href="topic/wijmo.chart.finance.FinancialSeries.Class.html"><span class="identifier">FinancialSeries</span></a> objects. Only one set of volume data is currently
+supported per <a href="topic/wijmo.chart.finance.FinancialChart.Class.html"><span class="identifier">FinancialChart</span></a>.</p></td><tr>
+</tbody></table>
 </div>
-

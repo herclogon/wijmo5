@@ -1,31 +1,26 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
-import { Component, EventEmitter, provide, ViewChild, Inject, enableProdMode, AfterViewInit} from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjNg2Core from 'wijmo/wijmo.angular2.core';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
-import { AppTab, AppTabPane } from './components/AppTab';
+import { Component, EventEmitter, Input, Inject, enableProdMode, AfterViewInit, NgModule, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { WjCoreModule } from 'wijmo/wijmo.angular2.core';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
+import { TabsModule } from './components/AppTab';
 import { DataSvc } from './services/DataSvc';
 import { CountryGroupHeaderTemplate } from './CellTemplates/CountryGroupHeaderTemplate';
 import { StatGroupTemplate } from './CellTemplates/StatGroupTemplate';
 import { StatHeaderTemplate } from './CellTemplates/StatHeaderTemplate';
-
 
 'use strict';
 
 // The application root component.
 @Component({
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, AppTab, AppTabPane,
-        wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate, 
-        wjNg2Core.WjComponentLoader, wjNg2Core.WjHtmlLoader,
-        wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartLegend, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis,
-        wjNg2Chart.WjFlexPie, wjNg2Chart.WjFlexPieDataLabel,
-        wjNg2Input.WjComboBox, wjNg2Input.WjInputNumber, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjListBox]
+    templateUrl: 'src/app.html'
 })
 
 export class AppCmp implements AfterViewInit {
@@ -43,6 +38,8 @@ export class AppCmp implements AfterViewInit {
     customColumnHeader = true;
     customGroupHeader = true;
     customGroup = true;
+    customColumnFooter = true;
+    customBottomLeft = true;
     
     statisticsColumns = [
         {
@@ -88,6 +85,7 @@ export class AppCmp implements AfterViewInit {
 
     protected dataSvc: DataSvc;
 
+    @ViewChild('flex1') flex1: wijmo.grid.FlexGrid;
     @ViewChild('flex2') flex2: wijmo.grid.FlexGrid;
     @ViewChild('flex3') flex3: wijmo.grid.FlexGrid;
 
@@ -100,6 +98,9 @@ export class AppCmp implements AfterViewInit {
     }
 
     ngAfterViewInit() {
+        if (this.flex1) {
+            this.flex1.columnFooters.rows.push(new wijmo.grid.GroupRow());
+        }
         if (this.flex2) {
             this.flex2.collapseGroupsToLevel(0);
         }
@@ -115,8 +116,17 @@ export class AppCmp implements AfterViewInit {
     }   
 }
 
+@NgModule({
+    imports: [WjCoreModule, WjInputModule, WjGridModule, WjChartModule, BrowserModule, FormsModule, TabsModule],
+    declarations: [CountryGroupHeaderTemplate, StatGroupTemplate, StatHeaderTemplate, AppCmp],
+    entryComponents: [CountryGroupHeaderTemplate, StatGroupTemplate, StatHeaderTemplate],
+    providers: [DataSvc],
+    bootstrap: [AppCmp]
+})
+export class AppModule {
+}
+
+
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);

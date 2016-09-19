@@ -1,167 +1,183 @@
-<h2>WjFlexChartAnnotationText Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">WjFlexChartAnnotationText</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><a href="topic/wijmo.chart.annotation.Text.Class.html"><b>Text</b></a></dd>
-<dt>Module</dt><dd>wijmo/wijmo.angular2.chart.annotation</dd>
-<dt>File</dt><dd>wijmo.angular2.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.angular2.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo-wijmo.angular2.chart.annotation.Module.html"><span class="identifier">wijmo/wijmo.angular2.chart.annotation</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.chart.annotation.Text.Class.html"><span class="identifier">Text</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p><p>Angular 2 component for the <a href="topic/wijmo.angular.WjFlexChart.Class.html"><b>WjFlexChart</b></a> <a href="topic/wijmo.chart.annotation.Text.Class.html"><b>Text</b></a> annotation objects.</p>
-
+<div class="comment"><p>Angular 2 component for the <a href="topic/wijmo.angular.WjFlexChart.Class.html"><span class="identifier">WjFlexChart</span></a> <a href="topic/wijmo.chart.annotation.Text.Class.html"><span class="identifier">Text</span></a> annotation objects.</p>
 <p>The <b>wj-flex-chart-annotation-text</b> component must be contained in a 
-<a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationLayer.Class.html"><b>WjFlexChartAnnotationLayer</b></a> component.</p>
-
+<a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationLayer.Class.html"><span class="identifier">WjFlexChartAnnotationLayer</span></a> component.</p>
 <p>Use the <b>wj-flex-chart-annotation-text</b> component to add <b>Text</b> annotation objects to your 
 Angular 2 applications. For details about Angular 2 markup syntax, see 
 <a href="static/angular2Markup.html">Angular 2 Markup</a>.</p>
-
 <p>The <b>WjFlexChartAnnotationText</b> component is derived from the <b>Text</b> class and
-inherits all its properties, events and methods.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+inherits all its properties, events and methods.</p></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>attachment</b></td>
-      <td><a href="topic/wijmo.chart.annotation.AnnotationAttachment.Enum.html"><b>AnnotationAttachment</b></a></td>
-      <td>Gets or sets the attachment of the annotation.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><b>AnnotationBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isVisible</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets the visibility of the annotation.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><b>AnnotationBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>name</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the name of the annotation.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><b>AnnotationBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>offset</b></td>
-      <td><a href="topic/wijmo.Point.Class.html"><b>Point</b></a></td>
-      <td>Gets or sets the offset of the annotation from the <b>point</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><b>AnnotationBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>point</b></td>
-      <td><a href="topic/wijmo.chart.DataPoint.Class.html"><b>DataPoint</b></a></td>
-      <td>Gets or sets the point of the annotation.
-The coordinates of points depends on the <b>attachment</b> property. 
-See <a href="topic/wijmo.chart.annotation.AnnotationAttachment.Enum.html"><b>AnnotationAttachment</b></a> for further description.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><b>AnnotationBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>pointIndex</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the data point index of the annotation.
-Applies only when the <b>attachment</b> property is set to DataIndex.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><b>AnnotationBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>position</b></td>
-      <td><a href="topic/wijmo.chart.annotation.AnnotationPosition.Enum.html"><b>AnnotationPosition</b></a></td>
-      <td>Gets or sets the position of the annotation.
-The position is relative to the <b>point</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><b>AnnotationBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>seriesIndex</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the data series index of the annotation.
-Applies only when the <b>attachment</b> property is set to DataIndex.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><b>AnnotationBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>style</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the style of the annotation.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><b>AnnotationBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>text</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the text of the annotation.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.Text.Class.html"><b>Text</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>tooltip</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the tooltip of the annotation.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><b>AnnotationBase</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#attachment">attachment</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#isVisible">isVisible</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#name">name</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#offset">offset</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#point">point</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#pointIndex">pointIndex</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#position">position</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#seriesIndex">seriesIndex</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#style">style</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#text">text</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#tooltip">tooltip</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#destroy">destroy</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#render">render</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod inherited">
+<h3>constructor</h3>
+<pre>constructor(options?): <a href="topic/wijmo.chart.annotation.Text.Class.html"><span class="identifier">Text</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.chart.annotation.Text.Class.html"><span class="identifier">Text</span></a> annotation class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>options</b>:  <span class="badge">Optional</span><br/><p>A JavaScript object containing initialization data for <a href="topic/wijmo.chart.annotation.Text.Class.html"><span class="identifier">Text</span></a> annotation.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.Text.Class.html"><span class="identifier">Text</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.chart.annotation.Text.Class.html"><span class="identifier">Text</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>constructor</b>&#8203;(options?): <a href="topic/wijmo.chart.annotation.Text.Class.html"><b>Text</b></a></td>
-      <td><p>
-<b>options?</b> (): A JavaScript object containing initialization data for <a href="topic/wijmo.chart.annotation.Text.Class.html"><b>Text</b></a> annotation.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.chart.annotation.Text.Class.html"><b>Text</b></a> annotation class.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.Text.Class.html"><b>Text</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>destroy</b>&#8203;()</td>
-      <td></td>
-      <td>Destroy this annotation<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><b>AnnotationBase</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>render</b>&#8203;(engine)</td>
-      <td><p>
-<b>engine</b> (<a href="topic/wijmo.chart.IRenderEngine.Interface.html"><b>IRenderEngine</b></a>): The engine to render annotation.<br/></p>
-</td>
-      <td>Render this annotation.<br/><span class="text-info">(inherited from <a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><b>AnnotationBase</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="attachment" class="member-panel mproperty inherited">
+<h3>attachment</h3>
+<div class="comment"><p>Gets or sets the attachment of the annotation.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationAttachment.Enum.html"><span class="identifier">AnnotationAttachment</span></a></dd>
+</dl>
 </div>
-
+<div id="isVisible" class="member-panel mproperty inherited">
+<h3>isVisible</h3>
+<div class="comment"><p>Gets or sets the visibility of the annotation.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="name" class="member-panel mproperty inherited">
+<h3>name</h3>
+<div class="comment"><p>Gets or sets the name of the annotation.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="offset" class="member-panel mproperty inherited">
+<h3>offset</h3>
+<div class="comment"><p>Gets or sets the offset of the annotation from the <a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#point"><span class="identifier">point</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.Point.Class.html"><span class="identifier">Point</span></a></dd>
+</dl>
+</div>
+<div id="point" class="member-panel mproperty inherited">
+<h3>point</h3>
+<div class="comment"><p>Gets or sets the point of the annotation.
+The coordinates of points depends on the <a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#attachment"><span class="identifier">attachment</span></a> property. 
+See <a href="topic/wijmo.chart.annotation.AnnotationAttachment.Enum.html"><span class="identifier">AnnotationAttachment</span></a> for further description.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.DataPoint.Class.html"><span class="identifier">DataPoint</span></a></dd>
+</dl>
+</div>
+<div id="pointIndex" class="member-panel mproperty inherited">
+<h3>pointIndex</h3>
+<div class="comment"><p>Gets or sets the data point index of the annotation.
+Applies only when the <b>attachment</b> property is set to DataIndex.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="position" class="member-panel mproperty inherited">
+<h3>position</h3>
+<div class="comment"><p>Gets or sets the position of the annotation.
+The position is relative to the <a href="topic/wijmo-wijmo.angular2.chart.annotation.WjFlexChartAnnotationText.Class.html/#point"><span class="identifier">point</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationPosition.Enum.html"><span class="identifier">AnnotationPosition</span></a></dd>
+</dl>
+</div>
+<div id="seriesIndex" class="member-panel mproperty inherited">
+<h3>seriesIndex</h3>
+<div class="comment"><p>Gets or sets the data series index of the annotation.
+Applies only when the <b>attachment</b> property is set to DataIndex.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="style" class="member-panel mproperty inherited">
+<h3>style</h3>
+<div class="comment"><p>Gets or sets the style of the annotation.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="text" class="member-panel mproperty inherited">
+<h3>text</h3>
+<div class="comment"><p>Gets or sets the text of the annotation.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.Text.Class.html"><span class="identifier">Text</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="tooltip" class="member-panel mproperty inherited">
+<h3>tooltip</h3>
+<div class="comment"><p>Gets or sets the tooltip of the annotation.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="destroy" class="member-panel mmethod inherited">
+<h3>destroy</h3>
+<pre>destroy(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Destroy this annotation</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="render" class="member-panel mmethod inherited">
+<h3>render</h3>
+<pre>render(engine: <a href="topic/wijmo.chart.IRenderEngine.Interface.html"><span class="identifier">IRenderEngine</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Render this annotation.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>engine</b>: <a href="topic/wijmo.chart.IRenderEngine.Interface.html"><span class="identifier">IRenderEngine</span></a><br/><p>The engine to render annotation.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.annotation.AnnotationBase.Class.html"><span class="identifier">AnnotationBase</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>

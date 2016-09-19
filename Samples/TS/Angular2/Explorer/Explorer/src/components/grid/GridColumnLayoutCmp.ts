@@ -1,16 +1,18 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+
+import { Component, EventEmitter, Inject, ViewChild, Input, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { GridBaseCmp } from './GridBaseCmp';
+import { RouterModule } from '@angular/router';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
 
 // FlexGrid Column Layout component.
 @Component({
     selector: 'grid-column-layout-cmp',
-    templateUrl: 'src/components/grid/gridColumnLayoutCmp.html',
-    directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn]
+    templateUrl: 'src/components/grid/gridColumnLayoutCmp.html'
 })
 
 export class GridColumnLayoutCmp extends GridBaseCmp {
@@ -37,6 +39,17 @@ export class GridColumnLayoutCmp extends GridBaseCmp {
             }
         }
     }
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: GridColumnLayoutCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjGridModule],
+    declarations: [GridColumnLayoutCmp],
+})
+export class GridColumnLayoutModule {
 }
 
 

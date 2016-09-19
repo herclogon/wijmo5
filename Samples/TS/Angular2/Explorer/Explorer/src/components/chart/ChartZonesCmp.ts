@@ -1,15 +1,15 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject, AfterViewInit, ViewChild } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
 
 // Chart zones component
 @Component({
     selector: 'chart-zones-cmp',
-    templateUrl: 'src/components/chart/chartZonesCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, CORE_DIRECTIVES]
-})
+    templateUrl: 'src/components/chart/chartZonesCmp.html'})
 
 export class ChartZonesCmp implements AfterViewInit {
 
@@ -140,4 +140,15 @@ export class ChartZonesCmp implements AfterViewInit {
         engine.fill = fill;
         engine.drawRect(Math.min(pt1.x, pt2.x), Math.min(pt1.y, pt2.y), Math.abs(pt2.x - pt1.x), Math.abs(pt2.y - pt1.y));
     }
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ChartZonesCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjChartModule],
+    declarations: [ChartZonesCmp],
+})
+export class ChartZonesModule {
 }

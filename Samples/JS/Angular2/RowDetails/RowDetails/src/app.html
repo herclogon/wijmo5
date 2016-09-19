@@ -41,7 +41,7 @@
 var dp = new wijmo.grid.detail.FlexGridDetailProvider(flex);
 dp.maxHeight = 250;
 // create and host detail cells
-dp.createDetailCell = (row) => {
+dp.createDetailCell = (row) => &#123;
   var cell = document.createElement('div');
   var detailGrid = new wijmo.grid.FlexGrid(cell);
   detailGrid.itemsSource = this.getProducts(row.dataItem.CategoryID);
@@ -49,7 +49,7 @@ dp.createDetailCell = (row) => {
   return cell;
 }
 // remove details from items with odd CategoryID
-dp.rowHasDetail = function (row) {
+dp.rowHasDetail = function (row) &#123;
     return row.dataItem.CategoryID % 2 == 0;
 }</pre>
         <wj-flex-grid #flex1
@@ -129,11 +129,11 @@ dp.rowHasDetail = function (row) {
     &lt;wj-flex-grid-column [header]="'Name'" [binding]="'CategoryName'"&gt;&lt;/wj-flex-grid-column&gt;
     &lt;wj-flex-grid-column [header]="'Description'" [binding]="'Description'" [width]="'*'"&gt;&lt;/wj-flex-grid-column&gt;
     &lt;template wjFlexGridDetail [detailVisibilityMode]="'ExpandSingle'" #item="item"&gt;
-        ID: &lt;b&gt;{&#8203;{item.CategoryID}}&lt;/b&gt;&lt;br /&gt;
-        Name: &lt;b&gt;{&#8203;{item.CategoryName}}&lt;/b&gt;&lt;br /&gt;
-        Description: &lt;b&gt;{&#8203;{item.Description}}&lt;/b&gt;&lt;br /&gt;
+        ID: &lt;b&gt;&#123;&#8203;&#123;item.CategoryID}}&lt;/b&gt;&lt;br /&gt;
+        Name: &lt;b&gt;&#123;&#8203;&#123;item.CategoryName}}&lt;/b&gt;&lt;br /&gt;
+        Description: &lt;b&gt;&#123;&#8203;&#123;item.Description}}&lt;/b&gt;&lt;br /&gt;
         &lt;ol&gt;
-            &lt;li *ngFor="let p of getProducts(item.CategoryID).items"&gt;{&#8203;{p.ProductName}}&lt;/li&gt;
+            &lt;li *ngFor="let p of getProducts(item.CategoryID).items"&gt;&#123;&#8203;&#123;p.ProductName}}&lt;/li&gt;
         &lt;/ol&gt;
     &lt;/template&gt;
 &lt;/wj-flex-grid&gt;</pre>
@@ -150,7 +150,7 @@ dp.rowHasDetail = function (row) {
             </template>
         </wj-flex-grid>
 
-        <!--<h3>
+        <h3>
             Using custom elements to show or hide details
         </h3>
         <p>
@@ -167,29 +167,32 @@ dp.rowHasDetail = function (row) {
         <p>
             The markup looks like this:
         </p>
-        <pre>&lt;wj-flex-grid 
-  items-source="categories"
-  headers-visibility="Column"
-  selection-mode="Row"&gt;
-  &lt;wj-flex-grid-column header="Name" binding="CategoryName" is-read-only="true" width="200"&gt;
-    &lt;img ng-show="dp.isDetailVisible($row)" ng-click="dp.hideDetail($row)" src="resources/hide.png" /&gt;
-    &lt;img ng-hide="dp.isDetailVisible($row)" ng-click="dp.showDetail($row, true)" src="resources/show.png" /&gt;
-    {&#8203;{$item.CategoryName}}
-  &lt;/wj-flex-grid-column&gt;
-  &lt;wj-flex-grid-column header="Description" binding="Description" width="2*"&gt;&lt;/wj-flex-grid-column&gt;
-  &lt;wj-flex-grid-detail control="dp" detail-visibility-mode="Code"&gt;
-    &lt;div style="padding:12px;background-color:#cee6f7"&gt;
-      ID: &lt;b&gt;{&#8203;{$item.CategoryID}}&lt;/b&gt;&lt;br /&gt;
-      Name: &lt;b&gt;{&#8203;{$item.CategoryName}}&lt;/b&gt;&lt;br /&gt;
-      Description: &lt;b&gt;{&#8203;{$item.Description}}&lt;/b&gt;&lt;br /&gt;
-      &lt;button class="btn btn-default" ng-click="dp.hideDetail($row)"&gt;Hide Detail&lt;/button&gt;
-    &lt;/div&gt;
-  &lt;/wj-flex-grid-detail&gt;
+        <pre>&lt;wj-flex-grid [itemsSource]="categories"
+              [headersVisibility]="'Column'"
+              [selectionMode]="'Row'"&gt;
+    &lt;template wjFlexGridDetail #dp="wjFlexGridDetail" [detailVisibilityMode]="'Code'" let-item="item"&gt;
+        &lt;div style="padding:12px;background-color:#cee6f7;color:#000"&gt;
+            ID: &lt;b&gt;&#123;&#123;item.CategoryID}}&lt;/b&gt;&lt;br /&gt;
+            Name: &lt;b&gt;&#123;&#123;item.CategoryName}}&lt;/b&gt;&lt;br /&gt;
+            Description: &lt;b&gt;&#123;&#123;item.Description}}&lt;/b&gt;&lt;br /&gt;
+            &lt;button class="btn btn-default" (click)="dp.hideDetail(row)"&gt;Hide Detail&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/template&gt;
+    &lt;wj-flex-grid-column [header]="'Name'" [binding]="'CategoryName'" [isReadOnly]="true" [width]="200"&gt;
+        &lt;template wjFlexGridCellTemplate [cellType]="'Cell'" let-row="row" let-item="item"&gt;
+            &lt;span [ngStyle]="&#123;display: dp?.isDetailAvailable(row) ? '' : 'none'}"&gt;
+                &lt;img [ngStyle]="&#123;display: dp.isDetailVisible(row) ? '' : 'none'}" (click)="dp.hideDetail(row)" src="resources/hide.png" /&gt;
+                &lt;img [ngStyle]="&#123;display: !dp?.isDetailVisible(row) ? '' : 'none'}" (click)="dp.showDetail(row, true)" src="resources/show.png" /&gt;
+            &lt;/span&gt;
+            &#123;&#123;item.CategoryName}} - &#123;&#123;dp.isDetailAvailable(row)}}
+        &lt;/template&gt;
+    &lt;/wj-flex-grid-column&gt;
+    &lt;wj-flex-grid-column [header]="'Description'" [binding]="'Description'" [width]="'2*'"&gt;&lt;/wj-flex-grid-column&gt;
 &lt;/wj-flex-grid&gt;</pre>
         <wj-flex-grid [itemsSource]="categories"
                       [headersVisibility]="'Column'"
                       [selectionMode]="'Row'">
-            <template wjFlexGridDetail #dp [detailVisibilityMode]="'Code'" let-item="item">
+            <template wjFlexGridDetail #dp="wjFlexGridDetail" [detailVisibilityMode]="'Code'" let-item="item">
                 <div style="padding:12px;background-color:#cee6f7;color:#000">
                     ID: <b>{{item.CategoryID}}</b><br />
                     Name: <b>{{item.CategoryName}}</b><br />
@@ -198,15 +201,15 @@ dp.rowHasDetail = function (row) {
                 </div>
             </template>
             <wj-flex-grid-column [header]="'Name'" [binding]="'CategoryName'" [isReadOnly]="true" [width]="200">
-                <template wjFlexGridCellTemplate [cellType]="'Cell'" #row="row" let-item="item">
-                    <span [ngStyle]="{display: dp?.isDetailAvailable(row) ? '' : 'none'}">
-                        <img [ngStyle]="{display: dp.isDetailAvailable(row) ? '' : 'none'}" (click)="dp.hideDetail(row)" src="resources/hide.png" />
-                        <img [ngStyle]="{display: !dp?.isDetailAvailable(row) ? '' : 'none'}" (click)="dp.showDetail(row, true)" src="resources/show.png" />
+                <template wjFlexGridCellTemplate [cellType]="'Cell'" let-row="row" let-item="item">
+                    <span [ngStyle]="{display: dp.isDetailAvailable(row) ? '' : 'none'}">
+                        <img [ngStyle]="{display: dp.isDetailVisible(row) ? '' : 'none'}" (click)="dp.hideDetail(row)" src="resources/hide.png" />
+                        <img [ngStyle]="{display: !dp.isDetailVisible(row) ? '' : 'none'}" (click)="dp.showDetail(row, true)" src="resources/show.png" />
                     </span>
-                    {{item.CategoryName}}
+                    {{item.CategoryName}} - {{dp.isDetailAvailable(row)}}
                 </template>
             </wj-flex-grid-column>
             <wj-flex-grid-column [header]="'Description'" [binding]="'Description'" [width]="'2*'"></wj-flex-grid-column>
-        </wj-flex-grid>-->
+        </wj-flex-grid>
     </div>
 </div>

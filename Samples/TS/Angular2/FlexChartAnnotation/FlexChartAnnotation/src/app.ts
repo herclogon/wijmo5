@@ -1,12 +1,15 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, EventEmitter, provide, Input, Inject, ViewChild, enableProdMode, AfterViewInit } from '@angular/core';
-import { Http, HTTP_BINDINGS } from '@angular/http';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjNg2FlexChart from 'wijmo/wijmo.angular2.chart';
-import * as wjNg2Annotation from 'wijmo/wijmo.angular2.chart.annotation';
+import { Component, EventEmitter, Input, Inject, enableProdMode, AfterViewInit, ViewChild, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjChartAnnotationModule } from 'wijmo/wijmo.angular2.chart.annotation';
+
 
 // Services
 import { DataSvc } from './services/DataSvc';
@@ -17,12 +20,7 @@ export module FlexChartAnnotation {
     // The FlexChartAnnotation application root component.
     @Component({
         selector: 'app-cmp',
-        templateUrl: 'src/app.html',
-        directives: [wjNg2FlexChart.WjFlexChart, wjNg2FlexChart.WjFlexChartSeries, wjNg2FlexChart.WjFlexChartDataPoint, wjNg2FlexChart.WjFlexChartLegend,
-            wjNg2Annotation.WjFlexChartAnnotationEllipse, wjNg2Annotation.WjFlexChartAnnotationImage, wjNg2Annotation.WjFlexChartAnnotationLayer,
-            wjNg2Annotation.WjFlexChartAnnotationLine, wjNg2Annotation.WjFlexChartAnnotationPolygon, wjNg2Annotation.WjFlexChartAnnotationRectangle,
-            wjNg2Annotation.WjFlexChartAnnotationSquare, wjNg2Annotation.WjFlexChartAnnotationText, wjNg2Annotation.WjFlexChartAnnotationCircle,
-            CORE_DIRECTIVES, FORM_DIRECTIVES]
+        templateUrl: 'src/app.html'
     })
     export class AppCmp implements AfterViewInit {
         data: any[];
@@ -263,10 +261,16 @@ export module FlexChartAnnotation {
     }
 }
 
+@NgModule({
+    imports: [WjChartModule, WjChartAnnotationModule, BrowserModule, FormsModule, HttpModule],
+    declarations: [FlexChartAnnotation.AppCmp],
+    providers: [DataSvc],
+    bootstrap: [FlexChartAnnotation.AppCmp]
+})
+export class AppModule {
+}
+
+
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(FlexChartAnnotation.AppCmp, [
-    provide(Http, { useClass: Http }),
-    HTTP_BINDINGS,
-    DataSvc
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);

@@ -33,6 +33,9 @@
             </h1>
             <p>
                 This page shows how to get started with Wijmo's Gauge controls.
+                R {{ color.red }}
+                G {{ color.green }}
+                B {{ color.blue }}
             </p>
         </div>
     </div>
@@ -170,8 +173,11 @@ app.controller('appCtrl', function appCtrl($scope) {
                 the precision of the changes applied by clicking or tapping, as well as the magnitude of
                 changes applied by spinning the mouse wheel.</p>
             <p>
-                The example below demonstrates how to use the <b>isReadOnly</b> and <b>step</b> properties
-                with the LinearGauge and RadialGauge controls.</p>
+                You can also use the <b>showTicks</b> property to display tickmarks on the gauge. 
+                The <b>step</b> property determines the spacing between tickmarks.</p>
+            <p>
+                The example below demonstrates how to use the <b>isReadOnly</b>, <b>step</b>, and
+                <b>showTicks</b> properties with the LinearGauge and RadialGauge controls.</p>
             <div class="row">
                 <div class="col-md-6">
                     <app-tab>
@@ -183,6 +189,7 @@ app.controller('appCtrl', function appCtrl($scope) {
     max="{&#8203;{ props.max }}"
     format="{&#8203;{ props.format }}"
     <b>step="{&#8203;{ props.step }}"
+    show-ticks="{&#8203;{ props.showTicks }}"
     is-read-only="{&#8203;{ props.isReadOnly }}"</b>&gt;
 &lt;/wj-linear-gauge&gt;
 
@@ -192,6 +199,7 @@ app.controller('appCtrl', function appCtrl($scope) {
     max="{&#8203;{ props.max }}"
     format="{&#8203;{ props.format }}"
     <b>step="{&#8203;{ props.step }}"
+    show-ticks="{&#8203;{ props.showTicks }}"
     is-read-only="{&#8203;{ props.isReadOnly }}"</b>&gt;
 &lt;/wj-radial-gauge&gt;
 
@@ -214,7 +222,8 @@ app.controller('appCtrl', function appCtrl($scope) {
         max: 100,
         step: 10,
         format: 'n0',
-        <b>isReadOnly: false</b>
+        <b>isReadOnly: false
+        showTicks: false</b>
     };
 });
                             </div>
@@ -227,21 +236,28 @@ app.controller('appCtrl', function appCtrl($scope) {
                         value="props.value"
                         min="{{ props.min }}"
                         max="{{ props.max }}"
-                        step="{{ props.step }}"
                         format="{{ props.format }}"
+                        step="{{ props.step }}"
+                        show-ticks="{{ props.showTicks }}"
                         is-read-only="{{ props.isReadOnly }}">
                     </wj-linear-gauge>
                     <wj-radial-gauge
                         value="props.value"
                         min="{{ props.min }}"
                         max="{{ props.max }}"
-                        step="{{ props.step }}"
                         format="{{ props.format }}"
+                        step="{{ props.step }}"
+                        show-ticks="{{ props.showTicks }}"
                         is-read-only="{{ props.isReadOnly }}">
                     </wj-radial-gauge>
                     <label>
                         isReadOnly
                         <input type="checkbox" ng-model="props.isReadOnly" />
+                    </label>
+                    <br/>
+                    <label>
+                        showTicks
+                        <input type="checkbox" ng-model="props.showTicks" />
                     </label>
                 </div>
             </div>
@@ -859,16 +875,11 @@ $scope.getText = function (gauge, part, value, text) {
 .custom-gauge.wj-gauge circle.wj-pointer {
     fill: #404040;
     stroke: none;
-    transform-origin: center center 0px;
-    transform: scale(1);
-    transition: transform .5s;
 }
 .custom-gauge.wj-gauge.wj-state-focused circle.wj-pointer {
     fill: red;
     stroke: black;
-    stroke-width: 2px;
-    transform: scale(1.3);
-    transition: transform 1s, fill 0.5s, stroke 0.5s;
+    stroke-width: 8px;
 }
                             </div>
                         </app-tab-pane>
@@ -914,7 +925,6 @@ $scope.getText = function (gauge, part, value, text) {
                         <wj-range wj-property="face" thickness="0.25"></wj-range>
                         <wj-range wj-property="pointer" thickness="0.25" color="blue"></wj-range>
                     </wj-linear-gauge>
-
                 </div>
             </div>
         </div>

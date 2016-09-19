@@ -23,6 +23,7 @@
     
     
     
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -77,6 +78,10 @@
     <None Include="partials\input\number.htm" />
     <Content Include="default.htm" />
     <None Include="partials\grid\editing.htm" />
+    <Content Include="partials\chart\sunburst.htm" />
+    <Content Include="partials\chart\waterfall.htm" />
+    <Content Include="partials\chart\rangeSelector.htm" />
+    <Content Include="partials\chart\annotations.htm" />
     <Content Include="partials\chart\plotAreas.htm" />
     <Content Include="partials\chart\axes.htm" />
     <Content Include="partials\chart\zones.htm" />
@@ -84,6 +89,8 @@
     <Content Include="partials\chart\binding.htm" />
     <Content Include="partials\chart\bubble.htm" />
     <Content Include="partials\chart\finance.htm" />
+    <Content Include="partials\chart\animation.htm" />
+    <Content Include="partials\chart\trendline.htm" />
     <Content Include="partials\chart\zoom.htm" />
     <Content Include="partials\chart\itemFormatter.htm" />
     <Content Include="partials\chart\labels.htm" />
@@ -97,13 +104,19 @@
     <Content Include="partials\gauge\linear.htm" />
     <Content Include="partials\gauge\intro.htm" />
     <Content Include="partials\grid\columnLayout.htm" />
+    <Content Include="partials\grid\footers.htm" />
+    <Content Include="partials\grid\pdfExport.htm" />
+    <Content Include="partials\grid\rowDetails.htm" />
+    <Content Include="partials\grid\groupPanel.htm" />
     <Content Include="partials\grid\frozen.htm" />
     <Content Include="partials\grid\noDctv.htm" />
+    <Content Include="partials\grid\excelImportExport.htm" />
     <Content Include="partials\grid\templates.htm" />
     <Content Include="partials\grid\paging.htm" />
     <Content Include="partials\grid\merging.htm" />
     <Content Include="partials\grid\odata.htm" />
     <Content Include="partials\grid\rtl.htm" />
+    <Content Include="partials\grid\filter.htm" />
     <Content Include="partials\includes\frmCreateAccount.htm" />
     <Content Include="partials\includes\frmEditAccount.htm" />
     <Content Include="partials\includes\frmLogIn.htm" />
@@ -119,6 +132,7 @@
     <Content Include="partials\input\mask.htm" />
     <Content Include="partials\input\intro.htm" />
     <Content Include="partials\input\menu.htm" />
+    <Content Include="partials\piechart\animation.htm" />
     <Content Include="partials\piechart\itemFormatter.htm" />
     <Content Include="partials\piechart\selection.htm" />
     <Content Include="partials\piechart\intro.htm" />
@@ -134,10 +148,18 @@
     <None Include="resources\house.png" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\controllers\basicCtrl.js" />
+    <Content Include="scripts\controllers\chartSunburstCtrl.js" />
+    <Content Include="scripts\controllers\chartTrendlineCtrl.js" />
+    <Content Include="scripts\controllers\chartWaterfallCtrl.js" />
+    <Content Include="scripts\controllers\chartRangeSelectorCtrl.js" />
+    <Content Include="scripts\controllers\chartAnnotationsCtrl.js" />
+    <Content Include="scripts\controllers\chartAnimationCtrl.js" />
     <Content Include="scripts\controllers\chartPlotAreas.js" />
     <Content Include="scripts\controllers\chartAxesCtrl.js" />
     <Content Include="scripts\controllers\chartZonesCtrl.js" />
     <Content Include="scripts\controllers\chartMarkerCtrl.js" />
+    <Content Include="scripts\controllers\pdfExportCtrl.js" />
+    <Content Include="scripts\controllers\groupPanelCtrl.js" />
     <Content Include="scripts\controllers\gaugeCtrl.js" />
     <Content Include="scripts\controllers\pieChartCtrl.js" />
     <Content Include="scripts\controllers\chartCtrl.js" />
@@ -153,6 +175,9 @@
     <Content Include="scripts\controllers\chartZoomCtrl.js" />
     <Content Include="scripts\controllers\changesCtrl.js" />
     <Content Include="scripts\controllers\navigationCtrl.js" />
+    <Content Include="scripts\controllers\filterCtrl.js" />
+    <Content Include="scripts\controllers\rowDetailsCtrl.js" />
+    <Content Include="scripts\controllers\excelImportExportCtrl.js" />
     <Content Include="scripts\controllers\tooltipCtrl.js" />
     <Content Include="scripts\controllers\mergingCtrl.js" />
     <Content Include="scripts\controllers\odataCtrl.js" />
@@ -212,7 +237,6 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   
-  
   <!--<PropertyGroup>
     <WijmoRootDir>..\..\..\..</WijmoRootDir>
   </PropertyGroup>
@@ -266,4 +290,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-<ItemGroup><Content Include="scripts\vendor\wijmo.min.js" /><Content Include="scripts\vendor\wijmo.input.min.js" /><Content Include="scripts\vendor\wijmo.grid.min.js" /><Content Include="scripts\vendor\wijmo.chart.min.js" /><Content Include="scripts\vendor\wijmo.gauge.min.js" /><Content Include="scripts\vendor\wijmo.angular.min.js" /><Content Include="scripts\vendor\wijmo.culture.ar-AE.js" /><Content Include="scripts\vendor\wijmo.culture.bg.js" /><Content Include="scripts\vendor\wijmo.culture.ca.js" /><Content Include="scripts\vendor\wijmo.culture.cs.js" /><Content Include="scripts\vendor\wijmo.culture.da.js" /><Content Include="scripts\vendor\wijmo.culture.de.js" /><Content Include="scripts\vendor\wijmo.culture.el.js" /><Content Include="scripts\vendor\wijmo.culture.en-CA.js" /><Content Include="scripts\vendor\wijmo.culture.en-GB.js" /><Content Include="scripts\vendor\wijmo.culture.en.js" /><Content Include="scripts\vendor\wijmo.culture.es.js" /><Content Include="scripts\vendor\wijmo.culture.et.js" /><Content Include="scripts\vendor\wijmo.culture.eu.js" /><Content Include="scripts\vendor\wijmo.culture.fi.js" /><Content Include="scripts\vendor\wijmo.culture.fr-CA.js" /><Content Include="scripts\vendor\wijmo.culture.fr.js" /><Content Include="scripts\vendor\wijmo.culture.gl.js" /><Content Include="scripts\vendor\wijmo.culture.he.js" /><Content Include="scripts\vendor\wijmo.culture.hi.js" /><Content Include="scripts\vendor\wijmo.culture.hr.js" /><Content Include="scripts\vendor\wijmo.culture.hu.js" /><Content Include="scripts\vendor\wijmo.culture.id.js" /><Content Include="scripts\vendor\wijmo.culture.it.js" /><Content Include="scripts\vendor\wijmo.culture.ja.js" /><Content Include="scripts\vendor\wijmo.culture.kk.js" /><Content Include="scripts\vendor\wijmo.culture.ko.js" /><Content Include="scripts\vendor\wijmo.culture.lt.js" /><Content Include="scripts\vendor\wijmo.culture.lv.js" /><Content Include="scripts\vendor\wijmo.culture.nl.js" /><Content Include="scripts\vendor\wijmo.culture.no.js" /><Content Include="scripts\vendor\wijmo.culture.pl.js" /><Content Include="scripts\vendor\wijmo.culture.pt.js" /><Content Include="scripts\vendor\wijmo.culture.ro.js" /><Content Include="scripts\vendor\wijmo.culture.ru.js" /><Content Include="scripts\vendor\wijmo.culture.sk.js" /><Content Include="scripts\vendor\wijmo.culture.sl.js" /><Content Include="scripts\vendor\wijmo.culture.sr.js" /><Content Include="scripts\vendor\wijmo.culture.sv.js" /><Content Include="scripts\vendor\wijmo.culture.th.js" /><Content Include="scripts\vendor\wijmo.culture.tr.js" /><Content Include="scripts\vendor\wijmo.culture.uk.js" /><Content Include="scripts\vendor\wijmo.culture.zh-HK.js" /><Content Include="scripts\vendor\wijmo.culture.zh-TW.js" /><Content Include="scripts\vendor\wijmo.culture.zh.js" /><Content Include="styles\vendor\wijmo.min.css" /><Content Include="styles\vendor\wijmo.theme.cleandark.min.css" /><Content Include="styles\vendor\wijmo.theme.cleanlight.min.css" /><Content Include="styles\vendor\wijmo.theme.cocoa.min.css" /><Content Include="styles\vendor\wijmo.theme.coral.min.css" /><Content Include="styles\vendor\wijmo.theme.dark.min.css" /><Content Include="styles\vendor\wijmo.theme.grayscale.min.css" /><Content Include="styles\vendor\wijmo.theme.highcontrast.min.css" /><Content Include="styles\vendor\wijmo.theme.light.min.css" /><Content Include="styles\vendor\wijmo.theme.material.min.css" /><Content Include="styles\vendor\wijmo.theme.midnight.min.css" /><Content Include="styles\vendor\wijmo.theme.modern.min.css" /><Content Include="styles\vendor\wijmo.theme.office.min.css" /><Content Include="styles\vendor\wijmo.theme.organic.min.css" /><Content Include="styles\vendor\wijmo.theme.trust.min.css" /><Content Include="styles\vendor\wijmo.theme.zen.min.css" /><Content Include="styles\vendor\wijmo.theme.cyborg.min.css" /><Content Include="styles\vendor\wijmo.theme.superhero.min.css" /><Content Include="styles\vendor\wijmo.theme.flatly.min.css" /><Content Include="styles\vendor\wijmo.theme.darkly.min.css" /><Content Include="styles\vendor\wijmo.theme.cerulean.min.css" /><Content Include="styles\vendor\wijmo.theme.paper.min.css" /></ItemGroup></Project>
+<ItemGroup><Content Include="scripts\vendor\wijmo.min.js" /><Content Include="scripts\vendor\wijmo.input.min.js" /><Content Include="scripts\vendor\wijmo.grid.min.js" /><Content Include="scripts\vendor\wijmo.chart.min.js" /><Content Include="scripts\vendor\wijmo.gauge.min.js" /><Content Include="scripts\vendor\wijmo.grid.filter.min.js" /><Content Include="scripts\vendor\wijmo.grid.grouppanel.min.js" /><Content Include="scripts\vendor\wijmo.grid.detail.min.js" /><Content Include="scripts\vendor\wijmo.grid.xlsx.min.js" /><Content Include="scripts\vendor\wijmo.xlsx.min.js" /><Content Include="scripts\vendor\wijmo.pdf.min.js" /><Content Include="scripts\vendor\wijmo.grid.pdf.min.js" /><Content Include="scripts\vendor\wijmo.chart.animation.min.js" /><Content Include="scripts\vendor\wijmo.chart.annotation.min.js" /><Content Include="scripts\vendor\wijmo.chart.interaction.min.js" /><Content Include="scripts\vendor\wijmo.chart.analytics.min.js" /><Content Include="scripts\vendor\wijmo.chart.hierarchical.min.js" /><Content Include="scripts\vendor\wijmo.angular.min.js" /><Content Include="scripts\vendor\wijmo.culture.ar-AE.js" /><Content Include="scripts\vendor\wijmo.culture.bg.js" /><Content Include="scripts\vendor\wijmo.culture.ca.js" /><Content Include="scripts\vendor\wijmo.culture.cs.js" /><Content Include="scripts\vendor\wijmo.culture.da.js" /><Content Include="scripts\vendor\wijmo.culture.de.js" /><Content Include="scripts\vendor\wijmo.culture.el.js" /><Content Include="scripts\vendor\wijmo.culture.en-CA.js" /><Content Include="scripts\vendor\wijmo.culture.en-GB.js" /><Content Include="scripts\vendor\wijmo.culture.en.js" /><Content Include="scripts\vendor\wijmo.culture.es.js" /><Content Include="scripts\vendor\wijmo.culture.et.js" /><Content Include="scripts\vendor\wijmo.culture.eu.js" /><Content Include="scripts\vendor\wijmo.culture.fi.js" /><Content Include="scripts\vendor\wijmo.culture.fr-CA.js" /><Content Include="scripts\vendor\wijmo.culture.fr.js" /><Content Include="scripts\vendor\wijmo.culture.gl.js" /><Content Include="scripts\vendor\wijmo.culture.he.js" /><Content Include="scripts\vendor\wijmo.culture.hi.js" /><Content Include="scripts\vendor\wijmo.culture.hr.js" /><Content Include="scripts\vendor\wijmo.culture.hu.js" /><Content Include="scripts\vendor\wijmo.culture.id.js" /><Content Include="scripts\vendor\wijmo.culture.it.js" /><Content Include="scripts\vendor\wijmo.culture.ja.js" /><Content Include="scripts\vendor\wijmo.culture.kk.js" /><Content Include="scripts\vendor\wijmo.culture.ko.js" /><Content Include="scripts\vendor\wijmo.culture.lt.js" /><Content Include="scripts\vendor\wijmo.culture.lv.js" /><Content Include="scripts\vendor\wijmo.culture.nl.js" /><Content Include="scripts\vendor\wijmo.culture.no.js" /><Content Include="scripts\vendor\wijmo.culture.pl.js" /><Content Include="scripts\vendor\wijmo.culture.pt.js" /><Content Include="scripts\vendor\wijmo.culture.ro.js" /><Content Include="scripts\vendor\wijmo.culture.ru.js" /><Content Include="scripts\vendor\wijmo.culture.sk.js" /><Content Include="scripts\vendor\wijmo.culture.sl.js" /><Content Include="scripts\vendor\wijmo.culture.sr.js" /><Content Include="scripts\vendor\wijmo.culture.sv.js" /><Content Include="scripts\vendor\wijmo.culture.th.js" /><Content Include="scripts\vendor\wijmo.culture.tr.js" /><Content Include="scripts\vendor\wijmo.culture.uk.js" /><Content Include="scripts\vendor\wijmo.culture.zh-HK.js" /><Content Include="scripts\vendor\wijmo.culture.zh-TW.js" /><Content Include="scripts\vendor\wijmo.culture.zh.js" /><Content Include="styles\vendor\wijmo.min.css" /><Content Include="styles\vendor\wijmo.theme.cleandark.min.css" /><Content Include="styles\vendor\wijmo.theme.cleanlight.min.css" /><Content Include="styles\vendor\wijmo.theme.cocoa.min.css" /><Content Include="styles\vendor\wijmo.theme.coral.min.css" /><Content Include="styles\vendor\wijmo.theme.dark.min.css" /><Content Include="styles\vendor\wijmo.theme.grayscale.min.css" /><Content Include="styles\vendor\wijmo.theme.highcontrast.min.css" /><Content Include="styles\vendor\wijmo.theme.light.min.css" /><Content Include="styles\vendor\wijmo.theme.material.min.css" /><Content Include="styles\vendor\wijmo.theme.midnight.min.css" /><Content Include="styles\vendor\wijmo.theme.modern.min.css" /><Content Include="styles\vendor\wijmo.theme.office.min.css" /><Content Include="styles\vendor\wijmo.theme.organic.min.css" /><Content Include="styles\vendor\wijmo.theme.trust.min.css" /><Content Include="styles\vendor\wijmo.theme.zen.min.css" /><Content Include="styles\vendor\wijmo.theme.cyborg.min.css" /><Content Include="styles\vendor\wijmo.theme.superhero.min.css" /><Content Include="styles\vendor\wijmo.theme.flatly.min.css" /><Content Include="styles\vendor\wijmo.theme.darkly.min.css" /><Content Include="styles\vendor\wijmo.theme.cerulean.min.css" /><Content Include="styles\vendor\wijmo.theme.paper.min.css" /></ItemGroup></Project>

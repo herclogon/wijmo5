@@ -14,9 +14,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
 var GridBaseCmp_1 = require('./GridBaseCmp');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // FlexGrid No Dctv component.
 var GridNoDctvCmp = (function (_super) {
     __extends(GridNoDctvCmp, _super);
@@ -57,12 +60,26 @@ var GridNoDctvCmp = (function (_super) {
     GridNoDctvCmp = __decorate([
         core_1.Component({
             selector: 'grid-no-dctv-cmp',
-            templateUrl: 'src/components/grid/gridNoDctvCmp.html',
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn]
+            templateUrl: 'src/components/grid/gridNoDctvCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], GridNoDctvCmp);
     return GridNoDctvCmp;
 }(GridBaseCmp_1.GridBaseCmp));
 exports.GridNoDctvCmp = GridNoDctvCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: GridNoDctvCmp }
+]);
+var GridNoDctvModule = (function () {
+    function GridNoDctvModule() {
+    }
+    GridNoDctvModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_grid_1.WjGridModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [GridNoDctvCmp],
+        })
+    ], GridNoDctvModule);
+    return GridNoDctvModule;
+}());
+exports.GridNoDctvModule = GridNoDctvModule;
 //# sourceMappingURL=GridNoDctvCmp.js.map

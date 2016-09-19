@@ -1,42 +1,23 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, EventEmitter, provide, Input, Inject, ViewChild, enableProdMode, AfterViewInit, ElementRef, NgZone } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import { Component, EventEmitter, Inject, ViewChild, enableProdMode, Input, AfterViewInit, ElementRef, NgModule, NgZone } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Router, RouterModule } from '@angular/router';
+import {routes, routing} from './app.routing';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 import { DataSvc } from './services/DataSvc';
-import { AlphabeticalListOfProductsCmp } from './components/AlphabeticalListOfProductsCmp';
-import { CustomerLabelsCmp } from './components/CustomerLabelsCmp';
-import { EmployeesCmp } from './components/EmployeesCmp';
-import { ProductCatalogCmp } from './components/ProductCatalogCmp';
-import { ProductsByCategoryCmp } from './components/ProductsByCategoryCmp';
-import { SalesByCategoryCmp } from './components/SalesByCategoryCmp';
-import { SalesChartCmp } from './components/SalesChartCmp';
-import { EmployeeSalesByCountryCmp } from './components/EmployeeSalesByCountryCmp';
 
 'use strict';
 
 // The application root component.
 @Component({
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, ROUTER_DIRECTIVES, wjNg2Input.WjComboBox]
+    templateUrl: 'src/app.html'
 })
-
-@RouteConfig([
-   // { path: '/', redirectTo: ['AlphabeticalListOfProducts'] },
-    { path: '/alphabeticalListOfProducts', component: AlphabeticalListOfProductsCmp, name: 'AalphabeticalListOfProducts', useAsDefault: true },
-    { path: '/customerLabels', component: CustomerLabelsCmp, name: 'CustomerLabels' },
-    { path: '/employees', component: EmployeesCmp, name: 'Employees' },
-    { path: '/productCatalog', component: ProductCatalogCmp, name: 'ProductCatalog' },
-    { path: '/productsByCategory', component: ProductsByCategoryCmp, name: 'ProductsByCategory' },
-    { path: '/salesByCategory', component: SalesByCategoryCmp, name: 'SalesByCategory' },
-    { path: '/salesChart', component: SalesChartCmp, name: 'SalesChart' },
-    { path: '/employeeSalesByCountry', component: EmployeeSalesByCountryCmp, name: 'EmployeeSalesByCountry' },
-])
 
 export class AppCmp implements AfterViewInit{
     reports: wijmo.collections.CollectionView;
@@ -54,14 +35,14 @@ export class AppCmp implements AfterViewInit{
 
         // report list
         this.reports = new wijmo.collections.CollectionView([
-            { header: 'Alphabetical List of Products', name: 'AalphabeticalListOfProducts' },
-            { header: 'Customer Labels', name: 'CustomerLabels' },
-            { header: 'Employees', name: 'Employees' },
-            { header: 'Product Catalog', name: 'ProductCatalog' },
-            { header: 'Products by Category', name: 'ProductsByCategory' },
-            { header: 'Sales by Category', name: 'SalesByCategory' },
-            { header: 'Sales Chart', name: 'SalesChart' },
-            { header: 'Employee Sales By Country', name: 'EmployeeSalesByCountry' }
+            { header: 'Alphabetical List of Products', name: 'alphabeticalListOfProducts' },
+            { header: 'Customer Labels', name: 'customerLabels' },
+            { header: 'Employees', name: 'employees' },
+            { header: 'Product Catalog', name: 'productCatalog' },
+            { header: 'Products by Category', name: 'productsByCategory' },
+            { header: 'Sales by Category', name: 'salesByCategory' },
+            { header: 'Sales Chart', name: 'salesChart' },
+            { header: 'Employee Sales By Country', name: 'employeeSalesByCountry' }
         ], {
             currentChanged: (s, e) => {
                 router.navigate([s.currentItem.name])
@@ -116,10 +97,16 @@ export class AppCmp implements AfterViewInit{
 
 }
 
+@NgModule({
+    imports: [BrowserModule, routing, WjInputModule],
+    declarations: [AppCmp],
+    providers: [DataSvc],
+    bootstrap: [AppCmp]
+})
+export class AppModule {
+}
+
+
 enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    ROUTER_PROVIDERS,
-    provide(LocationStrategy, { useClass: HashLocationStrategy }),
-    DataSvc
-]);
+// Bootstrap application 
+platformBrowserDynamic().bootstrapModule(AppModule);

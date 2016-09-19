@@ -164,7 +164,7 @@ app.controller('appCtrl', function appCtrl($scope) {
 
     // price filter
     var inPrice = new wijmo.input.InputNumber(document.createElement('div'), {
-        required: false,
+        isRequired: false,
         value: null,
         placeholder: 'max price',
         valueChanged: function (s, e) {

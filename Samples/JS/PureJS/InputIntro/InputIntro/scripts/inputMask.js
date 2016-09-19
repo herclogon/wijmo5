@@ -17,11 +17,11 @@
         customMaskTrial.mask = sender.value;
         customMaskTrial.hostElement.title = 'Mask: ' + (sender.value || 'N/A');
     });
-    customMaskInput.required = false;
+    customMaskInput.isRequired = false;
     customMaskInput.placeholder = 'Enter an input mask...';
     customMaskInput.value = null;
 
-    customMaskTrial.required = false;
+    customMaskTrial.isRequired = false;
     customMaskTrial.placeholder = 'Try your input mask...';
 
     inputDate.value = today;

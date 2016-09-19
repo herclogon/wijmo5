@@ -10,9 +10,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var DataSvc_1 = require('../services/DataSvc');
-var AggregatedGrid_1 = require('../customizedComponents/AggregatedGrid');
-var wjInput = require('wijmo/wijmo.angular2.input');
+var CustomComponentsModule_1 = require('../customizedComponents/CustomComponentsModule');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 var EditableDateRenderer_1 = require('../cellTemplates/EditableDateRenderer');
 var EditableSelectionRenderer_1 = require('../cellTemplates/EditableSelectionRenderer');
 var EditableStringRenderer_1 = require('../cellTemplates/EditableStringRenderer');
@@ -32,12 +34,26 @@ var AggregatedGridView = (function () {
         core_1.Component({
             selector: 'aggregated-grid-view',
             templateUrl: 'src/views/aggregatedGridView.html',
-            directives: [AggregatedGrid_1.AggregatedGrid, AggregatedGrid_1.AggregatedGridColumn, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES,
-                wjInput.WjMenu, wjInput.WjMenuItem, wjInput.WjInputDate]
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], AggregatedGridView);
     return AggregatedGridView;
 }());
 exports.AggregatedGridView = AggregatedGridView;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: AggregatedGridView }
+]);
+var AggregatedGridViewModule = (function () {
+    function AggregatedGridViewModule() {
+    }
+    AggregatedGridViewModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, forms_1.FormsModule, wijmo_angular2_input_1.WjInputModule, CustomComponentsModule_1.CustomComponentsModule],
+            declarations: [AggregatedGridView],
+            entryComponents: [EditableDateRenderer_1.EditableDateRenderer, EditableStringRenderer_1.EditableStringRenderer]
+        })
+    ], AggregatedGridViewModule);
+    return AggregatedGridViewModule;
+}());
+exports.AggregatedGridViewModule = AggregatedGridViewModule;
 //# sourceMappingURL=AggregatedGridView.js.map

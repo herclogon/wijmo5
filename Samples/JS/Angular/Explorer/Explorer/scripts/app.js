@@ -58,9 +58,15 @@ app.config(['$routeProvider', function ($routeProvider) {
     when('/grid/odata', { templateUrl: 'partials/grid/odata.htm', controller: 'odataCtrl' }).
     when('/grid/editing', { templateUrl: 'partials/grid/editing.htm', controller: 'basicCtrl' }).
     when('/grid/frozen', { templateUrl: 'partials/grid/frozen.htm', controller: 'basicCtrl' }).
+    when('/grid/footers', { templateUrl: 'partials/grid/footers.htm', controller: 'basicCtrl' }).
     when('/grid/rtl', { templateUrl: 'partials/grid/rtl.htm', controller: 'basicCtrl' }).
     when('/grid/templates', { templateUrl: 'partials/grid/templates.htm', controller: 'basicCtrl' }).
     when('/grid/nodctv', { templateUrl: 'partials/grid/nodctv.htm', controller: 'noDctvCtrl' }).
+    when('/grid/filter', { templateUrl: 'partials/grid/filter.htm', controller: 'filterCtrl' }).
+    when('/grid/groupPanel', { templateUrl: 'partials/grid/groupPanel.htm', controller: 'groupPanelCtrl' }).
+    when('/grid/rowDetails', { templateUrl: 'partials/grid/rowDetails.htm', controller: 'rowDetailsCtrl' }).
+    when('/grid/excelImportExport', { templateUrl: 'partials/grid/excelImportExport.htm', controller: 'excelImportExportCtrl' }).
+    when('/grid/pdfExport', { templateUrl: 'partials/grid/pdfExport.htm', controller: 'pdfExportCtrl' }).
 
     // Chart
     when('/chart/intro', { templateUrl: 'partials/chart/intro.htm', controller: 'chartCtrl' }).
@@ -78,11 +84,18 @@ app.config(['$routeProvider', function ($routeProvider) {
     when('/chart/zones', { templateUrl: 'partials/chart/zones.htm', controller: 'chartZonesCtrl' }).
     when('/chart/axes', { templateUrl: 'partials/chart/axes.htm', controller: 'chartAxesCtrl' }).
     when('/chart/plotAreas', { templateUrl: 'partials/chart/plotAreas.htm', controller: 'chartPlotAreasCtrl' }).
+    when('/chart/animation', { templateUrl: 'partials/chart/animation.htm', controller: 'chartAnimationCtrl' }).
+    when('/chart/annotations', { templateUrl: 'partials/chart/annotations.htm', controller: 'chartAnnotationsCtrl' }).
+    when('/chart/rangeSelector', { templateUrl: 'partials/chart/rangeSelector.htm', controller: 'chartRangeSelectorCtrl' }).
+    when('/chart/waterfall', { templateUrl: 'partials/chart/waterfall.htm', controller: 'chartWaterfallCtrl' }).
+    when('/chart/trendline', { templateUrl: 'partials/chart/trendline.htm', controller: 'chartTrendlineCtrl' }).
+    when('/chart/sunburst', { templateUrl: 'partials/chart/sunburst.htm', controller: 'chartSunburstCtrl' }).
 
     // Pie chart
     when('/piechart/intro', { templateUrl: 'partials/piechart/intro.htm', controller: 'pieChartCtrl' }).
     when('/piechart/selection', { templateUrl: 'partials/piechart/selection.htm', controller: 'pieChartSelectionCtrl' }).
     when('/piechart/itemFormatter', { templateUrl: 'partials/piechart/itemFormatter.htm', controller: 'pieChartItemFormatterCtrl' }).
+    when('/piechart/animation', { templateUrl: 'partials/piechart/animation.htm', controller: 'pieChartAnimationCtrl' }).
 
     // Gauge
     when('/gauge/intro', { templateUrl: 'partials/gauge/intro.htm', controller: 'gaugeCtrl' }).

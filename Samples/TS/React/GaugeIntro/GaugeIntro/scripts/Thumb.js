@@ -1,0 +1,22 @@
+var Thumb = React.createClass({
+    // initialize state
+    getInitialState: function () {
+        return {
+            value: 50,
+            min: 0,
+            max: 100,
+            format: 'n0',
+            step: 10,
+            isReadOnly: false
+        };
+    },
+    // event handlers
+    valueChanged: function (s, e) {
+        this.setState({ value: s.value });
+    },
+    // render the component
+    render: function () {
+        return React.createElement("div", null, React.createElement("h2", {id: "Thumb"}, "Showing the Thumb"), React.createElement("p", null, "By default, gauges indicate the current value by filling the control with color." + ' ' + "You can use the ", React.createElement("b", null, "thumbSize"), " property to add a visual element that highlights" + ' ' + "the current value."), React.createElement("p", null, "The example below demonstrates how to use the ", React.createElement("b", null, "thumbSize"), " property." + ' ' + "The example also reduces the ", React.createElement("b", null, "thickness"), " property of the gauge's ", React.createElement("b", null, "face"), "and ", React.createElement("b", null, "pointer"), " ranges so the thumb becomes more visible."), React.createElement("div", {className: "row"}, React.createElement("div", {className: "col-md-6"}, React.createElement("div", null, React.createElement("ul", {className: "nav nav-tabs", role: "tablist"}, React.createElement("li", {className: "active"}, React.createElement("a", {href: "#thJsx", role: "tab", "data-toggle": "tab"}, "JSX")), React.createElement("li", null, React.createElement("a", {href: "#thJs", role: "tab", "data-toggle": "tab"}, "JS"))), React.createElement("div", {className: "tab-content"}, React.createElement("div", {className: "tab-pane active pane-content", id: "thJsx"}, '<Wj.LinearGauge\n', '    value={ this.state.value }\n', '    valueChanged={ this.valueChanged }\n', '    min={ this.state.min }\n', '    max={ this.state.max }\n', '    step={ this.state.step }\n', '    format={ this.state.format }\n', '    isReadOnly={ false }\n', '    isAnimated={ false }\n', '    thumbSize={ 10 }\n', '    face={{ thickness:0.25 }}\n', '    pointer={{ thickness:0.25 }} />\n', '<Wj.RadialGauge\n', '    value={ this.state.value }\n', '    valueChanged={ this.valueChanged }\n', '    min={ this.state.min }\n', '    max={ this.state.max }\n', '    step={ this.state.step }\n', '    format={ this.state.format }\n', '    isReadOnly={ false }\n', '    isAnimated={ false }\n', '    thumbSize={ 10 }\n', '    face={{ thickness:0.08 }}\n', '    pointer={{ thickness:0.08 }} />\n', '<div className="app-input-group">\n', '    <label>value</label>\n', '    <Wj.InputNumber\n', '        value={ this.state.value }\n', '        valueChanged={ this.valueChanged }\n', '        min={ this.state.min }\n', '        max={ this.state.max }\n', '        step={ this.state.step }\n', '        format={ this.state.format } />\n', '</div>'), React.createElement("div", {className: "tab-pane pane-content", id: "thJs"}, 'getInitialState: function () {\n', '    return {\n', '        value: 50,\n', '        min: 0,\n', '        max: 100,\n', '        format: \'n0\',\n', '        step: 10,\n', '        isReadOnly: false\n', '    }\n', '},\n', '\n', '// event handlers\n', 'valueChanged: function (s, e) {\n', '    this.setState({ value: s.value });\n', '}')))), React.createElement("div", {className: "col-md-6"}, React.createElement("h4", null, "Result (live): "), React.createElement(Wj.LinearGauge, {value: this.state.value, valueChanged: this.valueChanged, min: this.state.min, max: this.state.max, step: this.state.step, format: this.state.format, isReadOnly: false, isAnimated: false, thumbSize: 10, face: { thickness: 0.25 }, pointer: { thickness: 0.25 }}), React.createElement(Wj.RadialGauge, {value: this.state.value, valueChanged: this.valueChanged, min: this.state.min, max: this.state.max, step: this.state.step, format: this.state.format, isReadOnly: false, isAnimated: false, thumbSize: 10, face: { thickness: 0.08 }, pointer: { thickness: 0.08 }}), React.createElement("div", {className: "app-input-group"}, React.createElement("label", null, "value"), React.createElement(Wj.InputNumber, {value: this.state.value, valueChanged: this.valueChanged, min: this.state.min, max: this.state.max, step: this.state.step, format: this.state.format})))));
+    }
+});
+//# sourceMappingURL=Thumb.js.map

@@ -14,10 +14,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
 var GridBaseCmp_1 = require('./GridBaseCmp');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // FlexGrid Merging component.
 var GridMergingCmp = (function (_super) {
     __extends(GridMergingCmp, _super);
@@ -63,12 +65,26 @@ var GridMergingCmp = (function (_super) {
     GridMergingCmp = __decorate([
         core_1.Component({
             selector: 'grid-merging-cmp',
-            templateUrl: 'src/components/grid/gridMergingCmp.html',
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjMenuSeparator]
+            templateUrl: 'src/components/grid/gridMergingCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], GridMergingCmp);
     return GridMergingCmp;
 }(GridBaseCmp_1.GridBaseCmp));
 exports.GridMergingCmp = GridMergingCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: GridMergingCmp }
+]);
+var GridMergingModule = (function () {
+    function GridMergingModule() {
+    }
+    GridMergingModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_grid_1.WjGridModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [GridMergingCmp],
+        })
+    ], GridMergingModule);
+    return GridMergingModule;
+}());
+exports.GridMergingModule = GridMergingModule;
 //# sourceMappingURL=GridMergingCmp.js.map

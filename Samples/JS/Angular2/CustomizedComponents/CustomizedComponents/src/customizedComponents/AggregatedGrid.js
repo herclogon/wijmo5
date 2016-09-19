@@ -6,8 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
-var wjCore = require('wijmo/wijmo.angular2.core');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
 var wjBase = require('wijmo/wijmo.angular2.directiveBase');
 var EditableSelectionRenderer_1 = require('../cellTemplates/EditableSelectionRenderer');
 // Represents the custom grid component implemented by means of aggregating the WjFlexGrid component.
@@ -62,8 +61,6 @@ var AggregatedGrid = (function () {
     ], AggregatedGrid.prototype, "isEditable", null);
     AggregatedGrid = __decorate([
         core_1.Component({
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate,
-                wjCore.WjComponentLoader, EditableSelectionRenderer_1.EditableSelectionRenderer],
             selector: 'aggregated-grid',
             templateUrl: 'src/customizedComponents/aggregatedGrid.html'
         })
@@ -86,7 +83,7 @@ var AggregatedGridColumn = (function () {
             // We only need to provide a list of bindable properties here, no need to explicitly define them
             // in the component class. For this, we read the 'inputs' array from the WjFlexGridColumn component's metadata
             // and add the 'cellTemplate' property specific to AggregatedGridColumn.
-            inputs: wjBase.Ng2Utils.getTypeAnnotation(wjNg2Grid.WjFlexGridColumn, core_1.ComponentMetadata)
+            inputs: wjBase.Ng2Utils.getTypeAnnotation(wijmo_angular2_grid_1.WjFlexGridColumn, core_1.ComponentMetadata)
                 .inputs.concat('cellTemplate')
         })
     ], AggregatedGridColumn);

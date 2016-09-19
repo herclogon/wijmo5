@@ -3,3 +3,5 @@ export declare class YFunctionSeriesCmp {
     func: Function;
     constructor();
 }
+export declare class YFunctionSeriesModule {
+}

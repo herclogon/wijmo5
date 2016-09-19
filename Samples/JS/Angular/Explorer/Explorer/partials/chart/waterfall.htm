@@ -1,0 +1,56 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Waterfall
+        </h3>
+        <div class="alert alert-info" role="alert"><b>Important!</b> This feature requires the <a href="http://wijmo.com/5/docs/topic/wijmo.chart.analytics.Module.html">wijmo.chart.analytics</a> extension module.</div>
+        <p>
+            This view shows Waterfall in FlexChart.
+        </p>
+        <p>
+            The Waterfall series is normally used to demonstrate how the starting position either increases or decreases through a series of changes.
+        </p>
+    </div>
+    <div>
+
+        <div>
+            <div class="panel-body well">
+                <ul class="list-inline">
+                    <li>
+                        <label for="checkboxRelativeData">Is RelativeData:</label>
+                        <input type="checkbox" id="checkboxRelativeData" ng-model="ctx.relativeData" />
+                    </li>
+                    <li>
+                        <label for="checkboxShowConnectorLines">Show Connector Lines:</label>
+                        <input type="checkbox" id="checkboxShowConnectorLines" ng-model="ctx.connectorLines" />
+                    </li>
+                    <li>
+                        <label for="checkboxShowTotal">Show Total:</label>
+                        <input type="checkbox" id="checkboxShowTotal" ng-model="ctx.showTotal" />
+                    </li>
+                    <li>
+                        <label for="checkboxShowIntermediateTotal">Show Intermediate Total:</label>
+                        <input type="checkbox" id="checkboxShowIntermediateTotal" ng-model="ctx.showIntermediateTotal" />
+                    </li>
+                </ul>
+            </div>
+            <wj-flex-chart class="chart"
+                           control="ctx.chart"
+                           items-source="ctx.itemsSource"
+                           binding="value"
+                           binding-x="name">
+                <wj-flex-chart-waterfall control="ctx.waterfall" relative-data="ctx.relativeData"
+                                         connector-lines="ctx.connectorLines"
+                                         show-total="ctx.showTotal"
+                                         start="1000"
+                                         show-intermediate-total="ctx.showIntermediateTotal"
+                                         intermediate-total-positions="ctx.intermediateTotalPositions"
+                                         intermediate-total-labels="ctx.intermediateTotalLabels"
+                                         name="Increase,Decrease,Total"
+                                         styles="ctx.styles">
+                </wj-flex-chart-waterfall>
+            </wj-flex-chart>
+
+        </div>
+    </div>
+</div>

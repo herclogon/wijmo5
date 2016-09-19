@@ -10,9 +10,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
-var wjNg2Analytics = require('wijmo/wijmo.angular2.chart.analytics');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_chart_analytics_1 = require('wijmo/wijmo.angular2.chart.analytics');
 var DataSvc_1 = require('./../services/DataSvc');
 //MovingAverage sample component
 var MovingAverageCmp = (function () {
@@ -32,13 +33,26 @@ var MovingAverageCmp = (function () {
     MovingAverageCmp = __decorate([
         core_1.Component({
             selector: 'moving-average-cmp',
-            templateUrl: 'src/components/MovingAverageCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjInputNumber, wjNg2Analytics.WjFlexChartMovingAverage, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
+            templateUrl: 'src/components/MovingAverageCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], MovingAverageCmp);
     return MovingAverageCmp;
 }());
 exports.MovingAverageCmp = MovingAverageCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: MovingAverageCmp }
+]);
+var MovingAverageModule = (function () {
+    function MovingAverageModule() {
+    }
+    MovingAverageModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_input_1.WjInputModule, wijmo_angular2_chart_analytics_1.WjChartAnalyticsModule],
+            declarations: [MovingAverageCmp],
+        })
+    ], MovingAverageModule);
+    return MovingAverageModule;
+}());
+exports.MovingAverageModule = MovingAverageModule;
 //# sourceMappingURL=MovingAverageCmp.js.map

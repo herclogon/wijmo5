@@ -1,13 +1,14 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject, AfterViewInit } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { DataSvc } from '../services/DataSvc';
 
 @Component({
     selector: 'product-by-catalog-cmp',
-    templateUrl: 'src/components/productsByCategoryCmp.html',
-    directives: [CORE_DIRECTIVES]
+    templateUrl: 'src/components/productsByCategoryCmp.html'
 })
 
 export class ProductsByCategoryCmp {
@@ -33,5 +34,14 @@ export class ProductsByCategoryCmp {
         return arr;
     }
 }
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ProductsByCategoryCmp }
+]);
 
+@NgModule({
+    imports: [CommonModule, routing],
+    declarations: [ProductsByCategoryCmp],
+})
+export class ProductsByCategoryModule {
+}
 

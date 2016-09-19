@@ -1,220 +1,208 @@
-<h2>DataMap Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">DataMap</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.grid</dd>
-<dt>File</dt><dd>wijmo.grid.js</dd>
+<dt>File</dt><dd class="filename">wijmo.grid.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.grid.Module.html"><span class="identifier">wijmo.grid</span></a></dd>
 </dl>
-<p><p>Represents a data map for use with a column's <b>dataMap</b> property.</p>
-
+<div class="comment"><p>Represents a data map for use with a column's <a href="topic/wijmo.grid.Column.Class.html/#dataMap"><span class="identifier">dataMap</span></a> property.</p>
 <p>Data maps provide the grid with automatic look up capabilities. For example, 
 you may want to display a customer name instead of his ID, or a color name 
 instead of its RGB value.</p>
+<p>The code below binds a grid to a collection of products, then assigns a
+<a href="topic/wijmo.grid.DataMap.Class.html"><span class="identifier">DataMap</span></a> to the grid's 'CategoryID' column so the grid displays the
+category names rather than the raw IDs.</p>
+<p>The grid takes advantage of data maps also for editing. If the <b>wijmo.input</b>
+module is loaded, then when editing data-mapped columns the grid will show
+a drop-down list containing the values on the map.</p>
 
-<p>The code below binds a grid to a collection of products,
-then assigns a <b>DataMap</b> to the grid's 'CategoryID' column so that the grid 
-displays the category names rather than the raw IDs.</p>
 
-<p><pre>
-// bind grid to products
+<pre>// bind grid to products
 var flex = new wijmo.grid.FlexGrid();
 flex.itemsSource = products;
+
 // map CategoryID column to show category name instead of ID
 var col = flex.columns.getColumn('CategoryID');
-col.dataMap = new wijmo.grid.DataMap(categories, 'CategoryID', 'CategoryName');
-</pre></p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+col.dataMap = new wijmo.grid.DataMap(categories, 'CategoryID', 'CategoryName');</pre>
+<p>In general, data maps apply to whole columns. However, there are situations
+where you may want to restrict the options available for a cell based on a
+value on a different column. For example, if you have "Country" and "City"
+columns, you will probably want to restrict the cities based on the current
+country.</p>
+<p>There are two ways you can implement these "dynamic" data maps:</p>
+<p><ol>
+  <li>
+    If the <a href="topic/wijmo.grid.DataMap.Class.html"><span class="identifier">DataMap</span></a> is just a list of strings, you can change it before
+    the grid enters edit mode. In this case, the cells contain the string
+    being displayed, and changing the map won't affect other cells in the
+    same column.
+    This fiddle demonstrates:
+    <a href="http://jsfiddle.net/Wijmo5/8brL80r8/">show me</a>.
+  </li>
+  <li>
+    If the <a href="topic/wijmo.grid.DataMap.Class.html"><span class="identifier">DataMap</span></a> is a real map (stores key values in the cells, shows
+    a corresponding string), then you can apply a filter to restrict the
+    values shown in the drop-down. The <a href="topic/wijmo.grid.DataMap.Class.html"><span class="identifier">DataMap</span></a> will still contain the
+    same keys and values, so other cells in the same column won't be disturbed
+    by the filter.
+    This fiddle demonstrates:
+    <a href="http://jsfiddle.net/Wijmo5/xborLd4t/">show me</a>.
+  </li>
+</ol></p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(itemsSource, selectedValuePath?, displayMemberPath?): <a href="topic/wijmo.grid.DataMap.Class.html"><b>DataMap</b></a></td>
-      <td><p>
-<b>itemsSource</b> (<b>any</b>): An array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> that contains the items to map.<br/><b>selectedValuePath?</b> (<b>string</b>): The name of the property that contains the keys (data values).<br/><b>displayMemberPath?</b> (<b>string</b>): The name of the property to use as the visual representation of the items.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.grid.DataMap.Class.html"><b>DataMap</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.grid.DataMap.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.grid.DataMap.Class.html/#collectionView">collectionView</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.DataMap.Class.html/#displayMemberPath">displayMemberPath</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.DataMap.Class.html/#isEditable">isEditable</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.DataMap.Class.html/#selectedValuePath">selectedValuePath</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.DataMap.Class.html/#sortByDisplayValues">sortByDisplayValues</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.grid.DataMap.Class.html/#getDisplayValue">getDisplayValue</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.DataMap.Class.html/#getDisplayValues">getDisplayValues</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.DataMap.Class.html/#getKeyValue">getKeyValue</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.DataMap.Class.html/#getKeyValues">getKeyValues</a></li>
+<li class="mmethod raiser"><a href="topic/wijmo.grid.DataMap.Class.html/#onMapChanged">onMapChanged</a></li>
+</ul>
+<h3 class="node">Events</h3>
+<ul>
+<li class="mevent"><a href="topic/wijmo.grid.DataMap.Class.html/#mapChanged">mapChanged</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(itemsSource: <span class="identifier">any</span>, selectedValuePath?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, displayMemberPath?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <a href="topic/wijmo.grid.DataMap.Class.html"><span class="identifier">DataMap</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.grid.DataMap.Class.html"><span class="identifier">DataMap</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>itemsSource</b>: <span class="identifier">any</span><br/><p>An array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> that contains the items to map.</p></li><li><b>selectedValuePath</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a> <span class="badge">Optional</span><br/><p>The name of the property that contains the keys (data values).</p></li><li><b>displayMemberPath</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a> <span class="badge">Optional</span><br/><p>The name of the property to use as the visual representation of the items.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.grid.DataMap.Class.html"><span class="identifier">DataMap</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>collectionView</b></td>
-      <td><b>ICollectionView</b></td>
-      <td>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object that contains the map data.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>displayMemberPath</b></td>
-      <td><b>string</b></td>
-      <td>Gets the name of the property to use as the visual representation of the item.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>isEditable</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets or sets a value that indicates whether users should be allowed to enter
-values that are not present on the <a href="topic/wijmo.grid.DataMap.Class.html"><b>DataMap</b></a>.</p>
-
-<p>In order for a <b>DataMap</b> to be editable, the <b>selectedValuePath</b> and
-<b>displayMemberPath</b> must be set to the same value.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>selectedValuePath</b></td>
-      <td><b>string</b></td>
-      <td>Gets the name of the property to use as a key for the item (data value).</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>sortByDisplayValues</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value that determines whether to use mapped (display)
-or raw values when sorting the data.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="collectionView" class="member-panel mproperty">
+<h3>collectionView</h3>
+<div class="comment"><p>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> object that contains the map data.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div id="displayMemberPath" class="member-panel mproperty">
+<h3>displayMemberPath</h3>
+<div class="comment"><p>Gets the name of the property to use as the visual representation of the item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>getDisplayValue</b>&#8203;(key): <b>any</b></td>
-      <td><p>
-<b>key</b> (<b>any</b>): The key of the item to retrieve.<br/></p>
-</td>
-      <td>Gets the display value that corresponds to a given key.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>getDisplayValues</b>&#8203;(): <b>string</b><b>[]</b></td>
-      <td></td>
-      <td>Gets an array with all of the display values on the map.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>getKeyValue</b>&#8203;(displayValue): <b>any</b></td>
-      <td><p>
-<b>displayValue</b> (<b>string</b>): The display value of the item to retrieve.<br/></p>
-</td>
-      <td>Gets the key that corresponds to a given display value.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>getKeyValues</b>&#8203;(): <b>string</b><b>[]</b></td>
-      <td></td>
-      <td>Gets an array with all of the keys on the map.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>onMapChanged</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>mapChanged</b> event.</td>
-    </tr>
-</tbody>
-</table>
+<div id="isEditable" class="member-panel mproperty">
+<h3>isEditable</h3>
+<div class="comment"><p>Gets or sets a value that indicates whether users should be allowed to enter
+values that are not present on the <a href="topic/wijmo.grid.DataMap.Class.html"><span class="identifier">DataMap</span></a>.</p>
+<p>In order for a <a href="topic/wijmo.grid.DataMap.Class.html"><span class="identifier">DataMap</span></a> to be editable, the <a href="topic/wijmo.grid.DataMap.Class.html/#selectedValuePath"><span class="identifier">selectedValuePath</span></a> and
+<a href="topic/wijmo.grid.DataMap.Class.html/#displayMemberPath"><span class="identifier">displayMemberPath</span></a> must be set to the same value.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
-<span class="glyph-collapsed" ng-show="hideEvents"></span>
-<span class="glyph-expanded" ng-hide="hideEvents"></span>
-Events
-</h3>
+<div id="selectedValuePath" class="member-panel mproperty">
+<h3>selectedValuePath</h3>
+<div class="comment"><p>Gets the name of the property to use as a key for the item (data value).</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Arguments</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>mapChanged</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs when the map data changes.</td>
-    </tr>
-</tbody>
-</table>
+<div id="sortByDisplayValues" class="member-panel mproperty">
+<h3>sortByDisplayValues</h3>
+<div class="comment"><p>Gets or sets a value that determines whether to use mapped (display)
+or raw values when sorting the data.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="getDisplayValue" class="member-panel mmethod">
+<h3>getDisplayValue</h3>
+<pre>getDisplayValue(key: <span class="identifier">any</span>): <span class="identifier">any</span></pre>
+<div class="comment"><p>Gets the display value that corresponds to a given key.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>key</b>: <span class="identifier">any</span><br/><p>The key of the item to retrieve.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="getDisplayValues" class="member-panel mmethod">
+<h3>getDisplayValues</h3>
+<pre>getDisplayValues(dataItem?: <span class="identifier">any</span>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>[]</pre>
+<div class="comment"><p>Gets an array with all of the display values on the map.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>dataItem</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>Data item for which to get the display items.
+This parameter is optional. If not provided, all possible display
+values should be returned.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>[]</dd>
+</dl>
+</div>
+<div id="getKeyValue" class="member-panel mmethod">
+<h3>getKeyValue</h3>
+<pre>getKeyValue(displayValue: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <span class="identifier">any</span></pre>
+<div class="comment"><p>Gets the key that corresponds to a given display value.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>displayValue</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>The display value of the item to retrieve.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="getKeyValues" class="member-panel mmethod">
+<h3>getKeyValues</h3>
+<pre>getKeyValues(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>[]</pre>
+<div class="comment"><p>Gets an array with all of the keys on the map.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>[]</dd>
+</dl>
+</div>
+<div id="onMapChanged" class="member-panel mmethod raiser">
+<h3>onMapChanged</h3>
+<pre>onMapChanged(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.grid.DataMap.Class.html/#mapChanged"><span class="identifier">mapChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Events</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="mapChanged" class="member-panel mevent">
+<h3>mapChanged</h3>
+<div class="comment"><p>Occurs when the map data changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+</div>

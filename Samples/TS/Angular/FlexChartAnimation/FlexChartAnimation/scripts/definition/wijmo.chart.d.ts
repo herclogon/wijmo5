@@ -1,6 +1,6 @@
 /*
     *
-    * Wijmo Library 5.20162.198
+    * Wijmo Library 5.20162.207
     * http://wijmo.com/
     *
     * Copyright(c) GrapeCity, Inc.  All rights reserved.
@@ -422,6 +422,54 @@ declare module wijmo.chart {
         _highlight(selected: boolean, pointIndex: number, animate?: boolean): void;
         _animateSelectionAngle(target: number, duration: number): void;
     }
+    interface _ISegment {
+        center: Point;
+        radius: number;
+        langle: number;
+        angle: number;
+        sweep: number;
+    }
+    class _PieSegment implements _IHitArea, _ISegment {
+        private _center;
+        private _angle;
+        private _sweep;
+        private _radius;
+        private _radius2;
+        private _isFull;
+        private _originAngle;
+        private _originSweep;
+        constructor(center: Point, radius: number, angle: number, sweep: number);
+        contains(pt: Point): boolean;
+        distance(pt: Point): number;
+        center: Point;
+        radius: number;
+        langle: number;
+        angle: number;
+        sweep: number;
+        tag: any;
+    }
+    class _DonutSegment implements _IHitArea, _ISegment {
+        private _center;
+        private _angle;
+        private _sweep;
+        private _originAngle;
+        private _originSweep;
+        private _radius;
+        private _radius2;
+        private _iradius;
+        private _iradius2;
+        private _isFull;
+        constructor(center: Point, radius: number, innerRadius: number, angle: number, sweep: number);
+        contains(pt: Point): boolean;
+        distance(pt: Point): number;
+        center: Point;
+        radius: number;
+        langle: number;
+        angle: number;
+        sweep: number;
+        innerRadius: number;
+        tag: any;
+    }
 }
 
 declare module wijmo.chart {
@@ -486,6 +534,7 @@ declare module wijmo.chart {
         private __areaPlotter;
         private __bubblePlotter;
         private __financePlotter;
+        private __funnelPlotter;
         private _plotters;
         private _binding;
         private _bindingX;
@@ -506,6 +555,7 @@ declare module wijmo.chart {
          * @param options A JavaScript object containing initialization data for the control.
          */
         constructor(element: any, options?: any);
+        _initAxes(): void;
         /**
          * Gets the collection of @see:Series objects.
          */
@@ -656,8 +706,9 @@ declare module wijmo.chart {
         private _areaPlotter;
         private _bubblePlotter;
         private _financePlotter;
+        private _funnelPlotter;
         _getPlotter(series: SeriesBase): _IPlotter;
-        private _layout(rect, size, engine);
+        _layout(rect: Rect, size: Size, engine: IRenderEngine): void;
         private _layoutSingle(rect, size, engine);
         private _layoutMultiple(rect, size, engine);
         private _convertX(x, left, right);
@@ -823,6 +874,8 @@ declare module wijmo.chart {
         SplineSymbols = 10,
         /** Displays spline chart with the area below the line filled with color. */
         SplineArea = 11,
+        /** Displays funnel chart.*/
+        Funnel = 12,
     }
     /**
      * The @see:FlexChart control provides a powerful and flexible way to visualize
@@ -880,6 +933,20 @@ declare module wijmo.chart {
          *   bubble: { minSize: 5, maxSize: 30 }
          * }</pre>
          *
+         *
+         * <b>funnel.neckWidth</b>: Specifies the neck width as a percentage for the Funnel chart.
+         * The default value is 0.2.
+         *
+         * <b>funnel.neckHeight</b>: Specifies the neck height as a percentage for the Funnel chart.
+         * The default value is 0.
+         *
+         * <b>funnel.type</b>: Specifies the type of Funnel chart. It should be 'rectangle' or 'default'.
+         * neckWidth and neckHeight don't work if type is set to rectangle.
+         *
+         * <pre>chart.options = {
+         *   funnel: { neckWidth: 0.3, neckHeight: 0.3, type: 'rectangle' }
+         * }</pre>
+
          * <b>groupWidth</b>: Specifies the group width for the Column charts,
          * or the group height for the Bar charts. The group width can be specified
          * in pixels or as percentage of the available space. The default value is '70%'.
@@ -960,12 +1027,12 @@ declare module wijmo.chart {
      * Represents an axis in the chart.
      */
     class Axis implements _IAxis {
-        private _GRIDLINE_WIDTH;
-        private _LINE_WIDTH;
-        private _TICK_WIDTH;
-        private _TICK_HEIGHT;
-        private _TICK_OVERLAP;
-        private _TICK_LABEL_DISTANCE;
+        _GRIDLINE_WIDTH: number;
+        _LINE_WIDTH: number;
+        _TICK_WIDTH: number;
+        _TICK_HEIGHT: number;
+        _TICK_OVERLAP: number;
+        _TICK_LABEL_DISTANCE: number;
         private static MAX_MAJOR;
         private static MAX_MINOR;
         _chart: FlexChartCore;
@@ -993,9 +1060,9 @@ declare module wijmo.chart {
         private _axisLine;
         _plotrect: Rect;
         private _szTitle;
-        private _isTimeAxis;
-        private _lbls;
-        private _values;
+        _isTimeAxis: boolean;
+        _lbls: string[];
+        _values: number[];
         private _rects;
         private _name;
         private _origin;
@@ -1222,6 +1289,10 @@ declare module wijmo.chart {
          */
         _getHeight(engine: IRenderEngine, maxw: number): number;
         _updateAutoFormat(delta: number): number;
+        _updateActualLimitsByChartType(labels: any, min: any, max: any): {
+            min: any;
+            max: any;
+        };
         /**
          * Update the actual axis limits based on a specified data range.
          *
@@ -1245,10 +1316,13 @@ declare module wijmo.chart {
          * @param engine Rendering engine.
          */
         _render(engine: IRenderEngine): void;
+        _renderLineAndTitle(engine: any): void;
+        _renderMinor(engine: any, vals: any, isCategory: any): void;
+        _renderLabelsAndTicks(engine: any, index: any, val: any, sval: any, labelAngle: any, tickMarks: any, showLabel: any, t1: any, t2: any): boolean;
         _xCross(x: number): boolean;
         _createMinors(engine: IRenderEngine, vals: number[], isVert: boolean, isNear: boolean, isCategory: boolean): void;
-        private _renderMinors(engine, ticks, isVert, isNear);
-        private _renderLabel(engine, val, text, pos, ha, va, className?);
+        _renderMinors(engine: IRenderEngine, ticks: number[], isVert: boolean, isNear: boolean): void;
+        _renderLabel(engine: IRenderEngine, val: number, text: string, pos: Point, ha: any, va: any, className?: string): boolean;
         private _renderRotatedLabel(engine, sval, lpt, labelAngle, lblClass, isNear);
         private _getLabelAlign(isVert);
         _customConvert: Function;
@@ -1277,7 +1351,7 @@ declare module wijmo.chart {
         private _cvCollectionChanged(sender, e);
         private _createLabels(start, len, delta, vals, lbls);
         private _createLogarithmicLabels(min, max, unit, vals, lbls, isLabels);
-        private _createTimeLabels(start, len, vals, lbls);
+        _createTimeLabels(start: number, len: number, vals: number[], lbls: string[]): void;
         _formatValue(val: number): string;
         private _calcMajorUnit();
         private _getAnnoNumber(isVert);
@@ -1648,6 +1722,8 @@ declare module wijmo.chart {
         _getAxisX(): Axis;
         _getAxisY(): Axis;
         _measureLegendItem(engine: IRenderEngine, text: string): Size;
+        _drawFunnelLegendItem(engine: IRenderEngine, rect: Rect, index: number, style: any, symbolStyle: any): void;
+        private _getFunnelLegendName(index);
         _drawLegendItem(engine: IRenderEngine, rect: Rect, chartType: ChartType, text: string, style: any, symbolStyle: any): void;
         private _cvCollectionChanged(sender, e);
         private _cvCurrentChanged(sender, e);
@@ -2506,8 +2582,8 @@ declare module wijmo.chart {
         isVolume: boolean;
         private _volHelper;
         private _itemsSource;
-        private stackPosMap;
-        private stackNegMap;
+        stackPosMap: {};
+        stackNegMap: {};
         stacking: Stacking;
         rotated: boolean;
         _getSymbolOrigin: Function;
@@ -2532,8 +2608,12 @@ declare module wijmo.chart {
         isSpline: boolean;
         rotated: boolean;
         stacking: Stacking;
-        private stackPos;
-        private stackNeg;
+        stackPos: {
+            [key: number]: number;
+        };
+        stackNeg: {
+            [key: number]: number;
+        };
         constructor();
         clear(): void;
         adjustLimits(dataInfo: _DataInfo, plotRect: Rect): Rect;
@@ -2598,6 +2678,39 @@ declare module wijmo.chart {
         adjustLimits(dataInfo: _DataInfo, plotRect: Rect): Rect;
         plotSeries(engine: IRenderEngine, ax: _IAxis, ay: _IAxis, series: _ISeries, palette: _IPalette, iser: number, nser: number): void;
         _drawSymbol(engine: IRenderEngine, ax: _IAxis, ay: _IAxis, si: number, pi: number, fill: any, w: number, x: number, hi: number, lo: number, open: number, close: number): void;
+    }
+}
+
+declare module wijmo.chart {
+    /**
+     * Funnel chart plotter.
+     */
+    class _FunnelPlotter extends _BasePlotter implements _IPlotter {
+        _getSymbolOrigin: Function;
+        _getSymbolStyles: Function;
+        stacking: Stacking;
+        rotated: boolean;
+        adjustLimits(dataInfo: _DataInfo, plotRect: Rect): Rect;
+        plotSeries(engine: IRenderEngine, ax: _IAxis, ay: _IAxis, series: _ISeries, palette: _IPalette, iser: number, nser: number): void;
+        private _getTrapezoidArea(width, angle, height);
+        private _getTrapezoidOffsetY(width, area, angle);
+        private drawSymbol(engine, rect, series, pointIndex, point);
+        private drawDefaultSymbol(engine, rect, series);
+    }
+    class _FunnelSegment implements _IHitArea {
+        private _center;
+        private _startPoint;
+        private _width;
+        private _height;
+        private _neckWidth;
+        private _neckHeight;
+        private _offsetX;
+        private _offsetY;
+        constructor(startPoint: Point, width: number, height: number, neckWidth: number, neckHeight: number);
+        contains(pt: Point): boolean;
+        distance(pt: Point): number;
+        center: Point;
+        tag: any;
     }
 }
 

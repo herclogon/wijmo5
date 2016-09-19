@@ -5,3 +5,5 @@ export declare class ProductCatalogCmp {
     constructor(dataSvc: DataSvc);
     select(view: any, prop: string, val: string): any[];
 }
+export declare class ProductCatalogModule {
+}

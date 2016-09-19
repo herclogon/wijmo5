@@ -15,10 +15,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var GridBaseCmp_1 = require('./GridBaseCmp');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // FlexGrid Paging sample component.
 var GridPagingCmp = (function (_super) {
     __extends(GridPagingCmp, _super);
@@ -28,13 +30,26 @@ var GridPagingCmp = (function (_super) {
     GridPagingCmp = __decorate([
         core_1.Component({
             selector: 'grid-paging-cmp',
-            templateUrl: 'src/components/grid/gridPagingCmp.html',
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Input.WjCollectionViewPager,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjMenuSeparator, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
+            templateUrl: 'src/components/grid/gridPagingCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], GridPagingCmp);
     return GridPagingCmp;
 }(GridBaseCmp_1.GridBaseCmp));
 exports.GridPagingCmp = GridPagingCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: GridPagingCmp }
+]);
+var GridPagingModule = (function () {
+    function GridPagingModule() {
+    }
+    GridPagingModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing, wijmo_angular2_grid_1.WjGridModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [GridPagingCmp],
+        })
+    ], GridPagingModule);
+    return GridPagingModule;
+}());
+exports.GridPagingModule = GridPagingModule;
 //# sourceMappingURL=GridPagingCmp.js.map

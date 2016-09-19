@@ -11,3 +11,5 @@ export declare class AppCmp {
     moveColumn(offset: any): void;
     draggedColumn(s: wijmo.grid.FlexGrid): void;
 }
+export declare class AppModule {
+}

@@ -1,4 +1,4 @@
-import { Type, QueryList } from '@angular/core';
+import { QueryList } from '@angular/core';
 import { SelectionType } from '../cellTemplates/EditableSelectionRenderer';
 export declare class AggregatedGrid {
     private _isEditable;
@@ -13,5 +13,5 @@ export declare class AggregatedGrid {
     private _onFormatItem(e);
 }
 export declare class AggregatedGridColumn {
-    cellTemplate: Type;
+    cellTemplate: any;
 }

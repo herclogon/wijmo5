@@ -1,20 +1,20 @@
 ﻿'use strict';
 
-import { Component, Inject } from '@angular/core';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
+import { Component, Inject, NgModule, ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { DataSvc } from '../services/DataSvc';
-import {AggregatedGrid, AggregatedGridColumn} from '../customizedComponents/AggregatedGrid';
-import * as wjInput from 'wijmo/wijmo.angular2.input';
-import {EditableDateRenderer} from '../cellTemplates/EditableDateRenderer';
-import {EditableSelectionRenderer, SelectionType} from '../cellTemplates/EditableSelectionRenderer';
-import {EditableStringRenderer} from '../cellTemplates/EditableStringRenderer';
+import { CustomComponentsModule } from '../customizedComponents/CustomComponentsModule';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
+import { EditableDateRenderer } from '../cellTemplates/EditableDateRenderer';
+import { SelectionType } from '../cellTemplates/EditableSelectionRenderer';
+import { EditableStringRenderer } from '../cellTemplates/EditableStringRenderer';
 
 //Component2.
 @Component({
     selector: 'aggregated-grid-view',
     templateUrl: 'src/views/aggregatedGridView.html',
-    directives: [AggregatedGrid, AggregatedGridColumn, CORE_DIRECTIVES, FORM_DIRECTIVES,
-        wjInput.WjMenu, wjInput.WjMenuItem, wjInput.WjInputDate]
 })
 
 export class AggregatedGridView {
@@ -33,3 +33,14 @@ export class AggregatedGridView {
     }
 }
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: AggregatedGridView }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, FormsModule, WjInputModule, CustomComponentsModule],
+    declarations: [AggregatedGridView],
+    entryComponents: [EditableDateRenderer, EditableStringRenderer]
+})
+export class AggregatedGridViewModule {
+}

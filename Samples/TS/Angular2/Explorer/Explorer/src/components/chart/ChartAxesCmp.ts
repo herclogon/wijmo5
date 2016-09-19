@@ -1,16 +1,17 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
+import { Component, EventEmitter, Inject, ViewChild, Input, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // Chart Axes sample component
 @Component({
     selector: 'chart-axes-cmp',
-    templateUrl: 'src/components/chart/chartAxesCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis,
-        wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, CORE_DIRECTIVES]
+    templateUrl: 'src/components/chart/chartAxesCmp.html'
 })
 
 export class ChartAxesCmp {
@@ -32,4 +33,15 @@ export class ChartAxesCmp {
             { mon: 'dec', tav: 4.1, tmin: 1.5, tmax: 6.5, prec: 83.0 }
         ];
     }
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ChartAxesCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjChartModule, WjInputModule],
+    declarations: [ChartAxesCmp],
+})
+export class ChartAxesModule {
 }

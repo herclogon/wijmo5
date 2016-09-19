@@ -1,27 +1,37 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, EventEmitter, provide, Input, Inject, enableProdMode } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import  * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import { Component, EventEmitter, Input, Inject, enableProdMode, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+//import { bootstrap } from '@angular/platform-browser-dynamic';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import {WjInputModule} from 'wijmo/wijmo.angular2.input';
 import { ToDatePipe } from './pipes/appPipes';
-import { AppTab, AppTabPane } from './components/AppTab';
+//import { AppTab, AppTabPane } from './components/AppTab';
+import { TabsModule } from './components/AppTab';
 import { DataSvc } from './services/DataSvc';
+
+//import {TestModule} from './testcmp';
 
     'use strict';
 
     // The Explorer application root component.
     @Component({
         selector: 'app-cmp',
+        //template: `<div>Hello <test-cmp></test-cmp></div>`,
         templateUrl: 'src/app.html',
-        directives: [CORE_DIRECTIVES, AppTab, AppTabPane,
-            wjNg2Input.WjInputNumber, wjNg2Input.WjAutoComplete, wjNg2Input.WjComboBox,
-            wjNg2Input.WjInputDate, wjNg2Input.WjInputTime, wjNg2Input.WjCalendar, wjNg2Input.WjInputDateTime,
-            wjNg2Input.WjListBox, wjNg2Input.WjItemTemplate, wjNg2Input.WjInputMask,
-            wjNg2Input.WjMenu, wjNg2Input.WjMenuItem,
-            wjNg2Input.WjMenuSeparator],
-        pipes: [ToDatePipe]
+
+        //directives: [/*CORE_DIRECTIVES, */ AppTab, AppTabPane,
+        //    //wjNg2Input.WjInputNumber, wjNg2Input.WjAutoComplete, wjNg2Input.WjComboBox,
+        //    //wjNg2Input.WjInputDate, wjNg2Input.WjInputTime, wjNg2Input.WjCalendar, wjNg2Input.WjInputDateTime,
+        //    //wjNg2Input.WjListBox, wjNg2Input.WjItemTemplate, wjNg2Input.WjInputMask,
+        //    //wjNg2Input.WjMenu, wjNg2Input.WjMenuItem,
+        //    //wjNg2Input.WjMenuSeparator
+        //],
+
+        //pipes: [ToDatePipe]
     })
     export class AppCmp {
         today: Date;
@@ -173,9 +183,19 @@ import { DataSvc } from './services/DataSvc';
         };
 }
 
+@NgModule({
+    imports: [WjInputModule, BrowserModule, TabsModule],
+    declarations: [AppCmp, ToDatePipe],
+    providers: [DataSvc],
+    bootstrap: [AppCmp]
+})
+export class AppModule {
+}
+
 
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
+//bootstrap(AppCmp, [
+//    DataSvc
+//]);
+platformBrowserDynamic().bootstrapModule(AppModule);

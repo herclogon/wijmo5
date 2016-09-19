@@ -5,8 +5,172 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 
 =========================================================================================
+Build Number 5.20162.207              Build Date: 09/06/2016
+=========================================================================================
+
+* Improvements
+	- Angular 2: all sample ported to RC.6
+
+=========================================================================================
+Build Number 5.20162.206              Build Date: 09/05/2016
+=========================================================================================
+
+* Improvements
+	- Angular 2: Explorer sample is ported to RC.6
+
+=========================================================================================
+Build Number 5.20162.205              Build Date: 09/04/2016
+=========================================================================================
+
+* Improvements
+	- Angular 2: FinancialChartExplorer sample is ported to RC.6
+
+=========================================================================================
+Build Number 5.20162.204              Build Date: 09/01/2016
+=========================================================================================
+
+* Improvements
+	- Angular 2: Wijmo interop is adapted to RC.6, and can still work with RC.5.
+	  The following samples was moved to RC.6: 
+		InputIntro 
+		FlexGridIntro
+		FlexSheetExplorer.
+      The following samples was reworked for NgModules but still use RC.5:
+		FlexChartIntro
+		FlexPieIntro
+		CollectionViewIntro
+		CellTemplateIntro
+		FinancialChartIntro
+		FlexSheetIntro
+		MultiRowIntro
+
+=========================================================================================
+Build Number 5.20162.203              Build Date: 08/31/2016
+=========================================================================================
+
+* Improvements
+	- Improved keyboard support in wijmo.Menu. Now users can use the keyboard to open 
+	  the menu with (Enter/f4/alt+up/alt+down) and to navigate the options (up/down/
+	  autosearch).
+	- Angular 2: added support for NgModule system introduced in RC.5. Each Wijmo
+	  Ng2 module includes corresponding NgModule that represents the module in Ng2
+	  application and exports all its components. NgModule's name is inferred from
+	  ES6 module name, e.g. for ES6 module wijmo/wijmo.angular2.grid.filter
+	  the name of corresponding NgModule is WjGridFilterModule.
+	  Only few samples are reworked so far to use NgModel: InputIntro, FlexGridIntro,
+	  ngForms and FlexSheetExplorer. The latter is SPA application that implements
+	  lazy modules loading.
+
+* Bug fixes
+	- Searching is not working correctly at second time in filter by value editor. 
+	  (TFS 204947)
+	- Excel file is corrupted when export MultiRow after add a new row containing 'NaN' 
+	  cells. (TFS 204946)
+	- Conditional filtering without setting filter value does not work properly in unbound
+	  sheet. (TFS 204380)
+	- Group header cells cannot be entered into editing mode in FlexSheet. (TFS 205648)
+
+=========================================================================================
+Build Number 5.20162.202              Build Date: 08/25/2016
+=========================================================================================
+
+* Improvements
+	- Angular 1/2: added support for cell templates for FlexGrid column footers.
+	  WjFlexGridCellTemplate.cellType property now accepts 'ColumnFooter' and 'BottomLeft'
+	  to be applied to the corresponding cell types.
+	  In order to get a cell value in 'ColumnFooter' cell templates the $value (Angular 1)
+	  or cell.value (Angular 2) properties can be used.
+	- Added a Gauge.showTicks property that causes linear and radial gauges to show
+	  tick marks on the gauge face. The tick marks start from "min" to "max" at every "step".
+	  By default, the tick marks are white and 2 pixels in thickness. They can be styled 
+	  using a ".wj-gauge .wj-ticks" CSS selector to customize their "stroke" and "stroke-width"
+	  values.
+
+* Bug fixes
+	- FlexSheet does not handle the clipboard properly. (TFS 204530)
+	- Aggregate cells from group header rows cannot be deleted by pressing 'Delete' 
+	  key. (TFS 200935)
+	- Filter values list shows merged cell contents unlike MS-Excel. (TFS 199443)
+	- Filtering remains applying in old column when drag and drop filtered column to new 
+	  position. (TFS 200934)
+	- Currency and Percentage format of the Cell in MultiRow control cannot be exported 
+	  correctly to Excel format. (TFS 204796)
+	- Filtering is not retained when unfreeze the frozen pane. (TFS 204887)
+	- When Culture is set to Japanese, date and currency columns are not exported correctly
+	  to Excel format. (TFS 204797)
+
+=========================================================================================
+Build Number 5.20162.201              Build Date: 08/23/2016
+=========================================================================================
+
+* Improvements
+	- Added support for column footers panel on the FlexGrid.
+	  Column footers have their own 'columnFooters' grid panel (similar to columnHeaders 
+	  and rowHeaders). To add column footers to a grid, add one or more rows to its
+	  columnFooters panel. For example:
+		grid.columnFooters.rows.push(new wijmo.grid.GroupRow())
+	  In this example, we added a GroupRow, which will cause the grid to automatically
+	  display the aggregates set in each Column.
+	  Alternatively, you could add on or more regular rows, and set the cell contents of 
+	  those row using the columnFooters.setCellData method:
+		grid.columnFooters.rows.push(new wijmo.grid.Row());
+		grid.columnFooters.setCellData(0, 0, 'column footer value');
+
+* Bug fixes
+	- Alphabetic characters cannot be entered in date and numeric columns after imported an 
+	  Excel file. (TFS 204082)
+	- Filter by value is not working correctly when filter by value twice in the same 
+	  column. (TFS 204339)
+	- FlexSheet cross-sheet formulas don't update in other sheets when value is changed. 
+	  Only update when the cell containing the formula is double-clicked. (TFS 203786)
+	- Console error occurs and filter editor cannot be opened when the sheet is frozen.
+	  (TFS 204376)
+	- Error occurs on opening filter editor after load an empty Excel file into the 
+	  FlexSheet. (TFS 204385)
+
+=========================================================================================
+Build Number 5.20162.200              Build Date: 08/18/2016
+=========================================================================================
+
+* Improvements
+	- Improved the layout of the on-line help system.
+	- Added a new interop module for React: wijmo.react.js.
+	- Added a new interop module for Vue: wijmo.vue.js.
+	- Added a new FlexGrid.newRowAtTop property to control whether the new row template
+	  should be displayed at the top or at the bottom of the data rows.
+	- Improved FlexGrid scrolling with frozen cells (used to be a little jerky in IE).
+	- Improved performance of Row/Col.IsSelected method.
+	- Improved performance of FlexGrid.preserveOutlineState property.
+	- Added an optional 'dataItem' parameter to the DataMap.getDisplayValues method.
+	  The dataItem can be used to restrict the list of display values based on properties
+	  of the data item being rendered/edited (see http://wijmo.com/topic/flexgrid-datamap-that-is-row-dependent/).
+	- Angular 2 - added the autoSizeRows boolean property to the wjFlexGridCellTemplate
+	  directive that allows to disable automatic row height expansion.
+	- Added support for "deep-binding" to the ListBox control (e.g. "customer.name").
+	- Add a new charting control: FlexRadar for creating radar and polar charts. 
+	  The control is in new module: wijmo.chart.radar.js.
+	  FlexRadarIntro samples (PureJs, Angular 1/2) are added to demonstrate the new
+	  control's features.
+
+* Bug fixes
+	- Filter editor does not open and console error occurs after load an Excel file which 
+	  contains hidden rows and columns. (TFS 201600)
+	- The 'collapsed' state of the row is wrong after exporting to xlsx file. 
+	- Angular 1/2 - a cell of a hierarchical FlexGrid (with childItemsPath defined) can't
+	  be edited if a cell template is applied to the cell.
+	- Angular 2 - fixed problem with FlexGrid.autoSizeRows/autoSizeColumns methods with
+	  templated cells.
+	- FlexGrid export row's fill color changes into blue. (TFS 202707)
+	- groupHeaderFormat can't be applied when exporting to Excel. (TFS 202908)
+	- Some events of FlexSheet control do not fire properly. (TFS 202760)
+
+=========================================================================================
 Build Number 5.20162.198              Build Date: 08/02/2016
 =========================================================================================
+
+* Improvements
+	- Rewrote parts XLSX module to no longer include xlsx.js dependency. This allowed us 
+	to remove the restricitve Microsoft copyright and license.
 
 * Bug fixes
 	- Exported excel files are corrupted when export FlexGrid content to Excel format.

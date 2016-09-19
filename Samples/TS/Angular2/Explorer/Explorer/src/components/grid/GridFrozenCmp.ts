@@ -1,16 +1,17 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { GridBaseCmp } from './GridBaseCmp';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
 
 // FlexGrid Frozen component.
 @Component({
     selector: 'grid-frozen-cmp',
-    templateUrl: 'src/components/grid/gridFrozenCmp.html',
-    directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn]
+    templateUrl: 'src/components/grid/gridFrozenCmp.html'
 })
 
 export class GridFrozenCmp extends GridBaseCmp {
@@ -67,4 +68,13 @@ export class GridFrozenCmp extends GridBaseCmp {
     }
 }
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: GridFrozenCmp }
+]);
 
+@NgModule({
+    imports: [CommonModule,  routing, WjGridModule],
+    declarations: [GridFrozenCmp],
+})
+export class GridFrozenModule {
+}

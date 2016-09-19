@@ -11,10 +11,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 // Angular
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
+var platform_browser_1 = require('@angular/platform-browser');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 var AppTab_1 = require('./components/AppTab');
 var DataSvc_1 = require('./services/DataSvc');
 'use strict';
@@ -141,18 +142,27 @@ var AppCmp = (function () {
         core_1.Component({
             selector: 'app-cmp',
             templateUrl: 'src/app.html',
-            directives: [common_1.CORE_DIRECTIVES, AppTab_1.AppTab, AppTab_1.AppTabPane,
-                wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate,
-                wjNg2Input.WjInputNumber, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem]
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], AppCmp);
     return AppCmp;
 }());
 exports.AppCmp = AppCmp;
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [wijmo_angular2_input_1.WjInputModule, wijmo_angular2_grid_1.WjGridModule, platform_browser_1.BrowserModule, forms_1.FormsModule, AppTab_1.TabsModule],
+            declarations: [AppCmp],
+            providers: [DataSvc_1.DataSvc],
+            bootstrap: [AppCmp]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
 core_1.enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-platform_browser_dynamic_1.bootstrap(AppCmp, [
-    DataSvc_1.DataSvc
-]);
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(AppModule);
 //# sourceMappingURL=app.js.map

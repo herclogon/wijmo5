@@ -7,8 +7,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // Chart Axes sample component
 var ChartAxesCmp = (function () {
     function ChartAxesCmp() {
@@ -30,12 +32,25 @@ var ChartAxesCmp = (function () {
     ChartAxesCmp = __decorate([
         core_1.Component({
             selector: 'chart-axes-cmp',
-            templateUrl: 'src/components/chart/chartAxesCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/chart/chartAxesCmp.html'
         })
     ], ChartAxesCmp);
     return ChartAxesCmp;
 }());
 exports.ChartAxesCmp = ChartAxesCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartAxesCmp }
+]);
+var ChartAxesModule = (function () {
+    function ChartAxesModule() {
+    }
+    ChartAxesModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [ChartAxesCmp],
+        })
+    ], ChartAxesModule);
+    return ChartAxesModule;
+}());
+exports.ChartAxesModule = ChartAxesModule;
 //# sourceMappingURL=ChartAxesCmp.js.map

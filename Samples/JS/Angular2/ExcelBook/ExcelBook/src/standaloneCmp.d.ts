@@ -14,3 +14,5 @@ export declare class StandaloneCmp {
     private _initDataMapForBindingSheet(flexSheet);
     private _buildDataMap(items);
 }
+export declare class AppModule {
+}

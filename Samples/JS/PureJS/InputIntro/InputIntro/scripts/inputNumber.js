@@ -19,6 +19,6 @@
     inputNumber3.max = 10;
 
     inputNumber4.placeholder = 'Enter a number...';
-    inputNumber4.required = false;
+    inputNumber4.isRequired = false;
     inputNumber4.value = null;
 })(wijmo);

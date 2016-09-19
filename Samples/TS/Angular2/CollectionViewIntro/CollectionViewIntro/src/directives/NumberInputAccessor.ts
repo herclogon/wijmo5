@@ -1,8 +1,11 @@
 ﻿import { Directive, forwardRef, Provider, ElementRef, Inject, Renderer} from '@angular/core';
-import { CORE_DIRECTIVES, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/common';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-const NUMBER_VALUE_ACCESSOR = new Provider(
-    NG_VALUE_ACCESSOR, { useExisting: forwardRef(() => NumberInputAccessor), multi: true });
+const NUMBER_VALUE_ACCESSOR: any = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => NumberInputAccessor),
+    multi: true
+};
 
 @Directive({
     selector: 'input[number-input]',

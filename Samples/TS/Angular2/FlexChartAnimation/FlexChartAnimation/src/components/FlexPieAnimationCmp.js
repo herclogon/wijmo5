@@ -10,9 +10,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
-var wjNg2Animation = require('wijmo/wijmo.angular2.chart.animation');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_chart_animation_1 = require('wijmo/wijmo.angular2.chart.animation');
 var DataSvc_1 = require('./../services/DataSvc');
 //FlexPieAnimation sample component
 var FlexPieAnimationCmp = (function () {
@@ -56,11 +58,9 @@ var FlexPieAnimationCmp = (function () {
     FlexPieAnimationCmp.prototype.resetChartData = function () {
         this._setDataSource();
     };
-    FlexPieAnimationCmp.prototype.animationModeChanged = function (args) {
-        if (args.selectedValue !== this.animationMode) {
-            this.animation.animationMode = args.selectedValue;
-            this.flexPie.refresh(true);
-        }
+    FlexPieAnimationCmp.prototype.animationModeChanged = function () {
+        this.animation.animationMode = this.animationMode;
+        this.flexPie.refresh(true);
     };
     __decorate([
         core_1.ViewChild('flexPie')
@@ -71,13 +71,26 @@ var FlexPieAnimationCmp = (function () {
     FlexPieAnimationCmp = __decorate([
         core_1.Component({
             selector: 'flex-pie-animation-cmp',
-            templateUrl: 'src/components/FlexPieAnimationCmp.html',
-            directives: [wjNg2Chart.WjFlexPie, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjInputNumber,
-                wjNg2Animation.WjFlexChartAnimation, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
+            templateUrl: 'src/components/FlexPieAnimationCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], FlexPieAnimationCmp);
     return FlexPieAnimationCmp;
 }());
 exports.FlexPieAnimationCmp = FlexPieAnimationCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: FlexPieAnimationCmp }
+]);
+var FlexPieAnimationModule = (function () {
+    function FlexPieAnimationModule() {
+    }
+    FlexPieAnimationModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, forms_1.FormsModule, wijmo_angular2_input_1.WjInputModule, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_chart_animation_1.WjChartAnimationModule],
+            declarations: [FlexPieAnimationCmp],
+        })
+    ], FlexPieAnimationModule);
+    return FlexPieAnimationModule;
+}());
+exports.FlexPieAnimationModule = FlexPieAnimationModule;
 //# sourceMappingURL=FlexPieAnimationCmp.js.map

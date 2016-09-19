@@ -11,24 +11,39 @@
         This sample shows how to extend FlexGrid to provide two types of footer
         elements:
     </p>
-    <ol>
-        <li>
-            <b>Group Footer Rows</b>: When grouping is enabled, FlexGrid adds
-            group rows above each group. This sample shows how you can add custom
-            group rows below each group as well.
-            Group footer rows are implemented using a custom directive called
-            <b>groupFooters</b> which you can add to any FlexGrid.
-        </li>
-        <li>
-            <b>Footer Grid</b>: In some situations you may want to display a
-            non-scrollable row below the grid to show summary information such as
-            subtotals. This sample shows how you can accomplish this using a
-            separate but synchronized grid with a single row.
-            The grid footer is implemented as a custom directive called
-            <b>gridFooterFor</b> which you can add to a FlexGrid to have it
-            act as a footer for another FlexGrid.
-        </li>
-    </ol>
+
+    <h3>
+        Column Footer Rows
+    </h3>
+    <p>
+        In some situations you may want to display non-scrollable rows below
+        the grid data containing summary information such as subtotals.
+        This can be done by adding rows to the grid's <b>columnFooter</b>
+        panel.
+    </p>
+    <p>
+        If you add a <b>GroupRow</b> to the <b>columnFooter</b> panel, the
+        grid will automatically provide values for any columns that have
+        the <b>aggregate</b> property set. This is what this sample does.
+    </p>
+    <p>
+        If you add regular rows to the <b>columnFooter</b> panel, then you
+        should set their values using the panel's <b>setCellData</b> method.
+        You can add as many column footer rows as you want, possibly showing
+        different aggregates on each one (sum, count, average, min, max, etc).
+    </p>
+
+    <h3>
+        Group Footer Rows
+    </h3>
+    <p>
+        When grouping is enabled, FlexGrid adds group rows above each group.
+        This sample shows how you can add custom group rows below each group as well.
+    </p>
+    <p>
+        Group footer rows are implemented using a custom directive called
+        <b>groupFooters</b> which you can customize and add to any FlexGrid.
+    </p>
     <h3>
         Select how to group the data:
     </h3>
@@ -48,16 +63,15 @@
         <wj-flex-grid #masterGrid
                       [groupFooters]="true"
                       style="max-height:350px"
+                      (initialized)="initGrid(masterGrid)"
                       [itemsSource]="data">
             <wj-flex-grid-filter></wj-flex-grid-filter>            
             <wj-flex-grid-column [binding]="'country'"></wj-flex-grid-column>
             <wj-flex-grid-column [binding]="'product'"></wj-flex-grid-column>
             <wj-flex-grid-column [binding]="'color'"></wj-flex-grid-column>
-            <wj-flex-grid-column [binding]="'start'"></wj-flex-grid-column>
-            <wj-flex-grid-column [binding]="'end'"></wj-flex-grid-column>
-            <wj-flex-grid-column [binding]="'amount'"></wj-flex-grid-column>
-        </wj-flex-grid>
-        <wj-flex-grid [gridFooterFor]="masterGrid">
+            <wj-flex-grid-column [binding]="'sales'" [format]="'n2'" [aggregate]="'Sum'"></wj-flex-grid-column>
+            <wj-flex-grid-column [binding]="'expenses'" [format]="'n2'" [aggregate]="'Sum'"></wj-flex-grid-column>
+            <wj-flex-grid-column [binding]="'discount'" [format]="'p0'"></wj-flex-grid-column>
         </wj-flex-grid>
     </div>
 </div>

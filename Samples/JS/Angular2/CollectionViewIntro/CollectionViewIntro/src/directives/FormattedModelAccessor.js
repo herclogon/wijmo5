@@ -8,9 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var common_1 = require('@angular/common');
 var core_1 = require('@angular/core');
-var DATE_VALUE_ACCESSOR = new core_1.Provider(common_1.NG_VALUE_ACCESSOR, { useExisting: core_1.forwardRef(function () { return FormattedModelAccessor; }), multi: true });
+var forms_1 = require('@angular/forms');
+var DATE_VALUE_ACCESSOR = {
+    provide: forms_1.NG_VALUE_ACCESSOR,
+    useExisting: core_1.forwardRef(function () { return FormattedModelAccessor; }),
+    multi: true
+};
 var FormattedModelAccessor = (function () {
     function FormattedModelAccessor(renderer, elRef) {
         this.renderer = renderer;

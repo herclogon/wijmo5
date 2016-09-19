@@ -1,0 +1,88 @@
+﻿<div>
+    <div class="copy">
+        <h3 id="Features">Sunburst</h3>
+        <div class="alert alert-info" role="alert"><b>Important!</b> This feature requires the <a href="http://wijmo.com/5/docs/topic/wijmo.chart.hierarchical.Module.html">wijmo.chart.hierarchical</a> extension module.</div>
+        <p>
+            The Sunburst chart control has five basic properties that allow you to customize its layout and appearance:
+        </p>
+        <ul>
+            <li>
+                <b>innerRadius</b>:  Specifies the control's inner radius to support donut charts.
+            </li>
+            <li>
+                <b>offset</b>:  Specifies the offset of the sunburst slices from the center of the control.
+            </li>
+            <li>
+                <b>startAngle</b>:  Starting at the nine o'clock position, specifies the angle to start drawing sunburst slices.
+            </li>
+            <li>
+                <b>palette</b>:  Specifies an array of default colors to be used when rendering sunburst slices.
+            </li>
+            <li>
+                <b>reversed</b>:  Determines whether the control should draw sunburst slices clockwise (false) or counterclockwise (true).
+            </li>
+        </ul>
+        <p>
+            The example below allows you to see what happens when you change these properties. Also, clicking on a sunburst slice will
+            display a tooltip for the data point.
+        </p>
+    </div>
+    <div>
+
+        <div>
+            <div class="container-fluid well">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        <label>Inner Radius</label>
+                        <wj-input-number control="inputInnerRadius"
+                                         value="ctx.innerRadius"
+                                         min="0"
+                                         max="1"
+                                         step=".1"
+                                         format="n">
+                        </wj-input-number>
+                        <label>Offset</label>
+                        <wj-input-number control="inputOffset"
+                                         value="ctx.offset"
+                                         min="0"
+                                         max="1"
+                                         step=".1"
+                                         format="n">
+                        </wj-input-number>
+                        <label>Start Angle</label>
+                        <wj-input-number control="inputStartAngle"
+                                         value="ctx.startAngle"
+                                         min="-360"
+                                         max="360"
+                                         step="45">
+                        </wj-input-number>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px;float:right">
+
+                    <div class="col-sm-12 col-xs-12">
+                        <wj-menu header="Palette: <b>{{ palette }}</b>"
+                                 items-source="palettes"
+                                 item-clicked="paletteChanged(s, e)">
+                        </wj-menu>
+                        <label>
+                            Reversed?
+                        </label>
+                        <input type="checkbox" ng-model="reversed">
+
+
+                    </div>
+                </div>
+            </div>
+            <wj-sunburst control="chart"
+                         items-source="itemsSource"
+                         child-items-path="childItemsPath"
+                         binding="value"
+                         binding-name="bindingName"
+                         inner-radius="{{ innerRadius }}"
+                         offset="{{ offset }}"
+                         start-angle="{{ startAngle }}"
+                         reversed="{{ reversed }}">
+            </wj-sunburst>
+        </div>
+    </div>

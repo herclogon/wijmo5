@@ -11,7 +11,7 @@
         <pre>&lt;wj-input-number [(value)]="amount"&gt;&lt;/wj-input-number&gt;</pre>
     </li>
     <li>
-        Wijmo attribute <b>directives</b> use camel case form of their class names, that is,
+        Wijmo attribute <b>directives</b> use camel case form for their class names, that is,
         it is a class name with the first letter in lower case. For example, <b>WjFlexGridCellTemplate</b>
         directive is defined using the <b>wjFlexGridCellTemplate</b> attribute:
         <pre>&lt;template wjFlexGridCellTemplate [cellType]="'Cell'"&gt;&lt;/template&gt;</pre>
@@ -31,8 +31,8 @@
 
         Note that binding expression should evaluate to a value of the same type as the property type
         it is assigned to. In the above example, the <b>format</b> string type property is assigned with
-        <b>'n0'</b> enclosed in single quotes, which represents a string literal. If we omit quotes and specify
-        just <b>n0</b>, then such an expression will be treated as a property name. Similarly, the <b>isReadOnly</b>
+        <b>'n0'</b> enclosed in single quotes, which represents a string literal. If we omit quotes and just specify
+        <b>n0</b>, then such an expression will be treated as a property name. Similarly, <b>isReadOnly</b>
         boolean property is bound to <b>true</b> where the latter is specified without quotes,
         because <b>true</b> is a boolean type constant while <b>'true'</b> surrounded by single quotes would
         denote a string literal.
@@ -42,7 +42,7 @@
 <h3>Event binding details</h3>
 <p>
     Wijmo event handlers are defined as functions with two parameters: sender and event argument.
-    Angular 2 <b>EventEmitter</b> implementation allows passing of only a single parameter from the event
+    Angular 2 <b>EventEmitter</b> implementation allows passing of only a single parameter from an event
     initiator to the subscribers, which is accessible as a value of the <b>$event</b> local variable in template
     markup. Wijmo events pass an event argument in this parameter. For example:
 </p>
@@ -59,3 +59,4 @@
     [itemsSource]="data"
     (deletingRow)="beforeDelete(flex, $event)"&gt; // pass sender ('flex') and event arguments ($event) to the handler
 &lt;/wj-flex-grid&gt;</pre>
+

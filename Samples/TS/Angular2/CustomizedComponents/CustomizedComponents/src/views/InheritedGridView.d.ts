@@ -6,3 +6,5 @@ export declare class InheritedGridView {
     SelectionTypeEnum: typeof SelectionType;
     constructor(dataSvc: DataSvc);
 }
+export declare class InheritedGridViewModule {
+}

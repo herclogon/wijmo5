@@ -1,14 +1,16 @@
 ﻿'use strict';
 
-import { Component, EventEmitter} from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+//import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
 
 // Chart bubble component
 @Component({
     selector: 'chart-bubble-cmp',
-    templateUrl: 'src/components/chart/chartBubbleCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, CORE_DIRECTIVES] 
+    templateUrl: 'src/components/chart/chartBubbleCmp.html'
 })
 
 export class ChartBubbleCmp {
@@ -33,4 +35,15 @@ export class ChartBubbleCmp {
             'y=<b>' + ht.item.y.toFixed(1) + '</b><br/>' +
             'size=<b>' + ht.item.size.toFixed(1) + '</b>';
     }
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ChartBubbleCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjChartModule],
+    declarations: [ChartBubbleCmp],
+})
+export class ChartBubbleModule {
 }

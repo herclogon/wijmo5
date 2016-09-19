@@ -15,6 +15,8 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var FrmBaseCmp_1 = require('./FrmBaseCmp');
 var FrmLogInCmp = (function (_super) {
     __extends(FrmLogInCmp, _super);
@@ -40,8 +42,7 @@ var FrmLogInCmp = (function (_super) {
     FrmLogInCmp = __decorate([
         core_1.Component({
             selector: 'frm-log-in-cmp',
-            templateUrl: 'src/components/includes/frmLogInCmp.html',
-            directives: [common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES],
+            templateUrl: 'src/components/includes/frmLogInCmp.html'
         }),
         __param(0, core_1.Inject(wijmo.input.Popup)),
         __param(0, core_1.Optional())
@@ -49,4 +50,19 @@ var FrmLogInCmp = (function (_super) {
     return FrmLogInCmp;
 }(FrmBaseCmp_1.FrmBaseCmp));
 exports.FrmLogInCmp = FrmLogInCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: FrmLogInCmp }
+]);
+var FrmLogInModule = (function () {
+    function FrmLogInModule() {
+    }
+    FrmLogInModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing],
+            declarations: [FrmLogInCmp],
+        })
+    ], FrmLogInModule);
+    return FrmLogInModule;
+}());
+exports.FrmLogInModule = FrmLogInModule;
 //# sourceMappingURL=FrmLogInCmp.js.map

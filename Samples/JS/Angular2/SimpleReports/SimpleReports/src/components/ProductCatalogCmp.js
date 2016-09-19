@@ -10,6 +10,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
 var DataSvc_1 = require('../services/DataSvc');
 var ProductCatalogCmp = (function () {
     function ProductCatalogCmp(dataSvc) {
@@ -30,12 +31,26 @@ var ProductCatalogCmp = (function () {
     ProductCatalogCmp = __decorate([
         core_1.Component({
             selector: 'product-catalog-cmp',
-            templateUrl: 'src/components/productCatalogCmp.html',
-            directives: [common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/productCatalogCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], ProductCatalogCmp);
     return ProductCatalogCmp;
 }());
 exports.ProductCatalogCmp = ProductCatalogCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ProductCatalogCmp }
+]);
+var ProductCatalogModule = (function () {
+    function ProductCatalogModule() {
+    }
+    ProductCatalogModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing],
+            declarations: [ProductCatalogCmp],
+        })
+    ], ProductCatalogModule);
+    return ProductCatalogModule;
+}());
+exports.ProductCatalogModule = ProductCatalogModule;
 //# sourceMappingURL=ProductCatalogCmp.js.map

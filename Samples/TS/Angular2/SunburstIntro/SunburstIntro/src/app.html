@@ -5,7 +5,7 @@
             Sunburst 101
         </h1>
         <p>
-            This page shows how to get started with Wijmo's Sunburst control.
+            This page shows how to get started with Wijmo's Sunburst chart control.
         </p>
     </div>
 </div>
@@ -15,7 +15,7 @@
     <div>
         <h2 id="Start">Getting Started</h2>
         <p>
-            Steps for getting started with the Sunburst control in AngularJS applications:
+            Here are the steps for getting started with the Sunburst chart control in AngularJS applications:
         </p>
         <ol>
             <li>Add references to AngularJS, Wijmo, and Wijmo's AngularJS directives.</li>
@@ -23,7 +23,7 @@
                 Add a component to provide data and logic.<br />
             </li>
             <li>Add a Wijmo Sunburst control to the page and bind it to your data.</li>
-            <li>(Optional) Add some CSS to customize the input control's appearance.</li>
+            <li>(Optional) Add some CSS to customize the control's appearance.</li>
         </ol>
         <div class="row">
             <div class="col-md-6">
@@ -32,41 +32,40 @@
                         <div class="pane-content">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
-&lt;head&gt;
-&lt;link rel="stylesheet" type="text/css" href="css/bootstrap.css" /&gt;
-&lt;link rel="stylesheet" type="text/css" href="css/wijmo.css" /&gt;
-&lt;link rel="stylesheet" type="text/css" href="css/app.css"/&gt;
-&lt;!-- Angular 2 --/&gt;
-&lt;!-- Supporting libraries --&gt;
-&lt;!-- Polyfill(s) for older browsers --&gt;
-&lt;script src="node_modules/es6-shim/es6-shim.min.js"&gt;&lt;/script&gt;
+    &lt;head&gt;
+        &lt;link rel="stylesheet" type="text/css" href="css/bootstrap.css" /&gt;
+        &lt;link rel="stylesheet" type="text/css" href="css/wijmo.css" /&gt;
+        &lt;link rel="stylesheet" type="text/css" href="css/app.css"/&gt;
+        &lt;!-- Angular 2 --/&gt;
+        &lt;!-- Supporting libraries --&gt;
+        &lt;!-- Polyfill(s) for older browsers --&gt;
+        &lt;script src="node_modules/es6-shim/es6-shim.min.js"&gt;&lt;/script&gt;
 
-&lt;script src="node_modules/zone.js/dist/zone.js"&gt;&lt;/script&gt;
-&lt;script src="node_modules/reflect-metadata/Reflect.js"&gt;&lt;/script&gt;
-&lt;script src="node_modules/systemjs/dist/system.src.js"&gt;&lt;/script&gt;
+        &lt;script src="node_modules/zone.js/dist/zone.js"&gt;&lt;/script&gt;
+        &lt;script src="node_modules/reflect-metadata/Reflect.js"&gt;&lt;/script&gt;
+        &lt;script src="node_modules/systemjs/dist/system.src.js"&gt;&lt;/script&gt;
 
-
-&lt;!-- Configure SystemJS --&gt;
-&lt;script src="systemjs.config.js"&gt;&lt;/script&gt;
-&lt;script src="scripts/wijmo.js" type="text/javascript"/&gt;&lt;/script/&gt;
-&lt;script src="scripts/wijmo.input.js" type="text/javascript"/&gt;&lt;/script/&gt;
-&lt;script src="scripts/wijmo.chart.js" type="text/javascript"/&gt;&lt;/script/&gt;
-&lt;script src="scripts/wijmo.chart.hierarchical.js" type="text/javascript"/&gt;&lt;/script/&gt;
-&lt;script src="scripts/wijmo.angular2.js" type="text/javascript"/&gt;&lt;/script/&gt;
-&lt;script&gt;
-    System.import('./src/app');
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;!-- Add root application component --&gt;
-&lt;app-cmp&gt;
- &lt;wj-sunburst [itemsSource]="data"
-         binding="value"
-         [bindingName]="bindingName"&gt;
-        &lt;wj-flex-pie-data-label position="Center" content="{name}"&gt;&lt;/wj-flex-pie-data-label&gt;
- &lt;/wj-sunburst&gt;
-&lt;/app-cmp&gt;
-&lt;/body&gt;
+        &lt;!-- Configure SystemJS --&gt;
+        &lt;script src="systemjs.config.js"&gt;&lt;/script&gt;
+        &lt;script src="scripts/wijmo.js" type="text/javascript"/&gt;&lt;/script/&gt;
+        &lt;script src="scripts/wijmo.input.js" type="text/javascript"/&gt;&lt;/script/&gt;
+        &lt;script src="scripts/wijmo.chart.js" type="text/javascript"/&gt;&lt;/script/&gt;
+        &lt;script src="scripts/wijmo.chart.hierarchical.js" type="text/javascript"/&gt;&lt;/script/&gt;
+        &lt;script src="scripts/wijmo.angular2.js" type="text/javascript"/&gt;&lt;/script/&gt;
+        &lt;script&gt;
+            System.import('./src/app');
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- Add root application component --&gt;
+        &lt;app-cmp&gt;
+            &lt;wj-sunburst [itemsSource]="data"
+                binding="value"
+                [bindingName]="bindingName"&gt;
+                &lt;wj-flex-pie-data-label position="Center" content="&#123;name}"&gt;&lt;/wj-flex-pie-data-label&gt;
+            &lt;/wj-sunburst&gt;
+        &lt;/app-cmp&gt;
+    &lt;/body&gt;
 &lt;/html&gt;
                         </div>
                     </app-tab-pane>
@@ -74,48 +73,48 @@
                         <div class="pane-content">
 // Common data service
 @Injectable()
-export class DataSvc {
-    
-    getData(): any[] {
+export class DataSvc &#123;
+
+    getData(): any[] &#123;
         var data = [],
             times = [['Jan', 'Feb', 'Mar'], ['Apr', 'May', 'June'], ['Jul', 'Aug', 'Sep'], ['Oct', 'Nov', 'Dec']],
             years = [], year = new Date().getFullYear(), yearLen, i, quarterAdded = false;
 
         yearLen = Math.max(Math.round(Math.abs(5 - Math.random() * 10)), 3);
-        for (i = yearLen; i > 0; i--) {
+        for (i = yearLen; i > 0; i--) &#123;
             years.push(year - i);
         }
         // populate itemsSource
-        years.forEach((y, i) => {
+        years.forEach((y, i) => &#123;
             var addQuarter = Math.random() > 0.5;
-            if (!quarterAdded && i === years.length - 1) {
+            if (!quarterAdded && i === years.length - 1) &#123;
                 //ensure add at least one quarter.
                 addQuarter = true;
             }
-            if (addQuarter) {
+            if (addQuarter) &#123;
                 quarterAdded = true;
-                times.forEach((q, idx) => {
+                times.forEach((q, idx) => &#123;
                     var addMonth = Math.random() > 0.5,
-                        quar = 'Q' + (idx + 1);
-                    if (addMonth) {
-                        q.forEach(m => {
-                            data.push({
+                    quar = 'Q' + (idx + 1);
+                    if (addMonth) &#123;
+                        q.forEach(m => &#123;
+                            data.push(&#123;
                                 year: y.toString(),
                                 quarter: quar,
                                 month: m,
                                 value: Math.round(Math.random() * 100)
                             });
                         });
-                    } else {
-                        data.push({
+                    } else &#123;
+                        data.push(&#123;
                             year: y.toString(),
                             quarter: quar,
                             value: Math.round(Math.random() * 400)
                         });
                     }
                 });
-            } else {
-                data.push({
+            } else &#123;
+                data.push(&#123;
                     year: y.toString(),
                     value: Math.round(Math.random() * 1200)
                 });
@@ -126,39 +125,50 @@ export class DataSvc {
     }
 
 }
+
 ----------------Component---------
 // Angular
-import { Component, View, EventEmitter, provide, Input, Inject, enableProdMode } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
-import * as wjNg2Hierarchical from 'wijmo/wijmo.angular2.chart,hierarchical';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import { DataSvc } from './services/DataSvc';
+import &#123; Component, View, EventEmitter, provide, Input, Inject, enableProdMode, NgModule } from '@angular/core';
+import &#123; CommonModule } from '@angular/common';
+import &#123; FormsModule } from '@angular/forms';
+import &#123; platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import &#123; BrowserModule } from '@angular/platform-browser';
+import &#123; WjChartModule} from 'wijmo/wijmo.angular2.chart';
+import &#123; WjChartHierarchicalModule } from 'wijmo/wijmo.angular2.chart.hierarchical';
+import &#123; WjInputModule} from 'wijmo/wijmo.angular2.input';
+import &#123; TabsModule } from './components/AppTab';
+import &#123; DataSvc } from './services/DataSvc';
 
 // The Explorer application root component.
-@Component({
+@Component(&#123;
     selector: 'app-cmp',
-    directives: [CORE_DIRECTIVES,
-        wjNg2Hierarchical.WjSunburst, wjNg2Chart.WjFlexPieDataLabel, wjNg2Chart.WjFlexChartLegend,
-        wjNg2Input.WjInputNumber, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem]
+    templateUrl: 'src/app.html'
 })
 
-export class AppCmp {
-  protected dataSvc: DataSvc;
-  data: any[];
-  bindingName = ['year', 'quarter', 'month'];
+export class AppCmp &#123;
+    protected dataSvc: DataSvc;
+    data: any[];
+    bindingName = ['year', 'quarter', 'month'];
 
-   constructor( @Inject(DataSvc) dataSvc: DataSvc) {
-       // populate itemsSource
-       this.dataSvc = dataSvc;
-       this.data = this.dataSvc.getData();
-   }
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
+        // populate itemsSource
+        this.dataSvc = dataSvc;
+        this.data = this.dataSvc.getData();
+    }
+}
+
+@NgModule(&#123;
+    imports: [WjInputModule, WjChartModule, WjChartHierarchicalModule, TabsModule, BrowserModule, FormsModule],
+    declarations: [AppCmp],
+    providers: [DataSvc],
+    bootstrap: [AppCmp]
+})
+export class AppModule &#123;
 }
 
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp);
+platformBrowserDynamic().bootstrapModule(AppModule);
                         </div>
                     </app-tab-pane>
                 </app-tab>
@@ -178,7 +188,7 @@ bootstrap(AppCmp);
     <div>
         <h2 id="Features">Basic Features</h2>
         <p>
-            The Sunburst control has five basic properties that allow you to customize its layout and appearance:
+            The Sunburst chart control has five basic properties that allow you to customize its layout and appearance:
         </p>
         <ul>
             <li>
@@ -198,7 +208,7 @@ bootstrap(AppCmp);
             </li>
         </ul>
         <p>
-            The example below allows you to see what happens when you change these properties.  Also, clicking on a sunburst slice will
+            The example below allows you to see what happens when you change these properties. Also, clicking on a sunburst slice will
             display a tooltip for the data point.
         </p>
         <div class="row">
@@ -216,7 +226,7 @@ bootstrap(AppCmp);
     [offset]="offset"
     [startAngle]="startAngle"
     [reversed]="reversed"&gt;
-  &lt;wj-flex-pie-data-label position="Center" content="{name}"&gt;&lt;/wj-flex-pie-data-label&gt;
+    &lt;wj-flex-pie-data-label position="Center" content="&#123;name}"&gt;&lt;/wj-flex-pie-data-label&gt;
 &lt;/wj-sunburst&gt;
 
 &lt;div class="form-group"&gt;
@@ -231,7 +241,7 @@ bootstrap(AppCmp);
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="form-group"&gt;
-&lt;label class="col-md-3 control-label"&gt;Offset&lt;/label&gt;
+    &lt;label class="col-md-3 control-label"&gt;Offset&lt;/label&gt;
     &lt;div class="col-md-9"&gt;
         &lt;wj-input-number #inputOffset (valueChanged)="offsetChanged(inputOffset)"
             [min]="0"
@@ -273,7 +283,7 @@ bootstrap(AppCmp);
                     </app-tab-pane>
                     <app-tab-pane title="TS">
                         <div class="pane-content">
-export class AppCmp {
+export class AppCmp &#123;
     protected dataSvc: DataSvc;
     hierarchicalData: any[];
 
@@ -286,33 +296,33 @@ export class AppCmp {
     palettes = ['standard', 'cocoa', 'coral', 'dark', 'highcontrast', 'light', 'midnight', 'minimal', 'modern', 'organic', 'slate'];
     chartPalette: wijmo.chart.Palettes;
 
-    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
         this.dataSvc = dataSvc;
         this.hierarchicalData = this.dataSvc.getHierarchicalData();
     }
 
-    paletteChanged = (sender: wijmo.input.Menu) => {
+    paletteChanged = (sender: wijmo.input.Menu) => &#123;
         var p = this.palettes[sender.selectedIndex];
         this.palette = p;
         this.chartPalette = wijmo.chart.Palettes[p];
     };
 
-    innerRadiusChanged = (sender: wijmo.input.InputNumber) => {
-        if (sender.value < sender.min || sender.value > sender.max) {
+    innerRadiusChanged = (sender: wijmo.input.InputNumber) => &#123;
+        if (sender.value < sender.min || sender.value > sender.max) &#123;
             return;
         }
         this.innerRadius = sender.value;
     };
 
-    offsetChanged = (sender: wijmo.input.InputNumber) => {
-        if (sender.value < sender.min || sender.value > sender.max) {
+    offsetChanged = (sender: wijmo.input.InputNumber) => &#123;
+        if (sender.value < sender.min || sender.value > sender.max) &#123;
             return;
         }
         this.offset = sender.value;
     };
 
-    startAngleChanged = (sender: wijmo.input.InputNumber) => {
-        if (sender.value < sender.min || sender.value > sender.max) {
+    startAngleChanged = (sender: wijmo.input.InputNumber) => &#123;
+        if (sender.value < sender.min || sender.value > sender.max) &#123;
             return;
         }
         this.startAngle = sender.value;
@@ -328,7 +338,7 @@ export class AppCmp {
                              binding="value"
                              [bindingName]="bindingName"
                              childItemsPath="items"
-                             [palette] ="chartPalette"
+                             [palette]="chartPalette"
                              [innerRadius]="innerRadius"
                              [offset]="offset"
                              [startAngle]="startAngle"
@@ -350,30 +360,30 @@ export class AppCmp {
                     <div class="form-group">
                         <label class="col-md-3 control-label">Offset</label>
                         <div class="col-md-9">
-                            <wj-input-number  #inputOffset (valueChanged)="offsetChanged(inputOffset)"
-                                              [min]="0"
-                                              [max]="1"
-                                              [step]=".1"
-                                              [format]="n">
+                            <wj-input-number #inputOffset (valueChanged)="offsetChanged(inputOffset)"
+                                             [min]="0"
+                                             [max]="1"
+                                             [step]=".1"
+                                             [format]="n">
                             </wj-input-number>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label">Start Angle</label>
                         <div class="col-md-9">
-                            <wj-input-number  #inputStartAngle (valueChanged)="startAngleChanged(inputStartAngle)"
-                                              [min]="-360"
-                                              [max]="360"
-                                              [step]="45">
+                            <wj-input-number #inputStartAngle (valueChanged)="startAngleChanged(inputStartAngle)"
+                                             [min]="-360"
+                                             [max]="360"
+                                             [step]="45">
                             </wj-input-number>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-3 col-md-9">
-                            <wj-menu #palMenu 
+                            <wj-menu #palMenu
                                      [header]="'Palette: <b>' + (palette) + '</b>'"
-                                      [itemsSource]="palettes"
-                                      (itemClicked)="paletteChanged(palMenu)">
+                                     [itemsSource]="palettes"
+                                     (itemClicked)="paletteChanged(palMenu)">
                             </wj-menu>
                         </div>
                     </div>
@@ -395,8 +405,8 @@ export class AppCmp {
     <div>
         <h2 id="Legend">Legend and Titles</h2>
         <p>
-            The <b>legend</b> properties can be used to customize the appearance of the chart's legend.  The
-            <b>header</b> and <b>footer</b> properties can be used to add titles to the Sunburst control as well.
+            The <b>legend</b> properties can be used to customize the appearance of the chart's legend. You can also
+            use <b>header</b> and <b>footer</b> properties to add titles to the Sunburst chart control.
         </p>
         <p>
             The following example allows you to change the Sunburst's <b>legend.position</b>, <b>header</b>, and
@@ -407,42 +417,42 @@ export class AppCmp {
                 <app-tab>
                     <app-tab-pane title="HTML">
                         <div class="pane-content">
- &lt;wj-sunburst [itemsSource]="data"
-     binding="value"
-     [bindingName]="bindingName"
-     [header]="header"
-     [footer]="footer"&gt;
-     &lt;wj-flex-chart-legend [position]="legendPosition"&gt;&lt;/wj-flex-chart-legend&gt;
- &lt;/wj-sunburst&gt;
+&lt;wj-sunburst [itemsSource]="data"
+    binding="value"
+    [bindingName]="bindingName"
+    [header]="header"
+    [footer]="footer"&gt;
+    &lt;wj-flex-chart-legend [position]="legendPosition"&gt;&lt;/wj-flex-chart-legend&gt;
+&lt;/wj-sunburst&gt;
 
- &lt;div class="form-group"&gt;
-     &lt;label class="col-md-3 control-label"&gt;Header&lt;/label&gt;
-     &lt;div class="col-md-9"&gt;
+&lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Header&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
         &lt;input type="text" class="form-control" [(ngModel)]="header" placeholder="Specify the Sunburst's header" /&gt;
-     &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class="form-group"&gt;
-     &lt;label class="col-md-3 control-label"&gt;Footer&lt;/label&gt;
-        &lt;div class="col-md-9"&gt;
-     &lt;input type="text" class="form-control" [(ngModel)]="footer" placeholder="Specify the Sunburst's footer" /&gt;
-     &lt;/div&gt;
- &lt;/div&gt;
- &lt;div class="form-group"&gt;
-     &lt;div class="col-md-offset-3 col-md-9"&gt;
-         &lt;wj-menu [header]="'Legend Position'" [(value)]="legendPosition"&gt;
-             &lt;wj-menu-item [value]="'None'"&gt;None&lt;/wj-menu-item&gt;
-             &lt;wj-menu-item [value]="'Left'"&gt;Left&lt;/wj-menu-item&gt;
-             &lt;wj-menu-item [value]="'Top'"&gt;Top&lt;/wj-menu-item&gt;
-             &lt;wj-menu-item [value]="'Right'"&gt;Right&lt;/wj-menu-item&gt;
-             &lt;wj-menu-item [value]="'Bottom'"&gt;Bottom&lt;/wj-menu-item&gt;
-         &lt;/wj-menu&gt;
-     &lt;/div&gt;
- &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Footer&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+        &lt;input type="text" class="form-control" [(ngModel)]="footer" placeholder="Specify the Sunburst's footer" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+        &lt;wj-menu [header]="'Legend Position'" [(value)]="legendPosition"&gt;
+            &lt;wj-menu-item [value]="'None'"&gt;None&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item [value]="'Left'"&gt;Left&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item [value]="'Top'"&gt;Top&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item [value]="'Right'"&gt;Right&lt;/wj-menu-item&gt;
+            &lt;wj-menu-item [value]="'Bottom'"&gt;Bottom&lt;/wj-menu-item&gt;
+        &lt;/wj-menu&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
                         </div>
                     </app-tab-pane>
                     <app-tab-pane title="TS">
                         <div class="pane-content">
-export class AppCmp {
+export class AppCmp &#123;
     protected dataSvc: DataSvc;
     data: any[];
 
@@ -451,7 +461,7 @@ export class AppCmp {
     footer = 'GrapeCity, inc.';
     legendPosition = 'Right';
 
-    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
         this.dataSvc = dataSvc;
         this.data = this.dataSvc.getData();
     }
@@ -511,14 +521,14 @@ export class AppCmp {
             <b>selectionMode</b> property to <b>Series</b> or <b>None</b> will disable selections within the control.
         </p>
         <p>
-            The Sunburst offers three additional properties to customize the selection:
+            The Sunburst chart offers three additional properties to customize the selection:
         </p>
         <ul>
             <li>
                 <b>selectedItemOffset</b>:  Specifies the offset of the selected sunburst slice from the center of the control.
             </li>
             <li>
-                <b>selectedItemPosition</b>:  Specifies the position of the selected sunburst slice.  The available options are Top, Bottom,
+                <b>selectedItemPosition</b>:  Specifies the position of the selected sunburst slice. The available options are Top, Bottom,
                 Left, Right, and None (default).
             </li>
             <li>
@@ -574,27 +584,27 @@ export class AppCmp {
                     </app-tab-pane>
                     <app-tab-pane title="TS">
                         <div class="pane-content">
- export class AppCmp {
-     protected dataSvc: DataSvc;
-     data: any[];
+export class AppCmp &#123;
+    protected dataSvc: DataSvc;
+    data: any[];
 
-     //properties of FlexPie
-     selectedPosition = 'Top';
-     selectedOffset = 0;
-     isAnimated = true;
+    //properties of FlexPie
+    selectedPosition = 'Top';
+    selectedOffset = 0;
+    isAnimated = true;
 
-     constructor( @Inject(DataSvc) dataSvc: DataSvc) {
-         this.dataSvc = dataSvc;
-         this.data = this.dataSvc.getData();
-     }
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
+        this.dataSvc = dataSvc;
+        this.data = this.dataSvc.getData();
+    }
 
-    selectedOffsetChanged = (sender: wijmo.input.InputNumber) => {
-        if (sender.value < sender.min || sender.value > sender.max) {
+    selectedOffsetChanged = (sender: wijmo.input.InputNumber) => &#123;
+        if (sender.value < sender.min || sender.value > sender.max) &#123;
             return;
         }
         this.selectedOffset = sender.value;
     };
- }
+}
                         </div>
                     </app-tab-pane>
                 </app-tab>
@@ -650,12 +660,12 @@ export class AppCmp {
     <div>
         <h2 id="Theming">Theming</h2>
         <p>
-            The appearance of the Sunburst control is largely defined in CSS. In addition to the default theme, we
+            The appearance of the Sunburst chart control is largely defined in CSS. In addition to a default theme, we
             include several professionally designed themes that customize the appearance of all Wijmo controls to
-            achieve a consistent, attractive look.
+            achieve a consistent and attractive look.
         </p>
         <p>
-            You can customize the appearance of the Sunburst control using CSS. To do this, copy the CSS rules from the
+            You can customize the appearance of the Sunburst chart control using CSS. To do this, copy the CSS rules from the
             default theme to a new CSS file and modify the properties as needed.
         </p>
         <p>
@@ -668,44 +678,44 @@ export class AppCmp {
                     <app-tab-pane title="HTML">
                         <div class="pane-content">
 &lt;wj-sunburst [itemsSource]="themingData"
-              binding="value"
-              bindingName="name"
-              childItemsPath="items"
-              header="Bullseye(target)"
-              tooltipContent=""
-              class="custom-sunburst-chart"&gt;
-     &lt;wj-flex-chart-legend position="None"&gt;&lt;/wj-flex-chart-legend&gt;
-&lt;/wj-flex-pie&gt;
+    binding="value"
+    bindingName="name"
+    childItemsPath="items"
+    header="Bullseye(target)"
+    tooltipContent=""
+    class="custom-sunburst-chart"&gt;
+    &lt;wj-flex-chart-legend position="None"&gt;&lt;/wj-flex-chart-legend&gt;
+&lt;/wj-sunburst&gt;
                         </div>
                     </app-tab-pane>
                     <app-tab-pane title="CSS">
                         <div class="pane-content">
-.custom-sunburst-chart.wj-sunburst .wj-header .wj-title {
+.custom-sunburst-chart.wj-sunburst .wj-header .wj-title &#123;
     fill: #666;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
 .custom-sunburst-chart.wj-sunburst ellipse,
-.custom-sunburst-chart.wj-sunburst path {
+.custom-sunburst-chart.wj-sunburst path &#123;
     stroke-width: 0;
 }
-.custom-sunburst-chart.wj-sunburst ellipse {
+.custom-sunburst-chart.wj-sunburst ellipse &#123;
     fill: yellow;
 }
 
-.custom-sunburst-chart.wj-sunburst .slice-level2 > path {
+.custom-sunburst-chart.wj-sunburst .slice-level2 > path &#123;
     fill: red;
 }
 
-.custom-sunburst-chart.wj-sunburst .slice-level3 > path {
+.custom-sunburst-chart.wj-sunburst .slice-level3 > path &#123;
     fill: blue;
 }
 
-.custom-sunburst-chart.wj-sunburst .slice-level4 > path {
+.custom-sunburst-chart.wj-sunburst .slice-level4 > path &#123;
     fill: black;
 }
 
-.custom-sunburst-chart.wj-sunburst .slice-level5 > path {
+.custom-sunburst-chart.wj-sunburst .slice-level5 > path &#123;
     fill: white;
     stroke-width: 2;
     stroke: black;

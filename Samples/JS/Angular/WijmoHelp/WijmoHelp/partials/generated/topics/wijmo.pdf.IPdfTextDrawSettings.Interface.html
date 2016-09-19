@@ -1,57 +1,45 @@
-<h2>IPdfTextDrawSettings Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">IPdfTextDrawSettings</span> Interface</h2>
 <dl class="dl-horizontal">
-<dt>Implements</dt><dd><a href="topic/wijmo.pdf.IPdfTextSettings.Interface.html"><b>IPdfTextSettings</b></a></dd>
-<dt>Module</dt><dd>wijmo.pdf</dd>
-<dt>File</dt><dd>wijmo.pdf.js</dd>
+<dt>File</dt><dd class="filename">wijmo.pdf.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.pdf.Module.html"><span class="identifier">wijmo.pdf</span></a></dd>
+<dt>Implements</dt><dd><a href="topic/wijmo.pdf.IPdfTextSettings.Interface.html"><span class="identifier">IPdfTextSettings</span></a></dd>
 </dl>
-<p>Represents the settings used by <b>drawText</b> method to draw a text
-with the specified <a href="topic/wijmo.pdf.PdfPen.Class.html"><b>PdfPen</b></a> and <a href="topic/wijmo.pdf.PdfBrush.Class.html"><b>PdfBrush</b></a>.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<div class="comment"><p>Represents the settings used by <a href="topic/wijmo.pdf.PdfPageArea.Class.html/#drawText"><span class="identifier">drawText</span></a> method to draw a text
+with the specified <a href="topic/wijmo.pdf.PdfPen.Class.html"><span class="identifier">PdfPen</span></a> and <a href="topic/wijmo.pdf.PdfBrush.Class.html"><span class="identifier">PdfBrush</span></a>.</p></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>brush?</b></td>
-      <td><b>any</b></td>
-      <td>Determines the brush to fill the text. If not specified, the default document
-brush will be used (<b>setBrush</b> method).</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>font?</b></td>
-      <td><a href="topic/wijmo.pdf.PdfFont.Class.html"><b>PdfFont</b></a></td>
-      <td>Determines the font to use. If not specified, the default document font will be
-used (<b>setFont</b> method).</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>pen?</b></td>
-      <td><b>any</b></td>
-      <td>Determines the pen to stroke the text. If not specified, the default document
-pen will be used (<b>setPen</b> method).</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.pdf.IPdfTextDrawSettings.Interface.html/#brush">brush</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.IPdfTextDrawSettings.Interface.html/#font">font</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.IPdfTextDrawSettings.Interface.html/#pen">pen</a></li>
+</ul>
 </div>
-
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="brush" class="member-panel mproperty">
+<h3>brush</h3>
+<div class="comment"><p>Determines the brush to fill the text. If not specified, the default document
+brush will be used (<a href="topic/wijmo.pdf.PdfDocument.Class.html/#setBrush"><span class="identifier">setBrush</span></a> method).</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="font" class="member-panel mproperty">
+<h3>font</h3>
+<div class="comment"><p>Determines the font to use. If not specified, the default document font will be
+used (<a href="topic/wijmo.pdf.PdfDocument.Class.html/#setFont"><span class="identifier">setFont</span></a> method).</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.pdf.PdfFont.Class.html"><span class="identifier">PdfFont</span></a></dd>
+</dl>
+</div>
+<div id="pen" class="member-panel mproperty">
+<h3>pen</h3>
+<div class="comment"><p>Determines the pen to stroke the text. If not specified, the default document
+pen will be used (<a href="topic/wijmo.pdf.PdfDocument.Class.html/#setPen"><span class="identifier">setPen</span></a> method).</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+</div>

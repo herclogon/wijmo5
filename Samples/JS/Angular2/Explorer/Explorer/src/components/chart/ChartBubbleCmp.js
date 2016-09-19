@@ -7,7 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+//import { FormsModule } from '@angular/forms';
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
 // Chart bubble component
 var ChartBubbleCmp = (function () {
     function ChartBubbleCmp() {
@@ -29,11 +31,25 @@ var ChartBubbleCmp = (function () {
     ChartBubbleCmp = __decorate([
         core_1.Component({
             selector: 'chart-bubble-cmp',
-            templateUrl: 'src/components/chart/chartBubbleCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/chart/chartBubbleCmp.html'
         })
     ], ChartBubbleCmp);
     return ChartBubbleCmp;
 }());
 exports.ChartBubbleCmp = ChartBubbleCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartBubbleCmp }
+]);
+var ChartBubbleModule = (function () {
+    function ChartBubbleModule() {
+    }
+    ChartBubbleModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule],
+            declarations: [ChartBubbleCmp],
+        })
+    ], ChartBubbleModule);
+    return ChartBubbleModule;
+}());
+exports.ChartBubbleModule = ChartBubbleModule;
 //# sourceMappingURL=ChartBubbleCmp.js.map

@@ -1,91 +1,29 @@
-<h2>Aggregate Enum</h2>
-<dl class="dl-horizontal">
-  <dt>Module</dt><dd>wijmo</dd>
-  <dt>File</dt><dd>wijmo.js</dd>
-</dl>
-<p>Specifies the type of aggregate to calculate over a group of values.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideValues = !hideValues">
-<span class="glyph-collapsed" ng-show="hideValues"></span>
-<span class="glyph-expanded" ng-hide="hideValues"></span>
-Values
-</h3>
+<div class="header-panel member">
+  <h2><span class="identifier">Aggregate</span> Enum</h2>
+  <dl class="dl-horizontal">
+    <dt>File</dt><dd class="filename">wijmo.js</dd>
+    <dt>Module</dt><dd><a href="topic/wijmo.Module.html"><span class="identifier">wijmo</span></a></dd>
+  </dl>
+  <div class="comment"><p>Specifies the type of aggregate to calculate over a group of values.</p></div>
 </div>
-<table ng-hide="hideValues" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th>Name</th>
-
-<th>Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>Avg</b></td>
-      <td>Returns the average value of the numeric values in the group.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Cnt</b></td>
-      <td>Returns the count of non-null values in the group.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Max</b></td>
-      <td>Returns the maximum value in the group.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Min</b></td>
-      <td>Returns the minimum value in the group.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>None</b></td>
-      <td>No aggregate.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Rng</b></td>
-      <td>Returns the difference between the maximum and minimum numeric values in the group.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Std</b></td>
-      <td>Returns the sample standard deviation of the numeric values in the group 
-(uses the formula based on n-1).</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>StdPop</b></td>
-      <td>Returns the population standard deviation of the values in the group 
-(uses the formula based on n).</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Sum</b></td>
-      <td>Returns the sum of the numeric values in the group.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Var</b></td>
-      <td>Returns the sample variance of the numeric values in the group 
-(uses the formula based on n-1).</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>VarPop</b></td>
-      <td>Returns the population variance of the values in the group 
-(uses the formula based on n).</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel enum">
+<h3>Members</h3>
+<table class="table table-condensed"><thead>  <tr>    <th>Name</th>    <th>Value</th>    <th>Description</th>  </tr></thead><tbody>
+<tr>  <td><span class="identifier">None</span></td>  <td>0</td>  <td><p>No aggregate.</p></td><tr>
+<tr>  <td><span class="identifier">Sum</span></td>  <td>1</td>  <td><p>Returns the sum of the numeric values in the group.</p></td><tr>
+<tr>  <td><span class="identifier">Cnt</span></td>  <td>2</td>  <td><p>Returns the count of non-null values in the group.</p></td><tr>
+<tr>  <td><span class="identifier">Avg</span></td>  <td>3</td>  <td><p>Returns the average value of the numeric values in the group.</p></td><tr>
+<tr>  <td><span class="identifier">Max</span></td>  <td>4</td>  <td><p>Returns the maximum value in the group.</p></td><tr>
+<tr>  <td><span class="identifier">Min</span></td>  <td>5</td>  <td><p>Returns the minimum value in the group.</p></td><tr>
+<tr>  <td><span class="identifier">Rng</span></td>  <td>6</td>  <td><p>Returns the difference between the maximum and minimum numeric values in the group.</p></td><tr>
+<tr>  <td><span class="identifier">Std</span></td>  <td>7</td>  <td><p>Returns the sample standard deviation of the numeric values in the group 
+(uses the formula based on n-1).</p></td><tr>
+<tr>  <td><span class="identifier">Var</span></td>  <td>8</td>  <td><p>Returns the sample variance of the numeric values in the group 
+(uses the formula based on n-1).</p></td><tr>
+<tr>  <td><span class="identifier">StdPop</span></td>  <td>9</td>  <td><p>Returns the population standard deviation of the values in the group 
+(uses the formula based on n).</p></td><tr>
+<tr>  <td><span class="identifier">VarPop</span></td>  <td>10</td>  <td><p>Returns the population variance of the values in the group 
+(uses the formula based on n).</p></td><tr>
+<tr>  <td><span class="identifier">CntAll</span></td>  <td>11</td>  <td><p>Returns the count of all values in the group (including nulls).</p></td><tr>
+</tbody></table>
 </div>
-

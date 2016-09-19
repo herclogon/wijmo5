@@ -1,19 +1,18 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { DataSvc } from '../../services/DataSvc';
+import { Component, EventEmitter, Inject, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { InputBaseCmp } from '../input/InputBaseCmp';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
+import { DataSvc } from '../../services/DataSvc';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // Wijmo TrackChanges component.
 @Component({
     selector: 'grid-trackChanges-cmp',
-    templateUrl: 'src/components/infra/trackChangesCmp.html',
-    directives: [wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjMenuSeparator,
-        wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn,
-        wjNg2Input.WjCalendar, CORE_DIRECTIVES]
+    templateUrl: 'src/components/infra/trackChangesCmp.html'
 })
 
 export class TrackChangesCmp extends InputBaseCmp {
@@ -40,4 +39,14 @@ export class TrackChangesCmp extends InputBaseCmp {
     }
 }
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: TrackChangesCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjGridModule, WjInputModule],
+    declarations: [TrackChangesCmp],
+})
+export class TrackChangesModule {
+}
 

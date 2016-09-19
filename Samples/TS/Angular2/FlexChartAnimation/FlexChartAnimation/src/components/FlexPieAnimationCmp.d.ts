@@ -16,7 +16,9 @@ export declare class FlexPieAnimationCmp {
     resetChartData(): void;
     addSlice: () => void;
     removeSlice: () => void;
-    animationModeChanged(args: any): void;
+    animationModeChanged(): void;
     innerRadiusChanged: (sender: wijmo.input.InputNumber) => void;
     durationChanged: (sender: wijmo.input.InputNumber) => void;
+}
+export declare class FlexPieAnimationModule {
 }

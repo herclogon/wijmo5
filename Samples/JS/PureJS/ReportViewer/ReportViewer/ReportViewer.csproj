@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="default.htm" />
+    <Content Include="ReportInfos.xml" />
     <Content Include="resources\wijmo5.png" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\wijmo.viewer.js" />

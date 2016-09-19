@@ -78,10 +78,16 @@ app.controller('appCtrl', function appCtrl($scope) {
     $scope.customColumnHeader = true;
     $scope.customGroupHeader = true;
     $scope.customGroup = true;
+    $scope.customColumnFooter = true;
+    $scope.customBottomLeft = true;
 
     $scope.uiCtx = {
         highlightDownloads: true,
     };
+
+    $scope.addFooterRow = function(s) {
+        s.columnFooters.rows.push(new wijmo.grid.GroupRow());
+    }
 
     $scope.dynaColumnsFlexInit = function (flex) {
         flex.collapseGroupsToLevel(0);

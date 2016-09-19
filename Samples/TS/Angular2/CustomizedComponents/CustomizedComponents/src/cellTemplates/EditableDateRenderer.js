@@ -6,8 +6,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
-var wjInput = require('wijmo/wijmo.angular2.input');
 // Date cell renderer component that allows to edit a cell without switching to the cell edit mode.
 var EditableDateRenderer = (function () {
     function EditableDateRenderer() {
@@ -19,7 +17,6 @@ var EditableDateRenderer = (function () {
         core_1.Component({
             selector: 'editable-date-renderer',
             templateUrl: 'src/cellTemplates/editableDateRenderer.html',
-            directives: [wjInput.WjInputDate, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
         })
     ], EditableDateRenderer);
     return EditableDateRenderer;

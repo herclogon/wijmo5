@@ -38,6 +38,7 @@
     <Content Include="partials\static\intellisense.html" />
     <Content Include="partials\static\minMax.html" />
     <Content Include="partials\static\glyphs.html" />
+    <Content Include="partials\static\toc.html" />
     <Content Include="readme.txt" />
     <Content Include="default.htm" />
     <Content Include="images\chapter.png" />
@@ -59,17 +60,14 @@
     <Content Include="partials\static\home.html" />
     <Content Include="partials\static\references.html" />
     <Content Include="partials\static\sizingAndStyling.html" />
-    <Content Include="partials\static\tocStatic.html" />
     <Content Include="partials\static\whatIsLess.html" />
     <Content Include="scripts\app.js" />
+    <Content Include="styles\print.css" />
     <Content Include="styles\app.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="partials\generated\templates\" />
     <Folder Include="partials\generated\topics\" />
-  </ItemGroup>
-  <ItemGroup>
-    
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config">
@@ -129,4 +127,4 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets')" />
   
-<ItemGroup><Content Include="styles\vendor\wijmo.min.css" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.analytics.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.animation.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.annotation.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.finance.analytics.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.finance.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.hierarchical.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.interaction.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.gauge.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.detail.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.filter.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.grouppanel.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.multirow.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.pdf.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.sheet.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.xlsx.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.input.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.odata.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.olap.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.pdf.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.xlsx.d.ts" /><TypeScriptCompile Include="scripts\definition\angular.d.ts" /><TypeScriptCompile Include="scripts\definition\globalize.d.ts" /><TypeScriptCompile Include="scripts\definition\jquery.d.ts" /><TypeScriptCompile Include="scripts\definition\knockout.d.ts" /></ItemGroup></Project>
+<ItemGroup><Content Include="styles\vendor\wijmo.min.css" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.analytics.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.animation.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.annotation.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.finance.analytics.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.finance.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.hierarchical.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.interaction.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.chart.radar.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.gauge.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.detail.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.filter.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.grouppanel.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.multirow.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.pdf.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.sheet.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.grid.xlsx.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.input.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.odata.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.olap.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.pdf.d.ts" /><TypeScriptCompile Include="scripts\definition\wijmo.xlsx.d.ts" /><TypeScriptCompile Include="scripts\definition\angular.d.ts" /><TypeScriptCompile Include="scripts\definition\globalize.d.ts" /><TypeScriptCompile Include="scripts\definition\jquery.d.ts" /><TypeScriptCompile Include="scripts\definition\knockout.d.ts" /></ItemGroup></Project>

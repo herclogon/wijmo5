@@ -23,5 +23,7 @@ export declare class FlexChartAnimationCmp {
     valueChanged: (sender: wijmo.input.InputNumber) => void;
     addChartSeries: () => void;
     removeChartSeries: () => void;
-    animationModeChanged(args: any): void;
+    animationModeChanged(): void;
+}
+export declare class FlexChartAnimationModule {
 }

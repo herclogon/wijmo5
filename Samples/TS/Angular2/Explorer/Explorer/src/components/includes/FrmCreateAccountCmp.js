@@ -12,6 +12,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var FrmBaseCmp_1 = require('./FrmBaseCmp');
 var FrmCreateAccountCmp = (function (_super) {
     __extends(FrmCreateAccountCmp, _super);
@@ -21,11 +23,25 @@ var FrmCreateAccountCmp = (function (_super) {
     FrmCreateAccountCmp = __decorate([
         core_1.Component({
             selector: 'frm-create-account-cmp',
-            templateUrl: 'src/components/includes/frmCreateAccountCmp.html',
-            directives: [common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES],
+            templateUrl: 'src/components/includes/frmCreateAccountCmp.html'
         })
     ], FrmCreateAccountCmp);
     return FrmCreateAccountCmp;
 }(FrmBaseCmp_1.FrmBaseCmp));
 exports.FrmCreateAccountCmp = FrmCreateAccountCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: FrmCreateAccountCmp }
+]);
+var FrmCreateAccountModule = (function () {
+    function FrmCreateAccountModule() {
+    }
+    FrmCreateAccountModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing],
+            declarations: [FrmCreateAccountCmp],
+        })
+    ], FrmCreateAccountModule);
+    return FrmCreateAccountModule;
+}());
+exports.FrmCreateAccountModule = FrmCreateAccountModule;
 //# sourceMappingURL=FrmCreateAccountCmp.js.map

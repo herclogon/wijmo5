@@ -1,0 +1,64 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Trend Lines
+        </h3>
+        <div class="alert alert-info" role="alert"><b>Important!</b> This feature requires the <a href="http://wijmo.com/5/docs/topic/wijmo.chart.analytics.Module.html">wijmo.chart.analytics</a> extension module.</div>
+        <p>
+            Trend lines are used to represent trends in data and to examine the problems of prediction.
+        </p>
+        <p>
+            The following example indicates moving average trend based on the past prices. User can change the
+            <b>period</b> and <b>type</b> of the moving average line.
+        </p>
+        <ol>
+            <li>
+                <b>period</b>: the calculation period of the moving average line.
+            </li>
+            <li>
+                <b>type</b>: the calculation type of the moving average line. This includes <b>Simple</b>, <b>Weighted</b>, <b>Exponential</b> and <b>Triangular</b> types.
+            </li>
+        </ol>
+    </div>
+    <div>
+
+        <div>
+            <div class="panel-body well">
+                <ul class="list-inline">
+                    <li>
+                        <label id="labelPeriod" for="inputPeriod">Period:</label>
+                        <wj-input-number id="inputPeriod" class="period" control="inputPeriod" value="period"
+                                         min="2"
+                                         max="{{data.length - 1}}"
+                                         step="1"
+                                         format="n0">
+                        </wj-input-number>
+                    </li>
+                    <li>
+                        <label id="labelType" for="movingAverageType">Type:</label>
+                        <wj-menu value="chartProps.movingAverageType" header="Moving Average Type" id="movingAverageType">
+                            <wj-menu-item value="0">Simple</wj-menu-item>
+                            <wj-menu-item value="1">Weighted</wj-menu-item>
+                            <wj-menu-item value="2">Exponential</wj-menu-item>
+                            <wj-menu-item value="3">Triangular</wj-menu-item>
+                        </wj-menu>
+                    </li>
+                </ul>
+            </div>
+            <wj-flex-chart control="tlChart"
+                           header="{{chartProps.header}}"
+                           items-source="data"
+                           chart-type="Line"
+                           symbol-size="4"
+                           binding-x="date">
+                <wj-flex-chart-series name="Close" binding="close"></wj-flex-chart-series>
+                <wj-flex-chart-moving-average binding="close"
+                                              name="{{ chartProps.movingAverageName }}"
+                                              period="{{ chartProps.movingAveragePeriod }}"
+                                              type="{{ chartProps.movingAverageType }}">
+                </wj-flex-chart-moving-average>
+                <wj-flex-chart-legend position="Top"></wj-flex-chart-legend>
+                <wj-flex-chart-axis wj-property="axisY" position="Right"></wj-flex-chart-axis>
+            </wj-flex-chart>
+        </div>
+    </div>

@@ -1153,6 +1153,11 @@ textarea {
     fill: #0085c7;
 }
 
+.wj-gauge .wj-ticks {
+    stroke-width: 2px;
+    stroke: white;
+}
+
 .wj-gauge .wj-min,
 .wj-gauge .wj-max {
     font-size: 60%;

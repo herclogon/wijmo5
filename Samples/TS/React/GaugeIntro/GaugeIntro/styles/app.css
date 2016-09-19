@@ -1,0 +1,103 @@
+body {
+    background-color: #f8f8f8;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    padding: 0 0 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #80044d;
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-left: -12px;
+}
+
+.header {
+    color: #e3bfd5;
+    background-color: #80044d;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        color: #fff;
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+    .header img {
+		float: left;
+		margin: 0 10px 5px 0;
+	}
+
+.pane-content {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+    font-size: 13px;
+    max-height: 350px;
+    overflow: auto;
+    padding: 0 8px;
+    white-space: pre;
+}
+
+.app-input-group {
+    margin: 5px 0 10px;
+}
+    .app-input-group > label {
+        display: block;
+    }
+
+.pane-content code {
+    background-color: #fff;
+    color: #000;
+    padding: 0;
+}
+
+/* 
+ * Custom CSS rules for all gauges
+ */
+.wj-radialgauge {
+    height: 200px;
+    padding: 10px;
+}
+.wj-gauge {
+    margin: 7px 0 5px;
+}
+
+/*
+ *  Custom CSS rules for "Styling" example
+ */
+.custom-gauge.wj-gauge {
+    padding: 0px 10px;
+}
+.custom-gauge.wj-gauge .wj-face path {
+    fill: #d0d0d0;
+    stroke: none;
+}
+.custom-gauge.wj-gauge .wj-pointer path {
+    fill: #404040;
+    stroke: none;
+}
+.custom-gauge.wj-gauge circle.wj-pointer {
+    fill: #404040;
+    stroke: none;
+}
+.custom-gauge.wj-gauge.wj-state-focused circle.wj-pointer {
+    fill: red;
+    stroke: black;
+    stroke-width: 8px;
+}
+
+/*
+ *  Custom CSS rule for "Text" example
+ */
+.text-gauge.wj-gauge text {
+    fill: #7c7cff;
+    font-weight: bold;
+}

@@ -45,11 +45,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\app.routing.js" />
     <Content Include="src\App.js" />
     <Content Include="src\cellTemplates\EditableDateRenderer.js" />
     <Content Include="src\cellTemplates\EditableSelectionRenderer.js" />
     <Content Include="src\cellTemplates\EditableStringRenderer.js" />
     <Content Include="src\customizedComponents\AggregatedGrid.js" />
+    <Content Include="src\customizedComponents\CustomComponentsModule.js" />
     <Content Include="src\customizedComponents\InheritedGrid.js" />
     <Content Include="src\views\AggregatedGridView.js" />
     <Content Include="src\views\InheritedGridView.js" />

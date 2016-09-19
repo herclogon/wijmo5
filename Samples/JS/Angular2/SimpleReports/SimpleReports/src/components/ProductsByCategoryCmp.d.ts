@@ -6,3 +6,5 @@ export declare class ProductsByCategoryCmp {
     constructor(dataSvc: DataSvc);
     select(view: any, prop: string, val: string): any[];
 }
+export declare class ProductsByCategoryModule {
+}

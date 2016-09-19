@@ -15,9 +15,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var DataSvc_1 = require('../../services/DataSvc');
 var InputBaseCmp_1 = require('../input/InputBaseCmp');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // Wijmo Data component.
 var DataCmp = (function (_super) {
     __extends(DataCmp, _super);
@@ -184,13 +186,26 @@ var DataCmp = (function (_super) {
     DataCmp = __decorate([
         core_1.Component({
             selector: 'grid-data-cmp',
-            templateUrl: 'src/components/infra/dataCmp.html',
-            directives: [wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjMenuSeparator,
-                wjNg2Input.WjCollectionViewNavigator, wjNg2Input.WjCollectionViewPager, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/infra/dataCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], DataCmp);
     return DataCmp;
 }(InputBaseCmp_1.InputBaseCmp));
 exports.DataCmp = DataCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: DataCmp }
+]);
+var DataModule = (function () {
+    function DataModule() {
+    }
+    DataModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing, wijmo_angular2_input_1.WjInputModule],
+            declarations: [DataCmp],
+        })
+    ], DataModule);
+    return DataModule;
+}());
+exports.DataModule = DataModule;
 //# sourceMappingURL=DataCmp.js.map

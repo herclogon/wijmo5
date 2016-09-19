@@ -60,12 +60,18 @@ export class MenuSvc {
                     { "text": "Custom Cells", "url": "/grid/ccells", "alias": "GridCustomCells" },
                     { "text": "OData", "url": "/grid/odata", "alias": "GridOData" },
                     { "text": "Editing", "url": "/grid/editing", "alias": "GridEditing" },
-                    { "text": "Frozen Cells", "url": "/grid/frozen", "alias": "GridFrozen"  },
+                    { "text": "Frozen Cells", "url": "/grid/frozen", "alias": "GridFrozen" },
+                    { "text": "Column Footers", "url": "/grid/columnfooter", "alias": "GridColumnFooter" },
                     { "text": "Right To Left", "url": "/grid/rtl", "alias": "GridRtl" },
                     { "text": "Templates", "url": "/grid/templates", "alias": "GridTemplates" },
                     { "text": "Dynamic Columns", "url": "/grid/dynacols", "alias": "GridDynaCols" },
                     { "text": "Cell Edit Templates", "url": "/grid/celledittempl", "alias": "GridCellEditTempl" },
                     { "text": "No Directive", "url": "/grid/nodctv", "alias": "GridNoDctv" },
+                    { "text": "Filter", "url": "/grid/filter", "alias": "GridFilter" },
+                    { "text": "Group Panel", "url": "/grid/grouppanel", "alias": "GridGroupPanel" },
+                    { "text": "Row Details", "url": "/grid/rowdetails", "alias": "GridRowDetails" },
+                    { "text": "Excel Import/Export", "url": "/grid/excelimportexport", "alias": "GridExcelImportExport" },
+                    { "text": "Pdf Export", "url": "/grid/pdfexport", "alias": "GridPdfExport" },
                 ]
             },
             {
@@ -85,7 +91,13 @@ export class MenuSvc {
                     { "text": "LineMarker", "url": "/chart/marker", "alias": "ChartMarker" },
                     { "text": "Zones", "url": "/chart/zones", "alias": "ChartZones"  },
                     { "text": "Axes", "url": "/chart/axes", "alias": "ChartAxes" },
-                    { "text": "Plot areas", "url": "/chart/plotAreas", "alias": "ChartPlotAreas" }
+                    { "text": "Plot areas", "url": "/chart/plotAreas", "alias": "ChartPlotAreas" },
+                    { "text": "Animation", "url": "/chart/animation", "alias": "ChartAnimation" },
+                    { "text": "Annotations", "url": "/chart/annotation", "alias": "ChartAnnotation" },
+                    { "text": "Range Selector", "url": "/chart/rangeSelector", "alias": "ChartRangeSelector" },
+                    { "text": "Waterfall", "url": "/chart/waterfall", "alias": "ChartWaterfall" },
+                    { "text": "Trendline", "url": "/chart/trendLines", "alias": "ChartTrendLines" },
+                     { "text": "Sunburst", "url": "/chart/sunburst", "alias": "ChartSunburst" }
                 ]
             },
             {
@@ -93,7 +105,8 @@ export class MenuSvc {
                 "links": [
                     { "text": "Introduction", "url": "/piechart/intro", "alias": "PieChartIntro" },
                     { "text": "Selection", "url": "/piechart/selection", "alias": "PieChartSelection" },
-                    { "text": "ItemFormatter", "url": "/piechart/itemFormatter", "alias": "PieChartItemFormatter" }
+                    { "text": "ItemFormatter", "url": "/piechart/itemFormatter", "alias": "PieChartItemFormatter" },
+                    { "text": "Animation", "url": "/piechart/animation", "alias": "PieChartAnimation" }
                 ]
             },
             {

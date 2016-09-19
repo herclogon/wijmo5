@@ -14,8 +14,13 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
-var InputBaseCmp_1 = require('../input/InputBaseCmp');
+var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var DataSvc_1 = require('../../services/DataSvc');
+var InputBaseCmp_1 = require('../input/InputBaseCmp');
+var wijmo_angular2_core_1 = require('wijmo/wijmo.angular2.core');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 var wjNg2Input = require('wijmo/wijmo.angular2.input');
 // Wijmo template component.
 var TemplatesCmp = (function (_super) {
@@ -102,12 +107,25 @@ var TemplatesCmp = (function (_super) {
     TemplatesCmp = __decorate([
         core_1.Component({
             selector: 'grid-templates-cmp',
-            templateUrl: 'src/components/infra/templatesCmp.html',
-            directives: [wjNg2Input.WjInputDate, wjNg2Input.WjInputTime, wjNg2Input.WjCalendar, wjNg2Input.WjInputNumber, wjNg2Input.WjComboBox]
-        }),
+            templateUrl: 'src/components/infra/templatesCmp.html' }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], TemplatesCmp);
     return TemplatesCmp;
 }(InputBaseCmp_1.InputBaseCmp));
 exports.TemplatesCmp = TemplatesCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: TemplatesCmp }
+]);
+var TemplatesModule = (function () {
+    function TemplatesModule() {
+    }
+    TemplatesModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing, wijmo_angular2_core_1.WjCoreModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [TemplatesCmp],
+        })
+    ], TemplatesModule);
+    return TemplatesModule;
+}());
+exports.TemplatesModule = TemplatesModule;
 //# sourceMappingURL=TemplatesCmp.js.map

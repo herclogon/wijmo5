@@ -1,190 +1,184 @@
-<h2>FlexSheetPanel Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">FlexSheetPanel</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a></dd>
-<dt>Module</dt><dd>wijmo.grid.sheet</dd>
-<dt>File</dt><dd>wijmo.grid.sheet.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.grid.sheet.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.grid.sheet.Module.html"><span class="identifier">wijmo.grid.sheet</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p>Defines the extension of the <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a> class, which is used by <b>FlexSheet</b> where 
-the base <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> class uses <b>GridPanel</b>. For example, the <b>cells</b> property returns an instance
-of this class.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+<div class="comment"><p>Defines the extension of the <a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a> class, which is used by <b>FlexSheet</b> where 
+the base <a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a> class uses <a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a>. For example, the <b>cells</b> property returns an instance
+of this class.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(grid, cellType, rows, cols, element): <a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html"><b>FlexSheetPanel</b></a></td>
-      <td><p>
-<b>grid</b> (<a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a>): The <a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a> object that owns the panel.<br/><b>cellType</b> (<a href="topic/wijmo.grid.CellType.Enum.html"><b>CellType</b></a>): The type of cell in the panel.<br/><b>rows</b> (<a href="topic/wijmo.grid.RowCollection.Class.html"><b>RowCollection</b></a>): The rows displayed in the panel.<br/><b>cols</b> (<a href="topic/wijmo.grid.ColumnCollection.Class.html"><b>ColumnCollection</b></a>): The columns displayed in the panel.<br/><b>element</b> (<b>HTMLElement</b>): The HTMLElement that hosts the cells in the control.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html"><b>FlexSheetPanel</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty inherited"><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html/#cellType">cellType</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html/#columns">columns</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html/#grid">grid</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html/#height">height</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html/#hostElement">hostElement</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html/#rows">rows</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html/#viewRange">viewRange</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html/#width">width</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html/#getCellBoundingRect">getCellBoundingRect</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html/#getCellData">getCellData</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html/#getSelectedState">getSelectedState</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html/#setCellData">setCellData</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(grid: <a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a>, cellType: <a href="topic/wijmo.grid.CellType.Enum.html"><span class="identifier">CellType</span></a>, rows: <a href="topic/wijmo.grid.RowCollection.Class.html"><span class="identifier">RowCollection</span></a>, cols: <a href="topic/wijmo.grid.ColumnCollection.Class.html"><span class="identifier">ColumnCollection</span></a>, element: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a>): <a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html"><span class="identifier">FlexSheetPanel</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html"><span class="identifier">FlexSheetPanel</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>grid</b>: <a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a><br/><p>The <a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a> object that owns the panel.</p></li><li><b>cellType</b>: <a href="topic/wijmo.grid.CellType.Enum.html"><span class="identifier">CellType</span></a><br/><p>The type of cell in the panel.</p></li><li><b>rows</b>: <a href="topic/wijmo.grid.RowCollection.Class.html"><span class="identifier">RowCollection</span></a><br/><p>The rows displayed in the panel.</p></li><li><b>cols</b>: <a href="topic/wijmo.grid.ColumnCollection.Class.html"><span class="identifier">ColumnCollection</span></a><br/><p>The columns displayed in the panel.</p></li><li><b>element</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a><br/><p>The HTMLElement that hosts the cells in the control.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.grid.sheet.FlexSheetPanel.Class.html"><span class="identifier">FlexSheetPanel</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>cellType</b></td>
-      <td><a href="topic/wijmo.grid.CellType.Enum.html"><b>CellType</b></a></td>
-      <td>Gets the type of cell contained in the panel.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>columns</b></td>
-      <td><a href="topic/wijmo.grid.ColumnCollection.Class.html"><b>ColumnCollection</b></a></td>
-      <td>Gets the panel's column collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>grid</b></td>
-      <td><a href="topic/wijmo.grid.FlexGrid.Class.html"><b>FlexGrid</b></a></td>
-      <td>Gets the grid that owns the panel.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>height</b></td>
-      <td><b>number</b></td>
-      <td>Gets the total height of the content in this panel.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>hostElement</b></td>
-      <td><b>HTMLElement</b></td>
-      <td>Gets the host element for the panel.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>rows</b></td>
-      <td><a href="topic/wijmo.grid.RowCollection.Class.html"><b>RowCollection</b></a></td>
-      <td>Gets the panel's row collection.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>viewRange</b></td>
-      <td><a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a></td>
-      <td>Gets a <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a> that indicates the range of cells currently visible on the panel.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>width</b></td>
-      <td><b>number</b></td>
-      <td>Gets the total width of the content in the panel.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="cellType" class="member-panel mproperty inherited">
+<h3>cellType</h3>
+<div class="comment"><p>Gets the type of cell contained in the panel.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.grid.CellType.Enum.html"><span class="identifier">CellType</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div id="columns" class="member-panel mproperty inherited">
+<h3>columns</h3>
+<div class="comment"><p>Gets the panel's column collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.grid.ColumnCollection.Class.html"><span class="identifier">ColumnCollection</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>getCellBoundingRect</b>&#8203;(r, c, raw?): <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a></td>
-      <td><p>
-<b>r</b> (<b>number</b>): The index of the row that contains the cell.<br/><b>c</b> (<b>number</b>): The index of the column that contains the cell.<br/><b>raw?</b> (<b>boolean</b>): Whether to return the rectangle in raw panel coordinates as opposed to viewport coordinates.<br/></p>
-</td>
-      <td><p>Gets a cell's bounds in viewport coordinates.</p>
-
-<p>The returned value is a <a href="topic/wijmo.Rect.Class.html"><b>Rect</b></a> object which contains the position and dimensions 
+<div id="grid" class="member-panel mproperty inherited">
+<h3>grid</h3>
+<div class="comment"><p>Gets the grid that owns the panel.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.grid.FlexGrid.Class.html"><span class="identifier">FlexGrid</span></a></dd>
+</dl>
+</div>
+<div id="height" class="member-panel mproperty inherited">
+<h3>height</h3>
+<div class="comment"><p>Gets the total height of the content in this panel.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="hostElement" class="member-panel mproperty inherited">
+<h3>hostElement</h3>
+<div class="comment"><p>Gets the host element for the panel.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a></dd>
+</dl>
+</div>
+<div id="rows" class="member-panel mproperty inherited">
+<h3>rows</h3>
+<div class="comment"><p>Gets the panel's row collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.grid.RowCollection.Class.html"><span class="identifier">RowCollection</span></a></dd>
+</dl>
+</div>
+<div id="viewRange" class="member-panel mproperty inherited">
+<h3>viewRange</h3>
+<div class="comment"><p>Gets a <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a> that indicates the range of cells currently visible on the panel.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a></dd>
+</dl>
+</div>
+<div id="width" class="member-panel mproperty inherited">
+<h3>width</h3>
+<div class="comment"><p>Gets the total width of the content in the panel.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="getCellBoundingRect" class="member-panel mmethod inherited">
+<h3>getCellBoundingRect</h3>
+<pre>getCellBoundingRect(r: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, c: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, raw?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <a href="topic/wijmo.Rect.Class.html"><span class="identifier">Rect</span></a></pre>
+<div class="comment"><p>Gets a cell's bounds in viewport coordinates.</p>
+<p>The returned value is a <a href="topic/wijmo.Rect.Class.html"><span class="identifier">Rect</span></a> object which contains the position and dimensions 
 of the cell in viewport coordinates.
 The viewport coordinates are the same as those used by the 
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element.getBoundingClientRect"
-target="_blank">getBoundingClientRect</a> method.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>getCellData</b>&#8203;(r, c, formatted): <b>any</b></td>
-      <td><p>
-<b>r</b> (<b>number</b>): The row index of the cell.<br/><b>c</b> (<b>any</b>): The index, name, or binding of the column that contains the cell.<br/><b>formatted</b> (<b>boolean</b>): Whether to format the value for display.<br/></p>
-</td>
-      <td>Gets the value stored in a cell in the panel.<br/><span class="text-info">(inherited from <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>getSelectedState</b>&#8203;(r, c, rng): <a href="topic/wijmo.grid.SelectedState.Enum.html"><b>SelectedState</b></a></td>
-      <td><p>
-<b>r</b> (<b>number</b>): Specifies Row index of the cell.<br/><b>c</b> (<b>number</b>): Specifies Column index of the cell.<br/><b>rng</b> (<a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a>): <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a> that contains the cell that would be included.<br/></p>
-</td>
-      <td><p>Gets a <a href="topic/wijmo.grid.SelectedState.Enum.html"><b>SelectedState</b></a> value that indicates the selected state of a cell.</p>
-
-<p>Overrides this method to support multiple selection showSelectedHeaders for <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a></p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>setCellData</b>&#8203;(r, c, value, coerce?): <b>boolean</b></td>
-      <td><p>
-<b>r</b> (<b>number</b>): The index of the row that contains the cell.<br/><b>c</b> (<b>any</b>): The index, name, or binding of the column that contains the cell.<br/><b>value</b> (<b>any</b>): The value to store in the cell.<br/><b>coerce?</b> (<b>boolean</b>): A value indicating whether to change the value automatically to match the column's data type.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
-</td>
-      <td>Sets the content of a cell in the panel.<br/><br/><b>Returns</b> Returns true if the value is stored successfully, otherwise false (failed cast).</td>
-    </tr>
-</tbody>
-</table>
+target="_blank">getBoundingClientRect</a> method.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>r</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The index of the row that contains the cell.</p></li><li><b>c</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The index of the column that contains the cell.</p></li><li><b>raw</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether to return the rectangle in raw panel coordinates as opposed to viewport coordinates.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.Rect.Class.html"><span class="identifier">Rect</span></a></dd>
+</dl>
 </div>
-
+<div id="getCellData" class="member-panel mmethod inherited">
+<h3>getCellData</h3>
+<pre>getCellData(r: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, c: <span class="identifier">any</span>, formatted: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">any</span></pre>
+<div class="comment"><p>Gets the value stored in a cell in the panel.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>r</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The row index of the cell.</p></li><li><b>c</b>: <span class="identifier">any</span><br/><p>The index, name, or binding of the column that contains the cell.</p></li><li><b>formatted</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a><br/><p>Whether to format the value for display.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="getSelectedState" class="member-panel mmethod">
+<h3>getSelectedState</h3>
+<pre>getSelectedState(r: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, c: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, rng: <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a>): <a href="topic/wijmo.grid.SelectedState.Enum.html"><span class="identifier">SelectedState</span></a></pre>
+<div class="comment"><p>Gets a <a href="topic/wijmo.grid.SelectedState.Enum.html"><span class="identifier">SelectedState</span></a> value that indicates the selected state of a cell.</p>
+<p>Overrides this method to support multiple selection showSelectedHeaders for <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><span class="identifier">FlexSheet</span></a></p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>r</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Specifies Row index of the cell.</p></li><li><b>c</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Specifies Column index of the cell.</p></li><li><b>rng</b>: <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a><br/><p><a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a> that contains the cell that would be included.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.grid.SelectedState.Enum.html"><span class="identifier">SelectedState</span></a></dd>
+</dl>
+</div>
+<div id="setCellData" class="member-panel mmethod">
+<h3>setCellData</h3>
+<pre>setCellData(r: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, c: <span class="identifier">any</span>, value: <span class="identifier">any</span>, coerce?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Sets the content of a cell in the panel.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>r</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The index of the row that contains the cell.</p></li><li><b>c</b>: <span class="identifier">any</span><br/><p>The index, name, or binding of the column that contains the cell.</p></li><li><b>value</b>: <span class="identifier">any</span><br/><p>The value to store in the cell.</p></li><li><b>coerce</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>A value indicating whether to change the value automatically to match the column's data type.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+</div>

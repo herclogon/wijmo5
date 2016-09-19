@@ -14,9 +14,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var GridBaseCmp_1 = require('./GridBaseCmp');
+var router_1 = require('@angular/router');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
 // FlexGrid Column Layout component.
 var GridColumnLayoutCmp = (function (_super) {
     __extends(GridColumnLayoutCmp, _super);
@@ -44,12 +46,26 @@ var GridColumnLayoutCmp = (function (_super) {
     GridColumnLayoutCmp = __decorate([
         core_1.Component({
             selector: 'grid-column-layout-cmp',
-            templateUrl: 'src/components/grid/gridColumnLayoutCmp.html',
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn]
+            templateUrl: 'src/components/grid/gridColumnLayoutCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], GridColumnLayoutCmp);
     return GridColumnLayoutCmp;
 }(GridBaseCmp_1.GridBaseCmp));
 exports.GridColumnLayoutCmp = GridColumnLayoutCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: GridColumnLayoutCmp }
+]);
+var GridColumnLayoutModule = (function () {
+    function GridColumnLayoutModule() {
+    }
+    GridColumnLayoutModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_grid_1.WjGridModule],
+            declarations: [GridColumnLayoutCmp],
+        })
+    ], GridColumnLayoutModule);
+    return GridColumnLayoutModule;
+}());
+exports.GridColumnLayoutModule = GridColumnLayoutModule;
 //# sourceMappingURL=GridColumnLayoutCmp.js.map

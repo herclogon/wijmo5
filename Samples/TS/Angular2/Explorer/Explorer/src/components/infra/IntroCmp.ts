@@ -1,6 +1,10 @@
 ﻿'use strict';
 
-import { Component  } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ModuleWithProviders } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
     selector: 'intro-cmp',
@@ -10,4 +14,13 @@ import { Component  } from '@angular/core';
 export class IntroCmp {
 }
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: IntroCmp }
+]);
 
+@NgModule({
+    imports: [CommonModule, routing],
+    declarations: [IntroCmp],
+})
+export class IntroModule {
+}

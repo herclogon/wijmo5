@@ -1,20 +1,21 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Input, ViewChild, Inject} from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, forwardRef, Type, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { GridBaseCmp } from './GridBaseCmp';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Core from 'wijmo/wijmo.angular2.core';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
+import { RouterModule } from '@angular/router';
+import { WjCoreModule } from 'wijmo/wijmo.angular2.core';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // FlexGrid Editing component.
 @Component({
     selector: 'grid-editing-cmp',
-    templateUrl: 'src/components/grid/gridEditingCmp.html',
-    directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate, CORE_DIRECTIVES,
-        wjNg2Input.WjCollectionViewNavigator, wjNg2Input.WjInputDate, wjNg2Input.WjComboBox, wjNg2Input.WjInputNumber,
-        wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjMenuSeparator]
+    templateUrl: 'src/components/grid/gridEditingCmp.html'
 })
 
 
@@ -186,4 +187,14 @@ export class GridEditingCmp extends GridBaseCmp {
         this._amount = this.flex.collectionView.currentItem.amount;
         this._amount2 = this.flex.collectionView.currentItem.amount2;
     }
+}
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: GridEditingCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjCoreModule, WjGridModule, WjInputModule],
+    declarations: [GridEditingCmp],
+})
+export class GridEditingModule {
 }

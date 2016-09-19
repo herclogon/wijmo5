@@ -1,0 +1,15 @@
+﻿<div>
+    <h2 class="title">{{fields.purchaseSlipTitle}}</h2>
+    <wj-multi-row control="ctx.multiRow" items-source="ctx.data" layout-definition="ctx.layoutDef" allow-add-new="true">
+    </wj-multi-row>
+    <wj-flex-grid control="ctx.footer">
+    </wj-flex-grid>
+    <div class="btn-group">
+        <button class="btn btn-default" ng-click="exportToExcel()">
+            {{fields.exportXlsx}}
+        </button>
+        <button class="btn btn-default" ng-click="exportToPDF()">
+            {{fields.exportPDF}}
+        </button>
+    </div>
+</div>

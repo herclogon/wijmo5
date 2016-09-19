@@ -67,4 +67,20 @@ var CellRangePipe = (function () {
     return CellRangePipe;
 }());
 exports.CellRangePipe = CellRangePipe;
+//exports
+var AppPipesModule = (function () {
+    function AppPipesModule() {
+    }
+    AppPipesModule = __decorate([
+        core_1.NgModule({
+            //imports: [Pipe],
+            declarations: [GlbzPipe, ToDatePipe, CellRangePipe],
+            exports: [GlbzPipe,
+                ToDatePipe,
+                CellRangePipe],
+        })
+    ], AppPipesModule);
+    return AppPipesModule;
+}());
+exports.AppPipesModule = AppPipesModule;
 //# sourceMappingURL=appPipes.js.map

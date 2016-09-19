@@ -10,6 +10,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
 var DataSvc_1 = require('../services/DataSvc');
 var ProductsByCategoryCmp = (function () {
     function ProductsByCategoryCmp(dataSvc) {
@@ -31,12 +32,26 @@ var ProductsByCategoryCmp = (function () {
     ProductsByCategoryCmp = __decorate([
         core_1.Component({
             selector: 'product-by-catalog-cmp',
-            templateUrl: 'src/components/productsByCategoryCmp.html',
-            directives: [common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/productsByCategoryCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], ProductsByCategoryCmp);
     return ProductsByCategoryCmp;
 }());
 exports.ProductsByCategoryCmp = ProductsByCategoryCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ProductsByCategoryCmp }
+]);
+var ProductsByCategoryModule = (function () {
+    function ProductsByCategoryModule() {
+    }
+    ProductsByCategoryModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing],
+            declarations: [ProductsByCategoryCmp],
+        })
+    ], ProductsByCategoryModule);
+    return ProductsByCategoryModule;
+}());
+exports.ProductsByCategoryModule = ProductsByCategoryModule;
 //# sourceMappingURL=ProductsByCategoryCmp.js.map

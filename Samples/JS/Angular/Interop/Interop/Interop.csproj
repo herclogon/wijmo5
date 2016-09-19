@@ -96,6 +96,8 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="scripts\vendor\wijmo.min.js" />
     <Content Include="scripts\vendor\wijmo.input.min.js" />
     <Content Include="scripts\vendor\wijmo.grid.min.js" />

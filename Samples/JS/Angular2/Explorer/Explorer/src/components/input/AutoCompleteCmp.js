@@ -15,9 +15,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
 var InputBaseCmp_1 = require('./InputBaseCmp');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // AutoComplete sample component.
 var AutoCompleteCmp = (function (_super) {
     __extends(AutoCompleteCmp, _super);
@@ -60,12 +61,26 @@ var AutoCompleteCmp = (function (_super) {
     AutoCompleteCmp = __decorate([
         core_1.Component({
             selector: 'auto-complete-cmp',
-            templateUrl: 'src/components/input/autoCompleteCmp.html',
-            directives: [wjNg2Input.WjAutoComplete, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/input/autoCompleteCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], AutoCompleteCmp);
     return AutoCompleteCmp;
 }(InputBaseCmp_1.InputBaseCmp));
 exports.AutoCompleteCmp = AutoCompleteCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: AutoCompleteCmp }
+]);
+var AutoCompleteModule = (function () {
+    function AutoCompleteModule() {
+    }
+    AutoCompleteModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_input_1.WjInputModule],
+            declarations: [AutoCompleteCmp],
+        })
+    ], AutoCompleteModule);
+    return AutoCompleteModule;
+}());
+exports.AutoCompleteModule = AutoCompleteModule;
 //# sourceMappingURL=AutoCompleteCmp.js.map

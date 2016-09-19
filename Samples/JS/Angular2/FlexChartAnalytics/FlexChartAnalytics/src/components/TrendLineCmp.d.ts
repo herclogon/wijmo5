@@ -23,3 +23,5 @@ export declare class TrendLineCmp implements AfterViewInit {
     orderChanged: (input: wijmo.input.InputNumber) => void;
     update(): void;
 }
+export declare class TrendLineModule {
+}

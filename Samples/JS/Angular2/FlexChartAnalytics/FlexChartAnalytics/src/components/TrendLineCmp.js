@@ -10,9 +10,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
-var wjNg2Analytics = require('wijmo/wijmo.angular2.chart.analytics');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_chart_analytics_1 = require('wijmo/wijmo.angular2.chart.analytics');
 var DataSvc_1 = require('./../services/DataSvc');
 //TrendLine sample component
 var TrendLineCmp = (function () {
@@ -94,13 +96,26 @@ var TrendLineCmp = (function () {
     TrendLineCmp = __decorate([
         core_1.Component({
             selector: 'trend-line-cmp',
-            templateUrl: 'src/components/TrendLineCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, wjNg2Chart.WjFlexChartLineMarker,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjInputNumber, wjNg2Analytics.WjFlexChartTrendLine, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
+            templateUrl: 'src/components/TrendLineCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], TrendLineCmp);
     return TrendLineCmp;
 }());
 exports.TrendLineCmp = TrendLineCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: TrendLineCmp }
+]);
+var TrendLineModule = (function () {
+    function TrendLineModule() {
+    }
+    TrendLineModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, forms_1.FormsModule, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_input_1.WjInputModule, wijmo_angular2_chart_analytics_1.WjChartAnalyticsModule],
+            declarations: [TrendLineCmp],
+        })
+    ], TrendLineModule);
+    return TrendLineModule;
+}());
+exports.TrendLineModule = TrendLineModule;
 //# sourceMappingURL=TrendLineCmp.js.map

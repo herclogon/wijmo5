@@ -60,6 +60,12 @@
     <None Include="resources\wijmo.png" />
     <None Include="resources\wijmo5.png" />
     <Content Include="src\app.html" />
+    <Content Include="src\components\chart\chartSunburstCmp.html" />
+    <Content Include="src\components\chart\chartWaterfallCmp.html" />
+    <Content Include="src\components\chart\chartTrendLinesCmp.html" />
+    <Content Include="src\components\chart\chartRangeSelectorCmp.html" />
+    <Content Include="src\components\chart\chartAnnotationCmp.html" />
+    <Content Include="src\components\chart\chartAnimationCmp.html" />
     <Content Include="src\components\chart\chartMarkerCmp.html" />
     <Content Include="src\components\chart\chartFinanceCmp.html" />
     <Content Include="src\components\chart\chartHitTestCmp.html" />
@@ -80,7 +86,12 @@
     <Content Include="src\components\gauge\linearGaugeCmp.html" />
     <Content Include="src\components\gauge\radialGaugeCmp.html" />
     <Content Include="src\components\grid\gridCellEditTemplatesCmp.html" />
+    <Content Include="src\components\grid\gridColumnFooterCmp.html" />
     <Content Include="src\components\grid\gridDynamicColumnsCmp.html" />
+    <Content Include="src\components\grid\gridPdfExportCmp.html" />
+    <Content Include="src\components\grid\gridExcelImportExportCmp.html" />
+    <Content Include="src\components\grid\gridRowDetailsCmp.html" />
+    <Content Include="src\components\grid\gridGroupPanelCmp.html" />
     <Content Include="src\components\grid\gridGroupingCmp.html" />
     <Content Include="src\components\grid\gridIntroCmp.html" />
     <Content Include="src\components\grid\gridPagingCmp.html" />
@@ -92,6 +103,7 @@
     <Content Include="src\components\grid\gridFrozenCmp.html" />
     <Content Include="src\components\grid\gridRtlCmp.html" />
     <Content Include="src\components\grid\gridNoDctvCmp.html" />
+    <Content Include="src\components\grid\gridFilterCmp.html" />
     <Content Include="src\components\grid\gridUnboundCmp.html" />
     <Content Include="src\components\grid\gridTreeCmp.html" />
     <Content Include="src\components\grid\gridStarSizingCmp.html" />
@@ -120,6 +132,7 @@
     <Content Include="src\components\input\listBoxCmp.html" />
     <Content Include="src\components\input\menuCmp.html" />
     <Content Include="src\components\input\popupCmp.html" />
+    <Content Include="src\components\piechart\pieChartAnimationCmp.html" />
     <Content Include="src\components\piechart\pieChartIntroCmp.html" />
     <Content Include="src\components\piechart\pieChartItemFormatterCmp.html" />
     <Content Include="src\components\piechart\pieChartSelectionCmp.html" />
@@ -155,7 +168,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\app.routing.js" />
     <Content Include="src\app.js" />
+    <Content Include="src\components\chart\ChartSunburstCmp.js" />
+    <Content Include="src\components\chart\ChartWaterfallCmp.js" />
+    <Content Include="src\components\chart\ChartTrendLinesCmp.js" />
+    <Content Include="src\components\chart\ChartRangeSelectorCmp.js" />
+    <Content Include="src\components\chart\ChartAnnotationCmp.js" />
+    <Content Include="src\components\chart\ChartAnimationCmp.js" />
     <Content Include="src\components\chart\ChartMarkerCmp.js" />
     <Content Include="src\components\chart\ChartFinanceCmp.js" />
     <Content Include="src\components\chart\ChartHitTestCmp.js" />
@@ -178,7 +198,12 @@
     <Content Include="src\components\gauge\RadialGaugeCmp.js" />
     <Content Include="src\components\grid\GridBaseCmp.js" />
     <Content Include="src\components\grid\GridCellEditTemplatesCmp.js" />
+    <Content Include="src\components\grid\GridColumnFooterCmp.js" />
     <Content Include="src\components\grid\GridDynamicColumnsCmp.js" />
+    <Content Include="src\components\grid\GridPdfExportCmp.js" />
+    <Content Include="src\components\grid\GridExcelImportExportCmp.js" />
+    <Content Include="src\components\grid\GridRowDetailsCmp.js" />
+    <Content Include="src\components\grid\GridGroupPanelCmp.js" />
     <Content Include="src\components\grid\GridGroupingCmp.js" />
     <Content Include="src\components\grid\GridIntroCmp.js" />
     <Content Include="src\components\grid\GridPagingCmp.js" />
@@ -190,6 +215,7 @@
     <Content Include="src\components\grid\GridFrozenCmp.js" />
     <Content Include="src\components\grid\GridRtlCmp.js" />
     <Content Include="src\components\grid\GridNoDctvCmp.js" />
+    <Content Include="src\components\grid\GridFilterCmp.js" />
     <Content Include="src\components\grid\GridUnboundCmp.js" />
     <Content Include="src\components\grid\GridTreeCmp.js" />
     <Content Include="src\components\grid\GridStarSizingCmp.js" />
@@ -220,6 +246,7 @@
     <Content Include="src\components\input\ListBoxCmp.js" />
     <Content Include="src\components\input\MenuCmp.js" />
     <Content Include="src\components\input\PopupCmp.js" />
+    <Content Include="src\components\piechart\PieChartAnimationCmp.js" />
     <Content Include="src\components\piechart\PieChartBaseCmp.js" />
     <Content Include="src\components\piechart\PieChartIntroCmp.js" />
     <Content Include="src\components\piechart\PieChartItemFormatterCmp.js" />
@@ -356,6 +383,18 @@
     <Content Include="scripts\vendor\wijmo.grid.min.js" />
     <Content Include="scripts\vendor\wijmo.chart.min.js" />
     <Content Include="scripts\vendor\wijmo.gauge.min.js" />
+    <Content Include="scripts\vendor\wijmo.grid.filter.min.js" />
+    <Content Include="scripts\vendor\wijmo.grid.grouppanel.min.js" />
+    <Content Include="scripts\vendor\wijmo.grid.detail.min.js" />
+    <Content Include="scripts\vendor\wijmo.grid.xlsx.min.js" />
+    <Content Include="scripts\vendor\wijmo.xlsx.min.js" />
+    <Content Include="scripts\vendor\wijmo.pdf.min.js" />
+    <Content Include="scripts\vendor\wijmo.grid.pdf.min.js" />
+    <Content Include="scripts\vendor\wijmo.chart.animation.min.js" />
+    <Content Include="scripts\vendor\wijmo.chart.annotation.min.js" />
+    <Content Include="scripts\vendor\wijmo.chart.interaction.min.js" />
+    <Content Include="scripts\vendor\wijmo.chart.analytics.min.js" />
+    <Content Include="scripts\vendor\wijmo.chart.hierarchical.min.js" />
     <Content Include="scripts\vendor\wijmo.angular2.min.js" />
     <Content Include="scripts\vendor\wijmo.culture.ar-AE.js" />
     <Content Include="scripts\vendor\wijmo.culture.bg.js" />

@@ -1,16 +1,16 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, ViewChild, AfterViewInit } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // Chart marker component
 @Component({
     selector: 'chart-marker-cmp',
-    templateUrl: 'src/components/chart/chartMarkerCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis,
-        wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Chart.WjFlexChartLineMarker, CORE_DIRECTIVES]
+    templateUrl: 'src/components/chart/chartMarkerCmp.html'
 })
 
 export class ChartMarkerCmp implements AfterViewInit{
@@ -82,4 +82,15 @@ export class ChartMarkerCmp implements AfterViewInit{
         }
         return html;
     }
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ChartMarkerCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjChartModule, WjInputModule],
+    declarations: [ChartMarkerCmp],
+})
+export class ChartMarkerModule {
 }

@@ -21,3 +21,5 @@ export declare module FlexChartAnnotation {
         _fromOADate(val: any): Date;
     }
 }
+export declare class AppModule {
+}

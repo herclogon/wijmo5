@@ -1,0 +1,31 @@
+<div class="header-panel member">
+<h2><span class="identifier">wjFlexChartAnnotation</span> Class</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd class="filename">wijmo.knockout.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.knockout.Module.html"><span class="identifier">wijmo.knockout</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
+</dl>
+<div class="comment"><p>KnockoutJS binding for annotations.</p>
+<p>The <b>wjFlexChartAnnotation</b> must be contained in a
+<a href="topic/wijmo.knockout.wjFlexChartAnnotationLayer.Class.html"><span class="identifier">wjFlexChartAnnotationLayer</span></a> binding.For example:
+</p>
+
+<pre>&lt;p&gt;Here is a AnnotationLayer:&lt;/p&gt;
+&lt;div data-bind="wjFinancialChart: { itemsSource: fData, bindingX: 'date', chartType:'Candlestick' }"&gt;
+   &lt;div data-bind="wjFinancialChartSeries: { bindingX: 'date', binding: 'high,low,open,close' }"&gt;&lt;/div&gt;
+   &lt;div data-bind="wjFlexChartAnnotationLayer: {}"&gt;
+       &lt;div data-bind="wjFlexChartAnnotation: { type: 'Rectangle', content: 'E',height:20, width:20,attachment:'DataIndex',pointIndex: 10}"&gt;&lt;/div&gt;
+       &lt;div data-bind="wjFlexChartAnnotation: { type: 'Ellipse', content: 'E',height:20, width:20,attachment:'DataIndex',pointIndex: 30}"&gt;&lt;/div&gt;
+   &lt;/div&gt;
+      &lt;/div&gt;</pre>
+<p>The <b>wjFlexChartAnnotation</b> is used to represent all types of
+possible annotation shapes like <b>Circle</b>, <b>Rectangle</b>, <b>Polygon</b>
+and so on. The type of annotation shape is specified
+in the <b>type</b> attribute.</p></div>
+</div>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+</div>

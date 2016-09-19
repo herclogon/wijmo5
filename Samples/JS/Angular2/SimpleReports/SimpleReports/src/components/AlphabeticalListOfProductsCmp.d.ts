@@ -6,3 +6,5 @@ export declare class AlphabeticalListOfProductsCmp {
     constructor(dataSvc: DataSvc);
     find(view: any, prop: any, val: any): any;
 }
+export declare class AlphabeticalListOfProductsModule {
+}

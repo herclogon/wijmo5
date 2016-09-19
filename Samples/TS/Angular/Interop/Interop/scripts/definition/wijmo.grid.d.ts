@@ -1,6 +1,6 @@
 /*
     *
-    * Wijmo Library 5.20162.198
+    * Wijmo Library 5.20162.207
     * http://wijmo.com/
     *
     * Copyright(c) GrapeCity, Inc.  All rights reserved.
@@ -47,24 +47,31 @@ declare module wijmo.grid {
         static _WJS_MEASURE: string;
         private _root;
         private _eCt;
-        private _eTL;
+        private _fCt;
+        _eTL: HTMLDivElement;
+        _eBL: HTMLDivElement;
         private _eCHdr;
+        private _eCFtr;
         private _eRHdr;
         private _eCHdrCt;
+        private _eCFtrCt;
         private _eRHdrCt;
         private _eTLCt;
+        private _eBLCt;
         private _eSz;
         private _eMarquee;
         private _eFocus;
-        private _gpCells;
+        private _gpTL;
         private _gpCHdr;
         private _gpRHdr;
-        private _gpTL;
+        private _gpCells;
+        private _gpBL;
+        private _gpCFtr;
         private _maxOffsetY;
         private _heightBrowser;
-        private _szClient;
-        private _offsetY;
-        private _lastCount;
+        _szClient: Size;
+        _offsetY: number;
+        _lastCount: number;
         _rcBounds: Rect;
         _ptScrl: Point;
         _rtl: boolean;
@@ -73,8 +80,8 @@ declare module wijmo.grid {
         _edtHdl: _EditHandler;
         _selHdl: _SelectionHandler;
         _addHdl: _AddNewHandler;
+        _keyHdl: _KeyboardHandler;
         private _imeHdl;
-        private _keyHdl;
         private _mrgMgr;
         private _autoGenCols;
         private _autoClipboard;
@@ -96,6 +103,7 @@ declare module wijmo.grid {
         private _rows;
         private _cols;
         private _hdrRows;
+        private _ftrRows;
         private _hdrCols;
         private _cf;
         private _itemFormatter;
@@ -140,6 +148,9 @@ declare module wijmo.grid {
         /**
          * Gets or sets a value that determines whether the grid should preserve
          * the expanded/collapsed state of nodes when the data is refreshed.
+         *
+         * The @see:preserveOutlineState property implementation is based on
+         * JavaScript's @see:Map object, which is not available in IE 9 or 10.
          */
         preserveOutlineState: boolean;
         /**
@@ -259,6 +270,14 @@ declare module wijmo.grid {
          */
         allowAddNew: boolean;
         /**
+         * Gets or sets a value that indicates whether the new row template should be located
+         * at the top of the grid or at the bottom.
+         *
+         * The new row template will be displayed only if the @see:allowAddNew property is set
+         * to true and if the @see:itemsSource object supports adding new items.
+         */
+        newRowAtTop: boolean;
+        /**
          * Gets or sets a value that indicates whether the grid should delete
          * selected rows when the user presses the Delete key.
          *
@@ -368,13 +387,44 @@ declare module wijmo.grid {
          */
         columnHeaders: GridPanel;
         /**
+         * Gets the @see:GridPanel that contains the column footer cells.
+         *
+         * The @see:columnFooters panel appears below the grid cells, to the
+         * right of the @see:bottomLeftCells panel. It can be used to display
+         * summary information below the grid data.
+         *
+         * The example below shows how you can add a row to the @see:columnFooters
+         * panel to display summary data for columns that have the
+         * @see:Column.aggregate property set:
+         *
+         * <pre>function addFooterRow(flex) {
+         *   // create a GroupRow to show aggregates
+         *   var row = new wijmo.grid.GroupRow();
+         *
+         *   // add the row to the column footer panel
+         *   flex.columnFooters.rows.push(row);
+         *
+         *   // show a sigma on the header
+         *   flex.bottomLeftCells.setCellData(0, 0, '\u03A3');
+         * }</pre>
+         */
+        columnFooters: GridPanel;
+        /**
          * Gets the @see:GridPanel that contains the row header cells.
          */
         rowHeaders: GridPanel;
         /**
-         * Gets the @see:GridPanel that contains the top left cells.
+         * Gets the @see:GridPanel that contains the top left cells
+         * (to the left of the column headers).
          */
         topLeftCells: GridPanel;
+        /**
+         * Gets the @see:GridPanel that contains the bottom left cells.
+         *
+         * The @see:bottomLeftCells panel appears below the row headers, to the
+         * left of the @see:columnFooters panel.
+         */
+        bottomLeftCells: GridPanel;
         /**
          * Gets the grid's row collection.
          */
@@ -1340,6 +1390,10 @@ declare module wijmo.grid {
         RowHeader = 3,
         /** Top-left cell. */
         TopLeft = 4,
+        /** Column footer cell. */
+        ColumnFooter = 5,
+        /** Bottom left cell (at the intersection of the row header and column footer cells). **/
+        BottomLeft = 6,
     }
     /**
      * Represents a logical part of the grid, such as the column headers, row headers,
@@ -1442,8 +1496,8 @@ declare module wijmo.grid {
         _updateContent(recycle: boolean, state: boolean, offsetY: number): void;
         _reorderCells(rngNew: CellRange, rngOld: CellRange): void;
         _createRange(start: number, end: number): Range;
-        _renderRow(r: number, vrng: CellRange, frozen: boolean, state: boolean, ctr: number): number;
-        _renderCell(r: number, c: number, vrng: CellRange, state: boolean, ctr: number): number;
+        _renderRow(r: number, rng: CellRange, frozen: boolean, state: boolean, ctr: number): number;
+        _renderCell(r: number, c: number, rng: CellRange, state: boolean, ctr: number): number;
         _getViewRange(buffer: boolean): CellRange;
         _getFrozenPos(): Point;
     }
@@ -2171,12 +2225,12 @@ declare module wijmo.grid {
         /**
          * Initializes a new instance of the @see:HitTestInfo class.
          *
-         * @param g The @see:FlexGrid control or @see:GridPanel to investigate.
+         * @param grid The @see:FlexGrid control or @see:GridPanel to investigate.
          * @param pt The @see:Point object in page coordinates to investigate.
          */
-        constructor(g: any, pt: any);
+        constructor(grid: any, pt: any);
         /**
-         * Gets the point in control coordinates that the HitTestInfo refers to.
+         * Gets the point in control coordinates that this @see:HitTestInfo refers to.
          */
         point: Point;
         /**
@@ -2278,9 +2332,13 @@ declare module wijmo.grid {
      * you may want to display a customer name instead of his ID, or a color name
      * instead of its RGB value.
      *
-     * The code below binds a grid to a collection of products,
-     * then assigns a @see:DataMap to the grid's 'CategoryID' column so that the grid
-     * displays the category names rather than the raw IDs.
+     * The code below binds a grid to a collection of products, then assigns a
+     * @see:DataMap to the grid's 'CategoryID' column so the grid displays the
+     * category names rather than the raw IDs.
+     *
+     * The grid takes advantage of data maps also for editing. If the <b>wijmo.input</b>
+     * module is loaded, then when editing data-mapped columns the grid will show
+     * a drop-down list containing the values on the map.
      *
      * <pre>
      * // bind grid to products
@@ -2290,6 +2348,34 @@ declare module wijmo.grid {
      * var col = flex.columns.getColumn('CategoryID');
      * col.dataMap = new wijmo.grid.DataMap(categories, 'CategoryID', 'CategoryName');
      * </pre>
+     *
+     * In general, data maps apply to whole columns. However, there are situations
+     * where you may want to restrict the options available for a cell based on a
+     * value on a different column. For example, if you have "Country" and "City"
+     * columns, you will probably want to restrict the cities based on the current
+     * country.
+     *
+     * There are two ways you can implement these "dynamic" data maps:
+     *
+     * <ol>
+     *   <li>
+     *     If the @see:DataMap is just a list of strings, you can change it before
+     *     the grid enters edit mode. In this case, the cells contain the string
+     *     being displayed, and changing the map won't affect other cells in the
+     *     same column.
+     *     This fiddle demonstrates:
+     *     <a href="http://jsfiddle.net/Wijmo5/8brL80r8/">show me</a>.
+     *   </li>
+     *   <li>
+     *     If the @see:DataMap is a real map (stores key values in the cells, shows
+     *     a corresponding string), then you can apply a filter to restrict the
+     *     values shown in the drop-down. The @see:DataMap will still contain the
+     *     same keys and values, so other cells in the same column won't be disturbed
+     *     by the filter.
+     *     This fiddle demonstrates:
+     *     <a href="http://jsfiddle.net/Wijmo5/xborLd4t/">show me</a>.
+     *   </li>
+     * </ol>
      */
     class DataMap {
         _cv: collections.ICollectionView;
@@ -2336,8 +2422,12 @@ declare module wijmo.grid {
         getDisplayValue(key: any): any;
         /**
          * Gets an array with all of the display values on the map.
+         *
+         * @param dataItem Data item for which to get the display items.
+         * This parameter is optional. If not provided, all possible display
+         * values should be returned.
          */
-        getDisplayValues(): string[];
+        getDisplayValues(dataItem?: any): string[];
         /**
          * Gets an array with all of the keys on the map.
          */
@@ -2466,7 +2556,7 @@ declare module wijmo.grid {
          * @param g @see:FlexGrid that owns this @see:_KeyboardHandler.
          */
         constructor(g: FlexGrid);
-        private _keydown(e);
+        _keydown(e: KeyboardEvent): void;
         private _keypress(e);
         private _moveSel(rowMove, colMove, extend);
         private _deleteSel();
@@ -2630,6 +2720,8 @@ declare module wijmo.grid {
     class _AddNewHandler {
         protected _g: FlexGrid;
         protected _nrt: _NewRowTemplate;
+        protected _keydownBnd: any;
+        protected _top: boolean;
         /**
          * Initializes a new instance of the @see:_AddNewHandler class.
          *
@@ -2637,11 +2729,19 @@ declare module wijmo.grid {
          */
         constructor(g: FlexGrid);
         /**
+         * Gets or sets a value that indicates whether the new row template should be located
+         * at the top of the grid or at the bottom.
+         */
+        newRowAtTop: boolean;
+        /**
          * Updates the new row template to ensure it's visible only if the grid is
          * bound to a data source that supports adding new items, and that it is
          * in the right position.
          */
         updateNewRowTemplate(): void;
+        _attach(): void;
+        _detach(): void;
+        _keydown(e: KeyboardEvent): void;
         _beginningEdit(sender: any, e: CellRangeEventArgs): void;
         _rowEditEnded(sender: any, e: CellRangeEventArgs): void;
     }
@@ -2675,6 +2775,7 @@ declare module wijmo.grid {
         dispose(): void;
         _cellEditEnded(): void;
         _compositionstart(): void;
+        _keydown(e: KeyboardEvent): void;
         _mousedown(e: any): void;
         _mouseup(e: any): void;
         _updateImeFocus(): void;

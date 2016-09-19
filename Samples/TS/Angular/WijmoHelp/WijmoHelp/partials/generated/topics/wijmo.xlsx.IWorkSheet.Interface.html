@@ -1,97 +1,87 @@
-<h2>IWorkSheet Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">IWorkSheet</span> Interface</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.xlsx</dd>
-<dt>File</dt><dd>wijmo.xlsx.js</dd>
+<dt>File</dt><dd class="filename">wijmo.xlsx.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.xlsx.Module.html"><span class="identifier">wijmo.xlsx</span></a></dd>
 </dl>
-<p><p>Represents the Workbook Object Model sheet definition that includes sheet properties and data.</p>
-
+<div class="comment"><p>Represents the Workbook Object Model sheet definition that includes sheet properties and data.</p>
 <p>The sheet cells are stored in row objects and are accessible using JavaScript expressions like
-<b>sheet.rows[i].cells[j]</b>.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<b>sheet.rows[i].cells[j]</b>.</p></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>columns?</b></td>
-      <td><a href="topic/wijmo.xlsx.IWorkbookColumn.Interface.html"><b>IWorkbookColumn</b></a><b>[]</b></td>
-      <td><p>Gets or sets an array of sheet columns definitions.</p>
-
-<p>Each <a href="topic/wijmo.xlsx.IWorkbookColumn.Interface.html"><b>IWorkbookColumn</b></a> object in the array describes a column at the corresponding position in xlsx sheet, 
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkSheet.Interface.html/#columns">columns</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkSheet.Interface.html/#frozenPane">frozenPane</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkSheet.Interface.html/#name">name</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkSheet.Interface.html/#rows">rows</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkSheet.Interface.html/#style">style</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkSheet.Interface.html/#summaryBelow">summaryBelow</a></li>
+<li class="mproperty"><a href="topic/wijmo.xlsx.IWorkSheet.Interface.html/#visible">visible</a></li>
+</ul>
+</div>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="columns" class="member-panel mproperty">
+<h3>columns</h3>
+<div class="comment"><p>Gets or sets an array of sheet columns definitions.</p>
+<p>Each <a href="topic/wijmo.xlsx.IWorkbookColumn.Interface.html"><span class="identifier">IWorkbookColumn</span></a> object in the array describes a column at the corresponding position in xlsx sheet, 
 i.e. the column with index 0
 corresponds to xlsx sheet column with index A, object with index 1 defines sheet column with index B, and so on. If certain column 
 has no description in xlsx file then corresponding array element is undefined for both export and import operations.</p>
-
-<p>If <b>IWorkbookColumn</b> object in the array doesn't specify the <b>width</b> property value then the default column width
-is applied.</p></td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>frozenPane?</b></td>
-      <td><a href="topic/wijmo.xlsx.IWorkbookFrozenPane.Interface.html"><b>IWorkbookFrozenPane</b></a></td>
-      <td>Gets or sets the frozen pane settings.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>name?</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the sheet name.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>rows?</b></td>
-      <td><a href="topic/wijmo.xlsx.IWorkbookRow.Interface.html"><b>IWorkbookRow</b></a><b>[]</b></td>
-      <td><p>Gets or sets an array of sheet rows definition.</p>
-
-<p>Each <a href="topic/wijmo.xlsx.IWorkbookRow.Interface.html"><b>IWorkbookRow</b></a> object in the array describes a row at the corresponding position in xlsx sheet, 
+<p>If <a href="topic/wijmo.xlsx.IWorkbookColumn.Interface.html"><span class="identifier">IWorkbookColumn</span></a> object in the array doesn't specify the <b>width</b> property value then the default column width
+is applied.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.xlsx.IWorkbookColumn.Interface.html"><span class="identifier">IWorkbookColumn</span></a>[]</dd>
+</dl>
+</div>
+<div id="frozenPane" class="member-panel mproperty">
+<h3>frozenPane</h3>
+<div class="comment"><p>Gets or sets the frozen pane settings.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.xlsx.IWorkbookFrozenPane.Interface.html"><span class="identifier">IWorkbookFrozenPane</span></a></dd>
+</dl>
+</div>
+<div id="name" class="member-panel mproperty">
+<h3>name</h3>
+<div class="comment"><p>Gets or sets the sheet name.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="rows" class="member-panel mproperty">
+<h3>rows</h3>
+<div class="comment"><p>Gets or sets an array of sheet rows definition.</p>
+<p>Each <a href="topic/wijmo.xlsx.IWorkbookRow.Interface.html"><span class="identifier">IWorkbookRow</span></a> object in the array describes a row at the corresponding position in xlsx sheet, 
 i.e. the column with index 0
 corresponds to xlsx sheet row with index 1, object with index 1 defines sheet row with index 2, and so on. If certain row 
 has no properties and data in xlsx file then corresponding array element is undefined for both export and import operations.</p>
-
-<p>If <b>IWorkbookRow</b> object in the array doesn't specify the <b>height</b> property value then the default row height
-is applied.</p></td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>style?</b></td>
-      <td><a href="topic/wijmo.xlsx.IWorkbookStyle.Interface.html"><b>IWorkbookStyle</b></a></td>
-      <td><p>Gets or sets the sheet style.</p>
-
-<p>The property defines the style for all cells in the worksheet, and can be overridden by the specific cell styles.</p></td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>summaryBelow?</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value indicating whether summary rows appear below or above detail rows.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>visible?</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets the worksheet visibility.</td>
-    </tr>
-</tbody>
-</table>
+<p>If <a href="topic/wijmo.xlsx.IWorkbookRow.Interface.html"><span class="identifier">IWorkbookRow</span></a> object in the array doesn't specify the <b>height</b> property value then the default row height
+is applied.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.xlsx.IWorkbookRow.Interface.html"><span class="identifier">IWorkbookRow</span></a>[]</dd>
+</dl>
 </div>
-
+<div id="style" class="member-panel mproperty">
+<h3>style</h3>
+<div class="comment"><p>Gets or sets the sheet style.</p>
+<p>The property defines the style for all cells in the worksheet, and can be overridden by the specific cell styles.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.xlsx.IWorkbookStyle.Interface.html"><span class="identifier">IWorkbookStyle</span></a></dd>
+</dl>
+</div>
+<div id="summaryBelow" class="member-panel mproperty">
+<h3>summaryBelow</h3>
+<div class="comment"><p>Gets or sets a value indicating whether summary rows appear below or above detail rows.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="visible" class="member-panel mproperty">
+<h3>visible</h3>
+<div class="comment"><p>Gets or sets the worksheet visibility.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+</div>

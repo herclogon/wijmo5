@@ -11,13 +11,14 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var wjInput = require('wijmo/wijmo.angular2.input');
-var wjNg2FlexChart = require('wijmo/wijmo.angular2.chart');
-var wjNg2FlexChartInteraction = require('wijmo/wijmo.angular2.chart.interaction');
-var wjNg2FlexChartAnnotation = require('wijmo/wijmo.angular2.chart.annotation');
-var wjNg2FlexChartAnalytics = require('wijmo/wijmo.angular2.chart.analytics');
+var platform_browser_1 = require('@angular/platform-browser');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_chart_interaction_1 = require('wijmo/wijmo.angular2.chart.interaction');
+var wijmo_angular2_chart_annotation_1 = require('wijmo/wijmo.angular2.chart.annotation');
+var wijmo_angular2_chart_analytics_1 = require('wijmo/wijmo.angular2.chart.analytics');
 var DataSvc_1 = require('./services/DataSvc');
 'use strict';
 // The Explorer application root component.
@@ -338,23 +339,29 @@ var AppCmp = (function () {
     AppCmp = __decorate([
         core_1.Component({
             selector: 'app-cmp',
-            templateUrl: 'src/app.html',
-            directives: [common_1.CORE_DIRECTIVES, wjInput.WjAutoComplete, wjInput.WjMenu, wjInput.WjMenuItem, wjInput.WjInputNumber,
-                wjNg2FlexChart.WjFlexChart, wjNg2FlexChart.WjFlexChartSeries, wjNg2FlexChart.WjFlexChartAxis, wjNg2FlexChart.WjFlexChartLineMarker,
-                wjNg2FlexChart.WjFlexChartLegend, wjNg2FlexChartAnalytics.WjFlexChartMovingAverage, wjNg2FlexChartInteraction.WjFlexChartRangeSelector,
-                wjNg2FlexChartAnnotation.WjFlexChartAnnotationLayer, wjNg2FlexChartAnnotation.WjFlexChartAnnotationText, wjNg2FlexChartAnnotation.WjFlexChartAnnotationCircle,
-                wjNg2FlexChartAnnotation.WjFlexChartAnnotationSquare]
+            templateUrl: 'src/app.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], AppCmp);
     return AppCmp;
 }());
 exports.AppCmp = AppCmp;
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [wijmo_angular2_input_1.WjInputModule, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_chart_interaction_1.WjChartInteractionModule, wijmo_angular2_chart_annotation_1.WjChartAnnotationModule,
+                wijmo_angular2_chart_analytics_1.WjChartAnalyticsModule, platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
+            declarations: [AppCmp],
+            providers: [DataSvc_1.DataSvc],
+            bootstrap: [AppCmp]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
 core_1.enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-platform_browser_dynamic_1.bootstrap(AppCmp, [
-    core_1.provide(http_1.Http, { useClass: http_1.Http }),
-    http_1.HTTP_BINDINGS,
-    DataSvc_1.DataSvc
-]);
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(AppModule);
 //# sourceMappingURL=app.js.map

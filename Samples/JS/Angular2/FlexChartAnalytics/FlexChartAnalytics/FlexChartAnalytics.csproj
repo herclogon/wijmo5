@@ -37,6 +37,7 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\app.routing.js" />
     <Content Include="src\app.js" />
     <Content Include="src\components\MovingAverageCmp.js" />
     <Content Include="src\components\ParametricFunctionSeriesCmp.js" />

@@ -1,6 +1,6 @@
 /*
     *
-    * Wijmo Library 5.20162.198
+    * Wijmo Library 5.20162.207
     * http://wijmo.com/
     *
     * Copyright(c) GrapeCity, Inc.  All rights reserved.
@@ -239,7 +239,7 @@ declare module wijmo.angular {
         private _parentInCtor();
         private _getNgModelProperty();
         private _updateNgModelPropDesc();
-        _safeApply(scope: any, name: any, value: any): void;
+        _safeApply(scope: any, name: any, value: any): boolean;
         _shouldApply(scope: any, name: any, value: any): boolean;
         _canApply(scope: any, name: any): boolean;
         _nullOrValue(value: any): any;
@@ -420,6 +420,10 @@ declare module wijmo.angular {
         GroupHeader = 6,
         /** Defines a regular cell in a group row. */
         Group = 7,
+        /** Defines a column footer cell. */
+        ColumnFooter = 8,
+        /** Defines a bottom left cell (at the intersection of the row header and column footer cells). **/
+        BottomLeft = 9,
     }
 }
 

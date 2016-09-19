@@ -1,4 +1,4 @@
-﻿/* ReportViewer */
+﻿/* Viewer */
 .wj-viewerouter {
     width: 100%;
     height: 100%;
@@ -27,17 +27,19 @@
 .wj-toolbar {
     height: 60px;
     width: 100%;
-    padding: 10px 20px;
+    padding-left: 5px;
+    padding-top: 10px;
     border-bottom: 1px solid #c8c8c8;
+    box-sizing: border-box;
 }
 
-    .wj-toolbar a {
-        cursor: pointer;
-        float: left;
+    .wj-viewer .wj-toolbar.wj-btn-group > .wj-btn {
+        padding-left: 0px;
+        padding-right: 0px;
         height: 40px;
-        width: 40px;
-        background-repeat: no-repeat;
-        background-position: center center;
+        box-sizing: border-box;
+        position: relative;
+        float: left;
     }
 
         .wj-toolbar a:hover, .wj-toolbar a:focus {
@@ -52,10 +54,10 @@
 
     .wj-toolbar .wj-separator {
         height: 40px;
-        width: 20px;
+        width: 10px;
         float: left;
         border-right: 2px solid black;
-        margin-right: 20px;
+        margin-right: 10px;
         opacity: 0.25;
     }
 
@@ -92,6 +94,7 @@
     width: 100%;
     padding-bottom: 60px;
     table-layout: fixed;
+    box-sizing: border-box;
 }
 
     .wj-reportcontainer .wj-splitter {
@@ -127,6 +130,7 @@
     float: left;
     border-bottom: 0;
     margin-bottom: -1px;
+    box-sizing: border-box;
 }
 
 .wj-nav > li {
@@ -152,6 +156,7 @@
         border-width: 0;
         border-color: transparent;
         padding-top: 12px;
+        box-sizing: border-box;
     }
 
     .wj-nav > li > a:hover,
@@ -221,6 +226,7 @@
             position: absolute;
             width: 299px;
             padding: 10px 20px 20px 20px;
+            box-sizing: border-box;
         }
 
         .wj-tabcontent .wj-tabpane .wj-tabtitle {
@@ -230,6 +236,7 @@
         .wj-tabcontent .wj-tabpane .wj-tabcontent-wrapper {
             height: 100%;
             padding-top: 48px;
+            box-sizing: border-box;
         }
         .wj-tabcontent .wj-tabpane .wj-tabcontent-wrapper.search-wrapper {
             padding-top: 202px;
@@ -332,11 +339,12 @@
             margin-bottom: 0px
         }
 
-.wj-parameterscontrainer {
+.wj-parameterscontainer {
     float: left;
     width: 100%;
     padding-left: 10px;
     padding-right: 10px;
+    box-sizing: border-box;
 }
 
 .wj-parametercontainer {
@@ -435,6 +443,7 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
     padding: 4px 60px 4px 8px;
     margin-right: 5px;
+    box-sizing: border-box;
 }
 
 .wj-tabcontent .wj-tabpane .wj-searchcontainer {

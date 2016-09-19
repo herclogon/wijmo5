@@ -1,164 +1,150 @@
-<h2>SortManager Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">SortManager</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.grid.sheet</dd>
-<dt>File</dt><dd>wijmo.grid.sheet.js</dd>
+<dt>File</dt><dd class="filename">wijmo.grid.sheet.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.grid.sheet.Module.html"><span class="identifier">wijmo.grid.sheet</span></a></dd>
 </dl>
-<p>Maintains sorting of the selected <a href="topic/wijmo.grid.sheet.Sheet.Class.html"><b>Sheet</b></a> of the <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a>.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+<div class="comment"><p>Maintains sorting of the selected <a href="topic/wijmo.grid.sheet.Sheet.Class.html"><span class="identifier">Sheet</span></a> of the <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><span class="identifier">FlexSheet</span></a>.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(owner): <a href="topic/wijmo.grid.sheet.SortManager.Class.html"><b>SortManager</b></a></td>
-      <td><p>
-<b>owner</b> (<a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a>): The <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><b>FlexSheet</b></a> control that owns this <b>SortManager</b>.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.grid.sheet.SortManager.Class.html"><b>SortManager</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.SortManager.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.grid.sheet.SortManager.Class.html/#sortDescriptions">sortDescriptions</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.SortManager.Class.html/#addSortLevel">addSortLevel</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.SortManager.Class.html/#cancelSort">cancelSort</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.SortManager.Class.html/#checkSortItemExists">checkSortItemExists</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.SortManager.Class.html/#commitSort">commitSort</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.SortManager.Class.html/#copySortLevel">copySortLevel</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.SortManager.Class.html/#deleteSortLevel">deleteSortLevel</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.SortManager.Class.html/#editSortLevel">editSortLevel</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.sheet.SortManager.Class.html/#moveSortLevel">moveSortLevel</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(owner: <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><span class="identifier">FlexSheet</span></a>): <a href="topic/wijmo.grid.sheet.SortManager.Class.html"><span class="identifier">SortManager</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.grid.sheet.SortManager.Class.html"><span class="identifier">SortManager</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>owner</b>: <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><span class="identifier">FlexSheet</span></a><br/><p>The <a href="topic/wijmo.grid.sheet.FlexSheet.Class.html"><span class="identifier">FlexSheet</span></a> control that owns this <b>SortManager</b>.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.grid.sheet.SortManager.Class.html"><span class="identifier">SortManager</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>sortDescriptions</b></td>
-      <td><a href="topic/wijmo.collections.CollectionView.Class.html"><b>CollectionView</b></a></td>
-      <td>Gets or sets the collection of the sort descriptions represented by the  <a href="topic/wijmo.grid.sheet.ColumnSortDescription.Class.html"><b>ColumnSortDescription</b></a> objects.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="sortDescriptions" class="member-panel mproperty">
+<h3>sortDescriptions</h3>
+<div class="comment"><p>Gets or sets the collection of the sort descriptions represented by the  <a href="topic/wijmo.grid.sheet.ColumnSortDescription.Class.html"><span class="identifier">ColumnSortDescription</span></a> objects.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.CollectionView.Class.html"><span class="identifier">CollectionView</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>addSortLevel</b>&#8203;(columnIndex?, ascending?)</td>
-      <td><p>
-<b>columnIndex?</b> (<b>number</b>): The index of the column in the FlexSheet control.<br/><b>ascending?</b> (<b>boolean</b>): The sort order for the sort level.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
-</td>
-      <td>Adds a blank sorting level to the sort descriptions.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>cancelSort</b>&#8203;()</td>
-      <td></td>
-      <td>Cancel the current sort descriptions to the FlexSheet control.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>checkSortItemExists</b>&#8203;(columnIndex): <b>number</b></td>
-      <td><p>
-<b>columnIndex</b> (): The index of the column in the FlexSheet control.<br/></p>
-</td>
-      <td>Check whether the sort item of specific column exists or not</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>commitSort</b>&#8203;(undoable?)</td>
-      <td><p>
-<b>undoable?</b> (<b>boolean</b>): The boolean value indicating whether the commit sort action is undoable.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
-</td>
-      <td>Commits the current sort descriptions to the FlexSheet control.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>copySortLevel</b>&#8203;()</td>
-      <td></td>
-      <td>Adds a copy of the current sorting level to the sort descriptions.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>deleteSortLevel</b>&#8203;(columnIndex?)</td>
-      <td><p>
-<b>columnIndex?</b> (<b>number</b>): The index of the column in the FlexSheet control.<br/></p>
-</td>
-      <td>Removes the current sorting level from the sort descriptions.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>editSortLevel</b>&#8203;(columnIndex?, ascending?)</td>
-      <td><p>
-<b>columnIndex?</b> (<b>number</b>): The column index for the sort level.<br/><b>ascending?</b> (<b>boolean</b>): The sort order for the sort level.<br/></p>
-</td>
-      <td>Updates the current sort level.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>moveSortLevel</b>&#8203;(offset)</td>
-      <td><p>
-<b>offset</b> (<b>number</b>): The offset to move the current level by.<br/></p>
-</td>
-      <td>Moves the current sorting level to a new position.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="addSortLevel" class="member-panel mmethod">
+<h3>addSortLevel</h3>
+<pre>addSortLevel(columnIndex?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, ascending?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Adds a blank sorting level to the sort descriptions.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>columnIndex</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The index of the column in the FlexSheet control.</p></li><li><b>ascending</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>The sort order for the sort level.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-
+<div id="cancelSort" class="member-panel mmethod">
+<h3>cancelSort</h3>
+<pre>cancelSort(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Cancel the current sort descriptions to the FlexSheet control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="checkSortItemExists" class="member-panel mmethod">
+<h3>checkSortItemExists</h3>
+<pre>checkSortItemExists(columnIndex): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></pre>
+<div class="comment"><p>Check whether the sort item of specific column exists or not</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>columnIndex</b>: <br/><p>The index of the column in the FlexSheet control.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="commitSort" class="member-panel mmethod">
+<h3>commitSort</h3>
+<pre>commitSort(undoable?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Commits the current sort descriptions to the FlexSheet control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>undoable</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>The boolean value indicating whether the commit sort action is undoable.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="copySortLevel" class="member-panel mmethod">
+<h3>copySortLevel</h3>
+<pre>copySortLevel(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Adds a copy of the current sorting level to the sort descriptions.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="deleteSortLevel" class="member-panel mmethod">
+<h3>deleteSortLevel</h3>
+<pre>deleteSortLevel(columnIndex?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Removes the current sorting level from the sort descriptions.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>columnIndex</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The index of the column in the FlexSheet control.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="editSortLevel" class="member-panel mmethod">
+<h3>editSortLevel</h3>
+<pre>editSortLevel(columnIndex?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, ascending?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Updates the current sort level.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>columnIndex</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The column index for the sort level.</p></li><li><b>ascending</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>The sort order for the sort level.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="moveSortLevel" class="member-panel mmethod">
+<h3>moveSortLevel</h3>
+<pre>moveSortLevel(offset: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Moves the current sorting level to a new position.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>offset</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The offset to move the current level by.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>

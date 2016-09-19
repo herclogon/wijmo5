@@ -14,9 +14,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
 var GridBaseCmp_1 = require('./GridBaseCmp');
+var router_1 = require('@angular/router');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
 var SparkSvc_1 = require('../../services/SparkSvc');
 // FlexGrid Custom Cells component.
 var GridCustomCellsCmp = (function (_super) {
@@ -90,8 +92,7 @@ var GridCustomCellsCmp = (function (_super) {
     GridCustomCellsCmp = __decorate([
         core_1.Component({
             selector: 'grid-custom-cells-cmp',
-            templateUrl: 'src/components/grid/gridCustomCellsCmp.html',
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn]
+            templateUrl: 'src/components/grid/gridCustomCellsCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc)),
         __param(1, core_1.Inject(SparkSvc_1.SparkSvc))
@@ -99,4 +100,19 @@ var GridCustomCellsCmp = (function (_super) {
     return GridCustomCellsCmp;
 }(GridBaseCmp_1.GridBaseCmp));
 exports.GridCustomCellsCmp = GridCustomCellsCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: GridCustomCellsCmp }
+]);
+var GridCustomCellsModule = (function () {
+    function GridCustomCellsModule() {
+    }
+    GridCustomCellsModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_grid_1.WjGridModule],
+            declarations: [GridCustomCellsCmp],
+        })
+    ], GridCustomCellsModule);
+    return GridCustomCellsModule;
+}());
+exports.GridCustomCellsModule = GridCustomCellsModule;
 //# sourceMappingURL=GridCustomCellsCmp.js.map

@@ -1,162 +1,169 @@
-<h2>IEditableCollectionView Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">IEditableCollectionView</span> Interface</h2>
 <dl class="dl-horizontal">
-<dt>Implements</dt><dd><a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a></dd>
-<dt>Module</dt><dd>wijmo.collections</dd>
-<dt>File</dt><dd>wijmo.js</dd>
+<dt>File</dt><dd class="filename">wijmo.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.collections.Module.html"><span class="identifier">wijmo.collections</span></a></dd>
+<dt>Implements</dt><dd><a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a></dd>
 </dl>
-<p>Defines methods and properties that extend <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> to provide 
-editing capabilities.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<div class="comment"><p>Defines methods and properties that extend <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> to provide 
+editing capabilities.</p></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>canAddNew</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether a new item can be added to the collection.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>canCancelEdit</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether the collection view can discard pending changes 
-and restore the original values of an edited object.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>canRemove</b></td>
-      <td><b>boolean</b></td>
-      <td>`        * Gets a value that indicates whether items can be removed from the collection.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>currentAddItem</b></td>
-      <td><b>any</b></td>
-      <td>`        * Gets the item that is being added during the current add transaction.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>currentEditItem</b></td>
-      <td><b>any</b></td>
-      <td>`        * Gets the item that is being edited during the current edit transaction.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>isAddingNew</b></td>
-      <td><b>boolean</b></td>
-      <td>`        * Gets a value that indicates whether an add transaction is in progress.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>isEditingItem</b></td>
-      <td><b>boolean</b></td>
-      <td>`        * Gets a value that indicates whether an edit transaction is in progress.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#canAddNew">canAddNew</a></li>
+<li class="mproperty"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#canCancelEdit">canCancelEdit</a></li>
+<li class="mproperty"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#canRemove">canRemove</a></li>
+<li class="mproperty"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#currentAddItem">currentAddItem</a></li>
+<li class="mproperty"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#currentEditItem">currentEditItem</a></li>
+<li class="mproperty"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#isAddingNew">isAddingNew</a></li>
+<li class="mproperty"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#isEditingItem">isEditingItem</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#addNew">addNew</a></li>
+<li class="mmethod"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#cancelEdit">cancelEdit</a></li>
+<li class="mmethod"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#cancelNew">cancelNew</a></li>
+<li class="mmethod"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#commitEdit">commitEdit</a></li>
+<li class="mmethod"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#commitNew">commitNew</a></li>
+<li class="mmethod"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#editItem">editItem</a></li>
+<li class="mmethod"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#remove">remove</a></li>
+<li class="mmethod"><a href="topic/wijmo.collections.IEditableCollectionView.Interface.html/#removeAt">removeAt</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="canAddNew" class="member-panel mproperty">
+<h3>canAddNew</h3>
+<div class="comment"><p>Gets a value that indicates whether a new item can be added to the collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>addNew</b>&#8203;(): <b>any</b></td>
-      <td></td>
-      <td>`        * Adds a new item to the collection.<br/><br/><b>Returns</b> The item that was added to the collection.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>cancelEdit</b>&#8203;()</td>
-      <td></td>
-      <td>Ends the current edit transaction and, if possible, 
-restores the original value to the item.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>cancelNew</b>&#8203;()</td>
-      <td></td>
-      <td>Ends the current add transaction and discards the pending new item.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>commitEdit</b>&#8203;()</td>
-      <td></td>
-      <td>Ends the current edit transaction and saves the pending changes.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>commitNew</b>&#8203;()</td>
-      <td></td>
-      <td>Ends the current add transaction and saves the pending new item.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>editItem</b>&#8203;(item)</td>
-      <td><p>
-<b>item</b> (<b>any</b>): Item to edit.<br/></p>
-</td>
-      <td>Begins an edit transaction of the specified item.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>remove</b>&#8203;(item)</td>
-      <td><p>
-<b>item</b> (<b>any</b>): Item to remove from the collection.<br/></p>
-</td>
-      <td>Removes the specified item from the collection.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>removeAt</b>&#8203;(index)</td>
-      <td><p>
-<b>index</b> (<b>number</b>): Index of the item to remove from the collection.<br/></p>
-</td>
-      <td>Removes the item at the specified index from the collection.</td>
-    </tr>
-</tbody>
-</table>
+<div id="canCancelEdit" class="member-panel mproperty">
+<h3>canCancelEdit</h3>
+<div class="comment"><p>Gets a value that indicates whether the collection view can discard pending changes 
+and restore the original values of an edited object.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-
+<div id="canRemove" class="member-panel mproperty">
+<h3>canRemove</h3>
+<div class="comment"><p>`        * Gets a value that indicates whether items can be removed from the collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="currentAddItem" class="member-panel mproperty">
+<h3>currentAddItem</h3>
+<div class="comment"><p>`        * Gets the item that is being added during the current add transaction.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="currentEditItem" class="member-panel mproperty">
+<h3>currentEditItem</h3>
+<div class="comment"><p>`        * Gets the item that is being edited during the current edit transaction.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="isAddingNew" class="member-panel mproperty">
+<h3>isAddingNew</h3>
+<div class="comment"><p>`        * Gets a value that indicates whether an add transaction is in progress.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isEditingItem" class="member-panel mproperty">
+<h3>isEditingItem</h3>
+<div class="comment"><p>`        * Gets a value that indicates whether an edit transaction is in progress.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="addNew" class="member-panel mmethod">
+<h3>addNew</h3>
+<pre>addNew(): <span class="identifier">any</span></pre>
+<div class="comment"><p>`        * Adds a new item to the collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="cancelEdit" class="member-panel mmethod">
+<h3>cancelEdit</h3>
+<pre>cancelEdit(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Ends the current edit transaction and, if possible, 
+restores the original value to the item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="cancelNew" class="member-panel mmethod">
+<h3>cancelNew</h3>
+<pre>cancelNew(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Ends the current add transaction and discards the pending new item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="commitEdit" class="member-panel mmethod">
+<h3>commitEdit</h3>
+<pre>commitEdit(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Ends the current edit transaction and saves the pending changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="commitNew" class="member-panel mmethod">
+<h3>commitNew</h3>
+<pre>commitNew(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Ends the current add transaction and saves the pending new item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="editItem" class="member-panel mmethod">
+<h3>editItem</h3>
+<pre>editItem(item: <span class="identifier">any</span>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Begins an edit transaction of the specified item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>item</b>: <span class="identifier">any</span><br/><p>Item to edit.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="remove" class="member-panel mmethod">
+<h3>remove</h3>
+<pre>remove(item: <span class="identifier">any</span>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Removes the specified item from the collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>item</b>: <span class="identifier">any</span><br/><p>Item to remove from the collection.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="removeAt" class="member-panel mmethod">
+<h3>removeAt</h3>
+<pre>removeAt(index: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Removes the item at the specified index from the collection.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>index</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Index of the item to remove from the collection.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>

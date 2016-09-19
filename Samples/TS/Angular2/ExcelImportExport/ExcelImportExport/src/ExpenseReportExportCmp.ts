@@ -1,9 +1,10 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, Inject, enableProdMode } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
+import { Component, EventEmitter, Input, Inject, enableProdMode, AfterViewInit, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
 import { DataSvc } from './services/DataSvc';
 
     'use strict';
@@ -11,8 +12,7 @@ import { DataSvc } from './services/DataSvc';
     // The Explorer application root component.
     @Component({
         selector: 'expence-report-export-cmp',
-        templateUrl: 'src/expenseReportExportCmp.html',
-        directives: [CORE_DIRECTIVES]
+        templateUrl: 'src/expenseReportExportCmp.html'
     })
     export class ExpenseReportExportCmp {
         protected dataSvc: DataSvc;
@@ -28,8 +28,17 @@ import { DataSvc } from './services/DataSvc';
         }
     }
 
-enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-bootstrap(ExpenseReportExportCmp, [
-    DataSvc
-]);
+
+    @NgModule({
+        imports: [BrowserModule],
+        declarations: [ExpenseReportExportCmp],
+        providers: [DataSvc],
+        bootstrap: [ExpenseReportExportCmp]
+    })
+    export class AppModule {
+    }
+
+
+    enableProdMode();
+    // Bootstrap application with hash style navigation and global services.
+    platformBrowserDynamic().bootstrapModule(AppModule);

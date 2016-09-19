@@ -15,9 +15,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var DataSvc_1 = require('../../services/DataSvc');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var InputBaseCmp_1 = require('../input/InputBaseCmp');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
+var DataSvc_1 = require('../../services/DataSvc');
 var appPipes_1 = require('../../pipes/appPipes');
 // Wijmo Globalization component.
 var GlobalizationCmp = (function (_super) {
@@ -31,14 +33,26 @@ var GlobalizationCmp = (function (_super) {
     GlobalizationCmp = __decorate([
         core_1.Component({
             selector: 'grid-globalization-cmp',
-            templateUrl: 'src/components/infra/globalizationCmp.html',
-            directives: [wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjMenuSeparator,
-                wjNg2Input.WjCalendar, common_1.CORE_DIRECTIVES],
-            pipes: [appPipes_1.GlbzPipe, appPipes_1.ToDatePipe]
+            templateUrl: 'src/components/infra/globalizationCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], GlobalizationCmp);
     return GlobalizationCmp;
 }(InputBaseCmp_1.InputBaseCmp));
 exports.GlobalizationCmp = GlobalizationCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: GlobalizationCmp }
+]);
+var GlobalizationModule = (function () {
+    function GlobalizationModule() {
+    }
+    GlobalizationModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing, wijmo_angular2_input_1.WjInputModule, appPipes_1.AppPipesModule],
+            declarations: [GlobalizationCmp],
+        })
+    ], GlobalizationModule);
+    return GlobalizationModule;
+}());
+exports.GlobalizationModule = GlobalizationModule;
 //# sourceMappingURL=GlobalizationCmp.js.map

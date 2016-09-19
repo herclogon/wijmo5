@@ -1,0 +1,70 @@
+<div class="header-panel member">
+<h2><span class="identifier">WjFlexRadar</span> Class</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd class="filename">wijmo.angular.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.angular.Module.html"><span class="identifier">wijmo.angular</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
+</dl>
+<div class="comment"><p>AngularJS directive for the <a href="topic/wijmo.chart.radar.FlexRadar.Class.html"><span class="identifier">FlexRadar</span></a> control.</p>
+<p>Use the <b>wj-flex-radar</b> directive to add radar charts to your AngularJS applications.
+Note that directive and parameter names must be formatted using lower-case letters
+with dashes instead of camel case.</p>
+<p>The wj-flex-radar directive supports the following attributes:</p>
+<p><dl class="dl-horizontal">
+  <dt>binding</dt>           <dd><code>@</code> The name of the property that contains Y
+                             values for the chart. You can override this at the series level.</dd>
+  <dt>binding-x</dt>         <dd><code>@</code> The name of the property that contains X
+                             values for the chart. You can override this at the series level.</dd>
+  <dt>chart-type</dt>        <dd><code>@</code> The default chart type to use in rendering series
+                             objects. You can override this at the series level. See <a href="topic/wijmo.chart.radar.RadarChartType.Enum.html"><span class="identifier">RadarChartType</span></a>.</dd>
+  <dt>control</dt>           <dd><code>=</code> A reference to the <a href="topic/wijmo.chart.radar.FlexRadar.Class.html"><span class="identifier">FlexRadar</span></a> control
+                             that this directive creates.</dd>
+  <dt>footer</dt>            <dd><code>@</code> The text to display in the chart footer (plain
+                             text).</dd>
+  <dt>footer-style</dt>       <dd><code>=</code> The style to apply to the chart footer.</dd>
+  <dt>header</dt>            <dd><code>@</code> The text to display in the chart header (plain
+                             text).</dd>
+  <dt>header-style</dt>      <dd><code>=</code> The style to apply to the chart header.</dd>
+  <dt>initialized</dt>       <dd><code>&</code> This event occurs after the binding has finished
+                             initializing the control with attribute values.</dd>
+  <dt>is-initialized</dt><dd><code>=</code> A value indicating whether the binding has finished
+                             initializing the control with attribute values. </dd>
+  <dt>interpolate-nulls</dt> <dd><code>@</code> The value indicating whether to interpolate or
+                             leave gaps when there are null values in the data.</dd>
+  <dt>item-formatter</dt>    <dd><code>=</code> The formatter function that customizes the
+                             appearance of data points.</dd>
+  <dt>items-source</dt>      <dd><code>=</code> An array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> object that contains
+                             the data used to create the chart.</dd>
+  <dt>legend-toggle</dt>     <dd><code>@</code> The value indicating whether clicking legend items
+                             toggles series visibility.</dd>
+  <dt>options</dt>           <dd><code>=</code> Chart <a href="topic/wijmo.chart.FlexChart.Class.html/#options"><span class="identifier">options</span></a> that only apply to certain
+                             chart types.</dd>
+  <dt>palette</dt>           <dd><code>=</code> An array that contains the default colors used for
+                             displaying each series.</dd>
+  <dt>plot-margin</dt>       <dd><code>=</code> The number of pixels of space to leave between the
+                             edges of the control and the plot area, or CSS-style margins.</dd>
+  <dt>stacking</dt>          <dd><code>@</code> The <a href="topic/wijmo.chart.Stacking.Enum.html"><span class="identifier">Stacking</span></a> value indicating whether or how series
+                             objects are stacked or plotted independently.</dd>
+  <dt>reversed</dt>          <dd><code>@</code> The <a href="topic/wijmo.chart.radar.FlexRadar.Class.html/#reversed"><span class="identifier">reversed</span></a> value indicating whether angles are reversed
+                             (counter-clockwise).</dd>
+  <dt>startAngle</dt>        <dd><code>@</code> The <a href="topic/wijmo.chart.radar.FlexRadar.Class.html/#startAngle"><span class="identifier">startAngle</span></a> value indicating the starting angle for the radar in degrees.</dd>
+  <dt>totalAngle</dt>        <dd><code>@</code> The <a href="topic/wijmo.chart.radar.FlexRadar.Class.html/#totalAngle"><span class="identifier">totalAngle</span></a> value indicating the total angle for the radar in degrees.</dd>
+  <dt>symbol-size</dt>       <dd><code>@</code> The size of the symbols used to render data points in Scatter,
+                             LineSymbols, and SplineSymbols charts, in pixels. You can override
+                             this at the series level.</dd>
+  <dt>tooltip-content</dt>   <dd><code>@</code> The value to display in the
+                             <a href="topic/wijmo.chart.ChartTooltip.Class.html"><span class="identifier">ChartTooltip</span></a> content property.</dd>
+  <dt>rendering</dt>         <dd><code>&</code> The <a href="topic/wijmo.chart.radar.FlexRadar.Class.html/#rendering"><span class="identifier">rendering</span></a> event handler.</dd>
+  <dt>rendered</dt>          <dd><code>&</code> The <a href="topic/wijmo.chart.radar.FlexRadar.Class.html/#rendered"><span class="identifier">rendered</span></a> event handler.</dd>
+  <dt>series-visibility-changed</dt>
+                             <dd><code>&</code> The <a href="topic/wijmo.chart.radar.FlexRadar.Class.html/#seriesVisibilityChanged"><span class="identifier">seriesVisibilityChanged</span></a> event handler.</dd>
+</dl></p>
+<p>The wj-flex-radar directive may contain the following child directives:
+<a href="topic/wijmo.angular.WjFlexChartAxis.Class.html"><span class="identifier">WjFlexChartAxis</span></a>, <a href="topic/wijmo.angular.WjFlexRadarSeries.Class.html"><span class="identifier">WjFlexRadarSeries</span></a>, <a href="topic/wijmo.angular.WjFlexChartLegend.Class.html"><span class="identifier">WjFlexChartLegend</span></a> and <a href="topic/wijmo.angular.WjFlexChartDataLabel.Class.html"><span class="identifier">WjFlexChartDataLabel</span></a>.</p></div>
+</div>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+</div>

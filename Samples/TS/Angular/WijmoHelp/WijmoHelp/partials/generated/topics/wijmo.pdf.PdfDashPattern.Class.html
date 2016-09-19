@@ -1,135 +1,92 @@
-<h2>PdfDashPattern Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">PdfDashPattern</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.pdf</dd>
-<dt>File</dt><dd>wijmo.pdf.js</dd>
+<dt>File</dt><dd class="filename">wijmo.pdf.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.pdf.Module.html"><span class="identifier">wijmo.pdf</span></a></dd>
 </dl>
-<p>Represents the dash pattern used to stroke paths.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+<div class="comment"><p>Represents the dash pattern used to stroke paths.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(dash?, gap?, phase?): <a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><b>PdfDashPattern</b></a></td>
-      <td><p>
-<b>dash?</b> (<b>number</b>): The length of alternating dashes, in points.<br/><span class="text-info">(default value: <b>null</b>)</span><br/><b>gap?</b> (<b>number</b>): The length of alternating gaps, in points.<br/><span class="text-info">(default value: <b>dash</b>)</span><br/><b>phase?</b> (<b>number</b>): The distance in the dash pattern to start the dash at, in points.<br/><span class="text-info">(default value: <b>0</b>)</span><br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><b>PdfDashPattern</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDashPattern.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfDashPattern.Class.html/#dash">dash</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfDashPattern.Class.html/#gap">gap</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfDashPattern.Class.html/#phase">phase</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDashPattern.Class.html/#clone">clone</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDashPattern.Class.html/#equals">equals</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(dash?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, gap?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, phase?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><span class="identifier">PdfDashPattern</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><span class="identifier">PdfDashPattern</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>dash</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The length of alternating dashes, in points.</p></li><li><b>gap</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The length of alternating gaps, in points.</p></li><li><b>phase</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The distance in the dash pattern to start the dash at, in points.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><span class="identifier">PdfDashPattern</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>dash</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the length of alternating dashes, in points.
-The default value is null which indicates no dash pattern, but a solid line.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>gap</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the length of alternating gaps, in points.
-The default value is equal to <b>dash</b> which indicates that dashes and gaps will
-have the same length.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>phase</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the distance in the dash pattern to start the dash at, in points.
-The default value is 0.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="dash" class="member-panel mproperty">
+<h3>dash</h3>
+<div class="comment"><p>Gets or sets the length of alternating dashes, in points.
+The default value is null which indicates no dash pattern, but a solid line.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div id="gap" class="member-panel mproperty">
+<h3>gap</h3>
+<div class="comment"><p>Gets or sets the length of alternating gaps, in points.
+The default value is equal to <a href="topic/wijmo.pdf.PdfDashPattern.Class.html/#dash"><span class="identifier">dash</span></a> which indicates that dashes and gaps will
+have the same length.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>clone</b>&#8203;(): <a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><b>PdfDashPattern</b></a></td>
-      <td></td>
-      <td>Creates a copy of this <a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><b>PdfDashPattern</b></a>.<br/><br/><b>Returns</b> A copy of this dash pattern.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>equals</b>&#8203;(value): <b>boolean</b></td>
-      <td><p>
-<b>value</b> (<a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><b>PdfDashPattern</b></a>): <a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><b>PdfDashPattern</b></a> to compare.<br/></p>
-</td>
-      <td>Determines whether the specified <a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><b>PdfDashPattern</b></a> instance is equal
-to the current one.<br/><br/><b>Returns</b> true if the specified object is equal to the current one, otherwise false.</td>
-    </tr>
-</tbody>
-</table>
+<div id="phase" class="member-panel mproperty">
+<h3>phase</h3>
+<div class="comment"><p>Gets or sets the distance in the dash pattern to start the dash at, in points.
+The default value is 0.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="clone" class="member-panel mmethod">
+<h3>clone</h3>
+<pre>clone(): <a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><span class="identifier">PdfDashPattern</span></a></pre>
+<div class="comment"><p>Creates a copy of this <a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><span class="identifier">PdfDashPattern</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><span class="identifier">PdfDashPattern</span></a></dd>
+</dl>
+</div>
+<div id="equals" class="member-panel mmethod">
+<h3>equals</h3>
+<pre>equals(value: <a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><span class="identifier">PdfDashPattern</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Determines whether the specified <a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><span class="identifier">PdfDashPattern</span></a> instance is equal
+to the current one.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><span class="identifier">PdfDashPattern</span></a><br/><p><a href="topic/wijmo.pdf.PdfDashPattern.Class.html"><span class="identifier">PdfDashPattern</span></a> to compare.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+</div>

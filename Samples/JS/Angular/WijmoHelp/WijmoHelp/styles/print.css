@@ -1,0 +1,48 @@
+﻿/* document title */
+.doc-title {
+    margin: 2in;
+    margin-top: 6in;
+    text-align: right;
+}
+    .doc-title h1 {
+        font-size: 64pt;
+    }
+
+/* start topics on new pages */
+.topic {
+    page-break-before: always;
+}
+
+/* three-column TOC */
+.toc-c3 {
+    columns:3;
+}
+    .toc-c3 h4 {
+        break-before: column;
+    }
+
+/* compress pre blocks and condensed tables*/
+pre {
+    font-size: 80%;
+    overflow: visible;
+    background-color: #f8f8f8;
+}
+.table-condensed > tbody > tr > td {
+    padding: 0;
+}
+
+/* no embedded fiddles */
+.fiddle {
+    height: auto;
+}
+
+/* show inherited members/event raisers */
+.member-panel ul li.inherited,
+.member-list .member-panel.inherited {
+    display: inherit;
+}
+.member-panel ul li.raiser,
+.member-list .member-panel.raiser {
+    display: inherit;
+}
+

@@ -4,20 +4,20 @@
     margin-bottom: 12pt;
 }
 
-/* style for footer rows */
-.wj-flexgrid .wj-group.wj-footer:not(.wj-state-selected):not(.wj-state-multi-selected) {
-    background-color: #dffff4;
-    font-weight: bold;
-}
-
-/* add border around the compound grid */
-.multi-grid {
+/* grid style */
+.wj-flexgrid {
     border: 2px solid grey;
     border-radius: 4px;
+    max-height: 350px;
 }
+    /* style for column footers */
+    .wj-flexgrid .wj-colfooters .wj-cell {
+        border-top: 1px solid #4cff00;
+        background-color: #dffff4;
+    }
 
-/* remove spacing between master and footer grids*/
-/* http://stackoverflow.com/questions/18508442/remove-whitespace-between-div-element */
-.multi-grid .wj-flexgrid {
-    vertical-align: top;
-}
+    /* style for custom group footer rows */
+    .wj-flexgrid .wj-group.wj-groupfooter:not(.wj-state-selected):not(.wj-state-multi-selected) {
+        background-color: #dffff4;
+        font-weight: bold;
+    }

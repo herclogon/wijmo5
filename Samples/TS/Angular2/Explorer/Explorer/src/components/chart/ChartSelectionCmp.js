@@ -7,8 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // Chart selection component
 var ChartSelectionCmp = (function () {
     function ChartSelectionCmp() {
@@ -23,12 +24,25 @@ var ChartSelectionCmp = (function () {
     ChartSelectionCmp = __decorate([
         core_1.Component({
             selector: 'chart-selection-cmp',
-            templateUrl: 'src/components/chart/chartSelectionCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/chart/chartSelectionCmp.html'
         })
     ], ChartSelectionCmp);
     return ChartSelectionCmp;
 }());
 exports.ChartSelectionCmp = ChartSelectionCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartSelectionCmp }
+]);
+var ChartSelectionModule = (function () {
+    function ChartSelectionModule() {
+    }
+    ChartSelectionModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [ChartSelectionCmp],
+        })
+    ], ChartSelectionModule);
+    return ChartSelectionModule;
+}());
+exports.ChartSelectionModule = ChartSelectionModule;
 //# sourceMappingURL=ChartSelectionCmp.js.map

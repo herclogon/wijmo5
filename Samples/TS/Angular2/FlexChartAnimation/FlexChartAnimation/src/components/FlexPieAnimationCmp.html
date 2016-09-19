@@ -16,7 +16,8 @@
             <div class="panel-body">
                 <ul class="list-inline">
                     <li>
-                        <wj-menu #aniMode [(value)]="animationMode" header="Animation mode" (itemClicked)="animationModeChanged(aniMode)">
+                        <wj-menu [(value)]="animationMode" header="Animation mode" 
+                                 (itemClicked)="animationModeChanged()">
                             <wj-menu-item value="Point">Point</wj-menu-item>
                             <wj-menu-item value="Series">Series</wj-menu-item>
                             <wj-menu-item value="All">All</wj-menu-item>
@@ -81,7 +82,7 @@
     </div>
     <div>
         <wj-flex-pie #flexPie [itemsSource]="data" binding="y" bindingName="x" [innerRadius]="innerRadius">
-            <wj-flex-chart-animation #animation [animationMode]="animationMode" [easing]="easing" [duration]="duration"></wj-flex-chart-animation>
+            <wj-flex-chart-animation #animation [easing]="easing" [duration]="duration"></wj-flex-chart-animation>
         </wj-flex-pie>
     </div>
 

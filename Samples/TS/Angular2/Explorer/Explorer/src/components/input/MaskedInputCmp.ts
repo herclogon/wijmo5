@@ -1,16 +1,18 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { InputBaseCmp } from './InputBaseCmp';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // MaskedInput sample component.
 @Component({
     selector: 'masked-input-cmp',
-    templateUrl: 'src/components/input/maskedInputCmp.html',
-    directives: [wjNg2Input.WjInputMask, wjNg2Input.WjInputDate, wjNg2Input.WjInputTime, CORE_DIRECTIVES],
+    templateUrl: 'src/components/input/maskedInputCmp.html'
 })
 
 export class MaskedInputCmp extends InputBaseCmp {
@@ -20,4 +22,15 @@ export class MaskedInputCmp extends InputBaseCmp {
     constructor( @Inject(DataSvc) dataSvc: DataSvc) {
         super(dataSvc);
     }
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: MaskedInputCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjInputModule],
+    declarations: [MaskedInputCmp],
+})
+export class MaskedInputModule {
 }

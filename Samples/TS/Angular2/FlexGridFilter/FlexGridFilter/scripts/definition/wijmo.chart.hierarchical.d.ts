@@ -1,6 +1,6 @@
 /*
     *
-    * Wijmo Library 5.20162.198
+    * Wijmo Library 5.20162.207
     * http://wijmo.com/
     *
     * Copyright(c) GrapeCity, Inc.  All rights reserved.
@@ -26,8 +26,9 @@ declare module wijmo.chart.hierarchical {
         private _childItemsPath;
         constructor(element: any, options?: any);
         /**
-         * Gets or sets the name of the property that contains the name of the data item, it should be an array or a string.
-         */
+                * Gets or sets the name of the property containing name of the data item;
+                * it should be an array or a string.
+                */
         bindingName: any;
         /**
          * Gets or sets the name of the property (or properties) used to generate
@@ -36,9 +37,9 @@ declare module wijmo.chart.hierarchical {
          * Set this property to a string to specify the name of the property that
          * contains an item's child items (e.g. <code>'items'</code>).
          *
-         * If items at different levels child items with different names, then
-         * set this property to an array containing the names of the properties
-         * that contain child items et each level
+         * Set this property to an array containing the names of the properties
+         * that contain child items at each level, when the items are child items
+         * at different levels with different names
          * (e.g. <code>[ 'accounts', 'checks', 'earnings' ]</code>).
          */
         childItemsPath: any;
@@ -52,9 +53,6 @@ declare module wijmo.chart.hierarchical {
     }
 }
 
-/**
-* Contains utilities used by hierarchical chart.
-*/
 declare module wijmo.chart.hierarchical {
     class HierarchicalUtil {
         static parseDataToHierarchical(data: any, binding: any, bindingName: any, childItemsPath: any): any[];

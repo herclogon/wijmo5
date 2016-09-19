@@ -71,3 +71,5 @@ export declare class ExcellikeSheetCmp implements OnInit {
     private _applyStyleForFormulasSheet(flexSheet);
     private _adjustSize();
 }
+export declare class AppModule {
+}

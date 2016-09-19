@@ -1,362 +1,478 @@
-<h2>WjListBox Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">WjListBox</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a></dd>
-<dt>Module</dt><dd>wijmo/wijmo.angular2.input</dd>
-<dt>File</dt><dd>wijmo.angular2.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.angular2.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo-wijmo.angular2.input.Module.html"><span class="identifier">wijmo/wijmo.angular2.input</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p><p>Angular 2 component for the <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a> control.</p>
-
+<div class="comment"><p>Angular 2 component for the <a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a> control.</p>
 <p>Use the <b>wj-list-box</b> component to add <b>ListBox</b> controls to your 
 Angular 2 applications. For details about Angular 2 markup syntax, see 
 <a href="static/angular2Markup.html">Angular 2 Markup</a>. </p>
-
 <p>The <b>WjListBox</b> component is derived from the <b>ListBox</b> control and
 inherits all its properties, events and methods.</p>
-
-<p>The <b>wj-list-box</b> component may contain <a href="topic/wijmo-wijmo.angular2.input.WjItemTemplate.Class.html"><b>WjItemTemplate</b></a>
-child directive.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<p>The <b>wj-list-box</b> component may contain <a href="topic/wijmo-wijmo.angular2.input.WjItemTemplate.Class.html"><span class="identifier">WjItemTemplate</span></a>
+child directive.</p></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>checkedItems</b></td>
-      <td><b>any</b><b>[]</b></td>
-      <td>Gets or sets an array containing the items that are currently checked.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>checkedMemberPath</b></td>
-      <td></td>
-      <td><p>Gets or sets the name of the property used to control the CheckBoxes 
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#checkedItems">checkedItems</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#checkedMemberPath">checkedMemberPath</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#collectionView">collectionView</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#displayMemberPath">displayMemberPath</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#hostElement">hostElement</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#isContentHtml">isContentHtml</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#isDisabled">isDisabled</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#isTouching">isTouching</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#isUpdating">isUpdating</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#itemFormatter">itemFormatter</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#itemsSource">itemsSource</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#maxHeight">maxHeight</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#selectedIndex">selectedIndex</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#selectedItem">selectedItem</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#selectedValue">selectedValue</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#selectedValuePath">selectedValuePath</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#addEventListener">addEventListener</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#applyTemplate">applyTemplate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#beginUpdate">beginUpdate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#containsFocus">containsFocus</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#deferUpdate">deferUpdate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#dispose">dispose</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#disposeAll">disposeAll</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#endUpdate">endUpdate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#focus">focus</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#getControl">getControl</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#getDisplayText">getDisplayText</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#getDisplayValue">getDisplayValue</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#getItemChecked">getItemChecked</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#getTemplate">getTemplate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#initialize">initialize</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#invalidate">invalidate</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#invalidateAll">invalidateAll</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#onCheckedItemsChanged">onCheckedItemsChanged</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#onFormatItem">onFormatItem</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#onGotFocus">onGotFocus</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#onItemChecked">onItemChecked</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#onItemsChanged">onItemsChanged</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#onLoadedItems">onLoadedItems</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#onLoadingItems">onLoadingItems</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#onLostFocus">onLostFocus</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#onSelectedIndexChanged">onSelectedIndexChanged</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#refresh">refresh</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#refreshAll">refreshAll</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#removeEventListener">removeEventListener</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#setItemChecked">setItemChecked</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#showSelection">showSelection</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#toggleItemChecked">toggleItemChecked</a></li>
+</ul>
+<h3 class="node">Events</h3>
+<ul>
+<li class="mevent inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#checkedItemsChanged">checkedItemsChanged</a></li>
+<li class="mevent inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#formatItem">formatItem</a></li>
+<li class="mevent inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#gotFocus">gotFocus</a></li>
+<li class="mevent inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#itemChecked">itemChecked</a></li>
+<li class="mevent inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#itemsChanged">itemsChanged</a></li>
+<li class="mevent inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#loadedItems">loadedItems</a></li>
+<li class="mevent inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#loadingItems">loadingItems</a></li>
+<li class="mevent inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#lostFocus">lostFocus</a></li>
+<li class="mevent inherited"><a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#selectedIndexChanged">selectedIndexChanged</a></li>
+</ul>
+</div>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod inherited">
+<h3>constructor</h3>
+<pre>constructor(element: <span class="identifier">any</span>, options?): <a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>element</b>: <span class="identifier">any</span><br/><p>The DOM element that hosts the control, or a selector for the host element (e.g. '#theCtrl').</p></li><li><b>options</b>:  <span class="badge">Optional</span><br/><p>The JavaScript object containing initialization data for the control.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+</dl>
+</div>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="checkedItems" class="member-panel mproperty inherited">
+<h3>checkedItems</h3>
+<div class="comment"><p>Gets or sets an array containing the items that are currently checked.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span>[]</dd>
+</dl>
+</div>
+<div id="checkedMemberPath" class="member-panel mproperty inherited">
+<h3>checkedMemberPath</h3>
+<div class="comment"><p>Gets or sets the name of the property used to control the CheckBoxes 
 placed next to each item.</p>
-
 <p>Use this property to create multi-select LisBoxes.
-When an item is checked or unchecked, the control raises the <b>itemChecked</b> event.
-Use the <b>selectedItem</b> property to retrieve the item that was checked or unchecked,
-or use the <b>checkedItems</b> property to retrieve the list of items that are currently
-checked.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>collectionView</b></td>
-      <td><b>ICollectionView</b></td>
-      <td>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object used as the item source.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>displayMemberPath</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the name of the property to use as the visual representation of the items.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>hostElement</b></td>
-      <td><b>HTMLElement</b></td>
-      <td>Gets the DOM element that is hosting the control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isContentHtml</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value indicating whether items contain plain text or HTML.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isDisabled</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets or sets a value that determines whether the control is disabled.</p>
-
-<p>Disabled controls cannot get mouse or keyboard events.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isTouching</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether the control is currently handling a touch event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>isUpdating</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets a value that indicates whether the control is currently being updated.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>itemFormatter</b></td>
-      <td><b>Function</b></td>
-      <td><p>Gets or sets a function used to customize the values shown on the list.
+When an item is checked or unchecked, the control raises the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#itemChecked"><span class="identifier">itemChecked</span></a> event.
+Use the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#selectedItem"><span class="identifier">selectedItem</span></a> property to retrieve the item that was checked or unchecked,
+or use the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#checkedItems"><span class="identifier">checkedItems</span></a> property to retrieve the list of items that are currently
+checked.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Type</dt><dd></dd>
+</dl>
+</div>
+<div id="collectionView" class="member-panel mproperty inherited">
+<h3>collectionView</h3>
+<div class="comment"><p>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> object used as the item source.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a></dd>
+</dl>
+</div>
+<div id="displayMemberPath" class="member-panel mproperty inherited">
+<h3>displayMemberPath</h3>
+<div class="comment"><p>Gets or sets the name of the property to use as the visual representation of the items.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="hostElement" class="member-panel mproperty inherited">
+<h3>hostElement</h3>
+<div class="comment"><p>Gets the DOM element that is hosting the control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a></dd>
+</dl>
+</div>
+<div id="isContentHtml" class="member-panel mproperty inherited">
+<h3>isContentHtml</h3>
+<div class="comment"><p>Gets or sets a value indicating whether items contain plain text or HTML.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isDisabled" class="member-panel mproperty inherited">
+<h3>isDisabled</h3>
+<div class="comment"><p>Gets or sets a value that determines whether the control is disabled.</p>
+<p>Disabled controls cannot get mouse or keyboard events.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isTouching" class="member-panel mproperty inherited">
+<h3>isTouching</h3>
+<div class="comment"><p>Gets a value that indicates whether the control is currently handling a touch event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isUpdating" class="member-panel mproperty inherited">
+<h3>isUpdating</h3>
+<div class="comment"><p>Gets a value that indicates whether the control is currently being updated.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="itemFormatter" class="member-panel mproperty inherited">
+<h3>itemFormatter</h3>
+<div class="comment"><p>Gets or sets a function used to customize the values shown on the list.
 The function takes two arguments, the item index and the default text or html, and
 returns the new text or html to display.</p>
-
 <p>If the formatting function needs a scope (i.e. a meaningful 'this'
 value), then remember to set the filter using the 'bind' function to
 specify the 'this' object. For example:</p>
 
-<p><pre>
-  listBox.itemFormatter = customItemFormatter.bind(this);
+
+<pre>listBox.itemFormatter = customItemFormatter.bind(this);
   function customItemFormatter(index, content) {
     if (this.makeItemBold(index)) {
       content = '&lt;b&gt;' + content + '&lt;/b&gt;';
     }
     return content;
-  }
-</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>itemsSource</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> object that contains the list items.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>maxHeight</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the maximum height of the list.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>selectedIndex</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the index of the currently selected item.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>selectedItem</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the item that is currently selected.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>selectedValue</b></td>
-      <td><b>any</b></td>
-      <td>Gets or sets the value of the <b>selectedItem</b> obtained using the <b>selectedValuePath</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>selectedValuePath</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the name of the property used to get the <b>selectedValue</b> 
-from the <b>selectedItem</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+  }</pre></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div id="itemsSource" class="member-panel mproperty inherited">
+<h3>itemsSource</h3>
+<div class="comment"><p>Gets or sets the array or <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> object that contains the list items.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>addEventListener</b>&#8203;(target, type, fn, capture?)</td>
-      <td><p>
-<b>target</b> (<b>EventTarget</b>): Target element for the event.<br/><b>type</b> (<b>string</b>): String that specifies the event.<br/><b>fn</b> (<b>any</b>): Function to execute when the event occurs.<br/><b>capture?</b> (<b>boolean</b>): Whether the listener is capturing.<br/><span class="text-info">(default value: <b>false</b>)</span><br/></p>
-</td>
-      <td><p>Adds an event listener to an element owned by this <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>.</p>
-
+<div id="maxHeight" class="member-panel mproperty inherited">
+<h3>maxHeight</h3>
+<div class="comment"><p>Gets or sets the maximum height of the list.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="selectedIndex" class="member-panel mproperty inherited">
+<h3>selectedIndex</h3>
+<div class="comment"><p>Gets or sets the index of the currently selected item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="selectedItem" class="member-panel mproperty inherited">
+<h3>selectedItem</h3>
+<div class="comment"><p>Gets or sets the item that is currently selected.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="selectedValue" class="member-panel mproperty inherited">
+<h3>selectedValue</h3>
+<div class="comment"><p>Gets or sets the value of the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#selectedItem"><span class="identifier">selectedItem</span></a> obtained using the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#selectedValuePath"><span class="identifier">selectedValuePath</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="selectedValuePath" class="member-panel mproperty inherited">
+<h3>selectedValuePath</h3>
+<div class="comment"><p>Gets or sets the name of the property used to get the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#selectedValue"><span class="identifier">selectedValue</span></a> 
+from the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#selectedItem"><span class="identifier">selectedItem</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="addEventListener" class="member-panel mmethod inherited">
+<h3>addEventListener</h3>
+<pre>addEventListener(target: <a href="https://developer.mozilla.org/en/docs/Web/API/EventTarget" target="_blank"><span class="identifier">EventTarget</span></a>, type: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, fn: <span class="identifier">any</span>, capture?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Adds an event listener to an element owned by this <a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a>.</p>
 <p>The control keeps a list of attached listeners and their handlers,
 making it easier to remove them when the control is disposed (see the
-<b>dispose</b> and <b>removeEventListener</b> method).</p>
-
-<p>Failing to remove event listeners may cause memory leaks.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>applyTemplate</b>&#8203;(classNames, template, parts, namePart?): <b>HTMLElement</b></td>
-      <td><p>
-<b>classNames</b> (<b>string</b>): Names of classes to add to the control's host element.<br/><b>template</b> (<b>string</b>): An HTML string that defines the control template.<br/><b>parts</b> (<b>Object</b>): A dictionary of part variables and their names.<br/><b>namePart?</b> (<b>string</b>): Name of the part to be named after the host element. This
-determines how the control submits data when used in forms.<br/></p>
-</td>
-      <td><p>Applies the template to a new instance of a control, and returns the root element.</p>
-
+<a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#dispose"><span class="identifier">dispose</span></a> and <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#removeEventListener"><span class="identifier">removeEventListener</span></a> method).</p>
+<p>Failing to remove event listeners may cause memory leaks.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>target</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/EventTarget" target="_blank"><span class="identifier">EventTarget</span></a><br/><p>Target element for the event.</p></li><li><b>type</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>String that specifies the event.</p></li><li><b>fn</b>: <span class="identifier">any</span><br/><p>Function to execute when the event occurs.</p></li><li><b>capture</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether the listener is capturing.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="applyTemplate" class="member-panel mmethod inherited">
+<h3>applyTemplate</h3>
+<pre>applyTemplate(classNames: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, template: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, parts: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank"><span class="identifier">Object</span></a>, namePart?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a></pre>
+<div class="comment"><p>Applies the template to a new instance of a control, and returns the root element.</p>
 <p>This method should be called by constructors of templated controls.
 It is responsible for binding the template parts to the 
 corresponding control members.</p>
-
 <p>For example, the code below applies a template to an instance
-of an <a href="topic/wijmo.input.InputNumber.Class.html"><b>InputNumber</b></a> control. The template must contain elements 
+of an <a href="topic/wijmo.input.InputNumber.Class.html"><span class="identifier">InputNumber</span></a> control. The template must contain elements 
 with the 'wj-part' attribute set to 'input', 'btn-inc', and 'btn-dec'.
 The control members '_tbx', '_btnUp', and '_btnDn' will be assigned
 references to these elements.</p>
 
-<p><pre>this.applyTemplate('wj-control wj-inputnumber', template, {
+
+<pre>this.applyTemplate('wj-control wj-inputnumber', template, {
   _tbx: 'input',
   _btnUp: 'btn-inc',
   _btnDn: 'btn-dec'
-}, 'input');</pre></p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>beginUpdate</b>&#8203;()</td>
-      <td></td>
-      <td>Suspends notifications until the next call to <b>endUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>constructor</b>&#8203;(element, options?): <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a></td>
-      <td><p>
-<b>element</b> (<b>any</b>): The DOM element that hosts the control, or a selector for the host element (e.g. '#theCtrl').<br/><b>options?</b> (): The JavaScript object containing initialization data for the control.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a> class.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>containsFocus</b>&#8203;(): <b>boolean</b></td>
-      <td></td>
-      <td>Checks whether this control contains the focused element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>deferUpdate</b>&#8203;(fn)</td>
-      <td><p>
-<b>fn</b> (<b>Function</b>): Function to be executed.<br/></p>
-</td>
-      <td><p>Executes a function within a <b>beginUpdate</b>/<b>endUpdate</b> block.</p>
-
+}, 'input');</pre></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>classNames</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>Names of classes to add to the control's host element.</p></li><li><b>template</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>An HTML string that defines the control template.</p></li><li><b>parts</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank"><span class="identifier">Object</span></a><br/><p>A dictionary of part variables and their names.</p></li><li><b>namePart</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a> <span class="badge">Optional</span><br/><p>Name of the part to be named after the host element. This
+determines how the control submits data when used in forms.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a></dd>
+</dl>
+</div>
+<div id="beginUpdate" class="member-panel mmethod inherited">
+<h3>beginUpdate</h3>
+<pre>beginUpdate(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Suspends notifications until the next call to <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="containsFocus" class="member-panel mmethod inherited">
+<h3>containsFocus</h3>
+<pre>containsFocus(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Checks whether this control contains the focused element.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="deferUpdate" class="member-panel mmethod inherited">
+<h3>deferUpdate</h3>
+<pre>deferUpdate(fn: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Executes a function within a <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#beginUpdate"><span class="identifier">beginUpdate</span></a>/<a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a> block.</p>
 <p>The control will not be updated until the function has been executed.
-This method ensures <b>endUpdate</b> is called even if the function throws
-an exception.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>dispose</b>&#8203;()</td>
-      <td></td>
-      <td><p>Disposes of the control by removing its association with the host element.</p>
-
-<p>The <b>dispose</b> method automatically removes any event listeners added
-with the <b>addEventListener</b> method.</p>
-
-<p>Calling the <b>dispose</b> method is important in applications that create
+This method ensures <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#endUpdate"><span class="identifier">endUpdate</span></a> is called even if the function throws
+an exception.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>fn</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a><br/><p>Function to be executed.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="dispose" class="member-panel mmethod inherited">
+<h3>dispose</h3>
+<pre>dispose(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Disposes of the control by removing its association with the host element.</p>
+<p>The <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#dispose"><span class="identifier">dispose</span></a> method automatically removes any event listeners added
+with the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#addEventListener"><span class="identifier">addEventListener</span></a> method.</p>
+<p>Calling the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#dispose"><span class="identifier">dispose</span></a> method is important in applications that create
 and remove controls dynamically. Failing to dispose of the controls may
-cause memory leaks.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>disposeAll</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<b>HTMLElement</b>): Container element.<br/></p>
-</td>
-      <td>Disposes of all Wijmo controls contained in an HTML element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>endUpdate</b>&#8203;()</td>
-      <td></td>
-      <td>Resumes notifications suspended by calls to <b>beginUpdate</b>.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>focus</b>&#8203;()</td>
-      <td></td>
-      <td>Sets the focus to this control.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>getControl</b>&#8203;(element): <a href="topic/wijmo.Control.Class.html"><b>Control</b></a></td>
-      <td><p>
-<b>element</b> (<b>any</b>): The DOM element that is hosting the control, or a selector for the host element (e.g. '#theCtrl').<br/></p>
-</td>
-      <td>Gets the control that is hosted in a given DOM element.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>getDisplayText</b>&#8203;(index): <b>string</b></td>
-      <td><p>
-<b>index</b> (<b>number</b>): The index of the item.<br/></p>
-</td>
-      <td>Gets the text displayed for the item at a given index (as plain text).<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>getDisplayValue</b>&#8203;(index): <b>string</b></td>
-      <td><p>
-<b>index</b> (<b>number</b>): The index of the item.<br/></p>
-</td>
-      <td><p>Gets the string displayed for the item at a given index.</p>
-
+cause memory leaks.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="disposeAll" class="member-panel mmethod inherited">
+<h3><span class="badge">Static</span> disposeAll</h3>
+<pre>disposeAll(e?: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Disposes of all Wijmo controls contained in an HTML element.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a> <span class="badge">Optional</span><br/><p>Container element.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="endUpdate" class="member-panel mmethod inherited">
+<h3>endUpdate</h3>
+<pre>endUpdate(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Resumes notifications suspended by calls to <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#beginUpdate"><span class="identifier">beginUpdate</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="focus" class="member-panel mmethod inherited">
+<h3>focus</h3>
+<pre>focus(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Sets the focus to this control.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="getControl" class="member-panel mmethod inherited">
+<h3><span class="badge">Static</span> getControl</h3>
+<pre>getControl(element: <span class="identifier">any</span>): <a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></pre>
+<div class="comment"><p>Gets the control that is hosted in a given DOM element.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>element</b>: <span class="identifier">any</span><br/><p>The DOM element that is hosting the control, or a selector for the host element (e.g. '#theCtrl').</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+</dl>
+</div>
+<div id="getDisplayText" class="member-panel mmethod inherited">
+<h3>getDisplayText</h3>
+<pre>getDisplayText(index: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></pre>
+<div class="comment"><p>Gets the text displayed for the item at a given index (as plain text).</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>index</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The index of the item.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="getDisplayValue" class="member-panel mmethod inherited">
+<h3>getDisplayValue</h3>
+<pre>getDisplayValue(index: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></pre>
+<div class="comment"><p>Gets the string displayed for the item at a given index.</p>
 <p>The string may be plain text or HTML, depending on the setting
-of the <b>isContentHtml</b> property.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>getItemChecked</b>&#8203;(index): <b>boolean</b></td>
-      <td><p>
-<b>index</b> (<b>number</b>): Item index.<br/></p>
-</td>
-      <td><p>Gets the checked state of an item on the list.</p>
-
+of the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#isContentHtml"><span class="identifier">isContentHtml</span></a> property.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>index</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The index of the item.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="getItemChecked" class="member-panel mmethod inherited">
+<h3>getItemChecked</h3>
+<pre>getItemChecked(index: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Gets the checked state of an item on the list.</p>
 <p>This method is applicable only on multi-select ListBoxes 
-(see the <b>checkedMemberPath</b> property).</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>getTemplate</b>&#8203;(): <b>string</b></td>
-      <td></td>
-      <td><p>Gets the HTML template used to create instances of the control.</p>
-
+(see the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#checkedMemberPath"><span class="identifier">checkedMemberPath</span></a> property).</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>index</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Item index.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="getTemplate" class="member-panel mmethod inherited">
+<h3>getTemplate</h3>
+<pre>getTemplate(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></pre>
+<div class="comment"><p>Gets the HTML template used to create instances of the control.</p>
 <p>This method traverses up the class hierarchy to find the nearest ancestor that
 specifies a control template. For example, if you specify a prototype for the
-<a href="topic/wijmo.input.ComboBox.Class.html"><b>ComboBox</b></a> control, it will override the template defined by the <a href="topic/wijmo.input.DropDown.Class.html"><b>DropDown</b></a> 
-base class.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>initialize</b>&#8203;(options)</td>
-      <td><p>
-<b>options</b> (<b>any</b>): Object that contains the initialization data.<br/></p>
-</td>
-      <td><p>Initializes the control by copying the properties from a given object.</p>
-
+<a href="topic/wijmo.input.ComboBox.Class.html"><span class="identifier">ComboBox</span></a> control, it will override the template defined by the <a href="topic/wijmo.input.DropDown.Class.html"><span class="identifier">DropDown</span></a> 
+base class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="initialize" class="member-panel mmethod inherited">
+<h3>initialize</h3>
+<pre>initialize(options: <span class="identifier">any</span>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Initializes the control by copying the properties from a given object.</p>
 <p>This method allows you to initialize controls using plain data objects
 instead of setting the value of each property in code.</p>
-
 <p>For example:
-<pre>
-grid.initialize({
+</p>
+
+<pre>grid.initialize({
   itemsSource: myList,
   autoGenerateColumns: false,
   columns: [
@@ -364,261 +480,349 @@ grid.initialize({
     { binding: 'name', header: 'Name', width: 60 } 
   ]
 });
+
 // is equivalent to
 grid.itemsSource = myList;
 grid.autoGenerateColumns = false;
-// etc.
-</pre></p>
 
+// etc.</pre>
 <p>The initialization data is type-checked as it is applied. If the 
 initialization object contains unknown property names or invalid
-data types, this method will throw.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>invalidate</b>&#8203;(fullUpdate?)</td>
-      <td><p>
-<b>fullUpdate?</b> (<b>boolean</b>): Whether to update the control layout as well as the content.<br/><span class="text-info">(default value: <b>true</b>)</span><br/></p>
-</td>
-      <td>Invalidates the control causing an asynchronous refresh.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>invalidateAll</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<b>HTMLElement</b>): Container element. If set to null, all Wijmo controls
-on the page will be invalidated.<br/></p>
-</td>
-      <td><p>Invalidates all Wijmo controls contained in an HTML element.</p>
-
+data types, this method will throw.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>options</b>: <span class="identifier">any</span><br/><p>Object that contains the initialization data.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="invalidate" class="member-panel mmethod inherited">
+<h3>invalidate</h3>
+<pre>invalidate(fullUpdate?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Invalidates the control causing an asynchronous refresh.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>fullUpdate</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether to update the control layout as well as the content.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="invalidateAll" class="member-panel mmethod inherited">
+<h3><span class="badge">Static</span> invalidateAll</h3>
+<pre>invalidateAll(e?: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Invalidates all Wijmo controls contained in an HTML element.</p>
 <p>Use this method when your application has dynamic panels that change
 the control's visibility or dimensions. For example, splitters, accordions,
 and tab controls usually change the visibility of its content elements.
 In this case, failing to notify the controls contained in the element
 may cause them to stop working properly.</p>
-
 <p>If this happens, you must handle the appropriate event in the dynamic
-container and call the <b>invalidateAll</b> method so the contained
-Wijmo controls will update their layout information properly.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onCheckedItemsChanged</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>checkedItemsChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onFormatItem</b>&#8203;(e)</td>
-      <td><p>
-<b>e</b> (<a href="topic/wijmo.input.FormatItemEventArgs.Class.html"><b>FormatItemEventArgs</b></a>): <a href="topic/wijmo.input.FormatItemEventArgs.Class.html"><b>FormatItemEventArgs</b></a> that contains the event data.<br/></p>
-</td>
-      <td>Raises the <b>formatItem</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onGotFocus</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>gotFocus</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onItemChecked</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>itemChecked</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onItemsChanged</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>itemsChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onLoadedItems</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>loadedItems</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onLoadingItems</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>loadingItems</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onLostFocus</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>lostFocus</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>onSelectedIndexChanged</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>)<br/></p>
-</td>
-      <td>Raises the <b>selectedIndexChanged</b> event.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>refresh</b>&#8203;()</td>
-      <td></td>
-      <td>Refreshes the list.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>refreshAll</b>&#8203;(e?)</td>
-      <td><p>
-<b>e?</b> (<b>HTMLElement</b>): Container element. If set to null, all Wijmo controls
-on the page will be invalidated.<br/></p>
-</td>
-      <td><p>Refreshes all Wijmo controls contained in an HTML element.</p>
-
-<p>This method is similar to <b>invalidateAll</b>, except the controls
-are updated immediately rather than after an interval.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>removeEventListener</b>&#8203;(target?, type?, capture?): <b>number</b></td>
-      <td><p>
-<b>target?</b> (<b>EventTarget</b>): Target element for the event. If null, removes listeners attached to all targets.<br/><b>type?</b> (<b>string</b>): String that specifies the event. If null, removes listeners attached to all events.<br/><b>capture?</b> (<b>boolean</b>): Whether the listener is capturing. If null, removes capturing and non-capturing listeners.<br/></p>
-</td>
-      <td>Removes one or more event listeners attached to elements owned by this <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>.<br/><br/><b>Returns</b> The number of listeners removed.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>setItemChecked</b>&#8203;(index, checked)</td>
-      <td><p>
-<b>index</b> (<b>number</b>): Item index.<br/><b>checked</b> (<b>boolean</b>): Item's new checked state.<br/></p>
-</td>
-      <td><p>Sets the checked state of an item on the list.</p>
-
+container and call the <a href="topic/wijmo.Control.Class.html/#invalidateAll"><span class="identifier">invalidateAll</span></a> method so the contained
+Wijmo controls will update their layout information properly.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a> <span class="badge">Optional</span><br/><p>Container element. If set to null, all Wijmo controls
+on the page will be invalidated.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onCheckedItemsChanged" class="member-panel mmethod inherited raiser">
+<h3>onCheckedItemsChanged</h3>
+<pre>onCheckedItemsChanged(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#checkedItemsChanged"><span class="identifier">checkedItemsChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onFormatItem" class="member-panel mmethod inherited raiser">
+<h3>onFormatItem</h3>
+<pre>onFormatItem(e: <a href="topic/wijmo.grid.FormatItemEventArgs.Class.html"><span class="identifier">FormatItemEventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#formatItem"><span class="identifier">formatItem</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.grid.FormatItemEventArgs.Class.html"><span class="identifier">FormatItemEventArgs</span></a><br/><p><a href="topic/wijmo.grid.FormatItemEventArgs.Class.html"><span class="identifier">FormatItemEventArgs</span></a> that contains the event data.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onGotFocus" class="member-panel mmethod inherited raiser">
+<h3>onGotFocus</h3>
+<pre>onGotFocus(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#gotFocus"><span class="identifier">gotFocus</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onItemChecked" class="member-panel mmethod inherited raiser">
+<h3>onItemChecked</h3>
+<pre>onItemChecked(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#itemChecked"><span class="identifier">itemChecked</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onItemsChanged" class="member-panel mmethod inherited raiser">
+<h3>onItemsChanged</h3>
+<pre>onItemsChanged(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#itemsChanged"><span class="identifier">itemsChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onLoadedItems" class="member-panel mmethod inherited raiser">
+<h3>onLoadedItems</h3>
+<pre>onLoadedItems(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#loadedItems"><span class="identifier">loadedItems</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onLoadingItems" class="member-panel mmethod inherited raiser">
+<h3>onLoadingItems</h3>
+<pre>onLoadingItems(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#loadingItems"><span class="identifier">loadingItems</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onLostFocus" class="member-panel mmethod inherited raiser">
+<h3>onLostFocus</h3>
+<pre>onLostFocus(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#lostFocus"><span class="identifier">lostFocus</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onSelectedIndexChanged" class="member-panel mmethod inherited raiser">
+<h3>onSelectedIndexChanged</h3>
+<pre>onSelectedIndexChanged(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#selectedIndexChanged"><span class="identifier">selectedIndexChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="refresh" class="member-panel mmethod inherited">
+<h3>refresh</h3>
+<pre>refresh(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Refreshes the list.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="refreshAll" class="member-panel mmethod inherited">
+<h3><span class="badge">Static</span> refreshAll</h3>
+<pre>refreshAll(e?: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Refreshes all Wijmo controls contained in an HTML element.</p>
+<p>This method is similar to <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#invalidateAll"><span class="identifier">invalidateAll</span></a>, except the controls
+are updated immediately rather than after an interval.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement" target="_blank"><span class="identifier">HTMLElement</span></a> <span class="badge">Optional</span><br/><p>Container element. If set to null, all Wijmo controls
+on the page will be invalidated.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="removeEventListener" class="member-panel mmethod inherited">
+<h3>removeEventListener</h3>
+<pre>removeEventListener(target?: <a href="https://developer.mozilla.org/en/docs/Web/API/EventTarget" target="_blank"><span class="identifier">EventTarget</span></a>, type?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, capture?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></pre>
+<div class="comment"><p>Removes one or more event listeners attached to elements owned by this <a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>target</b>: <a href="https://developer.mozilla.org/en/docs/Web/API/EventTarget" target="_blank"><span class="identifier">EventTarget</span></a> <span class="badge">Optional</span><br/><p>Target element for the event. If null, removes listeners attached to all targets.</p></li><li><b>type</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a> <span class="badge">Optional</span><br/><p>String that specifies the event. If null, removes listeners attached to all events.</p></li><li><b>capture</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether the listener is capturing. If null, removes capturing and non-capturing listeners.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="setItemChecked" class="member-panel mmethod inherited">
+<h3>setItemChecked</h3>
+<pre>setItemChecked(index: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, checked: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Sets the checked state of an item on the list.</p>
 <p>This method is applicable only on multi-select ListBoxes 
-(see the <b>checkedMemberPath</b> property).</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>showSelection</b>&#8203;()</td>
-      <td></td>
-      <td>Highlights the selected item and scrolls it into view.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>toggleItemChecked</b>&#8203;(index)</td>
-      <td><p>
-<b>index</b> (<b>number</b>): Item index.<br/></p>
-</td>
-      <td>Toggles the checked state of an item on the list.
+(see the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#checkedMemberPath"><span class="identifier">checkedMemberPath</span></a> property).</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>index</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Item index.</p></li><li><b>checked</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a><br/><p>Item's new checked state.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="showSelection" class="member-panel mmethod inherited">
+<h3>showSelection</h3>
+<pre>showSelection(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Highlights the selected item and scrolls it into view.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="toggleItemChecked" class="member-panel mmethod inherited">
+<h3>toggleItemChecked</h3>
+<pre>toggleItemChecked(index: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Toggles the checked state of an item on the list.
 This method is applicable only to multi-select ListBoxes 
-(see the <b>checkedMemberPath</b> property).<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+(see the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#checkedMemberPath"><span class="identifier">checkedMemberPath</span></a> property).</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>index</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Item index.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
-<span class="glyph-collapsed" ng-show="hideEvents"></span>
-<span class="glyph-expanded" ng-hide="hideEvents"></span>
-Events
-</h3>
 </div>
-<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Arguments</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>checkedItemsChanged</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs when the value of the <b>checkedItems</b> property changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>formatItem</b></td>
-      <td><a href="topic/wijmo.input.FormatItemEventArgs.Class.html"><b>FormatItemEventArgs</b></a></td>
-      <td><p>Occurs when an element representing a list item has been created.</p>
-
+<h3 class="node">Events</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="checkedItemsChanged" class="member-panel mevent inherited">
+<h3>checkedItemsChanged</h3>
+<div class="comment"><p>Occurs when the value of the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#checkedItems"><span class="identifier">checkedItems</span></a> property changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="formatItem" class="member-panel mevent inherited">
+<h3>formatItem</h3>
+<div class="comment"><p>Occurs when an element representing a list item has been created.</p>
 <p>This event can be used to format list items for display. It is similar 
-in purpose to the <b>itemFormatter</b> property, but has the advantage 
-of allowing multiple independent handlers.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>gotFocus</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs when the control gets the focus.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>itemChecked</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td><p>Occurs when the current item is checked or unchecked by the user.</p>
-
-<p>This event is raised when the <b>checkedMemberPath</b> is set to the name of a 
-property to add CheckBoxes to each item in the control.</p>
-
-<p>Use the <b>selectedItem</b> property to retrieve the item that was checked or 
-unchecked.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>itemsChanged</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs when the list of items changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>loadedItems</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs after the list items are generated.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>loadingItems</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs before the list items are generated.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>lostFocus</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs when the control loses the focus.<br/><span class="text-info">(inherited from <a href="topic/wijmo.Control.Class.html"><b>Control</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>selectedIndexChanged</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs when the value of the <b>selectedIndex</b> property changes.<br/><span class="text-info">(inherited from <a href="topic/wijmo.input.ListBox.Class.html"><b>ListBox</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+in purpose to the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#itemFormatter"><span class="identifier">itemFormatter</span></a> property, but has the advantage 
+of allowing multiple independent handlers.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.grid.FormatItemEventArgs.Class.html"><span class="identifier">FormatItemEventArgs</span></a></dd>
+</dl>
 </div>
-
+<div id="gotFocus" class="member-panel mevent inherited">
+<h3>gotFocus</h3>
+<div class="comment"><p>Occurs when the control gets the focus.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="itemChecked" class="member-panel mevent inherited">
+<h3>itemChecked</h3>
+<div class="comment"><p>Occurs when the current item is checked or unchecked by the user.</p>
+<p>This event is raised when the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#checkedMemberPath"><span class="identifier">checkedMemberPath</span></a> is set to the name of a 
+property to add CheckBoxes to each item in the control.</p>
+<p>Use the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#selectedItem"><span class="identifier">selectedItem</span></a> property to retrieve the item that was checked or 
+unchecked.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="itemsChanged" class="member-panel mevent inherited">
+<h3>itemsChanged</h3>
+<div class="comment"><p>Occurs when the list of items changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="loadedItems" class="member-panel mevent inherited">
+<h3>loadedItems</h3>
+<div class="comment"><p>Occurs after the list items are generated.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="loadingItems" class="member-panel mevent inherited">
+<h3>loadingItems</h3>
+<div class="comment"><p>Occurs before the list items are generated.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="lostFocus" class="member-panel mevent inherited">
+<h3>lostFocus</h3>
+<div class="comment"><p>Occurs when the control loses the focus.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.Control.Class.html"><span class="identifier">Control</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+<div id="selectedIndexChanged" class="member-panel mevent inherited">
+<h3>selectedIndexChanged</h3>
+<div class="comment"><p>Occurs when the value of the <a href="topic/wijmo-wijmo.angular2.input.WjListBox.Class.html/#selectedIndex"><span class="identifier">selectedIndex</span></a> property changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.input.ListBox.Class.html"><span class="identifier">ListBox</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+</div>

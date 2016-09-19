@@ -1,27 +1,25 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, EventEmitter, provide, Input, Inject, enableProdMode } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
+import { Component, EventEmitter, Provider, Input, Inject, enableProdMode, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { WjCoreModule } from 'wijmo/wijmo.angular2.core';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
+import { TabsModule } from './components/AppTab';
 import { FormattedModelAccessor } from './directives/FormattedModelAccessor';
 import { NumberInputAccessor } from './directives/NumberInputAccessor';
-import * as wjNg2Core from 'wijmo/wijmo.angular2.core';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
-import { AppTab, AppTabPane } from './components/AppTab';
 import { GlobalizePipe } from './pipes/appPipes';
 import { DataSvc } from './services/DataSvc';
-
-
 'use strict';
 
 // The application root component.
 @Component({
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, FormattedModelAccessor, NumberInputAccessor, AppTab, AppTabPane, wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn],
-    pipes: [GlobalizePipe]
+    templateUrl: 'src/app.html'
 })
 
 export class AppCmp {
@@ -318,8 +316,16 @@ export class AppCmp {
     }
 }
 
+@NgModule({
+    imports: [WjCoreModule, WjInputModule, WjGridModule,BrowserModule, FormsModule, TabsModule],
+    declarations: [GlobalizePipe, FormattedModelAccessor, NumberInputAccessor, AppCmp],
+    providers: [DataSvc], 
+    bootstrap: [AppCmp]
+})
+export class AppModule {
+}
+
+
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);

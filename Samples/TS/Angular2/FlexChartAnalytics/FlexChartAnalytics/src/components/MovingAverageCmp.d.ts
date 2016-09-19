@@ -8,3 +8,5 @@ export declare class MovingAverageCmp {
     constructor(dataSvc: DataSvc);
     periodChanged: (input: wijmo.input.InputNumber) => void;
 }
+export declare class MovingAverageModule {
+}

@@ -1,24 +1,22 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, EventEmitter, Inject, enableProdMode, ViewChild, AfterViewInit } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjInput from 'wijmo/wijmo.angular2.input';
-import * as wjGrid from 'wijmo/wijmo.angular2.grid';
-import * as wjDetail from 'wijmo/wijmo.angular2.grid.detail';
+import { Component, EventEmitter, Input, Inject, enableProdMode, AfterViewInit, ViewChild, NgModule } from '@angular/core';
+import { HttpModule, Http } from '@angular/http';
+import { CommonModule } from '@angular/common';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
+import { WjGridDetailModule } from 'wijmo/wijmo.angular2.grid.detail';
 import { DataSvc } from './services/DataSvc';
-import {Http, HTTP_PROVIDERS, Response} from '@angular/http';
 
     'use strict';
 
     // The Explorer application root component.
     @Component({
         selector: 'app-cmp',
-        templateUrl: 'src/app.html',
-        directives: [CORE_DIRECTIVES, wjDetail.WjFlexGridDetail, wjGrid.WjFlexGrid, wjGrid.WjFlexGridColumn,
-            wjGrid.WjFlexGridCellTemplate, wjInput.WjMenu, wjInput.WjMenuItem],
-        viewProviders: [HTTP_PROVIDERS],
+        templateUrl: 'src/app.html'
     })
     export class AppCmp implements AfterViewInit {
         private _productsCache = {};
@@ -116,9 +114,16 @@ import {Http, HTTP_PROVIDERS, Response} from '@angular/http';
 
     }
 
+    @NgModule({
+        imports: [WjInputModule, WjGridModule, WjGridDetailModule, BrowserModule, HttpModule],
+        declarations: [AppCmp],
+        providers: [DataSvc],
+        bootstrap: [AppCmp]
+    })
+    export class AppModule {
+    }
 
-enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
+
+    enableProdMode();
+    // Bootstrap application with hash style navigation and global services.
+    platformBrowserDynamic().bootstrapModule(AppModule);

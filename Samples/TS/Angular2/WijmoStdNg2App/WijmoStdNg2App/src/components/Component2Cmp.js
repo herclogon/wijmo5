@@ -8,9 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+//import { Component, Inject } from '@angular/core';
+//import { CORE_DIRECTIVES } from '@angular/common';
+//import { DataSvc } from '../services/DataSvc';
+//import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
 var core_1 = require('@angular/core');
 var DataSvc_1 = require('../services/DataSvc');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
 //Component2.
 var Component2Cmp = (function () {
     function Component2Cmp(dataSvc) {
@@ -18,8 +21,7 @@ var Component2Cmp = (function () {
     Component2Cmp = __decorate([
         core_1.Component({
             selector: 'component2-cmp',
-            templateUrl: 'src/components/component2.html',
-            directives: [wjNg2Input.WjInputNumber]
+            templateUrl: 'src/components/component2.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], Component2Cmp);

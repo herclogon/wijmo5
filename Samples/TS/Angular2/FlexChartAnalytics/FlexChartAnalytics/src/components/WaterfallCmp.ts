@@ -1,17 +1,19 @@
 ﻿'use strict';
 
-import { Component, AfterViewInit, EventEmitter, Inject, ViewChild, Input } from '@angular/core';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
-import * as wjNg2Analytics from 'wijmo/wijmo.angular2.chart.analytics';
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjChartAnalyticsModule } from 'wijmo/wijmo.angular2.chart.analytics';
 
 import { DataSvc } from './../services/DataSvc';
 
 //TrendLine sample component
 @Component({
     selector: 'waterfall-cmp',
-    templateUrl: 'src/components/WaterfallCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Analytics.WjFlexChartWaterfall, CORE_DIRECTIVES, FORM_DIRECTIVES]
+    templateUrl: 'src/components/WaterfallCmp.html'
 })
 
 export class WaterfallCmp implements AfterViewInit {
@@ -66,4 +68,15 @@ export class WaterfallCmp implements AfterViewInit {
             }
         }
     }
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: WaterfallCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, FormsModule, WjChartModule, WjChartAnalyticsModule],
+    declarations: [WaterfallCmp],
+})
+export class WaterfallModule {
 }

@@ -1,18 +1,22 @@
-<h2>WjRange Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">WjRange</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><b>WjDirective</b></dd>
-<dt>Module</dt><dd>wijmo.angular</dd>
-<dt>File</dt><dd>wijmo.angular.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.angular.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.angular.Module.html"><span class="identifier">wijmo.angular</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p><p>AngularJS directive for the <a href="topic/wijmo.gauge.Range.Class.html"><b>Range</b></a> object.</p>
-
-<p>The <b>wj-range</b> directive must be contained in a <a href="topic/wijmo.angular.WjLinearGauge.Class.html"><b>WjLinearGauge</b></a>, <a href="topic/wijmo.angular.WjRadialGauge.Class.html"><b>WjRadialGauge</b></a> 
-or <a href="topic/wijmo.angular.WjBulletGraph.Class.html"><b>WjBulletGraph</b></a> directive. It adds the Range object to the 'ranges' array property 
+<div class="comment"><p>AngularJS directive for the <a href="topic/wijmo.gauge.Range.Class.html"><span class="identifier">Range</span></a> object.</p>
+<p>The <b>wj-range</b> directive must be contained in a <a href="topic/wijmo.angular.WjLinearGauge.Class.html"><span class="identifier">WjLinearGauge</span></a>, <a href="topic/wijmo.angular.WjRadialGauge.Class.html"><span class="identifier">WjRadialGauge</span></a> 
+or <a href="topic/wijmo.angular.WjBulletGraph.Class.html"><span class="identifier">WjBulletGraph</span></a> directive. It adds the Range object to the 'ranges' array property 
 of the parent directive. You may also initialize other Range type properties of the parent 
 directive by specifying the property name with the wj-property attribute.</p>
-
 <p>For example:
+</p>
+
 <pre>&lt;wj-radial-gauge 
     min="0" 
     max="200" 
@@ -33,10 +37,8 @@ directive by specifying the property name with the wj-property attribute.</p>
       wj-property="pointer" 
       color="blue"&gt;
     &lt;/wj-range&gt;
-&lt;/wj-radial-gauge&gt;</pre></p>
-
+&lt;/wj-radial-gauge&gt;</pre>
 <p>The <b>wj-range</b> directive supports the following attributes:</p>
-
 <p><dl class="dl-horizontal">
   <dt>min</dt>           <dd><code>@</code> The minimum value in the range.</dd>
   <dt>max</dt>           <dd><code>@</code> The maximum value in the range.</dd>
@@ -46,4 +48,7 @@ directive by specifying the property name with the wj-property attribute.</p>
   <dt>name</dt>          <dd><code>@</code> The name of the range.</dd>
   <dt>wj-property</dt>   <dd><code>@</code> The name of the property to initialize 
                          with this directive.</dd>
-</dl></p></p>
+</dl></p></div>
+</div>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+</div>

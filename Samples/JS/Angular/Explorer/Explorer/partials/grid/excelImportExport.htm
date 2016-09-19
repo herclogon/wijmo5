@@ -1,0 +1,61 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            FlexGrid Import Export
+        </h3>
+        <div class="alert alert-info" role="alert"><b>Important!</b> This feature requires the <a href="http://wijmo.com/5/docs/topic/wijmo.xlsx.Module.html">wijmo.xlsx</a> and <a href="http://wijmo.com/5/docs/topic/wijmo.grid.xlsx.Module.html">wijmo.grid.xlsx</a> extension modules.</div>
+        <p>
+            The sample demonstrates how to export or import FlexGrid content to/from an Excel xlsx file.
+        </p>
+        <p>
+            To export FlexGrid content, pass the FlexGrid instance to the <b>FlexGridXlsxConverter.save</b> method.
+            This generates xlsx file content, which can be saved to a local file or sent to a server.
+        </p>
+        <p>
+            To populate FlexGrid with data from an xlsx file, pass the FlexGrid instance and the xlsx file content to the
+            <b>FlexGridXlsxConverter.load</b> method.
+        </p>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-inline well well-lg">
+                <input type="file" class="form-control" id="importFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel.sheet.macroEnabled.12" />
+                <button class="btn btn-default" ng-click="importExcel()">Import</button>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="ctx.includeColumnHeader"> Include Column Header
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="form-inline well well-lg">
+                <button class="btn btn-default" ng-click="exportExcel()">Export</button>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="ctx.includeColumnHeader"> Include Column Header
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- the flex grid -->
+    <div class="row">
+        <wj-flex-grid style="max-height:400px"
+                      control="ctx.flexGrid"
+                      items-source="ctx.data">
+            <wj-flex-grid-column header="ID" binding="id"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Start Date" binding="start" format="d"></wj-flex-grid-column>
+            <wj-flex-grid-column header="End Date" binding="end" format="d"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Country" binding="country"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Product" binding="product"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Color" binding="color"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Amount" binding="amount" format="c" aggregate="Sum"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Pending" binding="amount2" format="c2" aggregate="Sum"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Discount" binding="discount" format="p1" aggregate="Avg"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Active" binding="active"></wj-flex-grid-column>
+        </wj-flex-grid>
+    </div>
+</div>

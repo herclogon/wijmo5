@@ -7,3 +7,5 @@ export declare class DrawWorkBookCmp implements AfterViewInit {
     drawSheet(sheetIndex: any): void;
     private _loadWorkbook();
 }
+export declare class AppModule {
+}

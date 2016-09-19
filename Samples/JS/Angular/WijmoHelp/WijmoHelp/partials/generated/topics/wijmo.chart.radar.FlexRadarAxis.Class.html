@@ -1,0 +1,423 @@
+<div class="header-panel member">
+<h2><span class="identifier">FlexRadarAxis</span> Class</h2>
+<dl class="dl-horizontal">
+<dt>File</dt><dd class="filename">wijmo.chart.radar.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.chart.radar.Module.html"><span class="identifier">wijmo.chart.radar</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+<dt>Derived Classes</dt><dd><a href="topic/wijmo-wijmo.angular2.chart.radar.WjFlexRadarAxis.Class.html"><span class="identifier">WjFlexRadarAxis</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
+</dl>
+<div class="comment"><p>Represents an axis in the radar chart.</p></div>
+</div>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#actualMax">actualMax</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#actualMin">actualMin</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#axisLine">axisLine</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#axisType">axisType</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#binding">binding</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#format">format</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#hostElement">hostElement</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#itemFormatter">itemFormatter</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#itemsSource">itemsSource</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#labelAlign">labelAlign</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#labelAngle">labelAngle</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#labelPadding">labelPadding</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#labels">labels</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#logBase">logBase</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#majorGrid">majorGrid</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#majorTickMarks">majorTickMarks</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#majorUnit">majorUnit</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#max">max</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#min">min</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#minorGrid">minorGrid</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#minorTickMarks">minorTickMarks</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#minorUnit">minorUnit</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#name">name</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#origin">origin</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#overlappingLabels">overlappingLabels</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#plotArea">plotArea</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#position">position</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#reversed">reversed</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#title">title</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#convert">convert</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#convertBack">convertBack</a></li>
+<li class="mmethod inherited raiser"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#onRangeChanged">onRangeChanged</a></li>
+</ul>
+<h3 class="node">Events</h3>
+<ul>
+<li class="mevent inherited"><a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#rangeChanged">rangeChanged</a></li>
+</ul>
+</div>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod inherited">
+<h3>constructor</h3>
+<pre>constructor(position?: <a href="topic/wijmo.chart.Position.Enum.html"><span class="identifier">Position</span></a>): <a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>position</b>: <a href="topic/wijmo.chart.Position.Enum.html"><span class="identifier">Position</span></a> <span class="badge">Optional</span><br/><p>The position of the axis on the chart.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+</dl>
+</div>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="actualMax" class="member-panel mproperty inherited">
+<h3>actualMax</h3>
+<div class="comment"><p>Gets the actual axis maximum.</p>
+<p>It returns a number or a Date object (for time-based data).</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="actualMin" class="member-panel mproperty inherited">
+<h3>actualMin</h3>
+<div class="comment"><p>Gets the actual axis minimum.</p>
+<p>It returns a number or a Date object (for time-based data).</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="axisLine" class="member-panel mproperty inherited">
+<h3>axisLine</h3>
+<div class="comment"><p>Gets or sets a value indicating whether the axis line is visible.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="axisType" class="member-panel mproperty inherited">
+<h3>axisType</h3>
+<div class="comment"><p>Gets the axis type.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.AxisType.Enum.html"><span class="identifier">AxisType</span></a></dd>
+</dl>
+</div>
+<div id="binding" class="member-panel mproperty inherited">
+<h3>binding</h3>
+<div class="comment"><p>Gets or sets the comma-separated property names for the
+<a href="topic/wijmo.chart.Axis.Class.html/#itemsSource"><span class="identifier">itemsSource</span></a> property to use in axis labels.</p>
+<p>The first name specifies the value on the axis, the second represents the corresponding
+axis label. The default value is 'value,text'.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="format" class="member-panel mproperty inherited">
+<h3>format</h3>
+<div class="comment"><p>Gets or sets the format string used for the axis labels
+(see <a href="topic/wijmo.Globalize.Class.html"><span class="identifier">Globalize</span></a>).</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="hostElement" class="member-panel mproperty inherited">
+<h3>hostElement</h3>
+<div class="comment"><p>Gets the axis host element.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/API/SVGGElement" target="_blank"><span class="identifier">SVGGElement</span></a></dd>
+</dl>
+</div>
+<div id="itemFormatter" class="member-panel mproperty inherited">
+<h3>itemFormatter</h3>
+<div class="comment"><p>Gets or sets the itemFormatter function for the axis labels.</p>
+<p>If specified, the function takes two parameters:
+<ul>
+<li><b>render engine</b>: The <a href="topic/wijmo.chart.IRenderEngine.Interface.html"><span class="identifier">IRenderEngine</span></a> object to be used
+in formatting the labels.</li>
+<li><b>current label</b>: A string value with the following properties:
+  <ul>
+    <li><b>value</b>: The value of the axis label to format.</li>
+    <li><b>text</b>: The text to use in the label.</li>
+    <li><b>pos</b>: The position in control coordinates at which
+    the label is to be rendered.</li>
+    <li><b>cls</b>: The CSS class to be applied to the label.</li>
+  </ul></li>
+</ul></p>
+<p>The function returns the label parameters of labels for which
+properties are modified.</p>
+<p>For example:
+</p>
+
+<pre>chart.axisY.itemFormatter = function(engine, label) {
+    if (label.val &gt; 5){
+        engine.textFill = 'red'; // red text
+        label.cls = null; // no default CSS
+     }
+    return label;
+}</pre></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a></dd>
+</dl>
+</div>
+<div id="itemsSource" class="member-panel mproperty inherited">
+<h3>itemsSource</h3>
+<div class="comment"><p>Gets or sets the items source for the axis labels.</p>
+<p>Names of the properties are specified by the <a href="topic/wijmo.chart.Axis.Class.html/#binding"><span class="identifier">binding</span></a>.</p>
+<p>For example:</p>
+
+
+<pre>// default value for Axis.binding is 'value,text'
+ chart.axisX.itemsSource = [ { value:1, text:'one' }, { value:2, text:'two' } ];</pre></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="labelAlign" class="member-panel mproperty inherited">
+<h3>labelAlign</h3>
+<div class="comment"><p>Gets or sets the label alignment.</p>
+<p>By default the labels are centered. The supported values are 'left' and 'right
+for x-axis and 'top' and 'bottom' for y-axis.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="labelAngle" class="member-panel mproperty inherited">
+<h3>labelAngle</h3>
+<div class="comment"><p>Gets or sets the rotation angle of the axis labels.</p>
+<p>The angle is measured in degrees with valid values
+ranging from -90 to 90.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="labelPadding" class="member-panel mproperty inherited">
+<h3>labelPadding</h3>
+<div class="comment"><p>Gets or sets the label padding.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="labels" class="member-panel mproperty inherited">
+<h3>labels</h3>
+<div class="comment"><p>Gets or sets a value indicating whether the axis labels are visible.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="logBase" class="member-panel mproperty inherited">
+<h3>logBase</h3>
+<div class="comment"><p>Gets or sets the logarithmic base of the axis.</p>
+<p>If the base is not specified the axis uses a linear scale.</p>
+<p>Use the <a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#logBase"><span class="identifier">logBase</span></a> property to spread data that is clustered
+around the origin. This is common in several financial and economic
+data sets.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="majorGrid" class="member-panel mproperty inherited">
+<h3>majorGrid</h3>
+<div class="comment"><p>Gets or sets a value indicating whether the axis includes grid lines.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="majorTickMarks" class="member-panel mproperty inherited">
+<h3>majorTickMarks</h3>
+<div class="comment"><p>Gets or sets the location of the axis tick marks.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.TickMark.Enum.html"><span class="identifier">TickMark</span></a></dd>
+</dl>
+</div>
+<div id="majorUnit" class="member-panel mproperty inherited">
+<h3>majorUnit</h3>
+<div class="comment"><p>Gets or sets the number of units between axis labels.</p>
+<p>If the axis contains date values, then the units are
+expressed in days.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="max" class="member-panel mproperty inherited">
+<h3>max</h3>
+<div class="comment"><p>Gets or sets the maximum value shown on the axis.</p>
+<p>If not set, the maximum is calculated automatically.
+The value can be a number or a Date object (for time-based data).</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="min" class="member-panel mproperty inherited">
+<h3>min</h3>
+<div class="comment"><p>Gets or sets the minimum value shown on the axis.</p>
+<p>If not set, the minimum is calculated automatically.
+The value can be a number or a Date object (for time-based data).</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="minorGrid" class="member-panel mproperty inherited">
+<h3>minorGrid</h3>
+<div class="comment"><p>Gets or sets a value indicating whether the axis includes minor grid lines.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="minorTickMarks" class="member-panel mproperty inherited">
+<h3>minorTickMarks</h3>
+<div class="comment"><p>Gets or sets the location of the minor axis tick marks.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.TickMark.Enum.html"><span class="identifier">TickMark</span></a></dd>
+</dl>
+</div>
+<div id="minorUnit" class="member-panel mproperty inherited">
+<h3>minorUnit</h3>
+<div class="comment"><p>Gets or sets the number of units between minor axis ticks.</p>
+<p>If the axis contains date values, then the units are
+expressed in days.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="name" class="member-panel mproperty inherited">
+<h3>name</h3>
+<div class="comment"><p>Gets or sets the axis name.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="origin" class="member-panel mproperty inherited">
+<h3>origin</h3>
+<div class="comment"><p>Gets or sets the value at which an axis crosses the perpendicular axis.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="overlappingLabels" class="member-panel mproperty inherited">
+<h3>overlappingLabels</h3>
+<div class="comment"><p>Gets or sets a value indicating how to handle the overlapping axis labels.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.OverlappingLabels.Enum.html"><span class="identifier">OverlappingLabels</span></a></dd>
+</dl>
+</div>
+<div id="plotArea" class="member-panel mproperty inherited">
+<h3>plotArea</h3>
+<div class="comment"><p>Gets or sets the plot area for the axis.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.PlotArea.Class.html"><span class="identifier">PlotArea</span></a></dd>
+</dl>
+</div>
+<div id="position" class="member-panel mproperty inherited">
+<h3>position</h3>
+<div class="comment"><p>Gets or sets the enumerated axis position.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.chart.Position.Enum.html"><span class="identifier">Position</span></a></dd>
+</dl>
+</div>
+<div id="reversed" class="member-panel mproperty inherited">
+<h3>reversed</h3>
+<div class="comment"><p>Gets or sets a value indicating whether the axis is
+reversed (top to bottom or right to left).</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="title" class="member-panel mproperty inherited">
+<h3>title</h3>
+<div class="comment"><p>Gets or sets the title text shown next to the axis.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="convert" class="member-panel mmethod inherited">
+<h3>convert</h3>
+<pre>convert(val: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, maxValue?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, minValue?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></pre>
+<div class="comment"><p>Converts the specified value from data to pixel coordinates.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>val</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The data value to convert.</p></li><li><b>maxValue</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The max value of the data, it's optional.</p></li><li><b>minValue</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The min value of the data, it's optional.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="convertBack" class="member-panel mmethod inherited">
+<h3>convertBack</h3>
+<pre>convertBack(val: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></pre>
+<div class="comment"><p>Converts the specified value from pixel to data coordinates.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>val</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The pixel coordinates to convert back.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="onRangeChanged" class="member-panel mmethod inherited raiser">
+<h3>onRangeChanged</h3>
+<pre>onRangeChanged(e?: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.chart.radar.FlexRadarAxis.Class.html/#rangeChanged"><span class="identifier">rangeChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> <span class="badge">Optional</span><br/></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Events</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="rangeChanged" class="member-panel mevent inherited">
+<h3>rangeChanged</h3>
+<div class="comment"><p>Occurs when the axis range changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.chart.Axis.Class.html"><span class="identifier">Axis</span></a></dd>
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+</div>

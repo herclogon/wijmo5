@@ -15,11 +15,13 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var GridBaseCmp_1 = require('./GridBaseCmp');
-var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 var appPipes_1 = require('../../pipes/appPipes');
+var DataSvc_1 = require('../../services/DataSvc');
 // FlexGrid Introduction sample component.
 var GridIntroCmp = (function (_super) {
     __extends(GridIntroCmp, _super);
@@ -29,14 +31,26 @@ var GridIntroCmp = (function (_super) {
     GridIntroCmp = __decorate([
         core_1.Component({
             selector: 'grid-intro-cmp',
-            templateUrl: 'src/components/grid/gridIntroCmp.html',
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Input.WjCollectionViewNavigator,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjMenuSeparator, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES],
-            pipes: [appPipes_1.CellRangePipe]
+            templateUrl: 'src/components/grid/gridIntroCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], GridIntroCmp);
     return GridIntroCmp;
 }(GridBaseCmp_1.GridBaseCmp));
 exports.GridIntroCmp = GridIntroCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: GridIntroCmp }
+]);
+var GridIntroModule = (function () {
+    function GridIntroModule() {
+    }
+    GridIntroModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, forms_1.FormsModule, wijmo_angular2_grid_1.WjGridModule, wijmo_angular2_input_1.WjInputModule, appPipes_1.AppPipesModule],
+            declarations: [GridIntroCmp],
+        })
+    ], GridIntroModule);
+    return GridIntroModule;
+}());
+exports.GridIntroModule = GridIntroModule;
 //# sourceMappingURL=GridIntroCmp.js.map

@@ -120,33 +120,44 @@ app.controller('chartZoomCtrl', function appCtrl($scope) {
                 return isZoomed;
             };
 
+            // handle mouse (always)
+            hostEl.onmousedown = function (e) {
+                mouseDown(e);
+            }
+            hostEl.onmousemove = function (e) {
+                mouseMove(e, new wijmo.Point(e.pageX, e.pageY));
+            }
+            hostEl.onmouseup = function (e) {
+                mouseUp(e);
+            }
+
+            // handle touch (if supported by the browser)
             if ('ontouchstart' in window) {
-
                 hostEl.ontouchstart = function (e) {
-                     mouseDown(e);
-                    e.preventDefault();
-                }
-
-                hostEl.ontouchmove = function (e) {
-                    mouseMove(e, new wijmo.Point(e.changedTouches[0].pageX,e.changedTouches[0].pageY));
-                    e.preventDefault();
-                }
-
-                hostEl.ontouchend = function (e) {
-                    mouseUp(e);
-                    e.preventDefault();
-                }
-
-            } else {
-                hostEl.onmousedown = function (e) {
                     mouseDown(e);
                 }
-                hostEl.onmousemove = function (e) {
-                    mouseMove(e, new wijmo.Point(e.pageX, e.pageY));
+                hostEl.ontouchmove = function (e) {
+                    mouseMove(e, new wijmo.Point(e.changedTouches[0].pageX, e.changedTouches[0].pageY));
                 }
-                hostEl.onmouseup = function (e) {
+                hostEl.ontouchend = function (e) {
                     mouseUp(e);
                 }
+            }
+
+            // handle pointer (if supported by the browser)
+            if ('onpointerdown' in window) {
+                hostEl.addEventListener('pointerdown', function (e) {
+                    mouseDown(e);
+                }, true);
+                hostEl.addEventListener('pointermove', function (e) {
+                    mouseMove(e, new wijmo.Point(e.pageX, e.pageY));
+                }, true);
+                hostEl.addEventListener('pointerup', function (e) {
+                    mouseUp(e);
+                }, true);
+
+                // prevent touch scrolling on the chart
+                hostEl.style['touchAction'] = 'none';
             }
         }
     });

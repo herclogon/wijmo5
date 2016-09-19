@@ -16,6 +16,19 @@ app.controller('appCtrl', function appCtrl($scope) {
         }
     }
 
+    // add a footer row to the grid
+    $scope.initGrid = function (s, e) {
+
+        // create a GroupRow to show aggregates automatically
+        var row = new wijmo.grid.GroupRow();
+
+        // add the new GroupRow to the grid's 'columnFooters' panel
+        s.columnFooters.rows.push(row);
+
+        // add a sigma to the header to show that this is a summary row
+        s.bottomLeftCells.setCellData(0, 0, '\u03A3');
+    }
+
     // some random data
     function getData(count) {
         var data = [],
@@ -24,22 +37,14 @@ app.controller('appCtrl', function appCtrl($scope) {
             colors = ['Black', 'White', 'Red', 'Green', 'Blue'],
             dt = new Date();
         for (var i = 0; i < count; i++) {
-            var date = new Date(dt.getFullYear(), i % 12, 25, i % 24, i % 60, i % 60),
-                countryId = Math.floor(Math.random() * countries.length),
-                productId = Math.floor(Math.random() * products.length),
-                colorId = Math.floor(Math.random() * colors.length);
             var item = {
                 id: i,
-                start: date,
-                end: date,
-                country: countries[countryId],
-                product: products[productId],
-                color: colors[colorId],
-                countryId: countryId,
-                productId: productId,
-                colorId: colorId,
-                amount: Math.random() * 10000 - 5000,
-                amount2: Math.random() * 10000 - 5000,
+                date: new Date(dt.getFullYear(), i % 12, 25, i % 24, i % 60, i % 60),
+                country: countries[Math.floor(Math.random() * countries.length)],
+                product: products[Math.floor(Math.random() * products.length)],
+                color: colors[Math.floor(Math.random() * colors.length)],
+                sales: Math.random() * 10000 + 5000,
+                expenses: Math.random() * 1000 + 500,
                 discount: Math.random() / 4,
                 active: i % 4 == 0,
             };

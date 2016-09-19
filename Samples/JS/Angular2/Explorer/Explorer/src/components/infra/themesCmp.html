@@ -36,7 +36,7 @@
         For example, the rule below specifies that elements with class "wj-header"
         have a light gray background and a darker gray bold font:
     </p>
-    <pre>.wj-header {
+    <pre>.wj-header &#123;
   background-color: #EAEAEA;
   font-weight: bold;
   color: #444;
@@ -46,7 +46,7 @@
         For example, the rule below specifies that elements with class "wj-header" have a slightly
         smaller font only when they are contained in "wj-calendar-month" elements:
     </p>
-    <pre>.wj-calendar-month .wj-header {
+    <pre>.wj-calendar-month .wj-header &#123;
   font-size: 90%;
 }</pre>
     <p>
@@ -80,32 +80,32 @@
     </p>
 
     <pre>/* apply gray gradient background and white foreground to all wijmo controls */
-.wj-content {
+.wj-content &#123;
   background-image: linear-gradient(to top, #444 0%, #888 100%);
   color: #fff;
 }
 /* show selected items in orange (grid cells, calendar dates, etc) */
-.wj-state-selected {
+.wj-state-selected &#123;
   background: #ff6a00;
 }
 /* multiple selected item background - shown in FlexGrid */
-.wj-state-multi-selected {
+.wj-state-multi-selected &#123;
 	background-color: #ff9f5b;
 }
 /* give all headers (grid, calendar, etc) light text on a dark background */
-.wj-header {
+.wj-header &#123;
   background-color: #444;
   color: #fff;
 }
 /* remove gridlines from non-header grid cells */
-.wj-cell:not(.wj-header) {
+.wj-cell:not(.wj-header) &#123;
     border: none;
 }
 /* FlexGrid cell background */
-.wj-flexgrid .wj-cell:not(.wj-header):not(.wj-group):not(.wj-alt):not(.wj-state-selected):not(.wj-state-multi-selected) {
+.wj-flexgrid .wj-cell:not(.wj-header):not(.wj-group):not(.wj-alt):not(.wj-state-selected):not(.wj-state-multi-selected) &#123;
 	background: #555;
 }
-.wj-flexgrid .wj-alt:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected) {
+.wj-flexgrid .wj-alt:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected) &#123;
 	background: #444;
 }
 </pre>
@@ -167,10 +167,10 @@
         CSS below applies a blue background color to elements with the class "wj-btn-default"
         when they are contained in an element with the class "customInputTime."
     </p>
-<pre>.customInputTime .wj-btn-default {
+<pre>.customInputTime .wj-btn-default &#123;
   background: #328efd;
 }
-.customInputTime .wj-btn-default:hover {
+.customInputTime .wj-btn-default:hover &#123;
   background: #58a2fb;
 } </pre>
     <p>

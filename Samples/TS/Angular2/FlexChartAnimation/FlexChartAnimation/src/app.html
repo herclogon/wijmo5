@@ -13,31 +13,23 @@
     <!-- Navigation menu -->
     <div class="container">
         <div class="row">
-
             <div class="col-md-2">
                 <div class="panel-group" id="accordion">
-                    <div *ngFor="let item of menuData, let index = index"
-                         class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                {{ item.section }}
-                            </h4>
-                        </div>
-                        <div [id]="item.section" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <ul class="flatList">
-                                    <li *ngFor="let link of item.links">
-                                        <!-- [href] doesn't work in IE/Edge -->
-                                        <!--<a [href]="'#' + link.url">{{ link.text }}</a>-->
-                                        <a *ngIf="link.alias" [routerLink]="['/' + link.alias]">{{ link.text }}</a>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <ul class="flatList">
+                                <template ngFor let-route [ngForOf]="routes">
+                                    <li *ngIf="route.data?.caption">
+                                        <a [routerLink]="route.path" routerLinkActive="active">
+                                            {{route.data.caption}}
+                                        </a>
                                     </li>
-                                </ul>
-                            </div>
+                                </template>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="col-md-10">
                 <router-outlet></router-outlet>
             </div>

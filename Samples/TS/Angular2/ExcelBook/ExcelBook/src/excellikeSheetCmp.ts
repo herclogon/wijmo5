@@ -1,12 +1,13 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, EventEmitter, Inject, enableProdMode, ViewChild, OnInit } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjInput from 'wijmo/wijmo.angular2.input';
-import * as wjFlexSheet from 'wijmo/wijmo.angular2.grid.sheet';
-//import { AppTab, AppTabPane } from './components/AppTab';
+import { Component, EventEmitter, Input, Inject, enableProdMode, ViewChild, OnInit, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { WjGridSheetModule } from 'wijmo/wijmo.angular2.grid.sheet';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 import { DataSvc } from './services/DataSvc';
 
     'use strict';
@@ -14,8 +15,7 @@ import { DataSvc } from './services/DataSvc';
     // The Excellike Sheet application root component.
     @Component({
         selector: 'excellike-sheet-cmp',
-        templateUrl: 'src/excellikeSheetCmp.html',
-        directives: [CORE_DIRECTIVES, wjFlexSheet.WjFlexSheet, wjFlexSheet.WjSheet, wjInput.WjComboBox, wjInput.WjColorPicker]
+        templateUrl: 'src/excellikeSheetCmp.html'
     })
 
     export class ExcellikeSheetCmp implements OnInit {
@@ -2057,8 +2057,16 @@ import { DataSvc } from './services/DataSvc';
         }
     }
 
-enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-bootstrap(ExcellikeSheetCmp, [
-    DataSvc
-]);
+    @NgModule({
+        imports: [WjInputModule, WjGridSheetModule, BrowserModule, FormsModule],
+        declarations: [ExcellikeSheetCmp],
+        providers: [DataSvc],
+        bootstrap: [ExcellikeSheetCmp]
+    })
+    export class AppModule {
+    }
+
+
+    enableProdMode();
+    // Bootstrap application with hash style navigation and global services.
+    platformBrowserDynamic().bootstrapModule(AppModule);

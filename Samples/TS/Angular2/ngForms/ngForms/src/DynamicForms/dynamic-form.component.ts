@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Inject }  from '@angular/core';
-import { FormGroup, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 import { DynamicFormQuestionComponent } from './dynamic-form-question.component';
 import { QuestionBase }                 from './question-base';
@@ -8,7 +8,6 @@ import { QuestionControlService }       from './question-control.service';
 @Component({
   selector: 'dynamic-form',
   templateUrl: 'src/DynamicForms/dynamic-form.component.html',
-  directives: [DynamicFormQuestionComponent, REACTIVE_FORM_DIRECTIVES],
   providers:  [QuestionControlService]
 })
 export class DynamicFormComponent implements OnInit {

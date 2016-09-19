@@ -94,7 +94,6 @@
                       #flex
                       [selectionMode]="'Row'"
                       [itemsSource]="data"
-                      [selection]="selection"
                       (itemsSourceChanged)="itemsSourceChangedHandler()"
                       (selectionChanged)="selectionChangedHandler()">
             <wj-flex-grid-column [header]="'ID'" [binding]="'id'" [width]="80" [isReadOnly]="true"></wj-flex-grid-column>
@@ -261,10 +260,10 @@
         <wj-flex-grid-column [name]="'date'" [header]="'Date'" [binding]="'start'">
             <template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell" style="padding:3px;">
                 <div *ngIf="cell && cell.row && cell.row.index < data.length" [ngSwitch]="cell.row.index == editIndex">
-                    <div *ngSwitchWhen="true">
+                    <div *ngSwitchCase="true">
                         <input id="theDate" class="form-control" [value]="cell.col.grid.getCellData(cell.row.index, cell.col.index, true)" />
                     </div>
-                    <div *ngSwitchWhen="false">
+                    <div *ngSwitchCase="false">
                         {{cell.col.grid.getCellData(cell.row.index, cell.col.index, true)}}
                     </div>
                 </div>
@@ -274,10 +273,10 @@
         <wj-flex-grid-column [name]="'product'" [header]="'Product'" [binding]="'product'" [width]="'*'">            
             <template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell" style="padding:3px;">
                 <div *ngIf="cell && cell.row && cell.row.index < data.length" [ngSwitch]="cell.row.index == editIndex">
-                    <div *ngSwitchWhen="true">
+                    <div *ngSwitchCase="true">
                         <input id="theProduct" class="form-control" [value]="cell.col.grid.getCellData(cell.row.index, cell.col.index, true)" />
                     </div>
-                    <div *ngSwitchWhen="false">
+                    <div *ngSwitchCase="false">
                         {{cell.col.grid.getCellData(cell.row.index, cell.col.index, true)}}
                     </div>
                 </div>

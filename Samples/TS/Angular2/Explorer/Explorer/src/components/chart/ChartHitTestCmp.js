@@ -7,7 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
 // Chart hittest component
 var ChartHitTestCmp = (function () {
     function ChartHitTestCmp() {
@@ -36,11 +37,25 @@ var ChartHitTestCmp = (function () {
     ChartHitTestCmp = __decorate([
         core_1.Component({
             selector: 'chart-hit-test-cmp',
-            templateUrl: 'src/components/chart/chartHitTestCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/chart/chartHitTestCmp.html'
         })
     ], ChartHitTestCmp);
     return ChartHitTestCmp;
 }());
 exports.ChartHitTestCmp = ChartHitTestCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartHitTestCmp }
+]);
+var ChartHitTestModule = (function () {
+    function ChartHitTestModule() {
+    }
+    ChartHitTestModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule],
+            declarations: [ChartHitTestCmp],
+        })
+    ], ChartHitTestModule);
+    return ChartHitTestModule;
+}());
+exports.ChartHitTestModule = ChartHitTestModule;
 //# sourceMappingURL=ChartHitTestCmp.js.map

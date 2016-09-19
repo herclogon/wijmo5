@@ -7,7 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
 // Chart series binding component
 var ChartPlotAreasCmp = (function () {
     function ChartPlotAreasCmp() {
@@ -20,11 +21,24 @@ var ChartPlotAreasCmp = (function () {
     ChartPlotAreasCmp = __decorate([
         core_1.Component({
             selector: 'chart-plot-areas-cmp',
-            templateUrl: 'src/components/chart/chartPlotAreasCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, wjNg2Chart.WjFlexChartPlotArea, common_1.CORE_DIRECTIVES]
-        })
+            templateUrl: 'src/components/chart/chartPlotAreasCmp.html' })
     ], ChartPlotAreasCmp);
     return ChartPlotAreasCmp;
 }());
 exports.ChartPlotAreasCmp = ChartPlotAreasCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartPlotAreasCmp }
+]);
+var ChartPlotAreasModule = (function () {
+    function ChartPlotAreasModule() {
+    }
+    ChartPlotAreasModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule],
+            declarations: [ChartPlotAreasCmp],
+        })
+    ], ChartPlotAreasModule);
+    return ChartPlotAreasModule;
+}());
+exports.ChartPlotAreasModule = ChartPlotAreasModule;
 //# sourceMappingURL=ChartPlotAreasCmp.js.map

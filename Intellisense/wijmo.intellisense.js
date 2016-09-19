@@ -413,7 +413,7 @@ wijmo.getElementRect = function(e) {
 }
 wijmo.setCss = function(e, css) {
 /// <summary>Modifies the style of an element by applying the properties specified in an object.</summary>
-/// <param name="e" type="HTMLElement" optional="false">Element whose style will be modified.</param>
+/// <param name="e" type="Object" optional="false">Element or array of elements whose style will be modified.</param>
 /// <param name="css" type="Object" optional="false">Object containing the style properties to apply to the element.</param>
 }
 wijmo.animate = function(apply, duration, step) {
@@ -783,7 +783,7 @@ wijmo.Globalize.formatNumber = function(value, format, trim, truncate) {
 /// 
 /// <b>n</b> Number: <code>formatNumber(1234.5, 'n2') => '1,234.50'</code><br/>
 /// <b>f</b> Fixed-point: <code>formatNumber(1234.5, 'f2') => '1234.50'</code><br/>
-/// <b>g</b> General (no trailing zeros): <code>formatNumber(1234.5, 'g2') => '1,234.5'</code><br/>
+/// <b>g</b> General (no trailing zeros): <code>formatNumber(1234.5, 'g2') => '1234.5'</code><br/>
 /// <b>d</b> Decimal (integers): <code>formatNumber(-1234, 'd6') => '-001234'</code><br/>
 /// <b>x</b> Hexadecimal (integers): <code>formatNumber(1234, 'x6') => '0004d2'</code><br/>
 /// <b>c</b> Currency: <code>formatNumber(1234, 'c') => '$ 1,234.00'</code><br/>
@@ -1224,6 +1224,8 @@ StdPop: 9,
 // Returns the population variance of the values in the group
 // (uses the formula based on n).
 VarPop: 10,
+// Returns the count of all values in the group (including nulls).
+CntAll: 11,
 _wjEnum: true
 };
 
@@ -1612,10 +1614,11 @@ this.pageChanged = new wijmo.Event('wijmo.EventArgs');
 this.pageChanging = new wijmo.Event('wijmo.collections.PageChangingEventArgs');
 _wjReownEvents(this);
 }
-wijmo.collections.CollectionView.prototype.getAggregate = function(aggType, binding) {
+wijmo.collections.CollectionView.prototype.getAggregate = function(aggType, binding, currentPage) {
 /// <summary>Calculates an aggregate value for the items in this collection.</summary>
 /// <param name="aggType" type="wijmo.Aggregate" optional="false">Type of aggregate to calculate.</param>
 /// <param name="binding" type="String" optional="false">Property to aggregate on.</param>
+/// <param name="currentPage" type="Boolean" optional="true">Whether to include only items on the current page.</param>
 }
 wijmo.collections.CollectionView.prototype.implementsInterface = function(interfaceName) {
 /// <summary>Returns true if the caller queries for a supported interface.</summary>
@@ -2157,7 +2160,10 @@ wijmo.grid.FlexGrid = function(element, options) {
 /// <field name="preserveSelectedState" type="Boolean">Gets or sets a value that determines whether the grid should preserve
 /// the selected state of rows when the data is refreshed.</field>
 /// <field name="preserveOutlineState" type="Boolean">Gets or sets a value that determines whether the grid should preserve
-/// the expanded/collapsed state of nodes when the data is refreshed.</field>
+/// the expanded/collapsed state of nodes when the data is refreshed.
+/// 
+/// The @see:preserveOutlineState property implementation is based on
+/// JavaScript's @see:Map object, which is not available in IE 9 or 10.</field>
 /// <field name="autoGenerateColumns" type="Boolean">Gets or sets a value that determines whether the grid should generate columns
 /// automatically based on the @see:itemsSource.
 /// 
@@ -2244,6 +2250,11 @@ wijmo.grid.FlexGrid = function(element, options) {
 /// 
 /// The new row template will not be displayed if the @see:isReadOnly property
 /// is set to true.</field>
+/// <field name="newRowAtTop" type="Boolean">Gets or sets a value that indicates whether the new row template should be located
+/// at the top of the grid or at the bottom.
+/// 
+/// The new row template will be displayed only if the @see:allowAddNew property is set
+/// to true and if the @see:itemsSource object supports adding new items.</field>
 /// <field name="allowDelete" type="Boolean">Gets or sets a value that indicates whether the grid should delete
 /// selected rows when the user presses the Delete key.
 /// 
@@ -2311,8 +2322,33 @@ wijmo.grid.FlexGrid = function(element, options) {
 /// @fiddle:t0ncmjwp</field>
 /// <field name="cells" type="wijmo.grid.GridPanel">Gets the @see:GridPanel that contains the data cells.</field>
 /// <field name="columnHeaders" type="wijmo.grid.GridPanel">Gets the @see:GridPanel that contains the column header cells.</field>
+/// <field name="columnFooters" type="wijmo.grid.GridPanel">Gets the @see:GridPanel that contains the column footer cells.
+/// 
+/// The @see:columnFooters panel appears below the grid cells, to the
+/// right of the @see:bottomLeftCells panel. It can be used to display
+/// summary information below the grid data.
+/// 
+/// The example below shows how you can add a row to the @see:columnFooters
+/// panel to display summary data for columns that have the
+/// @see:Column.aggregate property set:
+/// 
+/// <pre>function addFooterRow(flex) {
+///   // create a GroupRow to show aggregates
+///   var row = new wijmo.grid.GroupRow();
+/// 
+///   // add the row to the column footer panel
+///   flex.columnFooters.rows.push(row);
+/// 
+///   // show a sigma on the header
+///   flex.bottomLeftCells.setCellData(0, 0, '\u03A3');
+/// }</pre></field>
 /// <field name="rowHeaders" type="wijmo.grid.GridPanel">Gets the @see:GridPanel that contains the row header cells.</field>
-/// <field name="topLeftCells" type="wijmo.grid.GridPanel">Gets the @see:GridPanel that contains the top left cells.</field>
+/// <field name="topLeftCells" type="wijmo.grid.GridPanel">Gets the @see:GridPanel that contains the top left cells
+/// (to the left of the column headers).</field>
+/// <field name="bottomLeftCells" type="wijmo.grid.GridPanel">Gets the @see:GridPanel that contains the bottom left cells.
+/// 
+/// The @see:bottomLeftCells panel appears below the row headers, to the
+/// left of the @see:columnFooters panel.</field>
 /// <field name="rows" type="wijmo.grid.RowCollection">Gets the grid's row collection.</field>
 /// <field name="columns" type="wijmo.grid.ColumnCollection">Gets the grid's column collection.</field>
 /// <field name="frozenRows" type="Number">Gets or sets the number of frozen rows.
@@ -2917,12 +2953,7 @@ wijmo.grid.FlexGrid.prototype.onUpdatedView = function(e) {
 /// <summary>Raises the @see:updatedView event.</summary>
 /// <param name="e" type="wijmo.EventArgs" optional="true"></param>
 }
-wijmo.grid.FlexGrid.controlTemplate = undefined;
-intellisense.annotate(wijmo.grid.FlexGrid, {
-// Gets or sets the template used to instantiate @see:FlexGrid controls.
-controlTemplate: undefined
-});
-wijmo.grid.FlexGrid._wjDict = _wjMerge(wijmo.Control._wjDict, {headersVisibility:2,stickyHeaders:2,preserveSelectedState:2,preserveOutlineState:2,autoGenerateColumns:2,autoClipboard:2,columnLayout:2,isReadOnly:2,imeEnabled:2,allowResizing:2,deferResizing:2,autoSizeMode:2,allowSorting:2,allowAddNew:2,allowDelete:2,allowMerging:2,showSelectedHeaders:2,showMarquee:2,showSort:2,showGroups:2,showAlternatingRows:2,groupHeaderFormat:2,allowDragging:2,itemsSource:2,collectionView:2,childItemsPath:2,cells:2,columnHeaders:2,rowHeaders:2,topLeftCells:2,rows:2,columns:2,frozenRows:2,frozenColumns:2,sortRowIndex:2,scrollPosition:2,clientSize:2,controlRect:2,scrollSize:2,viewRange:2,cellFactory:2,itemFormatter:2,treeIndent:2,selectionMode:2,selection:2,selectedRows:2,selectedItems:2,activeEditor:2,editRange:2,mergeManager:2,itemsSourceChanged:1,scrollPositionChanged:1,selectionChanging:1,selectionChanged:1,loadingRows:1,loadedRows:1,updatingLayout:1,updatedLayout:1,resizingColumn:1,resizedColumn:1,autoSizingColumn:1,autoSizedColumn:1,draggingColumn:1,draggedColumn:1,resizingRow:1,resizedRow:1,autoSizingRow:1,autoSizedRow:1,draggingRow:1,draggedRow:1,groupCollapsedChanging:1,groupCollapsedChanged:1,sortingColumn:1,sortedColumn:1,beginningEdit:1,prepareCellForEdit:1,cellEditEnding:1,cellEditEnded:1,rowEditEnding:1,rowEditEnded:1,rowAdded:1,deletingRow:1,deletedRow:1,copying:1,copied:1,pasting:1,pasted:1,pastingCell:1,pastedCell:1,formatItem:1,updatingView:1,updatedView:1});
+wijmo.grid.FlexGrid._wjDict = _wjMerge(wijmo.Control._wjDict, {headersVisibility:2,stickyHeaders:2,preserveSelectedState:2,preserveOutlineState:2,autoGenerateColumns:2,autoClipboard:2,columnLayout:2,isReadOnly:2,imeEnabled:2,allowResizing:2,deferResizing:2,autoSizeMode:2,allowSorting:2,allowAddNew:2,newRowAtTop:2,allowDelete:2,allowMerging:2,showSelectedHeaders:2,showMarquee:2,showSort:2,showGroups:2,showAlternatingRows:2,groupHeaderFormat:2,allowDragging:2,itemsSource:2,collectionView:2,childItemsPath:2,cells:2,columnHeaders:2,columnFooters:2,rowHeaders:2,topLeftCells:2,bottomLeftCells:2,rows:2,columns:2,frozenRows:2,frozenColumns:2,sortRowIndex:2,scrollPosition:2,clientSize:2,controlRect:2,scrollSize:2,viewRange:2,cellFactory:2,itemFormatter:2,treeIndent:2,selectionMode:2,selection:2,selectedRows:2,selectedItems:2,activeEditor:2,editRange:2,mergeManager:2,itemsSourceChanged:1,scrollPositionChanged:1,selectionChanging:1,selectionChanged:1,loadingRows:1,loadedRows:1,updatingLayout:1,updatedLayout:1,resizingColumn:1,resizedColumn:1,autoSizingColumn:1,autoSizedColumn:1,draggingColumn:1,draggedColumn:1,resizingRow:1,resizedRow:1,autoSizingRow:1,autoSizedRow:1,draggingRow:1,draggedRow:1,groupCollapsedChanging:1,groupCollapsedChanged:1,sortingColumn:1,sortedColumn:1,beginningEdit:1,prepareCellForEdit:1,cellEditEnding:1,cellEditEnded:1,rowEditEnding:1,rowEditEnded:1,rowAdded:1,deletingRow:1,deletedRow:1,copying:1,copied:1,pasting:1,pasted:1,pastingCell:1,pastedCell:1,formatItem:1,updatingView:1,updatedView:1});
 wijmo.grid.FlexGrid._wjClass = true;
 wijmo.grid.CellRangeEventArgs = function(p, rng, data) {
 /// <summary>Initializes a new instance of the @see:CellRangeEventArgs class.</summary>
@@ -2965,6 +2996,10 @@ ColumnHeader: 2,
 RowHeader: 3,
 // Top-left cell.
 TopLeft: 4,
+// Column footer cell.
+ColumnFooter: 5,
+// Bottom left cell (at the intersection of the row header and column footer cells).
+BottomLeft: 6,
 _wjEnum: true
 };
 
@@ -3469,12 +3504,12 @@ _wjReownEvents(this);
 wijmo.grid.RowCollection.prototype = new wijmo.grid.RowColCollection();
 wijmo.grid.RowCollection._wjDict = _wjMerge(wijmo.grid.RowColCollection._wjDict, {maxGroupLevel:2});
 wijmo.grid.RowCollection._wjClass = true;
-wijmo.grid.HitTestInfo = function(g, pt) {
+wijmo.grid.HitTestInfo = function(grid, pt) {
 /// <summary>Initializes a new instance of the @see:HitTestInfo class.</summary>
-/// <param name="g" type="Object" optional="false">The @see:FlexGrid control or @see:GridPanel to investigate.</param>
+/// <param name="grid" type="Object" optional="false">The @see:FlexGrid control or @see:GridPanel to investigate.</param>
 /// <param name="pt" type="Object" optional="false">The @see:Point object in page coordinates to investigate.</param>
 /// <returns type="wijmo.grid.HitTestInfo"></returns>
-/// <field name="point" type="wijmo.Point">Gets the point in control coordinates that the HitTestInfo refers to.</field>
+/// <field name="point" type="wijmo.Point">Gets the point in control coordinates that this @see:HitTestInfo refers to.</field>
 /// <field name="cellType" type="wijmo.grid.CellType">Gets the cell type at the specified position.</field>
 /// <field name="panel" type="wijmo.grid.GridPanel">Gets the grid panel at the specified position.</field>
 /// <field name="row" type="Number">Gets the row index of the cell at the specified position.</field>
@@ -3559,8 +3594,11 @@ wijmo.grid.DataMap.prototype.getDisplayValue = function(key) {
 /// <param name="key" type="Object" optional="false">The key of the item to retrieve.</param>
 /// <returns type="Object"></returns>
 }
-wijmo.grid.DataMap.prototype.getDisplayValues = function() {
+wijmo.grid.DataMap.prototype.getDisplayValues = function(dataItem) {
 /// <summary>Gets an array with all of the display values on the map.</summary>
+/// <param name="dataItem" type="Object" optional="true">Data item for which to get the display items.
+/// This parameter is optional. If not provided, all possible display
+/// values should be returned.</param>
 /// <returns type="String[]"></returns>
 }
 wijmo.grid.DataMap.prototype.getKeyValues = function() {
@@ -3764,6 +3802,8 @@ wijmo.grid._AddNewHandler = function(g) {
 /// <summary>Initializes a new instance of the @see:_AddNewHandler class.</summary>
 /// <param name="g" type="wijmo.grid.FlexGrid" optional="false">@see:FlexGrid that owns this @see:_AddNewHandler.</param>
 /// <returns type="wijmo.grid._AddNewHandler"></returns>
+/// <field name="newRowAtTop" type="Boolean">Gets or sets a value that indicates whether the new row template should be located
+/// at the top of the grid or at the bottom.</field>
 this._wjClassName = 'wijmo.grid._AddNewHandler';
 _wjReownEvents(this);
 }
@@ -3772,7 +3812,7 @@ wijmo.grid._AddNewHandler.prototype.updateNewRowTemplate = function() {
 /// bound to a data source that supports adding new items, and that it is
 /// in the right position.</summary>
 }
-wijmo.grid._AddNewHandler._wjDict = _wjMerge({}, {});
+wijmo.grid._AddNewHandler._wjDict = _wjMerge({}, {newRowAtTop:2});
 wijmo.grid._AddNewHandler._wjClass = true;
 wijmo.grid._NewRowTemplate = function() {
 /// <summary>Represents a row template used to add items to the source collection.</summary>
@@ -4411,7 +4451,7 @@ wijmo.grid.xlsx.FlexGridXlsxConverter._wjClass = true;
 wijmo.grid.multirow = wijmo.grid.multirow || { _wjModule: true };
 wijmo.grid.multirow._MultiRow = function(dataItem, dataIndex, recordIndex) {
 /// <summary>Initializes a new instance of the @see:Row class.</summary>
-/// <param name="dataItem" type="Object" optional="false">The data item that this row is bound to.</param>
+/// <param name="dataItem" type="Object" optional="false">The data item this row is bound to.</param>
 /// <param name="dataIndex" type="Number" optional="false">The index of the record within the items source.</param>
 /// <param name="recordIndex" type="Number" optional="false">The index of this row within the record (data item).</param>
 /// <returns type="wijmo.grid.multirow._MultiRow"></returns>
@@ -4427,7 +4467,7 @@ wijmo.grid.multirow._Cell = function(options) {
 /// <summary>Initializes a new instance of the @see:_Cell class.</summary>
 /// <param name="options" type="Object" optional="true">JavaScript object containing initialization data for the @see:_Cell.</param>
 /// <returns type="wijmo.grid.multirow._Cell"></returns>
-/// <field name="colspan" type="Number">Gets or sets the number of physical columns spanned by this @see:_Cell.</field>
+/// <field name="colspan" type="Number">Gets or sets the number of physical columns spanned by the @see:_Cell.</field>
 this._wjClassName = 'wijmo.grid.multirow._Cell';
 _wjReownEvents(this);
 }
@@ -4436,7 +4476,7 @@ wijmo.grid.multirow._Cell._wjDict = _wjMerge(wijmo.grid.Column._wjDict, {colspan
 wijmo.grid.multirow._Cell._wjClass = true;
 wijmo.grid.multirow._CellGroup = function(grid, options) {
 /// <summary>Initializes a new instance of the @see:_CellGroup class.</summary>
-/// <param name="grid" type="wijmo.grid.multirow.MultiRow" optional="false">@see:MultiRow that owns this @see:_CellGroup.</param>
+/// <param name="grid" type="wijmo.grid.multirow.MultiRow" optional="false">@see:MultiRow that owns the @see:_CellGroup.</param>
 /// <param name="options" type="Object" optional="true">JavaScript object containing initialization data for the new @see:_CellGroup.</param>
 /// <returns type="wijmo.grid.multirow._CellGroup"></returns>
 this._wjClassName = 'wijmo.grid.multirow._CellGroup';
@@ -4458,7 +4498,7 @@ wijmo.grid.multirow._MergeManager.prototype.getMergedRange = function(p, r, c, c
 /// <param name="p" type="wijmo.grid.GridPanel" optional="false">The @see:GridPanel that contains the range.</param>
 /// <param name="r" type="Number" optional="false">The index of the row that contains the cell.</param>
 /// <param name="c" type="Number" optional="false">The index of the column that contains the cell.</param>
-/// <param name="clip" type="Boolean" optional="true">Whether to clip the merged range to the grid's current view range.</param>
+/// <param name="clip" type="Boolean" optional="true">Specifies whether to clip the merged range to the grid's current view range.</param>
 /// <returns type="wijmo.grid.CellRange">A @see:CellRange that specifies the merged range, or null if the cell is not merged.</returns>
 }
 wijmo.grid.multirow._MergeManager._wjDict = _wjMerge(wijmo.grid.MergeManager._wjDict, {});
@@ -4472,7 +4512,7 @@ _wjReownEvents(this);
 }
 wijmo.grid.multirow._AddNewHandler.prototype = new wijmo.grid._AddNewHandler();
 wijmo.grid.multirow._AddNewHandler.prototype.updateNewRowTemplate = function() {
-/// <summary>Updates the new row template to ensure it's visible only if the grid is
+/// <summary>Updates the new row template to ensure that it is visible only when the grid is
 /// bound to a data source that supports adding new items, and that it is
 /// in the right position.</summary>
 }
@@ -4509,8 +4549,8 @@ wijmo.grid.multirow.MultiRow = function(element, options) {
 /// group as follows:
 /// 
 /// <ol>
-/// <li>The grid calculates the group's colspan as the max between the group's own colspan
-/// and the widest cell in the group.</li>
+/// <li>The grid calculates the colspan of the group either as group's own colspan
+/// or as span of the widest cell in the group, whichever is wider.</li>
 /// <li>If the cell fits the current row within the group, it is added to the current row.</li>
 /// <li>If it doesn't fit, it is added to a new row.</li>
 /// </ol>
@@ -4528,7 +4568,7 @@ wijmo.grid.multirow.MultiRow = function(element, options) {
 /// | C3 |
 /// </pre>
 /// 
-/// To create a group with two columns, set the group's colspan property:
+/// To create a group with two columns, set <b>colspan</b> property of the group:
 /// 
 /// <pre>{ header: 'Group 1', colspan: 2, cells:[{ binding: 'c1' }, { binding: 'c2'}, { binding: 'c3' }]}</pre>
 /// 
@@ -4558,25 +4598,25 @@ wijmo.grid.multirow.MultiRow = function(element, options) {
 ///    { bnding: 'c2'},
 ///    { binding: 'c3', format: 'n0', required: false, etc... }
 /// ]}</pre></field>
-/// <field name="rowsPerItem" type="Number">Gets the number of rows used do display each item.
+/// <field name="rowsPerItem" type="Number">Gets the number of rows used to display each item.
 /// 
 /// This value is calculated automatically based on the value
-/// of the @see:layoutDefinition property.</field>
+/// of the <b>layoutDefinition</b> property.</field>
 /// <field name="centerHeadersVertically" type="Boolean">Gets or sets a value that determines whether the content of cells
 /// that span multiple rows should be vertically centered.</field>
 /// <field name="collapsedHeaders" type="Boolean">Gets or sets a value that determines whether column headers
 /// should be collapsed and displayed as a single row displaying
 /// the group headers.
 /// 
-/// If you set the @see:collapsedHeaders property to true,
-/// remember to set the header property of every group in order
-/// to avoid empty headers.</field>
+/// If you set the <b>collapsedHeaders</b> property to true,
+/// remember to set the <b>header</b> property of every group in order
+/// to avoid any empty headers.</field>
 /// <field name="showHeaderCollapseButton" type="Boolean">Gets or sets a value that determines whether the grid should display
 /// a button in the column header panel to allow users to collapse and
 /// expand the column headers.
 /// 
 /// If the button is visible, clicking on it will cause the grid to
-/// toggle the value of the @see:collapsedHeaders property.</field>
+/// toggle the value of the <b>collapsedHeaders</b> property.</field>
 this._wjClassName = 'wijmo.grid.multirow.MultiRow';
 _wjReownEvents(this);
 }
@@ -5287,10 +5327,7 @@ wijmo.input.Popup = function(element, options) {
 /// If the user presses Enter and the @see:dialogResultEnter property is not null,
 /// the popup checks whether all its child elements are in a valid state.
 /// If so, the popup is closed and the @see:dialogResult property is set to
-/// the value of the @see:dialogResultEnter property.
-/// 
-/// If the @see:Popup contains a submit button, pressing the Enter key also checks
-/// for validity and closes the dialog, returning 'submit' as the @see:dialogResult.</field>
+/// the value of the @see:dialogResultEnter property.</field>
 /// <field name="isVisible" type="Boolean">Gets a value that determines whether the @see:Popup is currently visible.</field>
 /// <field name="showing" type="wijmo.Event">Occurs before the @see:Popup is shown.</field>
 /// <field name="shown" type="wijmo.Event">Occurs after the @see:Popup has been shown.</field>
@@ -6097,6 +6134,8 @@ Spline: 9,
 SplineSymbols: 10,
 // Displays spline chart with the area below the line filled with color.
 SplineArea: 11,
+// Displays funnel chart.
+Funnel: 12,
 _wjEnum: true
 };
 
@@ -6130,6 +6169,19 @@ wijmo.chart.FlexChart = function(element, options) {
 ///   bubble: { minSize: 5, maxSize: 30 }
 /// }</pre>
 /// 
+/// 
+/// <b>funnel.neckWidth</b>: Specifies the neck width as a percentage for the Funnel chart.
+/// The default value is 0.2.
+/// 
+/// <b>funnel.neckHeight</b>: Specifies the neck height as a percentage for the Funnel chart.
+/// The default value is 0.
+/// 
+/// <b>funnel.type</b>: Specifies the type of Funnel chart. It should be 'rectangle' or 'default'.
+/// neckWidth and neckHeight don't work if type is set to rectangle.
+/// 
+/// <pre>chart.options = {
+///   funnel: { neckWidth: 0.3, neckHeight: 0.3, type: 'rectangle' }
+/// }</pre>
 /// <b>groupWidth</b>: Specifies the group width for the Column charts,
 /// or the group height for the Bar charts. The group width can be specified
 /// in pixels or as percentage of the available space. The default value is '70%'.
@@ -6949,6 +7001,15 @@ _wjReownEvents(this);
 wijmo.chart._AreaPlotter.prototype = new wijmo.chart._BasePlotter();
 wijmo.chart._AreaPlotter._wjDict = _wjMerge(wijmo.chart._BasePlotter._wjDict, {});
 wijmo.chart._AreaPlotter._wjClass = true;
+wijmo.chart._FunnelPlotter = function() {
+/// <summary>Funnel chart plotter.</summary>
+/// <returns type="wijmo.chart._FunnelPlotter"></returns>
+this._wjClassName = 'wijmo.chart._FunnelPlotter';
+_wjReownEvents(this);
+}
+wijmo.chart._FunnelPlotter.prototype = new wijmo.chart._BasePlotter();
+wijmo.chart._FunnelPlotter._wjDict = _wjMerge(wijmo.chart._BasePlotter._wjDict, {});
+wijmo.chart._FunnelPlotter._wjClass = true;
 wijmo.chart.analytics = wijmo.chart.analytics || { _wjModule: true };
 wijmo.chart.analytics.TrendLineBase = function(options) {
 /// <summary>Initializes a new instance of the @see:TrendLineBase class.</summary>
@@ -7115,18 +7176,23 @@ wijmo.chart.analytics.Waterfall = function(options) {
 /// the Waterfall Series.</param>
 /// <returns type="wijmo.chart.analytics.Waterfall"></returns>
 /// <field name="relativeData" type="Boolean">Gets or sets a value that determines whether the given data is relative.</field>
-/// <field name="start" type="Number">Gets or sets a value that determines the value of the start bar. If start is null, start bar will not show.</field>
+/// <field name="start" type="Number">Gets or sets a value that determines the value of the start bar.
+/// If start is null, start bar will not show.</field>
 /// <field name="startLabel" type="String">Gets or sets the label of the start bar.</field>
-/// <field name="showTotal" type="Boolean">Gets or sets a value that determines whether the show the total bar.</field>
+/// <field name="showTotal" type="Boolean">Gets or sets a value that determines whether to show the total bar.</field>
 /// <field name="totalLabel" type="String">Gets or sets the label of the total bar.</field>
 /// <field name="showIntermediateTotal" type="Boolean">Gets or sets a value that determines whether to show the intermediate total bar.
-/// The property should work with @see::intermediateToolPositions and @see::intermediateToolLabels property.</field>
-/// <field name="intermediateTotalPositions" type="Number[]">Gets or sets the value of the property that contains the index for positions of the intermediate total bar.
-/// The property should work with @see::showIntermediateTotal and @see::intermediateToolLabels property.</field>
-/// <field name="intermediateTotalLabels" type="Object">Gets or sets the value of the property that contains the label of the intermediate total bar, it should be an array or a string
-/// The property should work with @see::showIntermediateTotal and @see::intermediateToolPositions property.</field>
+/// The property should work with @see:intermediateTotalPositions and
+/// @see:intermediateTotalLabels property.</field>
+/// <field name="intermediateTotalPositions" type="Number[]">Gets or sets a value of the property that contains the index for positions
+/// of the intermediate total bar. The property should work with
+/// @see:showIntermediateTotal and @see:intermediateTotalLabels property.</field>
+/// <field name="intermediateTotalLabels" type="Object">Gets or sets a value of the property that contains the label of the intermediate
+/// total bar; it should be an array or a string. The property should work with
+/// @see:showIntermediateTotal and @see:intermediateTotalPositions property.</field>
 /// <field name="connectorLines" type="Boolean">Gets or sets a value that determines whether to show connector lines.</field>
 /// <field name="styles" type="Object">Gets or sets the waterfall styles.
+/// 
 /// The following styles are supported:
 /// 
 /// <b>start</b>: Specifies the style of the start column.
@@ -7643,16 +7709,17 @@ wijmo.chart.hierarchical = wijmo.chart.hierarchical || { _wjModule: true };
 wijmo.chart.hierarchical.Sunburst = function() {
 /// <summary>Sunburst chart control.</summary>
 /// <returns type="wijmo.chart.hierarchical.Sunburst"></returns>
-/// <field name="bindingName" type="Object">Gets or sets the name of the property that contains the name of the data item, it should be an array or a string.</field>
+/// <field name="bindingName" type="Object">Gets or sets the name of the property containing name of the data item;
+/// it should be an array or a string.</field>
 /// <field name="childItemsPath" type="Object">Gets or sets the name of the property (or properties) used to generate
 /// child items in hierarchical data.
 /// 
 /// Set this property to a string to specify the name of the property that
 /// contains an item's child items (e.g. <code>'items'</code>).
 /// 
-/// If items at different levels child items with different names, then
-/// set this property to an array containing the names of the properties
-/// that contain child items et each level
+/// Set this property to an array containing the names of the properties
+/// that contain child items at each level, when the items are child items
+/// at different levels with different names
 /// (e.g. <code>[ 'accounts', 'checks', 'earnings' ]</code>).</field>
 this._wjClassName = 'wijmo.chart.hierarchical.Sunburst';
 _wjReownEvents(this);
@@ -7660,6 +7727,96 @@ _wjReownEvents(this);
 wijmo.chart.hierarchical.Sunburst.prototype = new wijmo.chart.FlexPie();
 wijmo.chart.hierarchical.Sunburst._wjDict = _wjMerge(wijmo.chart.FlexPie._wjDict, {bindingName:2,childItemsPath:2});
 wijmo.chart.hierarchical.Sunburst._wjClass = true;
+wijmo.chart.radar = wijmo.chart.radar || { _wjModule: true };
+wijmo.chart.radar.RadarChartType = {
+// Shows vertical bars and allows you to compare values of items across categories.
+Column: 0,
+// Shows patterns within the data using X and Y coordinates.
+Scatter: 1,
+// Shows trends over a period of time or across categories.
+Line: 2,
+// Shows line chart with a symbol on each data point.
+LineSymbols: 3,
+// Shows line chart with the area below the line filled with color.
+Area: 4,
+_wjEnum: true
+};
+
+intellisense.annotate(wijmo.chart.radar, {
+// Specifies the type of radar chart.
+RadarChartType: undefined
+});
+
+wijmo.chart.radar.FlexRadar = function(element, options) {
+/// <summary>Initializes a new instance of the @see:FlexRadar class.</summary>
+/// <param name="element" type="Object" optional="false">The DOM element that hosts the control, or a selector for the
+/// host element (e.g. '#theCtrl').</param>
+/// <param name="options" type="Object" optional="true">A JavaScript object containing initialization data for the
+/// control.</param>
+/// <returns type="wijmo.chart.radar.FlexRadar"></returns>
+/// <field name="chartType" type="wijmo.chart.radar.RadarChartType">Gets or sets the type of radar chart to create.</field>
+/// <field name="startAngle" type="Number">Gets or sets the starting angle for the radar, in degrees.
+/// 
+/// Angles are measured clockwise, starting at the 12 o'clock position.</field>
+/// <field name="totalAngle" type="Number">Gets or sets the total angle for the radar, in degrees.  Its default value is 360.
+/// The value must be greater than 0, or less than or equal to 360.</field>
+/// <field name="reversed" type="Boolean">Gets or sets a value that determines whether angles are reversed
+/// (counter-clockwise).
+/// 
+/// The default value is false, which causes angles to be measured in
+/// the clockwise direction.</field>
+/// <field name="stacking" type="wijmo.chart.Stacking">Gets or sets a value that determines whether and how the series objects are stacked.</field>
+this._wjClassName = 'wijmo.chart.radar.FlexRadar';
+_wjReownEvents(this);
+}
+wijmo.chart.radar.FlexRadar.prototype = new wijmo.chart.FlexChartCore();
+wijmo.chart.radar.FlexRadar._wjDict = _wjMerge(wijmo.chart.FlexChartCore._wjDict, {chartType:2,startAngle:2,totalAngle:2,reversed:2,stacking:2});
+wijmo.chart.radar.FlexRadar._wjClass = true;
+wijmo.chart.radar.FlexRadarSeries = function() {
+/// <summary>Represents a series of data points to display in the chart.
+/// The @see:FlexRadarSeries class supports all basic chart types. You may define
+/// a different chart type on each @see:FlexRadarSeries object that you add to the
+/// @see:FlexRadar series collection. This overrides the @see:chartType
+/// property set on the chart that is the default for all @see:FlexRadarSeries objects
+/// in its collection.</summary>
+/// <returns type="wijmo.chart.radar.FlexRadarSeries"></returns>
+/// <field name="chartType" type="wijmo.chart.radar.RadarChartType">Gets or sets the chart type for a specific series, overriding the chart type
+/// set on the overall chart. Please note that ColumnVolume, EquiVolume,
+/// CandleVolume and ArmsCandleVolume chart types are not supported and should be
+/// set on the @see:FinancialChart.</field>
+this._wjClassName = 'wijmo.chart.radar.FlexRadarSeries';
+_wjReownEvents(this);
+}
+wijmo.chart.radar.FlexRadarSeries.prototype = new wijmo.chart.SeriesBase();
+wijmo.chart.radar.FlexRadarSeries._wjDict = _wjMerge(wijmo.chart.SeriesBase._wjDict, {chartType:2});
+wijmo.chart.radar.FlexRadarSeries._wjClass = true;
+wijmo.chart.radar.FlexRadarAxis = function() {
+/// <summary>Represents an axis in the radar chart.</summary>
+/// <returns type="wijmo.chart.radar.FlexRadarAxis"></returns>
+this._wjClassName = 'wijmo.chart.radar.FlexRadarAxis';
+_wjReownEvents(this);
+}
+wijmo.chart.radar.FlexRadarAxis.prototype = new wijmo.chart.Axis();
+wijmo.chart.radar.FlexRadarAxis._wjDict = _wjMerge(wijmo.chart.Axis._wjDict, {});
+wijmo.chart.radar.FlexRadarAxis._wjClass = true;
+wijmo.chart.radar._RadarLinePlotter = function() {
+/// <summary>Line/scatter radar chart plotter.</summary>
+/// <returns type="wijmo.chart.radar._RadarLinePlotter"></returns>
+this._wjClassName = 'wijmo.chart.radar._RadarLinePlotter';
+_wjReownEvents(this);
+}
+wijmo.chart.radar._RadarLinePlotter.prototype = new wijmo.chart._LinePlotter();
+wijmo.chart.radar._RadarLinePlotter._wjDict = _wjMerge(wijmo.chart._LinePlotter._wjDict, {});
+wijmo.chart.radar._RadarLinePlotter._wjClass = true;
+wijmo.chart.radar._RadarBarPlotter = function() {
+/// <summary>Column(Rose) radar chart plotter.</summary>
+/// <returns type="wijmo.chart.radar._RadarBarPlotter"></returns>
+this._wjClassName = 'wijmo.chart.radar._RadarBarPlotter';
+_wjReownEvents(this);
+}
+wijmo.chart.radar._RadarBarPlotter.prototype = new wijmo.chart._BarPlotter();
+wijmo.chart.radar._RadarBarPlotter._wjDict = _wjMerge(wijmo.chart._BarPlotter._wjDict, {});
+wijmo.chart.radar._RadarBarPlotter._wjClass = true;
 wijmo.gauge = wijmo.gauge || { _wjModule: true };
 wijmo.gauge.ShowText = {
 // Do not show any text in the gauge.
@@ -7738,6 +7895,16 @@ wijmo.gauge.Gauge = function(element, options) {
 /// and appearance.</field>
 /// <field name="pointer" type="wijmo.gauge.Range">Gets or sets the @see:Range used to represent the gauge's current value.</field>
 /// <field name="showText" type="wijmo.gauge.ShowText">Gets or sets the @see:ShowText values to display as text in the gauge.</field>
+/// <field name="showTicks" type="Boolean">Gets or sets a property that determines whether the gauge should display
+/// tickmarks at each @see:step value.
+/// 
+/// The tickmarks can be formatted in CSS using the <b>wj-gauge</b> and
+/// <b>wj-ticks</b> class names. For example:
+/// 
+/// <pre>.wj-gauge .wj-ticks {
+///     stroke-width: 2px;
+///     stroke: white;
+/// }</pre></field>
 /// <field name="thumbSize" type="Number">Gets or sets the size of the element that shows the gauge's current value, in pixels.</field>
 /// <field name="showRanges" type="Boolean">Gets or sets a value that indicates whether the gauge displays the ranges contained in
 /// the @see:ranges property.
@@ -7786,7 +7953,7 @@ intellisense.annotate(wijmo.gauge.Gauge, {
 // Gets or sets the template used to instantiate @see:Gauge controls.
 controlTemplate: undefined
 });
-wijmo.gauge.Gauge._wjDict = _wjMerge(wijmo.Control._wjDict, {value:2,min:2,max:2,origin:2,isReadOnly:2,step:2,format:2,getText:2,thickness:2,face:2,pointer:2,showText:2,thumbSize:2,showRanges:2,hasShadow:2,isAnimated:2,ranges:2,valueChanged:1});
+wijmo.gauge.Gauge._wjDict = _wjMerge(wijmo.Control._wjDict, {value:2,min:2,max:2,origin:2,isReadOnly:2,step:2,format:2,getText:2,thickness:2,face:2,pointer:2,showText:2,showTicks:2,thumbSize:2,showRanges:2,hasShadow:2,isAnimated:2,ranges:2,valueChanged:1});
 wijmo.gauge.Gauge._wjClass = true;
 wijmo.gauge.GaugeDirection = {
 // Gauge value increases from left to right.
@@ -10069,17 +10236,22 @@ wijmo.grid.sheet.Sheet._wjClass = true;
 wijmo.grid.sheet.SheetCollection = function() {
 /// <summary>Defines the collection of the @see:Sheet objects.</summary>
 /// <returns type="wijmo.grid.sheet.SheetCollection"></returns>
+/// <field name="sheetCleared" type="wijmo.Event">Occurs when the @see:SheetCollection is cleared.</field>
 /// <field name="selectedIndex" type="Number">Gets or sets the index of the currently selected sheet.</field>
 /// <field name="selectedSheetChanged" type="wijmo.Event">Occurs when the <b>selectedIndex</b> property changes.</field>
 /// <field name="sheetNameChanged" type="wijmo.Event">Occurs after the name of the sheet in the collection has changed.</field>
 /// <field name="sheetVisibleChanged" type="wijmo.Event">Occurs after the visible of the sheet in the collection has changed.</field>
 this._wjClassName = 'wijmo.grid.sheet.SheetCollection';
+this.sheetCleared = new wijmo.Event('wijmo.EventArgs');
 this.selectedSheetChanged = new wijmo.Event('wijmo.PropertyChangedEventArgs');
 this.sheetNameChanged = new wijmo.Event('wijmo.collections.NotifyCollectionChangedEventArgs');
 this.sheetVisibleChanged = new wijmo.Event('wijmo.collections.NotifyCollectionChangedEventArgs');
 _wjReownEvents(this);
 }
 wijmo.grid.sheet.SheetCollection.prototype = new wijmo.collections.ObservableArray();
+wijmo.grid.sheet.SheetCollection.prototype.onSheetCleared = function() {
+/// <summary>Raises the sheetCleared event.</summary>
+}
 wijmo.grid.sheet.SheetCollection.prototype.onSelectedSheetChanged = function(e) {
 /// <summary>Raises the <b>currentChanged</b> event.</summary>
 /// <param name="e" type="wijmo.PropertyChangedEventArgs" optional="false">@see:PropertyChangedEventArgs that contains the event data.</param>
@@ -10156,7 +10328,7 @@ wijmo.grid.sheet.SheetCollection.prototype.getValidSheetName = function(currentS
 /// <param name="currentSheet" type="wijmo.grid.sheet.Sheet" optional="false">The @see:Sheet need get the valid name.</param>
 /// <returns type="String"></returns>
 }
-wijmo.grid.sheet.SheetCollection._wjDict = _wjMerge(wijmo.collections.ObservableArray._wjDict, {selectedIndex:2,selectedSheetChanged:1,sheetNameChanged:1,sheetVisibleChanged:1});
+wijmo.grid.sheet.SheetCollection._wjDict = _wjMerge(wijmo.collections.ObservableArray._wjDict, {sheetCleared:1,selectedIndex:2,selectedSheetChanged:1,sheetNameChanged:1,sheetVisibleChanged:1});
 wijmo.grid.sheet.SheetCollection._wjClass = true;
 wijmo.grid.sheet.SortManager = function(owner) {
 /// <summary>Initializes a new instance of the @see:SortManager class.</summary>

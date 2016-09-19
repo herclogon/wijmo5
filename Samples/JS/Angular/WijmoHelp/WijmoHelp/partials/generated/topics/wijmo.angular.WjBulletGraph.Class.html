@@ -1,30 +1,33 @@
-<h2>WjBulletGraph Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">WjBulletGraph</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><a href="topic/wijmo.angular.WjLinearGauge.Class.html"><b>WjLinearGauge</b></a></dd>
-<dt>Module</dt><dd>wijmo.angular</dd>
-<dt>File</dt><dd>wijmo.angular.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.angular.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.angular.Module.html"><span class="identifier">wijmo.angular</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.angular.WjLinearGauge.Class.html"><span class="identifier">WjLinearGauge</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p><p>AngularJS directive for the <a href="topic/wijmo.gauge.BulletGraph.Class.html"><b>BulletGraph</b></a> control.</p>
-
+<div class="comment"><p>AngularJS directive for the <a href="topic/wijmo.gauge.BulletGraph.Class.html"><span class="identifier">BulletGraph</span></a> control.</p>
 <p>Use the <b>wj-bullet-graph</b> directive to add bullet graphs to your AngularJS applications. 
 Note that directive and parameter names must be formatted as lower-case with dashes 
 instead of camel-case. For example:</p>
 
-<p><pre>&lt;wj-bullet-graph 
+
+<pre>&lt;wj-bullet-graph 
   value="ctx.gauge.value" 
   min="0" max="10"
   target="{&#8203;{item.target}}"
   bad="{&#8203;{item.target * .75}}"
   good="{&#8203;{item.target * 1.25}}"&gt;
-&lt;/wj-bullet-graph&gt;</pre></p>
-
+&lt;/wj-bullet-graph&gt;</pre>
 <p>The <b>wj-bullet-graph</b> directive supports the following attributes:</p>
-
 <p><dl class="dl-horizontal">
   <dt>control</dt>       <dd><code>=</code> A reference to the BulletGraph control 
                          created by this directive.</dd>
-  <dt>direction</dt>     <dd><code>@</code> The <a href="topic/wijmo.gauge.GaugeDirection.Enum.html"><b>GaugeDirection</b></a> value 
+  <dt>direction</dt>     <dd><code>@</code> The <a href="topic/wijmo.gauge.GaugeDirection.Enum.html"><span class="identifier">GaugeDirection</span></a> value 
                          indicating which direction the gauge fills as the value grows.</dd>
   <dt>initialized</dt>   <dd><code>&</code> This event occurs after the binding has finished
                          initializing the control with attribute values.</dd>
@@ -37,11 +40,8 @@ instead of camel-case. For example:</p>
                          measure.</dd>
   <dt>value</dt>         <dd><code>=</code> The actual value of the measure.</dd>
 </dl></p>
-
-<p>The <b>wj-bullet-graph</b> directive may contain one or more <a href="topic/wijmo.angular.WjRange.Class.html"><b>WjRange</b></a> directives.</p>
-
-<p><a href="http://jsfiddle.net/Wijmo5/8uxb1vwf/" target="_blank" class="btn btn-info">
-  <img src="images/fiddle.png"/>
-  Live Example
-</a>
-</p></p>
+<p>The <b>wj-bullet-graph</b> directive may contain one or more <a href="topic/wijmo.angular.WjRange.Class.html"><span class="identifier">WjRange</span></a> directives.</p>
+<p><div class="member-panel example"><h3 class="node collapsed">Example</h3><div class="fiddle"><script async src="http://jsfiddle.net/Wijmo5/8uxb1vwf/embed/result,html,js,css"></script></div></div></p></div>
+</div>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+</div>

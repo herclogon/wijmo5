@@ -32,7 +32,9 @@
                         </wj-menu>
                     </li>
                     <li>
-                        <wj-menu #aniMode [(value)]="animationMode" header="Animation mode" (itemClicked)="animationModeChanged(aniMode)">
+                        <!--   -->
+                        <wj-menu [(value)]="animationMode" header="Animation mode" 
+                                 (itemClicked)="animationModeChanged()">
                             <wj-menu-item value="Point">Point</wj-menu-item>
                             <wj-menu-item value="Series">Series</wj-menu-item>
                             <wj-menu-item value="All">All</wj-menu-item>
@@ -108,7 +110,7 @@
             <wj-flex-chart-series binding="y" name="Y1"></wj-flex-chart-series>
             <wj-flex-chart-series binding="y1" name="Y2"></wj-flex-chart-series>
             <wj-flex-chart-series binding="y2" name="Y3"></wj-flex-chart-series>
-            <wj-flex-chart-animation #animation [animationMode]="animationMode" [easing]="easing" [duration]="duration"></wj-flex-chart-animation>
+            <wj-flex-chart-animation #animation [easing]="easing" [duration]="duration"></wj-flex-chart-animation>
         </wj-flex-chart>
     </div>
 

@@ -7,10 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require('@angular/router-deprecated');
-var common_1 = require('@angular/common');
+var platform_browser_1 = require('@angular/platform-browser');
+var router_1 = require('@angular/router');
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var common_2 = require('@angular/common');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 var DataSvc_1 = require('./services/DataSvc');
 var Component1Cmp_1 = require('./components/Component1Cmp');
 var Component2Cmp_1 = require('./components/Component2Cmp');
@@ -23,23 +24,34 @@ var WijmoStdNg2App;
         AppCmp = __decorate([
             core_1.Component({
                 selector: 'app-cmp',
-                templateUrl: 'src/app.html',
-                directives: [common_2.CORE_DIRECTIVES, router_deprecated_1.ROUTER_DIRECTIVES]
-            }),
-            router_deprecated_1.RouteConfig([
-                { path: '/', redirectTo: ['Component1'] },
-                { path: '/component1', component: Component1Cmp_1.Component1Cmp, name: 'Component1' },
-                { path: '/component2', component: Component2Cmp_1.Component2Cmp, name: 'Component2' },
-            ])
+                templateUrl: 'src/app.html'
+            })
         ], AppCmp);
         return AppCmp;
     }());
     WijmoStdNg2App.AppCmp = AppCmp;
 })(WijmoStdNg2App = exports.WijmoStdNg2App || (exports.WijmoStdNg2App = {}));
+exports.routes = [
+    { path: '', redirectTo: 'component1', pathMatch: 'full' },
+    { path: 'component1', data: { caption: 'Component1' }, component: Component1Cmp_1.Component1Cmp },
+    { path: 'component2', data: { caption: 'Component2' }, component: Component2Cmp_1.Component2Cmp }
+];
+exports.routing = router_1.RouterModule.forRoot(exports.routes, { useHash: true });
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [platform_browser_1.BrowserModule, exports.routing, wijmo_angular2_grid_1.WjGridModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [WijmoStdNg2App.AppCmp, Component1Cmp_1.Component1Cmp, Component2Cmp_1.Component2Cmp],
+            providers: [DataSvc_1.DataSvc],
+            bootstrap: [WijmoStdNg2App.AppCmp]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
 core_1.enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-platform_browser_dynamic_1.bootstrap(WijmoStdNg2App.AppCmp, [
-    router_deprecated_1.ROUTER_PROVIDERS,
-    core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy }),
-    DataSvc_1.DataSvc]);
+// Bootstrap application 
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(AppModule);
 //# sourceMappingURL=App.js.map

@@ -15,14 +15,14 @@
                target="_blank">localStorage</a> using the following code:
         </p>
         <pre>// save or restore column layout in localStorage
-saveColumnLayout() {
-    if (localStorage) {
+saveColumnLayout() &#123;
+    if (localStorage) &#123;
         localStorage['columns'] = this.flex.columnLayout;
         console.log('**LAYOUT: ' + this.flex.columnLayout);
     }
 }
-loadColumnLayout() {
-    if (localStorage) {
+loadColumnLayout() &#123;
+    if (localStorage) &#123;
         this.flex.columnLayout = localStorage['columns'];
     }
 }</pre>

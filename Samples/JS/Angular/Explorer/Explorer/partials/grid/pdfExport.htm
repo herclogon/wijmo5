@@ -1,0 +1,57 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Export FlexGrid to a file
+        </h3>
+        <div class="alert alert-info" role="alert"><b>Important!</b> This feature requires the <a href="http://wijmo.com/5/docs/topic/wijmo.pdf.Module.html">wijmo.pdf</a> and <a href="http://wijmo.com/5/docs/topic/wijmo.grid.pdf.Module.html">wijmo.grid.pdf</a> extension modules.</div>
+        <p>
+            This sample shows how to export a FlexGrid having row groups to a PDF file using the <b>export</b> method.
+        </p>
+        <p>
+            <b>FlexGridPdfConverter</b> provides <b>export</b> class method to export FlexGrid to a file.
+        </p>
+        <p>
+            The method takes the following arguments:
+        </p>
+        <ul>
+            <li>The FlexGrid instance to export.</li>
+            <li>Name of the PDF file to which grid is to be exported.</li>
+            <li>The export settings. Along with other settings, it provides the <b>documentOptions</b> property that refers to the <b>PdfDocument</b> constructor options.</li>
+        </ul>
+
+    </div>
+
+    <div class="row" style="margin-bottom:5px;">
+        <wj-menu value="ctx.scaleMode" header="Scale mode" selected-index="2">
+            <wj-menu-item value="0">ActualSize</wj-menu-item>
+            <wj-menu-item value="1">PageWidth</wj-menu-item>
+            <wj-menu-item value="2">SinglePage</wj-menu-item>
+        </wj-menu>
+        <wj-menu value="ctx.orientation" header="Orientation">
+            <wj-menu-item value="0">Portrait</wj-menu-item>
+            <wj-menu-item value="1">Landscape</wj-menu-item>
+        </wj-menu>
+        <wj-menu value="ctx.exportMode" header="Export mode">
+            <wj-menu-item value="0">All</wj-menu-item>
+            <wj-menu-item value="1">Selection</wj-menu-item>
+        </wj-menu>
+        <button class="btn btn-default" id="Button1" ng-click="export()">Export</button>
+    </div>
+    <!-- the flex grid -->
+    <div class="row">
+        <wj-flex-grid style="max-height:400px"
+                      control="ctx.flexGrid"
+                      items-source="ctx.data">
+            <wj-flex-grid-column header="ID" binding="id"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Start Date" binding="start" format="d"></wj-flex-grid-column>
+            <wj-flex-grid-column header="End Date" binding="end" format="d"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Country" binding="country"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Product" binding="product"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Color" binding="color"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Amount" binding="amount" format="c" aggregate="Sum"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Pending" binding="amount2" format="c2" aggregate="Sum"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Discount" binding="discount" format="p1" aggregate="Avg"></wj-flex-grid-column>
+            <wj-flex-grid-column header="Active" binding="active"></wj-flex-grid-column>
+        </wj-flex-grid>
+    </div>
+</div>

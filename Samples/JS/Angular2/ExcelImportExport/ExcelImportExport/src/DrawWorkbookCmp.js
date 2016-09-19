@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 // Angular
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
+var platform_browser_1 = require('@angular/platform-browser');
 'use strict';
 // The Explorer application root component.
 var DrawWorkBookCmp = (function () {
@@ -44,14 +44,26 @@ var DrawWorkBookCmp = (function () {
     DrawWorkBookCmp = __decorate([
         core_1.Component({
             selector: 'draw-workbook-cmp',
-            templateUrl: 'src/drawWorkbookCmp.html',
-            directives: [common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/drawWorkbookCmp.html'
         })
     ], DrawWorkBookCmp);
     return DrawWorkBookCmp;
 }());
 exports.DrawWorkBookCmp = DrawWorkBookCmp;
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [platform_browser_1.BrowserModule],
+            declarations: [DrawWorkBookCmp],
+            bootstrap: [DrawWorkBookCmp]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
 core_1.enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-platform_browser_dynamic_1.bootstrap(DrawWorkBookCmp, []);
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(AppModule);
 //# sourceMappingURL=DrawWorkbookCmp.js.map

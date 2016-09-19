@@ -1,16 +1,18 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject} from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
+import { Component, EventEmitter, Inject, ViewChild, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { DataSvc } from '../../services/DataSvc';
 import { PieChartBaseCmp } from './PieChartBaseCmp'
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
 
 // PieChart Introduction sample component.
 @Component({
     selector: 'pie-item-formatter-cmp',
-    templateUrl: 'src/components/piechart/pieChartItemFormatterCmp.html',
-    directives: [wjNg2Chart.WjFlexPie, CORE_DIRECTIVES]
+    templateUrl: 'src/components/piechart/pieChartItemFormatterCmp.html'
 })
 
 export class PieChartItemFormatterCmp extends PieChartBaseCmp {
@@ -36,4 +38,14 @@ export class PieChartItemFormatterCmp extends PieChartBaseCmp {
         engine.drawString(text, point);
         engine.fontSize = fsz;
     }
+}
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: PieChartItemFormatterCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjChartModule],
+    declarations: [PieChartItemFormatterCmp],
+})
+export class PieChartItemFormatterModule {
 }

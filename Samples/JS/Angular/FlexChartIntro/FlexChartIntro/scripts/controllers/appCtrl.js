@@ -8,7 +8,7 @@ app.controller('appCtrl', function appCtrl($scope) {
 
     // generate some random data
     var countries = 'US,Germany,UK,Japan,Italy,Greece'.split(','),
-        data = [];
+        data = [], funnelData = [], sales = 10000;
     for (var i = 0; i < countries.length; i++) {
         data.push({
             country: countries[i],
@@ -16,10 +16,17 @@ app.controller('appCtrl', function appCtrl($scope) {
             sales: Math.random() * 10000,
             expenses: Math.random() * 5000
         });
+        funnelData.push({
+            country: countries[i],
+            sales: sales
+        });
+        sales = sales - Math.round(Math.random() * 2000);
     }
+
 
     // add data array to scope
     $scope.data = data;
+    $scope.funnelData = funnelData;
 
     // add chart properties to scope
     $scope.chartProps = {
@@ -37,6 +44,12 @@ app.controller('appCtrl', function appCtrl($scope) {
 
     // series-toggling chart control
     $scope.toggleChart = null;
+    $scope.funnelChart = null;
+    $scope.inputNeckWidth = null;
+    $scope.inputNeckHeight = null;
+    $scope.neckWidth = 0.2;
+    $scope.neckHeight = 0.2;
+    $scope.funnelType = 'default';
 
     // dynamic data
     var toAddData;
@@ -74,4 +87,50 @@ app.controller('appCtrl', function appCtrl($scope) {
             toAddData = setTimeout(addTrafficItem, $scope.interval);
         }
     }
+
+    $scope.$watch('funnelChart', function () {
+        var funnelChart = $scope.funnelChart;
+
+        if (funnelChart != null) {
+            funnelChart.options = {
+                funnel: {
+                    neckWidth: 0.2,
+                    neckHeight: 0.2,
+                    type: 'default'
+                }
+            };
+            funnelChart.dataLabel.content = '{y}';
+        }
+    });
+
+    $scope.$watch('neckWidth', function () {
+        var neckWidth = $scope.inputNeckWidth,
+            val = $scope.neckWidth;
+        if (neckWidth != null) {
+            if (val < neckWidth.min || val > neckWidth.max) {
+                return;
+            }
+            $scope.funnelChart.options.funnel.neckWidth = val;
+            $scope.funnelChart.refresh(true);
+        }
+    });
+
+    $scope.$watch('neckHeight', function () {
+        var neckHeight = $scope.inputNeckHeight,
+            val = $scope.neckHeight;
+        if (neckHeight != null) {
+            if (val < neckHeight.min || val > neckHeight.max) {
+                return;
+            }
+            $scope.funnelChart.options.funnel.neckHeight = val;
+            $scope.funnelChart.refresh(true);
+        }
+    });
+
+    $scope.funnelTypeChanged = function (sender) {
+        $scope.funnelChart.options.funnel.type = sender.selectedValue;
+        $scope.funnelChart.refresh(true);
+        $scope.funnelType = sender.selectedValue;
+    };  
+
 });

@@ -15,9 +15,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
 var InputBaseCmp_1 = require('./InputBaseCmp');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 var appPipes_1 = require('../../pipes/appPipes');
 // DateTime sample component.
 var DateTimeCmp = (function (_super) {
@@ -29,14 +30,26 @@ var DateTimeCmp = (function (_super) {
     DateTimeCmp = __decorate([
         core_1.Component({
             selector: 'date-time-cmp',
-            templateUrl: 'src/components/input/dateTimeCmp.html',
-            directives: [wjNg2Input.WjInputDate, wjNg2Input.WjInputTime, wjNg2Input.WjCalendar,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjMenuSeparator, common_1.CORE_DIRECTIVES],
-            pipes: [appPipes_1.GlbzPipe, appPipes_1.ToDatePipe]
+            templateUrl: 'src/components/input/dateTimeCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], DateTimeCmp);
     return DateTimeCmp;
 }(InputBaseCmp_1.InputBaseCmp));
 exports.DateTimeCmp = DateTimeCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: DateTimeCmp }
+]);
+var DateTimeModule = (function () {
+    function DateTimeModule() {
+    }
+    DateTimeModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_input_1.WjInputModule, appPipes_1.AppPipesModule],
+            declarations: [DateTimeCmp],
+        })
+    ], DateTimeModule);
+    return DateTimeModule;
+}());
+exports.DateTimeModule = DateTimeModule;
 //# sourceMappingURL=DateTimeCmp.js.map

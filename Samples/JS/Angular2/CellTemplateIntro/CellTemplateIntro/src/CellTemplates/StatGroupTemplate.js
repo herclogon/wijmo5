@@ -6,17 +6,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
 var StatGroupTemplate = (function () {
     function StatGroupTemplate() {
     }
     StatGroupTemplate = __decorate([
         core_1.Component({
             selector: 'expence-cell-edit-cmp',
-            templateUrl: 'src/CellTemplates/statGroupTemplate.html',
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Chart.WjFlexPie, wjNg2Grid.WjFlexGridColumn,
-                wjNg2Chart.WjFlexChartLegend, wjNg2Chart.WjFlexPieDataLabel]
+            templateUrl: 'src/CellTemplates/statGroupTemplate.html'
         })
     ], StatGroupTemplate);
     return StatGroupTemplate;

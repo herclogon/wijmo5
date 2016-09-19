@@ -1,70 +1,62 @@
-<h2>IPdfFontFile Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">IPdfFontFile</span> Interface</h2>
 <dl class="dl-horizontal">
-<dt>Implements</dt><dd><a href="topic/wijmo.pdf.IPdfFontAttributes.Interface.html"><b>IPdfFontAttributes</b></a></dd>
-<dt>Module</dt><dd>wijmo.pdf</dd>
-<dt>File</dt><dd>wijmo.pdf.js</dd>
+<dt>File</dt><dd class="filename">wijmo.pdf.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.pdf.Module.html"><span class="identifier">wijmo.pdf</span></a></dd>
+<dt>Implements</dt><dd><a href="topic/wijmo.pdf.IPdfFontAttributes.Interface.html"><span class="identifier">IPdfFontAttributes</span></a></dd>
 </dl>
-<p>Represents the settings of the font to register by <b>registerFont</b> and
-<b>registerFontAsync</b> methods.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<div class="comment"><p>Represents the settings of the font to register by <a href="topic/wijmo.pdf.PdfDocument.Class.html/#registerFont"><span class="identifier">registerFont</span></a> and
+<a href="topic/wijmo.pdf.PdfDocument.Class.html/#registerFontAsync"><span class="identifier">registerFontAsync</span></a> methods.</p></div>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>family?</b></td>
-      <td><b>string</b></td>
-      <td>An optional parameter determining the TrueType Collection or Datafork TrueType
-font family.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>name</b></td>
-      <td><b>string</b></td>
-      <td>The name of the font to use.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>source</b></td>
-      <td><b>any</b></td>
-      <td>An ArrayBuffer containing binary data or URL to load the font from. 
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.pdf.IPdfFontFile.Interface.html/#family">family</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.IPdfFontFile.Interface.html/#name">name</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.IPdfFontFile.Interface.html/#source">source</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.IPdfFontFile.Interface.html/#style">style</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.IPdfFontFile.Interface.html/#weight">weight</a></li>
+</ul>
+</div>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="family" class="member-panel mproperty">
+<h3>family</h3>
+<div class="comment"><p>An optional parameter determining the TrueType Collection or Datafork TrueType
+font family.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="name" class="member-panel mproperty">
+<h3>name</h3>
+<div class="comment"><p>The name of the font to use.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="source" class="member-panel mproperty">
+<h3>source</h3>
+<div class="comment"><p>An ArrayBuffer containing binary data or URL to load the font from. 
 Following font formats are supported: TrueType (.ttf), TrueType Collection (.ttc),
-Datafork TrueType (.dfont).</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>style?</b></td>
-      <td><b>string</b></td>
-      <td>The style of the font. One of the following values: 'normal', 'italic', 'oblique'.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>weight?</b></td>
-      <td><b>string</b></td>
-      <td>The weight of the font. One of the following values: 'normal', 'bold', '100', '200', 
-'300', '400', '500', '600', '700', '800', '900'.</td>
-    </tr>
-</tbody>
-</table>
+Datafork TrueType (.dfont).</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><span class="identifier">any</span></dd>
+</dl>
 </div>
-
+<div id="style" class="member-panel mproperty">
+<h3>style</h3>
+<div class="comment"><p>The style of the font. One of the following values: 'normal', 'italic', 'oblique'.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="weight" class="member-panel mproperty">
+<h3>weight</h3>
+<div class="comment"><p>The weight of the font. One of the following values: 'normal', 'bold', '100', '200', 
+'300', '400', '500', '600', '700', '800', '900'.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+</div>

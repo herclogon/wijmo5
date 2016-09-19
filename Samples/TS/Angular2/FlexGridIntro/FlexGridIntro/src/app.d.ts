@@ -22,3 +22,5 @@ export declare class AppCmp {
     private _filterFunction(item);
     private _sortItem(item, view, childItemsPath);
 }
+export declare class AppModule {
+}

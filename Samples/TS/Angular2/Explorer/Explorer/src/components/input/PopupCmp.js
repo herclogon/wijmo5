@@ -15,9 +15,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var InputBaseCmp_1 = require('./InputBaseCmp');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 var FrmCreateAccountCmp_1 = require('../includes/FrmCreateAccountCmp');
 var FrmEditAccountCmp_1 = require('../includes/FrmEditAccountCmp');
 var FrmLogInCmp_1 = require('../includes/FrmLogInCmp');
@@ -44,13 +46,26 @@ var PopupCmp = (function (_super) {
     PopupCmp = __decorate([
         core_1.Component({
             selector: 'popup-cmp',
-            templateUrl: 'src/components/input/popupCmp.html',
-            directives: [wjNg2Input.WjPopup, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES,
-                FrmCreateAccountCmp_1.FrmCreateAccountCmp, FrmEditAccountCmp_1.FrmEditAccountCmp, FrmLogInCmp_1.FrmLogInCmp],
+            templateUrl: 'src/components/input/popupCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], PopupCmp);
     return PopupCmp;
 }(InputBaseCmp_1.InputBaseCmp));
 exports.PopupCmp = PopupCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: PopupCmp }
+]);
+var PopupModule = (function () {
+    function PopupModule() {
+    }
+    PopupModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing, wijmo_angular2_input_1.WjInputModule],
+            declarations: [PopupCmp, FrmCreateAccountCmp_1.FrmCreateAccountCmp, FrmEditAccountCmp_1.FrmEditAccountCmp, FrmLogInCmp_1.FrmLogInCmp],
+        })
+    ], PopupModule);
+    return PopupModule;
+}());
+exports.PopupModule = PopupModule;
 //# sourceMappingURL=PopupCmp.js.map

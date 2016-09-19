@@ -1,50 +1,37 @@
-<h2>Globalize Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">Globalize</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo</dd>
-<dt>File</dt><dd>wijmo.js</dd>
+<dt>File</dt><dd class="filename">wijmo.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.Module.html"><span class="identifier">wijmo</span></a></dd>
 </dl>
-<p><p>Class that implements formatting and parsing of numbers and Dates.</p>
-
-<p>By default, <b>Globalize</b> uses the American English culture.
+<div class="comment"><p>Class that implements formatting and parsing of numbers and Dates.</p>
+<p>By default, <a href="topic/wijmo.Globalize.Class.html"><span class="identifier">Globalize</span></a> uses the American English culture.
 To switch cultures, include the appropriate <b>wijmo.culture.*.js</b> 
-file after the wijmo files.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+file after the wijmo files.</p></div>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>format</b>&#8203;(value, format, trim?, truncate?): <b>string</b></td>
-      <td><p>
-<b>value</b> (<b>any</b>): Number or Date to format (all other types are converted to strings).<br/><b>format</b> (<b>string</b>): Format string to use when formatting numbers or dates.<br/><b>trim?</b> (<b>boolean</b>): Whether to remove trailing zeros from numeric results.<br/><b>truncate?</b> (<b>boolean</b>): Whether to truncate the numeric values rather than round them.<br/></p>
-</td>
-      <td><p>Formats a number or a date.</p>
-
-<p>The format strings used with the <b>format</b> function are similar to 
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.Globalize.Class.html/#format">format</a></li>
+<li class="mmethod"><a href="topic/wijmo.Globalize.Class.html/#formatDate">formatDate</a></li>
+<li class="mmethod"><a href="topic/wijmo.Globalize.Class.html/#formatNumber">formatNumber</a></li>
+<li class="mmethod"><a href="topic/wijmo.Globalize.Class.html/#getFirstDayOfWeek">getFirstDayOfWeek</a></li>
+<li class="mmethod"><a href="topic/wijmo.Globalize.Class.html/#getNumberDecimalSeparator">getNumberDecimalSeparator</a></li>
+<li class="mmethod"><a href="topic/wijmo.Globalize.Class.html/#parseDate">parseDate</a></li>
+<li class="mmethod"><a href="topic/wijmo.Globalize.Class.html/#parseFloat">parseFloat</a></li>
+<li class="mmethod"><a href="topic/wijmo.Globalize.Class.html/#parseInt">parseInt</a></li>
+</ul>
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="format" class="member-panel mmethod">
+<h3><span class="badge">Static</span> format</h3>
+<pre>format(value: <span class="identifier">any</span>, format: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, trim?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>, truncate?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></pre>
+<div class="comment"><p>Formats a number or a date.</p>
+<p>The format strings used with the <a href="topic/wijmo.Globalize.Class.html/#format"><span class="identifier">format</span></a> function are similar to 
 the ones used by <b>Globalize.js</b> and by the .NET Globalization
 library. The tables below contains links that describe the formats
 available:</p>
-
 <p><ul>
 <li><a href="http://msdn.microsoft.com/en-us/library/dwhawy9k(v=vs.110).aspx">
      Standard Numeric Format Strings</a></li>
@@ -52,17 +39,21 @@ available:</p>
      Standard Date and Time Format Strings</a></li>
 <li><a href="http://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx">
      Custom Date and Time Format Strings</a></li>
-</ul></p><br/><br/><b>Returns</b> A string representation of the given value.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>formatDate</b>&#8203;(value, format): <b>string</b></td>
-      <td><p>
-<b>value</b> (<b>Date</b>): Number or Date to format.<br/><b>format</b> (<b>string</b>): .NET-style Date format string.<br/></p>
-</td>
-      <td><p>Formats a date using the current culture.</p>
-
-<p>The <b>format</b> parameter contains a .NET-style 
+</ul></p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <span class="identifier">any</span><br/><p>Number or Date to format (all other types are converted to strings).</p></li><li><b>format</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>Format string to use when formatting numbers or dates.</p></li><li><b>trim</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether to remove trailing zeros from numeric results.</p></li><li><b>truncate</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether to truncate the numeric values rather than round them.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="formatDate" class="member-panel mmethod">
+<h3><span class="badge">Static</span> formatDate</h3>
+<pre>formatDate(value: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a>, format: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></pre>
+<div class="comment"><p>Formats a date using the current culture.</p>
+<p>The <a href="topic/wijmo.Globalize.Class.html/#format"><span class="identifier">format</span></a> parameter contains a .NET-style 
 <a href="http://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx">Date format string</a>
 with the following additions:
 <ul>
@@ -72,28 +63,29 @@ with the following additions:
  <li><i>EEEE, EEE, EE, E</i> Fiscal year (government).</li>
  <li><i>eeee, eee, ee, e</i> Fiscal year (private sector).</li>
 </ul></p>
-
 <p>For example:</p>
 
-<p><pre>
-var d = new Date(2015, 9, 1); // Oct 1, 2015
-console.log(wijmo.Globalize.format(d, '"FY"EEEE"Q"U') + ' (US culture)');
-&gt; FY2016Q1 (US culture)
-</pre></p><br/><br/><b>Returns</b> A string representation of the given date.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>formatNumber</b>&#8203;(value, format, trim?, truncate?): <b>string</b></td>
-      <td><p>
-<b>value</b> (<b>number</b>): Number to format.<br/><b>format</b> (<b>string</b>): .NET-style standard numeric format string (e.g. 'n2', 'c4', 'p0', 'g2', 'd2').<br/><b>trim?</b> (<b>boolean</b>): Whether to remove trailing zeros from the result.<br/><b>truncate?</b> (<b>boolean</b>): Whether to truncate the value rather than round it.<br/></p>
-</td>
-      <td><p>Formats a number using the current culture.</p>
 
-<p>The <b>formatNumber</b> method accepts most .NET-style 
+<pre>var d = new Date(2015, 9, 1); // Oct 1, 2015
+console.log(wijmo.Globalize.format(d, '"FY"EEEE"Q"U') + ' (US culture)');
+&gt; FY2016Q1 (US culture)</pre></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a><br/><p>Number or Date to format.</p></li><li><b>format</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>.NET-style Date format string.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="formatNumber" class="member-panel mmethod">
+<h3><span class="badge">Static</span> formatNumber</h3>
+<pre>formatNumber(value: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, format: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, trim?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>, truncate?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></pre>
+<div class="comment"><p>Formats a number using the current culture.</p>
+<p>The <a href="topic/wijmo.Globalize.Class.html/#formatNumber"><span class="identifier">formatNumber</span></a> method accepts most .NET-style 
 <a href="http://msdn.microsoft.com/en-us/library/dwhawy9k(v=vs.110).aspx">
 Standard Numeric Format Strings</a>, except for the 'e' and 'x' formats
 (scientific notation and hexadecimal) which are not supported.</p>
-
 <p>Numeric format strings takes the form <i>Axxccss</i>, where:
 <ul>
 <li>
@@ -113,26 +105,24 @@ Standard Numeric Format Strings</a>, except for the 'e' and 'x' formats
  it must consist of commas. The number is divided by 1000 for each comma 
  specified.</li>
 </ul></p>
-
 <p>The following table describes the standard numeric format specifiers and 
 displays sample output produced by each format specifier for the default
 culture.</p>
-
 <p><b>n</b> Number: <code>formatNumber(1234.5, 'n2') => '1,234.50'</code><br/>
 <b>f</b> Fixed-point: <code>formatNumber(1234.5, 'f2') => '1234.50'</code><br/>
-<b>g</b> General (no trailing zeros): <code>formatNumber(1234.5, 'g2') => '1,234.5'</code><br/>
+<b>g</b> General (no trailing zeros): <code>formatNumber(1234.5, 'g2') => '1234.5'</code><br/>
 <b>d</b> Decimal (integers): <code>formatNumber(-1234, 'd6') => '-001234'</code><br/>
 <b>x</b> Hexadecimal (integers): <code>formatNumber(1234, 'x6') => '0004d2'</code><br/>
 <b>c</b> Currency: <code>formatNumber(1234, 'c') => '$ 1,234.00'</code><br/>
 <b>p</b> Percent: <code>formatNumber(0.1234, 'p2') => '12.34 %'</code></p>
-
 <p>The scaling specifier is especially useful when charting large values. For 
 example, the markup below creates a chart that plots population versus GDP.
 The raw data expresses the population is units and the GDP in millions.
 The scaling specified in the axes formats causes the chart to show population
 in millions and GDP in trillions:</p>
 
-<p><pre>&lt;wj-flex-chart
+
+<pre>&lt;wj-flex-chart
   items-source="countriesGDP" binding-x="pop" chart-type="Scatter"&gt;
   &lt;wj-flex-chart-series
     name="GDP" binding="gdp"&gt;&lt;/wj-flex-chart-series&gt;
@@ -144,50 +134,70 @@ in millions and GDP in trillions:</p>
     wj-property="axisY" title="GDP (US$ trillions)"
     format="c0,,"&gt;
   &lt;/wj-flex-chart-axis&gt;
-&lt;/wj-flex-chart&gt;</pre></p><br/><br/><b>Returns</b> A string representation of the given number.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>getFirstDayOfWeek</b>&#8203;(): <b>number</b></td>
-      <td></td>
-      <td><p>Gets the first day of the week according to the current culture.</p>
-
-<p>The value returned is between zero (Sunday) and six (Saturday).</p></td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>getNumberDecimalSeparator</b>&#8203;(): <b>string</b></td>
-      <td></td>
-      <td>Gets the symbol used as a decimal separator in numbers.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>parseDate</b>&#8203;(value, format): <b>Date</b></td>
-      <td><p>
-<b>value</b> (<b>string</b>): String to convert to a Date.<br/><b>format</b> (<b>string</b>): Format string used to parse the date.<br/></p>
-</td>
-      <td>Parses a string into a Date.<br/><br/><b>Returns</b> The date represented by the given string, or null if the string
-cannot be parsed into a Date.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>parseFloat</b>&#8203;(value, format?): <b>number</b></td>
-      <td><p>
-<b>value</b> (<b>string</b>): String to convert to a number.<br/><b>format?</b> (<b>string</b>): Format to use when parsing the number.<br/></p>
-</td>
-      <td>Parses a string into a floating point number.<br/><br/><b>Returns</b> The floating point number represented by the given string, 
-or <b>NaN</b> if the string cannot be parsed into a floating point number.</td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Static">S</span></td>
-      <td><b>parseInt</b>&#8203;(value, format?): <b>number</b></td>
-      <td><p>
-<b>value</b> (<b>string</b>): String to convert to an integer.<br/><b>format?</b> (<b>string</b>): Format to use when parsing the number.<br/></p>
-</td>
-      <td>Parses a string into an integer.<br/><br/><b>Returns</b> The integer represented by the given string, 
-or <b>NaN</b> if the string cannot be parsed into an integer.</td>
-    </tr>
-</tbody>
-</table>
+&lt;/wj-flex-chart&gt;</pre></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Number to format.</p></li><li><b>format</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>.NET-style standard numeric format string (e.g. 'n2', 'c4', 'p0', 'g2', 'd2').</p></li><li><b>trim</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether to remove trailing zeros from the result.</p></li><li><b>truncate</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a> <span class="badge">Optional</span><br/><p>Whether to truncate the value rather than round it.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
 </div>
-
+<div id="getFirstDayOfWeek" class="member-panel mmethod">
+<h3><span class="badge">Static</span> getFirstDayOfWeek</h3>
+<pre>getFirstDayOfWeek(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></pre>
+<div class="comment"><p>Gets the first day of the week according to the current culture.</p>
+<p>The value returned is between zero (Sunday) and six (Saturday).</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="getNumberDecimalSeparator" class="member-panel mmethod">
+<h3><span class="badge">Static</span> getNumberDecimalSeparator</h3>
+<pre>getNumberDecimalSeparator(): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></pre>
+<div class="comment"><p>Gets the symbol used as a decimal separator in numbers.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="parseDate" class="member-panel mmethod">
+<h3><span class="badge">Static</span> parseDate</h3>
+<pre>parseDate(value: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, format: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></pre>
+<div class="comment"><p>Parses a string into a Date.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>String to convert to a Date.</p></li><li><b>format</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>Format string used to parse the date.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><span class="identifier">Date</span></a></dd>
+</dl>
+</div>
+<div id="parseFloat" class="member-panel mmethod">
+<h3><span class="badge">Static</span> parseFloat</h3>
+<pre>parseFloat(value: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, format?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></pre>
+<div class="comment"><p>Parses a string into a floating point number.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>String to convert to a number.</p></li><li><b>format</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a> <span class="badge">Optional</span><br/><p>Format to use when parsing the number.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="parseInt" class="member-panel mmethod">
+<h3><span class="badge">Static</span> parseInt</h3>
+<pre>parseInt(value: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, format?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></pre>
+<div class="comment"><p>Parses a string into an integer.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>String to convert to an integer.</p></li><li><b>format</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a> <span class="badge">Optional</span><br/><p>Format to use when parsing the number.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+</div>

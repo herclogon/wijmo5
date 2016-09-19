@@ -1,13 +1,15 @@
-<h2>Module wijmo/wijmo.angular2.core</h2>
+<div class="header-panel module">
+<h2><span class="identifier">wijmo/wijmo.angular2.core</span> Module</h2>
 <dl class="dl-horizontal">
-<dt>File</dt><dd>wijmo.angular2.js</dd>
+<dt>File</dt><dd class="filename">wijmo.angular2.js</dd>
+<dt>Module</dt><dd><span class="identifier">wijmo/wijmo.angular2.core</span></dd>
 </dl>
-<p><p>Contains Angular 2 components for the <b>wijmo</b> module. </p>
-
+<div class="comment"><p>Contains Angular 2 components for the <b>wijmo</b> module. </p>
 <p><b>wijmo.angular2.core</b> is an external TypeScript module that can be imported to your code
 using its ambient module name. For example:</p>
 
-<p><pre>import * as wjCore from 'wijmo/wijmo.angular2.core';
+
+<pre>import * as wjCore from 'wijmo/wijmo.angular2.core';
 &nbsp;
 &#64;Component({
     directives: [wjCore.WjTooltip],
@@ -15,62 +17,12 @@ using its ambient module name. For example:</p>
     selector: 'my-cmp',
 })
 export class MyCmp {
-}</pre></p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideClasses = !hideClasses">
-<span class="glyph-collapsed" ng-show="hideClasses"></span>
-<span class="glyph-expanded" ng-hide="hideClasses"></span>
-Classes
-</h3>
+}</pre></div>
 </div>
-<table ng-hide="hideClasses" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th>Name</th>
-
-<th>Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo-wijmo.angular2.core.WjComponentLoader.Class.html"><b>WjComponentLoader</b></a></td>
-      <td>TBD</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo-wijmo.angular2.core.WjHtmlLoader.Class.html"><b>WjHtmlLoader</b></a></td>
-      <td>TBD: ngBindHtml analogue</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><a href="topic/wijmo-wijmo.angular2.core.WjTooltip.Class.html"><b>WjTooltip</b></a></td>
-      <td><p>Angular 2 directive for the <a href="topic/wijmo.Tooltip.Class.html"><b>Tooltip</b></a> class.</p>
-
-<p>Use the <b>wjTooltip</b> directive to add tooltips to elements on the page. 
-The wjTooltip directive supports HTML content, smart positioning, and touch.</p>
-
-<p>The wjTooltip directive is specified as a parameter added to the 
-element that the tooltip applies to. The parameter value is the tooltip
-text or the id of an element that contains the text. For example:</p>
-
-<p><pre>&lt;p [wjTooltip]="'#fineprint'" &gt;
-    Regular paragraph content...&lt;/p&gt;
-...
-&lt;div id="fineprint" style="display:none"&gt;
-  &lt;h3&gt;Important Note&lt;/h3&gt;
-  &lt;p&gt;
-    Data for the current quarter is estimated 
-    by pro-rating etc.&lt;/p&gt;
-&lt;/div&gt;</pre></p></td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel module members">
+<h3 class="node">Classes</h3>
+<ul>
+<li class="mclass"><a href="topic/wijmo-wijmo.angular2.core.WjComponentLoader.Class.html">WjComponentLoader</a></li>
+<li class="mclass"><a href="topic/wijmo-wijmo.angular2.core.WjTooltip.Class.html">WjTooltip</a></li>
+</ul>
 </div>
-

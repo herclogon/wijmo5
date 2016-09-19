@@ -4,3 +4,5 @@ export declare class EmployeesCmp {
     images: string[];
     constructor(dataSvc: DataSvc);
 }
+export declare class EmployeesModule {
+}

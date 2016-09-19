@@ -14,6 +14,7 @@
             isReadOnly: false,
             format: 'n0',
             showRanges: true,
+            showTicks: false,
             thumbSize: null,
             showText: 'All',
             isAnimated: true,

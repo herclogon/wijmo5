@@ -1,9 +1,12 @@
 ﻿'use strict';
 
-import {Component, EventEmitter, Inject, Input, ViewChild, AfterViewInit } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { DataSvc } from '../../services/DataSvc';
+//import {Component, EventEmitter, Inject, Input, ViewChild, AfterViewInit } from '@angular/core';
+//import { CORE_DIRECTIVES } from '@angular/common';
+//import { DataSvc } from '../../services/DataSvc';
 
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { DataSvc } from '../../services/DataSvc';
 
 // Base class for all components demonstrating FlexGrid control.
 @Component({

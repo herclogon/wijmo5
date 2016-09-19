@@ -10,3 +10,5 @@ export declare class AggregatedGridView {
     SelectionTypeEnum: typeof SelectionType;
     constructor(dataSvc: DataSvc);
 }
+export declare class AggregatedGridViewModule {
+}

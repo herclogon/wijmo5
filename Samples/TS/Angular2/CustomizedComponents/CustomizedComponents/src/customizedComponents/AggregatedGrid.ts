@@ -1,14 +1,12 @@
 ﻿import { AfterViewInit, AfterContentInit, Component, Input, Type, ContentChildren, QueryList, forwardRef,
 ViewChild, ComponentMetadata} from '@angular/core';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
-import * as wjCore from 'wijmo/wijmo.angular2.core';
+import { WjGridModule, WjFlexGridColumn } from 'wijmo/wijmo.angular2.grid';
+import { WjCoreModule } from 'wijmo/wijmo.angular2.core';
 import * as wjBase from 'wijmo/wijmo.angular2.directiveBase';
-import {EditableSelectionRenderer, SelectionType} from '../cellTemplates/EditableSelectionRenderer';
+import { SelectionType } from '../cellTemplates/EditableSelectionRenderer';
 
 // Represents the custom grid component implemented by means of aggregating the WjFlexGrid component.
 @Component({
-    directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate,
-        wjCore.WjComponentLoader, EditableSelectionRenderer],
     selector: 'aggregated-grid',
     templateUrl: 'src/customizedComponents/aggregatedGrid.html'
 })
@@ -65,11 +63,11 @@ export class AggregatedGrid {
     // We only need to provide a list of bindable properties here, no need to explicitly define them
     // in the component class. For this, we read the 'inputs' array from the WjFlexGridColumn component's metadata
     // and add the 'cellTemplate' property specific to AggregatedGridColumn.
-    inputs: (<ComponentMetadata>wjBase.Ng2Utils.getTypeAnnotation(wjNg2Grid.WjFlexGridColumn, ComponentMetadata))
+    inputs: (<ComponentMetadata>wjBase.Ng2Utils.getTypeAnnotation(WjFlexGridColumn, ComponentMetadata))
         .inputs.concat('cellTemplate')
 })
 export class AggregatedGridColumn {
     // Defines a type of a component that should be used as the column cell template.
-    cellTemplate: Type;
+    cellTemplate: any;
 };
 

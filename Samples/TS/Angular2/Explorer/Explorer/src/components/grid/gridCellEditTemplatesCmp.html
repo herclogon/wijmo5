@@ -23,7 +23,7 @@
             type, but actually shows <b>start - end</b> date range retrieved from two item properties.
             The cell editor uses two <b>wj-input-date</b> components to edit each end of the range in order
             to be consistent with the cell rendering. To cancel the editing process properly in this
-            case, the template element assigns the <b>valuePaths</b> property with the <b>{rangeEnd: 'item.end'}</b>
+            case, the template element assigns the <b>valuePaths</b> property with the <b>&#123;rangeEnd: 'item.end'}</b>
             object, that defines the additional editing path (<b>item.end</b>) and its name (<b>rangeEnd</b>).
             According to this definition, the <b>cell.values</b> property contains the <b>rangeEnd</b>
             property with the value obtained using this path, and the second <b>wj-input-date</b> is bound
@@ -36,12 +36,12 @@
             its interface. It uses the same technique as the <b>Date Range</b> column for cancelling
             the cell editing properly using two editor fields in a single cell.
         </p>
-        <p>
+        <!--<p>
             The <b>Person (Editor Component)</b> is the same as its <b>Person</b> sibling. But,
             cell edit template markup, here, is stored in the component's <b>personCellEditorHtml</b>
             property and is loaded using the <b>wj-html-loader</b> component, which is an analogue of
             the Angular 1 directive named <b>ngBindHtml</b>.
-        </p>
+        </p>-->
     </div>
     <div>
 
@@ -86,7 +86,7 @@
                 </template>
             </wj-flex-grid-column>
 
-            <wj-flex-grid-column [header]="'Person (Editor Component)'" [binding]="'person'" [width]="250"
+            <!--<wj-flex-grid-column [header]="'Person (Editor Component)'" [binding]="'person'" [width]="250"
                                  #personEdCmpCol [dataType]="'Object'" [name]="'person2'">
                 <template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell"
                           [valuePaths]="{fn: 'item.person.firstName', ln: 'item.person.lastName'}">
@@ -99,7 +99,7 @@
                                     [bindingContext]="{cell: cell}">
                     </wj-html-loader>
                 </template>
-            </wj-flex-grid-column>
+            </wj-flex-grid-column>-->
 
         </wj-flex-grid>
     </div>

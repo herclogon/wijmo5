@@ -7,7 +7,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
 // Chart zoom component
 var ChartZoomCmp = (function () {
     function ChartZoomCmp() {
@@ -31,6 +32,17 @@ var ChartZoomCmp = (function () {
             var chart = this.chart;
             this._hostEl = chart.hostElement;
             this._selection = $('#plotSelection');
+            // handle mouse (always)
+            this._hostEl.onmousedown = function (e) {
+                _this._mouseDown(e);
+            };
+            this._hostEl.onmousemove = function (e) {
+                _this._mouseMove(e, new wijmo.Point(e.pageX, e.pageY));
+            };
+            this._hostEl.onmouseup = function (e) {
+                _this._mouseUp(e);
+            };
+            // handle touch (if supported by the browser)
             if ('ontouchstart' in window) {
                 this._hostEl.ontouchstart = function (e) {
                     _this._mouseDown(e);
@@ -45,16 +57,19 @@ var ChartZoomCmp = (function () {
                     e.preventDefault();
                 };
             }
-            else {
-                this._hostEl.onmousedown = function (e) {
-                    _this._mouseDown(e);
-                };
-                this._hostEl.onmousemove = function (e) {
-                    _this._mouseMove(e, new wijmo.Point(e.pageX, e.pageY));
-                };
-                this._hostEl.onmouseup = function (e) {
-                    _this._mouseUp(e);
-                };
+            // handle pointer (if supported by the browser)
+            if ('onpointerdown' in window) {
+                this._hostEl.addEventListener('pointerdown', function (e) {
+                    this._mouseDown(e);
+                }, true);
+                this._hostEl.addEventListener('pointermove', function (e) {
+                    this._mouseMove(e, new wijmo.Point(e.pageX, e.pageY));
+                }, true);
+                this._hostEl.addEventListener('pointerup', function (e) {
+                    this._mouseUp(e);
+                }, true);
+                // prevent touch scrolling on the chart
+                this._hostEl.style['touchAction'] = 'none';
             }
         }
     };
@@ -141,11 +156,24 @@ var ChartZoomCmp = (function () {
     ChartZoomCmp = __decorate([
         core_1.Component({
             selector: 'chart-zoom-cmp',
-            templateUrl: 'src/components/chart/chartZoomCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, common_1.CORE_DIRECTIVES]
-        })
+            templateUrl: 'src/components/chart/chartZoomCmp.html' })
     ], ChartZoomCmp);
     return ChartZoomCmp;
 }());
 exports.ChartZoomCmp = ChartZoomCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartZoomCmp }
+]);
+var ChartZoomModule = (function () {
+    function ChartZoomModule() {
+    }
+    ChartZoomModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_chart_1.WjChartModule],
+            declarations: [ChartZoomCmp],
+        })
+    ], ChartZoomModule);
+    return ChartZoomModule;
+}());
+exports.ChartZoomModule = ChartZoomModule;
 //# sourceMappingURL=ChartZoomCmp.js.map

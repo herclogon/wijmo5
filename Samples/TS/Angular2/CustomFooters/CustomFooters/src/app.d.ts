@@ -5,4 +5,7 @@ export declare class AppCmp {
     data: wijmo.collections.CollectionView;
     constructor(dataSvc: DataSvc);
     groupBy(groupBy: string): void;
+    initGrid(s: wijmo.grid.FlexGrid): void;
+}
+export declare class AppModule {
 }

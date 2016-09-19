@@ -15,9 +15,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var InputBaseCmp_1 = require('./InputBaseCmp');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // MaskedInput sample component.
 var MaskedInputCmp = (function (_super) {
     __extends(MaskedInputCmp, _super);
@@ -29,12 +31,26 @@ var MaskedInputCmp = (function (_super) {
     MaskedInputCmp = __decorate([
         core_1.Component({
             selector: 'masked-input-cmp',
-            templateUrl: 'src/components/input/maskedInputCmp.html',
-            directives: [wjNg2Input.WjInputMask, wjNg2Input.WjInputDate, wjNg2Input.WjInputTime, common_1.CORE_DIRECTIVES],
+            templateUrl: 'src/components/input/maskedInputCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], MaskedInputCmp);
     return MaskedInputCmp;
 }(InputBaseCmp_1.InputBaseCmp));
 exports.MaskedInputCmp = MaskedInputCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: MaskedInputCmp }
+]);
+var MaskedInputModule = (function () {
+    function MaskedInputModule() {
+    }
+    MaskedInputModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing, wijmo_angular2_input_1.WjInputModule],
+            declarations: [MaskedInputCmp],
+        })
+    ], MaskedInputModule);
+    return MaskedInputModule;
+}());
+exports.MaskedInputModule = MaskedInputModule;
 //# sourceMappingURL=MaskedInputCmp.js.map

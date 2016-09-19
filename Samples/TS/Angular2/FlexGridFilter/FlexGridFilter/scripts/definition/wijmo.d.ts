@@ -1,6 +1,6 @@
 /*
     *
-    * Wijmo Library 5.20162.198
+    * Wijmo Library 5.20162.207
     * http://wijmo.com/
     *
     * Copyright(c) GrapeCity, Inc.  All rights reserved.
@@ -502,10 +502,10 @@ declare module wijmo {
     /**
      * Modifies the style of an element by applying the properties specified in an object.
      *
-     * @param e Element whose style will be modified.
+     * @param e Element or array of elements whose style will be modified.
      * @param css Object containing the style properties to apply to the element.
      */
-    function setCss(e: HTMLElement, css: any): void;
+    function setCss(e: any, css: any): void;
     /**
      * Calls a function on a timer with a parameter varying between zero and one.
      *
@@ -937,7 +937,7 @@ declare module wijmo {
          *
          * <b>n</b> Number: <code>formatNumber(1234.5, 'n2') => '1,234.50'</code><br/>
          * <b>f</b> Fixed-point: <code>formatNumber(1234.5, 'f2') => '1234.50'</code><br/>
-         * <b>g</b> General (no trailing zeros): <code>formatNumber(1234.5, 'g2') => '1,234.5'</code><br/>
+         * <b>g</b> General (no trailing zeros): <code>formatNumber(1234.5, 'g2') => '1234.5'</code><br/>
          * <b>d</b> Decimal (integers): <code>formatNumber(-1234, 'd6') => '-001234'</code><br/>
          * <b>x</b> Hexadecimal (integers): <code>formatNumber(1234, 'x6') => '0004d2'</code><br/>
          * <b>c</b> Currency: <code>formatNumber(1234, 'c') => '$ 1,234.00'</code><br/>
@@ -1095,6 +1095,7 @@ declare module wijmo {
 declare module wijmo {
     /**
      * Represents an event handler.
+     *
      * Event handlers are functions invoked when events are raised.
      *
      * Every event handler has two arguments:
@@ -1551,6 +1552,10 @@ declare module wijmo {
          * (uses the formula based on n).
          */
         VarPop = 10,
+        /**
+         * Returns the count of all values in the group (including nulls).
+         */
+        CntAll = 11,
     }
     /**
      * Calculates an aggregate value from the values in an array.
@@ -2248,6 +2253,7 @@ declare module wijmo.collections {
         _edtItem: any;
         _edtClone: any;
         _committing: boolean;
+        _canceling: boolean;
         _pgSz: number;
         _pgIdx: number;
         _updating: number;
@@ -2358,9 +2364,10 @@ declare module wijmo.collections {
          *
          * @param aggType Type of aggregate to calculate.
          * @param binding Property to aggregate on.
+         * @param currentPage Whether to include only items on the current page.
          * @return The aggregate value.
          */
-        getAggregate(aggType: Aggregate, binding: string): any;
+        getAggregate(aggType: Aggregate, binding: string, currentPage?: boolean): any;
         /**
          * Returns true if the caller queries for a supported interface.
          *
@@ -2958,7 +2965,7 @@ declare module wijmo {
 
 declare module wijmo {
     /**
-     * Color class.
+     * Represents a color.
      *
      * The @see:Color class parses colors specified as CSS strings and exposes
      * their red, green, blue, and alpha channels as read-write properties.

@@ -1,52 +1,21 @@
-<h2>RangeMode Enum</h2>
-<dl class="dl-horizontal">
-  <dt>Module</dt><dd>wijmo.chart.finance</dd>
-  <dt>File</dt><dd>wijmo.chart.finance.js</dd>
-</dl>
-<p>Specifies the unit for Kagi and Renko chart types.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideValues = !hideValues">
-<span class="glyph-collapsed" ng-show="hideValues"></span>
-<span class="glyph-expanded" ng-hide="hideValues"></span>
-Values
-</h3>
+<div class="header-panel member">
+  <h2><span class="identifier">RangeMode</span> Enum</h2>
+  <dl class="dl-horizontal">
+    <dt>File</dt><dd class="filename">wijmo.chart.finance.js</dd>
+    <dt>Module</dt><dd><a href="topic/wijmo.chart.finance.Module.html"><span class="identifier">wijmo.chart.finance</span></a></dd>
+  </dl>
+  <div class="comment"><p>Specifies the unit for Kagi and Renko chart types.</p></div>
 </div>
-<table ng-hide="hideValues" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th>Name</th>
-
-<th>Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>ATR</b></td>
-      <td>Uses the current Average True Range value for Kagi chart's reversal amount
+<div class="member-panel enum">
+<h3>Members</h3>
+<table class="table table-condensed"><thead>  <tr>    <th>Name</th>    <th>Value</th>    <th>Description</th>  </tr></thead><tbody>
+<tr>  <td><span class="identifier">Fixed</span></td>  <td>0</td>  <td><p>Uses a fixed, positive number for the Kagi chart's reversal amount
+or Renko chart's box size.</p></td><tr>
+<tr>  <td><span class="identifier">ATR</span></td>  <td>1</td>  <td><p>Uses the current Average True Range value for Kagi chart's reversal amount
 or Renko chart's box size. When ATR is used, the reversal amount or box size
 option of these charts must be an integer and will be used as the period for 
-the ATR calculation.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Fixed</b></td>
-      <td>Uses a fixed, positive number for the Kagi chart's reversal amount
-or Renko chart's box size.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Percentage</b></td>
-      <td>Uses a percentage for the Kagi chart's reversal amount. RangeMode.Percentage
-is currently not supported with Renko chart types.</td>
-    </tr>
-</tbody>
-</table>
+the ATR calculation.</p></td><tr>
+<tr>  <td><span class="identifier">Percentage</span></td>  <td>2</td>  <td><p>Uses a percentage for the Kagi chart's reversal amount. RangeMode.Percentage
+is currently not supported with Renko chart types.</p></td><tr>
+</tbody></table>
 </div>
-

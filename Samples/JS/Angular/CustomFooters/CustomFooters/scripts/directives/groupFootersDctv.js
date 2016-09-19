@@ -7,8 +7,8 @@ var app = angular.module('app');
 //
 app.directive('groupFooters', function () {
 
-    // class used to identify footer rows
-    var ROW_FOOTER_CLASS = 'wj-footer';
+    // class used to identify group footer rows
+    var ROW_FOOTER_CLASS = 'wj-groupfooter';
 
     return {
         restrict: 'A',

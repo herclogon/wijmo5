@@ -1,434 +1,514 @@
-<h2>PdfDocument Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">PdfDocument</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></dd>
-<dt>Module</dt><dd>wijmo.pdf</dd>
-<dt>File</dt><dd>wijmo.pdf.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.pdf.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.pdf.Module.html"><span class="identifier">wijmo.pdf</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p>Represents a PDF document object, based on <a href="https://github.com/devongovett/pdfkit">PDFKit</a> JavaScript library.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+<div class="comment"><p>Represents a PDF document object, based on <a href="https://github.com/devongovett/pdfkit">PDFKit</a> JavaScript library.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(options?): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a></td>
-      <td><p>
-<b>options?</b> (<b>any</b>): An optional object containing initialization settings.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#bufferPages">bufferPages</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#compress">compress</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#currentPageSettings">currentPageSettings</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#footer">footer</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#header">header</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#height">height</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#info">info</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#lineGap">lineGap</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#pageIndex">pageIndex</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#pageSettings">pageSettings</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#paths">paths</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#width">width</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#x">x</a></li>
+<li class="mproperty inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#y">y</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#addPage">addPage</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#bufferedPageRange">bufferedPageRange</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#dispose">dispose</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#drawImage">drawImage</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#drawSvg">drawSvg</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#drawText">drawText</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#end">end</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#lineHeight">lineHeight</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#measureText">measureText</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#moveDown">moveDown</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#moveUp">moveUp</a></li>
+<li class="mmethod raiser"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#onEnded">onEnded</a></li>
+<li class="mmethod raiser"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#onPageAdded">onPageAdded</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#registerFont">registerFont</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#registerFontAsync">registerFontAsync</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#restoreState">restoreState</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#rotate">rotate</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#saveState">saveState</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#scale">scale</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#setBrush">setBrush</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#setFont">setFont</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#setPen">setPen</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#transform">transform</a></li>
+<li class="mmethod inherited"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#translate">translate</a></li>
+</ul>
+<h3 class="node">Events</h3>
+<ul>
+<li class="mevent"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#ended">ended</a></li>
+<li class="mevent"><a href="topic/wijmo.pdf.PdfDocument.Class.html/#pageAdded">pageAdded</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(options?: <span class="identifier">any</span>): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>options</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>An optional object containing initialization settings.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>bufferPages</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets a value that indicates whether the pages buffering mode is enabled which means
-that the document's pages can be iterated over using <b>pageIndex</b> and <b>bufferedPageRange</b>.</p>
-
-<p>This property can be assigned using the <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a> constructor only. 
-This property can be set to false only if both <b>header</b> and <b>footer</b> are invisible.</p>
-
-<p>The default value is true.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>compress</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets a value that indicates whether the document compression is enabled.
-This property can be assigned using the <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a> constructor only. </p>
-
-<p>The default value is true.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>currentPageSettings</b></td>
-      <td><a href="topic/wijmo.pdf.IPdfPageSettings.Interface.html"><b>IPdfPageSettings</b></a></td>
-      <td>Gets an object that represents the current page settings (read-only).</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>footer</b></td>
-      <td><a href="topic/wijmo.pdf.PdfRunningTitle.Class.html"><b>PdfRunningTitle</b></a></td>
-      <td>Gets an object that represents a footer, the page area positioned right above
-the bottom margin.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>header</b></td>
-      <td><a href="topic/wijmo.pdf.PdfRunningTitle.Class.html"><b>PdfRunningTitle</b></a></td>
-      <td>Gets an object that represents a header, the page area positioned right below
-the top margin.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>height</b></td>
-      <td><b>number</b></td>
-      <td>Gets the height of the area, in points.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>info</b></td>
-      <td><a href="topic/wijmo.pdf.IPdfDocumentInfo.Interface.html"><b>IPdfDocumentInfo</b></a></td>
-      <td>Gets or sets the document information, such as author name, document's creation
-date and so on.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>lineGap</b></td>
-      <td><b>number</b></td>
-      <td><p>Gets or sets the spacing between each line of text, in points.</p>
-
-<p>The default value is 0.</p><br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>pageIndex</b></td>
-      <td><b>number</b></td>
-      <td><p>Gets or sets the index of the current page within the buffered pages range.</p>
-
-<p>Use the <b>bufferedPageRange</b> method to get the range of buffered pages.</p></td>
-    </tr>
-    <tr>
-      <td><span class="badge" title="Field">F</span></td>
-      <td><b>pageSettings</b></td>
-      <td><a href="topic/wijmo.pdf.IPdfPageSettings.Interface.html"><b>IPdfPageSettings</b></a></td>
-      <td>Gets an object that represents the default page settings for the pages added
-automatically and for the <b>addPage</b> method.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>paths</b></td>
-      <td><a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td>Gets an object that provides ability to draw paths.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>width</b></td>
-      <td><b>number</b></td>
-      <td>Gets the width of the area, in points.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>x</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the X-coordinate (in points) of the current point in the text flow 
-used to draw a text or an image.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>y</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the Y-coordinate (in points) of the current point in the text flow 
-used to draw a text or an image.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="bufferPages" class="member-panel mproperty">
+<h3>bufferPages</h3>
+<div class="comment"><p>Gets a value that indicates whether the pages buffering mode is enabled which means
+that the document's pages can be iterated over using <a href="topic/wijmo.pdf.PdfDocument.Class.html/#pageIndex"><span class="identifier">pageIndex</span></a> and <a href="topic/wijmo.pdf.PdfDocument.Class.html/#bufferedPageRange"><span class="identifier">bufferedPageRange</span></a>.</p>
+<p>This property can be assigned using the <a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a> constructor only. 
+This property can be set to false only if both <a href="topic/wijmo.pdf.PdfDocument.Class.html/#header"><span class="identifier">header</span></a> and <a href="topic/wijmo.pdf.PdfDocument.Class.html/#footer"><span class="identifier">footer</span></a> are invisible.</p>
+<p>The default value is true.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div id="compress" class="member-panel mproperty">
+<h3>compress</h3>
+<div class="comment"><p>Gets a value that indicates whether the document compression is enabled.
+This property can be assigned using the <a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a> constructor only. </p>
+<p>The default value is true.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>addPage</b>&#8203;(settings?): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a></td>
-      <td><p>
-<b>settings?</b> (<a href="topic/wijmo.pdf.IPdfPageSettings.Interface.html"><b>IPdfPageSettings</b></a>): Page settings.<br/></p>
-</td>
-      <td><p>Adds a new page with the given settings.</p>
-
-<p>If the settings parameter is omitted, then <b>pageSettings</b> will be used instead.</p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>bufferedPageRange</b>&#8203;(): <a href="topic/wijmo.pdf.IPdfBufferedPageRange.Interface.html"><b>IPdfBufferedPageRange</b></a></td>
-      <td></td>
-      <td>Gets the range of buffered pages.<br/><br/><b>Returns</b> A <a href="topic/wijmo.pdf.IPdfBufferedPageRange.Interface.html"><b>IPdfBufferedPageRange</b></a> object that represents the range of buffered pages.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>dispose</b>&#8203;(): <b>void</b></td>
-      <td></td>
-      <td>Disposes the document.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>drawImage</b>&#8203;(url, x?, y?, options?): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
-      <td><p>
-<b>url</b> (<b>string</b>): A string containing the URL to get the image from or the data URI containing a base64 encoded image.<br/><b>x?</b> (<b>number</b>): The x-coordinate of the point to draw the image at, in points.<br/><b>y?</b> (<b>number</b>): The y-coordinate of the point to draw the image at, in points.<br/><b>options?</b> (<a href="topic/wijmo.pdf.IPdfImageDrawSettings.Interface.html"><b>IPdfImageDrawSettings</b></a>): Determines the image drawing options.<br/></p>
-</td>
-      <td><p>Draws an image in JPG or PNG format with the given options.</p>
-
-<p>If x and y are not defined, then <b>x</b> and <b>y</b> are used instead.</p>
-
-<p>Finally, if the image was drawn in the text flow, the method updates <b>y</b>. 
-Hence, any subsequent text or image starts below this point.</p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>drawSvg</b>&#8203;(url, x?, y?, options?): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
-      <td><p>
-<b>url</b> (<b>string</b>): A string containing the URL to get the SVG image from or the data URI containing a base64 encoded SVG image.<br/><b>x?</b> (<b>number</b>): The x-coordinate of the point to draw the image at, in points.<br/><b>y?</b> (<b>number</b>): The y-coordinate of the point to draw the image at, in points.<br/><b>options?</b> (<a href="topic/wijmo.pdf.IPdfSvgDrawSettings.Interface.html"><b>IPdfSvgDrawSettings</b></a>): Determines the SVG image drawing options.<br/></p>
-</td>
-      <td><p>Draws a SVG image with the given options.</p>
-
-<p>If x and y are not defined, then <b>x</b> and <b>y</b> are used instead.</p>
-
+<div id="currentPageSettings" class="member-panel mproperty">
+<h3>currentPageSettings</h3>
+<div class="comment"><p>Gets an object that represents the current page settings (read-only).</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.pdf.IPdfPageSettings.Interface.html"><span class="identifier">IPdfPageSettings</span></a></dd>
+</dl>
+</div>
+<div id="footer" class="member-panel mproperty">
+<h3>footer</h3>
+<div class="comment"><p>Gets an object that represents a footer, the page area positioned right above
+the bottom margin.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.pdf.PdfRunningTitle.Class.html"><span class="identifier">PdfRunningTitle</span></a></dd>
+</dl>
+</div>
+<div id="header" class="member-panel mproperty">
+<h3>header</h3>
+<div class="comment"><p>Gets an object that represents a header, the page area positioned right below
+the top margin.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.pdf.PdfRunningTitle.Class.html"><span class="identifier">PdfRunningTitle</span></a></dd>
+</dl>
+</div>
+<div id="height" class="member-panel mproperty inherited">
+<h3>height</h3>
+<div class="comment"><p>Gets the height of the area, in points.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="info" class="member-panel mproperty">
+<h3>info</h3>
+<div class="comment"><p>Gets or sets the document information, such as author name, document's creation
+date and so on.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.pdf.IPdfDocumentInfo.Interface.html"><span class="identifier">IPdfDocumentInfo</span></a></dd>
+</dl>
+</div>
+<div id="lineGap" class="member-panel mproperty inherited">
+<h3>lineGap</h3>
+<div class="comment"><p>Gets or sets the spacing between each line of text, in points.</p>
+<p>The default value is 0.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="pageIndex" class="member-panel mproperty">
+<h3>pageIndex</h3>
+<div class="comment"><p>Gets or sets the index of the current page within the buffered pages range.</p>
+<p>Use the <a href="topic/wijmo.pdf.PdfDocument.Class.html/#bufferedPageRange"><span class="identifier">bufferedPageRange</span></a> method to get the range of buffered pages.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="pageSettings" class="member-panel mproperty">
+<h3>pageSettings</h3>
+<div class="comment"><p>Gets an object that represents the default page settings for the pages added
+automatically and for the <a href="topic/wijmo.pdf.PdfDocument.Class.html/#addPage"><span class="identifier">addPage</span></a> method.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.pdf.IPdfPageSettings.Interface.html"><span class="identifier">IPdfPageSettings</span></a></dd>
+</dl>
+</div>
+<div id="paths" class="member-panel mproperty inherited">
+<h3>paths</h3>
+<div class="comment"><p>Gets an object that provides ability to draw paths.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Type</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="width" class="member-panel mproperty inherited">
+<h3>width</h3>
+<div class="comment"><p>Gets the width of the area, in points.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="x" class="member-panel mproperty inherited">
+<h3>x</h3>
+<div class="comment"><p>Gets or sets the X-coordinate (in points) of the current point in the text flow 
+used to draw a text or an image.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="y" class="member-panel mproperty inherited">
+<h3>y</h3>
+<div class="comment"><p>Gets or sets the Y-coordinate (in points) of the current point in the text flow 
+used to draw a text or an image.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="addPage" class="member-panel mmethod">
+<h3>addPage</h3>
+<pre>addPage(settings?: <a href="topic/wijmo.pdf.IPdfPageSettings.Interface.html"><span class="identifier">IPdfPageSettings</span></a>): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></pre>
+<div class="comment"><p>Adds a new page with the given settings.</p>
+<p>If the settings parameter is omitted, then <a href="topic/wijmo.pdf.PdfDocument.Class.html/#pageSettings"><span class="identifier">pageSettings</span></a> will be used instead.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>settings</b>: <a href="topic/wijmo.pdf.IPdfPageSettings.Interface.html"><span class="identifier">IPdfPageSettings</span></a> <span class="badge">Optional</span><br/><p>Page settings.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></dd>
+</dl>
+</div>
+<div id="bufferedPageRange" class="member-panel mmethod">
+<h3>bufferedPageRange</h3>
+<pre>bufferedPageRange(): <a href="topic/wijmo.pdf.IPdfBufferedPageRange.Interface.html"><span class="identifier">IPdfBufferedPageRange</span></a></pre>
+<div class="comment"><p>Gets the range of buffered pages.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.IPdfBufferedPageRange.Interface.html"><span class="identifier">IPdfBufferedPageRange</span></a></dd>
+</dl>
+</div>
+<div id="dispose" class="member-panel mmethod">
+<h3>dispose</h3>
+<pre>dispose(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Disposes the document.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="drawImage" class="member-panel mmethod inherited">
+<h3>drawImage</h3>
+<pre>drawImage(url: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, x?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, y?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, options?: <a href="topic/wijmo.pdf.IPdfImageDrawSettings.Interface.html"><span class="identifier">IPdfImageDrawSettings</span></a>): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></pre>
+<div class="comment"><p>Draws an image in JPG or PNG format with the given options.</p>
+<p>If x and y are not defined, then @see:x and @see:y are used instead.</p>
+<p>Finally, if the image was drawn in the text flow, the method updates @see:y. 
+Hence, any subsequent text or image starts below this point.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>url</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>A string containing the URL to get the image from or the data URI containing a base64 encoded image.</p></li><li><b>x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The x-coordinate of the point to draw the image at, in points.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The y-coordinate of the point to draw the image at, in points.</p></li><li><b>options</b>: <a href="topic/wijmo.pdf.IPdfImageDrawSettings.Interface.html"><span class="identifier">IPdfImageDrawSettings</span></a> <span class="badge">Optional</span><br/><p>Determines the image drawing options.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+</dl>
+</div>
+<div id="drawSvg" class="member-panel mmethod inherited">
+<h3>drawSvg</h3>
+<pre>drawSvg(url: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, x?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, y?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, options?: <a href="topic/wijmo.pdf.IPdfSvgDrawSettings.Interface.html"><span class="identifier">IPdfSvgDrawSettings</span></a>): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></pre>
+<div class="comment"><p>Draws a SVG image with the given options.</p>
+<p>If x and y are not defined, then @see:x and @see:y are used instead.</p>
 <p>The method uses the values of the width and height attributes of the outermost svg element to determine the
 scale factor according to the options.width and options.height properties. If any of these attributes are
 omitted then scaling is not performed and the image will be rendered in its original size.</p>
-
-<p>Finally, if the image was drawn in the text flow, the method updates <b>y</b>.
+<p>Finally, if the image was drawn in the text flow, the method updates @see:y.
 Hence, any subsequent text or image starts below this point.
 The increment value is defined by the options.height property or by the outermost svg element's height attribute, which comes first.
-If none of them is provided then <b>y</b> will stay unchanged.</p>
-
-<p>The method supports a limited set of SVG features and provided primarily for rendering wijmo 5 chart controls.</p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>drawText</b>&#8203;(text, x?, y?, options?): <a href="topic/wijmo.pdf.IPdfTextMeasurementInfo.Interface.html"><b>IPdfTextMeasurementInfo</b></a></td>
-      <td><p>
-<b>text</b> (<b>string</b>): The text to draw.<br/><b>x?</b> (<b>number</b>): The X-coordinate of the point to draw the text at, in points.<br/><b>y?</b> (<b>number</b>): The Y-coordinate of the point to draw the text at, in points.<br/><b>options?</b> (<a href="topic/wijmo.pdf.IPdfTextDrawSettings.Interface.html"><b>IPdfTextDrawSettings</b></a>): Determines the text drawing options.<br/></p>
-</td>
-      <td><p>Draws a string with the given options and returns the measurement information.</p>
-
+If none of them is provided then @see:y will stay unchanged.</p>
+<p>The method supports a limited set of SVG features and provided primarily for rendering wijmo 5 chart controls.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>url</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>A string containing the URL to get the SVG image from or the data URI containing a base64 encoded SVG image.</p></li><li><b>x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The x-coordinate of the point to draw the image at, in points.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The y-coordinate of the point to draw the image at, in points.</p></li><li><b>options</b>: <a href="topic/wijmo.pdf.IPdfSvgDrawSettings.Interface.html"><span class="identifier">IPdfSvgDrawSettings</span></a> <span class="badge">Optional</span><br/><p>Determines the SVG image drawing options.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+</dl>
+</div>
+<div id="drawText" class="member-panel mmethod inherited">
+<h3>drawText</h3>
+<pre>drawText(text: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, x?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, y?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, options?: <a href="topic/wijmo.pdf.IPdfTextDrawSettings.Interface.html"><span class="identifier">IPdfTextDrawSettings</span></a>): <a href="topic/wijmo.pdf.IPdfTextMeasurementInfo.Interface.html"><span class="identifier">IPdfTextMeasurementInfo</span></a></pre>
+<div class="comment"><p>Draws a string with the given options and returns the measurement information.</p>
 <p>If <b>options.pen</b>, <b>options.brush</b> or <b>options.font</b> are omitted,
-the current document's pen, brush or font are used (see <b>setPen</b>,
-<b>setBrush</b>, and  <b>setFont</b>).</p>
-
+the current document's pen, brush or font are used (see <a href="topic/wijmo.pdf.PdfDocument.Class.html/#setPen"><span class="identifier">setPen</span></a>,
+<a href="topic/wijmo.pdf.PdfDocument.Class.html/#setBrush"><span class="identifier">setBrush</span></a>, and  <a href="topic/wijmo.pdf.PdfDocument.Class.html/#setFont"><span class="identifier">setFont</span></a>).</p>
 <p>The string is drawn within the rectangular area for which top-left corner, width
 and  height are defined by the x, y, <b>options.width</b> and <b>options.height</b>
-values. If x and y are not provided, the <b>x</b> and <b>y</b>
+values. If x and y are not provided, the <a href="topic/wijmo.pdf.PdfDocument.Class.html/#x"><span class="identifier">x</span></a> and <a href="topic/wijmo.pdf.PdfDocument.Class.html/#y"><span class="identifier">y</span></a>
 properties are used instead.</p>
-
 <p>The text is wrapped and clipped automatically within the area.
 If <b>options.height</b> is not provided and the text exceeds the bottom body edge,
 then a new page will be added to accommodate the text.</p>
-
-<p>Finally, the method updates the value of the <b>PdfDocument.x</b> and <b>PdfDocument.y</b>
+<p>Finally, the method updates the value of the <a href="topic/wijmo.pdf.PdfDocument.Class.html/#x"><span class="identifier">x</span></a> and <a href="topic/wijmo.pdf.PdfDocument.Class.html/#y"><span class="identifier">y</span></a>
 properties. Hence, any subsequent text or image starts below this point
 (depending on the value of <b>options.continued</b>).</p>
-
 <p>The measurement result doesn't reflect the fact that text can be split into
-multiple pages or columns; the text is treated as a single block.</p><br/><br/><b>Returns</b> A <a href="topic/wijmo.pdf.IPdfTextMeasurementInfo.Interface.html"><b>IPdfTextMeasurementInfo</b></a> object determines the measurement information.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>end</b>&#8203;(): <b>void</b></td>
-      <td></td>
-      <td>Finishes the document rendering.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>lineHeight</b>&#8203;(font?): <b>number</b></td>
-      <td><p>
-<b>font?</b> (<a href="topic/wijmo.pdf.PdfFont.Class.html"><b>PdfFont</b></a>): Font to get the line height.<br/></p>
-</td>
-      <td><p>Gets the line height with a given font.</p>
-
-<p>If font is not specified, then font used in the current document is used.</p><br/><br/><b>Returns</b> The line height, in points.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>measureText</b>&#8203;(text, font?, options?): <a href="topic/wijmo.pdf.IPdfTextMeasurementInfo.Interface.html"><b>IPdfTextMeasurementInfo</b></a></td>
-      <td><p>
-<b>text</b> (<b>string</b>): Text to measure.<br/><b>font?</b> (<a href="topic/wijmo.pdf.PdfFont.Class.html"><b>PdfFont</b></a>): Font to be applied on the text.<br/><b>options?</b> (<a href="topic/wijmo.pdf.IPdfTextSettings.Interface.html"><b>IPdfTextSettings</b></a>): Determines the text drawing options.<br/></p>
-</td>
-      <td><p>Measures a text with the given font and text drawing options without rendering it.</p>
-
+multiple pages or columns; the text is treated as a single block.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>text</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>The text to draw.</p></li><li><b>x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The X-coordinate of the point to draw the text at, in points.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The Y-coordinate of the point to draw the text at, in points.</p></li><li><b>options</b>: <a href="topic/wijmo.pdf.IPdfTextDrawSettings.Interface.html"><span class="identifier">IPdfTextDrawSettings</span></a> <span class="badge">Optional</span><br/><p>Determines the text drawing options.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.IPdfTextMeasurementInfo.Interface.html"><span class="identifier">IPdfTextMeasurementInfo</span></a></dd>
+</dl>
+</div>
+<div id="end" class="member-panel mmethod">
+<h3>end</h3>
+<pre>end(): <span class="identifier">void</span></pre>
+<div class="comment"><p>Finishes the document rendering.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="lineHeight" class="member-panel mmethod inherited">
+<h3>lineHeight</h3>
+<pre>lineHeight(font?: <a href="topic/wijmo.pdf.PdfFont.Class.html"><span class="identifier">PdfFont</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></pre>
+<div class="comment"><p>Gets the line height with a given font.</p>
+<p>If font is not specified, then font used in the current document is used.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>font</b>: <a href="topic/wijmo.pdf.PdfFont.Class.html"><span class="identifier">PdfFont</span></a> <span class="badge">Optional</span><br/><p>Font to get the line height.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="measureText" class="member-panel mmethod inherited">
+<h3>measureText</h3>
+<pre>measureText(text: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, font?: <a href="topic/wijmo.pdf.PdfFont.Class.html"><span class="identifier">PdfFont</span></a>, options?: <a href="topic/wijmo.pdf.IPdfTextSettings.Interface.html"><span class="identifier">IPdfTextSettings</span></a>): <a href="topic/wijmo.pdf.IPdfTextMeasurementInfo.Interface.html"><span class="identifier">IPdfTextMeasurementInfo</span></a></pre>
+<div class="comment"><p>Measures a text with the given font and text drawing options without rendering it.</p>
 <p>If font is not specified, then the font used in the current document is used.</p>
-
-<p>The method uses the same text rendering engine as <b>drawText</b>, so it is tied up
-in the same way to <b>x</b> and the right page margin, if options.width is not
+<p>The method uses the same text rendering engine as <a href="topic/wijmo.pdf.PdfDocument.Class.html/#drawText"><span class="identifier">drawText</span></a>, so it is tied up
+in the same way to @see:x and the right page margin, if options.width is not
 provided. The measurement result doesn't reflect the fact that text can be split 
-into multiple pages or columns; the text is treated as a single block.</p><br/><br/><b>Returns</b> A <a href="topic/wijmo.pdf.IPdfTextMeasurementInfo.Interface.html"><b>IPdfTextMeasurementInfo</b></a> object determines the measurement information.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>moveDown</b>&#8203;(lines?, font?): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
-      <td><p>
-<b>lines?</b> (<b>number</b>): Number of lines to move down.<br/><span class="text-info">(default value: <b>1</b>)</span><br/><b>font?</b> (<a href="topic/wijmo.pdf.PdfFont.Class.html"><b>PdfFont</b></a>): Font to calculate the line height.<br/></p>
-</td>
-      <td>Moves down the <b>y</b> by a given number of lines using the given font or,
-using the font of current document, if not specified.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>moveUp</b>&#8203;(lines?, font?): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
-      <td><p>
-<b>lines?</b> (<b>number</b>): Number of lines to move up.<br/><span class="text-info">(default value: <b>1</b>)</span><br/><b>font?</b> (<a href="topic/wijmo.pdf.PdfFont.Class.html"><b>PdfFont</b></a>): Font to calculate the line height.<br/></p>
-</td>
-      <td>Moves up the <b>y</b> by a given number of lines using the given font or,
-using the font of current document, if not specified.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>onEnded</b>&#8203;(args): <b>void</b></td>
-      <td><p>
-<b>args</b> (<a href="topic/wijmo.pdf.PdfDocumentEndedEventArgs.Class.html"><b>PdfDocumentEndedEventArgs</b></a>): A <a href="topic/wijmo.pdf.PdfDocumentEndedEventArgs.Class.html"><b>PdfDocumentEndedEventArgs</b></a> object that contains the event data.<br/></p>
-</td>
-      <td>Raises the <b>end</b> event.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>onPageAdded</b>&#8203;(args): <b>void</b></td>
-      <td><p>
-<b>args</b> (<a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a>): A <a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a> object that contains the event data.<br/></p>
-</td>
-      <td>Raises the <b>pageAdded</b> event.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>registerFont</b>&#8203;(font): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a></td>
-      <td><p>
-<b>font</b> (<a href="topic/wijmo.pdf.IPdfFontFile.Interface.html"><b>IPdfFontFile</b></a>): The font to register.<br/></p>
-</td>
-      <td>Registers a font from a source and associates it with a given font family name
-and font attributes.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>registerFontAsync</b>&#8203;(font, callback): <b>void</b></td>
-      <td><p>
-<b>font</b> (<a href="topic/wijmo.pdf.IPdfFontFile.Interface.html"><b>IPdfFontFile</b></a>): The font to register.<br/><b>callback</b> (<b>Function</b>): A callback function which will be called, when the font has been
-registered.<br/></p>
-</td>
-      <td><p>Registers a font from a URL asynchronously and associates it with a given font
+into multiple pages or columns; the text is treated as a single block.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>text</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>Text to measure.</p></li><li><b>font</b>: <a href="topic/wijmo.pdf.PdfFont.Class.html"><span class="identifier">PdfFont</span></a> <span class="badge">Optional</span><br/><p>Font to be applied on the text.</p></li><li><b>options</b>: <a href="topic/wijmo.pdf.IPdfTextSettings.Interface.html"><span class="identifier">IPdfTextSettings</span></a> <span class="badge">Optional</span><br/><p>Determines the text drawing options.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.IPdfTextMeasurementInfo.Interface.html"><span class="identifier">IPdfTextMeasurementInfo</span></a></dd>
+</dl>
+</div>
+<div id="moveDown" class="member-panel mmethod inherited">
+<h3>moveDown</h3>
+<pre>moveDown(lines?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, font?: <a href="topic/wijmo.pdf.PdfFont.Class.html"><span class="identifier">PdfFont</span></a>): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></pre>
+<div class="comment"><p>Moves down the @see:y by a given number of lines using the given font or,
+using the font of current document, if not specified.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>lines</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>Number of lines to move down.</p></li><li><b>font</b>: <a href="topic/wijmo.pdf.PdfFont.Class.html"><span class="identifier">PdfFont</span></a> <span class="badge">Optional</span><br/><p>Font to calculate the line height.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+</dl>
+</div>
+<div id="moveUp" class="member-panel mmethod inherited">
+<h3>moveUp</h3>
+<pre>moveUp(lines?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, font?: <a href="topic/wijmo.pdf.PdfFont.Class.html"><span class="identifier">PdfFont</span></a>): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></pre>
+<div class="comment"><p>Moves up the @see:y by a given number of lines using the given font or,
+using the font of current document, if not specified.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>lines</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>Number of lines to move up.</p></li><li><b>font</b>: <a href="topic/wijmo.pdf.PdfFont.Class.html"><span class="identifier">PdfFont</span></a> <span class="badge">Optional</span><br/><p>Font to calculate the line height.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+</dl>
+</div>
+<div id="onEnded" class="member-panel mmethod raiser">
+<h3>onEnded</h3>
+<pre>onEnded(args: <a href="topic/wijmo.pdf.PdfDocumentEndedEventArgs.Class.html"><span class="identifier">PdfDocumentEndedEventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.pdf.PdfDocument.Class.html/#end"><span class="identifier">end</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>args</b>: <a href="topic/wijmo.pdf.PdfDocumentEndedEventArgs.Class.html"><span class="identifier">PdfDocumentEndedEventArgs</span></a><br/><p>A <a href="topic/wijmo.pdf.PdfDocumentEndedEventArgs.Class.html"><span class="identifier">PdfDocumentEndedEventArgs</span></a> object that contains the event data.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="onPageAdded" class="member-panel mmethod raiser">
+<h3>onPageAdded</h3>
+<pre>onPageAdded(args: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.pdf.PdfDocument.Class.html/#pageAdded"><span class="identifier">pageAdded</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>args</b>: <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a><br/><p>A <a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a> object that contains the event data.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="registerFont" class="member-panel mmethod">
+<h3>registerFont</h3>
+<pre>registerFont(font: <a href="topic/wijmo.pdf.IPdfFontFile.Interface.html"><span class="identifier">IPdfFontFile</span></a>): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></pre>
+<div class="comment"><p>Registers a font from a source and associates it with a given font family name
+and font attributes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>font</b>: <a href="topic/wijmo.pdf.IPdfFontFile.Interface.html"><span class="identifier">IPdfFontFile</span></a><br/><p>The font to register.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></dd>
+</dl>
+</div>
+<div id="registerFontAsync" class="member-panel mmethod">
+<h3>registerFontAsync</h3>
+<pre>registerFontAsync(font: <a href="topic/wijmo.pdf.IPdfFontFile.Interface.html"><span class="identifier">IPdfFontFile</span></a>, callback: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Registers a font from a URL asynchronously and associates it with a given font
 family name and font attributes.</p>
-
-<p>The callback function takes a <a href="topic/wijmo.pdf.IPdfFontFile.Interface.html"><b>IPdfFontFile</b></a> object as a parameter.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>restoreState</b>&#8203;(): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a></td>
-      <td></td>
-      <td>Restores the state from the stack and applies it to the graphic context.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a> object.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>rotate</b>&#8203;(angle, origin?): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
-      <td><p>
-<b>angle</b> (<b>number</b>): The rotation angle, in degrees.<br/><b>origin?</b> (<a href="topic/wijmo.Point.Class.html"><b>Point</b></a>): The <a href="topic/wijmo.Point.Class.html"><b>Point</b></a> of rotation, in points. If it is not provided,
-then the top left corner is used.<br/></p>
-</td>
-      <td>Rotates the graphic context clockwise by a specified angle.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>saveState</b>&#8203;(): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a></td>
-      <td></td>
-      <td>Saves the state of the graphic context (including current pen, brush and
-transformation state) and pushes it onto stack.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a> object.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>scale</b>&#8203;(xFactor, yFactor?, origin?): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
-      <td><p>
-<b>xFactor</b> (<b>number</b>): The factor to scale the X dimension.<br/><b>yFactor?</b> (<b>number</b>): The factor to scale the Y dimension. If it is not provided, it is
-assumed to be equal to xFactor.<br/><span class="text-info">(default value: <b>xFactor</b>)</span><br/><b>origin?</b> (<a href="topic/wijmo.Point.Class.html"><b>Point</b></a>): The <a href="topic/wijmo.Point.Class.html"><b>Point</b></a> to scale around, in points. If it is not provided,
-then the top left corner is used.<br/></p>
-</td>
-      <td><p>Scales the graphic context by a specified scaling factor.</p>
-
+<p>The callback function takes a <a href="topic/wijmo.pdf.IPdfFontFile.Interface.html"><span class="identifier">IPdfFontFile</span></a> object as a parameter.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>font</b>: <a href="topic/wijmo.pdf.IPdfFontFile.Interface.html"><span class="identifier">IPdfFontFile</span></a><br/><p>The font to register.</p></li><li><b>callback</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function" target="_blank"><span class="identifier">Function</span></a><br/><p>A callback function which will be called, when the font has been
+registered.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+<div id="restoreState" class="member-panel mmethod">
+<h3>restoreState</h3>
+<pre>restoreState(): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></pre>
+<div class="comment"><p>Restores the state from the stack and applies it to the graphic context.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></dd>
+</dl>
+</div>
+<div id="rotate" class="member-panel mmethod inherited">
+<h3>rotate</h3>
+<pre>rotate(angle: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, origin?: <a href="topic/wijmo.Point.Class.html"><span class="identifier">Point</span></a>): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></pre>
+<div class="comment"><p>Rotates the graphic context clockwise by a specified angle.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>angle</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The rotation angle, in degrees.</p></li><li><b>origin</b>: <a href="topic/wijmo.Point.Class.html"><span class="identifier">Point</span></a> <span class="badge">Optional</span><br/><p>The <a href="topic/wijmo.Point.Class.html"><span class="identifier">Point</span></a> of rotation, in points. If it is not provided,
+then the top left corner is used.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+</dl>
+</div>
+<div id="saveState" class="member-panel mmethod">
+<h3>saveState</h3>
+<pre>saveState(): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></pre>
+<div class="comment"><p>Saves the state of the graphic context (including current pen, brush and
+transformation state) and pushes it onto stack.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></dd>
+</dl>
+</div>
+<div id="scale" class="member-panel mmethod inherited">
+<h3>scale</h3>
+<pre>scale(xFactor: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, yFactor?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, origin?: <a href="topic/wijmo.Point.Class.html"><span class="identifier">Point</span></a>): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></pre>
+<div class="comment"><p>Scales the graphic context by a specified scaling factor.</p>
 <p>The scaling factor value within the range [0, 1] indicates that the size will be
 decreased.
-The scaling factor value greater than 1 indicates that the size will be increased.</p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>setBrush</b>&#8203;(brushOrColor): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a></td>
-      <td><p>
-<b>brushOrColor</b> (<b>any</b>): The brush or color to use.<br/></p>
-</td>
-      <td><p>Sets the default document brush.
-This brush will be used by the <b>fill</b>, <b>fillAndStroke</b> and
-<b>drawText</b> methods, if no specific brush is provided.</p>
-
+The scaling factor value greater than 1 indicates that the size will be increased.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>xFactor</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The factor to scale the X dimension.</p></li><li><b>yFactor</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The factor to scale the Y dimension. If it is not provided, it is
+assumed to be equal to xFactor.</p></li><li><b>origin</b>: <a href="topic/wijmo.Point.Class.html"><span class="identifier">Point</span></a> <span class="badge">Optional</span><br/><p>The <a href="topic/wijmo.Point.Class.html"><span class="identifier">Point</span></a> to scale around, in points. If it is not provided,
+then the top left corner is used.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+</dl>
+</div>
+<div id="setBrush" class="member-panel mmethod">
+<h3>setBrush</h3>
+<pre>setBrush(brushOrColor: <span class="identifier">any</span>): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></pre>
+<div class="comment"><p>Sets the default document brush.
+This brush will be used by the <a href="topic/wijmo.pdf.PdfPaths.Class.html/#fill"><span class="identifier">fill</span></a>, <a href="topic/wijmo.pdf.PdfPaths.Class.html/#fillAndStroke"><span class="identifier">fillAndStroke</span></a> and
+<a href="topic/wijmo.pdf.PdfDocument.Class.html/#drawText"><span class="identifier">drawText</span></a> methods, if no specific brush is provided.</p>
 <p>The brushOrColor argument can accept the following values:
 <ul>
-  <li>A <a href="topic/wijmo.pdf.PdfBrush.Class.html"><b>PdfBrush</b></a> object.</li>
+  <li>A <a href="topic/wijmo.pdf.PdfBrush.Class.html"><span class="identifier">PdfBrush</span></a> object.</li>
   <li>
-    A <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> object or any string acceptable by the <b>fromString</b> method. 
-    In this case, the <b>PdfBrush</b> object with the specified color will be created internally.
+    A <a href="topic/wijmo.Color.Class.html"><span class="identifier">Color</span></a> object or any string acceptable by the <a href="topic/wijmo.Color.Class.html/#fromString"><span class="identifier">fromString</span></a> method. 
+    In this case, the <a href="topic/wijmo.pdf.PdfBrush.Class.html"><span class="identifier">PdfBrush</span></a> object with the specified color will be created internally.
    </li>
-</ul></p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>setFont</b>&#8203;(font): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a></td>
-      <td><p>
-<b>font</b> (<a href="topic/wijmo.pdf.PdfFont.Class.html"><b>PdfFont</b></a>): The font object to set.<br/></p>
-</td>
-      <td>Sets the document font.
+</ul></p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>brushOrColor</b>: <span class="identifier">any</span><br/><p>The brush or color to use.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></dd>
+</dl>
+</div>
+<div id="setFont" class="member-panel mmethod">
+<h3>setFont</h3>
+<pre>setFont(font: <a href="topic/wijmo.pdf.PdfFont.Class.html"><span class="identifier">PdfFont</span></a>): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></pre>
+<div class="comment"><p>Sets the document font.
 	
 If exact font with given style and weight properties is not found then,  
 <ul>
@@ -444,92 +524,89 @@ If exact font with given style and weight properties is not found then,
       <li><b>'normal'</b>: 'oblique', 'italic'.</li>
     </ul>
   </li>
-</ul><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>setPen</b>&#8203;(penOrColor): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a></td>
-      <td><p>
-<b>penOrColor</b> (<b>any</b>): The pen or color to use.<br/></p>
-</td>
-      <td><p>Sets the default document pen.
-This pen will be used by the <b>stroke</b>, <b>fillAndStroke</b>
-and <b>drawText</b> methods, if no specific pen is provided.</p>
-
+</ul></p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>font</b>: <a href="topic/wijmo.pdf.PdfFont.Class.html"><span class="identifier">PdfFont</span></a><br/><p>The font object to set.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></dd>
+</dl>
+</div>
+<div id="setPen" class="member-panel mmethod">
+<h3>setPen</h3>
+<pre>setPen(penOrColor: <span class="identifier">any</span>): <a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></pre>
+<div class="comment"><p>Sets the default document pen.
+This pen will be used by the <a href="topic/wijmo.pdf.PdfPaths.Class.html/#stroke"><span class="identifier">stroke</span></a>, <a href="topic/wijmo.pdf.PdfPaths.Class.html/#fillAndStroke"><span class="identifier">fillAndStroke</span></a>
+and <a href="topic/wijmo.pdf.PdfDocument.Class.html/#drawText"><span class="identifier">drawText</span></a> methods, if no specific pen is provided.</p>
 <p>The penOrColor argument can accept the following values:
 <ul>
-  <li>A <a href="topic/wijmo.pdf.PdfPen.Class.html"><b>PdfPen</b></a> object.</li>
+  <li>A <a href="topic/wijmo.pdf.PdfPen.Class.html"><span class="identifier">PdfPen</span></a> object.</li>
   <li>
-    A <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> object or any string acceptable by the <b>fromString</b> method. 
-    In this case, the <b>PdfPen</b> object with the specified color will be created internally.
+    A <a href="topic/wijmo.Color.Class.html"><span class="identifier">Color</span></a> object or any string acceptable by the <a href="topic/wijmo.Color.Class.html/#fromString"><span class="identifier">fromString</span></a> method. 
+    In this case, the <a href="topic/wijmo.pdf.PdfPen.Class.html"><span class="identifier">PdfPen</span></a> object with the specified color will be created internally.
   </li>
-</ul></p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a> object.</td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>transform</b>&#8203;(a, b, c, d, e, f): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
-      <td><p>
-<b>a</b> (<b>number</b>): Value of the first row and first column.<br/><b>b</b> (<b>number</b>): Value of the first row and second column.<br/><b>c</b> (<b>number</b>): Value of the second row and first column.<br/><b>d</b> (<b>number</b>): Value of the second row and second column.<br/><b>e</b> (<b>number</b>): Value of the third row and first column.<br/><b>f</b> (<b>number</b>): Value of the third row and second column.<br/></p>
-</td>
-      <td><p>Transforms the graphic context with given six numbers which represents a 
+</ul></p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>penOrColor</b>: <span class="identifier">any</span><br/><p>The pen or color to use.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a></dd>
+</dl>
+</div>
+<div id="transform" class="member-panel mmethod inherited">
+<h3>transform</h3>
+<pre>transform(a: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, b: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, c: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, d: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, e: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, f: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></pre>
+<div class="comment"><p>Transforms the graphic context with given six numbers which represents a 
 3x3 transformation matrix.</p>
-
 <p>A transformation matrix is written as follows:
 <table>
   <tr><td>a</td><td>b</td><td>0</td></tr>
   <tr><td>c</td><td>d</td><td>0</td></tr>
   <tr><td>e</td><td>f</td><td>1</td></tr>
-</table></p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>translate</b>&#8203;(x, y): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a></td>
-      <td><p>
-<b>x</b> (<b>number</b>): The distance to translate along the X-axis, in points.<br/><b>y</b> (<b>number</b>): The distance to translate along the Y-axis, in points.<br/></p>
-</td>
-      <td>Translates the graphic context with a given distance.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a> object.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><b>PdfPageArea</b></a>).</span></td>
-    </tr>
-</tbody>
-</table>
+</table></p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>a</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Value of the first row and first column.</p></li><li><b>b</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Value of the first row and second column.</p></li><li><b>c</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Value of the second row and first column.</p></li><li><b>d</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Value of the second row and second column.</p></li><li><b>e</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Value of the third row and first column.</p></li><li><b>f</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>Value of the third row and second column.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
-<span class="glyph-collapsed" ng-show="hideEvents"></span>
-<span class="glyph-expanded" ng-hide="hideEvents"></span>
-Events
-</h3>
+<div id="translate" class="member-panel mmethod inherited">
+<h3>translate</h3>
+<pre>translate(x: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, y: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></pre>
+<div class="comment"><p>Translates the graphic context with a given distance.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The distance to translate along the X-axis, in points.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The distance to translate along the Y-axis, in points.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPageArea.Class.html"><span class="identifier">PdfPageArea</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Arguments</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>ended</b></td>
-      <td><a href="topic/wijmo.pdf.PdfDocumentEndedEventArgs.Class.html"><b>PdfDocumentEndedEventArgs</b></a></td>
-      <td>Occurs when the document has been rendered.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>pageAdded</b></td>
-      <td><a href="topic/wijmo.EventArgs.Class.html"><b>EventArgs</b></a></td>
-      <td>Occurs when a new page is added to the document.</td>
-    </tr>
-</tbody>
-</table>
 </div>
-
+<h3 class="node">Events</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="ended" class="member-panel mevent">
+<h3>ended</h3>
+<div class="comment"><p>Occurs when the document has been rendered.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.pdf.PdfDocumentEndedEventArgs.Class.html"><span class="identifier">PdfDocumentEndedEventArgs</span></a></dd>
+</dl>
+</div>
+<div id="pageAdded" class="member-panel mevent">
+<h3>pageAdded</h3>
+<div class="comment"><p>Occurs when a new page is added to the document.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.EventArgs.Class.html"><span class="identifier">EventArgs</span></a></dd>
+</dl>
+</div>
+</div>

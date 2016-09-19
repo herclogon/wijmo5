@@ -15,10 +15,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
 var GridBaseCmp_1 = require('./GridBaseCmp');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // FlexGrid Templates sample component.
 var GridTemplatesCmp = (function (_super) {
     __extends(GridTemplatesCmp, _super);
@@ -28,13 +29,26 @@ var GridTemplatesCmp = (function (_super) {
     GridTemplatesCmp = __decorate([
         core_1.Component({
             selector: 'grid-templates-cmp',
-            templateUrl: 'src/components/grid/gridTemplatesCmp.html',
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate, common_1.CORE_DIRECTIVES,
-                wjNg2Input.WjInputNumber]
+            templateUrl: 'src/components/grid/gridTemplatesCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], GridTemplatesCmp);
     return GridTemplatesCmp;
 }(GridBaseCmp_1.GridBaseCmp));
 exports.GridTemplatesCmp = GridTemplatesCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: GridTemplatesCmp }
+]);
+var GridTemplatesModule = (function () {
+    function GridTemplatesModule() {
+    }
+    GridTemplatesModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_grid_1.WjGridModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [GridTemplatesCmp],
+        })
+    ], GridTemplatesModule);
+    return GridTemplatesModule;
+}());
+exports.GridTemplatesModule = GridTemplatesModule;
 //# sourceMappingURL=GridTemplatesCmp.js.map

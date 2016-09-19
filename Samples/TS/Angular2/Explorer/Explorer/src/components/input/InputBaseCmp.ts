@@ -1,7 +1,7 @@
 ﻿'use strict';
 
-import {Component, EventEmitter, Inject, Input} from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, ViewChild, Input} from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { DataSvc } from '../../services/DataSvc';
 
 // Base class for all components demonstrating wijmo.input controls.

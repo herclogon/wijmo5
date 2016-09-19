@@ -1,0 +1,1063 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gauge Introduction</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap/Vue -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+
+    <!-- Wijmo -->
+    <link rel="stylesheet" href="styles/vendor/wijmo.min.css" />
+    <script src="scripts/vendor/wijmo.min.js"></script>
+    <script src="scripts/vendor/wijmo.input.min.js"></script>
+    <script src="scripts/vendor/wijmo.gauge.min.js"></script>
+    <script src="scripts/vendor/wijmo.vue.min.js"></script>
+
+    <!-- app scripts and styles -->
+    <link href="styles/app.css" rel="stylesheet"/>
+    <script src="scripts/app.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <img src="resources/wijmo5.png" alt="Wijmo 5" />
+            <h1>
+                Gauge 101 (Vue)
+            </h1>
+            <p>
+                This page shows how to get started with Wijmo's Gauge controls.
+            </p>
+        </div>
+    </div>
+
+    <div id="app" class="container">
+
+        <!-- Getting Started -->
+        <div>
+            <h2>
+                Getting Started</h2>
+            <p>
+                The <b>wijmo.gauge module</b> includes the <b>LinearGauge</b>, <b>RadialGauge</b>, and
+                <b>BulletChart</b> controls. They are used to display and optionally edit numeric
+                information graphically.</p>
+            <p>
+                Steps for getting started with Gauge controls in Vue applications:
+            </p>
+            <ol>
+                <li>Add references to Vue, Wijmo, and Wijmo's Vue interop module.</li>
+                <li>Create a Vue object and give it a host element.</li>
+                <li>Add Gauge controls to Vue's host element and bind them to the data.</li>
+            </ol>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#gsHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#gsJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="gsHtml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;!-- Vue --&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- Wijmo --&gt;
+    &lt;link href="http://cdn.wijmo.com/5.latest/styles/wijmo.min.css" rel="stylesheet"/&gt;
+    &lt;script src="http://cdn.wijmo.com/5.latest/controls/wijmo.min.js"&gt;&lt;/script&gt;
+    &lt;script src="http://cdn.wijmo.com/5.latest/controls/wijmo.gauge.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- Wijmo/Vue interop --&gt;
+    &lt;script src="http://cdn.wijmo.com/5.latest/interop/vue/wijmo.vue.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- app scripts and styles --&gt;
+    &lt;link href="styles/app.css" rel="stylesheet" /&gt;
+    &lt;script src="scripts/app.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="app"&gt;
+        &lt;wj-linear-gauge
+            :value="value" 
+            :min="min" :max="max"
+            :format="format"&gt;
+        &lt;/wj-linear-gauge&gt;
+        &lt;wj-radial-gauge
+            :value="value"
+            :min="min" :max="max"
+            :format="format"&gt;
+        &lt;/wj-radial-gauge&gt;
+        &lt;div class="app-input-group"&gt;
+            &lt;label&gt;value&lt;/label&gt;
+            &lt;wj-input-number
+                :value.sync="value"
+                :min="min" :max="max"
+                :format="format"
+                :step="step"&gt;
+            &lt;/wj-input-number&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="gsJs">
+var app = new Vue({
+    el: '#app',
+    data: {
+        value: 50,
+        min: 0,
+        max: 100,
+        format: 'n0',
+        step: 10,
+    }
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <wj-linear-gauge
+                        :value="value"
+                        :min="min" :max="max"
+                        :format="format">
+                    </wj-linear-gauge>
+                    <wj-radial-gauge
+                        :value="value"
+                        :min="min" :max="max"
+                        :format="format">
+                    </wj-radial-gauge>
+                    <div class="app-input-group">
+                        <label>value</label>
+                        <wj-input-number
+                            :value.sync="value"
+                            :min="min" :max="max"
+                            :format="format"
+                            :step="step">
+                        </wj-input-number>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Editing -->
+        <div>
+            <h2>
+                Editing (Gauges as Sliders)</h2>
+            <p>
+                In addition to displaying information graphically, gauges can be used as input controls
+                (in this case they are also known as "sliders").</p>
+            <p>
+                To use gauge controls for input, set the <b>isReadOnly</b> property to false. This will
+                allow users to change the gauge's current value simply by clicking or tapping the gauge.</p>
+            <p>
+                When using gauges as input controls, remember to set the <b>step</b> property to define
+                the precision of the changes applied by clicking or tapping, as well as the magnitude of
+                changes applied by spinning the mouse wheel.</p>
+            <p>
+                You can also use the <b>showTicks</b> property to display tickmarks on the gauge. 
+                The <b>step</b> property determines the spacing between tickmarks.</p>
+            <p>
+                The example below demonstrates how to use the <b>isReadOnly</b>, <b>step</b>, and
+                <b>showTicks</b> properties with the LinearGauge and RadialGauge controls.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#edtHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#edtJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="edtHtml">
+&lt;wj-linear-gauge
+    :value.sync="value"
+    :min="min" :max="max" :format="format"
+    :step="step"
+    :show-ticks="showTicks"
+    :is-read-only="isReadOnly"&gt;
+&lt;/wj-linear-gauge&gt;
+&lt;wj-radial-gauge
+    :value.sync="value"
+    :min="min" :max="max" :format="format"
+    :step="step"
+    :show-ticks="showTicks"
+    :is-read-only="isReadOnly"&gt;
+&lt;/wj-radial-gauge&gt;
+&lt;label&gt;
+    isReadOnly
+    &lt;input type="checkbox" v-model="isReadOnly" /&gt;
+&lt;/label&gt;
+&lt;br/&gt;
+&lt;label&gt;
+    showTicks
+    &lt;input type="checkbox" v-model="showTicks" /&gt;
+&lt;/label&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="edtJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        value: 50,
+        min: 0,
+        max: 100,
+        format: 'n0',
+        step: 10,
+        showTicks: false,
+        isReadOnly: false,
+    }
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <wj-linear-gauge
+                        :value.sync="value"
+                        :min="min" :max="max" :format="format"
+                        :step="step"
+                        :show-ticks="showTicks"
+                        :is-read-only="isReadOnly">
+                    </wj-linear-gauge>
+                    <wj-radial-gauge
+                        :value.sync="value"
+                        :min="min" :max="max" :format="format"
+                        :step="step"
+                        :show-ticks="showTicks"
+                        :is-read-only="isReadOnly">
+                    </wj-radial-gauge>
+                    <label>
+                        isReadOnly
+                        <input type="checkbox" v-model="isReadOnly" />
+                    </label>
+                    <br/>
+                    <label>
+                        showTicks
+                        <input type="checkbox" v-model="showTicks" />
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Showing the Thumb -->
+        <div>
+            <h2>
+                Showing the Thumb</h2>
+            <p>
+                By default, gauges indicate the current value by filling the control with color.
+                You can use the <b>thumbSize</b> property to add a visual element that highlights
+                the current value.</p>
+            <p>
+                The example below demonstrates how to use the <b>thumbSize</b> property.
+                The example also reduces the <b>thickness</b> property of the gauge's <b>face</b>
+                and <b>pointer</b> ranges so the thumb becomes more visible.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#thmbtHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#thmbJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="thmbHtml">
+&lt;wj-linear-gauge
+    :value.sync="value"
+    :min="min" :max="max" :step="step"
+    :format="format"
+    :is-read-only="false"
+    :is-animated="false"
+    :thumb-size="10"&gt;
+    &lt;wj-range wj-property="face" :thickness="0.25"&gt;&lt;/wj-range&gt;
+    &lt;wj-range wj-property="pointer" :thickness="0.25"&gt;&lt;/wj-range&gt;
+&lt;/wj-linear-gauge&gt;
+&lt;wj-radial-gauge
+    :value.sync="value"
+    :min="min" :max="max" :step="step"
+    :format="format"
+    :is-read-only="false"
+    :is-animated="false"
+    :thumb-size="10"&gt;
+    &lt;wj-range wj-property="face" :thickness="0.08"&gt;&lt;/wj-range&gt;
+    &lt;wj-range wj-property="pointer" :thickness="0.08"&gt;&lt;/wj-range&gt;
+&lt;/wj-radial-gauge&gt;
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;value&lt;/label&gt;
+    &lt;wj-input-number
+        :value.sync="value"
+        :min="min" :max="max" :step="step"
+        :format="format" &gt;
+    &lt;/wj-input-number&gt;
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="thmbJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        value: 50,
+        min: 0,
+        max: 100,
+        format: 'n0',
+        step: 10,
+        isReadOnly: false,
+    }
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <wj-linear-gauge
+                        :value.sync="value"
+                        :min="min" :max="max" :step="step"
+                        :format="format"
+                        :is-read-only="false"
+                        :is-animated="false"
+                        :thumb-size="10">
+                        <wj-range wj-property="face" :thickness="0.25"></wj-range>
+                        <wj-range wj-property="pointer" :thickness="0.25"></wj-range>
+                    </wj-linear-gauge>
+                    <wj-radial-gauge
+                        :value.sync="value"
+                        :min="min" :max="max" :step="step"
+                        :format="format"
+                        :is-read-only="false"
+                        :is-animated="false"
+                        :thumb-size="10">
+                        <wj-range wj-property="face" :thickness="0.08"></wj-range>
+                        <wj-range wj-property="pointer" :thickness="0.08"></wj-range>
+                    </wj-radial-gauge>
+                    <div class="app-input-group">
+                        <label>value</label>
+                        <wj-input-number
+                            :value.sync="value"
+                            :min="min" :max="max" :step="step"
+                            :format="format" >
+                        </wj-input-number>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Using Ranges -->
+        <div>
+            <h2>
+                Using Ranges</h2>
+            <p>
+                All Wijmo gauges have a <b>ranges</b> property that contains an array of <b>Range</b> objects.
+                By default, ranges are displayed on the face of gauge to indicate zones of interest; however,
+                you can use the <b>showRanges</b> property to hide the ranges. In this case, the gauge determines
+                which range contains the current value and applies that range's color to the gauge pointer.</p>
+            <p>
+                You can customize each Range object using the <b>min</b>, <b>max</b>, and <b>color</b> properties.</p>
+            <p>
+                The following example demonstrates how to use ranges with the LinearGauge and RadialGauge controls.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#rngHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#rngJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="rngHtml">
+&lt;wj-linear-gauge
+    :value="value"
+    :min="min"
+    :max="max"
+    :format="format"
+    :show-ranges="showRanges"&gt;
+    &lt;wj-range
+        wj-property="pointer"
+        :thickness="ranges.pointerThickness"&gt;&lt;/wj-range&gt;
+    &lt;wj-range
+        :min="ranges.lower.min"
+        :max="ranges.lower.max"
+        :color="ranges.lower.color"&gt;&lt;/wj-range&gt;
+    &lt;wj-range
+        :min="ranges.middle.min" 
+        :max="ranges.middle.max"
+        :color="ranges.middle.color"&gt;&lt;/wj-range&gt;
+    &lt;wj-range
+        :min="ranges.upper.min"
+        :max="ranges.upper.max"
+        :color="ranges.upper.color"&gt;&lt;/wj-range&gt;
+&lt;/wj-linear-gauge&gt;
+
+&lt;wj-radial-gauge
+    :value="value"
+    :min="min" :max="max"
+    :format="format"
+    :show-ranges="showRanges"&gt;
+    &lt;wj-range wj-property="pointer" :thickness="ranges.pointerThickness"&gt;&lt;/wj-range&gt;
+    &lt;wj-range :min="ranges.lower.min" :max="ranges.lower.max" :color="ranges.lower.color"&gt;&lt;/wj-range&gt;
+    &lt;wj-range :min="ranges.middle.min" :max="ranges.middle.max" :color="ranges.middle.color"&gt;&lt;/wj-range&gt;
+    &lt;wj-range :min="ranges.upper.min" :max="ranges.upper.max" :color="ranges.upper.color"&gt;&lt;/wj-range&gt;
+&lt;/wj-radial-gauge&gt;
+
+&lt;div class="app-input-group"&gt;
+    &lt;label&gt;value&lt;/label&gt;
+    &lt;wj-input-number
+        :value.sync="value"
+        :min="min" :max="max" :step="step"
+        :format="format" &gt;
+    &lt;/wj-input-number&gt;
+&lt;/div&gt;
+&lt;label&gt;
+    showRanges
+    &lt;input type="checkbox" v-model="showRanges" /&gt;
+&lt;/label&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="rngJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        value: 50,
+        min: 0,
+        max: 100,
+        format: 'n0',
+        step: 10,
+        isReadOnly: false,
+        showRanges: true,
+        ranges: {
+            pointerThickness: 0.5,
+            lower:  { min: 0,  max: 33,  color: 'rgba(255,100,100,.5)' },
+            middle: { min: 33, max: 66,  color: 'rgba(255,255,100,.5)' },
+            upper:  { min: 66, max: 100, color: 'rgba(100,255,100,.5)' }
+        }
+    }
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <wj-linear-gauge
+                        :value="value"
+                        :min="min"
+                        :max="max"
+                        :format="format"
+                        :show-ranges="showRanges">
+                        <wj-range wj-property="pointer" :thickness="ranges.pointerThickness"></wj-range>
+                        <wj-range :min="ranges.lower.min" :max="ranges.lower.max" :color="ranges.lower.color"></wj-range>
+                        <wj-range :min="ranges.middle.min" :max="ranges.middle.max" :color="ranges.middle.color"></wj-range>
+                        <wj-range :min="ranges.upper.min" :max="ranges.upper.max" :color="ranges.upper.color"></wj-range>
+                    </wj-linear-gauge>
+
+                    <wj-radial-gauge
+                        :value="value"
+                        :min="min" :max="max"
+                        :format="format"
+                        :show-ranges="showRanges">
+                        <wj-range wj-property="pointer" :thickness="ranges.pointerThickness"></wj-range>
+                        <wj-range :min="ranges.lower.min" :max="ranges.lower.max" :color="ranges.lower.color"></wj-range>
+                        <wj-range :min="ranges.middle.min" :max="ranges.middle.max" :color="ranges.middle.color"></wj-range>
+                        <wj-range :min="ranges.upper.min" :max="ranges.upper.max" :color="ranges.upper.color"></wj-range>
+                    </wj-radial-gauge>
+
+                    <div class="app-input-group">
+                        <label>value</label>
+                        <wj-input-number
+                            :value.sync="value"
+                            :min="min" :max="max" :step="step"
+                            :format="format" >
+                        </wj-input-number>
+                    </div>
+                    <label>
+                        showRanges
+                        <input type="checkbox" v-model="showRanges" />
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Layout and Appearance Properties -->
+        <div>
+            <h2>
+                Layout and Appearance Properties</h2>
+            <p>
+                The gauge controls are designed to be styled mostly with CSS, but they do
+                have several properties that affect their layout and appearance:</p>
+            <ul>
+                <li>
+                    <b>thumbSize</b>: Determines the size of the thumb element used to
+                    display the current value.</li>
+                <li>
+                    <b>showText</b>: Determines whether the gauge should show min, max,
+                    and/or current values as text elements.</li>
+                <li>
+                    <b>hasShadow</b>: Determines whether the gauge should add a shadow
+                    effect to the face and value ranges.</li>
+                <li>
+                    <b>isAnimated</b>: Determines whether the gauge should use animation
+                    when updating the current value.</li>
+                <li>
+                    <b>autoScale</b>: Determines whether radial gauges should be scaled
+                    automatically to fill the control.</li>
+                <li>
+                    <b>startAngle, sweepAngle</b>: Determine the start and sweeping angles
+                    for radial gauges. Angles are measured in degrees, clockwise, starting
+                    from the 9 o'clock position.</li>
+                <li>
+                    <b>direction</b>: Determines the direction in which linear gauges are filled.</li>
+            </ul>
+            <p>
+                The example below shows the effect of these properties on linear and radial gauges:
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#loHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#loJs" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="loHtml">
+&lt;h5&gt;Common Properties&lt;/h5&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;hasShadow&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;input type="checkbox" v-model="hasShadow" /&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;isAnimated&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;input type="checkbox" v-model="isAnimated" /&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;showText&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-combo-box 
+            :text.sync="showText"
+            :items-source="showTextValues"&gt;
+        &lt;/wj-combo-box&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;thumbSize&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-input-number
+            :value.sync="thumbSize" :is-required="false"
+            :min="0" :max="50" :step="5"
+            placeholder="(auto)"&gt;
+        &lt;/wj-input-number&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;Gauge Value&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-input-number
+            :value.sync="value"
+            :min="min" :max="max" :step="step"
+            :format="format" &gt;
+        &lt;/wj-input-number&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;h5&gt;LinearGauge Properties&lt;/h5&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Direction&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-combo-box
+            :text.sync="direction"
+            :items-source="directionValues"&gt;
+        &lt;/wj-combo-box&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;wj-linear-gauge
+    :style="getLinearGaugeStyle()"
+    :value.sync="value"
+    :is-read-only="false"
+    :min="min"
+    :max="max"
+    :step="step"
+    :format="format"
+    :thumb-size="thumbSize"
+    :show-text="showText"
+    :has-shadow="hasShadow"
+    :is-animated="isAnimated"
+    :direction="direction"&gt;
+&lt;/wj-linear-gauge&gt;
+
+&lt;h5&gt;RadialGauge Properties&lt;/h5&gt;
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;autoScale&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;input type="checkbox" v-model="autoScale" /&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;startAngle&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-input-number
+            :value.sync="startAngle" 
+            :min="-360" :max="360" :step="45"&gt;
+        &lt;/wj-input-number&gt;
+    &lt;/dd&gt;
+    &lt;dt&gt;sweepAngle&lt;/dt&gt;
+    &lt;dd&gt;
+        &lt;wj-input-number
+            :value.sync="sweepAngle" 
+            :min="0" :max="360" :step="45"&gt;
+        &lt;/wj-input-number&gt;
+    &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;wj-radial-gauge
+    :value.sync="value"
+    :is-read-only="false"
+    :min="min"
+    :max="max"
+    :step="step"
+    :format="format"
+    :thumb-size="thumbSize"
+    :show-text="showText"
+    :has-shadow="hasShadow"
+    :is-animated="isAnimated"
+    :auto-scale="autoScale"
+    :start-angle="startAngle"
+    :sweep-angle="sweepAngle"&gt;
+&lt;/wj-radial-gauge&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="loJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+
+        // common properties
+        value: 50,
+        min: 0,
+        max: 100,
+        format: 'n0',
+        step: 10,
+        hasShadow: true,
+        isAnimated: true,
+        thumbSize: null,
+        showText: 'All',
+        showTextValues: 'All,None,Value,MinMax'.split(','),
+
+        // LinearGauge properties
+        direction: 'Right',
+        directionValues: 'Up,Down,Left,Right'.split(','),
+
+        // RadialGauge properties
+        autoScale: true,
+        startAngle: 0,
+        sweepAngle: 180
+    },
+    methods: {
+
+        // get the style for the LinearGauge depending on its direction
+        getLinearGaugeStyle: function () {
+            return this.direction == 'Up' || this.direction == 'Down'
+                ? { height: '200px', width: '2em' }
+                : { width: '200px' }
+        }
+    }
+});
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+
+                    <h5>Common Properties</h5>
+                    <dl class="dl-horizontal">
+                        <dt>hasShadow</dt>
+                        <dd>
+                            <input type="checkbox" v-model="hasShadow" />
+                        </dd>
+                        <dt>isAnimated</dt>
+                        <dd>
+                            <input type="checkbox" v-model="isAnimated" />
+                        </dd>
+                        <dt>showText</dt>
+                        <dd>
+                            <wj-combo-box 
+                                :text.sync="showText"
+                                :items-source="showTextValues">
+                            </wj-combo-box>
+                        </dd>
+                        <dt>thumbSize</dt>
+                        <dd>
+                            <wj-input-number
+                                :value.sync="thumbSize" :is-required="false"
+                                :min="0" :max="50" :step="5"
+                                placeholder="(auto)">
+                            </wj-input-number>
+                        </dd>
+                        <dt>Gauge Value</dt>
+                        <dd>
+                            <wj-input-number
+                                :value.sync="value"
+                                :min="min" :max="max" :step="step"
+                                :format="format" >
+                            </wj-input-number>
+                        </dd>
+                    </dl>
+
+                    <h5>LinearGauge Properties</h5>
+                    <dl class="dl-horizontal">
+                        <dt>Direction</dt>
+                        <dd>
+                            <wj-combo-box
+                                :text.sync="direction"
+                                :items-source="directionValues">
+                            </wj-combo-box>
+                        </dd>
+                    </dl>
+                    <wj-linear-gauge
+                        :style="getLinearGaugeStyle()"
+                        :value.sync="value"
+                        :is-read-only="false"
+                        :min="min"
+                        :max="max"
+                        :step="step"
+                        :format="format"
+                        :thumb-size="thumbSize"
+                        :show-text="showText"
+                        :has-shadow="hasShadow"
+                        :is-animated="isAnimated"
+                        :direction="direction">
+                    </wj-linear-gauge>
+
+                    <h5>RadialGauge Properties</h5>
+                    <dl class="dl-horizontal">
+                        <dt>autoScale</dt>
+                        <dd>
+                            <input type="checkbox" v-model="autoScale" />
+                        </dd>
+                        <dt>startAngle</dt>
+                        <dd>
+                            <wj-input-number
+                                :value.sync="startAngle" 
+                                :min="-360" :max="360" :step="45">
+                            </wj-input-number>
+                        </dd>
+                        <dt>sweepAngle</dt>
+                        <dd>
+                            <wj-input-number
+                                :value.sync="sweepAngle" 
+                                :min="0" :max="360" :step="45">
+                            </wj-input-number>
+                        </dd>
+                    </dl>
+                    <wj-radial-gauge
+                        :value.sync="value"
+                        :is-read-only="false"
+                        :min="min"
+                        :max="max"
+                        :step="step"
+                        :format="format"
+                        :thumb-size="thumbSize"
+                        :show-text="showText"
+                        :has-shadow="hasShadow"
+                        :is-animated="isAnimated"
+                        :auto-scale="autoScale"
+                        :start-angle="startAngle"
+                        :sweep-angle="sweepAngle">
+                    </wj-radial-gauge>
+                </div>
+            </div>
+        </div>
+
+        <!-- Displaying Text Values -->
+        <div>
+            <h2>
+                Displaying Text Values</h2>
+            <p>
+                The gauge controls have three properties that affect text display:</p>
+            <ul>
+                <li>
+                    <b>showText</b>: Determines whether the gauge should show min, max,
+                    and/or current values as text elements,</li>
+                <li>
+                    <b>format</b>: Sets the format string used to convert numeric values
+                    into strings, and</li>
+                <li>
+                    <b>getText</b>: An optional callback function used to provide customized
+                    strings to display for each type of value.</li>
+                </ul>
+            <p>
+                The example below shows how to use the <b>getText</b> callback to provide 
+                custom strings for the gauge value. Click the gauge to change its value 
+                and notice how the value displayed changes between "Empty", "Low", "Good",
+                and "Full".</p>
+            <p>
+                The example also changes the font color and weight using CSS.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#tvHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#tvJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#tvCss" role="tab" data-toggle="tab">CSS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="tvHtml">
+&lt;wj-radial-gauge
+    class="text-gauge"
+    :value.sync="value"
+    :is-read-only="false"
+    :show-ranges="false"
+    :get-text="getText"&gt;
+    &lt;wj-range :min="0" :max="10" color="red"&gt;&lt;/wj-range&gt;
+    &lt;wj-range :min="10" :max="25" color="yellow"&gt;&lt;/wj-range&gt;
+    &lt;wj-range :min="25" :max="100" color="green"&gt;&lt;/wj-range&gt;
+&lt;/wj-radial-gauge&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="tvJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        value: 50,
+    },
+    methods: {
+
+        // getText callback used to convert values into strings
+        getText: function (gauge, part, value, text) {
+            switch (part) {
+                case 'value':
+                    if (value &lt;= 10) return 'Empty!';
+                    if (value &lt;= 25) return 'Low...';
+                    if (value &lt;= 95) return 'Good';
+                    return 'Full';
+                case 'min':
+                    return 'EMPTY';
+                case 'max':
+                    return 'FULL';
+            }
+            return text;
+        }
+    }
+});
+                        </div>
+                        <div class="tab-pane pane-content" id="tvCss">
+/*
+ *  Custom CSS rule for "Text" example
+ */
+.text-gauge.wj-gauge text {
+    fill: #7c7cff;
+    font-weight: bold;
+}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <wj-radial-gauge
+                        class="text-gauge"
+                        :value.sync="value"
+                        :is-read-only="false"
+                        :show-ranges="false"
+                        :get-text="getText">
+                        <wj-range :min="0" :max="10" color="red"></wj-range>
+                        <wj-range :min="10" :max="25" color="yellow"></wj-range>
+                        <wj-range :min="25" :max="100" color="green"></wj-range>
+                    </wj-radial-gauge>
+                </div>
+            </div>
+        </div>
+
+        <!-- Styling -->
+        <div>
+            <h2>
+                Styling</h2>
+            <p>
+                The appearance of the gauge controls is primarily defined in CSS. To customize it, copy the
+                CSS rules from the default theme to a new CSS file and modify the rules as needed.</p>
+            <p>
+                In this example, we added a "custom-gauge" class to the gauges and defined some CSS rules to
+                customize the appearance of the gauge's "face" range and of the thumb. The custom CSS rules
+                also use the "wj-state-focused" class to increase the size of the thumb when the gauge has
+                the focus.</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#stHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#stJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#stCss" role="tab" data-toggle="tab">CSS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="stHtml">
+&lt;h4&gt;
+    Use the gauges to edit this color:
+    &lt;span
+        :style="{ border:'1px solid #333', backgroundColor: 'rgb(' + color.red + ',' + color.green + ',' + color.blue + ')' }"&gt;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &lt;/span&gt;
+&lt;/h4&gt;
+
+&lt;h4&gt;
+    Default Styles&lt;/h4&gt;
+&lt;wj-linear-gauge 
+    :value.sync="color.red"
+    :min="0" :max="255" :step="5"
+    :is-read-only="false"&gt;
+    &lt;wj-range wj-property="pointer" color="red"&gt;&lt;/wj-range&gt;
+&lt;/wj-linear-gauge&gt;
+&lt;wj-linear-gauge 
+    :value.sync="color.green"
+    :min="0" :max="255" :step="5"
+    :is-read-only="false"&gt;
+    &lt;wj-range wj-property="pointer" color="red"&gt;&lt;/wj-range&gt;
+    &lt;wj-range wj-property="pointer" color="green"&gt;&lt;/wj-range&gt;
+&lt;/wj-linear-gauge&gt;
+&lt;wj-linear-gauge 
+    :value.sync="color.blue"
+    :min="0" :max="255" :step="5"
+    :is-read-only="false"&gt;
+    &lt;wj-range wj-property="pointer" color="red"&gt;&lt;/wj-range&gt;
+    &lt;wj-range wj-property="pointer" color="blue"&gt;&lt;/wj-range&gt;
+&lt;/wj-linear-gauge&gt;
+
+&lt;h4&gt;
+    Custom CSS&lt;/h4&gt;
+&lt;wj-linear-gauge
+    class="custom-gauge"
+    :value.sync="color.red"
+    :min="0" :max="255" :step="5"
+    :thumb-size="10"
+    :has-shadow="false"
+    :is-read-only="false"&gt;
+    &lt;wj-range wj-property="face" :thickness="0.25"&gt;&lt;/wj-range&gt;
+    &lt;wj-range wj-property="pointer" :thickness="0.25" color="red"&gt;&lt;/wj-range&gt;
+&lt;/wj-linear-gauge&gt;
+&lt;wj-linear-gauge
+    class="custom-gauge"
+    :value.sync="color.green"
+    :min="0" :max="255" :step="5"
+    :thumb-size="10"
+    :has-shadow="false"
+    :is-read-only="false"&gt;
+    &lt;wj-range wj-property="face" :thickness="0.25"&gt;&lt;/wj-range&gt;
+    &lt;wj-range wj-property="pointer" :thickness="0.25" color="green"&gt;&lt;/wj-range&gt;
+&lt;/wj-linear-gauge&gt;
+&lt;wj-linear-gauge
+    class="custom-gauge"
+    :value.sync="color.blue"
+    :min="0" :max="255" :step="5"
+    :thumb-size="10"
+    :has-shadow="false"
+    :is-read-only="false"&gt;
+    &lt;wj-range wj-property="face" :thickness="0.25"&gt;&lt;/wj-range&gt;
+    &lt;wj-range wj-property="pointer" :thickness="0.25" color="blue"&gt;&lt;/wj-range&gt;
+&lt;/wj-linear-gauge&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="stJs">
+// Vue application
+var app = new Vue({
+    el: '#app',
+    data: {
+        color: {
+            red: 100,
+            green: 100,
+            blue: 100
+        }, ...
+    }
+});
+                        </div>
+                        <div class="tab-pane pane-content" id="stCss">
+/*
+ *  Custom CSS rules for "Styling" example
+ */
+.custom-gauge.wj-gauge {
+    padding: 0px 10px;
+}
+.custom-gauge.wj-gauge .wj-face path {
+    fill: #d0d0d0;
+    stroke: none;
+}
+.custom-gauge.wj-gauge .wj-pointer path {
+    fill: #404040;
+    stroke: none;
+}
+.custom-gauge.wj-gauge circle.wj-pointer {
+    fill: #404040;
+    stroke: none;
+}
+.custom-gauge.wj-gauge.wj-state-focused circle.wj-pointer {
+    fill: red;
+    stroke: black;
+    stroke-width: 8px;
+}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Result (live):</h4>
+                    <h4>
+                        Use the gauges to edit this color:
+                        <span
+                            :style="{ border:'1px solid #333', backgroundColor: 'rgb(' + color.red + ',' + color.green + ',' + color.blue + ')' }">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </h4>
+
+                    <h4>
+                        Default Styles</h4>
+                    <wj-linear-gauge 
+                        :value.sync="color.red"
+                        :min="0" :max="255" :step="5"
+                        :is-read-only="false">
+                        <wj-range wj-property="pointer" color="red"></wj-range>
+                    </wj-linear-gauge>
+                    <wj-linear-gauge 
+                        :value.sync="color.green"
+                        :min="0" :max="255" :step="5"
+                        :is-read-only="false">
+                        <wj-range wj-property="pointer" color="green"></wj-range>
+                    </wj-linear-gauge>
+                    <wj-linear-gauge 
+                        :value.sync="color.blue"
+                        :min="0" :max="255" :step="5"
+                        :is-read-only="false">
+                        <wj-range wj-property="pointer" color="blue"></wj-range>
+                    </wj-linear-gauge>
+
+                    <h4>
+                        Custom CSS</h4>
+                    <wj-linear-gauge
+                        class="custom-gauge"
+                        :value.sync="color.red"
+                        :min="0" :max="255" :step="5"
+                        :thumb-size="10"
+                        :has-shadow="false"
+                        :is-read-only="false">
+                        <wj-range wj-property="face" :thickness="0.25"></wj-range>
+                        <wj-range wj-property="pointer" :thickness="0.25" color="red"></wj-range>
+                    </wj-linear-gauge>
+                    <wj-linear-gauge
+                        class="custom-gauge"
+                        :value.sync="color.green"
+                        :min="0" :max="255" :step="5"
+                        :thumb-size="10"
+                        :has-shadow="false"
+                        :is-read-only="false">
+                        <wj-range wj-property="face" :thickness="0.25"></wj-range>
+                        <wj-range wj-property="pointer" :thickness="0.25" color="green"></wj-range>
+                    </wj-linear-gauge>
+                    <wj-linear-gauge
+                        class="custom-gauge"
+                        :value.sync="color.blue"
+                        :min="0" :max="255" :step="5"
+                        :thumb-size="10"
+                        :has-shadow="false"
+                        :is-read-only="false">
+                        <wj-range wj-property="face" :thickness="0.25"></wj-range>
+                        <wj-range wj-property="pointer" :thickness="0.25" color="blue"></wj-range>
+                    </wj-linear-gauge>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Google analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-208280-14', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

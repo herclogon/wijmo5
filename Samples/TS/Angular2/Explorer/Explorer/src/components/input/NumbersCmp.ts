@@ -1,18 +1,19 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject } from '@angular/core';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
+import { Component, EventEmitter, Inject, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { InputBaseCmp } from './InputBaseCmp';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import { GlbzPipe } from '../../pipes/appPipes';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
+import { AppPipesModule } from '../../pipes/appPipes';
 
 // Numbers sample component.
 @Component({
     selector: 'numbers-cmp',
-    templateUrl: 'src/components/input/numbersCmp.html',
-    directives: [wjNg2Input.WjInputNumber, wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, CORE_DIRECTIVES, FORM_DIRECTIVES],
-    pipes: [GlbzPipe]
+    templateUrl: 'src/components/input/numbersCmp.html'
 })
 
 export class NumbersCmp extends InputBaseCmp {
@@ -25,4 +26,15 @@ export class NumbersCmp extends InputBaseCmp {
     }
 }
 
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: NumbersCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, FormsModule, routing, WjInputModule, AppPipesModule],
+    declarations: [NumbersCmp],
+})
+export class NumbersModule {
+}
 

@@ -1,257 +1,298 @@
-<h2>PdfPaths Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">PdfPaths</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.pdf</dd>
-<dt>File</dt><dd>wijmo.pdf.js</dd>
+<dt>File</dt><dd class="filename">wijmo.pdf.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.pdf.Module.html"><span class="identifier">wijmo.pdf</span></a></dd>
 </dl>
-<p><p>Provides methods for creating graphics paths and drawing them or using them for clipping. </p>
-
-<p>Path creation method calls must be finished with the <b>stroke</b>,
-<b>fill</b>, <b>fillAndStroke</b> or <b>clip</b> method.
+<div class="comment"><p>Provides methods for creating graphics paths and drawing them or using them for clipping. </p>
+<p>Path creation method calls must be finished with the <a href="topic/wijmo.pdf.PdfPaths.Class.html/#stroke"><span class="identifier">stroke</span></a>,
+<a href="topic/wijmo.pdf.PdfPaths.Class.html/#fill"><span class="identifier">fill</span></a>, <a href="topic/wijmo.pdf.PdfPaths.Class.html/#fillAndStroke"><span class="identifier">fillAndStroke</span></a> or <a href="topic/wijmo.pdf.PdfPaths.Class.html/#clip"><span class="identifier">clip</span></a> method.
 Any document methods which don't apply directly to path creation/ drawing/ clipping 
 (changing a pen, drawing a text, saving the graphics state etc) are prohibited to use
 until the path is finished.
-The <b>lineTo</b>, <b>bezierCurveTo</b> and <b>quadraticCurveTo</b> 
-methods should not start the path, they must be preceded with the <b>moveTo</b>.</p>
-
+The <a href="topic/wijmo.pdf.PdfPaths.Class.html/#lineTo"><span class="identifier">lineTo</span></a>, <a href="topic/wijmo.pdf.PdfPaths.Class.html/#bezierCurveTo"><span class="identifier">bezierCurveTo</span></a> and <a href="topic/wijmo.pdf.PdfPaths.Class.html/#quadraticCurveTo"><span class="identifier">quadraticCurveTo</span></a> 
+methods should not start the path, they must be preceded with the <a href="topic/wijmo.pdf.PdfPaths.Class.html/#moveTo"><span class="identifier">moveTo</span></a>.</p>
 <p>The methods are chainable:
-<pre>
-doc.paths.moveTo(0, 0).lineTo(100, 100).stroke();
-</pre></p>
+</p>
 
-<p>This class is not intended to be instantiated in your code.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+<pre>doc.paths.moveTo(0, 0).lineTo(100, 100).stroke();</pre>
+<p>This class is not intended to be instantiated in your code.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(doc, offset): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>doc</b> (<a href="topic/wijmo.pdf.PdfDocument.Class.html"><b>PdfDocument</b></a>): Document.<br/><b>offset</b> (<a href="topic/wijmo.Point.Class.html"><b>Point</b></a>): Offset.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#bezierCurveTo">bezierCurveTo</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#circle">circle</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#clip">clip</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#closePath">closePath</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#ellipse">ellipse</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#fill">fill</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#fillAndStroke">fillAndStroke</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#lineTo">lineTo</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#moveTo">moveTo</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#polygon">polygon</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#quadraticCurveTo">quadraticCurveTo</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#rect">rect</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#roundedRect">roundedRect</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#stroke">stroke</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfPaths.Class.html/#svgPath">svgPath</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(doc: <a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a>, offset: <a href="topic/wijmo.Point.Class.html"><span class="identifier">Point</span></a>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>doc</b>: <a href="topic/wijmo.pdf.PdfDocument.Class.html"><span class="identifier">PdfDocument</span></a><br/><p>Document.</p></li><li><b>offset</b>: <a href="topic/wijmo.Point.Class.html"><span class="identifier">Point</span></a><br/><p>Offset.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>bezierCurveTo</b>&#8203;(cp1x, cp1y, cp2x, cp2y, x, y): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>cp1x</b> (<b>number</b>): The X-coordinate of the first control point, in points.<br/><b>cp1y</b> (<b>number</b>): The Y-coordinate of the first control point, in points.<br/><b>cp2x</b> (<b>number</b>): The X-coordinate of the second control point, in points.<br/><b>cp2y</b> (<b>number</b>): The Y-coordinate of the second control point, in points.<br/><b>x</b> (<b>number</b>): The X-coordinate of the new point, in points.<br/><b>y</b> (<b>number</b>): The Y-coordinate of the new point, in points.<br/></p>
-</td>
-      <td><p>Draws a bezier curve from the current point to a new point using the (cp1x, cp1y)
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="bezierCurveTo" class="member-panel mmethod">
+<h3>bezierCurveTo</h3>
+<pre>bezierCurveTo(cp1x: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, cp1y: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, cp2x: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, cp2y: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, x: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, y: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Draws a bezier curve from the current point to a new point using the (cp1x, cp1y)
 and (cp2x, cp2y) as the control points.</p>
-
-<p>The new current point is (x, y).</p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>circle</b>&#8203;(x, y, radius): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>x</b> (<b>number</b>): The X-coordinate of the center of the circle, in points.<br/><b>y</b> (<b>number</b>): The Y-coordinate of the center of the circle, in points.<br/><b>radius</b> (<b>number</b>): The radius of the circle, in points.<br/></p>
-</td>
-      <td>Draws a circle.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>clip</b>&#8203;(rule?): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>rule?</b> (<a href="topic/wijmo.pdf.PdfFillRule.Enum.html"><b>PdfFillRule</b></a>): The fill rule to use.<br/><span class="text-info">(default value: <b>PdfFillRule.&#8203;NonZero</b>)</span><br/></p>
-</td>
-      <td>Creates a clipping path used to limit the regions of the page affected by 
-painting operators.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>closePath</b>&#8203;(): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td></td>
-      <td>Closes the current path and draws a line from the current point to the initial
-point of the current path.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>ellipse</b>&#8203;(x, y, radiusX, radiusY?): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>x</b> (<b>number</b>): The X-coordinate of the center of the ellipse, in points.<br/><b>y</b> (<b>number</b>): The Y-coordinate of the center of the ellipse, in points.<br/><b>radiusX</b> (<b>number</b>): The radius of the ellipse along the X-axis, in points.<br/><b>radiusY?</b> (<b>number</b>): The radius of the ellipse along the Y-axis, in points. 
-If it is not provided, then it is assumed to be equal to radiusX.<br/><span class="text-info">(default value: <b>radiusX</b>)</span><br/></p>
-</td>
-      <td>Draws an ellipse.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>fill</b>&#8203;(brushOrColor?, rule?): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>brushOrColor?</b> (<b>any</b>): The brush or color to use.<br/><b>rule?</b> (<a href="topic/wijmo.pdf.PdfFillRule.Enum.html"><b>PdfFillRule</b></a>): The fill rule to use.<br/></p>
-</td>
-      <td><p>Fills the path with the specified brush and rule.
+<p>The new current point is (x, y).</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>cp1x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The X-coordinate of the first control point, in points.</p></li><li><b>cp1y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The Y-coordinate of the first control point, in points.</p></li><li><b>cp2x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The X-coordinate of the second control point, in points.</p></li><li><b>cp2y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The Y-coordinate of the second control point, in points.</p></li><li><b>x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The X-coordinate of the new point, in points.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The Y-coordinate of the new point, in points.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="circle" class="member-panel mmethod">
+<h3>circle</h3>
+<pre>circle(x: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, y: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, radius: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Draws a circle.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The X-coordinate of the center of the circle, in points.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The Y-coordinate of the center of the circle, in points.</p></li><li><b>radius</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The radius of the circle, in points.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="clip" class="member-panel mmethod">
+<h3>clip</h3>
+<pre>clip(rule?: <a href="topic/wijmo.pdf.PdfFillRule.Enum.html"><span class="identifier">PdfFillRule</span></a>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Creates a clipping path used to limit the regions of the page affected by 
+painting operators.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>rule</b>: <a href="topic/wijmo.pdf.PdfFillRule.Enum.html"><span class="identifier">PdfFillRule</span></a> <span class="badge">Optional</span><br/><p>The fill rule to use.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="closePath" class="member-panel mmethod">
+<h3>closePath</h3>
+<pre>closePath(): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Closes the current path and draws a line from the current point to the initial
+point of the current path.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="ellipse" class="member-panel mmethod">
+<h3>ellipse</h3>
+<pre>ellipse(x: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, y: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, radiusX: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, radiusY?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Draws an ellipse.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The X-coordinate of the center of the ellipse, in points.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The Y-coordinate of the center of the ellipse, in points.</p></li><li><b>radiusX</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The radius of the ellipse along the X-axis, in points.</p></li><li><b>radiusY</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The radius of the ellipse along the Y-axis, in points. 
+If it is not provided, then it is assumed to be equal to radiusX.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="fill" class="member-panel mmethod">
+<h3>fill</h3>
+<pre>fill(brushOrColor?: <span class="identifier">any</span>, rule?: <a href="topic/wijmo.pdf.PdfFillRule.Enum.html"><span class="identifier">PdfFillRule</span></a>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Fills the path with the specified brush and rule.
 If brush is not specified, then the default document brush will be used 
-(see the <b>setBrush</b> method).</p>
-
+(see the <a href="topic/wijmo.pdf.PdfDocument.Class.html/#setBrush"><span class="identifier">setBrush</span></a> method).</p>
 <p>The brushOrColor argument can accept the following values:
 <ul>
-  <li>A <a href="topic/wijmo.pdf.PdfBrush.Class.html"><b>PdfBrush</b></a> object.</li>
+  <li>A <a href="topic/wijmo.pdf.PdfBrush.Class.html"><span class="identifier">PdfBrush</span></a> object.</li>
   <li>
-    A <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> object or any string acceptable by the <b>fromString</b> method. 
-    In this case, the <b>PdfBrush</b> object with the specified color will be created internally.
+    A <a href="topic/wijmo.Color.Class.html"><span class="identifier">Color</span></a> object or any string acceptable by the <a href="topic/wijmo.Color.Class.html/#fromString"><span class="identifier">fromString</span></a> method. 
+    In this case, the <a href="topic/wijmo.pdf.PdfBrush.Class.html"><span class="identifier">PdfBrush</span></a> object with the specified color will be created internally.
    </li>
-</ul></p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>fillAndStroke</b>&#8203;(brushOrColor?, penOrColor?, rule?): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>brushOrColor?</b> (<b>any</b>): The brush or color to use.<br/><b>penOrColor?</b> (<b>any</b>): The pen or color to use.<br/><b>rule?</b> (<a href="topic/wijmo.pdf.PdfFillRule.Enum.html"><b>PdfFillRule</b></a>): The fill rule to use.<br/></p>
-</td>
-      <td><p>Fills and strokes the path with the specified brush, pen and rule.
+</ul></p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>brushOrColor</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>The brush or color to use.</p></li><li><b>rule</b>: <a href="topic/wijmo.pdf.PdfFillRule.Enum.html"><span class="identifier">PdfFillRule</span></a> <span class="badge">Optional</span><br/><p>The fill rule to use.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="fillAndStroke" class="member-panel mmethod">
+<h3>fillAndStroke</h3>
+<pre>fillAndStroke(brushOrColor?: <span class="identifier">any</span>, penOrColor?: <span class="identifier">any</span>, rule?: <a href="topic/wijmo.pdf.PdfFillRule.Enum.html"><span class="identifier">PdfFillRule</span></a>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Fills and strokes the path with the specified brush, pen and rule.
 If brush and pen is not specified, then the default document brush and pen will
-be used (See the <b>setBrush</b>, <b>setPen</b> methods).</p>
-
+be used (See the <a href="topic/wijmo.pdf.PdfDocument.Class.html/#setBrush"><span class="identifier">setBrush</span></a>, <a href="topic/wijmo.pdf.PdfDocument.Class.html/#setPen"><span class="identifier">setPen</span></a> methods).</p>
 <p>The brushOrColor argument can accept the following values:
 <ul>
-  <li>A <a href="topic/wijmo.pdf.PdfBrush.Class.html"><b>PdfBrush</b></a> object.</li>
+  <li>A <a href="topic/wijmo.pdf.PdfBrush.Class.html"><span class="identifier">PdfBrush</span></a> object.</li>
   <li>
-    A <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> object or any string acceptable by the <b>fromString</b> method. 
-    In this case, the <b>PdfBrush</b> object with the specified color will be created internally.
+    A <a href="topic/wijmo.Color.Class.html"><span class="identifier">Color</span></a> object or any string acceptable by the <a href="topic/wijmo.Color.Class.html/#fromString"><span class="identifier">fromString</span></a> method. 
+    In this case, the <a href="topic/wijmo.pdf.PdfBrush.Class.html"><span class="identifier">PdfBrush</span></a> object with the specified color will be created internally.
    </li>
 </ul></p>
-
 <p>The penOrColor argument can accept the following values:
 <ul>
-  <li>A <a href="topic/wijmo.pdf.PdfPen.Class.html"><b>PdfPen</b></a> object.</li>
+  <li>A <a href="topic/wijmo.pdf.PdfPen.Class.html"><span class="identifier">PdfPen</span></a> object.</li>
   <li>
-    A <b>wijmo.Color</b> object or any string acceptable by the <b>wijmo.Color.fromString</b> method. 
-    In this case, the <b>PdfPen</b> object with the specified color will be created internally.
+    A <a href="topic/wijmo.Color.Class.html"><span class="identifier">Color</span></a> object or any string acceptable by the <a href="topic/wijmo.Color.Class.html/#fromString"><span class="identifier">fromString</span></a> method. 
+    In this case, the <a href="topic/wijmo.pdf.PdfPen.Class.html"><span class="identifier">PdfPen</span></a> object with the specified color will be created internally.
   </li>
-</ul></p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>lineTo</b>&#8203;(x, y): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>x</b> (<b>number</b>): The X-coordinate of the new point, in points.<br/><b>y</b> (<b>number</b>): The Y-coordinate of the new point, in points.<br/></p>
-</td>
-      <td><p>Draws a line from the current point to a new point.</p>
-
-<p>The new current point is (x, y).</p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>moveTo</b>&#8203;(x, y): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>x</b> (<b>number</b>): The X-coordinate of the new point, in points.<br/><b>y</b> (<b>number</b>): The Y-coordinate of the new point, in points.<br/></p>
-</td>
-      <td>Sets a new current point.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>polygon</b>&#8203;(points): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>points</b> (<b>number</b><b>[]</b>): An array of two-elements arrays [x, y] specifying
-the X and Y coordinates of the point, in points.<br/></p>
-</td>
-      <td>Draws a polygon using a given points array.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>quadraticCurveTo</b>&#8203;(cpx, cpy, x, y): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>cpx</b> (<b>number</b>): The X-coordinate of the control point, in points.<br/><b>cpy</b> (<b>number</b>): The Y-coordinate of the control point, in points.<br/><b>x</b> (<b>number</b>): The X-coordinate of the new point, in points.<br/><b>y</b> (<b>number</b>): The Y-coordinate of the new point, in points.<br/></p>
-</td>
-      <td><p>Draws a quadratic curve from the current point to a new point using the current point
-and (cpx, cpy) as the control points.</p>
-
-<p>The new current point is (x, y).</p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>rect</b>&#8203;(x, y, width, height): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>x</b> (<b>number</b>): The X-coordinate of the topleft corner of the rectangle, in points.<br/><b>y</b> (<b>number</b>): The Y-coordinate of the topleft corner of the rectangle, in points.<br/><b>width</b> (<b>number</b>): The width of the rectangle, in points.<br/><b>height</b> (<b>number</b>): The width of the rectangle, in points.<br/></p>
-</td>
-      <td>Draws a rectangle.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>roundedRect</b>&#8203;(x, y, width, height, cornerRadius?): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>x</b> (<b>number</b>): The X-coordinate of the upper-left corner of the rectangle, in points.<br/><b>y</b> (<b>number</b>): The Y-coordinate of the upper-left corner of the rectangle, in points.<br/><b>width</b> (<b>number</b>): The width of the rectangle, in points.<br/><b>height</b> (<b>number</b>): The width of the rectangle, in points.<br/><b>cornerRadius?</b> (<b>number</b>): The corner radius of the rectangle, in points. The default value is 0.<br/><span class="text-info">(default value: <b>0</b>)</span><br/></p>
-</td>
-      <td>Draws a rounded rectangle.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>stroke</b>&#8203;(penOrColor?): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>penOrColor?</b> (<b>any</b>): The pen or color to use.<br/></p>
-</td>
-      <td><p>Strokes the path with the specified pen.
-If pen is not specified, then the default document pen will be used 
-(See the <b>setPen</b> method).</p>
-
-<p>The penOrColor argument can accept the following values:
+</ul></p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
 <ul>
-  <li>A <a href="topic/wijmo.pdf.PdfPen.Class.html"><b>PdfPen</b></a> object.</li>
-  <li>
-    A <a href="topic/wijmo.Color.Class.html"><b>Color</b></a> object or any string acceptable by the <b>fromString</b> method. 
-    In this case, the <b>PdfPen</b> object with the specified color will be created internally.
-  </li>
-</ul></p><br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>svgPath</b>&#8203;(path): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a></td>
-      <td><p>
-<b>path</b> (<b>string</b>): The SVG path to draw.<br/></p>
-</td>
-      <td>Draws a SVG 1.1 path.<br/><br/><b>Returns</b> The <a href="topic/wijmo.pdf.PdfPaths.Class.html"><b>PdfPaths</b></a> object.</td>
-    </tr>
-</tbody>
-</table>
+<li><b>brushOrColor</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>The brush or color to use.</p></li><li><b>penOrColor</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>The pen or color to use.</p></li><li><b>rule</b>: <a href="topic/wijmo.pdf.PdfFillRule.Enum.html"><span class="identifier">PdfFillRule</span></a> <span class="badge">Optional</span><br/><p>The fill rule to use.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
 </div>
-
+<div id="lineTo" class="member-panel mmethod">
+<h3>lineTo</h3>
+<pre>lineTo(x: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, y: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Draws a line from the current point to a new point.</p>
+<p>The new current point is (x, y).</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The X-coordinate of the new point, in points.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The Y-coordinate of the new point, in points.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="moveTo" class="member-panel mmethod">
+<h3>moveTo</h3>
+<pre>moveTo(x: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, y: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Sets a new current point.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The X-coordinate of the new point, in points.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The Y-coordinate of the new point, in points.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="polygon" class="member-panel mmethod">
+<h3>polygon</h3>
+<pre>polygon(points: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>[][]): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Draws a polygon using a given points array.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>points</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>[][]<br/><p>An array of two-elements arrays [x, y] specifying
+the X and Y coordinates of the point, in points.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="quadraticCurveTo" class="member-panel mmethod">
+<h3>quadraticCurveTo</h3>
+<pre>quadraticCurveTo(cpx: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, cpy: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, x: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, y: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Draws a quadratic curve from the current point to a new point using the current point
+and (cpx, cpy) as the control points.</p>
+<p>The new current point is (x, y).</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>cpx</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The X-coordinate of the control point, in points.</p></li><li><b>cpy</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The Y-coordinate of the control point, in points.</p></li><li><b>x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The X-coordinate of the new point, in points.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The Y-coordinate of the new point, in points.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="rect" class="member-panel mmethod">
+<h3>rect</h3>
+<pre>rect(x: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, y: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, width: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, height: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Draws a rectangle.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The X-coordinate of the topleft corner of the rectangle, in points.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The Y-coordinate of the topleft corner of the rectangle, in points.</p></li><li><b>width</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The width of the rectangle, in points.</p></li><li><b>height</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The width of the rectangle, in points.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="roundedRect" class="member-panel mmethod">
+<h3>roundedRect</h3>
+<pre>roundedRect(x: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, y: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, width: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, height: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, cornerRadius?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Draws a rounded rectangle.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>x</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The X-coordinate of the upper-left corner of the rectangle, in points.</p></li><li><b>y</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The Y-coordinate of the upper-left corner of the rectangle, in points.</p></li><li><b>width</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The width of the rectangle, in points.</p></li><li><b>height</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The width of the rectangle, in points.</p></li><li><b>cornerRadius</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The corner radius of the rectangle, in points. The default value is 0.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="stroke" class="member-panel mmethod">
+<h3>stroke</h3>
+<pre>stroke(penOrColor?: <span class="identifier">any</span>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Strokes the path with the specified pen.
+If pen is not specified, then the default document pen will be used 
+(See the <a href="topic/wijmo.pdf.PdfDocument.Class.html/#setPen"><span class="identifier">setPen</span></a> method).</p>
+<p>The penOrColor argument can accept the following values:
+<ul>
+  <li>A <a href="topic/wijmo.pdf.PdfPen.Class.html"><span class="identifier">PdfPen</span></a> object.</li>
+  <li>
+    A <a href="topic/wijmo.Color.Class.html"><span class="identifier">Color</span></a> object or any string acceptable by the <a href="topic/wijmo.Color.Class.html/#fromString"><span class="identifier">fromString</span></a> method. 
+    In this case, the <a href="topic/wijmo.pdf.PdfPen.Class.html"><span class="identifier">PdfPen</span></a> object with the specified color will be created internally.
+  </li>
+</ul></p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>penOrColor</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>The pen or color to use.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+<div id="svgPath" class="member-panel mmethod">
+<h3>svgPath</h3>
+<pre>svgPath(path: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>): <a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></pre>
+<div class="comment"><p>Draws a SVG 1.1 path.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>path</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>The SVG path to draw.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfPaths.Class.html"><span class="identifier">PdfPaths</span></a></dd>
+</dl>
+</div>
+</div>

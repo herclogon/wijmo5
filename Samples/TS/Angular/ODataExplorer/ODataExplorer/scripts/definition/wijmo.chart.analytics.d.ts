@@ -1,6 +1,6 @@
 /*
     *
-    * Wijmo Library 5.20162.198
+    * Wijmo Library 5.20162.207
     * http://wijmo.com/
     *
     * Copyright(c) GrapeCity, Inc.  All rights reserved.
@@ -318,7 +318,8 @@ declare module wijmo.chart.analytics {
     /**
      * Represents a Waterfall series of @see:wijmo.chart.FlexChart.
      *
-     * The @see::Waterfall series is normally used to demonstrate how the starting position either increases or decreases through a series of changes.
+     * The @see:Waterfall series is normally used to demonstrate how the starting
+     * position either increases or decreases through a series of changes.
      */
     class Waterfall extends SeriesBase {
         static CSS_CONNECTOR_LINE_GROUP: string;
@@ -354,7 +355,8 @@ declare module wijmo.chart.analytics {
          */
         relativeData: boolean;
         /**
-        * Gets or sets a value that determines the value of the start bar. If start is null, start bar will not show.
+        * Gets or sets a value that determines the value of the start bar.
+        * If start is null, start bar will not show.
          */
         start: number;
         /**
@@ -362,7 +364,7 @@ declare module wijmo.chart.analytics {
          */
         startLabel: string;
         /**
-        * Gets or sets a value that determines whether the show the total bar.
+        * Gets or sets a value that determines whether to show the total bar.
          */
         showTotal: boolean;
         /**
@@ -371,17 +373,20 @@ declare module wijmo.chart.analytics {
         totalLabel: string;
         /**
          * Gets or sets a value that determines whether to show the intermediate total bar.
-         * The property should work with @see::intermediateToolPositions and @see::intermediateToolLabels property.
+         * The property should work with @see:intermediateTotalPositions and
+         * @see:intermediateTotalLabels property.
          */
         showIntermediateTotal: boolean;
         /**
-         * Gets or sets the value of the property that contains the index for positions of the intermediate total bar.
-         * The property should work with @see::showIntermediateTotal and @see::intermediateToolLabels property.
+         * Gets or sets a value of the property that contains the index for positions
+         * of the intermediate total bar. The property should work with
+         * @see:showIntermediateTotal and @see:intermediateTotalLabels property.
          */
         intermediateTotalPositions: number[];
         /**
-         * Gets or sets the value of the property that contains the label of the intermediate total bar, it should be an array or a string
-         * The property should work with @see::showIntermediateTotal and @see::intermediateToolPositions property.
+         * Gets or sets a value of the property that contains the label of the intermediate
+         * total bar; it should be an array or a string. The property should work with
+         * @see:showIntermediateTotal and @see:intermediateTotalPositions property.
          */
         intermediateTotalLabels: any;
         /**
@@ -390,7 +395,7 @@ declare module wijmo.chart.analytics {
         connectorLines: boolean;
         /**
          * Gets or sets the waterfall styles.
-
+         *
          * The following styles are supported:
          *
          * <b>start</b>: Specifies the style of the start column.

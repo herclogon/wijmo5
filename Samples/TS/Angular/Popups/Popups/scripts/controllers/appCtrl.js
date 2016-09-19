@@ -12,11 +12,11 @@ app.controller('appCtrl', function ($scope) {
         switch (s.dialogResult) {
 
             // process the form variables here...
-            case 'submit':
+            case 'wj-hide-ok':
                 console.log('** Submitting **');
                 break;
 
-            // show 'create account' dialog
+            // close this dialog and show 'create account' dialog
             case 'wj-hide-create':
                 $scope.dialogs.create.show(true);
                 break;

@@ -17,6 +17,8 @@ export declare class AppCmp implements AfterViewInit {
     customColumnHeader: boolean;
     customGroupHeader: boolean;
     customGroup: boolean;
+    customColumnFooter: boolean;
+    customBottomLeft: boolean;
     statisticsColumns: {
         binding: string;
         header: string;
@@ -34,9 +36,12 @@ export declare class AppCmp implements AfterViewInit {
     };
     countryGroupHeaderTemplate: typeof CountryGroupHeaderTemplate;
     protected dataSvc: DataSvc;
+    flex1: wijmo.grid.FlexGrid;
     flex2: wijmo.grid.FlexGrid;
     flex3: wijmo.grid.FlexGrid;
     constructor(dataSvc: DataSvc);
     ngAfterViewInit(): void;
     private _dynaColumnsFlexInit(flex);
+}
+export declare class AppModule {
 }

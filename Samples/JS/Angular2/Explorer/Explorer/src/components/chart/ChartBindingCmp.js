@@ -7,8 +7,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Chart = require('wijmo/wijmo.angular2.chart');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
+var wijmo_angular2_chart_1 = require('wijmo/wijmo.angular2.chart');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // Chart binding component
 var ChartBindingCmp = (function () {
     //@ViewChild('menu') menu: wijmo.input.Menu;
@@ -32,12 +34,25 @@ var ChartBindingCmp = (function () {
     ChartBindingCmp = __decorate([
         core_1.Component({
             selector: 'chart-binding-cmp',
-            templateUrl: 'src/components/chart/chartBindingCmp.html',
-            directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/chart/chartBindingCmp.html'
         })
     ], ChartBindingCmp);
     return ChartBindingCmp;
 }());
 exports.ChartBindingCmp = ChartBindingCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: ChartBindingCmp }
+]);
+var ChartBindingModule = (function () {
+    function ChartBindingModule() {
+    }
+    ChartBindingModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing, wijmo_angular2_chart_1.WjChartModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [ChartBindingCmp],
+        })
+    ], ChartBindingModule);
+    return ChartBindingModule;
+}());
+exports.ChartBindingModule = ChartBindingModule;
 //# sourceMappingURL=ChartBindingCmp.js.map

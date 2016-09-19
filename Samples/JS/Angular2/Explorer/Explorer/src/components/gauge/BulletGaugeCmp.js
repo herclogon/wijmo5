@@ -16,9 +16,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var GaugeBaseCmp_1 = require('./GaugeBaseCmp');
+var router_1 = require('@angular/router');
+var wijmo_angular2_core_1 = require('wijmo/wijmo.angular2.core');
+var wijmo_angular2_gauge_1 = require('wijmo/wijmo.angular2.gauge');
 var SparkSvc_1 = require('../../services/SparkSvc');
-var wjNg2Core = require('wijmo/wijmo.angular2.core');
-var wjNg2Gauge = require('wijmo/wijmo.angular2.gauge');
 // Bullet gauge sample component.
 var BulletGaugeCmp = (function (_super) {
     __extends(BulletGaugeCmp, _super);
@@ -73,12 +74,26 @@ var BulletGaugeCmp = (function (_super) {
     BulletGaugeCmp = __decorate([
         core_1.Component({
             selector: 'bullet-gauge-cmp',
-            templateUrl: 'src/components/gauge/bulletGaugeCmp.html',
-            directives: [wjNg2Gauge.WjBulletGraph, wjNg2Core.WjTooltip, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/gauge/bulletGaugeCmp.html'
         }),
         __param(0, core_1.Inject(SparkSvc_1.SparkSvc))
     ], BulletGaugeCmp);
     return BulletGaugeCmp;
 }(GaugeBaseCmp_1.GaugeBaseCmp));
 exports.BulletGaugeCmp = BulletGaugeCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: BulletGaugeCmp }
+]);
+var BulletGaugeModule = (function () {
+    function BulletGaugeModule() {
+    }
+    BulletGaugeModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_core_1.WjCoreModule, wijmo_angular2_gauge_1.WjGaugeModule],
+            declarations: [BulletGaugeCmp],
+        })
+    ], BulletGaugeModule);
+    return BulletGaugeModule;
+}());
+exports.BulletGaugeModule = BulletGaugeModule;
 //# sourceMappingURL=BulletGaugeCmp.js.map

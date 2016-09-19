@@ -13,7 +13,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var GaugeBaseCmp_1 = require('./GaugeBaseCmp');
-var wjNg2Gauge = require('wijmo/wijmo.angular2.gauge');
+var router_1 = require('@angular/router');
+var wijmo_angular2_gauge_1 = require('wijmo/wijmo.angular2.gauge');
 // Linear gauge sample component.
 var LinearGaugeCmp = (function (_super) {
     __extends(LinearGaugeCmp, _super);
@@ -23,11 +24,25 @@ var LinearGaugeCmp = (function (_super) {
     LinearGaugeCmp = __decorate([
         core_1.Component({
             selector: 'linear-gauge-cmp',
-            templateUrl: 'src/components/gauge/linearGaugeCmp.html',
-            directives: [wjNg2Gauge.WjLinearGauge, wjNg2Gauge.WjRange, common_1.CORE_DIRECTIVES]
+            templateUrl: 'src/components/gauge/linearGaugeCmp.html'
         })
     ], LinearGaugeCmp);
     return LinearGaugeCmp;
 }(GaugeBaseCmp_1.GaugeBaseCmp));
 exports.LinearGaugeCmp = LinearGaugeCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: LinearGaugeCmp }
+]);
+var LinearGaugeModule = (function () {
+    function LinearGaugeModule() {
+    }
+    LinearGaugeModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_gauge_1.WjGaugeModule],
+            declarations: [LinearGaugeCmp],
+        })
+    ], LinearGaugeModule);
+    return LinearGaugeModule;
+}());
+exports.LinearGaugeModule = LinearGaugeModule;
 //# sourceMappingURL=LinearGaugeCmp.js.map

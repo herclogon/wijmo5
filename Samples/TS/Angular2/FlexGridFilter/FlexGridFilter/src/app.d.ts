@@ -14,3 +14,5 @@ export declare class AppCmp {
     restoreFilter(): void;
     initialized(s: wijmo.grid.FlexGrid, e: any): void;
 }
+export declare class AppModule {
+}

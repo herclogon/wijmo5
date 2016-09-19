@@ -15,11 +15,13 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var GridBaseCmp_1 = require('./GridBaseCmp');
+var wijmo_angular2_core_1 = require('wijmo/wijmo.angular2.core');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Core = require('wijmo/wijmo.angular2.core');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
 // FlexGrid Templates sample component.
 var GridCellEditTemplatesCmp = (function (_super) {
     __extends(GridCellEditTemplatesCmp, _super);
@@ -48,10 +50,7 @@ var GridCellEditTemplatesCmp = (function (_super) {
     GridCellEditTemplatesCmp = __decorate([
         core_1.Component({
             selector: 'grid-cell-edit-templates-cmp',
-            templateUrl: 'src/components/grid/gridCellEditTemplatesCmp.html',
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Grid.WjFlexGridCellTemplate, common_1.CORE_DIRECTIVES,
-                wjNg2Input.WjInputNumber, wjNg2Input.WjInputDate, wjNg2Core.WjComponentLoader, wjNg2Core.WjHtmlLoader,
-                core_1.forwardRef(function () { return PersonCellEditorCmp; })]
+            templateUrl: 'src/components/grid/gridCellEditTemplatesCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], GridCellEditTemplatesCmp);
@@ -118,7 +117,7 @@ var PersonCellEditorCmp = (function () {
             template: "\n            <b>Name</b> <input [(ngModel)]=\"firstName\" style=\"width:70px\"/> \n            <b>Surname</b> <input [(ngModel)]=\"lastName\" style=\"width:70px\"/>\n",
             inputs: ['firstName', 'lastName', 'person'],
             outputs: ['firstNameChange', 'lastNameChange', 'personChange'],
-            directives: [common_1.CORE_DIRECTIVES],
+            //directives: [CORE_DIRECTIVES],
             changeDetection: core_1.ChangeDetectionStrategy.OnPush
         })
     ], PersonCellEditorCmp);
@@ -143,4 +142,19 @@ var Person = (function () {
     return Person;
 }());
 exports.Person = Person;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: GridCellEditTemplatesCmp }
+]);
+var GridCellEditTemplatesModule = (function () {
+    function GridCellEditTemplatesModule() {
+    }
+    GridCellEditTemplatesModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing, wijmo_angular2_core_1.WjCoreModule, wijmo_angular2_grid_1.WjGridModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [GridCellEditTemplatesCmp, PersonCellEditorCmp],
+        })
+    ], GridCellEditTemplatesModule);
+    return GridCellEditTemplatesModule;
+}());
+exports.GridCellEditTemplatesModule = GridCellEditTemplatesModule;
 //# sourceMappingURL=GridCellEditTemplatesCmp.js.map

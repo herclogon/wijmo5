@@ -1,251 +1,274 @@
-<h2>CellRange Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">CellRange</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.grid</dd>
-<dt>File</dt><dd>wijmo.grid.js</dd>
+<dt>File</dt><dd class="filename">wijmo.grid.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.grid.Module.html"><span class="identifier">wijmo.grid</span></a></dd>
 </dl>
-<p>Represents a rectangular group of cells defined by two row indices and
-two column indices.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+<div class="comment"><p>Represents a rectangular group of cells defined by two row indices and
+two column indices.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(r?, c?, r2?, c2?): <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a></td>
-      <td><p>
-<b>r?</b> (<b>number</b>): The index of the first row in the range (defaults to -1).<br/><span class="text-info">(default value: <b>-1</b>)</span><br/><b>c?</b> (<b>number</b>): The index of the first column in the range (defaults to -1).<br/><span class="text-info">(default value: <b>-1</b>)</span><br/><b>r2?</b> (<b>number</b>): The index of the last row in the range (defaults to <b>r</b>).<br/><span class="text-info">(default value: <b>r</b>)</span><br/><b>c2?</b> (<b>number</b>): The index of the last column in the range (defaults to <b>c</b>).<br/><span class="text-info">(default value: <b>c</b>)</span><br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.grid.CellRange.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.grid.CellRange.Class.html/#bottomRow">bottomRow</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.CellRange.Class.html/#col">col</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.CellRange.Class.html/#col2">col2</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.CellRange.Class.html/#columnSpan">columnSpan</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.CellRange.Class.html/#isSingleCell">isSingleCell</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.CellRange.Class.html/#isValid">isValid</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.CellRange.Class.html/#leftCol">leftCol</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.CellRange.Class.html/#rightCol">rightCol</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.CellRange.Class.html/#row">row</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.CellRange.Class.html/#row2">row2</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.CellRange.Class.html/#rowSpan">rowSpan</a></li>
+<li class="mproperty"><a href="topic/wijmo.grid.CellRange.Class.html/#topRow">topRow</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.grid.CellRange.Class.html/#clone">clone</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.CellRange.Class.html/#contains">contains</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.CellRange.Class.html/#containsColumn">containsColumn</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.CellRange.Class.html/#containsRow">containsRow</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.CellRange.Class.html/#equals">equals</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.CellRange.Class.html/#getRenderSize">getRenderSize</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.CellRange.Class.html/#intersects">intersects</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.CellRange.Class.html/#intersectsColumn">intersectsColumn</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.CellRange.Class.html/#intersectsRow">intersectsRow</a></li>
+<li class="mmethod"><a href="topic/wijmo.grid.CellRange.Class.html/#setRange">setRange</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(r?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, c?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, r2?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, c2?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>r</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The index of the first row in the range (defaults to -1).</p></li><li><b>c</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The index of the first column in the range (defaults to -1).</p></li><li><b>r2</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The index of the last row in the range (defaults to <b>r</b>).</p></li><li><b>c2</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The index of the last column in the range (defaults to <b>c</b>).</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>bottomRow</b></td>
-      <td><b>number</b></td>
-      <td>Gets the index of the bottom row in the range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>col</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the index of the first column in the range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>col2</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the index of the second column in the range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>columnSpan</b></td>
-      <td><b>number</b></td>
-      <td>Gets the number of columns in the range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>isSingleCell</b></td>
-      <td><b>boolean</b></td>
-      <td>Checks whether this range corresponds to a single cell (beginning and ending rows have 
-the same index, and beginning and ending columns have the same index).</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>isValid</b></td>
-      <td><b>boolean</b></td>
-      <td>Checks whether the range contains valid row and column indices 
-(row and column values are zero or greater).</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>leftCol</b></td>
-      <td><b>number</b></td>
-      <td>Gets the index of the leftmost column in the range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>rightCol</b></td>
-      <td><b>number</b></td>
-      <td>Gets the index of the rightmost column in the range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>row</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the index of the first row in the range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>row2</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the index of the second row in the range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>rowSpan</b></td>
-      <td><b>number</b></td>
-      <td>Gets the number of rows in the range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>topRow</b></td>
-      <td><b>number</b></td>
-      <td>Gets the index of the top row in the range.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="bottomRow" class="member-panel mproperty">
+<h3>bottomRow</h3>
+<div class="comment"><p>Gets the index of the bottom row in the range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div id="col" class="member-panel mproperty">
+<h3>col</h3>
+<div class="comment"><p>Gets or sets the index of the first column in the range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>clone</b>&#8203;(): <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a></td>
-      <td></td>
-      <td>Creates a copy of the range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>contains</b>&#8203;(r, c?): <b>boolean</b></td>
-      <td><p>
-<b>r</b> (<b>any</b>): The CellRange object or row index to find.<br/><b>c?</b> (<b>number</b>): The column index (required if the r parameter is not a CellRange object).<br/></p>
-</td>
-      <td>Checks whether the range contains another range or a specific cell.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>containsColumn</b>&#8203;(c): <b>boolean</b></td>
-      <td><p>
-<b>c</b> (<b>number</b>): The index of the column to find.<br/></p>
-</td>
-      <td>Checks whether the range contains a given column.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>containsRow</b>&#8203;(r): <b>boolean</b></td>
-      <td><p>
-<b>r</b> (<b>number</b>): The index of the row to find.<br/></p>
-</td>
-      <td>Checks whether the range contains a given row.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>equals</b>&#8203;(rng): <b>boolean</b></td>
-      <td><p>
-<b>rng</b> (<a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a>): The CellRange object to compare to this range.<br/></p>
-</td>
-      <td>Checks whether the range equals another range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>getRenderSize</b>&#8203;(p): <a href="topic/wijmo.Size.Class.html"><b>Size</b></a></td>
-      <td><p>
-<b>p</b> (<a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a>): The <a href="topic/wijmo.grid.GridPanel.Class.html"><b>GridPanel</b></a> object that contains the range.<br/></p>
-</td>
-      <td>Gets the rendered size of this range.<br/><br/><b>Returns</b> A <a href="topic/wijmo.Size.Class.html"><b>Size</b></a> object that represents the sum of row heights and column widths in the range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>intersects</b>&#8203;(rng): <b>boolean</b></td>
-      <td><p>
-<b>rng</b> (<a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a>): The CellRange object to check.<br/></p>
-</td>
-      <td>Checks whether the range intersects another range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>intersectsColumn</b>&#8203;(rng): <b>boolean</b></td>
-      <td><p>
-<b>rng</b> (<a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a>): The CellRange object to check.<br/></p>
-</td>
-      <td>Checks whether the range intersects the columns in another range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>intersectsRow</b>&#8203;(rng): <b>boolean</b></td>
-      <td><p>
-<b>rng</b> (<a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a>): The CellRange object to check.<br/></p>
-</td>
-      <td>Checks whether the range intersects the rows in another range.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>setRange</b>&#8203;(r?, c?, r2?, c2?)</td>
-      <td><p>
-<b>r?</b> (<b>number</b>): The index of the first row in the range (defaults to -1).<br/><span class="text-info">(default value: <b>-1</b>)</span><br/><b>c?</b> (<b>number</b>): The index of the first column in the range (defaults to -1).<br/><span class="text-info">(default value: <b>-1</b>)</span><br/><b>r2?</b> (<b>number</b>): The index of the last row in the range (defaults to <b>r</b>).<br/><span class="text-info">(default value: <b>r</b>)</span><br/><b>c2?</b> (<b>number</b>): The index of the last column in the range (defaults to <b>c</b>).<br/><span class="text-info">(default value: <b>c</b>)</span><br/></p>
-</td>
-      <td>Initializes an existing <a href="topic/wijmo.grid.CellRange.Class.html"><b>CellRange</b></a>.</td>
-    </tr>
-</tbody>
-</table>
+<div id="col2" class="member-panel mproperty">
+<h3>col2</h3>
+<div class="comment"><p>Gets or sets the index of the second column in the range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-
+<div id="columnSpan" class="member-panel mproperty">
+<h3>columnSpan</h3>
+<div class="comment"><p>Gets the number of columns in the range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="isSingleCell" class="member-panel mproperty">
+<h3>isSingleCell</h3>
+<div class="comment"><p>Checks whether this range corresponds to a single cell (beginning and ending rows have 
+the same index, and beginning and ending columns have the same index).</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isValid" class="member-panel mproperty">
+<h3>isValid</h3>
+<div class="comment"><p>Checks whether the range contains valid row and column indices 
+(row and column values are zero or greater).</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="leftCol" class="member-panel mproperty">
+<h3>leftCol</h3>
+<div class="comment"><p>Gets the index of the leftmost column in the range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="rightCol" class="member-panel mproperty">
+<h3>rightCol</h3>
+<div class="comment"><p>Gets the index of the rightmost column in the range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="row" class="member-panel mproperty">
+<h3>row</h3>
+<div class="comment"><p>Gets or sets the index of the first row in the range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="row2" class="member-panel mproperty">
+<h3>row2</h3>
+<div class="comment"><p>Gets or sets the index of the second row in the range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="rowSpan" class="member-panel mproperty">
+<h3>rowSpan</h3>
+<div class="comment"><p>Gets the number of rows in the range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="topRow" class="member-panel mproperty">
+<h3>topRow</h3>
+<div class="comment"><p>Gets the index of the top row in the range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+</div>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="clone" class="member-panel mmethod">
+<h3>clone</h3>
+<pre>clone(): <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a></pre>
+<div class="comment"><p>Creates a copy of the range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a></dd>
+</dl>
+</div>
+<div id="contains" class="member-panel mmethod">
+<h3>contains</h3>
+<pre>contains(r: <span class="identifier">any</span>, c?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Checks whether the range contains another range or a specific cell.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>r</b>: <span class="identifier">any</span><br/><p>The CellRange object or row index to find.</p></li><li><b>c</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The column index (required if the r parameter is not a CellRange object).</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="containsColumn" class="member-panel mmethod">
+<h3>containsColumn</h3>
+<pre>containsColumn(c: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Checks whether the range contains a given column.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>c</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The index of the column to find.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="containsRow" class="member-panel mmethod">
+<h3>containsRow</h3>
+<pre>containsRow(r: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Checks whether the range contains a given row.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>r</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The index of the row to find.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="equals" class="member-panel mmethod">
+<h3>equals</h3>
+<pre>equals(rng: <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Checks whether the range equals another range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>rng</b>: <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a><br/><p>The CellRange object to compare to this range.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="getRenderSize" class="member-panel mmethod">
+<h3>getRenderSize</h3>
+<pre>getRenderSize(p: <a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a>): <a href="topic/wijmo.Size.Class.html"><span class="identifier">Size</span></a></pre>
+<div class="comment"><p>Gets the rendered size of this range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>p</b>: <a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a><br/><p>The <a href="topic/wijmo.grid.GridPanel.Class.html"><span class="identifier">GridPanel</span></a> object that contains the range.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.Size.Class.html"><span class="identifier">Size</span></a></dd>
+</dl>
+</div>
+<div id="intersects" class="member-panel mmethod">
+<h3>intersects</h3>
+<pre>intersects(rng: <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Checks whether the range intersects another range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>rng</b>: <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a><br/><p>The CellRange object to check.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="intersectsColumn" class="member-panel mmethod">
+<h3>intersectsColumn</h3>
+<pre>intersectsColumn(rng: <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Checks whether the range intersects the columns in another range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>rng</b>: <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a><br/><p>The CellRange object to check.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="intersectsRow" class="member-panel mmethod">
+<h3>intersectsRow</h3>
+<pre>intersectsRow(rng: <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Checks whether the range intersects the rows in another range.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>rng</b>: <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a><br/><p>The CellRange object to check.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="setRange" class="member-panel mmethod">
+<h3>setRange</h3>
+<pre>setRange(r?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, c?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, r2?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>, c2?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Initializes an existing <a href="topic/wijmo.grid.CellRange.Class.html"><span class="identifier">CellRange</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>r</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The index of the first row in the range (defaults to -1).</p></li><li><b>c</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The index of the first column in the range (defaults to -1).</p></li><li><b>r2</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The index of the last row in the range (defaults to <b>r</b>).</p></li><li><b>c2</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The index of the last column in the range (defaults to <b>c</b>).</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
+</div>
+</div>

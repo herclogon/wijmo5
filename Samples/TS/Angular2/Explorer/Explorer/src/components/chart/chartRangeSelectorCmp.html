@@ -1,0 +1,39 @@
+﻿<div>
+    <div class="copy">
+        <h3>
+            Range Selector
+        </h3>
+        <div class="alert alert-info" role="alert"><b>Important!</b> This feature requires the <a href="http://wijmo.com/5/docs/topic/wijmo.chart.interaction.Module.html">wijmo.chart.interaction</a> extension module.</div>
+        <p>
+            Range selector allows the user to choose the range of data to display on the FinancialChart.
+        </p>
+        <p>
+            In the example below, the FinancialChart control's min and max values change with the selection of range on range selector.
+        </p>
+    </div>
+    <div>
+
+        <div >
+            <wj-flex-chart class="chart" style="border-bottom: 0 none; margin-bottom: 0; display:block"
+                           #stChart
+                           [itemsSource]="data"
+                           [header]="header"
+                           chartType="Candlestick"
+                           [symbolSize]="4"
+                           (rendered)="stRendered()"
+                           bindingX="date">
+                <wj-flex-chart-series name="Close" binding="high,low,open,close"></wj-flex-chart-series>
+            </wj-flex-chart>
+            <wj-flex-chart class="chart" style="height:120px; display:block"
+                                #rsChart
+                                [itemsSource]="data"
+                                chartType="Line"
+                                (rendered)="rsRendered()"
+                                bindingX="date">
+                <wj-flex-chart-series binding="close"></wj-flex-chart-series>
+                <wj-flex-chart-range-selector #rangeSelector [seamless]="true"
+                                              (rangeChanged)="rangeChanged()">
+                </wj-flex-chart-range-selector>
+            </wj-flex-chart>
+</div>
+    </div>

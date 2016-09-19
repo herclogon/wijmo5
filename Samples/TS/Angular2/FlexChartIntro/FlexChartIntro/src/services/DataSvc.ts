@@ -17,5 +17,17 @@ export class DataSvc {
             });
         }
         return data;
-    }
+    };
+
+    getFunnelData(countries: string[]): any[] {
+        var data = [], sales = 10000;
+        for (var i = 0; i < countries.length; i++) {
+            data.push({
+                country: countries[i],
+                sales: sales
+            });
+            sales = sales - Math.round(Math.random() * 2000);
+        }
+        return data;
+    };
 }

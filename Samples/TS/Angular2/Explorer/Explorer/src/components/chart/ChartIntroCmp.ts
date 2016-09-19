@@ -1,16 +1,16 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject, ViewChild } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 // Chart Intro sample component
 @Component({
     selector: 'chart-intro-cmp',
-    templateUrl: 'src/components/chart/chartIntroCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries,
-        wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, CORE_DIRECTIVES]
+    templateUrl: 'src/components/chart/chartIntroCmp.html'
 })
 
 export class ChartIntroCmp {
@@ -57,4 +57,15 @@ export class ChartIntroCmp {
         return chart && (chart.chartType == wijmo.chart.ChartType.Column || chart.chartType == wijmo.chart.ChartType.Bar);
     };
 
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: ChartIntroCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjChartModule, WjInputModule],
+    declarations: [ChartIntroCmp],
+})
+export class ChartIntroModule {
 }

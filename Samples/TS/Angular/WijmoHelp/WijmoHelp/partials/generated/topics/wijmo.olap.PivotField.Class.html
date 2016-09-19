@@ -1,259 +1,215 @@
-<h2>PivotField Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">PivotField</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Module</dt><dd>wijmo.olap</dd>
-<dt>File</dt><dd>wijmo.olap.js</dd>
+<dt>File</dt><dd class="filename">wijmo.olap.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.olap.Module.html"><span class="identifier">wijmo.olap</span></a></dd>
 </dl>
-<p>Represents a property of the items in the wijmo.olap data source.</p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+<div class="comment"><p>Represents a property of the items in the wijmo.olap data source.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(engine, binding, header?, options?): <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a></td>
-      <td><p>
-<b>engine</b> (<a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a>): <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a> that owns this field.<br/><b>binding</b> (<b>string</b>): Property that this field is bound to.<br/><b>header?</b> (<b>string</b>): Header shown to identify this field (defaults to the binding).<br/><b>options?</b> (<b>any</b>): JavaScript object containing initialization data for the field.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.olap.PivotField.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#aggregate">aggregate</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#binding">binding</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#collectionView">collectionView</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#dataType">dataType</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#descending">descending</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#engine">engine</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#filter">filter</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#format">format</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#header">header</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#isActive">isActive</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#isContentHtml">isContentHtml</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#parentField">parentField</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#showAs">showAs</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#weightField">weightField</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#width">width</a></li>
+<li class="mproperty"><a href="topic/wijmo.olap.PivotField.Class.html/#wordWrap">wordWrap</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod raiser"><a href="topic/wijmo.olap.PivotField.Class.html/#onPropertyChanged">onPropertyChanged</a></li>
+</ul>
+<h3 class="node">Events</h3>
+<ul>
+<li class="mevent"><a href="topic/wijmo.olap.PivotField.Class.html/#propertyChanged">propertyChanged</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(engine: <a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a>, binding: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, header?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a>, options?: <span class="identifier">any</span>): <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>engine</b>: <a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a><br/><p><a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a> that owns this field.</p></li><li><b>binding</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a><br/><p>Property that this field is bound to.</p></li><li><b>header</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a> <span class="badge">Optional</span><br/><p>Header shown to identify this field (defaults to the binding).</p></li><li><b>options</b>: <span class="identifier">any</span> <span class="badge">Optional</span><br/><p>JavaScript object containing initialization data for the field.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>aggregate</b></td>
-      <td><a href="topic/wijmo.Aggregate.Enum.html"><b>Aggregate</b></a></td>
-      <td>Gets or sets how the field should be summarized.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>binding</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the name of the property the field is bound to.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>collectionView</b></td>
-      <td><b>ICollectionView</b></td>
-      <td>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><b>ICollectionView</b></a> bound to this field.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>dataType</b></td>
-      <td><a href="topic/wijmo.DataType.Enum.html"><b>DataType</b></a></td>
-      <td>Gets or sets the data type of the field.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>descending</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value that determines whether keys should be sorted 
-in descending order for this field.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>engine</b></td>
-      <td><a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a></td>
-      <td>Gets a reference to the <a href="topic/wijmo.olap.PivotEngine.Class.html"><b>PivotEngine</b></a> that owns this <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a>.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>filter</b></td>
-      <td><a href="topic/wijmo.olap.PivotFilter.Class.html"><b>PivotFilter</b></a></td>
-      <td>Gets a reference to the <a href="topic/wijmo.olap.PivotFilter.Class.html"><b>PivotFilter</b></a> used to filter values for this field.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>format</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets the format to use when displaying field values.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>header</b></td>
-      <td><b>string</b></td>
-      <td>Gets or sets a string used to represent this field in the user interface.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>isActive</b></td>
-      <td><b>boolean</b></td>
-      <td><p>Gets or sets a value that determines whether this field is
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="aggregate" class="member-panel mproperty">
+<h3>aggregate</h3>
+<div class="comment"><p>Gets or sets how the field should be summarized.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.Aggregate.Enum.html"><span class="identifier">Aggregate</span></a></dd>
+</dl>
+</div>
+<div id="binding" class="member-panel mproperty">
+<h3>binding</h3>
+<div class="comment"><p>Gets or sets the name of the property the field is bound to.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="collectionView" class="member-panel mproperty">
+<h3>collectionView</h3>
+<div class="comment"><p>Gets the <a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a> bound to this field.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.collections.ICollectionView.Interface.html"><span class="identifier">ICollectionView</span></a></dd>
+</dl>
+</div>
+<div id="dataType" class="member-panel mproperty">
+<h3>dataType</h3>
+<div class="comment"><p>Gets or sets the data type of the field.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.DataType.Enum.html"><span class="identifier">DataType</span></a></dd>
+</dl>
+</div>
+<div id="descending" class="member-panel mproperty">
+<h3>descending</h3>
+<div class="comment"><p>Gets or sets a value that determines whether keys should be sorted 
+in descending order for this field.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="engine" class="member-panel mproperty">
+<h3>engine</h3>
+<div class="comment"><p>Gets a reference to the <a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a> that owns this <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.olap.PivotEngine.Class.html"><span class="identifier">PivotEngine</span></a></dd>
+</dl>
+</div>
+<div id="filter" class="member-panel mproperty">
+<h3>filter</h3>
+<div class="comment"><p>Gets a reference to the <a href="topic/wijmo.olap.PivotFilter.Class.html"><span class="identifier">PivotFilter</span></a> used to filter values for this field.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.olap.PivotFilter.Class.html"><span class="identifier">PivotFilter</span></a></dd>
+</dl>
+</div>
+<div id="format" class="member-panel mproperty">
+<h3>format</h3>
+<div class="comment"><p>Gets or sets the format to use when displaying field values.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="header" class="member-panel mproperty">
+<h3>header</h3>
+<div class="comment"><p>Gets or sets a string used to represent this field in the user interface.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank"><span class="identifier">string</span></a></dd>
+</dl>
+</div>
+<div id="isActive" class="member-panel mproperty">
+<h3>isActive</h3>
+<div class="comment"><p>Gets or sets a value that determines whether this field is
 currently being used in the view.</p>
-
 <p>Setting this property to true causes the field to be added to the
-view's <b>rowFields</b> or <b>valueFields</b>, 
-depending on the field's data type.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>isContentHtml</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value indicating whether items in this field 
-contain HTML content rather than plain text.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>parentField</b></td>
-      <td><a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a></td>
-      <td><p>Gets this field's parent field.</p>
-
+view's <a href="topic/wijmo.olap.PivotEngine.Class.html/#rowFields"><span class="identifier">rowFields</span></a> or <a href="topic/wijmo.olap.PivotEngine.Class.html/#valueFields"><span class="identifier">valueFields</span></a>, 
+depending on the field's data type.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="isContentHtml" class="member-panel mproperty">
+<h3>isContentHtml</h3>
+<div class="comment"><p>Gets or sets a value indicating whether items in this field 
+contain HTML content rather than plain text.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+<div id="parentField" class="member-panel mproperty">
+<h3>parentField</h3>
+<div class="comment"><p>Gets this field's parent field.</p>
 <p>When you drag the same field into the Values list multiple
 times, copies of the field are created so you can use the
 same binding with different parameters. The copies keep a
-reference to their parent fields.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>showAs</b></td>
-      <td><a href="topic/wijmo.olap.ShowAs.Enum.html"><b>ShowAs</b></a></td>
-      <td>Gets or sets how the field results should be formatted.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>weightField</b></td>
-      <td><a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a></td>
-      <td><p>Gets or sets the <a href="topic/wijmo.olap.PivotField.Class.html"><b>PivotField</b></a> used as a weight for calculating
+reference to their parent fields.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a></dd>
+</dl>
+</div>
+<div id="showAs" class="member-panel mproperty">
+<h3>showAs</h3>
+<div class="comment"><p>Gets or sets how the field results should be formatted.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.olap.ShowAs.Enum.html"><span class="identifier">ShowAs</span></a></dd>
+</dl>
+</div>
+<div id="weightField" class="member-panel mproperty">
+<h3>weightField</h3>
+<div class="comment"><p>Gets or sets the <a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a> used as a weight for calculating
 aggregates on this field.</p>
-
 <p>If this property is set to null, all values are assumed to have weight one.</p>
-
 <p>This property allows you to calculate weighted averages and totals. 
 For example, if the data contains a 'Quantity' field and a 'Price' field,
 you could use the 'Price' field as a value field and the 'Quantity' field as
-a weight. The output would contain a weighted average of the data.</p></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>width</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the preferred width to be used for showing this field in the 
-user interface.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>wordWrap</b></td>
-      <td><b>boolean</b></td>
-      <td>Gets or sets a value that indicates whether the content of this field should
-be allowed to wrap within cells.</td>
-    </tr>
-</tbody>
-</table>
+a weight. The output would contain a weighted average of the data.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.olap.PivotField.Class.html"><span class="identifier">PivotField</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<div id="width" class="member-panel mproperty">
+<h3>width</h3>
+<div class="comment"><p>Gets or sets the preferred width to be used for showing this field in the 
+user interface.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>onPropertyChanged</b>&#8203;(e)</td>
-      <td><p>
-<b>e</b> (<a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><b>PropertyChangedEventArgs</b></a>): <a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><b>PropertyChangedEventArgs</b></a> that contains the property
-name, old, and new values.<br/></p>
-</td>
-      <td>Raises the <b>propertyChanged</b> event.</td>
-    </tr>
-</tbody>
-</table>
+<div id="wordWrap" class="member-panel mproperty">
+<h3>wordWrap</h3>
+<div class="comment"><p>Gets or sets a value that indicates whether the content of this field should
+be allowed to wrap within cells.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideEvents = !hideEvents">
-<span class="glyph-collapsed" ng-show="hideEvents"></span>
-<span class="glyph-expanded" ng-hide="hideEvents"></span>
-Events
-</h3>
 </div>
-<table ng-hide="hideEvents" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Arguments</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>propertyChanged</b></td>
-      <td><a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><b>PropertyChangedEventArgs</b></a></td>
-      <td>Occurs when the value of a property in this <a href="topic/wijmo.gauge.Range.Class.html"><b>Range</b></a> changes.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="onPropertyChanged" class="member-panel mmethod raiser">
+<h3>onPropertyChanged</h3>
+<pre>onPropertyChanged(e: <a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><span class="identifier">PropertyChangedEventArgs</span></a>): <span class="identifier">void</span></pre>
+<div class="comment"><p>Raises the <a href="topic/wijmo.olap.PivotField.Class.html/#propertyChanged"><span class="identifier">propertyChanged</span></a> event.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>e</b>: <a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><span class="identifier">PropertyChangedEventArgs</span></a><br/><p><a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><span class="identifier">PropertyChangedEventArgs</span></a> that contains the property
+name, old, and new values.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">void</span></dd>
+</dl>
 </div>
-
+</div>
+<h3 class="node">Events</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="propertyChanged" class="member-panel mevent">
+<h3>propertyChanged</h3>
+<div class="comment"><p>Occurs when the value of a property in this <a href="topic/wijmo.gauge.Range.Class.html"><span class="identifier">Range</span></a> changes.</p></div>
+<dl class="dl-horizontal">
+  <dt>Arguments</dt><dd><a href="topic/wijmo.PropertyChangedEventArgs.Class.html"><span class="identifier">PropertyChangedEventArgs</span></a></dd>
+</dl>
+</div>
+</div>

@@ -9,3 +9,5 @@ export declare class AppTabPane {
     title: string;
     selected: boolean;
 }
+export declare class TabsModule {
+}

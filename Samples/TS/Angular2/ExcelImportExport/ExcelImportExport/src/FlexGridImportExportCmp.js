@@ -11,9 +11,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 // Angular
 var core_1 = require('@angular/core');
-var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var wjFlexGrid = require('wijmo/wijmo.angular2.grid');
+var platform_browser_1 = require('@angular/platform-browser');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
 var AppTab_1 = require('./components/AppTab');
 var DataSvc_1 = require('./services/DataSvc');
 'use strict';
@@ -76,17 +77,28 @@ var FlexGridImportExportCmp = (function () {
     FlexGridImportExportCmp = __decorate([
         core_1.Component({
             selector: 'flex-grid-import-export-cmp',
-            templateUrl: 'src/flexGridImportExportCmp.html',
-            directives: [common_1.CORE_DIRECTIVES, AppTab_1.AppTab, AppTab_1.AppTabPane, wjFlexGrid.WjFlexGrid]
+            templateUrl: 'src/flexGridImportExportCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], FlexGridImportExportCmp);
     return FlexGridImportExportCmp;
 }());
 exports.FlexGridImportExportCmp = FlexGridImportExportCmp;
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [wijmo_angular2_grid_1.WjGridModule, platform_browser_1.BrowserModule, forms_1.FormsModule, AppTab_1.TabsModule],
+            declarations: [FlexGridImportExportCmp],
+            providers: [DataSvc_1.DataSvc],
+            bootstrap: [FlexGridImportExportCmp]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+exports.AppModule = AppModule;
 core_1.enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-platform_browser_dynamic_1.bootstrap(FlexGridImportExportCmp, [
-    DataSvc_1.DataSvc
-]);
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(AppModule);
 //# sourceMappingURL=FlexGridImportExportCmp.js.map

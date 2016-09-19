@@ -15,10 +15,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
+var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var GridBaseCmp_1 = require('./GridBaseCmp');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Input = require('wijmo/wijmo.angular2.input');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_input_1 = require('wijmo/wijmo.angular2.input');
 // FlexGrid Grouping sample component.
 var GridGroupingCmp = (function (_super) {
     __extends(GridGroupingCmp, _super);
@@ -28,13 +30,26 @@ var GridGroupingCmp = (function (_super) {
     GridGroupingCmp = __decorate([
         core_1.Component({
             selector: 'grid-grouping-cmp',
-            templateUrl: 'src/components/grid/gridGroupingCmp.html',
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn, wjNg2Input.WjCollectionViewNavigator,
-                wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjMenuSeparator, common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
+            templateUrl: 'src/components/grid/gridGroupingCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], GridGroupingCmp);
     return GridGroupingCmp;
 }(GridBaseCmp_1.GridBaseCmp));
 exports.GridGroupingCmp = GridGroupingCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: GridGroupingCmp }
+]);
+var GridGroupingModule = (function () {
+    function GridGroupingModule() {
+    }
+    GridGroupingModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule, routing, wijmo_angular2_grid_1.WjGridModule, wijmo_angular2_input_1.WjInputModule],
+            declarations: [GridGroupingCmp],
+        })
+    ], GridGroupingModule);
+    return GridGroupingModule;
+}());
+exports.GridGroupingModule = GridGroupingModule;
 //# sourceMappingURL=GridGroupingCmp.js.map

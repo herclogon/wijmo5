@@ -37,3 +37,5 @@ export declare class AppCmp {
     private _applyGrouping();
     private _findGroup(propName);
 }
+export declare class AppModule {
+}

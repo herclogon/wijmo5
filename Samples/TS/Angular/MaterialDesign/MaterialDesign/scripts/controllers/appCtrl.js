@@ -5,11 +5,8 @@ var app = angular.module('app');
 app.controller('appCtrl', function ($scope) {
 
     // CSS url templates
-    var CSS_WIJMO = 'http://prerelease.componentone.com/wijmo5/latest/styles/themes/material/wijmo.theme.material.{colors}.min.css';
+    var CSS_WIJMO = 'http://cdn.wijmo.com/5.latest/styles/themes/material/wijmo.theme.material.{colors}.min.css';
     var CSS_MDL = 'https://code.getmdl.io/1.1.1/material.{colors}.min.css';
-
-    // TODO: remove this when the themes are released to our CDN
-    CSS_WIJMO = 'http://prerelease.componentone.com/wijmo5/latest/styles/themes/material/wijmo.theme.material.{colors}.min.css'
 
     // define the standard Material Design Lite color palette
     $scope.palette = [
@@ -58,7 +55,7 @@ app.controller('appCtrl', function ($scope) {
     $scope.theGaugeValue = 80;
     $scope.theDateTime = new Date(2016, 2, 2, 13, 30);
 
-    // sample validation funtions
+    // sample validation functions
     $scope.checkEven = function (number) {
         return wijmo.isNumber(number) && number % 2 != 0
             ? 'not an even number...'

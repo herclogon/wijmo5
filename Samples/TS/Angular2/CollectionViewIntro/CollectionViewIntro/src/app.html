@@ -80,12 +80,12 @@
     &lt;table class="table table-condensed table-bordered"&gt;
         &lt;thead&gt;
             &lt;tr class="active"&gt;
-                &lt;th class="text-center" *ngFor="let fieldName of fieldNames"&gt;{&#8203;{fieldName}&#8203;}&lt;/th&gt;
+                &lt;th class="text-center" *ngFor="let fieldName of fieldNames"&gt;&#123;&#8203;&#123;fieldName}&#8203;}&lt;/th&gt;
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
             &lt;tr *ngFor="let item of cvGettingStarted.items"&gt;
-                &lt;td class="text-center" *ngFor="let name of fieldNames"&gt;{&#8203;{item[name] | globalize}&#8203;}&lt;/td&gt;
+                &lt;td class="text-center" *ngFor="let name of fieldNames"&gt;&#123;&#8203;&#123;item[name] | globalize}&#8203;}&lt;/td&gt;
             &lt;/tr&gt;
         &lt;/tbody&gt;
     &lt;/table&gt;
@@ -96,46 +96,54 @@
                     <div class="pane-content">
 
 // Angular
-import { Component, EventEmitter, provide, Input, Inject, enableProdMode } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { AppTab, AppTabPane } from './components/AppTab';
-import { GlobalizePipe } from './pipes/appPipes';
-import { DataSvc } from './services/DataSvc';
+import &#123; Component, EventEmitter, Input, Inject, enableProdMode, NgModule } from '@angular/core';
+import &#123; FormsModule } from '@angular/forms';
+import &#123; CommonModule } from '@angular/common';
+import &#123; platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import &#123; BrowserModule } from '@angular/platform-browser';
+import &#123; TabsModule } from './components/AppTab';
+import &#123; GlobalizePipe } from './pipes/appPipes';
+import &#123; DataSvc } from './services/DataSvc';
 
 'use strict';
 
 // The application root component.
-@Component({
+@Component(&#123;
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, AppTab, AppTabPane],
-    pipes: [GlobalizePipe]
+    templateUrl: 'src/app.html'
 })
 
-export class AppCmp {
+export class AppCmp &#123;
 
     cvGettingStarted: wijmo.collections.CollectionView;
     fieldNames: string[];
 
-    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
         // initialize the collectionview
         this.cvGettingStarted = new wijmo.collections.CollectionView(dataSvc.getData(10));
         this.fieldNames = dataSvc.getNames();
     }
 }
 
+@NgModule(&#123;
+    imports: [BrowserModule, FormsModule, TabsModule],
+    declarations: [GlobalizePipe, AppCmp],
+    providers: [DataSvc], 
+    bootstrap: [AppCmp]
+})
+export class AppModule &#123;
+}
+
+
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);;
                     </div>
                 </app-tab-pane>
                 <app-tab-pane title="CSS">
                     <div class="pane-content">
 /* set default grid height and some shadow */
-.sGrid {
+.sGrid &#123;
     background-color: #fff;
     box-shadow: 4px 4px 10px 0 rgba(50, 50, 50, 0.75);
     height: 300px;
@@ -214,14 +222,14 @@ bootstrap(AppCmp, [
     &lt;table class="table table-condensed table-bordered"&gt;
         &lt;thead&gt;
             &lt;tr class="active"&gt;
-                &lt;th class="text-center" *ngFor="let fieldName of fieldNames"&gt;{&#8203;{fieldName}&#8203;}&lt;/th&gt;
+                &lt;th class="text-center" *ngFor="let fieldName of fieldNames"&gt;&#123;&#8203;&#123;fieldName}&#8203;}&lt;/th&gt;
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
             &lt;tr *ngFor="let item of cvCRM.items"
-                [ngClass]="{success: item == cvCRM.currentItem}"
+                [ngClass]="&#123;success: item == cvCRM.currentItem}"
                (click)="cvCRM.moveCurrentTo(item)"&gt;
-                &lt;td class="text-center" *ngFor="let name of fieldNames"&gt;{&#8203;{item[name] | globalize}&#8203;}&lt;/td&gt;
+                &lt;td class="text-center" *ngFor="let name of fieldNames"&gt;&#123;&#8203;&#123;item[name] | globalize}&#8203;}&lt;/td&gt;
             &lt;/tr&gt;
         &lt;/tbody&gt;
     &lt;/table&gt;
@@ -231,48 +239,41 @@ bootstrap(AppCmp, [
                 <app-tab-pane title="TS">
                     <div class="pane-content">
 // The application root component.
-@Component({
+@Component(&#123;
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, AppTab, AppTabPane],
-    pipes: [GlobalizePipe]
+    templateUrl: 'src/app.html'
 })
 
-export class AppCmp {
+export class AppCmp &#123;
 
     cvCRM: wijmo.collections.CollectionView;
     fieldNames: string[];
 
-    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
         // initialize the collectionview
         this.cvCRM = new wijmo.collections.CollectionView(dataSvc.getData(10));
         this.fieldNames = dataSvc.getNames();
     }
 
    // current record management
-    stopCurrent() {
+    stopCurrent() &#123;
         this.cvCRM.currentChanging.addHandler(this._stopCurrentIn4th);
     };
 
     // restore to be able to change current.
-    reset() {
+    reset() &#123;
         this.cvCRM.currentChanging.removeHandler(this._stopCurrentIn4th);
     };
 
     // forbid changing current when the current item is the 4th one.
-    private _stopCurrentIn4th(sender, e) {
+    private _stopCurrentIn4th(sender, e) &#123;
         // when the current is the 4rd item, stop moving.
-        if (sender.currentPosition === 3) {
+        if (sender.currentPosition === 3) &#123;
             e.cancel = true;
         }
     }
 }
 
-enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
                     </div>
                 </app-tab-pane>
             </app-tab>
@@ -333,13 +334,13 @@ bootstrap(AppCmp, [
              &lt;tr class="active"&gt;
                  &lt;th class="text-center" *ngFor="let fieldName of fieldNames"
                      (click)="toggleSort(fieldName)" style="cursor:pointer"&gt;
-                     {&#8203;{fieldName}&#8203;}&lt;span style="color: red"&gt;{&#8203;{getSort(fieldName)}&#8203;}&lt;/span&gt;
+                     &#123;&#8203;&#123;fieldName}&#8203;}&lt;span style="color: red"&gt;&#123;&#8203;&#123;getSort(fieldName)}&#8203;}&lt;/span&gt;
                  &lt;/th&gt;
              &lt;/tr&gt;
          &lt;/thead&gt;
          &lt;tbody&gt;
              &lt;tr *ngFor="let item of cvSorting.items"&gt;
-                 &lt;td class="text-center" *ngFor="let name of fieldNames"&gt;{&#8203;{item[name] | globalize}&#8203;}&lt;/td&gt;
+                 &lt;td class="text-center" *ngFor="let name of fieldNames"&gt;&#123;&#8203;&#123;item[name] | globalize}&#8203;}&lt;/td&gt;
              &lt;/tr&gt;
          &lt;/tbody&gt;
      &lt;/table&gt;
@@ -349,42 +350,42 @@ bootstrap(AppCmp, [
                 <app-tab-pane title="TS">
                     <div class="pane-content">
 // Angular
-import { Component, EventEmitter, provide, Input, Inject, enableProdMode } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { AppTab, AppTabPane } from './components/AppTab';
-import { GlobalizePipe } from './pipes/appPipes';
-import { DataSvc } from './services/DataSvc';
+import &#123; Component, EventEmitter, Input, Inject, enableProdMode, NgModule } from '@angular/core';
+import &#123; FormsModule } from '@angular/forms';
+import &#123; CommonModule } from '@angular/common';
+import &#123; platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import &#123; BrowserModule } from '@angular/platform-browser';
+import &#123; TabsModule } from './components/AppTab';
+import &#123; GlobalizePipe } from './pipes/appPipes';
+import &#123; DataSvc } from './services/DataSvc';
 
 'use strict';
 
 // The application root component.
-@Component({
+@Component(&#123;
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, AppTab, AppTabPane],
-    pipes: [GlobalizePipe]
+    templateUrl: 'src/app.html'
 })
 
-export class AppCmp {
+export class AppCmp &#123;
 
     cvSorting: wijmo.collections.CollectionView;
     fieldNames: string[];
 
-    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
         // initialize the collectionview
         this.cvSorting = new wijmo.collections.CollectionView(dataSvc.getData(10));
         this.fieldNames = dataSvc.getNames();
     }
 
     // sorting
-    toggleSort(fieldName:string) {
+    toggleSort(fieldName:string) &#123;
         // get all the sort descriptions.
         var sd = this.cvSorting.sortDescriptions;
         var ascending = true;
 
         // try to find whether the field has been sorted.
-        if (sd.length > 0 && sd[0].property === fieldName) {
+        if (sd.length > 0 && sd[0].property === fieldName) &#123;
             // if finded, toggle the sort order.
             ascending = !sd[0].ascending;
         }
@@ -397,20 +398,28 @@ export class AppCmp {
     };
 
     // get the sort label
-    getSort(propName:string) {
+    getSort(propName:string) &#123;
         var sd = this.cvSorting.sortDescriptions;
-        if (sd.length > 0 && sd[0].property === propName) {
+        if (sd.length > 0 && sd[0].property === propName) &#123;
             return sd[0].ascending ? '▲' : '▼';
         }
         return '';
     };
 }
 
+@NgModule(&#123;
+    imports: [BrowserModule, FormsModule, TabsModule],
+    declarations: [GlobalizePipe, AppCmp],
+    providers: [DataSvc], 
+    bootstrap: [AppCmp]
+})
+export class AppModule &#123;
+}
+
+
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);
                     </div>
                 </app-tab-pane>
             </app-tab>
@@ -461,12 +470,12 @@ bootstrap(AppCmp, [
      &lt;table class="table table-condensed table-bordered"&gt;
          &lt;thead&gt;
              &lt;tr class="active"&gt;
-                 &lt;th class="text-center" *ngFor="let fieldName of fieldNames"&gt;{&#8203;{fieldName}&#8203;}&lt;/th&gt;
+                 &lt;th class="text-center" *ngFor="let fieldName of fieldNames"&gt;&#123;&#8203;&#123;fieldName}&#8203;}&lt;/th&gt;
              &lt;/tr&gt;
          &lt;/thead&gt;
          &lt;tbody&gt;
              &lt;tr *ngFor="let item of cvFiltering.items"&gt;
-                 &lt;td class="text-center" *ngFor="let name of fieldNames"&gt;{&#8203;{item[name] | globalize}&#8203;}&lt;/td&gt;
+                 &lt;td class="text-center" *ngFor="let name of fieldNames"&gt;&#123;&#8203;&#123;item[name] | globalize}&#8203;}&lt;/td&gt;
              &lt;/tr&gt;
          &lt;/tbody&gt;
      &lt;/table&gt;
@@ -476,14 +485,12 @@ bootstrap(AppCmp, [
                 <app-tab-pane title="TS">
                     <div class="pane-content">
 // The application root component.
-@Component({
+@Component(&#123;
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, AppTab, AppTabPane],
-    pipes: [GlobalizePipe]
+    templateUrl: 'src/app.html'
 })
 
-export class AppCmp {
+export class AppCmp &#123;
 
     cvFiltering: wijmo.collections.CollectionView;
     fieldNames: string[];
@@ -491,7 +498,7 @@ export class AppCmp {
     private _thisFilterFunction: wijmo.collections.IPredicate;
     private _filter: string;
 
-    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
         // initialize the collectionview
         this.cvFiltering = new wijmo.collections.CollectionView(dataSvc.getData(10));
 	this.fieldNames = dataSvc.getNames();
@@ -499,11 +506,11 @@ export class AppCmp {
     }
 
     // filtering
-    get filter(): string {
+    get filter(): string &#123;
         return this._filter;
     }
-    set filter(value: string) {
-        if (this._filter != value) {
+    set filter(value: string) &#123;
+        if (this._filter != value) &#123;
             this._filter = value;
             this._applyFilter();
         }
@@ -511,19 +518,19 @@ export class AppCmp {
 
     
     // apply filter (applied on a 500 ms timeOut)
-    private _applyFilter() {
-        if (this._toFilter) {
+    private _applyFilter() &#123;
+        if (this._toFilter) &#123;
             clearTimeout(this._toFilter);
         }
         //var self = this;
-        this._toFilter = setTimeout(() => {
+        this._toFilter = setTimeout(() => &#123;
             this._toFilter = null;
-            if (this.cvFiltering) {
+            if (this.cvFiltering) &#123;
                 var cv = this.cvFiltering;
-                if (cv) {
-                    if (cv.filter != this._thisFilterFunction) {
+                if (cv) &#123;
+                    if (cv.filter != this._thisFilterFunction) &#123;
                         cv.filter = this._thisFilterFunction;
-                    } else {
+                    } else &#123;
                         cv.refresh();
                     }
                 }
@@ -532,20 +539,15 @@ export class AppCmp {
     }
 
     // ICollectionView filter function
-    private _filterFunction(item: any): boolean {
+    private _filterFunction(item: any): boolean &#123;
         var filter = this.filter.toLowerCase();
-        if (!filter) {
+        if (!filter) &#123;
             return true;
         }
         return item['country'].toLowerCase().indexOf(filter) > -1;
     }
 }
 
-enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
                     </div>
                 </app-tab-pane>
             </app-tab>
@@ -606,27 +608,27 @@ bootstrap(AppCmp, [
                     <div class="pane-content">
      &lt;select class="form-control" [(ngModel)]="selectedGroupOpt"&gt;
          &lt;option [ngValue]="''" &gt;Please choose the field by which to group.&lt;/option&gt;
-         &lt;option *ngFor="let name of fieldNames" [ngValue]="name"&gt;{&#8203;{name}&#8203;}&lt;/option&gt;
+         &lt;option *ngFor="let name of fieldNames" [ngValue]="name"&gt;&#123;&#8203;&#123;name}&#8203;}&lt;/option&gt;
      &lt;/select&gt;
  &lt;/div&gt;
  &lt;div class="sGrid"&gt;
      &lt;table class="table table-condensed table-bordered"&gt;
          &lt;thead&gt;
              &lt;tr class="active"&gt;
-                 &lt;th class="text-center" *ngFor="let fieldName of fieldNames"&gt;{&#8203;{fieldName}&#8203;}&lt;/th&gt;
+                 &lt;th class="text-center" *ngFor="let fieldName of fieldNames"&gt;&#123;&#8203;&#123;fieldName}&#8203;}&lt;/th&gt;
              &lt;/tr&gt;
          &lt;/thead&gt;
          &lt;tbody&gt;
              &lt;tr *ngFor="let item of groupItems"&gt;
-                 &lt;td class="active"  [ngStyle]="{display:isGroupItem(item)? '':'none'}"   colspan="6"&gt;
-                     &lt;span [ngStyle]="{display:'inline-block', width: (item.level*25) + 'px'}"&gt;&lt;/span&gt;
-                     &lt;b&gt;{&#8203;{item.name | globalize}&#8203;}&lt;/b&gt; ({&#8203;{item.items?.length}&#8203;} items)
+                 &lt;td class="active"  [ngStyle]="&#123;display:isGroupItem(item)? '':'none'}"   colspan="6"&gt;
+                     &lt;span [ngStyle]="&#123;display:'inline-block', width: (item.level*25) + 'px'}"&gt;&lt;/span&gt;
+                     &lt;b&gt;&#123;&#8203;&#123;item.name | globalize}&#8203;}&lt;/b&gt; (&#123;&#8203;&#123;item.items?.length}&#8203;} items)
                  &lt;/td&gt;
-                 &lt;td class="text-center" colspan="2"  [ngStyle]="{display:isGroupItem(item)? '':'none'}" &gt;
-                     {&#8203;{avgAmount(item)}&#8203;}
+                 &lt;td class="text-center" colspan="2"  [ngStyle]="&#123;display:isGroupItem(item)? '':'none'}" &gt;
+                     &#123;&#8203;&#123;avgAmount(item)}&#8203;}
                  &lt;/td&gt;
-                 &lt;td class="text-center" *ngFor="let name of fieldNames"  [ngStyle]="{display:isGroupItem(item)? 'none':''}"&gt;
-                     {&#8203;{item[name] | globalize}&#8203;}
+                 &lt;td class="text-center" *ngFor="let name of fieldNames"  [ngStyle]="&#123;display:isGroupItem(item)? 'none':''}"&gt;
+                     &#123;&#8203;&#123;item[name] | globalize}&#8203;}
                  &lt;/td&gt;
              &lt;/tr&gt;
          &lt;/tbody&gt;
@@ -638,14 +640,12 @@ bootstrap(AppCmp, [
                     <div class="pane-content">
 
 // The application root component.
-@Component({
+@Component(&#123;
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, AppTab, AppTabPane],
-    pipes: [GlobalizePipe]
+    templateUrl: 'src/app.html'
 })
 
-export class AppCmp {
+export class AppCmp &#123;
 
     cvGrouping: wijmo.collections.CollectionView;
     fieldNames: string[];
@@ -653,18 +653,18 @@ export class AppCmp {
 
     private _selectedGroupOpt = '';
 
-    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
         // initialize the collectionview
         this.cvGrouping = new wijmo.collections.CollectionView(dataSvc.getData(20));
 	this.fieldNames = dataSvc.getNames();
         this.groupItems = this.cvGrouping.items;
 
 	// update the group list
-        this.cvGrouping.collectionChanged.addHandler(() => {
+        this.cvGrouping.collectionChanged.addHandler(() => &#123;
             this.groupItems = this.cvGrouping.items;
-            if (this.cvGrouping.groups && this.cvGrouping.groups.length > 0) {
+            if (this.cvGrouping.groups && this.cvGrouping.groups.length > 0) &#123;
                 this.groupItems = [];
-                for (var i = 0; i < this.cvGrouping.groups.length; i++) {
+                for (var i = 0; i < this.cvGrouping.groups.length; i++) &#123;
                     this._addGroup(this.cvGrouping.groups[i]);
                 }
             }
@@ -672,35 +672,35 @@ export class AppCmp {
     }
 
     // grouping
-    get selectedGroupOpt(): string {
+    get selectedGroupOpt(): string &#123;
         return this._selectedGroupOpt;
     }
-    set selectedGroupOpt(value: string) {
-        if (this._selectedGroupOpt != value) {
+    set selectedGroupOpt(value: string) &#123;
+        if (this._selectedGroupOpt != value) &#123;
             this._selectedGroupOpt = value;
             this._applyGrouping();
         }
     }
     
-    private _applyGrouping() {
+    private _applyGrouping() &#123;
         var gd,
             fieldName = this.selectedGroupOpt;
 
         gd = this.cvGrouping.groupDescriptions;
 
-        if (!fieldName) {
+        if (!fieldName) &#123;
             // clear all the group settings.
             gd.splice(0, gd.length);
             return;
         }
 
-        if (this._findGroup(fieldName) >= 0) {
+        if (this._findGroup(fieldName) >= 0) &#123;
             return;
         }
 
-        if (fieldName == 'amount') {
+        if (fieldName == 'amount') &#123;
             // when grouping by amount, use ranges instead of specific values
-            gd.push(new wijmo.collections.PropertyGroupDescription(fieldName, function (item, propName) {
+            gd.push(new wijmo.collections.PropertyGroupDescription(fieldName, function (item, propName) &#123;
                 var value = item[propName]; // amount
                 if (value > 1000) return 'Large Amounts';
                 if (value > 100) return 'Medium Amounts';
@@ -708,7 +708,7 @@ export class AppCmp {
                 return 'Negative Amounts';
             }));
         }
-        else {
+        else &#123;
             // group by specific property values
             gd.push(new wijmo.collections.PropertyGroupDescription(fieldName));
         }
@@ -716,10 +716,10 @@ export class AppCmp {
 
 
     // check whether the group with the specified property name already exists.
-    private _findGroup(propName: string) {
+    private _findGroup(propName: string) &#123;
         var gd = this.cvGrouping.groupDescriptions;
-        for (var i = 0; i < gd.length; i++) {
-            if (gd[i].propertyName === propName) {
+        for (var i = 0; i < gd.length; i++) &#123;
+            if (gd[i].propertyName === propName) &#123;
                 return i;
             }
         }
@@ -727,11 +727,6 @@ export class AppCmp {
     }
 }
 
-enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
                     </div>
                 </app-tab-pane>
             </app-tab>
@@ -796,14 +791,14 @@ bootstrap(AppCmp, [
     &lt;table class="table table-condensed table-bordered"&gt;
         &lt;thead&gt;
             &lt;tr class="active"&gt;
-                &lt;th class="text-center" *ngFor="let fieldName of fieldNames"&gt;{&#8203;{fieldName}&#8203;}&lt;/th&gt;
+                &lt;th class="text-center" *ngFor="let fieldName of fieldNames"&gt;&#123;&#8203;&#123;fieldName}&#8203;}&lt;/th&gt;
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
             &lt;tr *ngFor="let item of cvEditing.items"
                 (click)="cvEditing.moveCurrentTo(item)"
-                [ngClass]="{success: item == cvEditing.currentItem}"&gt;
-                &lt;td class="text-center" *ngFor="let name of fieldNames"&gt;{&#8203;{item[name] | globalize}&#8203;}&lt;/td&gt;
+                [ngClass]="&#123;success: item == cvEditing.currentItem}"&gt;
+                &lt;td class="text-center" *ngFor="let name of fieldNames"&gt;&#123;&#8203;&#123;item[name] | globalize}&#8203;}&lt;/td&gt;
             &lt;/tr&gt;
         &lt;/tbody&gt;
     &lt;/table&gt;
@@ -889,27 +884,25 @@ bootstrap(AppCmp, [
                 <app-tab-pane title="TS">
                     <div class="pane-content">
 // The application root component.
-@Component({
+@Component(&#123;
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, AppTab, AppTabPane],
-    pipes: [GlobalizePipe]
+    templateUrl: 'src/app.html'
 })
 
-export class AppCmp {
+export class AppCmp &#123;
 
     cvEditing: wijmo.collections.CollectionView;
     fieldNames: string[];
     currentItem: any;
 
-    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
         // initialize the collectionview
         this.cvEditing = new wijmo.collections.CollectionView(dataSvc.getData(20));
 	this.fieldNames = dataSvc.getNames();
 	this.currentItem = this.cvEditing.currentItem;
 
         // define the new item value.
-        this.cvEditing.newItemCreator = () => {
+        this.cvEditing.newItemCreator = () => &#123;
             var item = dataSvc.getData(1)[0];
 
             // aggregate the max value of id in the collection.
@@ -917,30 +910,23 @@ export class AppCmp {
             return item;
         }
 	// syn the scope currentItem with the collectionview.
-        this.cvEditing.currentChanged.addHandler(() => {
+        this.cvEditing.currentChanged.addHandler(() => &#123;
             this.currentItem = this.cvEditing.currentItem;
         });
     }
     // editing
-    confirmUpdate() {
+    confirmUpdate() &#123;
         // commit editing/adding
         this.cvEditing.commitEdit();
         this.cvEditing.commitNew();
     };
-    cancelUpdate() {
+    cancelUpdate() &#123;
         // cancel editing or adding
         this.cvEditing.cancelEdit();
         this.cvEditing.cancelNew();
     };
-    
-
 }
 
-enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
                     </div>
                 </app-tab-pane>
             </app-tab>
@@ -1081,8 +1067,8 @@ bootstrap(AppCmp, [
             &lt;span class="glyphicon glyphicon-step-backward"&gt;&lt;/span&gt;
         &lt;/button&gt;
         &lt;button type="button" class="btn btn-default" disabled style="width:100px"&gt;
-            {&#8203;{cvPaging.pageIndex + 1 | number}&#8203;}
-            / {&#8203;{cvPaging.pageCount | number}&#8203;}
+            &#123;&#8203;&#123;cvPaging.pageIndex + 1 | number}&#8203;}
+            / &#123;&#8203;&#123;cvPaging.pageCount | number}&#8203;}
         &lt;/button&gt;
         &lt;button type="button" class="btn btn-default"
         [disabled]="cvPaging.pageIndex &gt;= cvPaging.pageCount - 1"
@@ -1100,12 +1086,12 @@ bootstrap(AppCmp, [
     &lt;table class="table table-condensed table-bordered"&gt;
         &lt;thead&gt;
             &lt;tr class="active"&gt;
-                &lt;th class="text-center" *ngFor="let fieldName of fieldNames"&gt;{&#8203;{fieldName}&#8203;}&lt;/th&gt;
+                &lt;th class="text-center" *ngFor="let fieldName of fieldNames"&gt;&#123;&#8203;&#123;fieldName}&#8203;}&lt;/th&gt;
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
             &lt;tr *ngFor="let item of cvPaging.items"&gt;
-                &lt;td class="text-center" *ngFor="let name of fieldNames"&gt;{&#8203;{item[name] | globalize}&#8203;}&lt;/td&gt;
+                &lt;td class="text-center" *ngFor="let name of fieldNames"&gt;&#123;&#8203;&#123;item[name] | globalize}&#8203;}&lt;/td&gt;
             &lt;/tr&gt;
         &lt;/tbody&gt;
     &lt;/table&gt;
@@ -1115,20 +1101,18 @@ bootstrap(AppCmp, [
                 <app-tab-pane title="TS">
                     <div class="pane-content">
 // The application root component.
-@Component({
+@Component(&#123;
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, AppTab, AppTabPane],
-    pipes: [GlobalizePipe]
+    templateUrl: 'src/app.html'
 })
 
-export class AppCmp {
+export class AppCmp &#123;
 
     cvPaging: wijmo.collections.CollectionView;
     fieldNames: string[];
     currentItem: any;
 
-    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
         // initialize the collectionview
         this.cvPaging = new wijmo.collections.CollectionView(dataSvc.getData(20));
 	    this.fieldNames = dataSvc.getNames();
@@ -1137,11 +1121,6 @@ export class AppCmp {
 
 }
 
-enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
                     </div>
                 </app-tab-pane>
             </app-tab>
@@ -1283,28 +1262,29 @@ bootstrap(AppCmp, [
                 </app-tab-pane>
                 <app-tab-pane title="TS">
                     <div class="pane-content">
-import { Component, EventEmitter, provide, Input, Inject, enableProdMode } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjNg2Core from 'wijmo/wijmo.angular2.core';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
-import { AppTab, AppTabPane } from './components/AppTab';
-import { GlobalizePipe } from './pipes/appPipes';
-import { DataSvc } from './services/DataSvc';
+import &#123; Component, EventEmitter, Input, Inject, enableProdMode, NgModule } from '@angular/core';
+import &#123; FormsModule } from '@angular/forms';
+import &#123; CommonModule } from '@angular/common';
+import &#123; platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import &#123; BrowserModule } from '@angular/platform-browser';
+import &#123; WjCoreModule } from 'wijmo/wijmo.angular2.core';
+import &#123; WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import &#123; WjInputModule } from 'wijmo/wijmo.angular2.input';
+import &#123; TabsModule } from './components/AppTab';
+import &#123; GlobalizePipe } from './pipes/appPipes';
+import &#123; DataSvc } from './services/DataSvc';
 // The application root component.
-@Component({
+@Component(&#123;
     selector: 'app-cmp',
     templateUrl: 'src/app.html',
-directives: [CORE_DIRECTIVES, AppTab, AppTabPane, wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn],
-    pipes: [GlobalizePipe]
 })
 
-export class AppCmp {
+export class AppCmp &#123;
 
     cvTrackingChanges: wijmo.collections.CollectionView;
     fieldNames: string[];
 
-    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
         // initialize the collectionview
         this.cvTrackingChanges = new wijmo.collections.CollectionView(dataSvc.getData(6));
 	this.fieldNames = dataSvc.getNames();
@@ -1313,17 +1293,20 @@ export class AppCmp {
 
 }
 
-enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
+@NgModule(&#123;
+    imports: [WjCoreModule, WjInputModule, WjGridModule, BrowserModule, FormsModule, TabsModule],
+    declarations: [GlobalizePipe, AppCmp],
+    providers: [DataSvc], 
+    bootstrap: [AppCmp]
+})
+export class AppModule &#123;
+}
                     </div>
                 </app-tab-pane>
                 <app-tab-pane title="CSS">
                     <div class="pane-content">
  /* set default grid height and some shadow */
- .sGrid {
+ .sGrid &#123;
      background-color: #fff;
      box-shadow: 4px 4px 10px 0 rgba(50, 50, 50, 0.75);
      height: 300px;
@@ -1332,7 +1315,7 @@ bootstrap(AppCmp, [
  }
 
  /* set the record grids height and some shadow */
- .tcGrid {
+ .tcGrid &#123;
      background-color: #fff;
      box-shadow: 4px 4px 10px 0 rgba(50, 50, 50, 0.75);
      height: 100px;
@@ -1471,19 +1454,17 @@ bootstrap(AppCmp, [
                 <app-tab-pane title="TS">
                     <div class="pane-content">
 // The application root component.
-@Component({
+@Component(&#123;
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-directives: [CORE_DIRECTIVES, AppTab, AppTabPane, wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn],
-    pipes: [GlobalizePipe]
+    templateUrl: 'src/app.html'
 })
 
-export class AppCmp {
+export class AppCmp &#123;
 
     cvTrackingChangesExtra: wijmo.collections.CollectionView;
     fieldNames: string[];
     current: any;
-    constructor( @Inject(DataSvc) dataSvc: DataSvc) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc) &#123;
         // initialize the collectionview
         this.cvTrackingChangesExtra = new wijmo.collections.CollectionView(dataSvc.getData(6));
 	this.fieldNames = dataSvc.getNames();
@@ -1491,38 +1472,38 @@ export class AppCmp {
 
 	        // keep the original state of the current item in tracking Changes
         this.current = this.cvTrackingChangesExtra.currentItem ? JSON.stringify(this.cvTrackingChangesExtra.currentItem) : null;
-        this.cvTrackingChangesExtra.currentChanged.addHandler((s, e) => {
+        this.cvTrackingChangesExtra.currentChanged.addHandler((s, e) => &#123;
             this.current = s.currentItem ? JSON.stringify(s.currentItem) : null;
         });
 
         // keep track of the original state of edited items
         var original = [];
-        this.cvTrackingChangesExtra.itemsEdited.collectionChanged.addHandler((s, e: any) => {
+        this.cvTrackingChangesExtra.itemsEdited.collectionChanged.addHandler((s, e: any) => &#123;
             if (e.action == wijmo.collections.NotifyCollectionChangedAction.Add ||
-                e.action == wijmo.collections.NotifyCollectionChangedAction.Change) {
+                e.action == wijmo.collections.NotifyCollectionChangedAction.Change) &#123;
 
                 // check if we have this item's original data
                 var index = this.cvTrackingChangesExtra.sourceCollection.indexOf(e.item);
                 var found = -1;
-                for (var i = 0; i < original.length && found < 0; i++) {
-                    if (original[i].index == index) {
+                for (var i = 0; i < original.length && found < 0; i++) &#123;
+                    if (original[i].index == index) &#123;
                         found = i;
                     }
                 }
 
                 // if we have the item, check original value
-                if (found > -1) {
+                if (found > -1) &#123;
 
                     // if the current value is the same as the original, remove
                     var valueNow = JSON.stringify(e.item);
-                    if (valueNow == original[found].value) {
+                    if (valueNow == original[found].value) &#123;
                         original.splice(found, 1);
                         index = this.cvTrackingChangesExtra.itemsEdited.indexOf(e.item);
                         this.cvTrackingChangesExtra.itemsEdited.splice(index, 1);
                     }
-                } else { // if we don't, store it now
+                } else &#123; // if we don't, store it now
                     found = original.length;
-                    original.push({ index: index, value: this.current });
+                    original.push(&#123; index: index, value: this.current });
                 }
             }
         });
@@ -1530,17 +1511,12 @@ export class AppCmp {
 
 }
 
-enableProdMode();
-// Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
                     </div>
                 </app-tab-pane>
                 <app-tab-pane title="CSS">
                     <div class="pane-content">
  /* set default grid height and some shadow */
- .sGrid {
+ .sGrid &#123;
      background-color: #fff;
      box-shadow: 4px 4px 10px 0 rgba(50, 50, 50, 0.75);
      height: 300px;
@@ -1549,7 +1525,7 @@ bootstrap(AppCmp, [
  }
 
  /* set the record grids height and some shadow */
- .tcGrid {
+ .tcGrid &#123;
      background-color: #fff;
      box-shadow: 4px 4px 10px 0 rgba(50, 50, 50, 0.75);
      height: 100px;

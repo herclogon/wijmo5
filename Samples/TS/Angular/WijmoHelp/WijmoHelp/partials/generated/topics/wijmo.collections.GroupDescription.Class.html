@@ -1,55 +1,48 @@
-<h2>GroupDescription Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">GroupDescription</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Derived Classes</dt><dd><a href="topic/wijmo.collections.PropertyGroupDescription.Class.html"><b>PropertyGroupDescription</b></a></dd>
-<dt>Module</dt><dd>wijmo.collections</dd>
-<dt>File</dt><dd>wijmo.js</dd>
+<dt>File</dt><dd class="filename">wijmo.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.collections.Module.html"><span class="identifier">wijmo.collections</span></a></dd>
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.collections.PropertyGroupDescription.Class.html"><span class="identifier">PropertyGroupDescription</span></a></dd>
 </dl>
-<p><p>Represents a base class for types defining grouping conditions. </p>
-
+<div class="comment"><p>Represents a base class for types defining grouping conditions. </p>
 <p>The concrete class which is commonly used for this purpose is 
-<a href="topic/wijmo.collections.PropertyGroupDescription.Class.html"><b>PropertyGroupDescription</b></a>.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
+<a href="topic/wijmo.collections.PropertyGroupDescription.Class.html"><span class="identifier">PropertyGroupDescription</span></a>.</p></div>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>groupNameFromItem</b>&#8203;(item, level): <b>any</b></td>
-      <td><p>
-<b>item</b> (<b>any</b>): The item to get group name for.<br/><b>level</b> (<b>number</b>): The zero-based group level index.<br/></p>
-</td>
-      <td>Returns the group name for the given item.<br/><br/><b>Returns</b> The name of the group the item belongs to.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>namesMatch</b>&#8203;(groupName, itemName): <b>boolean</b></td>
-      <td><p>
-<b>groupName</b> (<b>any</b>): The name of the group.<br/><b>itemName</b> (<b>any</b>): The name of the item.<br/></p>
-</td>
-      <td>Returns a value that indicates whether the group name and the item name
-match (which implies that the item belongs to the group).<br/><br/><b>Returns</b> True if the names match; otherwise, false.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.collections.GroupDescription.Class.html/#groupNameFromItem">groupNameFromItem</a></li>
+<li class="mmethod"><a href="topic/wijmo.collections.GroupDescription.Class.html/#namesMatch">namesMatch</a></li>
+</ul>
 </div>
-
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="groupNameFromItem" class="member-panel mmethod">
+<h3>groupNameFromItem</h3>
+<pre>groupNameFromItem(item: <span class="identifier">any</span>, level: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <span class="identifier">any</span></pre>
+<div class="comment"><p>Returns the group name for the given item.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>item</b>: <span class="identifier">any</span><br/><p>The item to get group name for.</p></li><li><b>level</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a><br/><p>The zero-based group level index.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><span class="identifier">any</span></dd>
+</dl>
+</div>
+<div id="namesMatch" class="member-panel mmethod">
+<h3>namesMatch</h3>
+<pre>namesMatch(groupName: <span class="identifier">any</span>, itemName: <span class="identifier">any</span>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Returns a value that indicates whether the group name and the item name
+match (which implies that the item belongs to the group).</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>groupName</b>: <span class="identifier">any</span><br/><p>The name of the group.</p></li><li><b>itemName</b>: <span class="identifier">any</span><br/><p>The name of the item.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+</div>

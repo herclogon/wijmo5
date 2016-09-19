@@ -1,5 +1,5 @@
 import { ElementRef, Renderer } from '@angular/core';
-import { ControlValueAccessor } from '@angular/common';
+import { ControlValueAccessor } from '@angular/forms';
 export declare class NumberInputAccessor implements ControlValueAccessor {
     elRef: ElementRef;
     renderer: Renderer;

@@ -1,17 +1,19 @@
 ﻿'use strict';
 
-import { Component, EventEmitter, Inject, AfterViewInit } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
+
+import { Component, EventEmitter, Inject, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { GridBaseCmp } from './GridBaseCmp';
+import { RouterModule } from '@angular/router';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
 import { DataSvc } from '../../services/DataSvc';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
 import { SparkSvc } from '../../services/SparkSvc';
 
 // FlexGrid Custom Cells component.
 @Component({
     selector: 'grid-custom-cells-cmp',
-    templateUrl: 'src/components/grid/gridCustomCellsCmp.html',
-    directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn]
+    templateUrl: 'src/components/grid/gridCustomCellsCmp.html'
 })
 
 export class GridCustomCellsCmp extends GridBaseCmp implements AfterViewInit {
@@ -104,3 +106,13 @@ export class GridCustomCellsCmp extends GridBaseCmp implements AfterViewInit {
 }
 
 
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: GridCustomCellsCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, WjGridModule],
+    declarations: [GridCustomCellsCmp],
+})
+export class GridCustomCellsModule {
+}

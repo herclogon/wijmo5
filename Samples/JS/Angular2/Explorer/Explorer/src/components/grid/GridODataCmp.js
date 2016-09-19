@@ -14,9 +14,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var core_1 = require('@angular/core');
+var common_1 = require('@angular/common');
+var router_1 = require('@angular/router');
 var GridBaseCmp_1 = require('./GridBaseCmp');
 var DataSvc_1 = require('../../services/DataSvc');
-var wjNg2Grid = require('wijmo/wijmo.angular2.grid');
+var wijmo_angular2_grid_1 = require('wijmo/wijmo.angular2.grid');
 // FlexGrid Data component.
 var GridODataCmp = (function (_super) {
     __extends(GridODataCmp, _super);
@@ -33,12 +35,26 @@ var GridODataCmp = (function (_super) {
     GridODataCmp = __decorate([
         core_1.Component({
             selector: 'grid-o-data-cmp',
-            templateUrl: 'src/components/grid/gridODataCmp.html',
-            directives: [wjNg2Grid.WjFlexGrid, wjNg2Grid.WjFlexGridColumn]
+            templateUrl: 'src/components/grid/gridODataCmp.html'
         }),
         __param(0, core_1.Inject(DataSvc_1.DataSvc))
     ], GridODataCmp);
     return GridODataCmp;
 }(GridBaseCmp_1.GridBaseCmp));
 exports.GridODataCmp = GridODataCmp;
+var routing = router_1.RouterModule.forChild([
+    { path: '', component: GridODataCmp }
+]);
+var GridODataModule = (function () {
+    function GridODataModule() {
+    }
+    GridODataModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, routing, wijmo_angular2_grid_1.WjGridModule],
+            declarations: [GridODataCmp],
+        })
+    ], GridODataModule);
+    return GridODataModule;
+}());
+exports.GridODataModule = GridODataModule;
 //# sourceMappingURL=GridODataCmp.js.map

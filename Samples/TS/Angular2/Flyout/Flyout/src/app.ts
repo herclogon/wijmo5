@@ -1,10 +1,11 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, Inject, enableProdMode, ViewChild, AfterViewInit } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjNg2Grid from 'wijmo/wijmo.angular2.grid';
+import { Component, EventEmitter, Input, Inject, enableProdMode, AfterViewInit, ViewChild, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
 import { DataSvc } from './services/DataSvc';
 
 'use strict';
@@ -12,8 +13,7 @@ import { DataSvc } from './services/DataSvc';
 // The application root component.
 @Component({
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, wjNg2Grid.WjFlexGrid]
+    templateUrl: 'src/app.html'
 })
 
 export class AppCmp implements AfterViewInit{
@@ -66,8 +66,16 @@ export class AppCmp implements AfterViewInit{
     
 }
 
+@NgModule({
+    imports: [WjGridModule, BrowserModule],
+    declarations: [AppCmp],
+    providers: [DataSvc],
+    bootstrap: [AppCmp]
+})
+export class AppModule {
+}
+
+
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);

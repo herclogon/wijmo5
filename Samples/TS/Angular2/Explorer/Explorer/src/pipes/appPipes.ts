@@ -1,4 +1,5 @@
-﻿import {Pipe} from '@angular/core';
+﻿import {Pipe, NgModule} from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 // Globalize pipe
 @Pipe({
@@ -45,4 +46,13 @@ export class CellRangePipe {
         return rng;
     }
 }
-
+//exports
+@NgModule({
+    //imports: [Pipe],
+    declarations: [GlbzPipe, ToDatePipe, CellRangePipe],
+    exports: [GlbzPipe,
+        ToDatePipe,
+        CellRangePipe],
+})
+export class AppPipesModule {
+}

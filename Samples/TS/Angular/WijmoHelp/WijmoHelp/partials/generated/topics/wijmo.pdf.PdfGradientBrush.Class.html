@@ -1,136 +1,95 @@
-<h2>PdfGradientBrush Class</h2>
+<div class="header-panel member">
+<h2><span class="identifier">PdfGradientBrush</span> Class</h2>
 <dl class="dl-horizontal">
-<dt>Base Class</dt><dd><a href="topic/wijmo.pdf.PdfBrush.Class.html"><b>PdfBrush</b></a></dd>
-<dt>Derived Classes</dt><dd><a href="topic/wijmo.pdf.PdfLinearGradientBrush.Class.html"><b>PdfLinearGradientBrush</b></a>, <a href="topic/wijmo.pdf.PdfRadialGradientBrush.Class.html"><b>PdfRadialGradientBrush</b></a></dd>
-<dt>Module</dt><dd>wijmo.pdf</dd>
-<dt>File</dt><dd>wijmo.pdf.js</dd>
-<dt>Show</dt><dd><label style="font-weight:normal">Inherited Members <input type="checkbox" ng-model="showInherited"></label></dd>
+<dt>File</dt><dd class="filename">wijmo.pdf.js</dd>
+<dt>Module</dt><dd><a href="topic/wijmo.pdf.Module.html"><span class="identifier">wijmo.pdf</span></a></dd>
+<dt>Base Class</dt><dd><a href="topic/wijmo.pdf.PdfBrush.Class.html"><span class="identifier">PdfBrush</span></a></dd>
+<dt>Derived Classes</dt><dd><a href="topic/wijmo.pdf.PdfLinearGradientBrush.Class.html"><span class="identifier">PdfLinearGradientBrush</span></a>, <a href="topic/wijmo.pdf.PdfRadialGradientBrush.Class.html"><span class="identifier">PdfRadialGradientBrush</span></a></dd>
+<dt>Show</dt>
+<dd>
+<label><input type="checkbox" ng-model="ctx.showInherited"> Inherited Members</label>&nbsp;&nbsp;&nbsp;
+<label><input type="checkbox" ng-model="ctx.showRaisers"> Event Raisers</label>
+</dd>
 </dl>
-<p><p>Represents an abstract class that serves as a base class for the 
-<a href="topic/wijmo.pdf.PdfLinearGradientBrush.Class.html"><b>PdfLinearGradientBrush</b></a> and <a href="topic/wijmo.pdf.PdfRadialGradientBrush.Class.html"><b>PdfRadialGradientBrush</b></a> classes.</p>
-
-<p>This class is not intended to be instantiated in your code.</p></p>
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideConstructor = !hideConstructor">
-<span class="glyph-collapsed" ng-show="hideConstructor"></span>
-<span class="glyph-expanded" ng-hide="hideConstructor"></span>
-Constructor
-</h3>
+<div class="comment"><p>Represents an abstract class that serves as a base class for the 
+<a href="topic/wijmo.pdf.PdfLinearGradientBrush.Class.html"><span class="identifier">PdfLinearGradientBrush</span></a> and <a href="topic/wijmo.pdf.PdfRadialGradientBrush.Class.html"><span class="identifier">PdfRadialGradientBrush</span></a> classes.</p>
+<p>This class is not intended to be instantiated in your code.</p></div>
 </div>
-<table ng-hide="hideConstructor" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>constructor</b>&#8203;(stops?, opacity?): <a href="topic/wijmo.pdf.PdfGradientBrush.Class.html"><b>PdfGradientBrush</b></a></td>
-      <td><p>
-<b>stops?</b> (<a href="topic/wijmo.pdf.PdfGradientStop.Class.html"><b>PdfGradientStop</b></a><b>[]</b>): The <a href="topic/wijmo.pdf.PdfGradientStop.Class.html"><b>PdfGradientStop</b></a> array to set on this brush.<br/><b>opacity?</b> (<b>number</b>): The opacity of this brush.<br/></p>
-</td>
-      <td>Initializes a new instance of the <a href="topic/wijmo.pdf.PdfGradientBrush.Class.html"><b>PdfGradientBrush</b></a> class.</td>
-    </tr>
-</tbody>
-</table>
+<div class="member-panel class members" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<h3 class="node">Constructor</h3>
+<ul>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfGradientBrush.Class.html/#constructor">constructor</a></li>
+</ul>
+<h3 class="node">Properties</h3>
+<ul>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfGradientBrush.Class.html/#opacity">opacity</a></li>
+<li class="mproperty"><a href="topic/wijmo.pdf.PdfGradientBrush.Class.html/#stops">stops</a></li>
+</ul>
+<h3 class="node">Methods</h3>
+<ul>
+<li class="mmethod inherited"><a href="topic/wijmo.pdf.PdfGradientBrush.Class.html/#clone">clone</a></li>
+<li class="mmethod"><a href="topic/wijmo.pdf.PdfGradientBrush.Class.html/#equals">equals</a></li>
+</ul>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideProperties = !hideProperties">
-<span class="glyph-collapsed" ng-show="hideProperties"></span>
-<span class="glyph-expanded" ng-hide="hideProperties"></span>
-Properties
-</h3>
+<h3>Constructor</h3>
+<div id="constructor" class="member-panel mmethod">
+<h3>constructor</h3>
+<pre>constructor(stops?: <a href="topic/wijmo.pdf.PdfGradientStop.Class.html"><span class="identifier">PdfGradientStop</span></a>[], opacity?: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a>): <a href="topic/wijmo.pdf.PdfGradientBrush.Class.html"><span class="identifier">PdfGradientBrush</span></a></pre>
+<div class="comment"><p>Initializes a new instance of the <a href="topic/wijmo.pdf.PdfGradientBrush.Class.html"><span class="identifier">PdfGradientBrush</span></a> class.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>stops</b>: <a href="topic/wijmo.pdf.PdfGradientStop.Class.html"><span class="identifier">PdfGradientStop</span></a>[] <span class="badge">Optional</span><br/><p>The <a href="topic/wijmo.pdf.PdfGradientStop.Class.html"><span class="identifier">PdfGradientStop</span></a> array to set on this brush.</p></li><li><b>opacity</b>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a> <span class="badge">Optional</span><br/><p>The opacity of this brush.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfGradientBrush.Class.html"><span class="identifier">PdfGradientBrush</span></a></dd>
+</dl>
 </div>
-<table ng-hide="hideProperties" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-3">Name</th>
-
-<th class="col-md-2">Type</th>
-
-<th class="col-md-7">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr>
-      <td></td>
-      <td><b>opacity</b></td>
-      <td><b>number</b></td>
-      <td>Gets or sets the opacity of the brush.
+<h3 class="node">Properties</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="opacity" class="member-panel mproperty">
+<h3>opacity</h3>
+<div class="comment"><p>Gets or sets the opacity of the brush.
 The value must be in range [0, 1], where 0 indicates that the brush is
 completely transparent and 1 indicates that the brush is completely opaque.
-The default value is 1.</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>stops</b></td>
-      <td><a href="topic/wijmo.pdf.PdfGradientStop.Class.html"><b>PdfGradientStop</b></a><b>[]</b></td>
-      <td>Gets or sets an array of <a href="topic/wijmo.pdf.PdfGradientStop.Class.html"><b>PdfGradientStop</b></a> objects representing a color, 
+The default value is 1.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank"><span class="identifier">number</span></a></dd>
+</dl>
+</div>
+<div id="stops" class="member-panel mproperty">
+<h3>stops</h3>
+<div class="comment"><p>Gets or sets an array of <a href="topic/wijmo.pdf.PdfGradientStop.Class.html"><span class="identifier">PdfGradientStop</span></a> objects representing a color, 
 offset and opacity within the brush's gradient axis.
-The default value is an empty array.</td>
-    </tr>
-</tbody>
-</table>
+The default value is an empty array.</p></div>
+<dl class="dl-horizontal">
+  <dt>Type</dt><dd><a href="topic/wijmo.pdf.PdfGradientStop.Class.html"><span class="identifier">PdfGradientStop</span></a>[]</dd>
+</dl>
 </div>
-
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 style="margin:0px" ng-click="hideMethods = !hideMethods">
-<span class="glyph-collapsed" ng-show="hideMethods"></span>
-<span class="glyph-expanded" ng-hide="hideMethods"></span>
-Methods
-</h3>
 </div>
-<table ng-hide="hideMethods" class="table table-condensed" style="font:inherit">
-<thead>
-<tr>
-
-<th></th>
-
-<th class="col-md-2">Name</th>
-
-<th class="col-md-5">Parameters</th>
-
-<th class="col-md-5">Description</th>
-
-</tr>
-</thead>
-<tbody>
-
-    <tr ng-show="showInherited">
-      <td></td>
-      <td><b>clone</b>&#8203;(): <a href="topic/wijmo.pdf.PdfBrush.Class.html"><b>PdfBrush</b></a></td>
-      <td></td>
-      <td>Creates a copy of this <a href="topic/wijmo.pdf.PdfBrush.Class.html"><b>PdfBrush</b></a>.<br/><br/><b>Returns</b> A copy of this brush.<br/><span class="text-info">(inherited from <a href="topic/wijmo.pdf.PdfBrush.Class.html"><b>PdfBrush</b></a>).</span></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>equals</b>&#8203;(value): <b>boolean</b></td>
-      <td><p>
-<b>value</b> (<a href="topic/wijmo.pdf.PdfGradientBrush.Class.html"><b>PdfGradientBrush</b></a>): <a href="topic/wijmo.pdf.PdfGradientBrush.Class.html"><b>PdfGradientBrush</b></a> to compare.<br/></p>
-</td>
-      <td>Determines whether the specified <a href="topic/wijmo.pdf.PdfGradientBrush.Class.html"><b>PdfGradientBrush</b></a> instance is equal
-to the current one.<br/><br/><b>Returns</b> true if the specified object is equal to the current one, otherwise false.</td>
-    </tr>
-</tbody>
-</table>
+<h3 class="node">Methods</h3>
+<div class="member-list" ng-class="{ 'show-inherited' : ctx.showInherited, 'show-raisers' : ctx.showRaisers }">
+<div id="clone" class="member-panel mmethod inherited">
+<h3>clone</h3>
+<pre>clone(): <a href="topic/wijmo.pdf.PdfBrush.Class.html"><span class="identifier">PdfBrush</span></a></pre>
+<div class="comment"><p>Creates a copy of this <a href="topic/wijmo.pdf.PdfBrush.Class.html"><span class="identifier">PdfBrush</span></a>.</p></div>
+<dl class="dl-horizontal">
+  <dt>Inherited From</dt><dd><a href="topic/wijmo.pdf.PdfBrush.Class.html"><span class="identifier">PdfBrush</span></a></dd>
+  <dt>Returns</dt><dd><a href="topic/wijmo.pdf.PdfBrush.Class.html"><span class="identifier">PdfBrush</span></a></dd>
+</dl>
 </div>
-
+<div id="equals" class="member-panel mmethod">
+<h3>equals</h3>
+<pre>equals(value: <a href="topic/wijmo.pdf.PdfGradientBrush.Class.html"><span class="identifier">PdfGradientBrush</span></a>): <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></pre>
+<div class="comment"><p>Determines whether the specified <a href="topic/wijmo.pdf.PdfGradientBrush.Class.html"><span class="identifier">PdfGradientBrush</span></a> instance is equal
+to the current one.</p></div>
+<dl class="dl-horizontal">
+  <dt>Parameters</dt><dd></dd>
+</dl>
+<ul>
+<li><b>value</b>: <a href="topic/wijmo.pdf.PdfGradientBrush.Class.html"><span class="identifier">PdfGradientBrush</span></a><br/><p><a href="topic/wijmo.pdf.PdfGradientBrush.Class.html"><span class="identifier">PdfGradientBrush</span></a> to compare.</p></li></ul>
+<dl class="dl-horizontal">
+  <dt>Returns</dt><dd><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank"><span class="identifier">boolean</span></a></dd>
+</dl>
+</div>
+</div>

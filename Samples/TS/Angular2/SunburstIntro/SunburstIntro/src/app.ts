@@ -1,13 +1,15 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
 // Angular
-import { Component, EventEmitter, provide, Input, Inject, enableProdMode } from '@angular/core';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
-import * as wjNg2Hierarchical from 'wijmo/wijmo.angular2.chart.hierarchical';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import { AppTab, AppTabPane } from './components/AppTab';
+import { Component, EventEmitter, Input, Inject, enableProdMode, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { WjChartModule} from 'wijmo/wijmo.angular2.chart';
+import { WjChartHierarchicalModule } from 'wijmo/wijmo.angular2.chart.hierarchical';
+import { WjInputModule} from 'wijmo/wijmo.angular2.input';
+import { TabsModule } from './components/AppTab';
 import { DataSvc } from './services/DataSvc';
 
     'use strict';
@@ -15,12 +17,8 @@ import { DataSvc } from './services/DataSvc';
     // The Explorer application root component.
     @Component({
         selector: 'app-cmp',
-        templateUrl: 'src/app.html',
-        directives: [CORE_DIRECTIVES, AppTab, AppTabPane,
-            wjNg2Hierarchical.WjSunburst, wjNg2Chart.WjFlexPieDataLabel, wjNg2Chart.WjFlexChartLegend,
-            wjNg2Input.WjInputNumber,wjNg2Input.WjMenu, wjNg2Input.WjMenuItem]
+        templateUrl: 'src/app.html'
     })
-
 
     export class AppCmp {
         // generate some random data
@@ -87,8 +85,15 @@ import { DataSvc } from './services/DataSvc';
 }
 
 
+@NgModule({
+    imports: [WjInputModule, WjChartModule, WjChartHierarchicalModule, TabsModule, BrowserModule, FormsModule],
+    declarations: [AppCmp],
+    providers: [DataSvc],
+    bootstrap: [AppCmp]
+})
+export class AppModule {
+}
+
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    DataSvc
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);

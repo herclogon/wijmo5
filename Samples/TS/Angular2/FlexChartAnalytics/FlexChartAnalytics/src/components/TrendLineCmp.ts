@@ -1,19 +1,20 @@
 ﻿'use strict';
 
-import { Component, AfterViewInit, EventEmitter, Inject, ViewChild, Input } from '@angular/core';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES } from '@angular/common';
-import * as wjNg2Input from 'wijmo/wijmo.angular2.input';
-import * as wjNg2Chart from 'wijmo/wijmo.angular2.chart';
-import * as wjNg2Analytics from 'wijmo/wijmo.angular2.chart.analytics';
+import { Component, EventEmitter, Inject, ViewChild, Input, AfterViewInit, NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
+import { WjChartAnalyticsModule } from 'wijmo/wijmo.angular2.chart.analytics';
 
 import { DataSvc } from './../services/DataSvc';
 
 //TrendLine sample component
 @Component({
     selector: 'trend-line-cmp',
-    templateUrl: 'src/components/TrendLineCmp.html',
-    directives: [wjNg2Chart.WjFlexChart, wjNg2Chart.WjFlexChartSeries, wjNg2Chart.WjFlexChartAxis, wjNg2Chart.WjFlexChartLineMarker,
-        wjNg2Input.WjMenu, wjNg2Input.WjMenuItem, wjNg2Input.WjInputNumber, wjNg2Analytics.WjFlexChartTrendLine, CORE_DIRECTIVES, FORM_DIRECTIVES]
+    templateUrl: 'src/components/TrendLineCmp.html'
 })
 
 export class TrendLineCmp implements AfterViewInit {
@@ -112,4 +113,15 @@ export class TrendLineCmp implements AfterViewInit {
         this.dp = null;
         this.ptIdx = null;
     }
+}
+
+const routing: ModuleWithProviders = RouterModule.forChild([
+    { path: '', component: TrendLineCmp }
+]);
+
+@NgModule({
+    imports: [CommonModule, routing, FormsModule, WjChartModule, WjInputModule, WjChartAnalyticsModule],
+    declarations: [TrendLineCmp],
+})
+export class TrendLineModule {
 }

@@ -11,7 +11,6 @@ import { QuestionService } from './question.service';
       <dynamic-form [questions]="questions"></dynamic-form>
     </div>
   `,
-  directives: [DynamicFormComponent],
   providers:  [QuestionService]
 })
 export class DynamicFormAppComponent {

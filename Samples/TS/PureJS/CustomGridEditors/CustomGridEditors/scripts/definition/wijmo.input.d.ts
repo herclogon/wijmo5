@@ -1,6 +1,6 @@
 /*
     *
-    * Wijmo Library 5.20162.198
+    * Wijmo Library 5.20162.207
     * http://wijmo.com/
     *
     * Copyright(c) GrapeCity, Inc.  All rights reserved.
@@ -344,8 +344,9 @@ declare module wijmo.input {
         private _canChangeValue();
         private _valid(date);
         private _inValidRange(date);
-        private _monthInValidRage(month);
+        private _monthInValidRange(month);
         private _sameMonth(date, month);
+        _clamp(value: Date): Date;
         private _createChildren();
         private _createElement(tag, parent?, className?);
         private _click(e);
@@ -461,14 +462,15 @@ declare module wijmo.input {
         _items: any;
         _cv: collections.ICollectionView;
         _itemFormatter: Function;
-        _pathDisplay: string;
-        _pathValue: string;
-        _pathChecked: string;
+        _pathDisplay: Binding;
+        _pathValue: Binding;
+        _pathChecked: Binding;
         _html: boolean;
         _checkedItems: any[];
         _checking: boolean;
         _search: string;
         _toSearch: number;
+        _bndDisplay: Binding;
         /**
          * Initializes a new instance of the @see:ListBox class.
          *
@@ -673,6 +675,7 @@ declare module wijmo.input {
         private _click(e);
         private _keydown(e);
         private _keypress(e);
+        private _findNext();
         private _getCheckbox(index);
         _populateSelectElement(hostElement: HTMLElement): void;
     }
@@ -868,6 +871,7 @@ declare module wijmo.input {
         onIsDroppedDownChanged(e?: EventArgs): void;
         protected _updateBtn(): void;
         protected _createDropDown(): void;
+        protected _dropDownClick(e: MouseEvent): void;
         protected _setText(text: string, fullMatch: boolean): void;
         protected _findNext(text: string, step: number): number;
         protected _keydown(e: KeyboardEvent): void;
@@ -1126,8 +1130,9 @@ declare module wijmo.input {
          * Raises the @see:itemClicked event.
          */
         onItemClicked(e?: EventArgs): void;
-        onTextChanged(e?: EventArgs): void;
         onIsDroppedDownChanged(e?: EventArgs): void;
+        protected _keydown(e: KeyboardEvent): void;
+        protected _dropDownClick(e: MouseEvent): void;
         private _raiseCommand(e?);
         private _getCommand(item);
         private _executeCommand(cmd, parm);
@@ -1371,9 +1376,6 @@ declare module wijmo.input {
          * the popup checks whether all its child elements are in a valid state.
          * If so, the popup is closed and the @see:dialogResult property is set to
          * the value of the @see:dialogResultEnter property.
-         *
-         * If the @see:Popup contains a submit button, pressing the Enter key also checks
-         * for validity and closes the dialog, returning 'submit' as the @see:dialogResult.
          */
         dialogResultEnter: any;
         /**
@@ -1479,9 +1481,8 @@ declare module wijmo.input {
     class InputDate extends DropDown {
         _calendar: Calendar;
         _value: Date;
-        _min: Date;
-        _max: Date;
         _format: string;
+        _calChanged: boolean;
         _msk: _MaskProvider;
         /**
          * Initializes a new instance of the @see:InputDate class.
@@ -1627,7 +1628,6 @@ declare module wijmo.input {
         private _canChangeValue();
         protected _clamp(value: Date): Date;
         protected _commitText(): void;
-        private _setDate(value, time);
         private _isValidDate(value);
     }
 }
@@ -2014,6 +2014,15 @@ declare module wijmo.input {
      *      <dt>&gt;</dt>   <dd>Converts characters that follow to uppercase.</dd>
      *      <dt>|</dt>      <dd>Disables case conversion.</dd>
      *      <dt>\</dt>      <dd>Escapes any character, turning it into a literal.</dd>
+     *      <dt>９</dt>      <dd>DBCS Digit.</dd>
+     *      <dt>Ｊ</dt>      <dd>DBCS Hiragana.</dd>
+     *      <dt>Ｇ</dt>      <dd>DBCS big Hiragana.</dd>
+     *      <dt>Ｋ</dt>      <dd>DBCS Katakana. </dd>
+     *      <dt>Ｎ</dt>      <dd>DBCS big Katakana.</dd>
+     *      <dt>K</dt>      <dd>SBCS Katakana.</dd>
+     *      <dt>N</dt>      <dd>SBCS big Katakana.</dd>
+     *      <dt>Ｚ</dt>      <dd>Any DBCS character.</dd>
+     *      <dt>H</dt>      <dd>Any SBCS character.</dd>
      *      <dt>All others</dt><dd>Literals.</dd>
      *  </dl>
      */

@@ -5,3 +5,5 @@ export declare class ParametricFunctionSeriesCmp {
     max: number;
     constructor();
 }
+export declare class ParametricFunctionSeriesModule {
+}

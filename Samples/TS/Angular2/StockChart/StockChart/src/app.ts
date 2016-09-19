@@ -1,14 +1,16 @@
 ﻿///<reference path="../typings/globals/core-js/index.d.ts"/>
 
-import { Component, EventEmitter, provide, Input, Inject, ViewChild, enableProdMode } from '@angular/core';
-import { Http, HTTP_BINDINGS } from '@angular/http';
-import { CORE_DIRECTIVES } from '@angular/common';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import * as wjInput from 'wijmo/wijmo.angular2.input';
-import * as wjNg2FlexChart from 'wijmo/wijmo.angular2.chart';
-import * as wjNg2FlexChartInteraction from 'wijmo/wijmo.angular2.chart.interaction';
-import * as wjNg2FlexChartAnnotation from 'wijmo/wijmo.angular2.chart.annotation';
-import * as wjNg2FlexChartAnalytics from 'wijmo/wijmo.angular2.chart.analytics';
+import { Component, EventEmitter, Input, Inject, enableProdMode, ViewChild, NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
+import { WjChartModule } from 'wijmo/wijmo.angular2.chart';
+import { WjChartInteractionModule } from 'wijmo/wijmo.angular2.chart.interaction';
+import { WjChartAnnotationModule } from 'wijmo/wijmo.angular2.chart.annotation';
+import { WjChartAnalyticsModule } from 'wijmo/wijmo.angular2.chart.analytics';
 import { DataSvc } from './services/DataSvc';
 import { Portfolio } from './services/Portfolio';
 
@@ -17,12 +19,7 @@ import { Portfolio } from './services/Portfolio';
     // The Explorer application root component.
 @Component({
     selector: 'app-cmp',
-    templateUrl: 'src/app.html',
-    directives: [CORE_DIRECTIVES, wjInput.WjAutoComplete, wjInput.WjMenu, wjInput.WjMenuItem, wjInput.WjInputNumber,
-        wjNg2FlexChart.WjFlexChart, wjNg2FlexChart.WjFlexChartSeries, wjNg2FlexChart.WjFlexChartAxis, wjNg2FlexChart.WjFlexChartLineMarker,
-        wjNg2FlexChart.WjFlexChartLegend, wjNg2FlexChartAnalytics.WjFlexChartMovingAverage, wjNg2FlexChartInteraction.WjFlexChartRangeSelector,
-        wjNg2FlexChartAnnotation.WjFlexChartAnnotationLayer, wjNg2FlexChartAnnotation.WjFlexChartAnnotationText, wjNg2FlexChartAnnotation.WjFlexChartAnnotationCircle,
-        wjNg2FlexChartAnnotation.WjFlexChartAnnotationSquare]
+    templateUrl: 'src/app.html'
 })
 export class AppCmp {
     protected dataSvc: DataSvc;
@@ -405,12 +402,18 @@ export class AppCmp {
         }
         this.movingAveragePeriod = input.value;
     };
+    }
+
+@NgModule({
+    imports: [WjInputModule, WjChartModule, WjChartInteractionModule, WjChartAnnotationModule,
+        WjChartAnalyticsModule, BrowserModule, FormsModule, HttpModule],
+    declarations: [AppCmp],
+    providers: [DataSvc],
+    bootstrap: [AppCmp]
+})
+export class AppModule {
 }
 
 enableProdMode();
 // Bootstrap application with hash style navigation and global services.
-bootstrap(AppCmp, [
-    provide(Http, { useClass: Http }),
-    HTTP_BINDINGS,
-    DataSvc
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);

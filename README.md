@@ -1,1 +1,1 @@
-Wijmo5 package for JSPM (trial)
+# Wijmo5 package for JSPM (trial)
